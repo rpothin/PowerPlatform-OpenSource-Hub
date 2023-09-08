@@ -46,10 +46,10 @@ Param(
 
 # Search the GitHub repositories based on the provided parameters
 switch ($SearchType) {
-    "stars" { $repositories = gh repo search $Keywords --stars ">$Threshold" --visibility public --json description,fullName,homepage,language,license,name,hasIssues,openIssuesCount,owner,createdAt,updatedAt,url,watchersCount | ConvertFrom-Json }
-    "followers" { $repositories = gh repo search $Keywords --followers ">$Threshold" --visibility public --json description,fullName,homepage,language,license,name,hasIssues,openIssuesCount,owner,createdAt,updatedAt,url,watchersCount | ConvertFrom-Json }
-    "good-first-issues" { $repositories = gh repo search $Keywords --good-first-issues ">$Threshold" --visibility public --json description,fullName,homepage,language,license,name,hasIssues,openIssuesCount,owner,createdAt,updatedAt,url,watchersCount | ConvertFrom-Json }
-    "help-wanted-issues" { $repositories = gh repo search $Keywords --help-wanted-issues ">$Threshold" --visibility public --json description,fullName,homepage,language,license,name,hasIssues,openIssuesCount,owner,createdAt,updatedAt,url,watchersCount | ConvertFrom-Json }
+    "stars" { $repositories = gh search repos $Keywords --stars ">$Threshold" --visibility public --json description,fullName,homepage,language,license,name,hasIssues,openIssuesCount,owner,createdAt,updatedAt,url,watchersCount | ConvertFrom-Json }
+    "followers" { $repositories = gh search repos $Keywords --followers ">$Threshold" --visibility public --json description,fullName,homepage,language,license,name,hasIssues,openIssuesCount,owner,createdAt,updatedAt,url,watchersCount | ConvertFrom-Json }
+    "good-first-issues" { $repositories = gh search repos $Keywords --good-first-issues ">$Threshold" --visibility public --json description,fullName,homepage,language,license,name,hasIssues,openIssuesCount,owner,createdAt,updatedAt,url,watchersCount | ConvertFrom-Json }
+    "help-wanted-issues" { $repositories = gh search repos $Keywords --help-wanted-issues ">$Threshold" --visibility public --json description,fullName,homepage,language,license,name,hasIssues,openIssuesCount,owner,createdAt,updatedAt,url,watchersCount | ConvertFrom-Json }
     default { Write-Error "Invalid SearchType provided - $SearchType. Valid values are: stars, followers, good-first-issues and help-wanted-issues" }
 }
 
