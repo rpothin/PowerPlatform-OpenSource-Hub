@@ -26,7 +26,19 @@
 
 🤔 I am still looking for a good and short answer...
 
-## 🌎 Power Platform Repositories
+> **Note**
+> - search of repositories based on topics
+> - eventually apply filters (starts, watchers...) if too many repositories found
+> - present repositories in the format of a markdown table in the section below
+> - present a summary of the repositories found (ex: number of repositories with at least a good first issue)
+
+## 🌎 Power Platform 
+
+<!--START_SECTION:data-summary-->
+
+Badges on their way...🐌
+
+<!--END_SECTION:data-summary-->
 
 <!--START_SECTION:data-->
 
