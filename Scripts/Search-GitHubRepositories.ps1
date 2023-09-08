@@ -21,13 +21,20 @@
         Object. This script returns 
 
     .EXAMPLE
-        ...
-
-    .LINK
-        ...
-
-    .NOTES
-        ..
+        .\Scripts\Search-GitHubRepositories.ps1 -Keywords "PowerPlatform-ALM-With-GitHub-Template" -SearchType stars -Threshold 1
+            createdAt       : 10/30/2020 02:45:02
+            description     : Template repository for the ALM of Power Platform solutions with GitHub
+            fullName        : rpothin/PowerPlatform-ALM-With-GitHub-Template
+            hasIssues       : True
+            homepage        : 
+            language        : PowerShell
+            license         : @{key=mit; name=MIT License; url=https://api.github.com/licenses/mit}
+            name            : PowerPlatform-ALM-With-GitHub-Template
+            openIssuesCount : 11
+            owner           : @{id=MDQ6VXNlcjIzMjQwMjQ1; is_bot=False; login=rpothin; type=User; url=https://github.com/rpothin}
+            updatedAt       : 08/04/2023 13:29:55
+            url             : https://github.com/rpothin/PowerPlatform-ALM-With-GitHub-Template
+            watchersCount   : 32
 #>
 
 [CmdletBinding()]
