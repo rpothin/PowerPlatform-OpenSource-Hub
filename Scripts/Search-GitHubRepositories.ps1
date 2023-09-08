@@ -46,23 +46,11 @@ Param(
 
 # Search the GitHub repositories based on the provided parameters
 switch ($SearchType) {
-    condition { $SearchType -eq 'stars' } {
-        $repositories = gh repo search $Keywords --stars ">$Threshold" --visibility public --json description,fullName,homepage,language,license,name,hasIssues,openIssuesCount,owner,createdAt,updatedAt,url,watchersCount | ConvertFrom-Json
-    }
-    condition { $SearchType -eq 'followers' } {
-        $repositories = gh repo search $Keywords --followers ">$Threshold" --visibility public --json description,fullName,homepage,language,license,name,hasIssues,openIssuesCount,owner,createdAt,updatedAt,url,watchersCount | ConvertFrom-Json
-    }
-    condition { $SearchType -eq 'good-first-issues' } {
-        $repositories = gh repo search $Keywords --good-first-issues ">$Threshold" --visibility public --json description,fullName,homepage,language,license,name,hasIssues,openIssuesCount,owner,createdAt,updatedAt,url,watchersCount | ConvertFrom-Json
-    }
-    condition { $SearchType -eq 'help-wanted-issues' } {
-        $repositories = gh repo search $Keywords --help-wanted-issues ">$Threshold" --visibility public --json description,fullName,homepage,language,license,name,hasIssues,openIssuesCount,owner,createdAt,updatedAt,url,watchersCount | ConvertFrom-Json
-    }
-    Default 
-    {
-        Write-Error "Invalid SearchType provided - $SearchType. Valid values are: stars, followers, good-first-issues and help-wanted-issues"
-        break
-    }
+    "stars" { $repositories = gh repo search $Keywords --stars ">$Threshold" --visibility public --json description,fullName,homepage,language,license,name,hasIssues,openIssuesCount,owner,createdAt,updatedAt,url,watchersCount | ConvertFrom-Json }
+    "followers" { $repositories = gh repo search $Keywords --followers ">$Threshold" --visibility public --json description,fullName,homepage,language,license,name,hasIssues,openIssuesCount,owner,createdAt,updatedAt,url,watchersCount | ConvertFrom-Json }
+    "good-first-issues" { $repositories = gh repo search $Keywords --good-first-issues ">$Threshold" --visibility public --json description,fullName,homepage,language,license,name,hasIssues,openIssuesCount,owner,createdAt,updatedAt,url,watchersCount | ConvertFrom-Json }
+    "help-wanted-issues" { $repositories = gh repo search $Keywords --help-wanted-issues ">$Threshold" --visibility public --json description,fullName,homepage,language,license,name,hasIssues,openIssuesCount,owner,createdAt,updatedAt,url,watchersCount | ConvertFrom-Json }
+    default { Write-Error "Invalid SearchType provided - $SearchType. Valid values are: stars, followers, good-first-issues and help-wanted-issues" }
 }
 
 # Return the results
