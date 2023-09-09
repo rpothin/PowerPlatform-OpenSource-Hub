@@ -9,7 +9,7 @@ BeforeAll {
 }
 
 Describe "Search-GitHubRepositories Unit Tests" {
-    Context "Parameter validation" {
+    Context "Parameters validation" {
         It "Should throw an error if Topic parameter contains spaces" {
             $result = { Search-GitHubRepositories -Topic "invalid topic" -SearchLimit 10 } | Should -Throw -PassThru
             $result.Exception.Message | Should -Be "The value of the Topic parameter cannot contain spaces."
@@ -21,7 +21,7 @@ Describe "Search-GitHubRepositories Unit Tests" {
         }
     }
 
-    Context "Execution With a Mocked gh Command" {
+    Context "Execution of a valid execution with a mocked gh command" {
         BeforeEach {
             Mock gh {
                 "[
@@ -79,7 +79,7 @@ Describe "Search-GitHubRepositories Unit Tests" {
             }
         }
 
-        It "Should return a repository object with correct properties when valid parameters are provided" {
+        It "Should return an array of repositories with correct properties when valid parameters are provided" {
             $result = Search-GitHubRepositories -Topic "validtopic" -SearchLimit 1
             $result | Should -Not -BeNullOrEmpty
             $result[0].fullName | Should -Be "anonymised/Anonymised"
