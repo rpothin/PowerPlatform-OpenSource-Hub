@@ -57,6 +57,11 @@ function Export-GitHubRepositoriesDetails {
             Throw "Not configuration file found at the path '$ConfigurationFilePath'."
         }
 
+        # Validate that the output file path is targeting a JSON file
+        if (-not ($OutputFilePath -match "\.json$")) {
+            Throw "The output file path '$OutputFilePath' is not targeting a JSON file."
+        }
+
         # Read the configuration file
         $repositoriesSearchCriteria = Get-Content -Path $ConfigurationFilePath -Raw | ConvertFrom-Json
 
