@@ -35,6 +35,8 @@ function Search-GitHubRepositories {
                 updatedAt       : 08/04/2023 13:29:55
                 url             : https://github.com/rpothin/PowerPlatform-ALM-With-GitHub-Template
                 watchersCount   : 32
+                hasGoodFirstIssues  : False
+                hasHelpWantedIssues : True
     #>
 
     [CmdletBinding()]
