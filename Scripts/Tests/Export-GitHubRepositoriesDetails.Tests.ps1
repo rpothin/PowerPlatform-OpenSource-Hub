@@ -26,17 +26,6 @@ Describe "Export-GitHubRepositoriesDetails Unit Test" {
     Context "Execution of a valid execution with mocked commands" {
         BeforeEach {
             Mock Test-Path { $true }
-
-            Mock Get-Content {
-                @"
-[
-    {
-        "Topic": "powerplatform",
-        "SearchLimit": 250
-    }
-]
-"@
-            }
             
             Import-Module $global:executingTestPath/../Search-GitHubRepositories.ps1 -Force
             Mock Search-GitHubRepositories {
@@ -104,6 +93,17 @@ Describe "Export-GitHubRepositoriesDetails Unit Test" {
         }
 
         It "Should return a valid array of repositories with correct properties when valid parameters are provided" {
+            Mock Get-Content {
+                @"
+[
+    {
+        "Topic": "powerplatform",
+        "SearchLimit": 250
+    }
+]
+"@
+            }
+
             $result = Export-GitHubRepositoriesDetails -ConfigurationFilePath ".\Configuration\GitHubRepositoriesSearchCriteria.json" -OutputFilePath ".\Data\GitHubRepositoriesDetails.json"
             $result.Count | Should -Be 2
             $result[0].fullName | Should -Be "anon/another-repo"
@@ -112,6 +112,26 @@ Describe "Export-GitHubRepositoriesDetails Unit Test" {
             $result[1].fullName | Should -Be "anon/repo"
             $result[1].hasGoodFirstIssues | Should -Be $false
             $result[1].hasHelpWantedIssues | Should -Be $true
+        }
+
+        It "Should return an array of repositories where duplicate repositories are removed" {
+            Mock Get-Content {
+                @"
+[
+    {
+        "Topic": "powerplatform",
+        "SearchLimit": 250
+    },
+    {
+        "Topic": "powerplatform",
+        "SearchLimit": 250
+    }
+]
+"@
+            }
+
+            $result = Export-GitHubRepositoriesDetails -ConfigurationFilePath ".\Configuration\GitHubRepositoriesSearchCriteria.json" -OutputFilePath ".\Data\GitHubRepositoriesDetails.json"
+            $result.Count | Should -Be 2
         }
     }
 }
