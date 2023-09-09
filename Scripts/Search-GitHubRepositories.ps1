@@ -20,7 +20,8 @@ function Search-GitHubRepositories {
             Object. This script returns 
 
         .EXAMPLE
-            .\Scripts\Search-GitHubRepositories.ps1 -Topic "powerplatform" -SearchLimit 250
+            Import-Module .\Scripts\Search-GitHubRepositories.ps1 -Force
+            Search-GitHubRepositories.ps1 -Topic "powerplatform" -SearchLimit 250
                 createdAt       : 10/30/2020 02:45:02
                 description     : Template repository for the ALM of Power Platform solutions with GitHub
                 fullName        : rpothin/PowerPlatform-ALM-With-GitHub-Template
