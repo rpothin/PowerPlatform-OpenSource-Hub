@@ -72,10 +72,18 @@ function Export-GitHubRepositoriesDetails {
         foreach ($repositoriesSearchCriterion in $repositoriesSearchCriteria) {
             # Search GitHub repositories based on the topic and the search limit defined in the configuration file
             $repositoriesFound = Search-GitHubRepositories -Topic $repositoriesSearchCriterion.Topic -SearchLimit $repositoriesSearchCriterion.SearchLimit
+
+            # If number of repositories found is equal to the search limit, write a warning
+            if ($repositoriesFound.count -eq $repositoriesSearchCriterion.SearchLimit) {
+                Write-Warning -Message "The number of repositories found for the topic '$($repositoriesSearchCriterion.Topic)' is equal to the search limit of $($repositoriesSearchCriterion.SearchLimit)."
+            }
             
             # Add these repositories to the array of results
             $repositoriesDetails += $repositoriesFound
         }
+
+        # Validate the number of objects in the array of results before removing duplicates and write this count as verbose
+        Write-Verbose -Message "Number of repositories found: $($repositoriesDetails.count)"
 
         # Remove duplicates from the array of results
         #$repositoriesDetails = $repositoriesDetails | Select-Object -Unique
@@ -83,6 +91,9 @@ function Export-GitHubRepositoriesDetails {
 
         # Sort the array of results by the value of the watchersCount property in the descendant order of the repository
         $repositoriesDetails = $repositoriesDetails | Sort-Object -Property watchersCount -Descending
+        
+        # Validate the number of objects in the array of results after removing duplicates and write this count as verbose
+        Write-Verbose -Message "Number of repositories after removing duplicates: $($repositoriesDetails.count)"
 
         # Export the results to a JSON file
         $repositoriesDetails | ConvertTo-Json | Out-File -FilePath $OutputFilePath
