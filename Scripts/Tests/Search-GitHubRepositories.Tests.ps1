@@ -47,8 +47,7 @@ Describe "Search-GitHubRepositories Unit Tests" {
                         'url': 'https://anonymised.url'
                       },
                       'updatedAt': '0000-00-00T00:00:00Z',
-                      'url': 'https://anonymised.url',
-                      'watchersCount': 0
+                      'url': 'https://anonymised.url'
                     },
                     {
                         'createdAt': '0000-00-00T00:00:00Z',
@@ -72,8 +71,7 @@ Describe "Search-GitHubRepositories Unit Tests" {
                           'url': 'https://anonymised.url'
                         },
                         'updatedAt': '0000-00-00T00:00:00Z',
-                        'url': 'https://anonymised.url',
-                        'watchersCount': 0
+                        'url': 'https://anonymised.url'
                       }
                   ]"
             }
