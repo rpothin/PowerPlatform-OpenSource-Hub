@@ -42,7 +42,7 @@ function Get-GitHubRepositoryDetails {
 
     Process{
         # Validate the format of the repository full name
-        if ($RepositoryFullName -notmatch "^[a-zA-Z0-9-]+/[a-zA-Z0-9-]+$") {
+        if ($RepositoryFullName -notmatch "^[a-zA-Z0-9-_.]+/[a-zA-Z0-9-_.]+$") {
             Throw "The repository full name '$RepositoryFullName' is not valid."
         }
 
@@ -61,12 +61,12 @@ function Get-GitHubRepositoryDetails {
         } 
         # If the repository exists, get its topics and add them to the repository details object
         else {
-            $repositoryTopics = (gh api repos/$RepositoryFullName | ConvertFrom-Json) | Select-Object topics
+            $repositoryTopics = gh api repos/$RepositoryFullName/topics | ConvertFrom-Json
 
             # Convert the object from JSON to PSObject to be able to add the topics
             $repositoryDetails = $repositoryDetails | ConvertFrom-Json
 
-            $repositoryDetails | Add-Member -MemberType NoteProperty -Name "topics" -Value $repositoryTopics.topics
+            $repositoryDetails | Add-Member -MemberType NoteProperty -Name "topics" -Value $repositoryTopics.names
         }
 
         # Return the details of the GitHub repository

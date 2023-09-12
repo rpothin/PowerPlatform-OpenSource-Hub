@@ -14,6 +14,14 @@ Describe "Get-GitHubRepositoryDetails Unit Test" {
             $result = { Get-GitHubRepositoryDetails -RepositoryFullName "invalid repository full name" } | Should -Throw -PassThru
             $result.Exception.Message | Should -Be "The repository full name 'invalid repository full name' is not valid."
         }
+
+        It "Should not throw an error for a RepositoryFullName like 'ORBISAG/ORBIS.PCF.ColorfulOptionset'" {
+            $result = { Get-GitHubRepositoryDetails -RepositoryFullName "ORBISAG/ORBIS.PCF.ColorfulOptionset" } | Should -Not -Throw
+        }
+
+        It "Should not throw an error for a RepositoryFullName like 'microsoft/MTC_GuestAccessTeamsWorkshop'" {
+            $result = { Get-GitHubRepositoryDetails -RepositoryFullName "microsoft/MTC_GuestAccessTeamsWorkshop" } | Should -Not -Throw
+        }
     }
 
     Context "Valid execution for a non-existing repository" {
