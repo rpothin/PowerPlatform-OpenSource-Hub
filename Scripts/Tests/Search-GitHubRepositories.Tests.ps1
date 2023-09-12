@@ -21,7 +21,7 @@ Describe "Search-GitHubRepositories Unit Tests" {
         }
     }
 
-    Context "Execution of a valid execution with a mocked gh command" {
+    Context "Valid execution with a mocked gh command" {
         BeforeEach {
             Mock gh {
                 "[

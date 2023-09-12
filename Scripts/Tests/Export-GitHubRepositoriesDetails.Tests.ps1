@@ -23,7 +23,7 @@ Describe "Export-GitHubRepositoriesDetails Unit Test" {
         }
     }
 
-    Context "Execution of a valid execution with mocked commands" {
+    Context "Valid execution with mocked commands" {
         BeforeEach {
             Mock Test-Path { $true }
             
