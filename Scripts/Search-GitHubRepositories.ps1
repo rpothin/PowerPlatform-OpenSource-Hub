@@ -17,7 +17,7 @@ function Search-GitHubRepositories {
             None. You cannot pipe objects to Search-GitHubRepositories.
 
         .OUTPUTS
-            Object. This script returns 
+            Object. This script returns a list of repository objects.
 
         .EXAMPLE
             Import-Module .\Scripts\Search-GitHubRepositories.ps1 -Force

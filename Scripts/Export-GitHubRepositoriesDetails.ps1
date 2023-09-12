@@ -17,7 +17,7 @@ function Export-GitHubRepositoriesDetails {
             None. You cannot pipe objects to Export-GitHubRepositoriesDetails.
 
         .OUTPUTS
-            Object. This script returns 
+            Object. This script returns a list of repository objects (with details).
 
         .EXAMPLE
             Import-Module .\Scripts\Export-GitHubRepositoriesDetails.ps1 -Force
