@@ -68,7 +68,8 @@ function Export-GitHubRepositoriesDetails {
         $repositoriesSearchCriteria = Get-Content -Path $ConfigurationFilePath -Raw | ConvertFrom-Json
 
         # Initialize an empty array to store the results
-        $repositoriesDetails = @()
+        $repositories = @()
+        $repositoriesWithDetails = @()
 
         # Go through the topics in the configuration file
         foreach ($repositoriesSearchCriterion in $repositoriesSearchCriteria) {
@@ -81,26 +82,42 @@ function Export-GitHubRepositoriesDetails {
             }
             
             # Add these repositories to the array of results
-            $repositoriesDetails += $repositoriesFound
+            $repositories += $repositoriesFound
         }
 
         # Validate the number of objects in the array of results before removing duplicates and write this count as verbose
-        Write-Verbose -Message "Number of repositories found: $($repositoriesDetails.count)"
+        Write-Verbose -Message "Number of repositories found: $($repositories.count)"
 
         # Remove duplicates from the array of results
-        #$repositoriesDetails = $repositoriesDetails | Select-Object -Unique
-        $repositoriesDetails = $repositoriesDetails | Sort-Object -Property fullName | Get-Unique -AsString
+        $repositories = $repositories | Sort-Object -Property fullName | Get-Unique -AsString
 
         # Sort the array of results by the value of the watchersCount property in the descendant order of the repository
-        $repositoriesDetails = $repositoriesDetails | Sort-Object -Property watchersCount -Descending
+        $repositories = $repositories | Sort-Object -Property watchersCount -Descending
         
         # Validate the number of objects in the array of results after removing duplicates and write this count as verbose
-        Write-Verbose -Message "Number of repositories after removing duplicates: $($repositoriesDetails.count)"
+        Write-Verbose -Message "Number of repositories after removing duplicates: $($repositories.count)"
+
+        # For each repository in the array of results, get the details
+        foreach ($repository in $repositories) {
+            $repositoryDetails = Get-GitHubRepositoryDetails -RepositoryFullName $repository.fullName
+
+            # Add the details to the information we already have about the repository
+            $combinedRepository = New-Object PSObject
+            $repository.PSObject.Properties | ForEach-Object {
+                $combinedRepository | Add-Member -NotePropertyName $_.Name -NotePropertyValue $_.Value
+            }
+            $repositoryDetails.PSObject.Properties | ForEach-Object {
+                $combinedRepository | Add-Member -NotePropertyName $_.Name -NotePropertyValue $_.Value
+            }
+
+            # Add the combined object to the array
+            $repositoriesWithDetails += $combinedRepository
+        }
 
         # Export the results to a JSON file
-        $repositoriesDetails | ConvertTo-Json | Out-File -FilePath $OutputFilePath
+        $repositoriesWithDetails | ConvertTo-Json | Out-File -FilePath $OutputFilePath
 
         # Return the results
-        $repositoriesDetails
+        $repositoriesWithDetails
     }
 }
