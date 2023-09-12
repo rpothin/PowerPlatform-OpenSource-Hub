@@ -20,6 +20,8 @@ function Export-GitHubRepositoriesDetails {
             Object. This script returns a list of repository objects (with details).
 
         .EXAMPLE
+            Import-Module .\Scripts\Search-GitHubRepositories.ps1 -Force
+            Import-Module .\Scripts\Get-GitHubRepositoryDetails.ps1 -Force
             Import-Module .\Scripts\Export-GitHubRepositoriesDetails.ps1 -Force
             Export-GitHubRepositoriesDetails -ConfigurationFilePath ".\Configuration\GitHubRepositoriesSearchCriteria.json" -OutputFilePath ".\Data\GitHubRepositoriesDetails.json"
                 createdAt           : 02/24/2021 22:16:04
