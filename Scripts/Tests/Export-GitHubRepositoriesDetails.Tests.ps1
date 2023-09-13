@@ -6,6 +6,10 @@ $global:executingTestPath = Split-Path -Parent $MyInvocation.MyCommand.Path
 BeforeAll {
     # Import Search-GitHubRepositories function
     Import-Module $global:executingTestPath/../Export-GitHubRepositoriesDetails.ps1 -Force
+
+    # Import required modules
+    Import-Module $global:executingTestPath/../../Scripts/Get-GitHubRepositoryDetails.ps1 -Force
+    Import-Module $global:executingTestPath/../../Scripts/Search-GitHubRepositories.ps1 -Force
 }
 
 Describe "Export-GitHubRepositoriesDetails Unit Test" {
@@ -30,59 +34,61 @@ Describe "Export-GitHubRepositoriesDetails Unit Test" {
             Import-Module $global:executingTestPath/../Search-GitHubRepositories.ps1 -Force
             Mock Search-GitHubRepositories {
                 @(
-                    [pscustomobject]@{
-                        createdAt           = "01/01/2000 00:00:00"
-                        description         = "Anonymized description"
-                        fullName            = "anon/repo"
-                        hasIssues           = $true
-                        homepage            = "https://anon.com"
-                        language            = $null
-                        license             = [pscustomobject]@{
-                            key = "anon"
-                            name = "Anon License"
-                            url = "https://anon.com/licenses/anon"
-                        }
-                        name                = "anon-repo"
-                        openIssuesCount     = 0
-                        owner               = [pscustomobject]@{
-                            id = "anonId"
-                            is_bot = $false
-                            login = "anon"
-                            type = "Anon"
-                            url = "https://anon.com"
-                        }
-                        updatedAt           = "01/01/2000 00:00:00"
-                        url                 = "https://anon.com"
-                        watchersCount       = 0
-                        hasGoodFirstIssues  = $false
-                        hasHelpWantedIssues = $true
-                    },
-                    [pscustomobject]@{
-                        createdAt           = "01/01/2000 00:00:00"
-                        description         = "Another anonymized description"
-                        fullName            = "anon/another-repo"
-                        hasIssues           = $false
-                        homepage            = "https://anon.com"
-                        language            = $null
-                        license             = [pscustomobject]@{
-                            key = "anon"
-                            name = "Anon License"
-                            url = "https://anon.com/licenses/anon"
-                        }
-                        name                = "another-anon-repo"
-                        openIssuesCount     = 0
-                        owner               = [pscustomobject]@{
-                            id = "anotherAnonId"
-                            is_bot = $false
-                            login = "anon"
-                            type = "Anon"
-                            url = "https://anon.com"
-                        }
-                        updatedAt           = "01/01/2000 00:00:00"
-                        url                 = "https://anon.com"
-                        watchersCount       = 0
-                        hasGoodFirstIssues  = $false
+                    [PSCustomObject]@{
+                        createdAt = '00/00/0000 00:00:00'
+                        description = 'Anonymized description'
+                        fullName = 'Anonymized/Anonymized'
+                        hasIssues = 'Anonymized'
+                        homepage = ''
+                        language = 'Anonymized'
+                        license = @{key='anonymized'; name='Anonymized License'; url='anonymized'}
+                        name = 'Anonymized'
+                        openIssuesCount = 'Anonymized'
+                        owner = @{id='Anonymized'; is_bot='Anonymized'; login='Anonymized'; type='Anonymized'; url='anonymized'}
+                        updatedAt = '00/00/0000 00:00:00'
+                        url = 'anonymized'
+                        hasGoodFirstIssues = $false
                         hasHelpWantedIssues = $false
+                        codeOfConduct = ''
+                        forkCount = 'Anonymized'
+                        fundingLinks = @{}
+                        isSecurityPolicyEnabled = 'Anonymized'
+                        isTemplate = 'Anonymized'
+                        latestRelease = @{name='Anonymized'; tagName='Anonymized'; url='anonymized'; publishedAt='00/00/0000 00:00:00'}
+                        primaryLanguage = @{name='Anonymized'}
+                        securityPolicyUrl = ''
+                        stargazerCount = 'Anonymized'
+                        watchers = @{totalCount='Anonymized'}
+                        topics = @('anonymized', 'anonymized', 'anonymized', 'anonymized')
+                        languages = @('Anonymized', 'Anonymized')
+                    },
+                    [PSCustomObject]@{
+                        createdAt = '00/00/0000 00:00:00'
+                        description = 'Anonymized description'
+                        fullName = 'Anonymized/Anonymized2'
+                        hasIssues = 'Anonymized'
+                        homepage = ''
+                        language = 'Anonymized'
+                        license = @{key='anonymized'; name='Anonymized License'; url='anonymized'}
+                        name = 'Anonymized'
+                        openIssuesCount = 'Anonymized'
+                        owner = @{id='Anonymized'; is_bot='Anonymized'; login='Anonymized'; type='Anonymized'; url='anonymized'}
+                        updatedAt = '00/00/0000 00:00:00'
+                        url = 'anonymized'
+                        hasGoodFirstIssues = $true
+                        hasHelpWantedIssues = $true
+                        codeOfConduct = ''
+                        forkCount = 'Anonymized'
+                        fundingLinks = @{}
+                        isSecurityPolicyEnabled = 'Anonymized'
+                        isTemplate = 'Anonymized'
+                        latestRelease = @{name='Anonymized'; tagName='Anonymized'; url='anonymized'; publishedAt='00/00/0000 00:00:00'}
+                        primaryLanguage = @{name='Anonymized'}
+                        securityPolicyUrl = ''
+                        stargazerCount = 'Anonymized'
+                        watchers = @{totalCount='Anonymized'}
+                        topics = @('anonymized', 'anonymized', 'anonymized', 'anonymized')
+                        languages = @('Anonymized', 'Anonymized')
                     }
                 )
             }
@@ -106,11 +112,11 @@ Describe "Export-GitHubRepositoriesDetails Unit Test" {
 
             $result = Export-GitHubRepositoriesDetails -ConfigurationFilePath ".\Configuration\GitHubRepositoriesSearchCriteria.json" -OutputFilePath ".\Data\GitHubRepositoriesDetails.json"
             $result.Count | Should -Be 2
-            $result[0].fullName | Should -Be "anon/another-repo"
+            $result[0].fullName | Should -Be "Anonymized/Anonymized"
             $result[0].hasGoodFirstIssues | Should -Be $false
             $result[0].hasHelpWantedIssues | Should -Be $false
-            $result[1].fullName | Should -Be "anon/repo"
-            $result[1].hasGoodFirstIssues | Should -Be $false
+            $result[1].fullName | Should -Be "Anonymized/Anonymized2"
+            $result[1].hasGoodFirstIssues | Should -Be $true
             $result[1].hasHelpWantedIssues | Should -Be $true
         }
 

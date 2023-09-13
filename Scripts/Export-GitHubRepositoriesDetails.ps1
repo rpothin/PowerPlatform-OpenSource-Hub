@@ -24,21 +24,32 @@ function Export-GitHubRepositoriesDetails {
             Import-Module .\Scripts\Get-GitHubRepositoryDetails.ps1 -Force
             Import-Module .\Scripts\Export-GitHubRepositoriesDetails.ps1 -Force
             Export-GitHubRepositoriesDetails -ConfigurationFilePath ".\Configuration\GitHubRepositoriesSearchCriteria.json" -OutputFilePath ".\Data\GitHubRepositoriesDetails.json"
-                createdAt           : 02/24/2021 22:16:04
-                description         : Contains curated community Microsoft Power App samples
-                fullName            : pnp/powerapps-samples
-                hasIssues           : True
-                homepage            : https://aka.ms/powerplatform-samples
-                language            : 
-                license             : @{key=mit; name=MIT License; url=https://api.github.com/licenses/mit}
-                name                : powerapps-samples
-                openIssuesCount     : 27
-                owner               : @{id=MDEyOk9yZ2FuaXphdGlvbjMxNDQzOTI5; is_bot=False; login=pnp; type=Organization; url=https://github.com/pnp}
-                updatedAt           : 09/08/2023 16:33:49
-                url                 : https://github.com/pnp/powerapps-samples
-                watchersCount       : 319
-                hasGoodFirstIssues  : False
-                hasHelpWantedIssues : True    
+                createdAt               : 00/00/0000 00:00:00
+                description             : Anonymized description
+                fullName                : Anonymized/Anonymized
+                hasIssues               : Anonymized
+                homepage                : 
+                language                : Anonymized
+                license                 : @{key=anonymized; name=Anonymized License; url=anonymized}
+                name                    : Anonymized
+                openIssuesCount         : Anonymized
+                owner                   : @{id=Anonymized; is_bot=Anonymized; login=Anonymized; type=Anonymized; url=anonymized}
+                updatedAt               : 00/00/0000 00:00:00
+                url                     : anonymized
+                hasGoodFirstIssues      : Anonymized
+                hasHelpWantedIssues     : Anonymized
+                codeOfConduct           : 
+                forkCount               : Anonymized
+                fundingLinks            : {}
+                isSecurityPolicyEnabled : Anonymized
+                isTemplate              : Anonymized
+                latestRelease           : @{name=Anonymized; tagName=Anonymized; url=anonymized; publishedAt=00/00/0000 00:00:00}
+                primaryLanguage         : @{name=Anonymized}
+                securityPolicyUrl       : 
+                stargazerCount          : Anonymized
+                watchers                : @{totalCount=Anonymized}
+                topics                  : {anonymized, anonymized, anonymized, anonymized…}
+                languages               : {Anonymized, Anonymized}    
     #>
 
     [CmdletBinding()]
