@@ -47,7 +47,7 @@ Describe "Get-GitHubRepositoryDetails Unit Test" {
         BeforeEach {
             Mock gh {
                 # Check the parameters that were passed to the 'gh' command
-                param($Command)
+                param($Command, $Param1)
 
                 if ($Command -eq 'repo') {
                     # If the 'gh' command was called with 'repo view', return this mock data as a multi-line JSON structure as a string
@@ -61,14 +61,6 @@ Describe "Get-GitHubRepositoryDetails Unit Test" {
                         'fundingLinks': [],
                         'isSecurityPolicyEnabled': true,
                         'isTemplate': false,
-                        'languages': [
-                            {
-                            'size': 0,
-                            'node': {
-                                'name': 'AnonScript'
-                            }
-                            }
-                        ],
                         'latestRelease': {
                             'name': 'Release 1.0.0',
                             'tagName': '1.0.0',
@@ -90,15 +82,22 @@ Describe "Get-GitHubRepositoryDetails Unit Test" {
                         }
                     }"
                 }
-                elseif ($Command -eq 'api') {
+                elseif ($Command -eq 'api' -and $Param1 -eq 'repos/anon/repo/topics') {
                     # If the 'gh' command was called with 'api repos', return this mock data
                     return "{
-                        'topics': [
+                        'names': [
                             'topic1',
                             'topic2',
                             'topic3',
                             'topic4'
                         ]
+                    }"
+                }
+                elseif ($Command -eq 'api' -and $Param1 -eq 'repos/anon/repo/languages') {
+                    # If the 'gh' command was called with 'api repos', return this mock data
+                    return "{
+                        'languages1': '123',
+                        'languages2': '456'
                     }"
                 }
             }
@@ -113,8 +112,8 @@ Describe "Get-GitHubRepositoryDetails Unit Test" {
             $result.fundingLinks | Should -Be @()
             $result.isSecurityPolicyEnabled | Should -Be $true
             $result.isTemplate | Should -Be $false
-            $result.languages[0].size | Should -Be 0
-            $result.languages[0].node.name | Should -Be "AnonScript"
+            $result.languages.count | Should -Be 2
+            $result.languages[0] | Should -Be "languages1"
             $result.latestRelease.name | Should -Be "Release 1.0.0"
             $result.latestRelease.tagName | Should -Be "1.0.0"
             $result.latestRelease.url | Should -Be "https://anon.com/anon/anon/releases/tag/1.0.0"

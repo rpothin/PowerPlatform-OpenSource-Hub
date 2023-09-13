@@ -49,8 +49,11 @@ function Get-GitHubRepositoryDetails {
         # Initialize the repository details object
         $repositoryDetails = [PSCustomObject]@{}
 
+        # Initialize an array to store the languages of the repository
+        $repositoryLanguages = @()
+
         # Validate the existence of the repository and get a first round of details
-        $repositoryDetails = gh repo view $RepositoryFullName --json codeOfConduct,forkCount,fundingLinks,isSecurityPolicyEnabled,isTemplate,languages,latestRelease,primaryLanguage,securityPolicyUrl,stargazerCount,watchers 2>&1
+        $repositoryDetails = gh repo view $RepositoryFullName --json codeOfConduct,forkCount,fundingLinks,isSecurityPolicyEnabled,isTemplate,latestRelease,primaryLanguage,securityPolicyUrl,stargazerCount,watchers 2>&1
 
         # If the repository does not exist, add an error message to the repository details object
         if ($repositoryDetails -is [System.Management.Automation.ErrorRecord]) {
@@ -62,11 +65,19 @@ function Get-GitHubRepositoryDetails {
         # If the repository exists, get its topics and add them to the repository details object
         else {
             $repositoryTopics = gh api repos/$RepositoryFullName/topics | ConvertFrom-Json
+            $repositoryLanguagesTemp = gh api repos/$RepositoryFullName/languages | ConvertFrom-Json
 
             # Convert the object from JSON to PSObject to be able to add the topics
             $repositoryDetails = $repositoryDetails | ConvertFrom-Json
 
             $repositoryDetails | Add-Member -MemberType NoteProperty -Name "topics" -Value $repositoryTopics.names
+
+            $repositoryLanguagesTemp.PSObject.Properties | ForEach-Object {
+                # Add the current name to the array of languages
+                $repositoryLanguages += $_.Name
+            }
+
+            $repositoryDetails | Add-Member -MemberType NoteProperty -Name "languages" -Value $repositoryLanguages            
         }
 
         # Return the details of the GitHub repository
