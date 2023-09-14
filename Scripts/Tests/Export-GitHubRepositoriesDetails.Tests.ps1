@@ -139,5 +139,37 @@ Describe "Export-GitHubRepositoriesDetails Unit Test" {
             $result = Export-GitHubRepositoriesDetails -ConfigurationFilePath ".\Configuration\GitHubRepositoriesSearchCriteria.json" -OutputFilePath ".\Data\GitHubRepositoriesDetails.json"
             $result.Count | Should -Be 2
         }
+
+        It "Should create the parent folder of the output file if it does not exist" {
+            Mock Split-Path { ".\Data" }
+            
+            Mock Get-Content {
+                @"
+[
+    {
+        "Topic": "powerplatform",
+        "SearchLimit": 250
+    }
+]
+"@
+            }
+            
+            Mock Test-Path { 
+                param($Path)
+                # If path contains Data, return false else return true
+                if ($Path -match "Data") {
+                    return $false
+                } else {
+                    return $true
+                }
+            }
+            
+            Mock New-Item {
+                # Do nothing
+            }
+
+            $result = Export-GitHubRepositoriesDetails -ConfigurationFilePath ".\Configuration\GitHubRepositoriesSearchCriteria.json" -OutputFilePath ".\Data\GitHubRepositoriesDetails.json"
+            $result.Count | Should -Be 2
+        }
     }
 }

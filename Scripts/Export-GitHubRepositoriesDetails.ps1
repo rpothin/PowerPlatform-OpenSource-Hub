@@ -135,6 +135,12 @@ function Export-GitHubRepositoriesDetails {
         # Sort the array of results by the value of the watchersCount property in the descendant order of the repository
         $repositoriesWithDetails = $repositoriesWithDetails | Sort-Object -Property stargazerCount -Descending
 
+        # Initialize the parent folder of the output file path if it does not exist
+        $parentFolder = Split-Path -Path $OutputFilePath -Parent
+        if (-not (Test-Path -Path $parentFolder)) {
+            New-Item -Path $parentFolder -ItemType Directory
+        }
+
         # Export the results to a JSON file
         $repositoriesWithDetails | ConvertTo-Json -Depth 4 | Out-File -FilePath $OutputFilePath
 
