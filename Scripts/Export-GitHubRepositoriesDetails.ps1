@@ -6,6 +6,10 @@ function Export-GitHubRepositoriesDetails {
         .DESCRIPTION
             Go through the topics in a configuration file to retrieve GitHub repositories and key details.
             Combine and remove duplicates from the results of the search and export the results to a JSON file.
+            For storage consumption and performance reasons, the results are filtered to keep only the repositories respecting at least one of the following conditions:
+                - have at least 10 stars
+                - have at least 10 watchers
+                - have been updated in the last 6 months
 
         .PARAMETER ConfigurationFilePath
             The path to the configuration file containing the topics to search for.
@@ -121,6 +125,12 @@ function Export-GitHubRepositoriesDetails {
             # Add the combined object to the array
             $repositoriesWithDetails += $combinedRepository
         }
+
+        # Filter the array of results to keep only the repositories respecting at least one of the following conditions:
+        # - have at least 10 stars
+        # - have at least 10 watchers
+        # - have been updated in the last 6 months
+        $repositoriesWithDetails = $repositoriesWithDetails | Where-Object { $_.stargazerCount -ge 10 -or $_.watchers.totalCount -ge 10 -or $_.updatedAt -gt (Get-Date).AddMonths(-6) }
 
         # Sort the array of results by the value of the watchersCount property in the descendant order of the repository
         $repositoriesWithDetails = $repositoriesWithDetails | Sort-Object -Property stargazerCount -Descending
