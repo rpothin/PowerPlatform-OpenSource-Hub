@@ -30,17 +30,17 @@ jobs:
         run: echo "NOW=$(date +'%Y%m%d')" >> $env:GITHUB_OUTPUT
         shell: pwsh
 
-      # Install the required PowerShell modules
-      - name: Install required PowerShell modules
-        run: |
-          Import-Module .\Scripts\Search-GitHubRepositories.ps1 -Force
-          Import-Module .\Scripts\Get-GitHubRepositoryDetails.ps1 -Force
-          Import-Module .\Scripts\Export-GitHubRepositoriesDetails.ps1 -Force
-        shell: pwsh
-
       # Update the details of all the GitHub repositories corresponding to the list of considered topics
       - name: Update GitHub repositories details
         run: |
+          Write-Host "/********************************************************************************/"
+          Write-Host "Install required modules"
+          Import-Module .\Scripts\Search-GitHubRepositories.ps1 -Force
+          Import-Module .\Scripts\Get-GitHubRepositoryDetails.ps1 -Force
+          Import-Module .\Scripts\Export-GitHubRepositoriesDetails.ps1 -Force
+
+          Write-Host "/********************************************************************************/"
+          Write-Host "Update GitHub repositories details"
           $results = Export-GitHubRepositoriesDetails -ConfigurationFilePath "${{ vars.CONFIGURATION_FILE_PATH }}" -OutputFilePath "${{ vars.DATA_FILE_PATH }}"
 
           Write-Host "Number of GitHub repositories updated: $($results.Count)"
