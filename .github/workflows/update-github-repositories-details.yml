@@ -55,6 +55,6 @@ jobs:
           git config --global user.email 'GitHub Action'
 
           git add --all
-          git commit -m "GitHub repositories details updated - ${{ steps.current_date.outputs.NOW }}"
+          git commit -m "GitHub repositories details updated - ${{ steps.current_date.outputs.NOW }}.${{ github.run_number }}"
           git -c http.extraheader="AUTHORIZATION: Bearer ${{ secrets.GITHUB_TOKEN }}" push origin main
         shell: pwsh
