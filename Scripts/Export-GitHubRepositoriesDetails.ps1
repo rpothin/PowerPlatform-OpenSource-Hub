@@ -24,32 +24,32 @@ function Export-GitHubRepositoriesDetails {
             Import-Module .\Scripts\Get-GitHubRepositoryDetails.ps1 -Force
             Import-Module .\Scripts\Export-GitHubRepositoriesDetails.ps1 -Force
             Export-GitHubRepositoriesDetails -ConfigurationFilePath ".\Configuration\GitHubRepositoriesSearchCriteria.json" -OutputFilePath ".\Data\GitHubRepositoriesDetails.json"
-                createdAt               : 00/00/0000 00:00:00
-                description             : Anonymized description
-                fullName                : Anonymized/Anonymized
-                hasIssues               : Anonymized
-                homepage                : 
-                language                : Anonymized
-                license                 : @{key=anonymized; name=Anonymized License; url=anonymized}
-                name                    : Anonymized
-                openIssuesCount         : Anonymized
-                owner                   : @{id=Anonymized; is_bot=Anonymized; login=Anonymized; type=Anonymized; url=anonymized}
-                updatedAt               : 00/00/0000 00:00:00
-                url                     : anonymized
-                hasGoodFirstIssues      : Anonymized
-                hasHelpWantedIssues     : Anonymized
+                createdAt               : 08/24/2021 06:56:19
+                description             : Client Application to subscribe Business Central Webhooks
+                fullName                : msnraju/business-central-webhooks
+                hasIssues               : True
+                homepage                : https://www.msnjournals.com/post/all-you-need-to-know-about-business-central-webhooks
+                language                : JavaScript
+                license                 : @{key=mit; name=MIT License; url=https://api.github.com/licenses/mit}
+                name                    : business-central-webhooks
+                openIssuesCount         : 0
+                owner                   : @{id=MDQ6VXNlcjE3Nzg0MjU5; is_bot=False; login=msnraju; type=User; url=https://github.com/msnraju}
+                updatedAt               : 06/01/2023 15:36:44
+                url                     : https://github.com/msnraju/business-central-webhooks
+                hasGoodFirstIssues      : False
+                hasHelpWantedIssues     : False
                 codeOfConduct           : 
-                forkCount               : Anonymized
+                forkCount               : 1
                 fundingLinks            : {}
-                isSecurityPolicyEnabled : Anonymized
-                isTemplate              : Anonymized
-                latestRelease           : @{name=Anonymized; tagName=Anonymized; url=anonymized; publishedAt=00/00/0000 00:00:00}
-                primaryLanguage         : @{name=Anonymized}
+                isSecurityPolicyEnabled : False
+                isTemplate              : False
+                latestRelease           : 
+                primaryLanguage         : @{name=JavaScript}
                 securityPolicyUrl       : 
-                stargazerCount          : Anonymized
-                watchers                : @{totalCount=Anonymized}
-                topics                  : {anonymized, anonymized, anonymized, anonymized…}
-                languages               : {Anonymized, Anonymized}    
+                stargazerCount          : 4
+                watchers                : @{totalCount=1}
+                topics                  : {business-central, dynamics365, webhooks, nodejs…}
+                languages               : {JavaScript, HTML}
     #>
 
     [CmdletBinding()]
@@ -101,9 +101,6 @@ function Export-GitHubRepositoriesDetails {
 
         # Remove duplicates from the array of results
         $repositories = $repositories | Sort-Object -Property fullName | Get-Unique -AsString
-
-        # Sort the array of results by the value of the watchersCount property in the descendant order of the repository
-        $repositories = $repositories | Sort-Object -Property watchersCount -Descending
         
         # Validate the number of objects in the array of results after removing duplicates and write this count as verbose
         Write-Verbose -Message "Number of repositories after removing duplicates: $($repositories.count)"
@@ -125,8 +122,11 @@ function Export-GitHubRepositoriesDetails {
             $repositoriesWithDetails += $combinedRepository
         }
 
+        # Sort the array of results by the value of the watchersCount property in the descendant order of the repository
+        $repositoriesWithDetails = $repositoriesWithDetails | Sort-Object -Property stargazerCount -Descending
+
         # Export the results to a JSON file
-        $repositoriesWithDetails | ConvertTo-Json | Out-File -FilePath $OutputFilePath
+        $repositoriesWithDetails | ConvertTo-Json -Depth 4 | Out-File -FilePath $OutputFilePath
 
         # Return the results
         $repositoriesWithDetails
