@@ -1,0 +1,60 @@
+name: 1-update-github-repositories-details
+# Update the details of all the GitHub repositories corresponding to the list of considered topics
+
+# Workflow triggerd every day at 08:00 AM EST - but can also be triggered manually without input parameters
+on:
+  schedule:
+    - cron: "0 13 * * *" # Every day at 08:00 AM EST
+  workflow_dispatch:
+
+# Concurrency configuration for the current workflow - Keep only the latest workflow queued for the considered group and the considered issue
+concurrency:
+  group: update-github-repositories-details
+  cancel-in-progress: true
+
+jobs:
+  update-github-repositories-details:
+    runs-on: ubuntu-latest
+    env:
+      RUNNER_DEBUG: 1
+    
+    steps:
+      # Action used to checkout the main branch in the current repository
+      #   Community action: https://github.com/actions/checkout
+      - name: Checkout
+        uses: actions/checkout@v4.0.0
+
+      # Set a current date environment variable in the following format: YYYYMMDD
+      - name: Set current date as env variable
+        id: current_date
+        run: echo "NOW=$(date +'%Y%m%d')" >> $env:GITHUB_OUTPUT
+        shell: pwsh
+
+      # Install the required PowerShell modules
+      - name: Install required PowerShell modules
+        run: |
+          Import-Module .\Scripts\Search-GitHubRepositories.ps1 -Force
+          Import-Module .\Scripts\Get-GitHubRepositoryDetails.ps1 -Force
+          Import-Module .\Scripts\Export-GitHubRepositoriesDetails.ps1 -Force
+        shell: pwsh
+
+      # Update the details of all the GitHub repositories corresponding to the list of considered topics
+      - name: Update GitHub repositories details
+        run: |
+          $results = Export-GitHubRepositoriesDetails -ConfigurationFilePath "${{ vars.CONFIGURATION_FILE_PATH }}" -OutputFilePath "${{ vars.DATA_FILE_PATH }}"
+
+          Write-Host "Number of GitHub repositories updated: $($results.Count)"
+        shell: pwsh
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      # Push the changes in the current repository
+      - name: Push changes
+        run: |
+          git config --global user.name 'action@github.com'
+          git config --global user.email 'GitHub Action'
+
+          git add --all
+          git commit -m "GitHub repositories details updated - ${{ steps.current_date.outputs.NOW }}"
+          git -c http.extraheader="AUTHORIZATION: Bearer ${{ secrets.GITHUB_TOKEN }}" push origin main
+        shell: pwsh
