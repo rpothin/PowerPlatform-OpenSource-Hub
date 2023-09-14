@@ -46,7 +46,7 @@ jobs:
           Write-Host "Number of GitHub repositories updated: $($results.Count)"
         shell: pwsh
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.PAT_ACCESS_PUBLIC_GITHUB_REPOSITORIES }}
 
       # Push the changes in the current repository
       - name: Push changes
