@@ -30,11 +30,11 @@ The goal of this repository is to give the elements to empower this community an
 
 ## 🌎 Power Platform 
 
-<!--START_SECTION:repositories-summary-->
+<!--START_SECTION:summary-->
 
 Badges on their way...🐌
 
-<!--END_SECTION:repositories-summary-->
+<!--END_SECTION:summary-->
 
 ### 💭 Repositories with good first or help wanted issues
 
