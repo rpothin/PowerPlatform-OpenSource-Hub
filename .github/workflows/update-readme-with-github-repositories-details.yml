@@ -89,7 +89,7 @@ jobs:
           # Summary content composed of the summary badges and the list of topics
           $summaryContent = $summaryBadgesCentered + $listOfTopicsCentered
 
-          Write-MarkdownSection -MarkdownFilePath ".\README.md" -SectionTitle "summary" -SectionContent $summaryContent
+          Write-MarkdownSection -MarkdownFilePath ".\README.md" -SectionIdentifier "summary" -SectionContent $summaryContent
         shell: pwsh
 
       # Push the changes in the current repository
