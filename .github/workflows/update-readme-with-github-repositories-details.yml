@@ -1,0 +1,104 @@
+name: 2-update-readme-with-github-repositories-details
+# Update the README with the details of the GitHub repositories
+
+# Workflow triggered on push of files under the 'Data/' folder to the main branch - but can also be triggered manually without input parameters
+on:
+  push:
+    paths:
+      - 'Data/**'
+    branches:
+      - main
+  workflow_dispatch:
+
+# Concurrency configuration for the current workflow - Keep only the latest workflow queued for the considered group and the considered issue
+concurrency:
+  group: update-readme-with-github-repositories-details
+  cancel-in-progress: true
+
+jobs:
+  update-readme-with-github-repositories-details:
+    runs-on: ubuntu-latest
+    env:
+      RUNNER_DEBUG: 1
+    
+    steps:
+      # Action used to checkout the main branch in the current repository
+      #   Community action: https://github.com/actions/checkout
+      - name: Checkout
+        uses: actions/checkout@v4.0.0
+
+      # Set a current date environment variable in the following format: YYYYMMDD
+      - name: Set current date as env variable
+        id: current_date
+        run: echo "NOW=$(date +'%Y%m%d')" >> $env:GITHUB_OUTPUT
+        shell: pwsh
+
+      # Update summary and repositories opened to contributions in README
+      - name: Update summary and repositories opened to contributions
+        run: |
+          Write-Host "/********************************************************************************/"
+          Write-Host "Install required modules"
+          Import-Module .\Scripts\Write-MarkdownSection.ps1 -Force
+
+          Write-Host "/********************************************************************************/"
+          Write-Host "Get repositories details"
+          $topics = Get-Content -Path "${{ vars.CONFIGURATION_FILE_PATH }}" | ConvertFrom-Json
+          
+          Write-Host "Get repositories details"
+          $repositoriesDetails = Get-Content -Path "${{ vars.DATA_FILE_PATH }}" | ConvertFrom-Json
+
+          Write-Host "/********************************************************************************/"
+          Write-Host "Update summary"
+
+          # Get the number of repositories referenced
+          $repositoriesCount = $repositoriesDetails.count
+
+          # Get the number of opened good first issues in the referenced repositories
+          $openedGoodFirstIssuesCount = $repositoriesDetails | Where-Object { $_.openedGoodFirstIssues -gt 0 } | Measure-Object | Select-Object -ExpandProperty Count
+
+          # Get the number of opened help wanted issues in the referenced repositories
+          $openedHelpWantedIssuesCount = $repositoriesDetails | Where-Object { $_.openedHelpWantedIssues -gt 0 } | Measure-Object | Select-Object -ExpandProperty Count
+
+          # Get the percentage of referenced repositories with security policy enabled
+          $securityPolicyEnabledPercentage = [math]::Round(($repositoriesDetails | Where-Object { $_.isSecurityPolicyEnabled -eq $true } | Measure-Object | Select-Object -ExpandProperty Count) / $repositoriesCount * 100)
+
+          # Configure summary badges
+          $repositoriesCountBadgeUrl = "https://img.shields.io/badge/Repositories-$repositoriesCount-violet"
+          $openedGoodFirstIssuesCountBadgeUrl = "https://img.shields.io/badge/Good_First_Issues-$openedGoodFirstIssuesCount-green"
+          $openedHelpWantedIssuesCountBadgeUrl = "https://img.shields.io/badge/Help_Wanted_Issues-$openedHelpWantedIssuesCount-blue"
+          $securityPolicyEnabledPercentageBadgeUrl = "https://img.shields.io/badge/Security_Policy_Enabled_Percentage-$securityPolicyEnabledPercentage-orange"
+
+          # Center the summary badges
+          $summaryBadgesCentered = "<h3 align="center">`n"
+          $summaryBadgesCentered += "  <img alt="Repositories Count Badge" src="$repositoriesCountBadgeUrl">`n"
+          $summaryBadgesCentered += "  <img alt="Opened Good First Issues Count Badge" src="$openedGoodFirstIssuesCountBadgeUrl">`n"
+          $summaryBadgesCentered += "  <img alt="Opened Help Wanted Issues Count Badge" src="$openedHelpWantedIssuesCountBadgeUrl">`n"
+          $summaryBadgesCentered += "  <img alt="Security Policy Enabled Percentage Badge" src="$securityPolicyEnabledPercentageBadgeUrl">`n"
+          $summaryBadgesCentered += "</h3>`n"
+
+          # <img alt="Static Badge" src="https://img.shields.io/badge/:badgeContent">
+
+          # Concatenate the topics property in the configuration file with a " | " separator
+          $listOfTopics = $topics.topic -join " | "
+
+          # Center the list of topics
+          $listOfTopicsCentered = "<h3 align="center">`n"
+          $listOfTopicsCentered += "  <a>$listOfTopics</a>`n"
+          $listOfTopicsCentered += "</h3>"
+
+          # Summary content composed of the summary badges and the list of topics
+          $summaryContent = $summaryBadgesCentered + $listOfTopicsCentered
+
+          Write-MarkdownSection -Path ".\README.md" -SectionTitle "summary" -SectionContent $summaryContent
+        shell: pwsh
+
+      # Push the changes in the current repository
+      - name: Push changes
+        run: |
+          git config --global user.name 'action@github.com'
+          git config --global user.email 'GitHub Action'
+
+          git add --all
+          git commit -m "Summary and repositories opened to contributions sections in README updated - ${{ steps.current_date.outputs.NOW }}.${{ github.run_number }}"
+          git -c http.extraheader="AUTHORIZATION: Bearer ${{ secrets.GITHUB_TOKEN }}" push origin main
+        shell: pwsh
