@@ -41,7 +41,7 @@ jobs:
           Import-Module .\Scripts\Write-MarkdownSection.ps1 -Force
 
           Write-Host "/********************************************************************************/"
-          Write-Host "Get repositories details"
+          Write-Host "Get search criteria details"
           $topics = Get-Content -Path "${{ vars.CONFIGURATION_FILE_PATH }}" | ConvertFrom-Json
           
           Write-Host "Get repositories details"
@@ -78,7 +78,7 @@ jobs:
 
           # <img alt="Static Badge" src="https://img.shields.io/badge/:badgeContent">
 
-          # Concatenate the topics property in the configuration file with a " | " separator
+          # Concatenate the topics property in the configuration file with a " | " separator - ⁉️ Format to improve
           $listOfTopics = $topics.topic -join " | "
 
           # Center the list of topics
@@ -90,6 +90,9 @@ jobs:
           $summaryContent = $summaryBadgesCentered + $listOfTopicsCentered
 
           Write-MarkdownSection -MarkdownFilePath ".\README.md" -SectionIdentifier "summary" -SectionContent $summaryContent
+
+          Write-Host "/********************************************************************************/"
+          Write-Host "Update list of repositories opened to contributions"
         shell: pwsh
 
       # Push the changes in the current repository
