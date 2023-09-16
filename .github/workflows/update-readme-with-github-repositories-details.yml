@@ -70,10 +70,10 @@ jobs:
 
           # Center the summary badges
           $summaryBadgesCentered = "<h3 align='center'>`n"
-          $summaryBadgesCentered += "  <img alt="Repositories Count Badge" src="$repositoriesCountBadgeUrl">`n"
-          $summaryBadgesCentered += "  <img alt="Opened Good First Issues Count Badge" src="$openedGoodFirstIssuesCountBadgeUrl">`n"
-          $summaryBadgesCentered += "  <img alt="Opened Help Wanted Issues Count Badge" src="$openedHelpWantedIssuesCountBadgeUrl">`n"
-          $summaryBadgesCentered += "  <img alt="Security Policy Enabled Percentage Badge" src="$securityPolicyEnabledPercentageBadgeUrl">`n"
+          $summaryBadgesCentered += "  <img alt='Repositories Count Badge' src='$repositoriesCountBadgeUrl'>`n"
+          $summaryBadgesCentered += "  <img alt='Opened Good First Issues Count Badge' src='$openedGoodFirstIssuesCountBadgeUrl'>`n"
+          $summaryBadgesCentered += "  <img alt='Opened Help Wanted Issues Count Badge' src='$openedHelpWantedIssuesCountBadgeUrl'>`n"
+          $summaryBadgesCentered += "  <img alt='Security Policy Enabled Percentage Badge' src='$securityPolicyEnabledPercentageBadgeUrl'>`n"
           $summaryBadgesCentered += "</h3>`n"
 
           # <img alt="Static Badge" src="https://img.shields.io/badge/:badgeContent">
