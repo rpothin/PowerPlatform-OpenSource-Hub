@@ -31,9 +31,15 @@ The goal of this repository is to give the elements to empower this community an
 ## 🌎 Power Platform 
 
 <!--START_SECTION:summary-->
-
-Badges on their way...🐌
-
+<h3 align='center'>
+  <img alt='Repositories Count Badge' src='https://img.shields.io/badge/Repositories-361-violet'>
+  <img alt='Opened Good First Issues Count Badge' src='https://img.shields.io/badge/Good_First_Issues-17-green'>
+  <img alt='Opened Help Wanted Issues Count Badge' src='https://img.shields.io/badge/Help_Wanted_Issues-16-blue'>
+  <img alt='Security Policy Enabled Percentage Badge' src='https://img.shields.io/badge/Security_Policy_Enabled_Percentage-12-orange'>
+</h3>
+<h3 align='center'>
+  <a>powerplatform | power-platform | powerapps | power-apps | dynamics365 | dynamics-365</a>
+</h3>
 <!--END_SECTION:summary-->
 
 ### 💭 Repositories with good first or help wanted issues
