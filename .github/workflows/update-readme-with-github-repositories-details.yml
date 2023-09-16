@@ -69,7 +69,7 @@ jobs:
           $securityPolicyEnabledPercentageBadgeUrl = "https://img.shields.io/badge/Security_Policy_Enabled_Percentage-$securityPolicyEnabledPercentage-orange"
 
           # Center the summary badges
-          $summaryBadgesCentered = "<h3 align="center">`n"
+          $summaryBadgesCentered = "<h3 align='center'>`n"
           $summaryBadgesCentered += "  <img alt="Repositories Count Badge" src="$repositoriesCountBadgeUrl">`n"
           $summaryBadgesCentered += "  <img alt="Opened Good First Issues Count Badge" src="$openedGoodFirstIssuesCountBadgeUrl">`n"
           $summaryBadgesCentered += "  <img alt="Opened Help Wanted Issues Count Badge" src="$openedHelpWantedIssuesCountBadgeUrl">`n"
@@ -82,7 +82,7 @@ jobs:
           $listOfTopics = $topics.topic -join " | "
 
           # Center the list of topics
-          $listOfTopicsCentered = "<h3 align="center">`n"
+          $listOfTopicsCentered = "<h3 align='center'>`n"
           $listOfTopicsCentered += "  <a>$listOfTopics</a>`n"
           $listOfTopicsCentered += "</h3>"
 
