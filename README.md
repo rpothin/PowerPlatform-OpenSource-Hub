@@ -24,27 +24,41 @@
 
 ## 🏡 What is the PowerPlatform-OpenSource-Hub project?
 
-🤔 I am still looking for a good and short answer...
+One of the strengths of Power Platform is its open-source community.
 
-> **Note**
-> - search of repositories based on topics
-> - eventually apply filters (starts, watchers...) if too many repositories found
-> - present repositories in the format of a markdown table in the section below
-> - present a summary of the repositories found (ex: number of repositories with at least a good first issue)
+The goal of this repository is to give the elements to empower this community and improve collaboration so we can address challenges and build more amazing applications together.
 
 ## 🌎 Power Platform 
 
-<!--START_SECTION:data-summary-->
+<!--START_SECTION:repositories-summary-->
 
 Badges on their way...🐌
 
-<!--END_SECTION:data-summary-->
+<!--END_SECTION:repositories-summary-->
 
-<!--START_SECTION:data-->
+### 💭 Repositories with good first or help wanted issues
+
+<!--START_SECTION:repositories-open-to-contribution-->
 
 List on its way...🐌
 
-<!--END_SECTION:data-->
+<!--END_SECTION:repositories-open-to-contribution-->
+
+### 🚀 Top growing repositories
+
+<!--START_SECTION:top-growing-repositories-->
+
+List on its way...🐌
+
+<!--END_SECTION:top-growing-repositories-->
+
+### 📝 Complementary details
+
+- The referenced directories respect the following criteria:
+   - have at least one of the monitored topics
+   - have at least 10 stars
+   - have at least 10 watchers
+   - have been updated in the last 6 months
 
 ## ❗ Code of Conduct
 
