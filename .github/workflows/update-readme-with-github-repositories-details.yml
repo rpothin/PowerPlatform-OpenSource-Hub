@@ -4,10 +4,16 @@ name: 2-update-readme-with-github-repositories-details
 # Workflow triggered on push of files under the 'Data/' folder to the main branch - but can also be triggered manually without input parameters
 on:
   push:
+    branches: [ main ]
     paths:
       - 'Data/**'
-    branches:
-      - main
+      - 'Configuration/**'
+      - '!.devcontainer/**'
+      - '!.github/**'
+      - '!Scripts/**'
+      - '!CODE_OF_CONDUCT.md'
+      - '!LICENSE'
+      - '!README.md'
   workflow_dispatch:
 
 # Concurrency configuration for the current workflow - Keep only the latest workflow queued for the considered group and the considered issue
