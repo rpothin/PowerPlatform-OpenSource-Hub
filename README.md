@@ -39,12 +39,12 @@ The goal of this repository is to give the elements to empower this community an
 </h3>
 
 <p align='center'>
-  <img alt='powerplatform Badge' src='https://img.shields.io/badge/powerplatform-2824E9'>
-  <img alt='power-platform Badge' src='https://img.shields.io/badge/power--platform-B96D41'>
-  <img alt='powerapps Badge' src='https://img.shields.io/badge/powerapps-9F3276'>
-  <img alt='power-apps Badge' src='https://img.shields.io/badge/power--apps-3552B3'>
-  <img alt='dynamics365 Badge' src='https://img.shields.io/badge/dynamics365-47FA9A'>
-  <img alt='dynamics-365 Badge' src='https://img.shields.io/badge/dynamics--365-AEF275'>
+  <img alt='powerplatform Badge' src='https://img.shields.io/badge/powerplatform-D2344B'>
+  <img alt='power-platform Badge' src='https://img.shields.io/badge/power--platform-2341E9'>
+  <img alt='powerapps Badge' src='https://img.shields.io/badge/powerapps-45B4E6'>
+  <img alt='power-apps Badge' src='https://img.shields.io/badge/power--apps-17DEBC'>
+  <img alt='dynamics365 Badge' src='https://img.shields.io/badge/dynamics365-C1A4E4'>
+  <img alt='dynamics-365 Badge' src='https://img.shields.io/badge/dynamics--365-1080A7'>
 </p>
 <!--END_SECTION:summary-->
 
@@ -81,6 +81,7 @@ Please read it.
 ## 📝 License
 
 All files in this repository are subject to the [MIT](LICENSE) license.
+
 
 
 
