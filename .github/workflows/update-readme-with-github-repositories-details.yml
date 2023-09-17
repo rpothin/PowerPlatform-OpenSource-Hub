@@ -86,9 +86,7 @@ jobs:
           $summaryBadgesCentered += "  <img alt='Opened Good First Issues Count Badge' src='$openedGoodFirstIssuesCountBadgeUrl'>`n"
           $summaryBadgesCentered += "  <img alt='Opened Help Wanted Issues Count Badge' src='$openedHelpWantedIssuesCountBadgeUrl'>`n"
           $summaryBadgesCentered += "  <img alt='Security Policy Enabled Percentage Badge' src='$securityPolicyEnabledPercentageBadgeUrl'>`n"
-          $summaryBadgesCentered += "</h3>`n"
-
-          # <img alt="Static Badge" src="https://img.shields.io/badge/:badgeContent">
+          $summaryBadgesCentered += "</h3>`n`n"
 
           # Concatenate the topics property in the configuration file as static badges
           foreach ($topic in $topics)
@@ -124,7 +122,7 @@ jobs:
 
       # If the current day in the week is Monday, update the list of top growing repositories
       - name: Update list of top growing repositories
-        if: ${{ steps.current_day_in_the_week.outputs.DAY }} -eq 'Monday'
+        if: ${{ steps.current_day_in_the_week.outputs.DAY == 'Monday' }}
         run: |
           Write-Host "Current day of the week: ${{ steps.current_day_in_the_week.outputs.DAY }}"
           Write-Host "/********************************************************************************/"
