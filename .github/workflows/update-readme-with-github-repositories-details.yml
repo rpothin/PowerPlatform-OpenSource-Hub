@@ -90,6 +90,8 @@ jobs:
           foreach ($topic in $topics)
           {
             $topicName = $topic.topic
+            # If the topic name contains a dash, replace it with 2 dashes
+            $badgeContent = $topicName.Replace("-", "--")
 
             # Generate a random number between 0 and 16777215 (FFFFFF in hexadecimal)
             $randomNumber = Get-Random -Minimum 0 -Maximum 16777215
@@ -97,8 +99,8 @@ jobs:
             # Convert the random number to a hexadecimal color value without the leading #
             $hexColor = "{0:X6}" -f $randomNumber
 
-            $topicBadgeUrl = "https://img.shields.io/badge/$topicName-$hexColor"
-            $topicBadge = "![$topicName Badge]($topicBadgeUrl)"
+            $topicBadgeUrl = "https://img.shields.io/badge/$badgeContent-$hexColor"
+            $topicBadge = "<img alt="$topicName Badge" src="$topicBadgeUrl">"
             $listOfTopics += $topicBadge + " | "
           }
 
