@@ -39,7 +39,11 @@ jobs:
         run: echo "NOW=$(date +'%Y%m%d')" >> $env:GITHUB_OUTPUT
         shell: pwsh
 
-      # 
+      # Set the name of the current day in the week as a variable
+      - name: Set the name of the current day in the week as env variable
+        id: current_day_in_the_week
+        run: echo "DAY=$(date +'%A')" >> $env:GITHUB_OUTPUT
+        shell: pwsh
 
       # Update summary and repositories opened to contributions in README
       - name: Update summary and repositories opened to contributions
@@ -116,6 +120,23 @@ jobs:
 
           Write-Host "/********************************************************************************/"
           Write-Host "Update list of repositories opened to contributions"
+        shell: pwsh
+
+      # If the current day in the week is Monday, update the list of repositories opened to contributions
+      - name: Update list of repositories opened to contributions
+        if: ${{ steps.current_day_in_the_week.outputs.DAY }} -eq 'Monday'
+        run: |
+          Write-Host "/********************************************************************************/"
+          Write-Host "Install required modules"
+          Import-Module .\Scripts\Write-MarkdownSection.ps1 -Force
+
+          Write-Host "/********************************************************************************/"
+          Write-Host "Get repositories details"
+          $repositoriesDetails = Get-Content -Path "${{ vars.DATA_FILE_PATH }}" | ConvertFrom-Json
+
+          Write-Host "/********************************************************************************/"
+          Write-Host "Update the list of top growing repositories"
+          # Update the growing counter for each repository to do in the update-github-repositories-details workflow - Refresh of the base every Tuesday
         shell: pwsh
 
       # Push the changes in the current repository
