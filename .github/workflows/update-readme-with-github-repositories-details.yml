@@ -88,9 +88,9 @@ jobs:
           $listOfTopics = $topics.topic -join " | "
 
           # Center the list of topics
-          $listOfTopicsCentered = "<h3 align='center'>`n"
+          $listOfTopicsCentered = "<p align='center'>`n"
           $listOfTopicsCentered += "  <a>$listOfTopics</a>`n"
-          $listOfTopicsCentered += "</h3>"
+          $listOfTopicsCentered += "</p>"
 
           # Summary content composed of the summary badges and the list of topics
           $summaryContent = $summaryBadgesCentered + $listOfTopicsCentered
