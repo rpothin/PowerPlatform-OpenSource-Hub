@@ -122,10 +122,11 @@ jobs:
           Write-Host "Update list of repositories opened to contributions"
         shell: pwsh
 
-      # If the current day in the week is Monday, update the list of repositories opened to contributions
-      - name: Update list of repositories opened to contributions
+      # If the current day in the week is Monday, update the list of top growing repositories
+      - name: Update list of top growing repositories
         if: ${{ steps.current_day_in_the_week.outputs.DAY }} -eq 'Monday'
         run: |
+          Write-Host "Current day of the week: ${{ steps.current_day_in_the_week.outputs.DAY }}"
           Write-Host "/********************************************************************************/"
           Write-Host "Install required modules"
           Import-Module .\Scripts\Write-MarkdownSection.ps1 -Force
