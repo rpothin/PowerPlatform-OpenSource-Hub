@@ -39,6 +39,8 @@ jobs:
         run: echo "NOW=$(date +'%Y%m%d')" >> $env:GITHUB_OUTPUT
         shell: pwsh
 
+      # 
+
       # Update summary and repositories opened to contributions in README
       - name: Update summary and repositories opened to contributions
         run: |
@@ -84,8 +86,21 @@ jobs:
 
           # <img alt="Static Badge" src="https://img.shields.io/badge/:badgeContent">
 
-          # Concatenate the topics property in the configuration file with a " | " separator - ⁉️ Format to improve
-          $listOfTopics = $topics.topic -join " | "
+          # Concatenate the topics property in the configuration file as static badges with a " | " separator
+          foreach ($topic in $topics)
+          {
+            $topicName = $topic.topic
+
+            # Generate a random number between 0 and 16777215 (FFFFFF in hexadecimal)
+            $randomNumber = Get-Random -Minimum 0 -Maximum 16777215
+
+            # Convert the random number to a hexadecimal color value without the leading #
+            $hexColor = "{0:X6}" -f $randomNumber
+
+            $topicBadgeUrl = "https://img.shields.io/badge/$topicName-$hexColor"
+            $topicBadge = "![$topicName Badge]($topicBadgeUrl)"
+            $listOfTopics += $topicBadge + " | "
+          }
 
           # Center the list of topics
           $listOfTopicsCentered = "<p align='center'>`n"
