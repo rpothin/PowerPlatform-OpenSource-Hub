@@ -37,9 +37,9 @@ The goal of this repository is to give the elements to empower this community an
   <img alt='Opened Help Wanted Issues Count Badge' src='https://img.shields.io/badge/Help_Wanted_Issues-16-blue'>
   <img alt='Security Policy Enabled Percentage Badge' src='https://img.shields.io/badge/Security_Policy_Enabled_Percentage-12-orange'>
 </h3>
-<h3 align='center'>
+<p align='center'>
   <a>powerplatform | power-platform | powerapps | power-apps | dynamics365 | dynamics-365</a>
-</h3>
+</p>
 <!--END_SECTION:summary-->
 
 ### 💭 Repositories with good first or help wanted issues
@@ -75,3 +75,4 @@ Please read it.
 ## 📝 License
 
 All files in this repository are subject to the [MIT](LICENSE) license.
+
