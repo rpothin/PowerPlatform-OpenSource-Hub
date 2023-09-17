@@ -32,19 +32,19 @@ The goal of this repository is to give the elements to empower this community an
 
 <!--START_SECTION:summary-->
 <h3 align='center'>
-  <img alt='Repositories Count Badge' src='https://img.shields.io/badge/Repositories-361-violet'>
+  <img alt='Repositories Count Badge' src='https://img.shields.io/badge/Repositories-360-violet'>
   <img alt='Opened Good First Issues Count Badge' src='https://img.shields.io/badge/Good_First_Issues-17-green'>
   <img alt='Opened Help Wanted Issues Count Badge' src='https://img.shields.io/badge/Help_Wanted_Issues-16-blue'>
   <img alt='Security Policy Enabled Percentage Badge' src='https://img.shields.io/badge/Security_Policy_Enabled_Percentage-12-orange'>
 </h3>
 
 <p align='center'>
-  <img alt='powerplatform Badge' src='https://img.shields.io/badge/powerplatform-3848C6'>
-  <img alt='power-platform Badge' src='https://img.shields.io/badge/power--platform-B476CA'>
-  <img alt='powerapps Badge' src='https://img.shields.io/badge/powerapps-DF734C'>
-  <img alt='power-apps Badge' src='https://img.shields.io/badge/power--apps-6B6D91'>
-  <img alt='dynamics365 Badge' src='https://img.shields.io/badge/dynamics365-225F47'>
-  <img alt='dynamics-365 Badge' src='https://img.shields.io/badge/dynamics--365-3D98B1'>
+  <img alt='powerplatform Badge' src='https://img.shields.io/badge/powerplatform-2824E9'>
+  <img alt='power-platform Badge' src='https://img.shields.io/badge/power--platform-B96D41'>
+  <img alt='powerapps Badge' src='https://img.shields.io/badge/powerapps-9F3276'>
+  <img alt='power-apps Badge' src='https://img.shields.io/badge/power--apps-3552B3'>
+  <img alt='dynamics365 Badge' src='https://img.shields.io/badge/dynamics365-47FA9A'>
+  <img alt='dynamics-365 Badge' src='https://img.shields.io/badge/dynamics--365-AEF275'>
 </p>
 <!--END_SECTION:summary-->
 
@@ -81,6 +81,7 @@ Please read it.
 ## 📝 License
 
 All files in this repository are subject to the [MIT](LICENSE) license.
+
 
 
 
