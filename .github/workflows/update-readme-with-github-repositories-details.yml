@@ -86,7 +86,7 @@ jobs:
 
           # <img alt="Static Badge" src="https://img.shields.io/badge/:badgeContent">
 
-          # Concatenate the topics property in the configuration file as static badges with a " | " separator
+          # Concatenate the topics property in the configuration file as static badges
           foreach ($topic in $topics)
           {
             $topicName = $topic.topic
@@ -101,7 +101,7 @@ jobs:
 
             $topicBadgeUrl = "https://img.shields.io/badge/$badgeContent-$hexColor"
             $topicBadge = "<img alt='$topicName Badge' src='$topicBadgeUrl'>"
-            $listOfTopics += $topicBadge + " | "
+            $listOfTopics += $topicBadge + "`n"
           }
 
           # Center the list of topics
