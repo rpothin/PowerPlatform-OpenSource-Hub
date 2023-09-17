@@ -62,7 +62,7 @@ jobs:
       # Trigger the update-readme-with-github-repositories-details workflow in the current repository using GitHub CLI
       - name: Trigger update-readme-with-github-repositories-details workflow
         run: |
-          gh workflow run update-readme-with-github-repositories-details --ref main
+          gh workflow run update-readme-with-github-repositories-details.yml --ref main
         shell: pwsh
         env:
           GITHUB_TOKEN: ${{ secrets.PAT_WORKFLOW_UPDATE }}
