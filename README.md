@@ -38,7 +38,7 @@ The goal of this repository is to give the elements to empower this community an
   <img alt='Security Policy Enabled Percentage Badge' src='https://img.shields.io/badge/Security_Policy_Enabled_Percentage-12-orange'>
 </h3>
 <p align='center'>
-  <a>![powerplatform Badge](https://img.shields.io/badge/powerplatform-6CE7C8) | ![power-platform Badge](https://img.shields.io/badge/power-platform-C7A495) | ![powerapps Badge](https://img.shields.io/badge/powerapps-712269) | ![power-apps Badge](https://img.shields.io/badge/power-apps-F8277E) | ![dynamics365 Badge](https://img.shields.io/badge/dynamics365-F2FF38) | ![dynamics-365 Badge](https://img.shields.io/badge/dynamics-365-7A4169) | </a>
+  <a><img alt='powerplatform Badge' src='https://img.shields.io/badge/powerplatform-7B97B4'> | <img alt='power-platform Badge' src='https://img.shields.io/badge/power--platform-AB7B7B'> | <img alt='powerapps Badge' src='https://img.shields.io/badge/powerapps-B9EA96'> | <img alt='power-apps Badge' src='https://img.shields.io/badge/power--apps-4C3617'> | <img alt='dynamics365 Badge' src='https://img.shields.io/badge/dynamics365-362487'> | <img alt='dynamics-365 Badge' src='https://img.shields.io/badge/dynamics--365-D23F5E'> | </a>
 </p>
 <!--END_SECTION:summary-->
 
@@ -75,5 +75,6 @@ Please read it.
 ## 📝 License
 
 All files in this repository are subject to the [MIT](LICENSE) license.
+
 
 
