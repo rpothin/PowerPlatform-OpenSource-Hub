@@ -104,13 +104,13 @@ jobs:
             $hexColor = "{0:X6}" -f $randomNumber
 
             $topicBadgeUrl = "https://img.shields.io/badge/$badgeContent-$hexColor"
-            $topicBadge = "<img alt='$topicName Badge' src='$topicBadgeUrl'>"
+            $topicBadge = "  <img alt='$topicName Badge' src='$topicBadgeUrl'>"
             $listOfTopics += $topicBadge + "`n"
           }
 
           # Center the list of topics
           $listOfTopicsCentered = "<p align='center'>`n"
-          $listOfTopicsCentered += "  $listOfTopics"
+          $listOfTopicsCentered += "$listOfTopics"
           $listOfTopicsCentered += "</p>"
 
           # Summary content composed of the summary badges and the list of topics
