@@ -38,6 +38,7 @@ function Search-GitHubRepositories {
                 openedGoodFirstIssues : 0
                 hasHelpWantedIssues : True
                 openedHelpWantedIssues : 1
+                openedToContributionsIssues : 1
     #>
 
     [CmdletBinding()]
@@ -100,6 +101,9 @@ function Search-GitHubRepositories {
                 $repository | Add-Member -MemberType NoteProperty -Name openedHelpWantedIssues -Value 0
             }
         }
+
+        # Add a property to the list of repositories to store the number of issues opened to contributions - sum of good first issues and help wanted issues
+        $repositories | Add-Member -MemberType NoteProperty -Name "openedToContributionsIssues" -Value ($_.openedGoodFirstIssues + $_.openedHelpWantedIssues)
 
         # Return the results
         $repositories
