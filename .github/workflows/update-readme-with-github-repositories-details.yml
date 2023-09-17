@@ -100,7 +100,7 @@ jobs:
             $hexColor = "{0:X6}" -f $randomNumber
 
             $topicBadgeUrl = "https://img.shields.io/badge/$badgeContent-$hexColor"
-            $topicBadge = "<img alt="$topicName Badge" src="$topicBadgeUrl">"
+            $topicBadge = "<img alt='$topicName Badge' src='$topicBadgeUrl'>"
             $listOfTopics += $topicBadge + " | "
           }
 
