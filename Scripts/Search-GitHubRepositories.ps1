@@ -103,7 +103,7 @@ function Search-GitHubRepositories {
         }
 
         # Add a property to the list of repositories to store the number of issues opened to contributions - sum of good first issues and help wanted issues
-        $repositories | Add-Member -MemberType NoteProperty -Name "openedToContributionsIssues" -Value ($_.openedGoodFirstIssues + $_.openedHelpWantedIssues)
+        $repositories | Add-Member -MemberType ScriptProperty -Name openedToContributionsIssues -Value {$this.openedGoodFirstIssues + $this.openedHelpWantedIssues}
 
         # Return the results
         $repositories
