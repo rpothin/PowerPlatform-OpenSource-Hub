@@ -53,7 +53,7 @@ function Write-ReadmeSummarySection {
         # Configure summary badges
         $summaryBadgesCentered = "<h3 align='center'>`n"
 
-        $summaryBadgesCentered += "  " + (New-ShieldIoBadge -AlternativeText "Repositories Count Badge" -Message "Repositories" -Label $repositoriesCount -Color "violet" -OutputFormat "HTML") + "`n"
+        $summaryBadgesCentered += "  " + (New-ShieldIoBadge -AlternativeText "Repositories Count Badge" -Message "Repositories" -Label $repositoriesCount -Color "602890" -OutputFormat "HTML") + "`n"
         $summaryBadgesCentered += "  " + (New-ShieldIoBadge -AlternativeText "Opened Good First Issues Count Badge" -Message "Good First Issues" -Label $openedGoodFirstIssuesCount -Color "green" -OutputFormat "HTML") + "`n"
         $summaryBadgesCentered += "  " + (New-ShieldIoBadge -AlternativeText "Opened Help Wanted Issues Count Badge" -Message "Help Wanted Issues" -Label $openedHelpWantedIssuesCount -Color "blue" -OutputFormat "HTML") + "`n"
         $summaryBadgesCentered += "  " + (New-ShieldIoBadge -AlternativeText "Security Policy Enabled Percentage Badge" -Message "Security Policy Enabled Percentage" -Label $securityPolicyEnabledPercentage -Color "orange" -OutputFormat "HTML") + "`n"
