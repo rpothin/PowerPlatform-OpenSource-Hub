@@ -36,6 +36,8 @@ jobs:
       - name: Run Pester tests
         run: Invoke-Pester
         shell: pwsh
+        env:
+          GITHUB_TOKEN: ${{ secrets.PAT_ACCESS_PUBLIC_GITHUB_REPOSITORIES }}
 
   PSScriptAnalyzer:
     runs-on: ubuntu-latest
