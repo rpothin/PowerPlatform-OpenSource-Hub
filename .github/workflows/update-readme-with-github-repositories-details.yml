@@ -40,7 +40,9 @@ jobs:
           Write-Host "/********************************************************************************/"
           Write-Host "Install required modules"
           Import-Module .\Scripts\Write-MarkdownSection.ps1 -Force
+          Import-Module .\Scripts\New-ShieldIoBadge.ps1 -Force
           Import-Module .\Scripts\ConvertTo-MarkdownTable.ps1 -Force
+          Import-Module .\Scripts\Write-ReadmeSummarySection.ps1 -Force
 
           Write-Host "/********************************************************************************/"
           Write-Host "Get search criteria details"
@@ -51,60 +53,7 @@ jobs:
 
           Write-Host "/********************************************************************************/"
           Write-Host "Update summary"
-
-          # Get the number of repositories referenced
-          $repositoriesCount = $repositoriesDetails.count
-
-          # Get the number of opened good first issues in the referenced repositories
-          $openedGoodFirstIssuesCount = $repositoriesDetails | Where-Object { $_.openedGoodFirstIssues -gt 0 } | Measure-Object | Select-Object -ExpandProperty Count
-
-          # Get the number of opened help wanted issues in the referenced repositories
-          $openedHelpWantedIssuesCount = $repositoriesDetails | Where-Object { $_.openedHelpWantedIssues -gt 0 } | Measure-Object | Select-Object -ExpandProperty Count
-
-          # Get the percentage of referenced repositories with security policy enabled
-          $securityPolicyEnabledPercentage = [math]::Round(($repositoriesDetails | Where-Object { $_.isSecurityPolicyEnabled -eq $true } | Measure-Object | Select-Object -ExpandProperty Count) / $repositoriesCount * 100)
-
-          # Configure summary badges
-          $repositoriesCountBadgeUrl = "https://img.shields.io/badge/Repositories-$repositoriesCount-violet"
-          $openedGoodFirstIssuesCountBadgeUrl = "https://img.shields.io/badge/Good_First_Issues-$openedGoodFirstIssuesCount-green"
-          $openedHelpWantedIssuesCountBadgeUrl = "https://img.shields.io/badge/Help_Wanted_Issues-$openedHelpWantedIssuesCount-blue"
-          $securityPolicyEnabledPercentageBadgeUrl = "https://img.shields.io/badge/Security_Policy_Enabled_Percentage-$securityPolicyEnabledPercentage-orange"
-
-          # Center the summary badges
-          $summaryBadgesCentered = "<h3 align='center'>`n"
-          $summaryBadgesCentered += "  <img alt='Repositories Count Badge' src='$repositoriesCountBadgeUrl'>`n"
-          $summaryBadgesCentered += "  <img alt='Opened Good First Issues Count Badge' src='$openedGoodFirstIssuesCountBadgeUrl'>`n"
-          $summaryBadgesCentered += "  <img alt='Opened Help Wanted Issues Count Badge' src='$openedHelpWantedIssuesCountBadgeUrl'>`n"
-          $summaryBadgesCentered += "  <img alt='Security Policy Enabled Percentage Badge' src='$securityPolicyEnabledPercentageBadgeUrl'>`n"
-          $summaryBadgesCentered += "</h3>`n`n"
-
-          # Concatenate the topics property in the configuration file as static badges
-          foreach ($topic in $topics)
-          {
-            $topicName = $topic.topic
-            # If the topic name contains a dash, replace it with 2 dashes
-            $badgeContent = $topicName.Replace("-", "--")
-
-            # Generate a random number between 0 and 16777215 (FFFFFF in hexadecimal)
-            $randomNumber = Get-Random -Minimum 0 -Maximum 16777215
-
-            # Convert the random number to a hexadecimal color value without the leading #
-            $hexColor = "{0:X6}" -f $randomNumber
-
-            $topicBadgeUrl = "https://img.shields.io/badge/$badgeContent-$hexColor"
-            $topicBadge = "  <img alt='$topicName Badge' src='$topicBadgeUrl'>"
-            $listOfTopics += $topicBadge + "`n"
-          }
-
-          # Center the list of topics
-          $listOfTopicsCentered = "<p align='center'>`n"
-          $listOfTopicsCentered += "$listOfTopics"
-          $listOfTopicsCentered += "</p>"
-
-          # Summary content composed of the summary badges and the list of topics
-          $summaryContent = $summaryBadgesCentered + $listOfTopicsCentered
-
-          Write-MarkdownSection -MarkdownFilePath ".\README.md" -SectionIdentifier "summary" -SectionContent $summaryContent
+          Write-ReadmeSummarySection -GitHubRepositoriesDetails $repositoriesDetails -Topics $topics
 
           Write-Host "/********************************************************************************/"
           Write-Host "Update list of repositories opened to contributions"
