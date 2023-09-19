@@ -24,9 +24,7 @@
 
 ## 🏡 What is the PowerPlatform-OpenSource-Hub project?
 
-One of the strengths of Power Platform is its open-source community.
-
-The goal of this repository is to give the elements to empower this community and improve collaboration so we can address challenges and build more amazing applications together.
+Thinking in progress... 🤔
 
 ## 🌎 Power Platform 
 
@@ -66,11 +64,13 @@ List on its way...🐌
 
 ### 📝 Complementary details
 
-- The referenced directories respect the following criteria:
+- The referenced repositories respect the following criteria:
    - have at least one of the monitored topics
    - have at least 10 stars
    - have at least 10 watchers
    - have been updated in the last 6 months
+- The summary badges and the list of repositories with good first or help wanted issues is updated daily
+- The list of top growing repositories is updated every Monday based on growth measured in a 7-day period. The growth indicator is the sum of the number of stars and the number of watchers. And only the 10 highest growth are listed.
 
 ## ❗ Code of Conduct
 
