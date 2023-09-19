@@ -56,7 +56,7 @@ Describe "Write-ReadmeSummarySection Unit Tests" {
     }
 
     It "Generates the summary section content" {
-        $expectedContent = "<h3 align='center'>`n  <img alt='Repositories Count Badge' src='https://img.shields.io/badge/Repositories-4-violet'>`n  <img alt='Opened Good First Issues Count Badge' src='https://img.shields.io/badge/Good_First_Issues-2-green'>`n  <img alt='Opened Help Wanted Issues Count Badge' src='https://img.shields.io/badge/Help_Wanted_Issues-2-blue'>`n  <img alt='Security Policy Enabled Percentage Badge' src='https://img.shields.io/badge/Security_Policy_Enabled_Percentage-50-orange'>`n</h3>*"
+        $expectedContent = "<h3 align='center'>`n  <img alt='Repositories Count Badge' src='https://img.shields.io/badge/Repositories-4-602890'>`n  <img alt='Opened Good First Issues Count Badge' src='https://img.shields.io/badge/Good_First_Issues-2-green'>`n  <img alt='Opened Help Wanted Issues Count Badge' src='https://img.shields.io/badge/Help_Wanted_Issues-2-blue'>`n  <img alt='Security Policy Enabled Percentage Badge' src='https://img.shields.io/badge/Security_Policy_Enabled_Percentage-50-orange'>`n</h3>*"
         $content = Write-ReadmeSummarySection -GitHubRepositoriesDetails $GitHubRepositoriesDetails -Topics $Topics
         $content | Should -BeLike $expectedContent
         $content | Should -BeLike "*<p align='center'>`n  <img alt='topic1 Badge' src='https://img.shields.io/badge/topic1-*"
