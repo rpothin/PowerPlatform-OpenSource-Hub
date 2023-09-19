@@ -1,0 +1,69 @@
+name: powershell-scripts-validation
+# Validate the changes to PowerShell scripts
+
+# Workflow triggered by a change under the 'Scripts' folder - but can also be triggered manually
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'Scripts/**'
+      - '!.devcontainer/**'
+      - '!.github/**'
+      - '!Configuration/**'
+      - '!Data/**'
+      - '!CODE_OF_CONDUCT.md'
+      - '!LICENSE'
+      - '!README.md'
+
+# Concurrency configuration for the current workflow - Keep only the latest workflow queued for the considered group and the considered issue
+concurrency:
+  group: powershell-scripts-validation
+  cancel-in-progress: true
+
+jobs:
+  run-unit-tests:
+    runs-on: ubuntu-latest
+    env:
+      RUNNER_DEBUG: 1
+
+    steps:
+      # Action used to checkout the main branch in the current repository
+      #   Community action: https://github.com/actions/checkout
+      - name: Checkout
+        uses: actions/checkout@v4.0.0
+
+      # Run tests on all *.Tests.ps1 files
+      - name: Run Pester tests
+        run: Invoke-Pester
+        shell: pwsh
+
+  PSScriptAnalyzer:
+    runs-on: ubuntu-latest
+    env:
+      RUNNER_DEBUG: 1
+
+    steps:
+      # Action used to checkout the main branch in the current repository
+      #   Community action: https://github.com/actions/checkout
+      - name: Checkout
+        uses: actions/checkout@v4.0.0
+
+      # Run PSScriptAnalyzer on all *.ps1 files
+      #  Community action: https://github.com/microsoft/psscriptanalyzer-action
+      - name: Run PSScriptAnalyzer
+        uses: microsoft/psscriptanalyzer-action@v1.1
+        with:
+          # Check https://github.com/microsoft/action-psscriptanalyzer for more info about the options.
+          # The below set up runs PSScriptAnalyzer to your entire repository and runs some basic security rules.
+          path: .\
+          recurse: true 
+          # Include your own basic security rules. Removing this option will run all the rules 
+          # includeRule: '"PSAvoidGlobalAliases", "PSAvoidUsingConvertToSecureStringWithPlainText"'
+          output: results.sarif
+      
+      # Upload the SARIF file generated in the previous step
+      #   Community action: https://github.com/github/codeql-action
+      - name: Upload SARIF results file
+        uses: github/codeql-action/upload-sarif@v2
+        with:
+          sarif_file: results.sarif
