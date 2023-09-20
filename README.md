@@ -48,11 +48,11 @@ Thinking in progress... 🤔
 
 ### 💭 Repositories with good first or help wanted issues
 
-<!--START_SECTION:repositories-open-to-contribution-->
+<!--START_SECTION:repositories-opened-to-contribution-->
 
 List on its way...🐌
 
-<!--END_SECTION:repositories-open-to-contribution-->
+<!--END_SECTION:repositories-opened-to-contribution-->
 
 ### 🚀 Top growing repositories
 
