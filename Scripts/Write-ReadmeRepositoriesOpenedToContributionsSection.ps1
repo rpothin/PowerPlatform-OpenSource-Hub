@@ -51,11 +51,14 @@ function Write-ReadmeRepositoriesOpenedToContributionsSection {
             @{Name="Popularity";Expression={(New-ShieldIoBadge -AlternativeText "Stars Badge" -Message "Stars" -Label $_.stargazerCount -Color "yellow" -OutputFormat "Markdown") + " " + (New-ShieldIoBadge -AlternativeText "Watchers Badge" -Message "Watchers" -Label $_.watchers.totalCount -Color "orange" -OutputFormat "Markdown")}}, `
             @{Name="Topics";Expression={($_.topics | ForEach-Object { New-ShieldIoBadge -AlternativeText "$_ Badge" -Message "$_" -OutputFormat "Markdown" }) -join " "}}
 
-        # Convert the list of repositories opened to contributions in a markdown table
-        $repositoriesOpenedToContributionsTable = $repositoriesOpenedToContributionsPrepared | ConvertTo-MarkdownTable
+        # Convert the list of repositories opened to contributions in a markdown table as array
+        $repositoriesOpenedToContributionsTableAsArray = $repositoriesOpenedToContributionsPrepared | ConvertTo-MarkdownTable
+
+        # Convert the list of repositories opened to contributions in a markdown table as string
+        $repositoriesOpenedToContributionsTable = $repositoriesOpenedToContributionsTableAsArray -join "`n"
 
         # Update the content of the section with the list of repositories opened to contributions
-        Write-MarkdownSection -MarkdownFilePath ".\README.md" -SectionIdentifier "repositories-opened-to-contribution" -SectionContent $repositoriesOpenedToContributionsTable.ToString()
+        Write-MarkdownSection -MarkdownFilePath ".\README.md" -SectionIdentifier "repositories-opened-to-contribution" -SectionContent $repositoriesOpenedToContributionsTable
 
         $repositoriesOpenedToContributionsTable
     }
