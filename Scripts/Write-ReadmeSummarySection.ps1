@@ -67,7 +67,7 @@ function Write-ReadmeSummarySection {
         $summaryBadgesCentered += "  <br/>`n"
         
         $summaryBadgesCentered += "  " + (New-ShieldIoBadge -AlternativeText "Security Policy Enabled Percentage Badge" -Message "Security Policy Enabled Percentage" -Label $securityPolicyEnabledPercentage -Color "orange" -OutputFormat "HTML") + "`n"
-        $summaryBadgesCentered += "  " + (New-ShieldIoBadge -AlternativeText "Code of Conduct Enable Percentage Badge" -Message "Code of Conduct Enabled Percentage" -Label $codeOfConductEnabledPercentage -Color "9F2B63" -OutputFormat "HTML") + "`n"
+        $summaryBadgesCentered += "  " + (New-ShieldIoBadge -AlternativeText "Code of Conduct Available Percentage Badge" -Message "Code of Conduct Available Percentage" -Label $codeOfConductEnabledPercentage -Color "9F2B63" -OutputFormat "HTML") + "`n"
         
         $summaryBadgesCentered += "</h3>`n`n"
 
