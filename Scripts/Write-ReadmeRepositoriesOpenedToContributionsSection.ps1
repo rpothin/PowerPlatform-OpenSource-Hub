@@ -21,6 +21,9 @@ function Write-ReadmeRepositoriesOpenedToContributionsSection {
             Import-Module .\Scripts\ConvertTo-MarkdownTable.ps1 -Force
             Import-Module .\Scripts\Write-ReadmeRepositoriesOpenedToContributionsSection.ps1 -Force
             Write-ReadmeRepositoriesOpenedToContributionsSection -GitHubRepositoriesDetails $GitHubRepositoriesDetails
+                |Name|Language|Good First Issues|Help Wanted Issues|Topics|
+                |----|--------|-----------------|------------------|------|
+                |[OfficeDev/microsoft-teams-apps-requestateam](https://github.com/OfficeDev/microsoft-teams-apps-requestateam)|PowerShell|![Good First Issues Badge](https://img.shields.io/badge/17-green)|![Help Wanted Issues Badge](https://img.shields.io/badge/30-blue)|![microsoft Badge](https://img.shields.io/badge/microsoft-C4A0B2) ![microsoftteams Badge](https://img.shields.io/badge/microsoftteams-4F9BFB) ![powerapps Badge](https://img.shields.io/badge/powerapps-8C7127) ![powerautomate Badge](https://img.shields.io/badge/powerautomate-9FA7B5) ![logicapps Badge](https://img.shields.io/badge/logicapps-6343B2) ![azure Badge](https://img.shields.io/badge/azure-3B645D)|
     #>
 
     [CmdletBinding()]
