@@ -41,6 +41,9 @@ function Write-ReadmeSummarySection {
         # Get the number of repositories referenced
         $repositoriesCount = $GitHubRepositoriesDetails.count
 
+        # Get the number of referenced repositories updated in the last 30 days
+        $repositoriesUpdatedInTheLast30DaysCount = $GitHubRepositoriesDetails | Where-Object { $_.lastUpdatedDate -gt (Get-Date).AddDays(-30) } | Measure-Object | Select-Object -ExpandProperty Count
+
         # Get the number of opened good first issues in the referenced repositories
         $openedGoodFirstIssuesCount = $GitHubRepositoriesDetails | Where-Object { $_.openedGoodFirstIssues -gt 0 } | Measure-Object | Select-Object -ExpandProperty Count
 
@@ -57,6 +60,7 @@ function Write-ReadmeSummarySection {
         $summaryBadgesCentered = "<h3 align='center'>`n"
 
         $summaryBadgesCentered += "  " + (New-ShieldIoBadge -AlternativeText "Repositories Count Badge" -Message "Repositories" -Label $repositoriesCount -Color "602890" -OutputFormat "HTML") + "`n"
+        $summaryBadgesCentered += "  " + (New-ShieldIoBadge -AlternativeText "Active Repositories Count Badge" -Message "Active Repositories" -Label $repositoriesUpdatedInTheLast30DaysCount -Color "A24FBF" -OutputFormat "HTML") + "`n"
         $summaryBadgesCentered += "  " + (New-ShieldIoBadge -AlternativeText "Opened Good First Issues Count Badge" -Message "Good First Issues" -Label $openedGoodFirstIssuesCount -Color "green" -OutputFormat "HTML") + "`n"
         $summaryBadgesCentered += "  " + (New-ShieldIoBadge -AlternativeText "Opened Help Wanted Issues Count Badge" -Message "Help Wanted Issues" -Label $openedHelpWantedIssuesCount -Color "blue" -OutputFormat "HTML") + "`n"
         $summaryBadgesCentered += "  " + (New-ShieldIoBadge -AlternativeText "Security Policy Enabled Percentage Badge" -Message "Security Policy Enabled Percentage" -Label $securityPolicyEnabledPercentage -Color "orange" -OutputFormat "HTML") + "`n"
