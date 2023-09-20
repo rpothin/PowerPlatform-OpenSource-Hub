@@ -63,8 +63,12 @@ function Write-ReadmeSummarySection {
         $summaryBadgesCentered += "  " + (New-ShieldIoBadge -AlternativeText "Active Repositories Count Badge" -Message "Active Repositories" -Label $repositoriesUpdatedInTheLast30DaysCount -Color "A24FBF" -OutputFormat "HTML") + "`n"
         $summaryBadgesCentered += "  " + (New-ShieldIoBadge -AlternativeText "Opened Good First Issues Count Badge" -Message "Good First Issues" -Label $openedGoodFirstIssuesCount -Color "green" -OutputFormat "HTML") + "`n"
         $summaryBadgesCentered += "  " + (New-ShieldIoBadge -AlternativeText "Opened Help Wanted Issues Count Badge" -Message "Help Wanted Issues" -Label $openedHelpWantedIssuesCount -Color "blue" -OutputFormat "HTML") + "`n"
+        
+        $summaryBadgesCentered += "  <br/>`n"
+        
         $summaryBadgesCentered += "  " + (New-ShieldIoBadge -AlternativeText "Security Policy Enabled Percentage Badge" -Message "Security Policy Enabled Percentage" -Label $securityPolicyEnabledPercentage -Color "orange" -OutputFormat "HTML") + "`n"
         $summaryBadgesCentered += "  " + (New-ShieldIoBadge -AlternativeText "Code of Conduct Enable Percentage Badge" -Message "Code of Conduct Enabled Percentage" -Label $codeOfConductEnabledPercentage -Color "9F2B63" -OutputFormat "HTML") + "`n"
+        
         $summaryBadgesCentered += "</h3>`n`n"
 
         # Concatenate the topics property in the configuration file as static badges
