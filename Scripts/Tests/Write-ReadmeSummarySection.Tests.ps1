@@ -10,7 +10,6 @@ BeforeAll {
     # Import required modules
     Import-Module $global:executingTestPath/../../Scripts/Write-MarkdownSection.ps1 -Force
     Import-Module $global:executingTestPath/../../Scripts/New-ShieldIoBadge.ps1 -Force
-    Import-Module $global:executingTestPath/../../Scripts/Write-ReadmeSummarySection.ps1 -Force
 }
 
 Describe "Write-ReadmeSummarySection Unit Tests" {
