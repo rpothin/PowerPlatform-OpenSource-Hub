@@ -44,12 +44,12 @@ function Write-ReadmeRepositoriesOpenedToContributionsSection {
             @{Name="Description";Expression={$_.description}}, `
             @{Name="Language";Expression={$_.language}}, `
             #@{Name="License";Expression={if ([string]::IsNullOrEmpty($_.license.name)) { "No license" } else{ $_.license.name }}}, `
-            @{Name="Issues";Expression={(New-ShieldIoBadge -AlternativeText "Good First Issues Badge" -Message "Good First Issues" -Label $_.openedGoodFirstIssues -Color "green" -OutputFormat "Markdown") + " " + (New-ShieldIoBadge -AlternativeText "Help Wanted Issues Badge" -Message "Help Wanted Issues" -Label $_.openedHelpWantedIssues -Color "blue" -OutputFormat "Markdown")}}, `
+            @{Name="Issues";Expression={(New-ShieldIoBadge -AlternativeText "Good First Issues Badge" -Message "Good First Issues" -Label $_.openedGoodFirstIssues -Color "green" -OutputFormat "Markdown") + "<br/>" + (New-ShieldIoBadge -AlternativeText "Help Wanted Issues Badge" -Message "Help Wanted Issues" -Label $_.openedHelpWantedIssues -Color "blue" -OutputFormat "Markdown")}}, `
             #@{Name="Code of Conduct";Expression={ if ($null -eq $_.codeOfConduct) { "No code of conduct" } else { "[Code of Conduct](" + $_.codeOfConduct.url + ")" }}}, `
             #@{Name="Security Policy";Expression={if ($_.isSecurityPolicyEnabled -eq $false) { "No security policy" } else { "[Security Policy](" + $_.securityPolicyUrl + ")" }}}, `
             #@{Name="Latest Release";Expression={ if ($null -eq $_.latestRelease) { "No release" } else { "[" + $_.latestRelease.name + "](" + $_.latestRelease.url + ")" }}}, `
             #@{Name="Popularity";Expression={(New-ShieldIoBadge -AlternativeText "Stars Badge" -Message "Stars" -Label $_.stargazerCount -Color "yellow" -OutputFormat "Markdown") + " " + (New-ShieldIoBadge -AlternativeText "Watchers Badge" -Message "Watchers" -Label $_.watchers.totalCount -Color "orange" -OutputFormat "Markdown")}}, `
-            @{Name="Topics";Expression={($_.topics | ForEach-Object { New-ShieldIoBadge -AlternativeText "$_ Badge" -Message "$_" -OutputFormat "Markdown" }) -join " "}}
+            @{Name="Topics";Expression={($_.topics | ForEach-Object { New-ShieldIoBadge -AlternativeText "$_ Badge" -Message "$_" -OutputFormat "Markdown" }) -join "<br/>"}}
 
         # Convert the list of repositories opened to contributions in a markdown table as array
         $repositoriesOpenedToContributionsTableAsArray = $repositoriesOpenedToContributionsPrepared | ConvertTo-MarkdownTable
