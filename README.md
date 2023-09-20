@@ -37,21 +37,19 @@ Thinking in progress... 🤔
 </h3>
 
 <p align='center'>
-  <img alt='powerplatform Badge' src='https://img.shields.io/badge/powerplatform-2B0EBB'>
-  <img alt='power-platform Badge' src='https://img.shields.io/badge/power--platform-86220D'>
-  <img alt='powerapps Badge' src='https://img.shields.io/badge/powerapps-29AC6A'>
-  <img alt='power-apps Badge' src='https://img.shields.io/badge/power--apps-D21480'>
-  <img alt='dynamics365 Badge' src='https://img.shields.io/badge/dynamics365-E6EECC'>
-  <img alt='dynamics-365 Badge' src='https://img.shields.io/badge/dynamics--365-4DE1C4'>
+  <img alt='powerplatform Badge' src='https://img.shields.io/badge/powerplatform-A88D1B'>
+  <img alt='power-platform Badge' src='https://img.shields.io/badge/power--platform-6E011A'>
+  <img alt='powerapps Badge' src='https://img.shields.io/badge/powerapps-C73EF5'>
+  <img alt='power-apps Badge' src='https://img.shields.io/badge/power--apps-322D09'>
+  <img alt='dynamics365 Badge' src='https://img.shields.io/badge/dynamics365-AE95C4'>
+  <img alt='dynamics-365 Badge' src='https://img.shields.io/badge/dynamics--365-E7FE9A'>
 </p>
 <!--END_SECTION:summary-->
 
 ### 💭 Repositories with good first or help wanted issues
 
 <!--START_SECTION:repositories-opened-to-contribution-->
-
-List on its way...🐌
-
+System.Object[]
 <!--END_SECTION:repositories-opened-to-contribution-->
 
 ### 🚀 Top growing repositories
@@ -81,6 +79,8 @@ Please read it.
 ## 📝 License
 
 All files in this repository are subject to the [MIT](LICENSE) license.
+
+
 
 
 
