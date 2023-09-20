@@ -42,7 +42,7 @@ function Write-ReadmeSummarySection {
         $repositoriesCount = $GitHubRepositoriesDetails.count
 
         # Get the number of referenced repositories updated in the last 30 days
-        $repositoriesUpdatedInTheLast30DaysCount = $GitHubRepositoriesDetails | Where-Object { $_.lastUpdatedDate -gt (Get-Date).AddDays(-30) } | Measure-Object | Select-Object -ExpandProperty Count
+        $repositoriesUpdatedInTheLast30DaysCount = $GitHubRepositoriesDetails | Where-Object { $_.updatedAt -gt (Get-Date).AddDays(-30) } | Measure-Object | Select-Object -ExpandProperty Count
 
         # Get the number of opened good first issues in the referenced repositories
         $openedGoodFirstIssuesCount = $GitHubRepositoriesDetails | Where-Object { $_.openedGoodFirstIssues -gt 0 } | Measure-Object | Select-Object -ExpandProperty Count
