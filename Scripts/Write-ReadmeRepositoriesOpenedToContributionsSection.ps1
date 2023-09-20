@@ -55,7 +55,7 @@ function Write-ReadmeRepositoriesOpenedToContributionsSection {
         $repositoriesOpenedToContributionsTable = $repositoriesOpenedToContributionsPrepared | ConvertTo-MarkdownTable
 
         # Update the content of the section with the list of repositories opened to contributions
-        Write-MarkdownSection -MarkdownFilePath ".\README.md" -SectionIdentifier "repositories-opened-to-contribution" -SectionContent $repositoriesOpenedToContributionsTable
+        Write-MarkdownSection -MarkdownFilePath ".\README.md" -SectionIdentifier "repositories-opened-to-contribution" -SectionContent $repositoriesOpenedToContributionsTable.ToString()
 
         $repositoriesOpenedToContributionsTable
     }
