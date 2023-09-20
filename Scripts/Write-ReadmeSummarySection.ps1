@@ -50,6 +50,9 @@ function Write-ReadmeSummarySection {
         # Get the percentage of referenced repositories with security policy enabled
         $securityPolicyEnabledPercentage = [math]::Round(($GitHubRepositoriesDetails | Where-Object { $_.isSecurityPolicyEnabled -eq $true } | Measure-Object | Select-Object -ExpandProperty Count) / $repositoriesCount * 100)
 
+        # Get the percentage of referenced repositories with a code of conduct based on the fact that the codeOfConduct property is not null
+        $codeOfConductEnabledPercentage = [math]::Round(($GitHubRepositoriesDetails | Where-Object { $_.codeOfConduct -ne $null } | Measure-Object | Select-Object -ExpandProperty Count) / $repositoriesCount * 100)
+
         # Configure summary badges
         $summaryBadgesCentered = "<h3 align='center'>`n"
 
@@ -57,7 +60,7 @@ function Write-ReadmeSummarySection {
         $summaryBadgesCentered += "  " + (New-ShieldIoBadge -AlternativeText "Opened Good First Issues Count Badge" -Message "Good First Issues" -Label $openedGoodFirstIssuesCount -Color "green" -OutputFormat "HTML") + "`n"
         $summaryBadgesCentered += "  " + (New-ShieldIoBadge -AlternativeText "Opened Help Wanted Issues Count Badge" -Message "Help Wanted Issues" -Label $openedHelpWantedIssuesCount -Color "blue" -OutputFormat "HTML") + "`n"
         $summaryBadgesCentered += "  " + (New-ShieldIoBadge -AlternativeText "Security Policy Enabled Percentage Badge" -Message "Security Policy Enabled Percentage" -Label $securityPolicyEnabledPercentage -Color "orange" -OutputFormat "HTML") + "`n"
-
+        $summaryBadgesCentered += "  " + (New-ShieldIoBadge -AlternativeText "Code of Conduct Enable Percentage Badge" -Message "Code of Conduct Enabled Percentage" -Label $codeOfConductEnabledPercentage -Color "9F2B63" -OutputFormat "HTML") + "`n"
         $summaryBadgesCentered += "</h3>`n`n"
 
         # Concatenate the topics property in the configuration file as static badges
