@@ -33,6 +33,12 @@ function ConvertTo-MarkdownTable {
         [psobject]$InputObject
     )
 
+    Begin {
+        # Initialize variables
+        $headersDone = $false
+        $pattern = '(?<!\\)\|'  # escape every '|' unless already escaped
+    }
+
     Process {
         # Check that the input object is of type psobject
         if ($InputObject.GetType().Name -ne 'PSCustomObject') {
@@ -44,11 +50,7 @@ function ConvertTo-MarkdownTable {
         if ($inputObjectAsJson -eq "{}" -or $inputObjectAsJson -eq "[]") {
             throw "The input object is empty."
         }
-
-        # Initialize variables
-        $headersDone = $false
-        $pattern = '(?<!\\)\|'  # escape every '|' unless already escaped
-
+        
         # If the headers are not configured yet, configure them
         if (!$headersDone) {
             $headersDone = $true

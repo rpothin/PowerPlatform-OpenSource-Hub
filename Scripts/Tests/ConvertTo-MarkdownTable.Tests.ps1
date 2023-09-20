@@ -52,7 +52,7 @@ Describe "ConvertTo-MarkdownTable Unit Tests" {
                 }
             )
             $result = $inputObject | ConvertTo-MarkdownTable
-            $result | Should -Be @('|Property1|Property2|Property3|', '|---------|---------|---------|', '|Value1|Value2|Value3|', '|Property1|Property2|Property3|', '|---------|---------|---------|', '|Value1|Value2|Value3|', '|Property1|Property2|Property3|', '|---------|---------|---------|', '|Value1|Value2|Value3|')
+            $result | Should -Be @('|Property1|Property2|Property3|', '|---------|---------|---------|', '|Value1|Value2|Value3|', '|Value1|Value2|Value3|', '|Value1|Value2|Value3|')
         }
     }
 }
