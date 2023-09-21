@@ -80,7 +80,7 @@
       "url": "https://api.github.com/licenses/mit"
     },
     "name": "Microsoft365DSC",
-    "openIssuesCount": 153,
+    "openIssuesCount": 152,
     "owner": {
       "id": "MDEyOk9yZ2FuaXphdGlvbjYxNTQ3MjI=",
       "is_bot": false,
@@ -174,7 +174,7 @@
       "name": "Other",
       "url": "https://github.com/microsoft/.github/blob/main/CODE_OF_CONDUCT.md"
     },
-    "forkCount": 1100,
+    "forkCount": 1101,
     "fundingLinks": [],
     "isSecurityPolicyEnabled": true,
     "isTemplate": false,
@@ -413,7 +413,7 @@
       "type": "Organization",
       "url": "https://github.com/alan-ai"
     },
-    "updatedAt": "2023-09-18T06:36:47Z",
+    "updatedAt": "2023-09-21T12:31:27Z",
     "url": "https://github.com/alan-ai/alan-sdk-pcf",
     "codeOfConduct": null,
     "forkCount": 0,
@@ -428,7 +428,7 @@
     },
     "primaryLanguage": null,
     "securityPolicyUrl": "",
-    "stargazerCount": 443,
+    "stargazerCount": 442,
     "watchers": {
       "totalCount": 9
     },
@@ -5461,7 +5461,7 @@
       "url": "https://api.github.com/licenses/mit"
     },
     "name": "PowerPlatform-ALM-With-GitHub-Template",
-    "openIssuesCount": 11,
+    "openIssuesCount": 12,
     "owner": {
       "id": "MDQ6VXNlcjIzMjQwMjQ1",
       "is_bot": false,
@@ -7395,6 +7395,78 @@
     "openedToContributionsIssues": 0
   },
   {
+    "createdAt": "2022-08-03T14:35:12Z",
+    "description": "One downloader for many scientific data and code repositories! DOI:open_hands:Data",
+    "fullName": "J535D165/datahugger",
+    "hasIssues": true,
+    "homepage": "https://J535D165.github.io/datahugger/",
+    "language": "Python",
+    "license": {
+      "key": "mit",
+      "name": "MIT License",
+      "url": "https://api.github.com/licenses/mit"
+    },
+    "name": "datahugger",
+    "openIssuesCount": 7,
+    "owner": {
+      "id": "MDQ6VXNlcjEyOTgxMTM5",
+      "is_bot": false,
+      "login": "J535D165",
+      "type": "User",
+      "url": "https://github.com/J535D165"
+    },
+    "updatedAt": "2023-09-21T14:45:18Z",
+    "url": "https://github.com/J535D165/datahugger",
+    "codeOfConduct": null,
+    "forkCount": 7,
+    "fundingLinks": [],
+    "isSecurityPolicyEnabled": false,
+    "isTemplate": false,
+    "latestRelease": {
+      "name": "v0.9",
+      "tagName": "v0.9",
+      "url": "https://github.com/J535D165/datahugger/releases/tag/v0.9",
+      "publishedAt": "2023-09-15T10:39:27Z"
+    },
+    "primaryLanguage": {
+      "name": "Python"
+    },
+    "securityPolicyUrl": "",
+    "stargazerCount": 22,
+    "watchers": {
+      "totalCount": 1
+    },
+    "topics": [
+      "scientific",
+      "scientific-data",
+      "cli",
+      "data",
+      "dataverse",
+      "dryad",
+      "figshare",
+      "github",
+      "python",
+      "repository",
+      "research",
+      "research-data-management",
+      "science",
+      "utrecht-university",
+      "zenodo",
+      "datacite",
+      "dataone",
+      "mendeley-data",
+      "rdm"
+    ],
+    "languages": [
+      "Python"
+    ],
+    "openedGoodFirstIssues": 0,
+    "hasGoodFirstIssues": false,
+    "openedHelpWantedIssues": 1,
+    "hasHelpWantedIssues": true,
+    "openedToContributionsIssues": 1
+  },
+  {
     "createdAt": "2019-03-23T12:04:57Z",
     "description": "This library provides an easy way to generate filtered data compatible with the Configuration Data Migration Tool. These zip files can be used to push specific records between Dynamics 365 environments using the Dynamics 365 Package Deployer.",
     "fullName": "abvogel/Microsoft.Xrm.DevOps.Data",
@@ -7451,78 +7523,6 @@
     "hasGoodFirstIssues": true,
     "openedHelpWantedIssues": 0,
     "hasHelpWantedIssues": false,
-    "openedToContributionsIssues": 1
-  },
-  {
-    "createdAt": "2022-08-03T14:35:12Z",
-    "description": "One downloader for many scientific data and code repositories! DOI:open_hands:Data",
-    "fullName": "J535D165/datahugger",
-    "hasIssues": true,
-    "homepage": "https://J535D165.github.io/datahugger/",
-    "language": "Python",
-    "license": {
-      "key": "mit",
-      "name": "MIT License",
-      "url": "https://api.github.com/licenses/mit"
-    },
-    "name": "datahugger",
-    "openIssuesCount": 7,
-    "owner": {
-      "id": "MDQ6VXNlcjEyOTgxMTM5",
-      "is_bot": false,
-      "login": "J535D165",
-      "type": "User",
-      "url": "https://github.com/J535D165"
-    },
-    "updatedAt": "2023-09-20T12:24:25Z",
-    "url": "https://github.com/J535D165/datahugger",
-    "codeOfConduct": null,
-    "forkCount": 7,
-    "fundingLinks": [],
-    "isSecurityPolicyEnabled": false,
-    "isTemplate": false,
-    "latestRelease": {
-      "name": "v0.9",
-      "tagName": "v0.9",
-      "url": "https://github.com/J535D165/datahugger/releases/tag/v0.9",
-      "publishedAt": "2023-09-15T10:39:27Z"
-    },
-    "primaryLanguage": {
-      "name": "Python"
-    },
-    "securityPolicyUrl": "",
-    "stargazerCount": 21,
-    "watchers": {
-      "totalCount": 1
-    },
-    "topics": [
-      "scientific",
-      "scientific-data",
-      "cli",
-      "data",
-      "dataverse",
-      "dryad",
-      "figshare",
-      "github",
-      "python",
-      "repository",
-      "research",
-      "research-data-management",
-      "science",
-      "utrecht-university",
-      "zenodo",
-      "datacite",
-      "dataone",
-      "mendeley-data",
-      "rdm"
-    ],
-    "languages": [
-      "Python"
-    ],
-    "openedGoodFirstIssues": 0,
-    "hasGoodFirstIssues": false,
-    "openedHelpWantedIssues": 1,
-    "hasHelpWantedIssues": true,
     "openedToContributionsIssues": 1
   },
   {
