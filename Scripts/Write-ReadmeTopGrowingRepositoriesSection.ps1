@@ -50,8 +50,8 @@ function Write-ReadmeTopGrowingRepositoriesSection {
             $_ | Add-Member -MemberType NoteProperty -Name popularityScoreGrowth -Value $popularityScoreGrowth
         }
 
-        # Sort the repositories by popularity score growth descendant and keep only the top 10
-        $topGrowingRepositories = $repositoriesDetailsWithPopularityScoreGrowth | Sort-Object popularityScoreGrowth -Descending | Select-Object -First 10
+        # Sort the repositories by popularity score growth descendant and keep only the top 10 and keep only those with a popularity score growth strictly greater than 0
+        $topGrowingRepositories = $repositoriesDetailsWithPopularityScoreGrowth | Sort-Object popularityScoreGrowth -Descending | Select-Object -First 10 | Where-Object popularityScoreGrowth -gt 0
 
         # Prepare the list of top growing repositories for the conversion in a markdown table
         $topGrowingRepositoriesPrepared = $topGrowingRepositories | Select-Object `
