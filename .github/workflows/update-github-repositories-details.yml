@@ -39,17 +39,17 @@ jobs:
       # Update the details of all the GitHub repositories corresponding to the list of considered topics
       - name: Update GitHub repositories details
         run: |
-          Write-Verbose "/********************************************************************************/"
-          Write-Verbose "Install required modules"
+          Write-Host "/********************************************************************************/"
+          Write-Host "Install required modules"
           Import-Module .\Scripts\Search-GitHubRepositories.ps1 -Force
           Import-Module .\Scripts\Get-GitHubRepositoryDetails.ps1 -Force
           Import-Module .\Scripts\Export-GitHubRepositoriesDetails.ps1 -Force
 
-          Write-Verbose "/********************************************************************************/"
-          Write-Verbose "Update GitHub repositories details"
+          Write-Host "/********************************************************************************/"
+          Write-Host "Update GitHub repositories details"
           $results = Export-GitHubRepositoriesDetails -ConfigurationFilePath "${{ vars.CONFIGURATION_FILE_PATH }}" -OutputFilePath "${{ vars.DATA_FILE_PATH }}"
 
-          Write-Verbose "Number of GitHub repositories updated: $($results.Count)"
+          Write-Host "Number of GitHub repositories updated: $($results.Count)"
         shell: pwsh
         env:
           GITHUB_TOKEN: ${{ secrets.PAT_ACCESS_PUBLIC_GITHUB_REPOSITORIES }}
@@ -58,12 +58,12 @@ jobs:
       - name: Take a snapshot of the popularity score of the referenced GitHub repositories
         if: ${{ steps.current_day_in_the_week.outputs.DAY }} -eq 'Thursday'
         run: |
-          Write-Verbose "/********************************************************************************/"
-          Write-Verbose "Install required modules"
+          Write-Host "/********************************************************************************/"
+          Write-Host "Install required modules"
           Import-Module .\Scripts\Export-GitHubRepositoriesPopularityScore.ps1 -Force
 
-          Write-Verbose "/********************************************************************************/"
-          Write-Verbose "Take a snapshot of the popularity score of the referenced GitHub repositories"
+          Write-Host "/********************************************************************************/"
+          Write-Host "Take a snapshot of the popularity score of the referenced GitHub repositories"
           $results = Export-GitHubRepositoriesPopularityScore -InputFilePath "${{ vars.DATA_FILE_PATH }}" -OutputFilePath "${{ vars.DATA_SNAPSHOT_FILE_PATH }}"
         shell: pwsh
 
