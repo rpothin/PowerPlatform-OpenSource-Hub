@@ -100,6 +100,19 @@ Describe "Get-GitHubRepositoryDetails Unit Test" {
                         'languages2': '456'
                     }"
                 }
+                elseif ($Command -eq 'issue') {
+                    # If the 'gh' command was called with 'api repos', return this mock data
+                    return "[
+                        {
+                            'number': '123',
+                            'title': '456'
+                        },
+                        {
+                            'number': '123',
+                            'title': '456'
+                        }
+                    ]"
+                }
             }
         }
 
@@ -125,6 +138,79 @@ Describe "Get-GitHubRepositoryDetails Unit Test" {
             $result.watchers.totalCount | Should -Be 0
             $result.topics[0] | Should -Be "topic1"
             $result.topics[1] | Should -Be "topic2"
+            $result.hasGoodFirstIssues | Should -Be $true
+            $result.openedGoodFirstIssues | Should -Be 2
+            $result.hasHelpWantedIssues | Should -Be $true
+            $result.openedHelpWantedIssues | Should -Be 2
+            $result.openedToContributionsIssues | Should -Be 4
+        }
+    }
+
+    Context "Valid execution for an existing repository with issues disabled" {
+        BeforeEach {
+            Mock gh {
+                # Check the parameters that were passed to the 'gh' command
+                param($Command, $Param1)
+
+                if ($Command -eq 'repo') {
+                    # If the 'gh' command was called with 'repo view', return this mock data as a multi-line JSON structure as a string
+                    return "{
+                        'codeOfConduct': {
+                            'key': 'anon_covenant',
+                            'name': 'Anon Covenant',
+                            'url': 'https://anon.com/AnonCovenant.md'
+                        },
+                        'forkCount': 0,
+                        'fundingLinks': [],
+                        'isSecurityPolicyEnabled': true,
+                        'isTemplate': false,
+                        'latestRelease': {
+                            'name': 'Release 1.0.0',
+                            'tagName': '1.0.0',
+                            'url': 'https://anon.com/anon/anon/releases/tag/1.0.0',
+                            'publishedAt': '2000-01-01T00:00:00Z'
+                        },
+                        'primaryLanguage': {
+                            'name': 'AnonScript'
+                        },
+                        'repositoryTopics': [
+                            {
+                            'name': 'anon'
+                            }
+                        ],
+                        'securityPolicyUrl': 'https://anon.com/anon/anon/security/policy',
+                        'stargazerCount': 0,
+                        'watchers': {
+                            'totalCount': 0
+                        }
+                    }"
+                }
+                elseif ($Command -eq 'api' -and $Param1 -eq 'repos/anon/repo/topics') {
+                    # If the 'gh' command was called with 'api repos', return this mock data
+                    return "{
+                        'names': [
+                            'topic1',
+                            'topic2',
+                            'topic3',
+                            'topic4'
+                        ]
+                    }"
+                }
+                elseif ($Command -eq 'api' -and $Param1 -eq 'repos/anon/repo/languages') {
+                    # If the 'gh' command was called with 'api repos', return this mock data
+                    return "{
+                        'languages1': '123',
+                        'languages2': '456'
+                    }"
+                }
+                elseif ($Command -eq 'issue') {
+                    break # To simulate a repository with issues disabled, we break the loop and do not return any issue
+                }
+            }
+        }
+
+        It "Should return the details of the considered GitHub repository if it exists but has issues disabled" {
+            $result = Get-GitHubRepositoryDetails -RepositoryFullName "anon/repo"
             $result.hasGoodFirstIssues | Should -Be $false
             $result.openedGoodFirstIssues | Should -Be 0
             $result.hasHelpWantedIssues | Should -Be $false

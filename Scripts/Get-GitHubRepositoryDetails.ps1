@@ -85,15 +85,12 @@ function Get-GitHubRepositoryDetails {
             $repositoryDetails | Add-Member -MemberType NoteProperty -Name "languages" -Value $repositoryLanguages
 
             # Get the number of good first issues for the repository
-            $repositoryGoodFirstIssues = gh issue list --repo $($RepositoryFullName) --state open --label "good first issue" --json number,title | ConvertFrom-Json
+            $repositoryGoodFirstIssuesAsJson = gh issue list --repo $($RepositoryFullName) --state open --label "good first issue" --json number,title
 
-            # Management of the case where considered repository has disabled issues - contains 'repository has disabled issues'
-            if ($repositoryGoodFirstIssues -contains 'repository has disabled issues') {
-                $repositoryDetails | Add-Member -MemberType NoteProperty -Name openedGoodFirstIssues -Value 0
-                $repositoryDetails | Add-Member -MemberType NoteProperty -Name hasGoodFirstIssues -Value $false
-                $repositoryDetails | Add-Member -MemberType NoteProperty -Name openedHelpWantedIssues -Value 0
-                $repositoryDetails | Add-Member -MemberType NoteProperty -Name hasHelpWantedIssues -Value $false
-            } else {
+            # Management of the case where considered repository has disabled issues - output of the previous command 'repository has disabled issues'
+            Write-Host $? # 0 if the command was successful, 1 if the command failed
+            if ($?) {
+                $repositoryGoodFirstIssues = $repositoryGoodFirstIssuesAsJson | ConvertFrom-Json
                 $repositoryDetails | Add-Member -MemberType NoteProperty -Name openedGoodFirstIssues -Value $repositoryGoodFirstIssues.count
     
                 if ($repositoryGoodFirstIssues.count -gt 0) {
@@ -113,7 +110,12 @@ function Get-GitHubRepositoryDetails {
                 else {
                     $repositoryDetails | Add-Member -MemberType NoteProperty -Name hasHelpWantedIssues -Value $false
                 }
-            }    
+            } else {
+                $repositoryDetails | Add-Member -MemberType NoteProperty -Name openedGoodFirstIssues -Value 0
+                $repositoryDetails | Add-Member -MemberType NoteProperty -Name hasGoodFirstIssues -Value $false
+                $repositoryDetails | Add-Member -MemberType NoteProperty -Name openedHelpWantedIssues -Value 0
+                $repositoryDetails | Add-Member -MemberType NoteProperty -Name hasHelpWantedIssues -Value $false
+            }  
             
             $repositoryDetails | Add-Member -MemberType ScriptProperty -Name openedToContributionsIssues -Value {$this.openedGoodFirstIssues + $this.openedHelpWantedIssues}
         }
