@@ -30,11 +30,12 @@ function Get-GitHubRepositoryDetails {
                 stargazerCount          : 123
                 watchers                : @{totalCount=12}
                 topics                  : {topic1, topic2, topic3, topic4…}
-                hasGoodFirstIssues  : False
-                openedGoodFirstIssues : 0
-                hasHelpWantedIssues : True
-                openedHelpWantedIssues : 1
-                openedToContributionsIssues : 1
+                hasGoodFirstIssues      : False
+                openedGoodFirstIssues   : 0
+                hasHelpWantedIssues     : True
+                openedHelpWantedIssues  : 1
+                openedToContributionsIssues  : 1
+                popularityScore         : 135
     #>
 
     [CmdletBinding()]
@@ -117,6 +118,7 @@ function Get-GitHubRepositoryDetails {
             }  
             
             $repositoryDetails | Add-Member -MemberType ScriptProperty -Name openedToContributionsIssues -Value {$this.openedGoodFirstIssues + $this.openedHelpWantedIssues}
+            $repositoryDetails | Add-Member -MemberType ScriptProperty -Name popularityScore -Value {$this.stargazerCount + $this.watchers.totalCount}
         }
 
         # Return the details of the GitHub repository

@@ -76,9 +76,9 @@ Describe "Get-GitHubRepositoryDetails Unit Tests" {
                             }
                         ],
                         'securityPolicyUrl': 'https://anon.com/anon/anon/security/policy',
-                        'stargazerCount': 0,
+                        'stargazerCount': 5,
                         'watchers': {
-                            'totalCount': 0
+                            'totalCount': 3
                         }
                     }"
                 }
@@ -134,8 +134,8 @@ Describe "Get-GitHubRepositoryDetails Unit Tests" {
             $result.primaryLanguage.name | Should -Be "AnonScript"
             $result.repositoryTopics[0].name | Should -Be "anon"
             $result.securityPolicyUrl | Should -Be "https://anon.com/anon/anon/security/policy"
-            $result.stargazerCount | Should -Be 0
-            $result.watchers.totalCount | Should -Be 0
+            $result.stargazerCount | Should -Be 5
+            $result.watchers.totalCount | Should -Be 3
             $result.topics[0] | Should -Be "topic1"
             $result.topics[1] | Should -Be "topic2"
             $result.hasGoodFirstIssues | Should -Be $true
@@ -143,6 +143,7 @@ Describe "Get-GitHubRepositoryDetails Unit Tests" {
             $result.hasHelpWantedIssues | Should -Be $true
             $result.openedHelpWantedIssues | Should -Be 2
             $result.openedToContributionsIssues | Should -Be 4
+            $result.popularityScore | Should -Be 8
         }
     }
 

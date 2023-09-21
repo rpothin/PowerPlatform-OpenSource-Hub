@@ -113,7 +113,8 @@ Describe "Export-GitHubRepositoriesPopularityScore Unit Tests" {
                     'hasGoodFirstIssues': false,
                     'openedHelpWantedIssues': 2,
                     'hasHelpWantedIssues': true,
-                    'openedToContributionsIssues': 2
+                    'openedToContributionsIssues': 2,
+                    'popularityScore': 1229
                   },
                   {
                     'createdAt': '2020-07-20T18:51:25Z',
@@ -179,7 +180,8 @@ Describe "Export-GitHubRepositoriesPopularityScore Unit Tests" {
                     'hasGoodFirstIssues': true,
                     'openedHelpWantedIssues': 0,
                     'hasHelpWantedIssues': false,
-                    'openedToContributionsIssues': 4
+                    'openedToContributionsIssues': 4,
+                    'popularityScore': 362
                   }
                 ]"
             }
@@ -193,7 +195,7 @@ Describe "Export-GitHubRepositoriesPopularityScore Unit Tests" {
             $result = Export-GitHubRepositoriesPopularityScore -InputFilePath $inputFilePath -OutputFilePath $outputFilePath
             $result.Count | Should -Be 2
             $result[0].fullName | Should -Be "microsoft/Microsoft365DSC"
-            $result[0].popularityScore | Should -Be 1219
+            $result[0].popularityScore | Should -Be 1229
             $result[1].fullName | Should -Be "Azure/azure-functions-openapi-extension"
             $result[1].popularityScore | Should -Be 362
         }

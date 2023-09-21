@@ -55,9 +55,7 @@ function Export-GitHubRepositoriesPopularityScore {
         $repositories = Get-Content -Path $InputFilePath | ConvertFrom-Json
 
         # Calculate the popularity score for each repository
-        $repositoriesWithPopularityScore = $repositories | Select-Object `
-            fullName, `
-            @{Name="popularityScore";Expression={$_.stargazerCount + $_.watchers.totalCount}}
+        $repositoriesWithPopularityScore = $repositories | Select-Object fullName, popularityScore
 
         # Sort the repositories by popularity score descendant
         $repositoriesWithPopularityScore = $repositoriesWithPopularityScore | Sort-Object -Property popularityScore -Descending
