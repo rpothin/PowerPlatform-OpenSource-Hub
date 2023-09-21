@@ -24,7 +24,13 @@
 
 ## 🏡 What is the PowerPlatform-OpenSource-Hub project?
 
-Thinking in progress... 🤔
+Having a thriving open-source ecosystem is a team sport.
+The Power Platform community should feel lucky, because we already have amazing open-source projects.
+
+But it is not necessarily simple to navigate into this amazing world full of opportunities.
+The goal of this repository is to try to simplify your journey in Power Platform open-source ecosystem and also to help accelerate its growth.
+
+From projects opened to contributions to top growing repositories you should be able to find your next adventure here.
 
 ## 🌎 Power Platform 
 
