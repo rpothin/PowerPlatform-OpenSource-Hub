@@ -36,7 +36,7 @@ jobs:
 
       # If the current day in the week is Monday, take a snapshot of the popularity score of the referenced GitHub repositories - For the tests we will configure the step for the next day (Thursday)
       - name: Take a snapshot of the popularity score of the referenced GitHub repositories
-        if: ${{ steps.current_day_in_the_week.outputs.DAY }} -eq 'Thursday'
+        if: ${{ steps.current_day_in_the_week.outputs.DAY }} -eq 'Monday'
         run: |
           Write-Host "/********************************************************************************/"
           Write-Host "Install required modules"
