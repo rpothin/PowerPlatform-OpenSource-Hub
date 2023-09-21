@@ -7,7 +7,7 @@ on:
     - cron: "0 11 * * *" # Every day at 06:00 AM EST
   workflow_dispatch:
 
-# Concurrency configuration for the current workflow - Keep only the latest workflow queued for the considered group and the considered issue
+# Concurrency configuration for the current workflow - Keep only the latest workflow queued for the considered group
 concurrency:
   group: update-github-repositories-details
   cancel-in-progress: true
