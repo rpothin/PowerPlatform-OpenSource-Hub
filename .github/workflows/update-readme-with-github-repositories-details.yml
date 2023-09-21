@@ -69,14 +69,20 @@ jobs:
           Write-Host "/********************************************************************************/"
           Write-Host "Install required modules"
           Import-Module .\Scripts\Write-MarkdownSection.ps1 -Force
+          Import-Module .\Scripts\New-ShieldIoBadge.ps1 -Force
+          Import-Module .\Scripts\ConvertTo-MarkdownTable.ps1 -Force
+          Import-Module .\Scripts\Write-ReadmeTopGrowingRepositoriesSection.ps1 -Force
 
           Write-Host "/********************************************************************************/"
           Write-Host "Get repositories details"
           $repositoriesDetails = Get-Content -Path "${{ vars.DATA_FILE_PATH }}" | ConvertFrom-Json
 
+          Write-Host "Get latest snapshot of the popularity score of the GitHub repositories"
+          $repositoriesPopularityScoresSnapshot = Get-Content -Path "${{ vars.DATA_SNAPSHOT_FILE_PATH }}" | ConvertFrom-Json
+
           Write-Host "/********************************************************************************/"
-          Write-Host "Update the list of top growing repositories"
-          # Update the growing counter for each repository to do in the update-github-repositories-details workflow - Refresh of the base every Tuesday
+          Write-Host "Update list of top growing repositories"
+          Write-ReadmeTopGrowingRepositoriesSection -GitHubRepositoriesDetails $repositoriesDetails -GitHubRepositoriesPopularityScoresSnapshot $repositoriesPopularityScoresSnapshot
         shell: pwsh
 
       # Push the changes in the current repository
