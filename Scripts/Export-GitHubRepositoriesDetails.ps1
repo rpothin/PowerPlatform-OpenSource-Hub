@@ -105,7 +105,7 @@ function Export-GitHubRepositoriesDetails {
             if ($repositoriesFound.count -eq $repositoriesSearchCriterion.SearchLimit) {
                 Write-Warning -Message "The number of repositories found for the topic '$($repositoriesSearchCriterion.Topic)' is equal to the search limit of $($repositoriesSearchCriterion.SearchLimit)."
             } else {
-                Write-Host "Number of repositories found for the topic '$($repositoriesSearchCriterion.Topic)': $($repositoriesFound.count)"
+                Write-Host "Number of repositories found for the topic '$($repositoriesSearchCriterion.Topic)': $($repositoriesFound.count) / $($repositoriesSearchCriterion.SearchLimit)"
             }
             
             # Add these repositories to the array of results
