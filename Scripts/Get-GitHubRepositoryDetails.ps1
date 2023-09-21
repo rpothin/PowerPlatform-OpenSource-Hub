@@ -86,27 +86,36 @@ function Get-GitHubRepositoryDetails {
 
             # Get the number of good first issues for the repository
             $repositoryGoodFirstIssues = gh issue list --repo $($RepositoryFullName) --state open --label "good first issue" --json number,title | ConvertFrom-Json
-            $repositoryDetails | Add-Member -MemberType NoteProperty -Name openedGoodFirstIssues -Value $repositoryGoodFirstIssues.count
-    
-            if ($repositoryGoodFirstIssues.count -gt 0) {
-                $repositoryDetails | Add-Member -MemberType NoteProperty -Name hasGoodFirstIssues -Value $true
-            }
-            else {
+
+            # Management of the case where considered repository has disabled issues - contains 'repository has disabled issues'
+            if ($repositoryGoodFirstIssues -contains 'repository has disabled issues') {
+                $repositoryDetails | Add-Member -MemberType NoteProperty -Name openedGoodFirstIssues -Value 0
                 $repositoryDetails | Add-Member -MemberType NoteProperty -Name hasGoodFirstIssues -Value $false
-            }
-    
-            # Get the number of help wanted issues for the repository
-            $repositoryHelpWantedIssues = gh issue list --repo $($RepositoryFullName) --state open --label "help wanted" --json number,title | ConvertFrom-Json
-            $repositoryDetails | Add-Member -MemberType NoteProperty -Name openedHelpWantedIssues -Value $repositoryHelpWantedIssues.count
-    
-            if ($repositoryHelpWantedIssues.count -gt 0) {
-                $repositoryDetails | Add-Member -MemberType NoteProperty -Name hasHelpWantedIssues -Value $true
-            }
-            else {
+                $repositoryDetails | Add-Member -MemberType NoteProperty -Name openedHelpWantedIssues -Value 0
                 $repositoryDetails | Add-Member -MemberType NoteProperty -Name hasHelpWantedIssues -Value $false
-            }
+            } else {
+                $repositoryDetails | Add-Member -MemberType NoteProperty -Name openedGoodFirstIssues -Value $repositoryGoodFirstIssues.count
     
-            $repositoryDetails | Add-Member -MemberType ScriptProperty -Name openedToContributionsIssues -Value {$this.openedGoodFirstIssues + $this.openedHelpWantedIssues}         
+                if ($repositoryGoodFirstIssues.count -gt 0) {
+                    $repositoryDetails | Add-Member -MemberType NoteProperty -Name hasGoodFirstIssues -Value $true
+                }
+                else {
+                    $repositoryDetails | Add-Member -MemberType NoteProperty -Name hasGoodFirstIssues -Value $false
+                }
+        
+                # Get the number of help wanted issues for the repository
+                $repositoryHelpWantedIssues = gh issue list --repo $($RepositoryFullName) --state open --label "help wanted" --json number,title | ConvertFrom-Json
+                $repositoryDetails | Add-Member -MemberType NoteProperty -Name openedHelpWantedIssues -Value $repositoryHelpWantedIssues.count
+        
+                if ($repositoryHelpWantedIssues.count -gt 0) {
+                    $repositoryDetails | Add-Member -MemberType NoteProperty -Name hasHelpWantedIssues -Value $true
+                }
+                else {
+                    $repositoryDetails | Add-Member -MemberType NoteProperty -Name hasHelpWantedIssues -Value $false
+                }
+            }    
+            
+            $repositoryDetails | Add-Member -MemberType ScriptProperty -Name openedToContributionsIssues -Value {$this.openedGoodFirstIssues + $this.openedHelpWantedIssues}
         }
 
         # Return the details of the GitHub repository

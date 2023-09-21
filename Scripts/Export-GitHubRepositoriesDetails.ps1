@@ -98,7 +98,7 @@ function Export-GitHubRepositoriesDetails {
             if ($repositoriesFound.count -eq $repositoriesSearchCriterion.SearchLimit) {
                 Write-Warning -Message "The number of repositories found for the topic '$($repositoriesSearchCriterion.Topic)' is equal to the search limit of $($repositoriesSearchCriterion.SearchLimit)."
             } else {
-                Write-Host "Number of repositories found for the topic '$($repositoriesSearchCriterion.Topic)': $($repositoriesFound.count)"
+                Write-Verbose "Number of repositories found for the topic '$($repositoriesSearchCriterion.Topic)': $($repositoriesFound.count)"
             }
             
             # Add these repositories to the array of results
@@ -106,13 +106,13 @@ function Export-GitHubRepositoriesDetails {
         }
 
         # Validate the number of objects in the array of results before removing duplicates and write this count as verbose
-        Write-Host -Message "Total number of repositories found: $($repositories.count)"
+        Write-Verbose -Message "Total number of repositories found: $($repositories.count)"
 
         # Remove duplicates from the array of results
         $repositories = $repositories | Sort-Object -Property fullName | Get-Unique -AsString
         
         # Validate the number of objects in the array of results after removing duplicates and write this count as verbose
-        Write-Host -Message "Number of repositories after removing duplicates: $($repositories.count)"
+        Write-Verbose -Message "Number of repositories after removing duplicates: $($repositories.count)"
 
         # For each repository in the array of results, get the details
         foreach ($repository in $repositories) {

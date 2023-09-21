@@ -33,17 +33,17 @@ jobs:
       # Update the details of all the GitHub repositories corresponding to the list of considered topics
       - name: Update GitHub repositories details
         run: |
-          Write-Host "/********************************************************************************/"
-          Write-Host "Install required modules"
+          Write-Verbose "/********************************************************************************/"
+          Write-Verbose "Install required modules"
           Import-Module .\Scripts\Search-GitHubRepositories.ps1 -Force
           Import-Module .\Scripts\Get-GitHubRepositoryDetails.ps1 -Force
           Import-Module .\Scripts\Export-GitHubRepositoriesDetails.ps1 -Force
 
-          Write-Host "/********************************************************************************/"
-          Write-Host "Update GitHub repositories details"
+          Write-Verbose "/********************************************************************************/"
+          Write-Verbose "Update GitHub repositories details"
           $results = Export-GitHubRepositoriesDetails -ConfigurationFilePath "${{ vars.CONFIGURATION_FILE_PATH }}" -OutputFilePath "${{ vars.DATA_FILE_PATH }}"
 
-          Write-Host "Number of GitHub repositories updated: $($results.Count)"
+          Write-Verbose "Number of GitHub repositories updated: $($results.Count)"
         shell: pwsh
         env:
           GITHUB_TOKEN: ${{ secrets.PAT_ACCESS_PUBLIC_GITHUB_REPOSITORIES }}

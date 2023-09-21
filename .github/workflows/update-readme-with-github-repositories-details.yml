@@ -37,27 +37,27 @@ jobs:
       # Update summary and repositories opened to contributions in README
       - name: Update summary and repositories opened to contributions
         run: |
-          Write-Host "/********************************************************************************/"
-          Write-Host "Install required modules"
+          Write-Verbose "/********************************************************************************/"
+          Write-Verbose "Install required modules"
           Import-Module .\Scripts\Write-MarkdownSection.ps1 -Force
           Import-Module .\Scripts\New-ShieldIoBadge.ps1 -Force
           Import-Module .\Scripts\ConvertTo-MarkdownTable.ps1 -Force
           Import-Module .\Scripts\Write-ReadmeSummarySection.ps1 -Force
           Import-Module .\Scripts\Write-ReadmeRepositoriesOpenedToContributionsSection.ps1 -Force
 
-          Write-Host "/********************************************************************************/"
-          Write-Host "Get search criteria details"
+          Write-Verbose "/********************************************************************************/"
+          Write-Verbose "Get search criteria details"
           $topics = Get-Content -Path "${{ vars.CONFIGURATION_FILE_PATH }}" | ConvertFrom-Json
           
-          Write-Host "Get repositories details"
+          Write-Verbose "Get repositories details"
           $repositoriesDetails = Get-Content -Path "${{ vars.DATA_FILE_PATH }}" | ConvertFrom-Json
 
-          Write-Host "/********************************************************************************/"
-          Write-Host "Update summary"
+          Write-Verbose "/********************************************************************************/"
+          Write-Verbose "Update summary"
           Write-ReadmeSummarySection -GitHubRepositoriesDetails $repositoriesDetails -Topics $topics
 
-          Write-Host "/********************************************************************************/"
-          Write-Host "Update list of repositories opened to contributions"
+          Write-Verbose "/********************************************************************************/"
+          Write-Verbose "Update list of repositories opened to contributions"
           Write-ReadmeRepositoriesOpenedToContributionsSection -GitHubRepositoriesDetails $repositoriesDetails
         shell: pwsh
 
@@ -65,17 +65,17 @@ jobs:
       - name: Update list of top growing repositories
         if: ${{ steps.current_day_in_the_week.outputs.DAY == 'Monday' }}
         run: |
-          Write-Host "Current day of the week: ${{ steps.current_day_in_the_week.outputs.DAY }}"
-          Write-Host "/********************************************************************************/"
-          Write-Host "Install required modules"
+          Write-Verbose "Current day of the week: ${{ steps.current_day_in_the_week.outputs.DAY }}"
+          Write-Verbose "/********************************************************************************/"
+          Write-Verbose "Install required modules"
           Import-Module .\Scripts\Write-MarkdownSection.ps1 -Force
 
-          Write-Host "/********************************************************************************/"
-          Write-Host "Get repositories details"
+          Write-Verbose "/********************************************************************************/"
+          Write-Verbose "Get repositories details"
           $repositoriesDetails = Get-Content -Path "${{ vars.DATA_FILE_PATH }}" | ConvertFrom-Json
 
-          Write-Host "/********************************************************************************/"
-          Write-Host "Update the list of top growing repositories"
+          Write-Verbose "/********************************************************************************/"
+          Write-Verbose "Update the list of top growing repositories"
           # Update the growing counter for each repository to do in the update-github-repositories-details workflow - Refresh of the base every Tuesday
         shell: pwsh
 
