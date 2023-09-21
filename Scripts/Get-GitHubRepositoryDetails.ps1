@@ -88,7 +88,6 @@ function Get-GitHubRepositoryDetails {
             $repositoryGoodFirstIssuesAsJson = gh issue list --repo $($RepositoryFullName) --state open --label "good first issue" --json number,title
 
             # Management of the case where considered repository has disabled issues - output of the previous command 'repository has disabled issues'
-            Write-Host $? # 0 if the command was successful, 1 if the command failed
             if ($?) {
                 $repositoryGoodFirstIssues = $repositoryGoodFirstIssuesAsJson | ConvertFrom-Json
                 $repositoryDetails | Add-Member -MemberType NoteProperty -Name openedGoodFirstIssues -Value $repositoryGoodFirstIssues.count
