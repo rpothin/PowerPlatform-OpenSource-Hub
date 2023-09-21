@@ -88,12 +88,17 @@ function Export-GitHubRepositoriesDetails {
 
         # Go through the topics in the configuration file
         foreach ($repositoriesSearchCriterion in $repositoriesSearchCriteria) {
+            # Check the consumption of the GitHub API rate limit
+            (gh api /rate_limit | ConvertFrom-Json).resources
+
             # Search GitHub repositories based on the topic and the search limit defined in the configuration file
             $repositoriesFound = Search-GitHubRepositories -Topic $repositoriesSearchCriterion.Topic -SearchLimit $repositoriesSearchCriterion.SearchLimit
 
             # If number of repositories found is equal to the search limit, write a warning
             if ($repositoriesFound.count -eq $repositoriesSearchCriterion.SearchLimit) {
                 Write-Warning -Message "The number of repositories found for the topic '$($repositoriesSearchCriterion.Topic)' is equal to the search limit of $($repositoriesSearchCriterion.SearchLimit)."
+            } else {
+                Write-Host "Number of repositories found for the topic '$($repositoriesSearchCriterion.Topic)': $($repositoriesFound.count)"
             }
             
             # Add these repositories to the array of results
@@ -101,16 +106,19 @@ function Export-GitHubRepositoriesDetails {
         }
 
         # Validate the number of objects in the array of results before removing duplicates and write this count as verbose
-        Write-Verbose -Message "Number of repositories found: $($repositories.count)"
+        Write-Host -Message "Total number of repositories found: $($repositories.count)"
 
         # Remove duplicates from the array of results
         $repositories = $repositories | Sort-Object -Property fullName | Get-Unique -AsString
         
         # Validate the number of objects in the array of results after removing duplicates and write this count as verbose
-        Write-Verbose -Message "Number of repositories after removing duplicates: $($repositories.count)"
+        Write-Host -Message "Number of repositories after removing duplicates: $($repositories.count)"
 
         # For each repository in the array of results, get the details
         foreach ($repository in $repositories) {
+            # Check the consumption of the GitHub API rate limit
+            (gh api /rate_limit | ConvertFrom-Json).resources
+
             $repositoryDetails = Get-GitHubRepositoryDetails -RepositoryFullName $repository.fullName
 
             # Add the details to the information we already have about the repository

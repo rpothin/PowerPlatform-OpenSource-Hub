@@ -30,6 +30,11 @@ function Get-GitHubRepositoryDetails {
                 stargazerCount          : 123
                 watchers                : @{totalCount=12}
                 topics                  : {topic1, topic2, topic3, topic4…}
+                hasGoodFirstIssues  : False
+                openedGoodFirstIssues : 0
+                hasHelpWantedIssues : True
+                openedHelpWantedIssues : 1
+                openedToContributionsIssues : 1
     #>
 
     [CmdletBinding()]
@@ -77,7 +82,31 @@ function Get-GitHubRepositoryDetails {
                 $repositoryLanguages += $_.Name
             }
 
-            $repositoryDetails | Add-Member -MemberType NoteProperty -Name "languages" -Value $repositoryLanguages            
+            $repositoryDetails | Add-Member -MemberType NoteProperty -Name "languages" -Value $repositoryLanguages
+
+            # Get the number of good first issues for the repository
+            $repositoryGoodFirstIssues = gh issue list --repo $($RepositoryFullName) --state open --label "good first issue" --json number,title | ConvertFrom-Json
+            $repositoryDetails | Add-Member -MemberType NoteProperty -Name openedGoodFirstIssues -Value $repositoryGoodFirstIssues.count
+    
+            if ($repositoryGoodFirstIssues.count -gt 0) {
+                $repositoryDetails | Add-Member -MemberType NoteProperty -Name hasGoodFirstIssues -Value $true
+            }
+            else {
+                $repositoryDetails | Add-Member -MemberType NoteProperty -Name hasGoodFirstIssues -Value $false
+            }
+    
+            # Get the number of help wanted issues for the repository
+            $repositoryHelpWantedIssues = gh issue list --repo $($RepositoryFullName) --state open --label "help wanted" --json number,title | ConvertFrom-Json
+            $repositoryDetails | Add-Member -MemberType NoteProperty -Name openedHelpWantedIssues -Value $repositoryHelpWantedIssues.count
+    
+            if ($repositoryHelpWantedIssues.count -gt 0) {
+                $repositoryDetails | Add-Member -MemberType NoteProperty -Name hasHelpWantedIssues -Value $true
+            }
+            else {
+                $repositoryDetails | Add-Member -MemberType NoteProperty -Name hasHelpWantedIssues -Value $false
+            }
+    
+            $repositoryDetails | Add-Member -MemberType ScriptProperty -Name openedToContributionsIssues -Value {$this.openedGoodFirstIssues + $this.openedHelpWantedIssues}         
         }
 
         # Return the details of the GitHub repository

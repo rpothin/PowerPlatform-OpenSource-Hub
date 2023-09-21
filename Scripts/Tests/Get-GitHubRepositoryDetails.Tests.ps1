@@ -125,6 +125,11 @@ Describe "Get-GitHubRepositoryDetails Unit Test" {
             $result.watchers.totalCount | Should -Be 0
             $result.topics[0] | Should -Be "topic1"
             $result.topics[1] | Should -Be "topic2"
+            $result.hasGoodFirstIssues | Should -Be $false
+            $result.openedGoodFirstIssues | Should -Be 0
+            $result.hasHelpWantedIssues | Should -Be $false
+            $result.openedHelpWantedIssues | Should -Be 0
+            $result.openedToContributionsIssues | Should -Be 0
         }
     }
 }

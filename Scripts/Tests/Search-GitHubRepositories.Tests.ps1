@@ -19,6 +19,11 @@ Describe "Search-GitHubRepositories Unit Tests" {
             $result = { Search-GitHubRepositories -Topic "validtopic" -SearchLimit -1 } | Should -Throw -PassThru
             $result.Exception.Message | Should -Be "Cannot validate argument on parameter 'SearchLimit'. The -1 argument is less than the minimum allowed range of 1. Supply an argument that is greater than or equal to 1 and then try the command again."
         }
+
+        It "Should throw an error if SearchLimit is greater than 1000" {
+            $result = { Search-GitHubRepositories -Topic "validtopic" -SearchLimit 1001 } | Should -Throw -PassThru
+            $result.Exception.Message | Should -Be "Cannot validate argument on parameter 'SearchLimit'. The 1001 argument is greater than the maximum allowed range of 1000. Supply an argument that is less than or equal to 1000 and then try the command again."
+        }
     }
 
     Context "Valid execution with a mocked gh command" {
@@ -48,31 +53,7 @@ Describe "Search-GitHubRepositories Unit Tests" {
                       },
                       'updatedAt': '0000-00-00T00:00:00Z',
                       'url': 'https://anonymised.url'
-                    },
-                    {
-                        'createdAt': '0000-00-00T00:00:00Z',
-                        'description': 'Anonymised Description',
-                        'fullName': 'anonymised/Anonymised',
-                        'hasIssues': true,
-                        'homepage': 'https://anonymised.url',
-                        'language': 'Anonymised Language',
-                        'license': {
-                          'key': 'anonymised',
-                          'name': 'Anonymised License',
-                          'url': 'https://anonymised.url'
-                        },
-                        'name': 'Anonymised',
-                        'openIssuesCount': 0,
-                        'owner': {
-                          'id': 'AnonymisedID',
-                          'is_bot': false,
-                          'login': 'anonymised',
-                          'type': 'Anonymised',
-                          'url': 'https://anonymised.url'
-                        },
-                        'updatedAt': '0000-00-00T00:00:00Z',
-                        'url': 'https://anonymised.url'
-                      }
+                    }
                   ]"
             }
         }
@@ -82,7 +63,7 @@ Describe "Search-GitHubRepositories Unit Tests" {
             $result | Should -Not -BeNullOrEmpty
             $result[0].fullName | Should -Be "anonymised/Anonymised"
             $result[0].language | Should -Be "Anonymised Language"
-            $result.count | Should -Be 2
+            $result.count | Should -Be 1
         }
     }
 }

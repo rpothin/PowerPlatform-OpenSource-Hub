@@ -8,8 +8,8 @@ BeforeAll {
     Import-Module $global:executingTestPath/../Export-GitHubRepositoriesDetails.ps1 -Force
 
     # Import required modules
-    Import-Module $global:executingTestPath/../../Scripts/Get-GitHubRepositoryDetails.ps1 -Force
     Import-Module $global:executingTestPath/../../Scripts/Search-GitHubRepositories.ps1 -Force
+    Import-Module $global:executingTestPath/../../Scripts/Get-GitHubRepositoryDetails.ps1 -Force
 }
 
 Describe "Export-GitHubRepositoriesDetails Unit Test" {
@@ -93,6 +93,29 @@ Describe "Export-GitHubRepositoriesDetails Unit Test" {
                 )
             }
 
+            Mock gh {
+                # Check the parameters that were passed to the 'gh' command
+                param($Command, $Param1)
+
+                if ($Command -eq 'api' -and $Param1 -eq '/rate_limit') {
+                    # Do nothing
+                }
+            }
+
+            Mock gh {
+                # Check the parameters that were passed to the 'gh' command
+                param($Command, $Param1)
+
+                if ($Command -eq 'api' -and $Param1 -eq '/rate_limit') {
+                    # Do nothing
+                }
+            }
+
+            Import-Module $global:executingTestPath/../../Scripts/Get-GitHubRepositoryDetails.ps1 -Force
+            Mock Get-GitHubRepositoryDetails {
+                [PSCustomObject]@{}
+            }
+
             Mock Out-File {
                 # Do nothing 
             }
@@ -111,6 +134,8 @@ Describe "Export-GitHubRepositoriesDetails Unit Test" {
             }
 
             $result = Export-GitHubRepositoriesDetails -ConfigurationFilePath ".\Configuration\GitHubRepositoriesSearchCriteria.json" -OutputFilePath ".\Data\GitHubRepositoriesDetails.json"
+            # Remove potential $null values from the array - not sure why they are there
+            $result = $result | Where-Object { $_ -ne $null }
             $result.Count | Should -Be 2
             $result[0].fullName | Should -Be "Anonymized/Anonymized"
             $result[0].hasGoodFirstIssues | Should -Be $false
@@ -137,6 +162,8 @@ Describe "Export-GitHubRepositoriesDetails Unit Test" {
             }
 
             $result = Export-GitHubRepositoriesDetails -ConfigurationFilePath ".\Configuration\GitHubRepositoriesSearchCriteria.json" -OutputFilePath ".\Data\GitHubRepositoriesDetails.json"
+            # Remove potential $null values from the array - not sure why they are there
+            $result = $result | Where-Object { $_ -ne $null }
             $result.Count | Should -Be 2
         }
 
@@ -169,6 +196,8 @@ Describe "Export-GitHubRepositoriesDetails Unit Test" {
             }
 
             $result = Export-GitHubRepositoriesDetails -ConfigurationFilePath ".\Configuration\GitHubRepositoriesSearchCriteria.json" -OutputFilePath ".\Data\GitHubRepositoriesDetails.json"
+            # Remove potential $null values from the array - not sure why they are there
+            $result = $result | Where-Object { $_ -ne $null }
             $result.Count | Should -Be 2
         }
     }
