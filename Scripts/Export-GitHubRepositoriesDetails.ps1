@@ -88,8 +88,15 @@ function Export-GitHubRepositoriesDetails {
 
         # Go through the topics in the configuration file
         foreach ($repositoriesSearchCriterion in $repositoriesSearchCriteria) {
-            # Check the consumption of the GitHub API rate limit
-            (gh api /rate_limit | ConvertFrom-Json).resources
+            # Check the consumption of the GitHub API rate limit - Search
+            $githubApiRateLimit = gh api /rate_limit | ConvertFrom-Json
+            $githubApiSearchConsumptionPercentage = [math]::Round(($githubApiRateLimit.resources.search.used / $githubApiRateLimit.resources.search.limit) * 100, 2)
+
+            # If the consumption of the GitHub API Search is greater than 80%, wait for 2 minutes
+            if ($githubApiSearchConsumptionPercentage -gt 80) {
+                Write-Warning -Message "The consumption of the GitHub API Search is greater than 60% ($($githubApiSearchConsumptionPercentage)%) - waiting for 2 minutes."
+                Start-Sleep -Seconds 120
+            }
 
             # Search GitHub repositories based on the topic and the search limit defined in the configuration file
             $repositoriesFound = Search-GitHubRepositories -Topic $repositoriesSearchCriterion.Topic -SearchLimit $repositoriesSearchCriterion.SearchLimit
@@ -98,7 +105,7 @@ function Export-GitHubRepositoriesDetails {
             if ($repositoriesFound.count -eq $repositoriesSearchCriterion.SearchLimit) {
                 Write-Warning -Message "The number of repositories found for the topic '$($repositoriesSearchCriterion.Topic)' is equal to the search limit of $($repositoriesSearchCriterion.SearchLimit)."
             } else {
-                Write-Verbose "Number of repositories found for the topic '$($repositoriesSearchCriterion.Topic)': $($repositoriesFound.count)"
+                Write-Host "Number of repositories found for the topic '$($repositoriesSearchCriterion.Topic)': $($repositoriesFound.count)"
             }
             
             # Add these repositories to the array of results
@@ -106,18 +113,26 @@ function Export-GitHubRepositoriesDetails {
         }
 
         # Validate the number of objects in the array of results before removing duplicates and write this count as verbose
-        Write-Verbose -Message "Total number of repositories found: $($repositories.count)"
+        Write-Host -Message "Total number of repositories found: $($repositories.count)"
 
         # Remove duplicates from the array of results
         $repositories = $repositories | Sort-Object -Property fullName | Get-Unique -AsString
         
         # Validate the number of objects in the array of results after removing duplicates and write this count as verbose
-        Write-Verbose -Message "Number of repositories after removing duplicates: $($repositories.count)"
+        Write-Host -Message "Number of repositories after removing duplicates: $($repositories.count)"
 
         # For each repository in the array of results, get the details
         foreach ($repository in $repositories) {
-            # Check the consumption of the GitHub API rate limit
-            (gh api /rate_limit | ConvertFrom-Json).resources
+            # Check the consumption of the GitHub API rate limit - GraphQL and Core
+            $githubApiRateLimit = gh api /rate_limit | ConvertFrom-Json
+            $githubApiGraphQlConsumptionPercentage = [math]::Round(($githubApiRateLimit.resources.graphql.used / $githubApiRateLimit.resources.graphql.limit) * 100, 2)
+            $githubApiCoreConsumptionPercentage = [math]::Round(($githubApiRateLimit.resources.core.used / $githubApiRateLimit.resources.core.limit) * 100, 2)
+
+            # If the consumption of the GitHub API GraphQL or Core is greater than 80%, wait for 60 minutes
+            if ($githubApiGraphQlConsumptionPercentage -gt 80 -or $githubApiCoreConsumptionPercentage -gt 80) {
+                Write-Warning -Message "The consumption of the GitHub API GraphQL ($($githubApiGraphQlConsumptionPercentage)%) or Core is greater than 80% ($($githubApiCoreConsumptionPercentage)%) - waiting for 60 minutes."
+                Start-Sleep -Seconds 3600
+            }
 
             $repositoryDetails = Get-GitHubRepositoryDetails -RepositoryFullName $repository.fullName
 

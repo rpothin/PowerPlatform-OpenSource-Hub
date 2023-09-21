@@ -98,16 +98,28 @@ Describe "Export-GitHubRepositoriesDetails Unit Test" {
                 param($Command, $Param1)
 
                 if ($Command -eq 'api' -and $Param1 -eq '/rate_limit') {
-                    # Do nothing
-                }
-            }
-
-            Mock gh {
-                # Check the parameters that were passed to the 'gh' command
-                param($Command, $Param1)
-
-                if ($Command -eq 'api' -and $Param1 -eq '/rate_limit') {
-                    # Do nothing
+                    return "{
+                        'resources': {
+                          'core': {
+                            'limit': 5000,
+                            'used': 61,
+                            'remaining': 4939,
+                            'reset': 1695306507
+                          },
+                          'search': {
+                            'limit': 30,
+                            'used': 0,
+                            'remaining': 30,
+                            'reset': 1695306457
+                          },
+                          'graphql': {
+                            'limit': 5000,
+                            'used': 65,
+                            'remaining': 4935,
+                            'reset': 1695307895
+                          }
+                        }
+                      }"
                 }
             }
 
