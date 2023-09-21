@@ -121,7 +121,7 @@ List on its way...🐌
    - have at least 10 watchers
    - have been updated in the last 6 months
 - The summary badges and the list of repositories with good first or help wanted issues is updated daily
-- The list of top growing repositories is updated every Monday based on growth measured in a 7-day period. The growth indicator is the sum of the number of stars and the number of watchers. And only the 10 highest growth are listed.
+- The list of top 10 growing repositories is updated every Monday based on growth measured in a 7-day period. The growth indicator is the sum of the number of stars and the number of watchers.
 
 ## ❗ Code of Conduct
 
