@@ -30,12 +30,6 @@ jobs:
         run: echo "NOW=$(date +'%Y%m%d')" >> $env:GITHUB_OUTPUT
         shell: pwsh
 
-      # Set the name of the current day in the week as a variable
-      - name: Set the name of the current day in the week as env variable
-        id: current_day_in_the_week
-        run: echo "DAY=$(date +'%A')" >> $env:GITHUB_OUTPUT
-        shell: pwsh
-
       # Update the details of all the GitHub repositories corresponding to the list of considered topics
       - name: Update GitHub repositories details
         run: |
@@ -53,19 +47,6 @@ jobs:
         shell: pwsh
         env:
           GITHUB_TOKEN: ${{ secrets.PAT_ACCESS_PUBLIC_GITHUB_REPOSITORIES }}
-
-      # If the current day in the week is Monday, take a snapshot of the popularity score of the referenced GitHub repositories - For the tests we will configure the step for the next day (Thursday)
-      - name: Take a snapshot of the popularity score of the referenced GitHub repositories
-        if: ${{ steps.current_day_in_the_week.outputs.DAY }} -eq 'Thursday'
-        run: |
-          Write-Host "/********************************************************************************/"
-          Write-Host "Install required modules"
-          Import-Module .\Scripts\Export-GitHubRepositoriesPopularityScore.ps1 -Force
-
-          Write-Host "/********************************************************************************/"
-          Write-Host "Take a snapshot of the popularity score of the referenced GitHub repositories"
-          $results = Export-GitHubRepositoriesPopularityScore -InputFilePath "${{ vars.DATA_FILE_PATH }}" -OutputFilePath "${{ vars.DATA_SNAPSHOT_FILE_PATH }}"
-        shell: pwsh
 
       # Push the changes in the current repository
       - name: Push changes

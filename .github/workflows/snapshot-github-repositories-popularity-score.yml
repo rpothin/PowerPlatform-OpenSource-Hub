@@ -1,0 +1,59 @@
+name: 3-snapshot-github-repositories-popularity-score
+# Save a snapshot of the referenced GitHub repositories popularity score (number of stars + number of watchers) to a dedicated JSON file
+
+# Workflow triggered using GitHub CLI at the end of the execution of the update-readme-with-github-repositories-details workflow if it is Monday - but can also be triggered manually without input parameters
+on:
+  workflow_dispatch:
+
+# Concurrency configuration for the current workflow - Keep only the latest workflow queued for the considered group
+concurrency:
+  group: snapshot-github-repositories-popularity-score
+  cancel-in-progress: true
+
+jobs:
+  snapshot-github-repositories-popularity-score:
+    runs-on: ubuntu-latest
+    env:
+      RUNNER_DEBUG: 1
+
+    steps:
+      # Action used to checkout the main branch in the current repository
+      #   Community action: https://github.com/actions/checkout
+      - name: Checkout
+        uses: actions/checkout@v4.0.0
+
+      # Set a current date environment variable in the following format: YYYYMMDD
+      - name: Set current date as env variable
+        id: current_date
+        run: echo "NOW=$(date +'%Y%m%d')" >> $env:GITHUB_OUTPUT
+        shell: pwsh
+
+      # Set the name of the current day in the week as a variable
+      - name: Set the name of the current day in the week as env variable
+        id: current_day_in_the_week
+        run: echo "DAY=$(date +'%A')" >> $env:GITHUB_OUTPUT
+        shell: pwsh
+
+      # If the current day in the week is Monday, take a snapshot of the popularity score of the referenced GitHub repositories - For the tests we will configure the step for the next day (Thursday)
+      - name: Take a snapshot of the popularity score of the referenced GitHub repositories
+        if: ${{ steps.current_day_in_the_week.outputs.DAY }} -eq 'Thursday'
+        run: |
+          Write-Host "/********************************************************************************/"
+          Write-Host "Install required modules"
+          Import-Module .\Scripts\Export-GitHubRepositoriesPopularityScore.ps1 -Force
+  
+          Write-Host "/********************************************************************************/"
+          Write-Host "Take a snapshot of the popularity score of the referenced GitHub repositories"
+          $results = Export-GitHubRepositoriesPopularityScore -InputFilePath "${{ vars.DATA_FILE_PATH }}" -OutputFilePath "${{ vars.DATA_SNAPSHOT_FILE_PATH }}"
+        shell: pwsh
+
+      # Push the changes in the current repository
+      - name: Push changes
+        run: |
+          git config --global user.name 'action@github.com'
+          git config --global user.email 'GitHub Action'
+  
+          git add --all
+          git commit -m "GitHub repositories popularity score updated - ${{ steps.current_date.outputs.NOW }}.${{ github.run_number }}"
+          git -c http.extraheader="AUTHORIZATION: Bearer ${{ secrets.GITHUB_TOKEN }}" push origin main
+        shell: pwsh
