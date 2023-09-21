@@ -89,3 +89,12 @@ jobs:
           git commit -m "Summary and repositories opened to contributions sections in README updated - ${{ steps.current_date.outputs.NOW }}.${{ github.run_number }}"
           git -c http.extraheader="AUTHORIZATION: Bearer ${{ secrets.GITHUB_TOKEN }}" push origin main
         shell: pwsh
+
+      # If the current day in the week is Monday, trigger the snapshot-github-repositories-popularity-score workflow in the current repository using GitHub CLI
+      - name: Trigger snapshot-github-repositories-popularity-score workflow
+        if: ${{ steps.current_day_in_the_week.outputs.DAY }} -eq 'Monday'
+        run: |
+          gh workflow run snapshot-github-repositories-popularity-score.yml --ref main
+        shell: pwsh
+        env:
+          GITHUB_TOKEN: ${{ secrets.PAT_WORKFLOW_UPDATE }}
