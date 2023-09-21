@@ -12,7 +12,7 @@ BeforeAll {
     Import-Module $global:executingTestPath/../../Scripts/Get-GitHubRepositoryDetails.ps1 -Force
 }
 
-Describe "Export-GitHubRepositoriesDetails Unit Test" {
+Describe "Export-GitHubRepositoriesDetails Unit Tests" {
     Context "Parameters validation" {
         It "Should throw an error if ConfigurationFilePath parameter is not valid" {
             $result = { Export-GitHubRepositoriesDetails -ConfigurationFilePath "invalid path" -OutputFilePath ".\Data\GitHubRepositoriesDetails.json" } | Should -Throw -PassThru

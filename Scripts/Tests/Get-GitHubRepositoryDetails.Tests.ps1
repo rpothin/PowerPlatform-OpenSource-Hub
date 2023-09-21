@@ -8,7 +8,7 @@ BeforeAll {
     Import-Module $global:executingTestPath/../Get-GitHubRepositoryDetails.ps1 -Force
 }
 
-Describe "Get-GitHubRepositoryDetails Unit Test" {
+Describe "Get-GitHubRepositoryDetails Unit Tests" {
     Context "Parameters validation" {
         It "Should throw an error if RepositoryFullName parameter is not valid" {
             $result = { Get-GitHubRepositoryDetails -RepositoryFullName "invalid repository full name" } | Should -Throw -PassThru

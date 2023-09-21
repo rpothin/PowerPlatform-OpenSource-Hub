@@ -8,7 +8,7 @@ BeforeAll {
     Import-Module $global:executingTestPath/../Write-MarkdownSection.ps1 -Force
 }
 
-Describe "Write-MarkdownSection Unit Test" {
+Describe "Write-MarkdownSection Unit Tests" {
     Context "Parameters validation" {
         It "Should throw an error if MarkdownFilePath parameter is not valid" {
             Mock Test-Path { $false }
