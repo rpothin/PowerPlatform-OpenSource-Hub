@@ -155,6 +155,9 @@ function Export-GitHubRepositoriesDetails {
         # - have been updated in the last 6 months
         $repositoriesWithDetails = $repositoriesWithDetails | Where-Object { $_.stargazerCount -ge 10 -or $_.watchers.totalCount -ge 10 -or $_.updatedAt -gt (Get-Date).AddMonths(-6) }
 
+        # Validate the number of objects in the array of results after filtering and write this count as verbose
+        Write-Host -Message "Number of repositories after filtering: $($repositoriesWithDetails.count)"
+
         # Sort the array of results by the value of the watchersCount property in the descendant order of the repository
         $repositoriesWithDetails = $repositoriesWithDetails | Sort-Object -Property stargazerCount -Descending
 

@@ -49,7 +49,7 @@ jobs:
           Write-Host "Update GitHub repositories details"
           $results = Export-GitHubRepositoriesDetails -ConfigurationFilePath "${{ vars.CONFIGURATION_FILE_PATH }}" -OutputFilePath "${{ vars.DATA_FILE_PATH }}"
 
-          Write-Host "Number of GitHub repositories updated: $($results.Count)"
+          Write-Host "Number of GitHub repositories referenced: $($results.Count)"
         shell: pwsh
         env:
           GITHUB_TOKEN: ${{ secrets.PAT_ACCESS_PUBLIC_GITHUB_REPOSITORIES }}
