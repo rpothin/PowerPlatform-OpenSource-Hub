@@ -98,7 +98,7 @@ jobs:
 
       # If the current day in the week is Monday, trigger the snapshot-github-repositories-popularity-score workflow in the current repository using GitHub CLI
       - name: Trigger snapshot-github-repositories-popularity-score workflow
-        if: ${{ steps.current_day_in_the_week.outputs.DAY }} -eq 'Monday'
+        if: ${{ steps.current_day_in_the_week.outputs.DAY == 'Monday' }}
         run: |
           gh workflow run snapshot-github-repositories-popularity-score.yml --ref main
         shell: pwsh
