@@ -78,7 +78,12 @@ jobs:
           $repositoriesDetails = Get-Content -Path "${{ vars.DATA_FILE_PATH }}" | ConvertFrom-Json
 
           Write-Host "Get latest snapshot of the popularity score of the GitHub repositories"
-          $repositoriesPopularityScoresSnapshot = Get-Content -Path "${{ vars.DATA_SNAPSHOT_FILE_PATH }}" | ConvertFrom-Json
+          # If the file does not exist initialize the variable with an empty array
+          if (Test-Path -Path "${{ vars.POPULARITY_SCORES_FILE_PATH }}") {
+            $repositoriesPopularityScoresSnapshot = Get-Content -Path "${{ vars.DATA_SNAPSHOT_FILE_PATH }}" | ConvertFrom-Json
+          } else {
+            $repositoriesPopularityScoresSnapshot = @()
+          }
 
           Write-Host "/********************************************************************************/"
           Write-Host "Update list of top growing repositories"

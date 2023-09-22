@@ -67,6 +67,11 @@ function Write-ReadmeTopGrowingRepositoriesSection {
         # Convert the list of top growing repositories in a markdown table as string
         $topGrowingRepositoriesTable = $topGrowingRepositoriesTableAsArray -join "`n"
 
+        # If the content of the section with the list of top growing repositories is empty, replace it with 'List on its way...🐌'
+        if ([string]::IsNullOrWhiteSpace($topGrowingRepositoriesTable)) {
+            $topGrowingRepositoriesTable = "List on its way...🐌"
+        }
+
         # Update the content of the section with the list of top growing repositories
         Write-MarkdownSection -MarkdownFilePath ".\README.md" -SectionIdentifier "top-growing-repositories" -SectionContent $topGrowingRepositoriesTable
 
