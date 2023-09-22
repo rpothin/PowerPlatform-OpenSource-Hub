@@ -22,7 +22,7 @@ Describe "Write-ReadmeTopGrowingRepositoriesSection Unit Tests" {
                     fullName = "user/repo1"
                     url = "https://github.com/user/repo1"
                     language = "PowerShell"
-                    stargazerCount = 10
+                    stargazerCount = 50
                     watchers = [pscustomobject]@{totalCount = 20}
                     topics = @("topic1", "topic2")
                     popularityScore = 30
@@ -31,7 +31,7 @@ Describe "Write-ReadmeTopGrowingRepositoriesSection Unit Tests" {
                     fullName = "user/repo2"
                     url = "https://github.com/user/repo2"
                     language = "C#"
-                    stargazerCount = 5
+                    stargazerCount = 25
                     watchers = [pscustomobject]@{totalCount = 15}
                     topics = @("topic2", "topic3")
                     popularityScore = 20
@@ -69,6 +69,7 @@ Describe "Write-ReadmeTopGrowingRepositoriesSection Unit Tests" {
             $output.ToString() | Should -BeLike "*Watchers Badge](https://img.shields.io/badge/20-orange*"
             $output.ToString() | Should -BeLike "*Stars Badge](https://img.shields.io/badge/5-yellow*"
             $output.ToString() | Should -BeLike "*Watchers Badge](https://img.shields.io/badge/15-orange*"
+            $output.ToString() | Should -Be $null
         }
 
         It "returns 'List on its way...🐌' without repository details" {

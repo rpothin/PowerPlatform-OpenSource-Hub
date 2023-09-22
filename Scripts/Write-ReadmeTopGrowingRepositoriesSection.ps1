@@ -48,7 +48,7 @@ function Write-ReadmeTopGrowingRepositoriesSection {
         
         foreach ($repository in $GitHubRepositoriesDetails) {
             $popularityScoreSnapshot = ($GitHubRepositoriesPopularityScoresSnapshot | Where-Object fullName -eq $repository.fullName).popularityScore ?? 0
-            $popularityScoreGrowth = $popularityScoreSnapshot - $repository.popularityScore
+            $popularityScoreGrowth = $repository.popularityScore - $popularityScoreSnapshot
             $repository | Add-Member -MemberType NoteProperty -Name popularityScoreGrowth -Value $popularityScoreGrowth
             $repositoriesDetailsWithPopularityScoreGrowth += $repository
         }
