@@ -55,6 +55,11 @@ function Write-ReadmeRepositoriesOpenedToContributionsSection {
         # Convert the list of repositories opened to contributions in a markdown table as string
         $repositoriesOpenedToContributionsTable = $repositoriesOpenedToContributionsTableAsArray -join "`n"
 
+        # If the content of the section with the list of repositories opened to contribution is empty, replace it with 'List on its way...🐌'
+        if ([string]::IsNullOrWhiteSpace($repositoriesOpenedToContributionsTable)) {
+            $repositoriesOpenedToContributionsTable = "List on its way...🐌"
+        }
+
         # Update the content of the section with the list of repositories opened to contributions
         Write-MarkdownSection -MarkdownFilePath ".\README.md" -SectionIdentifier "repositories-opened-to-contribution" -SectionContent $repositoriesOpenedToContributionsTable
 
