@@ -32,22 +32,25 @@ function Write-ReadmeTopGrowingRepositoriesSection {
     [CmdletBinding()]
     [OutputType([string])]
     param (
-        [Parameter(Mandatory = $true)]
-        [ValidateNotNullOrEmpty()]
+        [Parameter(Mandatory = $false)]
         [System.Object[]]$GitHubRepositoriesDetails,
 
-        [Parameter(Mandatory = $true)]
-        [ValidateNotNullOrEmpty()]
+        [Parameter(Mandatory = $false)]
         [System.Object[]]$GitHubRepositoriesPopularityScoresSnapshot
     )
 
     Process {
         # Add a property to the GitHubRepositoriesDetails object with the popularity score growth based on the corresponding value in the GitHubRepositoriesPopularityScoresSnapshot object
         # If the repository is not present in the GitHubRepositoriesPopularityScoresSnapshot object, the popularity score in the snapshot is considered to be 0
-        $repositoriesDetailsWithPopularityScoreGrowth = $GitHubRepositoriesDetails | ForEach-Object {
-            $popularityScoreSnapshot = ($GitHubRepositoriesPopularityScoresSnapshot | Where-Object fullName -eq $_.fullName).popularityScore ?? 0
-            $popularityScoreGrowth = $popularityScoreSnapshot - $_.popularityScore
-            $_ | Add-Member -MemberType NoteProperty -Name popularityScoreGrowth -Value $popularityScoreGrowth
+        
+        # Initialize an empty array
+        $repositoriesDetailsWithPopularityScoreGrowth = @()
+        
+        foreach ($repository in $GitHubRepositoriesDetails) {
+            $popularityScoreSnapshot = ($GitHubRepositoriesPopularityScoresSnapshot | Where-Object fullName -eq $repository.fullName).popularityScore ?? 0
+            $popularityScoreGrowth = $popularityScoreSnapshot - $repository.popularityScore
+            $repository | Add-Member -MemberType NoteProperty -Name popularityScoreGrowth -Value $popularityScoreGrowth
+            $repositoriesDetailsWithPopularityScoreGrowth += $repository
         }
 
         # Sort the repositories by popularity score growth descendant and keep only the top 10 and keep only those with a popularity score growth strictly greater than 0
