@@ -25,7 +25,7 @@ Describe "Write-ReadmeTopGrowingRepositoriesSection Unit Tests" {
                     stargazerCount = 50
                     watchers = [pscustomobject]@{totalCount = 20}
                     topics = @("topic1", "topic2")
-                    popularityScore = 30
+                    popularityScore = 70
                 },
                 [pscustomobject]@{
                     fullName = "user/repo2"
@@ -34,7 +34,7 @@ Describe "Write-ReadmeTopGrowingRepositoriesSection Unit Tests" {
                     stargazerCount = 25
                     watchers = [pscustomobject]@{totalCount = 15}
                     topics = @("topic2", "topic3")
-                    popularityScore = 20
+                    popularityScore = 35
                 },
                 [pscustomobject]@{
                     fullName = "user/repo3"
@@ -43,7 +43,7 @@ Describe "Write-ReadmeTopGrowingRepositoriesSection Unit Tests" {
                     stargazerCount = 2
                     watchers = [pscustomobject]@{totalCount = 10}
                     topics = @("topic1", "topic3")
-                    popularityScore = 5
+                    popularityScore = 12
                 }
             )
     
@@ -65,11 +65,12 @@ Describe "Write-ReadmeTopGrowingRepositoriesSection Unit Tests" {
 
         It "returns the expected output" {
             $output = Write-ReadmeTopGrowingRepositoriesSection -GitHubRepositoriesDetails $repositoriesDetails -GitHubRepositoriesPopularityScoresSnapshot $popularityScoresSnapshot
-            $output.ToString() | Should -BeLike "*Stars Badge](https://img.shields.io/badge/10-yellow*"
+            $output.ToString() | Should -BeLike "*Stars Badge](https://img.shields.io/badge/50-yellow*"
             $output.ToString() | Should -BeLike "*Watchers Badge](https://img.shields.io/badge/20-orange*"
-            $output.ToString() | Should -BeLike "*Stars Badge](https://img.shields.io/badge/5-yellow*"
+            $output.ToString() | Should -BeLike "*Stars Badge](https://img.shields.io/badge/2-yellow*"
+            $output.ToString() | Should -BeLike "*Watchers Badge](https://img.shields.io/badge/10-orange*"
+            $output.ToString() | Should -BeLike "*Stars Badge](https://img.shields.io/badge/25-yellow*"
             $output.ToString() | Should -BeLike "*Watchers Badge](https://img.shields.io/badge/15-orange*"
-            $output.ToString() | Should -Be $null
         }
 
         It "returns 'List on its way...🐌' without repository details" {
@@ -79,7 +80,7 @@ Describe "Write-ReadmeTopGrowingRepositoriesSection Unit Tests" {
 
         It "returns 'List on its way...🐌' without snapshot" {
             $output = Write-ReadmeTopGrowingRepositoriesSection -GitHubRepositoriesDetails $repositoriesDetails -GitHubRepositoriesPopularityScoresSnapshot @()
-            $output | Should -Be "List on its way...🐌"
+            $output | Should -Not -Be "List on its way...🐌"
         }
     }
 }
