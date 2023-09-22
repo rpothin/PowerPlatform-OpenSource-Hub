@@ -47,10 +47,20 @@ jobs:
 
           Write-Host "/********************************************************************************/"
           Write-Host "Get search criteria details"
-          $topics = Get-Content -Path "${{ vars.CONFIGURATION_FILE_PATH }}" | ConvertFrom-Json
+          # If the file does not exist initialize the variable with an empty array
+          if (Test-Path -Path "${{ vars.CONFIGURATION_FILE_PATH }}") {
+            $topics = Get-Content -Path "${{ vars.CONFIGURATION_FILE_PATH }}" | ConvertFrom-Json
+          } else {
+            $searchCriteria = @()
+          }
           
           Write-Host "Get repositories details"
-          $repositoriesDetails = Get-Content -Path "${{ vars.DATA_FILE_PATH }}" | ConvertFrom-Json
+          # If the file does not exist initialize the variable with an empty array
+          if (Test-Path -Path "${{ vars.DATA_FILE_PATH }}") {
+            $repositoriesDetails = Get-Content -Path "${{ vars.DATA_FILE_PATH }}" | ConvertFrom-Json
+          } else {
+            $repositoriesDetails = @()
+          }
 
           Write-Host "/********************************************************************************/"
           Write-Host "Update summary"
@@ -79,7 +89,7 @@ jobs:
 
           Write-Host "Get latest snapshot of the popularity score of the GitHub repositories"
           # If the file does not exist initialize the variable with an empty array
-          if (Test-Path -Path "${{ vars.POPULARITY_SCORES_FILE_PATH }}") {
+          if (Test-Path -Path "${{ vars.DATA_SNAPSHOT_FILE_PATH }}") {
             $repositoriesPopularityScoresSnapshot = Get-Content -Path "${{ vars.DATA_SNAPSHOT_FILE_PATH }}" | ConvertFrom-Json
           } else {
             $repositoriesPopularityScoresSnapshot = @()
