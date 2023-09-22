@@ -4,7 +4,7 @@
 $global:executingTestPath = Split-Path -Parent $MyInvocation.MyCommand.Path
 
 BeforeAll {
-    # Import Search-GitHubRepositories function
+    # Import Export-GitHubRepositoriesPopularityScore function
     Import-Module $global:executingTestPath/../Export-GitHubRepositoriesPopularityScore.ps1 -Force
 }
 

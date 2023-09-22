@@ -4,7 +4,7 @@
 $global:executingTestPath = Split-Path -Parent $MyInvocation.MyCommand.Path
 
 BeforeAll {
-    # Import Search-GitHubRepositories function
+    # Import Write-ReadmeRepositoriesOpenedToContributionsSection function
     Import-Module $global:executingTestPath/../Write-ReadmeRepositoriesOpenedToContributionsSection.ps1 -Force
 
     # Import required modules
