@@ -85,7 +85,12 @@ jobs:
 
           Write-Host "/********************************************************************************/"
           Write-Host "Get repositories details"
-          $repositoriesDetails = Get-Content -Path "${{ vars.DATA_FILE_PATH }}" | ConvertFrom-Json
+          # If the file does not exist initialize the variable with an empty array
+          if (Test-Path -Path "${{ vars.DATA_FILE_PATH }}") {
+            $repositoriesDetails = Get-Content -Path "${{ vars.DATA_FILE_PATH }}" | ConvertFrom-Json
+          } else {
+            $repositoriesDetails = @()
+          }
 
           Write-Host "Get latest snapshot of the popularity score of the GitHub repositories"
           # If the file does not exist initialize the variable with an empty array
