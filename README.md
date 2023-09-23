@@ -114,6 +114,7 @@ List on its way...🐌
    - having at least one of the monitored topics
    - having at least 10 stars or at least 10 watchers
    - having been updated in the last 6 months
+   - is not archived
 - The summary badges and the list of repositories with good first or help wanted issues is updated daily
 - The list of top 10 growing repositories is updated every Monday based on growth measured in a 7-day period (*based on a snapshot from previous Monday*). And the growth indicator is the sum of the number of stars and the number of watchers.
 

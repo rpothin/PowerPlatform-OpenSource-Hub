@@ -34,6 +34,7 @@ function Search-GitHubRepositories {
                 owner           : @{id=MDQ6VXNlcjIzMjQwMjQ1; is_bot=False; login=rpothin; type=User; url=https://github.com/rpothin}
                 updatedAt       : 08/04/2023 13:29:55
                 url             : https://github.com/rpothin/PowerPlatform-ALM-With-GitHub-Template
+                isArchived      : False
     #>
 
     [CmdletBinding()]
@@ -59,7 +60,7 @@ function Search-GitHubRepositories {
         $repositories = @()
 
         # Search the GitHub repositories based on the provided parameters
-        $repositories = gh search repos --topic $Topic --visibility public --limit $SearchLimit --json description,fullName,homepage,language,license,name,hasIssues,openIssuesCount,owner,createdAt,updatedAt,url | ConvertFrom-Json
+        $repositories = gh search repos --topic $Topic --visibility public --limit $SearchLimit --json description,fullName,homepage,language,license,name,hasIssues,openIssuesCount,owner,createdAt,updatedAt,url,isArchived | ConvertFrom-Json
 
         # Return the results
         $repositories

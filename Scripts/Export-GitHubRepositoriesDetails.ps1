@@ -9,6 +9,7 @@ function Export-GitHubRepositoriesDetails {
             For storage consumption and performance reasons, the results are filtered to keep only the repositories respecting the following conditions:
                 - have at least 10 stars or at least 10 watchers
                 - have been updated in the last 6 months
+                - is not archived
 
         .PARAMETER ConfigurationFilePath
             The path to the configuration file containing the topics to search for.
@@ -151,7 +152,8 @@ function Export-GitHubRepositoriesDetails {
         # Filter the array of results to keep only the repositories respecting the following conditions:
         # - have at least 10 stars or at least 10 watchers
         # - have been updated in the last 6 months
-        $repositoriesWithDetails = $repositoriesWithDetails | Where-Object { ($_.stargazerCount -ge 10 -or $_.watchers.totalCount -ge 10) -and $_.updatedAt -gt (Get-Date).AddMonths(-6) }
+        # - is not archived
+        $repositoriesWithDetails = $repositoriesWithDetails | Where-Object { ($_.stargazerCount -ge 10 -or $_.watchers.totalCount -ge 10) -and $_.updatedAt -gt (Get-Date).AddMonths(-6) -and $_.isArchived -eq $false }
 
         # Validate the number of objects in the array of results after filtering and write this count as verbose
         Write-Host -Message "Number of repositories after filtering: $($repositoriesWithDetails.count)"

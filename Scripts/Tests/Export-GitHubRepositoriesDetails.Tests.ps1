@@ -61,6 +61,7 @@ Describe "Export-GitHubRepositoriesDetails Unit Tests" {
                         watchers = @{totalCount='Anonymized'}
                         topics = @('anonymized', 'anonymized', 'anonymized', 'anonymized')
                         languages = @('Anonymized', 'Anonymized')
+                        isArchived = $false
                     },
                     [PSCustomObject]@{
                         createdAt = '00/00/0000 00:00:00'
@@ -89,6 +90,7 @@ Describe "Export-GitHubRepositoriesDetails Unit Tests" {
                         watchers = @{totalCount='Anonymized'}
                         topics = @('anonymized', 'anonymized', 'anonymized', 'anonymized')
                         languages = @('Anonymized', 'Anonymized')
+                        isArchived = $false
                     }
                 )
             }
