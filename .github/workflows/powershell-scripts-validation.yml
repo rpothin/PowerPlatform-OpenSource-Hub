@@ -56,13 +56,17 @@ jobs:
       - name: Run PSScriptAnalyzer
         uses: microsoft/psscriptanalyzer-action@v1.1
         with:
-          # Check https://github.com/microsoft/action-psscriptanalyzer for more info about the options.
-          # The below set up runs PSScriptAnalyzer to your entire repository and runs some basic security rules.
           path: .\
-          recurse: true 
-          # Include your own basic security rules. Removing this option will run all the rules 
-          # includeRule: '"PSAvoidGlobalAliases", "PSAvoidUsingConvertToSecureStringWithPlainText"'
+          recurse: true
           output: results.sarif
+
+      # Upload the results of the PSScriptAnalyzerResults execution
+      #   Action: https://github.com/actions/upload-artifact
+      - name: Upload PSScriptAnalyzer Results
+        uses: actions/upload-artifact@v3
+        with:
+          name: PSScriptAnalyzerResults
+          path: results.sarif
       
       # Upload the SARIF file generated in the previous step
       #   Community action: https://github.com/github/codeql-action
