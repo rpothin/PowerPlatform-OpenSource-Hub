@@ -116,10 +116,9 @@ List on its way...🐌
 ### 📝 Complementary details
 
 - The referenced repositories respect the following criteria:
-   - have at least one of the monitored topics
-   - have at least 10 stars
-   - have at least 10 watchers
-   - have been updated in the last 6 months
+   - having at least one of the monitored topics
+   - having at least 10 stars or at least 10 watchers
+   - having been updated in the last 6 months
 - The summary badges and the list of repositories with good first or help wanted issues is updated daily
 - The list of top 10 growing repositories is updated every Monday based on growth measured in a 7-day period. The growth indicator is the sum of the number of stars and the number of watchers.
 
