@@ -69,4 +69,11 @@ Describe "Write-ReadmeRepositoriesOpenedToContributionsSection Unit tests" {
             $output | Should -BeLike "*azure Badge](https://img.shields.io/badge/azure-*"
         }
     }
+
+    Context "without repository details" {
+        It "returns 'List on its way...🐌'" {
+            $output = Write-ReadmeRepositoriesOpenedToContributionsSection -GitHubRepositoriesDetails @()
+            $output | Should -BeLike "*List on its way...🐌*"
+        }
+    }
 }

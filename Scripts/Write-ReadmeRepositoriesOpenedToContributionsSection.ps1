@@ -29,8 +29,7 @@ function Write-ReadmeRepositoriesOpenedToContributionsSection {
     [CmdletBinding()]
     [OutputType([string])]
     param (
-        [Parameter(Mandatory = $true)]
-        [ValidateNotNullOrEmpty()]
+        [Parameter(Mandatory = $false)]
         [System.Object[]]$GitHubRepositoriesDetails
     )
 
