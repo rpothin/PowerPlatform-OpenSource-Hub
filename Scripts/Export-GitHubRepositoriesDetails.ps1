@@ -121,6 +121,11 @@ function Export-GitHubRepositoriesDetails {
         # Validate the number of objects in the array of results after removing duplicates and write this count as verbose
         Write-Host -Message "Number of repositories after removing duplicates: $($repositories.count)"
 
+        # Filter the array of results to keep only the repositories respecting the following conditions:
+        # - have been updated in the last 6 months
+        # - is not archived
+        $repositories = $repositories | Where-Object { $_.isArchived -eq $false -and $_.updatedAt -gt (Get-Date).AddMonths(-6) }
+
         # For each repository in the array of results, get the details
         foreach ($repository in $repositories) {
             # Check the consumption of the GitHub API rate limit - GraphQL and Core
@@ -150,10 +155,8 @@ function Export-GitHubRepositoriesDetails {
         }
 
         # Filter the array of results to keep only the repositories respecting the following conditions:
-        # - have at least 10 stars or at least 10 watchers
         # - have been updated in the last 6 months
-        # - is not archived
-        $repositoriesWithDetails = $repositoriesWithDetails | Where-Object { ($_.stargazerCount -ge 10 -or $_.watchers.totalCount -ge 10) -and $_.updatedAt -gt (Get-Date).AddMonths(-6) -and $_.isArchived -eq $false }
+        $repositoriesWithDetails = $repositoriesWithDetails | Where-Object { $_.stargazerCount -ge 10 -or $_.watchers.totalCount -ge 10 }
 
         # Validate the number of objects in the array of results after filtering and write this count as verbose
         Write-Host -Message "Number of repositories after filtering: $($repositoriesWithDetails.count)"
