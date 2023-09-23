@@ -1,9 +1,9 @@
 <p align="center">
     <h1 align="center">
-        Power Platform Open Source Hub
+        Power Platform Open-Source Hub
     </h1>
     <h3 align="center">
-        A starting point towards open-source repositories related to Power Platform
+        A starting point towards the open-source ecosystem related to Power Platform
     </h3>
 </p>
 
@@ -44,7 +44,7 @@ Summary on its way...🐌
 List on its way...🐌
 <!--END_SECTION:repositories-opened-to-contribution-->
 
-### 🚀 Top growing repositories
+### 🚀 Top 10 growing repositories
 
 <!--START_SECTION:top-growing-repositories-->
 List on its way...🐌
@@ -52,12 +52,12 @@ List on its way...🐌
 
 ### 📝 Complementary details
 
-- The referenced repositories respect the following criteria:
+- The referenced repositories here respect the following criteria:
    - having at least one of the monitored topics
    - having at least 10 stars or at least 10 watchers
    - having been updated in the last 6 months
 - The summary badges and the list of repositories with good first or help wanted issues is updated daily
-- The list of top 10 growing repositories is updated every Monday based on growth measured in a 7-day period. The growth indicator is the sum of the number of stars and the number of watchers.
+- The list of top 10 growing repositories is updated every Monday based on growth measured in a 7-day period (*based on a snapshot from previous Monday*). And the growth indicator is the sum of the number of stars and the number of watchers.
 
 ## ❗ Code of Conduct
 
