@@ -45,7 +45,7 @@ Describe "Export-GitHubRepositoriesDetails Unit Tests" {
                         name = 'Anonymized'
                         openIssuesCount = 'Anonymized'
                         owner = @{id='Anonymized'; is_bot='Anonymized'; login='Anonymized'; type='Anonymized'; url='anonymized'}
-                        updatedAt = '00/00/0000 00:00:00'
+                        updatedAt = '2023-06-14T18:06:19Z'
                         url = 'anonymized'
                         hasGoodFirstIssues = $false
                         hasHelpWantedIssues = $false
@@ -73,7 +73,7 @@ Describe "Export-GitHubRepositoriesDetails Unit Tests" {
                         name = 'Anonymized'
                         openIssuesCount = 'Anonymized'
                         owner = @{id='Anonymized'; is_bot='Anonymized'; login='Anonymized'; type='Anonymized'; url='anonymized'}
-                        updatedAt = '00/00/0000 00:00:00'
+                        updatedAt = '2023-06-14T18:06:19Z'
                         url = 'anonymized'
                         hasGoodFirstIssues = $true
                         hasHelpWantedIssues = $true
