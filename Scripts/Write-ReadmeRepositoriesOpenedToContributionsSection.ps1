@@ -44,8 +44,8 @@ function Write-ReadmeRepositoriesOpenedToContributionsSection {
         $repositoriesOpenedToContributionsPrepared = $repositoriesOpenedToContributionsSorted | Select-Object `
             @{Name="Name";Expression={"[" + $_.fullName + "](" + $_.url + ")"}}, `
             @{Name="Language";Expression={$_.language}}, `
-            @{Name="Good First Issues";Expression={"[" + (New-ShieldIoBadge -AlternativeText "Good First Issues Badge" -Message $_.openedGoodFirstIssues -Color "green" -OutputFormat "Markdown") + "](https://github.com/" + $_.fullName + "/labels/good%20first%20issue)"}}, `
             @{Name="Help Wanted Issues";Expression={"[" + (New-ShieldIoBadge -AlternativeText "Help Wanted Issues Badge" -Message $_.openedHelpWantedIssues -Color "blue" -OutputFormat "Markdown") + "](https://github.com/" + $_.fullName + "/labels/help%20wanted)"}}, `
+            @{Name="Good First Issues";Expression={"[" + (New-ShieldIoBadge -AlternativeText "Good First Issues Badge" -Message $_.openedGoodFirstIssues -Color "green" -OutputFormat "Markdown") + "](https://github.com/" + $_.fullName + "/labels/good%20first%20issue)"}}, `
             @{Name="Topics";Expression={($_.topics | ForEach-Object { New-ShieldIoBadge -AlternativeText "$_ Badge" -Message "$_" -OutputFormat "Markdown" }) -join " "}}
 
         # Convert the list of repositories opened to contributions in a markdown table as array
