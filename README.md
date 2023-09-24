@@ -8,6 +8,8 @@
 </p>
 
 <p align="center">
+    <a href="https://github.com/rpothin/PowerPlatform-OpenSource-Hub/blob/main/LICENSE" alt="Repository License">
+        <img src="https://img.shields.io/github/license/rpothin/PowerPlatform-OpenSource-Hub?color=yellow&label=License" /></a>
     <a href="#watchers" alt="Watchers">
         <img src="https://img.shields.io/github/watchers/rpothin/PowerPlatform-OpenSource-Hub?style=social" /></a>
     <a href="#forks" alt="Forks">
