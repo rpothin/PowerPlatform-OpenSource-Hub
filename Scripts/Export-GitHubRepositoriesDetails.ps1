@@ -105,7 +105,7 @@ function Export-GitHubRepositoriesDetails {
             if ($repositoriesFound.count -eq $repositoriesSearchCriterion.SearchLimit) {
                 Write-Warning -Message "The number of repositories found for the topic '$($repositoriesSearchCriterion.Topic)' is equal to the search limit of $($repositoriesSearchCriterion.SearchLimit)."
             } else {
-                Write-Host "Number of repositories found for the topic '$($repositoriesSearchCriterion.Topic)': $($repositoriesFound.count) / $($repositoriesSearchCriterion.SearchLimit)"
+                Write-Verbose "Number of repositories found for the topic '$($repositoriesSearchCriterion.Topic)': $($repositoriesFound.count) / $($repositoriesSearchCriterion.SearchLimit)"
             }
             
             # Add these repositories to the array of results
@@ -113,13 +113,13 @@ function Export-GitHubRepositoriesDetails {
         }
 
         # Validate the number of objects in the array of results before removing duplicates and write this count as verbose
-        Write-Host -Message "Total number of repositories found: $($repositories.count)"
+        Write-Verbose -Message "Total number of repositories found: $($repositories.count)"
 
         # Remove duplicates from the array of results
         $repositories = $repositories | Sort-Object -Property fullName | Get-Unique -AsString
         
         # Validate the number of objects in the array of results after removing duplicates and write this count as verbose
-        Write-Host -Message "Number of repositories after removing duplicates: $($repositories.count)"
+        Write-Verbose -Message "Number of repositories after removing duplicates: $($repositories.count)"
 
         # Filter the array of results to keep only the repositories respecting the following conditions:
         # - have been updated in the last 6 months
@@ -159,7 +159,7 @@ function Export-GitHubRepositoriesDetails {
         $repositoriesWithDetails = $repositoriesWithDetails | Where-Object { $_.stargazerCount -ge 10 -or $_.watchers.totalCount -ge 10 }
 
         # Validate the number of objects in the array of results after filtering and write this count as verbose
-        Write-Host -Message "Number of repositories after filtering: $($repositoriesWithDetails.count)"
+        Write-Verbose -Message "Number of repositories after filtering: $($repositoriesWithDetails.count)"
 
         # Sort the array of results by the value of the watchersCount property in the descendant order of the repository
         $repositoriesWithDetails = $repositoriesWithDetails | Sort-Object -Property stargazerCount -Descending
