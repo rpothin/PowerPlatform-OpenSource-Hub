@@ -16,11 +16,11 @@ Describe "Get-GitHubRepositoryDetails Unit Tests" {
         }
 
         It "Should not throw an error for a RepositoryFullName like 'ORBISAG/ORBIS.PCF.ColorfulOptionset'" {
-            $result = { Get-GitHubRepositoryDetails -RepositoryFullName "ORBISAG/ORBIS.PCF.ColorfulOptionset" } | Should -Not -Throw
+            { Get-GitHubRepositoryDetails -RepositoryFullName "ORBISAG/ORBIS.PCF.ColorfulOptionset" } | Should -Not -Throw
         }
 
         It "Should not throw an error for a RepositoryFullName like 'microsoft/MTC_GuestAccessTeamsWorkshop'" {
-            $result = { Get-GitHubRepositoryDetails -RepositoryFullName "microsoft/MTC_GuestAccessTeamsWorkshop" } | Should -Not -Throw
+            { Get-GitHubRepositoryDetails -RepositoryFullName "microsoft/MTC_GuestAccessTeamsWorkshop" } | Should -Not -Throw
         }
     }
 
