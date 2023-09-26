@@ -1,11 +1,11 @@
 # To execute these tests run the following command from the root of the repository: Invoke-Pester -Script .\Scripts\Tests\Write-MarkdownSection.Tests.ps1
 
 # Set a global variable with the path of the executing script
-$executingTestPath = Split-Path -Parent $MyInvocation.MyCommand.Path
+$global:executingTestPath = Split-Path -Parent $MyInvocation.MyCommand.Path
 
 BeforeAll {
     # Import Write-MarkdownSection function
-    Import-Module $executingTestPath/../Write-MarkdownSection.ps1 -Force
+    Import-Module $global:executingTestPath/../Write-MarkdownSection.ps1 -Force
 }
 
 Describe "Write-MarkdownSection Unit Tests" {
