@@ -20,7 +20,7 @@ function Write-ReadmeTopGrowingRepositoriesSection {
 
         .EXAMPLE
             Import-Module .\Scripts\Write-MarkdownSection.ps1 -Force
-            Import-Module .\Scripts\New-ShieldIoBadge.ps1 -Force
+            Import-Module .\Scripts\Get-ShieldIoBadge.ps1 -Force
             Import-Module .\Scripts\ConvertTo-MarkdownTable.ps1 -Force
             Import-Module .\Scripts\Write-ReadmeTopGrowingRepositoriesSection.ps1 -Force
             Write-ReadmeRepositoriesOpenedToContributionsSection -GitHubRepositoriesDetails $GitHubRepositoriesDetails
@@ -60,9 +60,9 @@ function Write-ReadmeTopGrowingRepositoriesSection {
         $topGrowingRepositoriesPrepared = $topGrowingRepositories | Select-Object `
             @{Name="Name";Expression={"[" + $_.fullName + "](" + $_.url + ")"}}, `
             @{Name="Language";Expression={$_.language}}, `
-            @{Name="Stars";Expression={New-ShieldIoBadge -AlternativeText "Stars Badge" -Message $_.stargazerCount -Color "yellow" -OutputFormat "Markdown"}}, `
-            @{Name="Watchers";Expression={New-ShieldIoBadge -AlternativeText "Watchers Badge" -Message $_.watchers.totalCount -Color "orange" -OutputFormat "Markdown"}}, `
-            @{Name="Topics";Expression={($_.topics | ForEach-Object { New-ShieldIoBadge -AlternativeText "$_ Badge" -Message "$_" -OutputFormat "Markdown" }) -join " "}}
+            @{Name="Stars";Expression={Get-ShieldIoBadge -AlternativeText "Stars Badge" -Message $_.stargazerCount -Color "yellow" -OutputFormat "Markdown"}}, `
+            @{Name="Watchers";Expression={Get-ShieldIoBadge -AlternativeText "Watchers Badge" -Message $_.watchers.totalCount -Color "orange" -OutputFormat "Markdown"}}, `
+            @{Name="Topics";Expression={($_.topics | ForEach-Object { Get-ShieldIoBadge -AlternativeText "$_ Badge" -Message "$_" -OutputFormat "Markdown" }) -join " "}}
 
         # Convert the list of top growing repositories in a markdown table as array
         $topGrowingRepositoriesTableAsArray = $topGrowingRepositoriesPrepared | ConvertTo-MarkdownTable

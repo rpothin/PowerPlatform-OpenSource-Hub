@@ -20,7 +20,7 @@ function Write-ReadmeSummarySection {
 
         .EXAMPLE
             Import-Module .\Scripts\Write-MarkdownSection.ps1 -Force
-            Import-Module .\Scripts\New-ShieldIoBadge.ps1 -Force
+            Import-Module .\Scripts\Get-ShieldIoBadge.ps1 -Force
             Import-Module .\Scripts\Write-ReadmeSummarySection.ps1 -Force
             Write-ReadmeSummarySection -GitHubRepositoriesDetails $GitHubRepositoriesDetails -Topics $Topics
     #>
@@ -59,15 +59,15 @@ function Write-ReadmeSummarySection {
         # Configure summary badges
         $summaryBadgesCentered = "<h3 align='center'>`n"
 
-        $summaryBadgesCentered += "  " + (New-ShieldIoBadge -AlternativeText "Repositories Count Badge" -Message "Repositories" -Label $repositoriesCount -Color "602890" -OutputFormat "HTML") + "`n"
-        $summaryBadgesCentered += "  " + (New-ShieldIoBadge -AlternativeText "Active Repositories Count Badge" -Message "Active Repositories" -Label $repositoriesUpdatedInTheLast30DaysCount -Color "A24FBF" -OutputFormat "HTML") + "`n"
-        $summaryBadgesCentered += "  " + (New-ShieldIoBadge -AlternativeText "Opened Good First Issues Count Badge" -Message "Good First Issues" -Label $openedGoodFirstIssuesCount -Color "green" -OutputFormat "HTML") + "`n"
-        $summaryBadgesCentered += "  " + (New-ShieldIoBadge -AlternativeText "Opened Help Wanted Issues Count Badge" -Message "Help Wanted Issues" -Label $openedHelpWantedIssuesCount -Color "blue" -OutputFormat "HTML") + "`n"
+        $summaryBadgesCentered += "  " + (Get-ShieldIoBadge -AlternativeText "Repositories Count Badge" -Message "Repositories" -Label $repositoriesCount -Color "602890" -OutputFormat "HTML") + "`n"
+        $summaryBadgesCentered += "  " + (Get-ShieldIoBadge -AlternativeText "Active Repositories Count Badge" -Message "Active Repositories" -Label $repositoriesUpdatedInTheLast30DaysCount -Color "A24FBF" -OutputFormat "HTML") + "`n"
+        $summaryBadgesCentered += "  " + (Get-ShieldIoBadge -AlternativeText "Opened Good First Issues Count Badge" -Message "Good First Issues" -Label $openedGoodFirstIssuesCount -Color "green" -OutputFormat "HTML") + "`n"
+        $summaryBadgesCentered += "  " + (Get-ShieldIoBadge -AlternativeText "Opened Help Wanted Issues Count Badge" -Message "Help Wanted Issues" -Label $openedHelpWantedIssuesCount -Color "blue" -OutputFormat "HTML") + "`n"
         
         $summaryBadgesCentered += "  <br/>`n"
         
-        $summaryBadgesCentered += "  " + (New-ShieldIoBadge -AlternativeText "Security Policy Enabled Percentage Badge" -Message "Security Policy Enabled Percentage" -Label $securityPolicyEnabledPercentage -Color "orange" -OutputFormat "HTML") + "`n"
-        $summaryBadgesCentered += "  " + (New-ShieldIoBadge -AlternativeText "Code of Conduct Availability Percentage Badge" -Message "Code of Conduct Availability Percentage" -Label $codeOfConductEnabledPercentage -Color "9F2B63" -OutputFormat "HTML") + "`n"
+        $summaryBadgesCentered += "  " + (Get-ShieldIoBadge -AlternativeText "Security Policy Enabled Percentage Badge" -Message "Security Policy Enabled Percentage" -Label $securityPolicyEnabledPercentage -Color "orange" -OutputFormat "HTML") + "`n"
+        $summaryBadgesCentered += "  " + (Get-ShieldIoBadge -AlternativeText "Code of Conduct Availability Percentage Badge" -Message "Code of Conduct Availability Percentage" -Label $codeOfConductEnabledPercentage -Color "9F2B63" -OutputFormat "HTML") + "`n"
         
         $summaryBadgesCentered += "</h3>`n`n"
 
@@ -76,7 +76,7 @@ function Write-ReadmeSummarySection {
         {
           $topicName = $topic.topic
           
-          $topicBadge = "  " + (New-ShieldIoBadge -AlternativeText "$topicName Badge" -Message $topicName -OutputFormat "HTML") + "`n"
+          $topicBadge = "  " + (Get-ShieldIoBadge -AlternativeText "$topicName Badge" -Message $topicName -OutputFormat "HTML") + "`n"
           
           $listOfTopics += $topicBadge
         }

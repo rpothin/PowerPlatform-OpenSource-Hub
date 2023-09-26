@@ -9,7 +9,7 @@ BeforeAll {
 
     # Import required modules
     Import-Module $global:executingTestPath/../../Scripts/Write-MarkdownSection.ps1 -Force
-    Import-Module $global:executingTestPath/../../Scripts/New-ShieldIoBadge.ps1 -Force
+    Import-Module $global:executingTestPath/../../Scripts/Get-ShieldIoBadge.ps1 -Force
     Import-Module $global:executingTestPath/../../Scripts/ConvertTo-MarkdownTable.ps1 -Force
 }
 

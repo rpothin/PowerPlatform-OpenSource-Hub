@@ -1,4 +1,4 @@
-function New-ShieldIoBadge {
+function Get-ShieldIoBadge {
     <#
         .SYNOPSIS
             Return a shield.io badge to use in a markdown file.
@@ -22,23 +22,23 @@ function New-ShieldIoBadge {
             Format of the shield.io badge to return. Accepted values: Markdown, HTML.
 
         .INPUTS
-            None. You cannot pipe objects to New-ShieldIoBadge.
+            None. You cannot pipe objects to Get-ShieldIoBadge.
 
         .OUTPUTS
             None. This script return a shield.io badge as a string.
 
         .EXAMPLE
-            Import-Module .\Scripts\New-ShieldIoBadge.ps1 -Force
-            New-ShieldIoBadge -AlternativeText "Static Badge" -Message "any text" -Label "you like" -OutputFormat "Markdown"
+            Import-Module .\Scripts\Get-ShieldIoBadge.ps1 -Force
+            Get-ShieldIoBadge -AlternativeText "Static Badge" -Message "any text" -Label "you like" -OutputFormat "Markdown"
                 ![Static Badge](https://img.shields.io/badge/any_text-you_like-blue)
 
         .EXAMPLE
-            Import-Module .\Scripts\New-ShieldIoBadge.ps1 -Force
-            New-ShieldIoBadge -AlternativeText "Static Badge" -Message "just the message" -Color blue -OutputFormat "HTML"
+            Import-Module .\Scripts\Get-ShieldIoBadge.ps1 -Force
+            Get-ShieldIoBadge -AlternativeText "Static Badge" -Message "just the message" -Color blue -OutputFormat "HTML"
                 <img alt="Static Badge" src="https://img.shields.io/badge/just%20the%20message-8A2BE2">
     #>
 
-    [CmdletBinding(SupportsShouldProcess = $true)]
+    [CmdletBinding()]
     [OutputType([string])]
     Param(
         # Alternative text for the image of the shield.io badge.
