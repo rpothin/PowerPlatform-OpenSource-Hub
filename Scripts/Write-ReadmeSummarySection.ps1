@@ -54,7 +54,7 @@ function Write-ReadmeSummarySection {
         $securityPolicyEnabledPercentage = [math]::Round(($GitHubRepositoriesDetails | Where-Object { $_.isSecurityPolicyEnabled -eq $true } | Measure-Object | Select-Object -ExpandProperty Count) / $repositoriesCount * 100)
 
         # Get the percentage of referenced repositories with a code of conduct based on the fact that the codeOfConduct property is not null
-        $codeOfConductEnabledPercentage = [math]::Round(($GitHubRepositoriesDetails | Where-Object { $_.codeOfConduct -ne $null } | Measure-Object | Select-Object -ExpandProperty Count) / $repositoriesCount * 100)
+        $codeOfConductEnabledPercentage = [math]::Round(($GitHubRepositoriesDetails | Where-Object { $null -ne $_.codeOfConduct } | Measure-Object | Select-Object -ExpandProperty Count) / $repositoriesCount * 100)
 
         # Configure summary badges
         $summaryBadgesCentered = "<h3 align='center'>`n"

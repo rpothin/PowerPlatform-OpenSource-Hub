@@ -149,7 +149,7 @@ Describe "Export-GitHubRepositoriesDetails Unit Tests" {
 
             $result = Export-GitHubRepositoriesDetails -ConfigurationFilePath ".\Configuration\GitHubRepositoriesSearchCriteria.json" -OutputFilePath ".\Data\GitHubRepositoriesDetails.json"
             # Remove potential $null values from the array - not sure why they are there
-            $result = $result | Where-Object { $_ -ne $null }
+            $result = $result | Where-Object { $null -ne $_ }
             $result.Count | Should -Be 2
             $result[0].fullName | Should -Be "Anonymized/Anonymized"
             $result[0].hasGoodFirstIssues | Should -Be $false
@@ -177,7 +177,7 @@ Describe "Export-GitHubRepositoriesDetails Unit Tests" {
 
             $result = Export-GitHubRepositoriesDetails -ConfigurationFilePath ".\Configuration\GitHubRepositoriesSearchCriteria.json" -OutputFilePath ".\Data\GitHubRepositoriesDetails.json"
             # Remove potential $null values from the array - not sure why they are there
-            $result = $result | Where-Object { $_ -ne $null }
+            $result = $result | Where-Object { $null -ne $_ }
             $result.Count | Should -Be 2
         }
 
@@ -211,7 +211,7 @@ Describe "Export-GitHubRepositoriesDetails Unit Tests" {
 
             $result = Export-GitHubRepositoriesDetails -ConfigurationFilePath ".\Configuration\GitHubRepositoriesSearchCriteria.json" -OutputFilePath ".\Data\GitHubRepositoriesDetails.json"
             # Remove potential $null values from the array - not sure why they are there
-            $result = $result | Where-Object { $_ -ne $null }
+            $result = $result | Where-Object { $null -ne $_ }
             $result.Count | Should -Be 2
         }
     }
