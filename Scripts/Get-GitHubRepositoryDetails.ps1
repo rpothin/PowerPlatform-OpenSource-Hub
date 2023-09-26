@@ -67,7 +67,7 @@ function Get-GitHubRepositoryDetails {
 
             $errorMessage = "The repository '$RepositoryFullName' does not exist."
             $repositoryDetails | Add-Member -MemberType NoteProperty -Name "error" -Value $errorMessage
-        } 
+        }
         # If the repository exists, get its topics and add them to the repository details object
         else {
             $repositoryTopics = gh api repos/$RepositoryFullName/topics | ConvertFrom-Json
@@ -92,18 +92,18 @@ function Get-GitHubRepositoryDetails {
             if ($?) {
                 $repositoryGoodFirstIssues = $repositoryGoodFirstIssuesAsJson | ConvertFrom-Json
                 $repositoryDetails | Add-Member -MemberType NoteProperty -Name openedGoodFirstIssues -Value $repositoryGoodFirstIssues.count
-    
+
                 if ($repositoryGoodFirstIssues.count -gt 0) {
                     $repositoryDetails | Add-Member -MemberType NoteProperty -Name hasGoodFirstIssues -Value $true
                 }
                 else {
                     $repositoryDetails | Add-Member -MemberType NoteProperty -Name hasGoodFirstIssues -Value $false
                 }
-        
+
                 # Get the number of help wanted issues for the repository
                 $repositoryHelpWantedIssues = gh issue list --repo $($RepositoryFullName) --state open --label "help wanted" --json number,title | ConvertFrom-Json
                 $repositoryDetails | Add-Member -MemberType NoteProperty -Name openedHelpWantedIssues -Value $repositoryHelpWantedIssues.count
-        
+
                 if ($repositoryHelpWantedIssues.count -gt 0) {
                     $repositoryDetails | Add-Member -MemberType NoteProperty -Name hasHelpWantedIssues -Value $true
                 }

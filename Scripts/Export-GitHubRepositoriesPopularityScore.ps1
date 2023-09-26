@@ -59,7 +59,7 @@ function Export-GitHubRepositoriesPopularityScore {
 
         # Sort the repositories by popularity score descendant
         $repositoriesWithPopularityScore = $repositoriesWithPopularityScore | Sort-Object -Property popularityScore -Descending
-        
+
         # Export the results in the output file
         $repositoriesWithPopularityScore | ConvertTo-Json | Out-File -FilePath $OutputFilePath
 

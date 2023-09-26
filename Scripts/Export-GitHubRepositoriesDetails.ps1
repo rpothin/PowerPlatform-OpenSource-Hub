@@ -42,14 +42,14 @@ function Export-GitHubRepositoriesDetails {
                 url                     : https://github.com/msnraju/business-central-webhooks
                 hasGoodFirstIssues      : False
                 hasHelpWantedIssues     : False
-                codeOfConduct           : 
+                codeOfConduct           :
                 forkCount               : 1
                 fundingLinks            : {}
                 isSecurityPolicyEnabled : False
                 isTemplate              : False
-                latestRelease           : 
+                latestRelease           :
                 primaryLanguage         : @{name=JavaScript}
-                securityPolicyUrl       : 
+                securityPolicyUrl       :
                 stargazerCount          : 4
                 watchers                : @{totalCount=1}
                 topics                  : {business-central, dynamics365, webhooks, nodejs…}
@@ -107,7 +107,7 @@ function Export-GitHubRepositoriesDetails {
             } else {
                 Write-Verbose "Number of repositories found for the topic '$($repositoriesSearchCriterion.Topic)': $($repositoriesFound.count) / $($repositoriesSearchCriterion.SearchLimit)"
             }
-            
+
             # Add these repositories to the array of results
             $repositories += $repositoriesFound
         }
@@ -117,7 +117,7 @@ function Export-GitHubRepositoriesDetails {
 
         # Remove duplicates from the array of results
         $repositories = $repositories | Sort-Object -Property fullName | Get-Unique -AsString
-        
+
         # Validate the number of objects in the array of results after removing duplicates and write this count as verbose
         Write-Verbose -Message "Number of repositories after removing duplicates: $($repositories.count)"
 

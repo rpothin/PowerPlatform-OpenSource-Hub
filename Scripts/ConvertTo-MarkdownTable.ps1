@@ -50,11 +50,11 @@ function ConvertTo-MarkdownTable {
         if ($inputObjectAsJson -eq "{}" -or $inputObjectAsJson -eq "[]") {
             throw "The input object is empty."
         }
-        
+
         # If the headers are not configured yet, configure them
         if (!$headersDone) {
             $headersDone = $true
-            
+
             # Configure the headers
             '|{0}|' -f (($_.PSObject.Properties.Name -replace $pattern, '\|') -join '|')
             '|{0}|' -f (($_.PSObject.Properties.Name -replace '.', '-') -join '|')
