@@ -26,7 +26,7 @@ function Search-GitHubRepositories {
                 description     : Template repository for the ALM of Power Platform solutions with GitHub
                 fullName        : rpothin/PowerPlatform-ALM-With-GitHub-Template
                 hasIssues       : True
-                homepage        : 
+                homepage        :
                 language        : PowerShell
                 license         : @{key=mit; name=MIT License; url=https://api.github.com/licenses/mit}
                 name            : PowerPlatform-ALM-With-GitHub-Template
@@ -47,7 +47,7 @@ function Search-GitHubRepositories {
         # Limit on the maximum number of repositories we will search for through the GitHub CLI.
         [Parameter(Mandatory = $true)]
         [ValidateRange(1,1000)]
-        [int]$SearchLimit    
+        [int]$SearchLimit
     )
 
     Process{

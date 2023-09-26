@@ -30,7 +30,7 @@ Describe "Export-GitHubRepositoriesDetails Unit Tests" {
     Context "Valid execution with mocked commands" {
         BeforeEach {
             Mock Test-Path { $true }
-            
+
             Import-Module $global:executingTestPath/../Search-GitHubRepositories.ps1 -Force
             Mock Search-GitHubRepositories {
                 @(
@@ -131,7 +131,7 @@ Describe "Export-GitHubRepositoriesDetails Unit Tests" {
             }
 
             Mock Out-File {
-                # Do nothing 
+                # Do nothing
             }
         }
 
@@ -183,7 +183,7 @@ Describe "Export-GitHubRepositoriesDetails Unit Tests" {
 
         It "Should create the parent folder of the output file if it does not exist" {
             Mock Split-Path { ".\Data" }
-            
+
             Mock Get-Content {
                 @"
 [
@@ -195,7 +195,7 @@ Describe "Export-GitHubRepositoriesDetails Unit Tests" {
 "@
             }
 
-            Mock Test-Path { 
+            Mock Test-Path {
                 param($Path)
                 # If path contains Data, return false else return true
                 if ($Path -match "Data") {

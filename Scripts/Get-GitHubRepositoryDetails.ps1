@@ -115,8 +115,8 @@ function Get-GitHubRepositoryDetails {
                 $repositoryDetails | Add-Member -MemberType NoteProperty -Name hasGoodFirstIssues -Value $false
                 $repositoryDetails | Add-Member -MemberType NoteProperty -Name openedHelpWantedIssues -Value 0
                 $repositoryDetails | Add-Member -MemberType NoteProperty -Name hasHelpWantedIssues -Value $false
-            }  
-            
+            }
+
             $repositoryDetails | Add-Member -MemberType ScriptProperty -Name openedToContributionsIssues -Value {$this.openedGoodFirstIssues + $this.openedHelpWantedIssues}
             $repositoryDetails | Add-Member -MemberType ScriptProperty -Name popularityScore -Value {$this.stargazerCount + $this.watchers.totalCount}
         }
