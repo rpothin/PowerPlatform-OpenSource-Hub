@@ -38,7 +38,7 @@ function New-ShieldIoBadge {
                 <img alt="Static Badge" src="https://img.shields.io/badge/just%20the%20message-8A2BE2">
     #>
 
-    [CmdletBinding()]
+    [CmdletBinding(SupportsShouldProcess = $true)]
     [OutputType([string])]
     Param(
         # Alternative text for the image of the shield.io badge.
