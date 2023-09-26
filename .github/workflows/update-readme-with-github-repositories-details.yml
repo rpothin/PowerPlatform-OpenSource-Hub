@@ -40,7 +40,7 @@ jobs:
           Write-Host "/********************************************************************************/"
           Write-Host "Install required modules"
           Import-Module .\Scripts\Write-MarkdownSection.ps1 -Force
-          Import-Module .\Scripts\New-ShieldIoBadge.ps1 -Force
+          Import-Module .\Scripts\Get-ShieldIoBadge.ps1 -Force
           Import-Module .\Scripts\ConvertTo-MarkdownTable.ps1 -Force
           Import-Module .\Scripts\Write-ReadmeSummarySection.ps1 -Force
           Import-Module .\Scripts\Write-ReadmeRepositoriesOpenedToContributionsSection.ps1 -Force
@@ -79,7 +79,7 @@ jobs:
           Write-Host "/********************************************************************************/"
           Write-Host "Install required modules"
           Import-Module .\Scripts\Write-MarkdownSection.ps1 -Force
-          Import-Module .\Scripts\New-ShieldIoBadge.ps1 -Force
+          Import-Module .\Scripts\Get-ShieldIoBadge.ps1 -Force
           Import-Module .\Scripts\ConvertTo-MarkdownTable.ps1 -Force
           Import-Module .\Scripts\Write-ReadmeTopGrowingRepositoriesSection.ps1 -Force
 
