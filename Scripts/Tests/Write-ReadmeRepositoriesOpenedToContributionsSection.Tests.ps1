@@ -54,8 +54,6 @@ Describe "Write-ReadmeRepositoriesOpenedToContributionsSection Unit tests" {
         
         # Mock Write-MarkdownSection function
         Mock Write-MarkdownSection {
-            param($Content, $Path)
-
             # Do nothing
         }
     }
