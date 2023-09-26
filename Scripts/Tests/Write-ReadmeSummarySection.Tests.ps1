@@ -48,8 +48,6 @@ Describe "Write-ReadmeSummarySection Unit Tests" {
         
         # Mock Write-MarkdownSection function
         Mock Write-MarkdownSection {
-            param($Content, $Path)
-
             # Do nothing
         }
     }
