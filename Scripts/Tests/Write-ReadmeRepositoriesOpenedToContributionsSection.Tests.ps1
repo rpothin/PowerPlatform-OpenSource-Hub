@@ -51,7 +51,7 @@ Describe "Write-ReadmeRepositoriesOpenedToContributionsSection Unit tests" {
                 topics = @("microsoft", "azure")
             }
         )
-        
+
         # Mock Write-MarkdownSection function
         Mock Write-MarkdownSection {
             # Do nothing

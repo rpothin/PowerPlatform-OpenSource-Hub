@@ -63,9 +63,9 @@ function Write-ReadmeSummarySection {
         $summaryBadgesCentered += "  " + (Get-ShieldIoBadge -AlternativeText "Active Repositories Count Badge" -Message "Active Repositories" -Label $repositoriesUpdatedInTheLast30DaysCount -Color "A24FBF" -OutputFormat "HTML") + "`n"
         $summaryBadgesCentered += "  " + (Get-ShieldIoBadge -AlternativeText "Opened Good First Issues Count Badge" -Message "Good First Issues" -Label $openedGoodFirstIssuesCount -Color "green" -OutputFormat "HTML") + "`n"
         $summaryBadgesCentered += "  " + (Get-ShieldIoBadge -AlternativeText "Opened Help Wanted Issues Count Badge" -Message "Help Wanted Issues" -Label $openedHelpWantedIssuesCount -Color "blue" -OutputFormat "HTML") + "`n"
-        
+
         $summaryBadgesCentered += "  <br/>`n"
-        
+
         $summaryBadgesCentered += "  " + (Get-ShieldIoBadge -AlternativeText "Security Policy Enabled Percentage Badge" -Message "Security Policy Enabled Percentage" -Label $securityPolicyEnabledPercentage -Color "orange" -OutputFormat "HTML") + "`n"
         $summaryBadgesCentered += "  " + (Get-ShieldIoBadge -AlternativeText "Code of Conduct Availability Percentage Badge" -Message "Code of Conduct Availability Percentage" -Label $codeOfConductEnabledPercentage -Color "9F2B63" -OutputFormat "HTML") + "`n"
         
@@ -75,7 +75,7 @@ function Write-ReadmeSummarySection {
         foreach ($topic in $Topics)
         {
           $topicName = $topic.topic
-          
+
           $topicBadge = "  " + (Get-ShieldIoBadge -AlternativeText "$topicName Badge" -Message $topicName -OutputFormat "HTML") + "`n"
           
           $listOfTopics += $topicBadge

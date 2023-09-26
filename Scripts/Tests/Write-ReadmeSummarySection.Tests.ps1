@@ -45,7 +45,7 @@ Describe "Write-ReadmeSummarySection Unit Tests" {
                 topic = "topic2"
             }
         )
-        
+
         # Mock Write-MarkdownSection function
         Mock Write-MarkdownSection {
             # Do nothing
