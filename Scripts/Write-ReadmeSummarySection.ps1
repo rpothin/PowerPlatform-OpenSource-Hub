@@ -68,7 +68,7 @@ function Write-ReadmeSummarySection {
 
         $summaryBadgesCentered += "  " + (Get-ShieldIoBadge -AlternativeText "Security Policy Enabled Percentage Badge" -Message "Security Policy Enabled Percentage" -Label $securityPolicyEnabledPercentage -Color "orange" -OutputFormat "HTML") + "`n"
         $summaryBadgesCentered += "  " + (Get-ShieldIoBadge -AlternativeText "Code of Conduct Availability Percentage Badge" -Message "Code of Conduct Availability Percentage" -Label $codeOfConductEnabledPercentage -Color "9F2B63" -OutputFormat "HTML") + "`n"
-        
+
         $summaryBadgesCentered += "</h3>`n`n"
 
         # Concatenate the topics property in the configuration file as static badges
@@ -77,7 +77,7 @@ function Write-ReadmeSummarySection {
           $topicName = $topic.topic
 
           $topicBadge = "  " + (Get-ShieldIoBadge -AlternativeText "$topicName Badge" -Message $topicName -OutputFormat "HTML") + "`n"
-          
+
           $listOfTopics += $topicBadge
         }
 

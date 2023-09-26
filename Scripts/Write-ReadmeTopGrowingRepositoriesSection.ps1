@@ -42,10 +42,10 @@ function Write-ReadmeTopGrowingRepositoriesSection {
     Process {
         # Add a property to the GitHubRepositoriesDetails object with the popularity score growth based on the corresponding value in the GitHubRepositoriesPopularityScoresSnapshot object
         # If the repository is not present in the GitHubRepositoriesPopularityScoresSnapshot object, the popularity score in the snapshot is considered to be 0
-        
+
         # Initialize an empty array
         $repositoriesDetailsWithPopularityScoreGrowth = @()
-        
+
         foreach ($repository in $GitHubRepositoriesDetails) {
             $popularityScoreSnapshot = ($GitHubRepositoriesPopularityScoresSnapshot | Where-Object fullName -eq $repository.fullName).popularityScore ?? 0
             $popularityScoreGrowth = $repository.popularityScore - $popularityScoreSnapshot

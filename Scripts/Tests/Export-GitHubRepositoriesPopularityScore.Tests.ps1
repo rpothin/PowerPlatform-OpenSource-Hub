@@ -19,7 +19,7 @@ Describe "Export-GitHubRepositoriesPopularityScore Unit Tests" {
 
             { Export-GitHubRepositoriesPopularityScore -InputFilePath "nonexistent.json" -OutputFilePath $outputFilePath } | Should -Throw "The input file 'nonexistent.json' does not exist."
         }
-    
+
         It "If input file is not a JSON file, should throw an error" {
             Mock Test-Path { $true }
 

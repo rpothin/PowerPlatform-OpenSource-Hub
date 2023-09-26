@@ -194,7 +194,7 @@ Describe "Export-GitHubRepositoriesDetails Unit Tests" {
 ]
 "@
             }
-            
+
             Mock Test-Path { 
                 param($Path)
                 # If path contains Data, return false else return true
@@ -204,7 +204,7 @@ Describe "Export-GitHubRepositoriesDetails Unit Tests" {
                     return $true
                 }
             }
-            
+
             Mock New-Item {
                 # Do nothing
             }

@@ -46,7 +46,7 @@ Describe "Write-ReadmeTopGrowingRepositoriesSection Unit Tests" {
                     popularityScore = 12
                 }
             )
-    
+
             $popularityScoresSnapshot = @(
                 [pscustomobject]@{
                     fullName = "user/repo1"
@@ -57,7 +57,7 @@ Describe "Write-ReadmeTopGrowingRepositoriesSection Unit Tests" {
                     popularityScore = 25
                 }
             )
-    
+
             Mock Write-MarkdownSection {
                 # Do nothing
             }
