@@ -1,11 +1,11 @@
 # To execute these tests run the following command from the root of the repository: Invoke-Pester -Script .\Scripts\Tests\Export-GitHubRepositoriesPopularityScore.Tests.ps1
 
 # Set a global variable with the path of the executing script
-$global:executingTestPath = Split-Path -Parent $MyInvocation.MyCommand.Path
+$executingTestPath = Split-Path -Parent $MyInvocation.MyCommand.Path
 
 BeforeAll {
     # Import Export-GitHubRepositoriesPopularityScore function
-    Import-Module $global:executingTestPath/../Export-GitHubRepositoriesPopularityScore.ps1 -Force
+    Import-Module $executingTestPath/../Export-GitHubRepositoriesPopularityScore.ps1 -Force
 }
 
 Describe "Export-GitHubRepositoriesPopularityScore Unit Tests" {

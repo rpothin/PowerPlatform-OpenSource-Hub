@@ -1,16 +1,16 @@
 # To execute these tests run the following command from the root of the repository: Invoke-Pester -Script .\Scripts\Tests\Write-ReadmeRepositoriesOpenedToContributionsSection.Tests.ps1
 
 # Set a global variable with the path of the executing script
-$global:executingTestPath = Split-Path -Parent $MyInvocation.MyCommand.Path
+$executingTestPath = Split-Path -Parent $MyInvocation.MyCommand.Path
 
 BeforeAll {
     # Import Write-ReadmeRepositoriesOpenedToContributionsSection function
-    Import-Module $global:executingTestPath/../Write-ReadmeRepositoriesOpenedToContributionsSection.ps1 -Force
+    Import-Module $executingTestPath/../Write-ReadmeRepositoriesOpenedToContributionsSection.ps1 -Force
 
     # Import required modules
-    Import-Module $global:executingTestPath/../../Scripts/Write-MarkdownSection.ps1 -Force
-    Import-Module $global:executingTestPath/../../Scripts/New-ShieldIoBadge.ps1 -Force
-    Import-Module $global:executingTestPath/../../Scripts/ConvertTo-MarkdownTable.ps1 -Force
+    Import-Module $executingTestPath/../../Scripts/Write-MarkdownSection.ps1 -Force
+    Import-Module $executingTestPath/../../Scripts/New-ShieldIoBadge.ps1 -Force
+    Import-Module $executingTestPath/../../Scripts/ConvertTo-MarkdownTable.ps1 -Force
 }
 
 Describe "Write-ReadmeRepositoriesOpenedToContributionsSection Unit tests" {

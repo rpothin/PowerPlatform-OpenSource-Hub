@@ -1,11 +1,11 @@
 # To execute these tests run the following command from the root of the repository: Invoke-Pester -Script .\Scripts\Tests\Search-GitHubRepositories.Tests.ps1
 
 # Set a global variable with the path of the executing script
-$global:executingTestPath = Split-Path -Parent $MyInvocation.MyCommand.Path
+$executingTestPath = Split-Path -Parent $MyInvocation.MyCommand.Path
 
 BeforeAll {
     # Import Search-GitHubRepositories function
-    Import-Module $global:executingTestPath/../Search-GitHubRepositories.ps1 -Force
+    Import-Module $executingTestPath/../Search-GitHubRepositories.ps1 -Force
 }
 
 Describe "Search-GitHubRepositories Unit Tests" {
