@@ -83,7 +83,7 @@
       "url": "https://api.github.com/licenses/mit"
     },
     "name": "Microsoft365DSC",
-    "openIssuesCount": 180,
+    "openIssuesCount": 181,
     "owner": {
       "id": "MDEyOk9yZ2FuaXphdGlvbjYxNTQ3MjI=",
       "is_bot": false,
@@ -91,7 +91,7 @@
       "type": "Organization",
       "url": "https://github.com/microsoft"
     },
-    "updatedAt": "2023-10-13T07:26:07Z",
+    "updatedAt": "2023-10-13T19:18:13Z",
     "url": "https://github.com/microsoft/Microsoft365DSC",
     "codeOfConduct": {
       "key": "contributor_covenant",
@@ -112,7 +112,7 @@
       "name": "PowerShell"
     },
     "securityPolicyUrl": "https://github.com/microsoft/Microsoft365DSC/security/policy",
-    "stargazerCount": 1167,
+    "stargazerCount": 1170,
     "watchers": {
       "totalCount": 67
     },
@@ -148,7 +148,7 @@
     "openedHelpWantedIssues": 2,
     "hasHelpWantedIssues": true,
     "openedToContributionsIssues": 2,
-    "popularityScore": 1234
+    "popularityScore": 1237
   },
   {
     "createdAt": "2018-12-13T05:33:24Z",
@@ -172,7 +172,7 @@
       "type": "Organization",
       "url": "https://github.com/microsoft"
     },
-    "updatedAt": "2023-10-13T05:39:42Z",
+    "updatedAt": "2023-10-14T01:48:39Z",
     "url": "https://github.com/microsoft/PowerPlatformConnectors",
     "codeOfConduct": {
       "key": "other",
@@ -188,7 +188,7 @@
       "name": "C#"
     },
     "securityPolicyUrl": "https://github.com/microsoft/PowerPlatformConnectors/security/policy",
-    "stargazerCount": 786,
+    "stargazerCount": 787,
     "watchers": {
       "totalCount": 52
     },
@@ -211,7 +211,7 @@
     "openedHelpWantedIssues": 0,
     "hasHelpWantedIssues": false,
     "openedToContributionsIssues": 0,
-    "popularityScore": 838
+    "popularityScore": 839
   },
   {
     "createdAt": "2014-01-30T09:46:28Z",
@@ -296,7 +296,7 @@
       "type": "Organization",
       "url": "https://github.com/microsoft"
     },
-    "updatedAt": "2023-10-06T13:42:22Z",
+    "updatedAt": "2023-10-14T07:35:35Z",
     "url": "https://github.com/microsoft/AL",
     "codeOfConduct": {
       "key": "other",
@@ -1517,6 +1517,70 @@
     "popularityScore": 197
   },
   {
+    "createdAt": "2020-08-06T19:28:51Z",
+    "description": "Power Platform GitHub Actions automate common build and deployment tasks related to Power Platform. This includes synchronization of solution metadata (a.k.a. solutions) between development environments and source control, generating build artifacts, deploying to downstream environments, provisioning/de-provisioning of environments, and the ability to perform static analysis checks against your solution using the PowerApps checker service.",
+    "fullName": "microsoft/powerplatform-actions",
+    "hasIssues": true,
+    "homepage": "",
+    "isArchived": false,
+    "language": "TypeScript",
+    "license": {
+      "key": "mit",
+      "name": "MIT License",
+      "url": "https://api.github.com/licenses/mit"
+    },
+    "name": "powerplatform-actions",
+    "openIssuesCount": 16,
+    "owner": {
+      "id": "MDEyOk9yZ2FuaXphdGlvbjYxNTQ3MjI=",
+      "is_bot": false,
+      "login": "microsoft",
+      "type": "Organization",
+      "url": "https://github.com/microsoft"
+    },
+    "updatedAt": "2023-10-13T15:59:10Z",
+    "url": "https://github.com/microsoft/powerplatform-actions",
+    "codeOfConduct": {
+      "key": "other",
+      "name": "Other",
+      "url": "https://github.com/microsoft/powerplatform-actions/blob/main/CODE_OF_CONDUCT.md"
+    },
+    "forkCount": 60,
+    "fundingLinks": [],
+    "isSecurityPolicyEnabled": true,
+    "isTemplate": false,
+    "latestRelease": {
+      "name": "v1.1.0, August Refresh",
+      "tagName": "v1.1.0",
+      "url": "https://github.com/microsoft/powerplatform-actions/releases/tag/v1.1.0",
+      "publishedAt": "2023-09-21T18:24:12Z"
+    },
+    "primaryLanguage": {
+      "name": "TypeScript"
+    },
+    "securityPolicyUrl": "https://github.com/microsoft/powerplatform-actions/security/policy",
+    "stargazerCount": 166,
+    "watchers": {
+      "totalCount": 31
+    },
+    "topics": [
+      "powerplatform",
+      "github-actions"
+    ],
+    "languages": [
+      "TypeScript",
+      "JavaScript",
+      "Shell",
+      "Batchfile"
+    ],
+    "openedGoodFirstIssues": 0,
+    "hasGoodFirstIssues": false,
+    "openedHelpWantedIssues": 0,
+    "hasHelpWantedIssues": false,
+    "openedToContributionsIssues": 0,
+    "popularityScore": 197
+  },
+  {
     "createdAt": "2016-05-20T12:32:41Z",
     "description": "Chrome, Edge Chromium and Firefox Extension for Dynamics CRM/365/Power Apps Power users",
     "fullName": "rajyraman/Levelup-for-Dynamics-CRM",
@@ -1576,70 +1640,6 @@
     "hasHelpWantedIssues": false,
     "openedToContributionsIssues": 0,
     "popularityScore": 187
-  },
-  {
-    "createdAt": "2020-08-06T19:28:51Z",
-    "description": "Power Platform GitHub Actions automate common build and deployment tasks related to Power Platform. This includes synchronization of solution metadata (a.k.a. solutions) between development environments and source control, generating build artifacts, deploying to downstream environments, provisioning/de-provisioning of environments, and the ability to perform static analysis checks against your solution using the PowerApps checker service.",
-    "fullName": "microsoft/powerplatform-actions",
-    "hasIssues": true,
-    "homepage": "",
-    "isArchived": false,
-    "language": "TypeScript",
-    "license": {
-      "key": "mit",
-      "name": "MIT License",
-      "url": "https://api.github.com/licenses/mit"
-    },
-    "name": "powerplatform-actions",
-    "openIssuesCount": 16,
-    "owner": {
-      "id": "MDEyOk9yZ2FuaXphdGlvbjYxNTQ3MjI=",
-      "is_bot": false,
-      "login": "microsoft",
-      "type": "Organization",
-      "url": "https://github.com/microsoft"
-    },
-    "updatedAt": "2023-10-10T11:27:24Z",
-    "url": "https://github.com/microsoft/powerplatform-actions",
-    "codeOfConduct": {
-      "key": "other",
-      "name": "Other",
-      "url": "https://github.com/microsoft/powerplatform-actions/blob/main/CODE_OF_CONDUCT.md"
-    },
-    "forkCount": 60,
-    "fundingLinks": [],
-    "isSecurityPolicyEnabled": true,
-    "isTemplate": false,
-    "latestRelease": {
-      "name": "v1.1.0, August Refresh",
-      "tagName": "v1.1.0",
-      "url": "https://github.com/microsoft/powerplatform-actions/releases/tag/v1.1.0",
-      "publishedAt": "2023-09-21T18:24:12Z"
-    },
-    "primaryLanguage": {
-      "name": "TypeScript"
-    },
-    "securityPolicyUrl": "https://github.com/microsoft/powerplatform-actions/security/policy",
-    "stargazerCount": 165,
-    "watchers": {
-      "totalCount": 31
-    },
-    "topics": [
-      "powerplatform",
-      "github-actions"
-    ],
-    "languages": [
-      "TypeScript",
-      "JavaScript",
-      "Shell",
-      "Batchfile"
-    ],
-    "openedGoodFirstIssues": 0,
-    "hasGoodFirstIssues": false,
-    "openedHelpWantedIssues": 0,
-    "hasHelpWantedIssues": false,
-    "openedToContributionsIssues": 0,
-    "popularityScore": 196
   },
   {
     "createdAt": "2020-11-03T23:59:14Z",
@@ -4089,9 +4089,9 @@
     "isTemplate": false,
     "latestRelease": {
       "name": "Power Platform deprecation update",
-      "tagName": "2023.10.12.3",
-      "url": "https://github.com/tcorcor1/power-platform-deprecation-tracker/releases/tag/2023.10.12.3",
-      "publishedAt": "2023-10-12T12:00:03Z"
+      "tagName": "2023.10.13.3",
+      "url": "https://github.com/tcorcor1/power-platform-deprecation-tracker/releases/tag/2023.10.13.3",
+      "publishedAt": "2023-10-13T12:00:03Z"
     },
     "primaryLanguage": null,
     "securityPolicyUrl": "",
@@ -4841,7 +4841,7 @@
       "url": "https://api.github.com/licenses/mit"
     },
     "name": "Power-Platform-For-Beginners",
-    "openIssuesCount": 2,
+    "openIssuesCount": 1,
     "owner": {
       "id": "MDEyOk9yZ2FuaXphdGlvbjYxNTQ3MjI=",
       "is_bot": false,
@@ -4957,6 +4957,79 @@
     "hasHelpWantedIssues": true,
     "openedToContributionsIssues": 5,
     "popularityScore": 44
+  },
+  {
+    "createdAt": "2019-09-17T00:42:05Z",
+    "description": "Repos of Powerapps Component Framework (PCF) Controls",
+    "fullName": "Power-Maverick/PCF-Controls",
+    "hasIssues": true,
+    "homepage": "",
+    "isArchived": false,
+    "language": "TypeScript",
+    "license": {
+      "key": "mit",
+      "name": "MIT License",
+      "url": "https://api.github.com/licenses/mit"
+    },
+    "name": "PCF-Controls",
+    "openIssuesCount": 59,
+    "owner": {
+      "id": "MDQ6VXNlcjM2MTM1NTIw",
+      "is_bot": false,
+      "login": "Power-Maverick",
+      "type": "User",
+      "url": "https://github.com/Power-Maverick"
+    },
+    "updatedAt": "2023-10-14T07:46:52Z",
+    "url": "https://github.com/Power-Maverick/PCF-Controls",
+    "codeOfConduct": null,
+    "forkCount": 22,
+    "fundingLinks": [
+      {
+        "platform": "GITHUB",
+        "url": "https://github.com/Power-Maverick"
+      }
+    ],
+    "isSecurityPolicyEnabled": false,
+    "isTemplate": false,
+    "latestRelease": {
+      "name": "Chat GPT Control",
+      "tagName": "ChatGPTControl-v.1.0.1",
+      "url": "https://github.com/Power-Maverick/PCF-Controls/releases/tag/ChatGPTControl-v.1.0.1",
+      "publishedAt": "2023-03-07T02:10:44Z"
+    },
+    "primaryLanguage": {
+      "name": "TypeScript"
+    },
+    "securityPolicyUrl": "",
+    "stargazerCount": 36,
+    "watchers": {
+      "totalCount": 4
+    },
+    "topics": [
+      "pcf-controls",
+      "text-analytics",
+      "weather-widget",
+      "powerapps",
+      "dynamics365",
+      "powerappscomponentframework",
+      "character-counter",
+      "hover-card",
+      "html-text-editor",
+      "url-preview",
+      "timezone-conversion",
+      "drag-and-drop-grid"
+    ],
+    "languages": [
+      "TypeScript",
+      "CSS"
+    ],
+    "openedGoodFirstIssues": 0,
+    "hasGoodFirstIssues": false,
+    "openedHelpWantedIssues": 0,
+    "hasHelpWantedIssues": false,
+    "openedToContributionsIssues": 0,
+    "popularityScore": 40
   },
   {
     "createdAt": "2022-04-25T19:27:15Z",
@@ -5075,79 +5148,6 @@
     "hasHelpWantedIssues": false,
     "openedToContributionsIssues": 0,
     "popularityScore": 45
-  },
-  {
-    "createdAt": "2019-09-17T00:42:05Z",
-    "description": "Repos of Powerapps Component Framework (PCF) Controls",
-    "fullName": "Power-Maverick/PCF-Controls",
-    "hasIssues": true,
-    "homepage": "",
-    "isArchived": false,
-    "language": "TypeScript",
-    "license": {
-      "key": "mit",
-      "name": "MIT License",
-      "url": "https://api.github.com/licenses/mit"
-    },
-    "name": "PCF-Controls",
-    "openIssuesCount": 59,
-    "owner": {
-      "id": "MDQ6VXNlcjM2MTM1NTIw",
-      "is_bot": false,
-      "login": "Power-Maverick",
-      "type": "User",
-      "url": "https://github.com/Power-Maverick"
-    },
-    "updatedAt": "2023-06-25T18:47:39Z",
-    "url": "https://github.com/Power-Maverick/PCF-Controls",
-    "codeOfConduct": null,
-    "forkCount": 22,
-    "fundingLinks": [
-      {
-        "platform": "GITHUB",
-        "url": "https://github.com/Power-Maverick"
-      }
-    ],
-    "isSecurityPolicyEnabled": false,
-    "isTemplate": false,
-    "latestRelease": {
-      "name": "Chat GPT Control",
-      "tagName": "ChatGPTControl-v.1.0.1",
-      "url": "https://github.com/Power-Maverick/PCF-Controls/releases/tag/ChatGPTControl-v.1.0.1",
-      "publishedAt": "2023-03-07T02:10:44Z"
-    },
-    "primaryLanguage": {
-      "name": "TypeScript"
-    },
-    "securityPolicyUrl": "",
-    "stargazerCount": 35,
-    "watchers": {
-      "totalCount": 4
-    },
-    "topics": [
-      "pcf-controls",
-      "text-analytics",
-      "weather-widget",
-      "powerapps",
-      "dynamics365",
-      "powerappscomponentframework",
-      "character-counter",
-      "hover-card",
-      "html-text-editor",
-      "url-preview",
-      "timezone-conversion",
-      "drag-and-drop-grid"
-    ],
-    "languages": [
-      "TypeScript",
-      "CSS"
-    ],
-    "openedGoodFirstIssues": 0,
-    "hasGoodFirstIssues": false,
-    "openedHelpWantedIssues": 0,
-    "hasHelpWantedIssues": false,
-    "openedToContributionsIssues": 0,
-    "popularityScore": 39
   },
   {
     "createdAt": "2020-10-30T02:45:02Z",
@@ -5572,6 +5572,75 @@
     "popularityScore": 41
   },
   {
+    "createdAt": "2019-06-23T05:07:12Z",
+    "description": "XrmToolBox Plugin for building and deploying custom control using PCF",
+    "fullName": "Power-Maverick/PCF-CustomControlBuilder",
+    "hasIssues": true,
+    "homepage": "",
+    "isArchived": false,
+    "language": "C#",
+    "license": {
+      "key": "mit",
+      "name": "MIT License",
+      "url": "https://api.github.com/licenses/mit"
+    },
+    "name": "PCF-CustomControlBuilder",
+    "openIssuesCount": 13,
+    "owner": {
+      "id": "MDQ6VXNlcjM2MTM1NTIw",
+      "is_bot": false,
+      "login": "Power-Maverick",
+      "type": "User",
+      "url": "https://github.com/Power-Maverick"
+    },
+    "updatedAt": "2023-10-14T07:48:16Z",
+    "url": "https://github.com/Power-Maverick/PCF-CustomControlBuilder",
+    "codeOfConduct": null,
+    "forkCount": 6,
+    "fundingLinks": [
+      {
+        "platform": "GITHUB",
+        "url": "https://github.com/Power-Maverick"
+      }
+    ],
+    "isSecurityPolicyEnabled": false,
+    "isTemplate": false,
+    "latestRelease": {
+      "name": "2.2023.06.162",
+      "tagName": "2.2023.06.162",
+      "url": "https://github.com/Power-Maverick/PCF-CustomControlBuilder/releases/tag/2.2023.06.162",
+      "publishedAt": "2023-06-16T15:33:34Z"
+    },
+    "primaryLanguage": {
+      "name": "C#"
+    },
+    "securityPolicyUrl": "",
+    "stargazerCount": 31,
+    "watchers": {
+      "totalCount": 3
+    },
+    "topics": [
+      "xrmtoolbox",
+      "cds",
+      "powerapps",
+      "dynamics-365",
+      "pcf",
+      "custom-controls",
+      "powerappscomponentframework"
+    ],
+    "languages": [
+      "C#",
+      "PowerShell",
+      "CSS"
+    ],
+    "openedGoodFirstIssues": 0,
+    "hasGoodFirstIssues": false,
+    "openedHelpWantedIssues": 1,
+    "hasHelpWantedIssues": true,
+    "openedToContributionsIssues": 1,
+    "popularityScore": 34
+  },
+  {
     "createdAt": "2017-08-18T01:53:25Z",
     "description": "",
     "fullName": "PaulNieuwelaar/notifyjs",
@@ -5635,75 +5704,6 @@
     "hasHelpWantedIssues": false,
     "openedToContributionsIssues": 0,
     "popularityScore": 36
-  },
-  {
-    "createdAt": "2019-06-23T05:07:12Z",
-    "description": "XrmToolBox Plugin for building and deploying custom control using PCF",
-    "fullName": "Power-Maverick/PCF-CustomControlBuilder",
-    "hasIssues": true,
-    "homepage": "",
-    "isArchived": false,
-    "language": "C#",
-    "license": {
-      "key": "mit",
-      "name": "MIT License",
-      "url": "https://api.github.com/licenses/mit"
-    },
-    "name": "PCF-CustomControlBuilder",
-    "openIssuesCount": 13,
-    "owner": {
-      "id": "MDQ6VXNlcjM2MTM1NTIw",
-      "is_bot": false,
-      "login": "Power-Maverick",
-      "type": "User",
-      "url": "https://github.com/Power-Maverick"
-    },
-    "updatedAt": "2023-08-08T08:08:44Z",
-    "url": "https://github.com/Power-Maverick/PCF-CustomControlBuilder",
-    "codeOfConduct": null,
-    "forkCount": 6,
-    "fundingLinks": [
-      {
-        "platform": "GITHUB",
-        "url": "https://github.com/Power-Maverick"
-      }
-    ],
-    "isSecurityPolicyEnabled": false,
-    "isTemplate": false,
-    "latestRelease": {
-      "name": "2.2023.06.162",
-      "tagName": "2.2023.06.162",
-      "url": "https://github.com/Power-Maverick/PCF-CustomControlBuilder/releases/tag/2.2023.06.162",
-      "publishedAt": "2023-06-16T15:33:34Z"
-    },
-    "primaryLanguage": {
-      "name": "C#"
-    },
-    "securityPolicyUrl": "",
-    "stargazerCount": 30,
-    "watchers": {
-      "totalCount": 3
-    },
-    "topics": [
-      "xrmtoolbox",
-      "cds",
-      "powerapps",
-      "dynamics-365",
-      "pcf",
-      "custom-controls",
-      "powerappscomponentframework"
-    ],
-    "languages": [
-      "C#",
-      "PowerShell",
-      "CSS"
-    ],
-    "openedGoodFirstIssues": 0,
-    "hasGoodFirstIssues": false,
-    "openedHelpWantedIssues": 1,
-    "hasHelpWantedIssues": true,
-    "openedToContributionsIssues": 1,
-    "popularityScore": 33
   },
   {
     "createdAt": "2019-04-08T06:28:20Z",
@@ -8090,6 +8090,67 @@
     "popularityScore": 22
   },
   {
+    "createdAt": "2019-03-11T22:07:28Z",
+    "description": "Xrm Framework",
+    "fullName": "cgoconseils/XrmFramework",
+    "hasIssues": true,
+    "homepage": "",
+    "isArchived": false,
+    "language": "C#",
+    "license": {
+      "key": "mit",
+      "name": "MIT License",
+      "url": "https://api.github.com/licenses/mit"
+    },
+    "name": "XrmFramework",
+    "openIssuesCount": 3,
+    "owner": {
+      "id": "MDQ6VXNlcjE0MjY0Njcy",
+      "is_bot": false,
+      "login": "cgoconseils",
+      "type": "User",
+      "url": "https://github.com/cgoconseils"
+    },
+    "updatedAt": "2023-10-13T14:23:28Z",
+    "url": "https://github.com/cgoconseils/XrmFramework",
+    "codeOfConduct": {
+      "key": "contributor_covenant",
+      "name": "Contributor Covenant",
+      "url": "https://github.com/cgoconseils/XrmFramework/blob/master/CODE_OF_CONDUCT.md"
+    },
+    "forkCount": 4,
+    "fundingLinks": [],
+    "isSecurityPolicyEnabled": false,
+    "isTemplate": false,
+    "latestRelease": null,
+    "primaryLanguage": {
+      "name": "C#"
+    },
+    "securityPolicyUrl": "",
+    "stargazerCount": 17,
+    "watchers": {
+      "totalCount": 2
+    },
+    "topics": [
+      "dynamics-365",
+      "dynamics365",
+      "xrm",
+      "dynamics-crm-online",
+      "dynamics-crm",
+      "dynamics"
+    ],
+    "languages": [
+      "C#",
+      "PowerShell"
+    ],
+    "openedGoodFirstIssues": 0,
+    "hasGoodFirstIssues": false,
+    "openedHelpWantedIssues": 0,
+    "hasHelpWantedIssues": false,
+    "openedToContributionsIssues": 0,
+    "popularityScore": 19
+  },
+  {
     "createdAt": "2020-01-22T17:48:18Z",
     "description": "A collection of snippets and samples related to the Power Platform.",
     "fullName": "mathyousee/power-platform-snippets",
@@ -8253,67 +8314,6 @@
     "hasHelpWantedIssues": false,
     "openedToContributionsIssues": 0,
     "popularityScore": 19
-  },
-  {
-    "createdAt": "2019-03-11T22:07:28Z",
-    "description": "Xrm Framework",
-    "fullName": "cgoconseils/XrmFramework",
-    "hasIssues": true,
-    "homepage": "",
-    "isArchived": false,
-    "language": "C#",
-    "license": {
-      "key": "mit",
-      "name": "MIT License",
-      "url": "https://api.github.com/licenses/mit"
-    },
-    "name": "XrmFramework",
-    "openIssuesCount": 3,
-    "owner": {
-      "id": "MDQ6VXNlcjE0MjY0Njcy",
-      "is_bot": false,
-      "login": "cgoconseils",
-      "type": "User",
-      "url": "https://github.com/cgoconseils"
-    },
-    "updatedAt": "2023-10-13T10:07:34Z",
-    "url": "https://github.com/cgoconseils/XrmFramework",
-    "codeOfConduct": {
-      "key": "contributor_covenant",
-      "name": "Contributor Covenant",
-      "url": "https://github.com/cgoconseils/XrmFramework/blob/master/CODE_OF_CONDUCT.md"
-    },
-    "forkCount": 4,
-    "fundingLinks": [],
-    "isSecurityPolicyEnabled": false,
-    "isTemplate": false,
-    "latestRelease": null,
-    "primaryLanguage": {
-      "name": "C#"
-    },
-    "securityPolicyUrl": "",
-    "stargazerCount": 16,
-    "watchers": {
-      "totalCount": 2
-    },
-    "topics": [
-      "dynamics-365",
-      "dynamics365",
-      "xrm",
-      "dynamics-crm-online",
-      "dynamics-crm",
-      "dynamics"
-    ],
-    "languages": [
-      "C#",
-      "PowerShell"
-    ],
-    "openedGoodFirstIssues": 0,
-    "hasGoodFirstIssues": false,
-    "openedHelpWantedIssues": 0,
-    "hasHelpWantedIssues": false,
-    "openedToContributionsIssues": 0,
-    "popularityScore": 18
   },
   {
     "createdAt": "2017-06-10T23:18:47Z",
@@ -10547,7 +10547,7 @@
       "url": "https://api.github.com/licenses/mit"
     },
     "name": "Templates-for-Power-Platform",
-    "openIssuesCount": 2,
+    "openIssuesCount": 3,
     "owner": {
       "id": "MDEyOk9yZ2FuaXphdGlvbjYxNTQ3MjI=",
       "is_bot": false,
