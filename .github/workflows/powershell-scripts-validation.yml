@@ -31,7 +31,7 @@ jobs:
       # Action used to checkout the main branch in the current repository
       #   Community action: https://github.com/actions/checkout
       - name: Checkout
-        uses: actions/checkout@v4.1.0
+        uses: actions/checkout@v4.1.1
 
       # Run tests on all *.Tests.ps1 files
       - name: Run Pester tests
@@ -49,7 +49,7 @@ jobs:
       # Action used to checkout the main branch in the current repository
       #   Community action: https://github.com/actions/checkout
       - name: Checkout
-        uses: actions/checkout@v4.1.0
+        uses: actions/checkout@v4.1.1
 
       # Run PSScriptAnalyzer on all *.ps1 files
       #  Community action: https://github.com/microsoft/psscriptanalyzer-action
