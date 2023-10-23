@@ -24,7 +24,7 @@
     "updatedAt": "2023-10-21T16:16:08Z",
     "url": "https://github.com/sandroasp/Microsoft-Integration-and-Azure-Stencils-Pack-for-Visio",
     "codeOfConduct": null,
-    "forkCount": 418,
+    "forkCount": 419,
     "fundingLinks": [],
     "isSecurityPolicyEnabled": false,
     "isTemplate": false,
@@ -83,7 +83,7 @@
       "url": "https://api.github.com/licenses/mit"
     },
     "name": "Microsoft365DSC",
-    "openIssuesCount": 181,
+    "openIssuesCount": 182,
     "owner": {
       "id": "MDEyOk9yZ2FuaXphdGlvbjYxNTQ3MjI=",
       "is_bot": false,
@@ -164,7 +164,7 @@
       "url": "https://api.github.com/licenses/mit"
     },
     "name": "PowerPlatformConnectors",
-    "openIssuesCount": 181,
+    "openIssuesCount": 180,
     "owner": {
       "id": "MDEyOk9yZ2FuaXphdGlvbjYxNTQ3MjI=",
       "is_bot": false,
@@ -288,7 +288,7 @@
       "url": "https://api.github.com/licenses/mit"
     },
     "name": "AL",
-    "openIssuesCount": 458,
+    "openIssuesCount": 457,
     "owner": {
       "id": "MDEyOk9yZ2FuaXphdGlvbjYxNTQ3MjI=",
       "is_bot": false,
@@ -931,7 +931,7 @@
       "url": "https://api.github.com/licenses/mit"
     },
     "name": "supaglue",
-    "openIssuesCount": 25,
+    "openIssuesCount": 26,
     "owner": {
       "id": "O_kgDOBzTXvQ",
       "is_bot": false,
@@ -939,7 +939,7 @@
       "type": "Organization",
       "url": "https://github.com/supaglue-labs"
     },
-    "updatedAt": "2023-10-21T23:52:21Z",
+    "updatedAt": "2023-10-22T20:25:35Z",
     "url": "https://github.com/supaglue-labs/supaglue",
     "codeOfConduct": {
       "key": "contributor_covenant",
@@ -960,7 +960,7 @@
       "name": "TypeScript"
     },
     "securityPolicyUrl": "https://github.com/supaglue-labs/supaglue/security/policy",
-    "stargazerCount": 285,
+    "stargazerCount": 287,
     "watchers": {
       "totalCount": 6
     },
@@ -996,7 +996,7 @@
     "openedHelpWantedIssues": 0,
     "hasHelpWantedIssues": false,
     "openedToContributionsIssues": 0,
-    "popularityScore": 291
+    "popularityScore": 293
   },
   {
     "createdAt": "2017-02-26T06:08:21Z",
@@ -1416,7 +1416,7 @@
       "url": "https://api.github.com/licenses/mit"
     },
     "name": "powerautomate-samples",
-    "openIssuesCount": 10,
+    "openIssuesCount": 11,
     "owner": {
       "id": "MDEyOk9yZ2FuaXphdGlvbjMxNDQzOTI5",
       "is_bot": false,
@@ -1431,7 +1431,7 @@
       "name": "Other",
       "url": "https://github.com/pnp/powerautomate-samples/blob/main/CODE_OF_CONDUCT.md"
     },
-    "forkCount": 99,
+    "forkCount": 100,
     "fundingLinks": [],
     "isSecurityPolicyEnabled": true,
     "isTemplate": false,
@@ -3059,6 +3059,59 @@
     "popularityScore": 77
   },
   {
+    "createdAt": "2021-01-20T18:46:59Z",
+    "description": "The website for the PnP Power Platform samples gallery, including Power Apps, Power Automate, Power Virtual Agents, Portals, etc.",
+    "fullName": "pnp/powerplatform-samples",
+    "hasIssues": true,
+    "homepage": "https://aka.ms/powerplatform-samples",
+    "isArchived": false,
+    "language": "",
+    "license": {
+      "key": "mit",
+      "name": "MIT License",
+      "url": "https://api.github.com/licenses/mit"
+    },
+    "name": "powerplatform-samples",
+    "openIssuesCount": 19,
+    "owner": {
+      "id": "MDEyOk9yZ2FuaXphdGlvbjMxNDQzOTI5",
+      "is_bot": false,
+      "login": "pnp",
+      "type": "Organization",
+      "url": "https://github.com/pnp"
+    },
+    "updatedAt": "2023-10-22T22:35:13Z",
+    "url": "https://github.com/pnp/powerplatform-samples",
+    "codeOfConduct": null,
+    "forkCount": 76,
+    "fundingLinks": [],
+    "isSecurityPolicyEnabled": false,
+    "isTemplate": false,
+    "latestRelease": null,
+    "primaryLanguage": null,
+    "securityPolicyUrl": "",
+    "stargazerCount": 70,
+    "watchers": {
+      "totalCount": 16
+    },
+    "topics": [
+      "powerapps",
+      "powerfx",
+      "powervirtualagent",
+      "powerautomate",
+      "powerpages",
+      "powerpageshackathon",
+      "hacktoberfest"
+    ],
+    "languages": [],
+    "openedGoodFirstIssues": 0,
+    "hasGoodFirstIssues": false,
+    "openedHelpWantedIssues": 0,
+    "hasHelpWantedIssues": false,
+    "openedToContributionsIssues": 0,
+    "popularityScore": 86
+  },
+  {
     "createdAt": "2017-05-24T08:56:02Z",
     "description": "Engine which simulates your exact Dynamics 365/CRM instance locally including all of it's logic!",
     "fullName": "delegateas/XrmMockup",
@@ -3178,59 +3231,6 @@
     "hasHelpWantedIssues": false,
     "openedToContributionsIssues": 0,
     "popularityScore": 83
-  },
-  {
-    "createdAt": "2021-01-20T18:46:59Z",
-    "description": "The website for the PnP Power Platform samples gallery, including Power Apps, Power Automate, Power Virtual Agents, Portals, etc.",
-    "fullName": "pnp/powerplatform-samples",
-    "hasIssues": true,
-    "homepage": "https://aka.ms/powerplatform-samples",
-    "isArchived": false,
-    "language": "",
-    "license": {
-      "key": "mit",
-      "name": "MIT License",
-      "url": "https://api.github.com/licenses/mit"
-    },
-    "name": "powerplatform-samples",
-    "openIssuesCount": 19,
-    "owner": {
-      "id": "MDEyOk9yZ2FuaXphdGlvbjMxNDQzOTI5",
-      "is_bot": false,
-      "login": "pnp",
-      "type": "Organization",
-      "url": "https://github.com/pnp"
-    },
-    "updatedAt": "2023-10-18T15:16:16Z",
-    "url": "https://github.com/pnp/powerplatform-samples",
-    "codeOfConduct": null,
-    "forkCount": 77,
-    "fundingLinks": [],
-    "isSecurityPolicyEnabled": false,
-    "isTemplate": false,
-    "latestRelease": null,
-    "primaryLanguage": null,
-    "securityPolicyUrl": "",
-    "stargazerCount": 69,
-    "watchers": {
-      "totalCount": 16
-    },
-    "topics": [
-      "powerapps",
-      "powerfx",
-      "powervirtualagent",
-      "powerautomate",
-      "powerpages",
-      "powerpageshackathon",
-      "hacktoberfest"
-    ],
-    "languages": [],
-    "openedGoodFirstIssues": 0,
-    "hasGoodFirstIssues": false,
-    "openedHelpWantedIssues": 0,
-    "hasHelpWantedIssues": false,
-    "openedToContributionsIssues": 0,
-    "popularityScore": 85
   },
   {
     "createdAt": "2020-09-03T14:58:25Z",
@@ -4206,9 +4206,9 @@
     "isTemplate": false,
     "latestRelease": {
       "name": "Power Platform deprecation update",
-      "tagName": "2023.10.21.2",
-      "url": "https://github.com/tcorcor1/power-platform-deprecation-tracker/releases/tag/2023.10.21.2",
-      "publishedAt": "2023-10-21T12:00:03Z"
+      "tagName": "2023.10.23.2",
+      "url": "https://github.com/tcorcor1/power-platform-deprecation-tracker/releases/tag/2023.10.23.2",
+      "publishedAt": "2023-10-23T00:00:03Z"
     },
     "primaryLanguage": null,
     "securityPolicyUrl": "",
@@ -4471,60 +4471,6 @@
     "popularityScore": 49
   },
   {
-    "createdAt": "2021-08-17T02:58:17Z",
-    "description": "Solution to pull in the Power BI Scanner API Metadata via Power Automate, and Power BI Template file",
-    "fullName": "pugliathomas/powerbiscannermetadata",
-    "hasIssues": true,
-    "homepage": "https://powerbi.tips/2021/10/using-the-power-bi-scanner-api-to-manage-tenants-entire-metadata/",
-    "isArchived": false,
-    "language": "",
-    "license": {
-      "key": "",
-      "name": "",
-      "url": ""
-    },
-    "name": "powerbiscannermetadata",
-    "openIssuesCount": 1,
-    "owner": {
-      "id": "MDQ6VXNlcjYxOTY4MDQ=",
-      "is_bot": false,
-      "login": "pugliathomas",
-      "type": "User",
-      "url": "https://github.com/pugliathomas"
-    },
-    "updatedAt": "2023-09-28T12:22:41Z",
-    "url": "https://github.com/pugliathomas/powerbiscannermetadata",
-    "codeOfConduct": null,
-    "forkCount": 11,
-    "fundingLinks": [],
-    "isSecurityPolicyEnabled": false,
-    "isTemplate": false,
-    "latestRelease": {
-      "name": "Solution v2 of Scanner Metadata",
-      "tagName": "2.0.1",
-      "url": "https://github.com/pugliathomas/powerbiscannermetadata/releases/tag/2.0.1",
-      "publishedAt": "2023-01-03T02:05:34Z"
-    },
-    "primaryLanguage": null,
-    "securityPolicyUrl": "",
-    "stargazerCount": 45,
-    "watchers": {
-      "totalCount": 9
-    },
-    "topics": [
-      "powerbi",
-      "powerautomate",
-      "powerbi-client"
-    ],
-    "languages": [],
-    "openedGoodFirstIssues": 0,
-    "hasGoodFirstIssues": false,
-    "openedHelpWantedIssues": 0,
-    "hasHelpWantedIssues": false,
-    "openedToContributionsIssues": 0,
-    "popularityScore": 54
-  },
-  {
     "createdAt": "2021-05-02T08:44:47Z",
     "description": "Power Automate demos & proof of concepts",
     "fullName": "DamoBird365/PowerAutomate",
@@ -4575,6 +4521,60 @@
     "hasHelpWantedIssues": false,
     "openedToContributionsIssues": 0,
     "popularityScore": 48
+  },
+  {
+    "createdAt": "2021-08-17T02:58:17Z",
+    "description": "Solution to pull in the Power BI Scanner API Metadata via Power Automate, and Power BI Template file",
+    "fullName": "pugliathomas/powerbiscannermetadata",
+    "hasIssues": true,
+    "homepage": "https://powerbi.tips/2021/10/using-the-power-bi-scanner-api-to-manage-tenants-entire-metadata/",
+    "isArchived": false,
+    "language": "",
+    "license": {
+      "key": "",
+      "name": "",
+      "url": ""
+    },
+    "name": "powerbiscannermetadata",
+    "openIssuesCount": 1,
+    "owner": {
+      "id": "MDQ6VXNlcjYxOTY4MDQ=",
+      "is_bot": false,
+      "login": "pugliathomas",
+      "type": "User",
+      "url": "https://github.com/pugliathomas"
+    },
+    "updatedAt": "2023-10-22T14:30:54Z",
+    "url": "https://github.com/pugliathomas/powerbiscannermetadata",
+    "codeOfConduct": null,
+    "forkCount": 11,
+    "fundingLinks": [],
+    "isSecurityPolicyEnabled": false,
+    "isTemplate": false,
+    "latestRelease": {
+      "name": "Solution v2 of Scanner Metadata",
+      "tagName": "2.0.1",
+      "url": "https://github.com/pugliathomas/powerbiscannermetadata/releases/tag/2.0.1",
+      "publishedAt": "2023-01-03T02:05:34Z"
+    },
+    "primaryLanguage": null,
+    "securityPolicyUrl": "",
+    "stargazerCount": 44,
+    "watchers": {
+      "totalCount": 9
+    },
+    "topics": [
+      "powerbi",
+      "powerautomate",
+      "powerbi-client"
+    ],
+    "languages": [],
+    "openedGoodFirstIssues": 0,
+    "hasGoodFirstIssues": false,
+    "openedHelpWantedIssues": 0,
+    "hasHelpWantedIssues": false,
+    "openedToContributionsIssues": 0,
+    "popularityScore": 53
   },
   {
     "createdAt": "2021-07-16T19:43:59Z",
@@ -4664,7 +4664,7 @@
       "url": "https://api.github.com/licenses/mit"
     },
     "name": "Power-Platform-For-Beginners",
-    "openIssuesCount": 0,
+    "openIssuesCount": 1,
     "owner": {
       "id": "MDEyOk9yZ2FuaXphdGlvbjYxNTQ3MjI=",
       "is_bot": false,
@@ -9456,6 +9456,66 @@
     "popularityScore": 17
   },
   {
+    "createdAt": "2023-03-02T13:44:57Z",
+    "description": "This is a Power Platform custom connector project for OpenAI API and Azure OpenAI Service API.",
+    "fullName": "devrel-kr/azure-openai-connector",
+    "hasIssues": true,
+    "homepage": "",
+    "isArchived": false,
+    "language": "Bicep",
+    "license": {
+      "key": "mit",
+      "name": "MIT License",
+      "url": "https://api.github.com/licenses/mit"
+    },
+    "name": "azure-openai-connector",
+    "openIssuesCount": 0,
+    "owner": {
+      "id": "MDEyOk9yZ2FuaXphdGlvbjY0Mzk1ODQz",
+      "is_bot": false,
+      "login": "devrel-kr",
+      "type": "Organization",
+      "url": "https://github.com/devrel-kr"
+    },
+    "updatedAt": "2023-10-22T11:59:54Z",
+    "url": "https://github.com/devrel-kr/azure-openai-connector",
+    "codeOfConduct": null,
+    "forkCount": 21,
+    "fundingLinks": [],
+    "isSecurityPolicyEnabled": false,
+    "isTemplate": false,
+    "latestRelease": null,
+    "primaryLanguage": {
+      "name": "Bicep"
+    },
+    "securityPolicyUrl": "",
+    "stargazerCount": 13,
+    "watchers": {
+      "totalCount": 4
+    },
+    "topics": [
+      "azure-functions",
+      "custom-connector",
+      "openai-api",
+      "power-platform",
+      "azure-openai-api",
+      "hacktoberfest"
+    ],
+    "languages": [
+      "Bicep",
+      "C#",
+      "PowerShell",
+      "Shell",
+      "Dockerfile"
+    ],
+    "openedGoodFirstIssues": 0,
+    "hasGoodFirstIssues": false,
+    "openedHelpWantedIssues": 0,
+    "hasHelpWantedIssues": false,
+    "openedToContributionsIssues": 0,
+    "popularityScore": 17
+  },
+  {
     "createdAt": "2021-01-25T13:45:51Z",
     "description": "A Yeoman generator for scaffolding Power Apps projects based on our tooling and best practices.",
     "fullName": "Capgemini/powerapps-project-template",
@@ -9886,66 +9946,6 @@
     "hasHelpWantedIssues": false,
     "openedToContributionsIssues": 0,
     "popularityScore": 15
-  },
-  {
-    "createdAt": "2023-03-02T13:44:57Z",
-    "description": "This is a Power Platform custom connector project for OpenAI API and Azure OpenAI Service API.",
-    "fullName": "devrel-kr/azure-openai-connector",
-    "hasIssues": true,
-    "homepage": "",
-    "isArchived": false,
-    "language": "Bicep",
-    "license": {
-      "key": "mit",
-      "name": "MIT License",
-      "url": "https://api.github.com/licenses/mit"
-    },
-    "name": "azure-openai-connector",
-    "openIssuesCount": 0,
-    "owner": {
-      "id": "MDEyOk9yZ2FuaXphdGlvbjY0Mzk1ODQz",
-      "is_bot": false,
-      "login": "devrel-kr",
-      "type": "Organization",
-      "url": "https://github.com/devrel-kr"
-    },
-    "updatedAt": "2023-10-16T05:11:55Z",
-    "url": "https://github.com/devrel-kr/azure-openai-connector",
-    "codeOfConduct": null,
-    "forkCount": 21,
-    "fundingLinks": [],
-    "isSecurityPolicyEnabled": false,
-    "isTemplate": false,
-    "latestRelease": null,
-    "primaryLanguage": {
-      "name": "Bicep"
-    },
-    "securityPolicyUrl": "",
-    "stargazerCount": 12,
-    "watchers": {
-      "totalCount": 4
-    },
-    "topics": [
-      "azure-functions",
-      "custom-connector",
-      "openai-api",
-      "power-platform",
-      "azure-openai-api",
-      "hacktoberfest"
-    ],
-    "languages": [
-      "Bicep",
-      "C#",
-      "PowerShell",
-      "Shell",
-      "Dockerfile"
-    ],
-    "openedGoodFirstIssues": 0,
-    "hasGoodFirstIssues": false,
-    "openedHelpWantedIssues": 0,
-    "hasHelpWantedIssues": false,
-    "openedToContributionsIssues": 0,
-    "popularityScore": 16
   },
   {
     "createdAt": "2022-12-19T16:46:09Z",
@@ -11599,7 +11599,7 @@
       "url": "https://api.github.com/licenses/apache-2.0"
     },
     "name": "embc-ess-mod",
-    "openIssuesCount": 40,
+    "openIssuesCount": 38,
     "owner": {
       "id": "MDEyOk9yZ2FuaXphdGlvbjkxNjI4MA==",
       "is_bot": false,
