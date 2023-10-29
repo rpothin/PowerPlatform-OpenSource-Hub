@@ -91,7 +91,7 @@
       "type": "Organization",
       "url": "https://github.com/microsoft"
     },
-    "updatedAt": "2023-10-27T20:04:26Z",
+    "updatedAt": "2023-10-29T00:54:32Z",
     "url": "https://github.com/microsoft/Microsoft365DSC",
     "codeOfConduct": {
       "key": "contributor_covenant",
@@ -112,7 +112,7 @@
       "name": "PowerShell"
     },
     "securityPolicyUrl": "https://github.com/microsoft/Microsoft365DSC/security/policy",
-    "stargazerCount": 1184,
+    "stargazerCount": 1186,
     "watchers": {
       "totalCount": 66
     },
@@ -148,7 +148,7 @@
     "openedHelpWantedIssues": 2,
     "hasHelpWantedIssues": true,
     "openedToContributionsIssues": 2,
-    "popularityScore": 1250
+    "popularityScore": 1252
   },
   {
     "createdAt": "2018-12-13T05:33:24Z",
@@ -288,7 +288,7 @@
       "url": "https://api.github.com/licenses/mit"
     },
     "name": "AL",
-    "openIssuesCount": 458,
+    "openIssuesCount": 459,
     "owner": {
       "id": "MDEyOk9yZ2FuaXphdGlvbjYxNTQ3MjI=",
       "is_bot": false,
@@ -497,7 +497,7 @@
       "type": "User",
       "url": "https://github.com/demianrasko"
     },
-    "updatedAt": "2023-09-23T23:09:46Z",
+    "updatedAt": "2023-10-28T11:37:36Z",
     "url": "https://github.com/demianrasko/Dynamics-365-Workflow-Tools",
     "codeOfConduct": {
       "key": "contributor_covenant",
@@ -621,6 +621,55 @@
     "popularityScore": 374
   },
   {
+    "createdAt": "2017-12-06T03:33:42Z",
+    "description": "Collection of Power Apps template apps, components and examples",
+    "fullName": "aprildunnam/PowerApps",
+    "hasIssues": true,
+    "homepage": "",
+    "isArchived": false,
+    "language": "",
+    "license": {
+      "key": "other",
+      "name": "Other",
+      "url": ""
+    },
+    "name": "PowerApps",
+    "openIssuesCount": 31,
+    "owner": {
+      "id": "MDQ6VXNlcjIwNzYwODU3",
+      "is_bot": false,
+      "login": "aprildunnam",
+      "type": "User",
+      "url": "https://github.com/aprildunnam"
+    },
+    "updatedAt": "2023-10-28T18:42:21Z",
+    "url": "https://github.com/aprildunnam/PowerApps",
+    "codeOfConduct": null,
+    "forkCount": 212,
+    "fundingLinks": [],
+    "isSecurityPolicyEnabled": false,
+    "isTemplate": false,
+    "latestRelease": null,
+    "primaryLanguage": null,
+    "securityPolicyUrl": "",
+    "stargazerCount": 336,
+    "watchers": {
+      "totalCount": 43
+    },
+    "topics": [
+      "components",
+      "powerapps",
+      "powerplatform"
+    ],
+    "languages": [],
+    "openedGoodFirstIssues": 0,
+    "hasGoodFirstIssues": false,
+    "openedHelpWantedIssues": 0,
+    "hasHelpWantedIssues": false,
+    "openedToContributionsIssues": 0,
+    "popularityScore": 379
+  },
+  {
     "createdAt": "2021-02-24T22:16:04Z",
     "description": "Contains curated community Microsoft Power App samples",
     "fullName": "pnp/powerapps-samples",
@@ -674,55 +723,6 @@
     "popularityScore": 366
   },
   {
-    "createdAt": "2017-12-06T03:33:42Z",
-    "description": "Collection of Power Apps template apps, components and examples",
-    "fullName": "aprildunnam/PowerApps",
-    "hasIssues": true,
-    "homepage": "",
-    "isArchived": false,
-    "language": "",
-    "license": {
-      "key": "other",
-      "name": "Other",
-      "url": ""
-    },
-    "name": "PowerApps",
-    "openIssuesCount": 30,
-    "owner": {
-      "id": "MDQ6VXNlcjIwNzYwODU3",
-      "is_bot": false,
-      "login": "aprildunnam",
-      "type": "User",
-      "url": "https://github.com/aprildunnam"
-    },
-    "updatedAt": "2023-10-25T08:24:09Z",
-    "url": "https://github.com/aprildunnam/PowerApps",
-    "codeOfConduct": null,
-    "forkCount": 212,
-    "fundingLinks": [],
-    "isSecurityPolicyEnabled": false,
-    "isTemplate": false,
-    "latestRelease": null,
-    "primaryLanguage": null,
-    "securityPolicyUrl": "",
-    "stargazerCount": 335,
-    "watchers": {
-      "totalCount": 43
-    },
-    "topics": [
-      "components",
-      "powerapps",
-      "powerplatform"
-    ],
-    "languages": [],
-    "openedGoodFirstIssues": 0,
-    "hasGoodFirstIssues": false,
-    "openedHelpWantedIssues": 0,
-    "hasHelpWantedIssues": false,
-    "openedToContributionsIssues": 0,
-    "popularityScore": 378
-  },
-  {
     "createdAt": "2020-07-20T18:51:25Z",
     "description": "This extension provides an Azure Functions app with Open API capability for better discoverability to consuming parties",
     "fullName": "Azure/azure-functions-openapi-extension",
@@ -736,7 +736,7 @@
       "url": "https://api.github.com/licenses/mit"
     },
     "name": "azure-functions-openapi-extension",
-    "openIssuesCount": 173,
+    "openIssuesCount": 172,
     "owner": {
       "id": "MDEyOk9yZ2FuaXphdGlvbjY4NDQ0OTg=",
       "is_bot": false,
@@ -931,7 +931,7 @@
       "url": "https://api.github.com/licenses/mit"
     },
     "name": "supaglue",
-    "openIssuesCount": 22,
+    "openIssuesCount": 21,
     "owner": {
       "id": "O_kgDOBzTXvQ",
       "is_bot": false,
@@ -939,7 +939,7 @@
       "type": "Organization",
       "url": "https://github.com/supaglue-labs"
     },
-    "updatedAt": "2023-10-27T06:10:30Z",
+    "updatedAt": "2023-10-28T21:01:37Z",
     "url": "https://github.com/supaglue-labs/supaglue",
     "codeOfConduct": {
       "key": "contributor_covenant",
@@ -951,16 +951,16 @@
     "isSecurityPolicyEnabled": true,
     "isTemplate": false,
     "latestRelease": {
-      "name": "v0.17.3",
-      "tagName": "v0.17.3",
-      "url": "https://github.com/supaglue-labs/supaglue/releases/tag/v0.17.3",
-      "publishedAt": "2023-10-28T04:36:24Z"
+      "name": "v0.17.4",
+      "tagName": "v0.17.4",
+      "url": "https://github.com/supaglue-labs/supaglue/releases/tag/v0.17.4",
+      "publishedAt": "2023-10-28T19:19:35Z"
     },
     "primaryLanguage": {
       "name": "TypeScript"
     },
     "securityPolicyUrl": "https://github.com/supaglue-labs/supaglue/security/policy",
-    "stargazerCount": 290,
+    "stargazerCount": 293,
     "watchers": {
       "totalCount": 6
     },
@@ -996,7 +996,7 @@
     "openedHelpWantedIssues": 0,
     "hasHelpWantedIssues": false,
     "openedToContributionsIssues": 0,
-    "popularityScore": 296
+    "popularityScore": 299
   },
   {
     "createdAt": "2017-02-26T06:08:21Z",
@@ -1602,7 +1602,7 @@
       "type": "User",
       "url": "https://github.com/rajyraman"
     },
-    "updatedAt": "2023-10-25T04:51:41Z",
+    "updatedAt": "2023-10-29T05:23:57Z",
     "url": "https://github.com/rajyraman/Levelup-for-Dynamics-CRM",
     "codeOfConduct": null,
     "forkCount": 59,
@@ -1619,7 +1619,7 @@
       "name": "TypeScript"
     },
     "securityPolicyUrl": "",
-    "stargazerCount": 166,
+    "stargazerCount": 167,
     "watchers": {
       "totalCount": 22
     },
@@ -1639,7 +1639,7 @@
     "openedHelpWantedIssues": 0,
     "hasHelpWantedIssues": false,
     "openedToContributionsIssues": 0,
-    "popularityScore": 188
+    "popularityScore": 189
   },
   {
     "createdAt": "2020-11-03T23:59:14Z",
@@ -1670,7 +1670,7 @@
       "name": "Other",
       "url": "https://github.com/microsoft/powerplatform-vscode/blob/main/CODE_OF_CONDUCT.md"
     },
-    "forkCount": 29,
+    "forkCount": 30,
     "fundingLinks": [],
     "isSecurityPolicyEnabled": true,
     "isTemplate": false,
@@ -2252,7 +2252,7 @@
       "url": "https://api.github.com/licenses/mit"
     },
     "name": "powerplatform-build-tools",
-    "openIssuesCount": 24,
+    "openIssuesCount": 22,
     "owner": {
       "id": "MDEyOk9yZ2FuaXphdGlvbjYxNTQ3MjI=",
       "is_bot": false,
@@ -2260,7 +2260,7 @@
       "type": "Organization",
       "url": "https://github.com/microsoft"
     },
-    "updatedAt": "2023-10-27T06:24:07Z",
+    "updatedAt": "2023-10-28T21:57:05Z",
     "url": "https://github.com/microsoft/powerplatform-build-tools",
     "codeOfConduct": {
       "key": "other",
@@ -2283,7 +2283,7 @@
     "securityPolicyUrl": "https://github.com/microsoft/powerplatform-build-tools/security/policy",
     "stargazerCount": 110,
     "watchers": {
-      "totalCount": 25
+      "totalCount": 24
     },
     "topics": [
       "azure-devops",
@@ -2304,7 +2304,7 @@
     "openedHelpWantedIssues": 0,
     "hasHelpWantedIssues": false,
     "openedToContributionsIssues": 0,
-    "popularityScore": 135
+    "popularityScore": 134
   },
   {
     "createdAt": "2019-08-08T22:11:40Z",
@@ -2763,7 +2763,7 @@
       "type": "User",
       "url": "https://github.com/GuidoPreite"
     },
-    "updatedAt": "2023-10-26T14:48:01Z",
+    "updatedAt": "2023-10-29T10:08:25Z",
     "url": "https://github.com/GuidoPreite/DRB",
     "codeOfConduct": null,
     "forkCount": 12,
@@ -2780,7 +2780,7 @@
       "name": "JavaScript"
     },
     "securityPolicyUrl": "",
-    "stargazerCount": 81,
+    "stargazerCount": 83,
     "watchers": {
       "totalCount": 5
     },
@@ -2804,7 +2804,7 @@
     "openedHelpWantedIssues": 0,
     "hasHelpWantedIssues": false,
     "openedToContributionsIssues": 0,
-    "popularityScore": 86
+    "popularityScore": 88
   },
   {
     "createdAt": "2017-04-04T00:58:26Z",
@@ -4664,7 +4664,7 @@
       "url": "https://api.github.com/licenses/gpl-3.0"
     },
     "name": "pcf-universal-gantt-chart",
-    "openIssuesCount": 13,
+    "openIssuesCount": 14,
     "owner": {
       "id": "MDQ6VXNlcjI2NzQzOTAz",
       "is_bot": false,
@@ -9672,7 +9672,7 @@
       "name": "Other",
       "url": "https://github.com/microsoft/.github/blob/main/CODE_OF_CONDUCT.md"
     },
-    "forkCount": 6,
+    "forkCount": 7,
     "fundingLinks": [],
     "isSecurityPolicyEnabled": true,
     "isTemplate": false,
