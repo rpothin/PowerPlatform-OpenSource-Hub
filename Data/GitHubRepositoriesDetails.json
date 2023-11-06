@@ -91,7 +91,7 @@
       "type": "Organization",
       "url": "https://github.com/microsoft"
     },
-    "updatedAt": "2023-11-04T11:37:12Z",
+    "updatedAt": "2023-11-06T09:07:44Z",
     "url": "https://github.com/microsoft/Microsoft365DSC",
     "codeOfConduct": {
       "key": "contributor_covenant",
@@ -112,7 +112,7 @@
       "name": "PowerShell"
     },
     "securityPolicyUrl": "https://github.com/microsoft/Microsoft365DSC/security/policy",
-    "stargazerCount": 1193,
+    "stargazerCount": 1194,
     "watchers": {
       "totalCount": 66
     },
@@ -148,7 +148,7 @@
     "openedHelpWantedIssues": 2,
     "hasHelpWantedIssues": true,
     "openedToContributionsIssues": 2,
-    "popularityScore": 1259
+    "popularityScore": 1260
   },
   {
     "createdAt": "2018-12-13T05:33:24Z",
@@ -931,7 +931,7 @@
       "url": "https://api.github.com/licenses/mit"
     },
     "name": "supaglue",
-    "openIssuesCount": 27,
+    "openIssuesCount": 26,
     "owner": {
       "id": "O_kgDOBzTXvQ",
       "is_bot": false,
@@ -1218,7 +1218,7 @@
       "url": "https://api.github.com/licenses/mit"
     },
     "name": "powercat-creator-kit",
-    "openIssuesCount": 150,
+    "openIssuesCount": 149,
     "owner": {
       "id": "MDEyOk9yZ2FuaXphdGlvbjYxNTQ3MjI=",
       "is_bot": false,
@@ -1664,7 +1664,7 @@
       "type": "Organization",
       "url": "https://github.com/microsoft"
     },
-    "updatedAt": "2023-11-03T14:58:07Z",
+    "updatedAt": "2023-11-05T11:46:03Z",
     "url": "https://github.com/microsoft/powerplatform-vscode",
     "codeOfConduct": {
       "key": "other",
@@ -1685,7 +1685,7 @@
       "name": "TypeScript"
     },
     "securityPolicyUrl": "https://github.com/microsoft/powerplatform-vscode/security/policy",
-    "stargazerCount": 160,
+    "stargazerCount": 161,
     "watchers": {
       "totalCount": 22
     },
@@ -1706,7 +1706,7 @@
     "openedHelpWantedIssues": 0,
     "hasHelpWantedIssues": false,
     "openedToContributionsIssues": 0,
-    "popularityScore": 182
+    "popularityScore": 183
   },
   {
     "createdAt": "2022-11-28T22:58:45Z",
@@ -2136,7 +2136,7 @@
       "type": "Organization",
       "url": "https://github.com/microsoft"
     },
-    "updatedAt": "2023-11-02T19:50:44Z",
+    "updatedAt": "2023-11-05T19:57:41Z",
     "url": "https://github.com/microsoft/teams-powerapps-app-templates",
     "codeOfConduct": {
       "key": "other",
@@ -2155,7 +2155,7 @@
     },
     "primaryLanguage": null,
     "securityPolicyUrl": "https://github.com/microsoft/teams-powerapps-app-templates/security/policy",
-    "stargazerCount": 112,
+    "stargazerCount": 113,
     "watchers": {
       "totalCount": 15
     },
@@ -2169,7 +2169,7 @@
     "openedHelpWantedIssues": 0,
     "hasHelpWantedIssues": false,
     "openedToContributionsIssues": 0,
-    "popularityScore": 127
+    "popularityScore": 128
   },
   {
     "createdAt": "2020-11-04T00:21:18Z",
@@ -2688,7 +2688,7 @@
       "url": "https://api.github.com/licenses/mit"
     },
     "name": "DRB",
-    "openIssuesCount": 4,
+    "openIssuesCount": 5,
     "owner": {
       "id": "MDQ6VXNlcjQzNzU0OTg4",
       "is_bot": false,
@@ -2715,7 +2715,7 @@
     "securityPolicyUrl": "",
     "stargazerCount": 84,
     "watchers": {
-      "totalCount": 5
+      "totalCount": 6
     },
     "topics": [
       "chrome-extension",
@@ -2737,7 +2737,7 @@
     "openedHelpWantedIssues": 0,
     "hasHelpWantedIssues": false,
     "openedToContributionsIssues": 0,
-    "popularityScore": 89
+    "popularityScore": 90
   },
   {
     "createdAt": "2017-04-04T00:58:26Z",
@@ -2807,6 +2807,65 @@
     "popularityScore": 108
   },
   {
+    "createdAt": "2022-08-12T16:05:07Z",
+    "description": "This repository contains presentations and workshops created by the Microsoft Power Platform Advocates.",
+    "fullName": "microsoft/PowerPlatformAdvocates",
+    "hasIssues": true,
+    "homepage": "",
+    "isArchived": false,
+    "language": "Bicep",
+    "license": {
+      "key": "mit",
+      "name": "MIT License",
+      "url": "https://api.github.com/licenses/mit"
+    },
+    "name": "PowerPlatformAdvocates",
+    "openIssuesCount": 1,
+    "owner": {
+      "id": "MDEyOk9yZ2FuaXphdGlvbjYxNTQ3MjI=",
+      "is_bot": false,
+      "login": "microsoft",
+      "type": "Organization",
+      "url": "https://github.com/microsoft"
+    },
+    "updatedAt": "2023-11-05T23:03:16Z",
+    "url": "https://github.com/microsoft/PowerPlatformAdvocates",
+    "codeOfConduct": {
+      "key": "other",
+      "name": "Other",
+      "url": "https://github.com/microsoft/PowerPlatformAdvocates/blob/main/CODE_OF_CONDUCT.md"
+    },
+    "forkCount": 24,
+    "fundingLinks": [],
+    "isSecurityPolicyEnabled": true,
+    "isTemplate": false,
+    "latestRelease": null,
+    "primaryLanguage": {
+      "name": "Bicep"
+    },
+    "securityPolicyUrl": "https://github.com/microsoft/PowerPlatformAdvocates/security/policy",
+    "stargazerCount": 76,
+    "watchers": {
+      "totalCount": 10
+    },
+    "topics": [
+      "microsoft",
+      "mr",
+      "power-apps",
+      "power-platform",
+      "xr"
+    ],
+    "languages": [
+      "Bicep"
+    ],
+    "openedGoodFirstIssues": 0,
+    "hasGoodFirstIssues": false,
+    "openedHelpWantedIssues": 0,
+    "hasHelpWantedIssues": false,
+    "openedToContributionsIssues": 0,
+    "popularityScore": 86
+  },
+  {
     "createdAt": "2017-12-25T03:40:06Z",
     "description": "To make of you a Ninja Developer in Dynamics 365 For Finance and Operations",
     "fullName": "HichemDax/D365FONinjaDevTools",
@@ -2874,65 +2933,6 @@
     "popularityScore": 110
   },
   {
-    "createdAt": "2022-08-12T16:05:07Z",
-    "description": "This repository contains presentations and workshops created by the Microsoft Power Platform Advocates.",
-    "fullName": "microsoft/PowerPlatformAdvocates",
-    "hasIssues": true,
-    "homepage": "",
-    "isArchived": false,
-    "language": "Bicep",
-    "license": {
-      "key": "mit",
-      "name": "MIT License",
-      "url": "https://api.github.com/licenses/mit"
-    },
-    "name": "PowerPlatformAdvocates",
-    "openIssuesCount": 1,
-    "owner": {
-      "id": "MDEyOk9yZ2FuaXphdGlvbjYxNTQ3MjI=",
-      "is_bot": false,
-      "login": "microsoft",
-      "type": "Organization",
-      "url": "https://github.com/microsoft"
-    },
-    "updatedAt": "2023-11-03T15:29:43Z",
-    "url": "https://github.com/microsoft/PowerPlatformAdvocates",
-    "codeOfConduct": {
-      "key": "other",
-      "name": "Other",
-      "url": "https://github.com/microsoft/PowerPlatformAdvocates/blob/main/CODE_OF_CONDUCT.md"
-    },
-    "forkCount": 24,
-    "fundingLinks": [],
-    "isSecurityPolicyEnabled": true,
-    "isTemplate": false,
-    "latestRelease": null,
-    "primaryLanguage": {
-      "name": "Bicep"
-    },
-    "securityPolicyUrl": "https://github.com/microsoft/PowerPlatformAdvocates/security/policy",
-    "stargazerCount": 75,
-    "watchers": {
-      "totalCount": 10
-    },
-    "topics": [
-      "microsoft",
-      "mr",
-      "power-apps",
-      "power-platform",
-      "xr"
-    ],
-    "languages": [
-      "Bicep"
-    ],
-    "openedGoodFirstIssues": 0,
-    "hasGoodFirstIssues": false,
-    "openedHelpWantedIssues": 0,
-    "hasHelpWantedIssues": false,
-    "openedToContributionsIssues": 0,
-    "popularityScore": 85
-  },
-  {
     "createdAt": "2021-01-20T18:46:59Z",
     "description": "The website for the PnP Power Platform samples gallery, including Power Apps, Power Automate, Power Virtual Agents, Portals, etc.",
     "fullName": "pnp/powerplatform-samples",
@@ -2946,7 +2946,7 @@
       "url": "https://api.github.com/licenses/mit"
     },
     "name": "powerplatform-samples",
-    "openIssuesCount": 19,
+    "openIssuesCount": 20,
     "owner": {
       "id": "MDEyOk9yZ2FuaXphdGlvbjMxNDQzOTI5",
       "is_bot": false,
@@ -4245,7 +4245,7 @@
       "type": "User",
       "url": "https://github.com/OlegLobakov"
     },
-    "updatedAt": "2023-09-11T20:43:30Z",
+    "updatedAt": "2023-11-06T02:07:38Z",
     "url": "https://github.com/OlegLobakov/WarehouseControlSystem",
     "codeOfConduct": null,
     "forkCount": 24,
@@ -5163,7 +5163,7 @@
     "updatedAt": "2023-10-07T13:40:57Z",
     "url": "https://github.com/saintsystems/dynamics-sdk-php",
     "codeOfConduct": null,
-    "forkCount": 25,
+    "forkCount": 26,
     "fundingLinks": [],
     "isSecurityPolicyEnabled": false,
     "isTemplate": false,
@@ -6514,6 +6514,80 @@
     "popularityScore": 37
   },
   {
+    "createdAt": "2022-08-03T14:35:12Z",
+    "description": "One downloader for many scientific data and code repositories! DOI:open_hands:Data",
+    "fullName": "J535D165/datahugger",
+    "hasIssues": true,
+    "homepage": "https://J535D165.github.io/datahugger/",
+    "isArchived": false,
+    "language": "Python",
+    "license": {
+      "key": "mit",
+      "name": "MIT License",
+      "url": "https://api.github.com/licenses/mit"
+    },
+    "name": "datahugger",
+    "openIssuesCount": 6,
+    "owner": {
+      "id": "MDQ6VXNlcjEyOTgxMTM5",
+      "is_bot": false,
+      "login": "J535D165",
+      "type": "User",
+      "url": "https://github.com/J535D165"
+    },
+    "updatedAt": "2023-11-05T15:52:51Z",
+    "url": "https://github.com/J535D165/datahugger",
+    "codeOfConduct": null,
+    "forkCount": 7,
+    "fundingLinks": [],
+    "isSecurityPolicyEnabled": false,
+    "isTemplate": false,
+    "latestRelease": {
+      "name": "v0.10.4",
+      "tagName": "v0.10.4",
+      "url": "https://github.com/J535D165/datahugger/releases/tag/v0.10.4",
+      "publishedAt": "2023-10-30T09:36:56Z"
+    },
+    "primaryLanguage": {
+      "name": "Python"
+    },
+    "securityPolicyUrl": "",
+    "stargazerCount": 25,
+    "watchers": {
+      "totalCount": 1
+    },
+    "topics": [
+      "scientific",
+      "scientific-data",
+      "cli",
+      "data",
+      "dataverse",
+      "dryad",
+      "figshare",
+      "github",
+      "python",
+      "repository",
+      "research",
+      "research-data-management",
+      "science",
+      "utrecht-university",
+      "zenodo",
+      "datacite",
+      "dataone",
+      "mendeley-data",
+      "rdm"
+    ],
+    "languages": [
+      "Python"
+    ],
+    "openedGoodFirstIssues": 0,
+    "hasGoodFirstIssues": false,
+    "openedHelpWantedIssues": 1,
+    "hasHelpWantedIssues": true,
+    "openedToContributionsIssues": 1,
+    "popularityScore": 26
+  },
+  {
     "createdAt": "2019-02-20T02:08:54Z",
     "description": "SVG chart components for Microsoft Power Apps.",
     "fullName": "OGcanviz/ChartComponents",
@@ -6565,80 +6639,6 @@
     "hasHelpWantedIssues": false,
     "openedToContributionsIssues": 1,
     "popularityScore": 33
-  },
-  {
-    "createdAt": "2022-08-03T14:35:12Z",
-    "description": "One downloader for many scientific data and code repositories! DOI:open_hands:Data",
-    "fullName": "J535D165/datahugger",
-    "hasIssues": true,
-    "homepage": "https://J535D165.github.io/datahugger/",
-    "isArchived": false,
-    "language": "Python",
-    "license": {
-      "key": "mit",
-      "name": "MIT License",
-      "url": "https://api.github.com/licenses/mit"
-    },
-    "name": "datahugger",
-    "openIssuesCount": 6,
-    "owner": {
-      "id": "MDQ6VXNlcjEyOTgxMTM5",
-      "is_bot": false,
-      "login": "J535D165",
-      "type": "User",
-      "url": "https://github.com/J535D165"
-    },
-    "updatedAt": "2023-10-14T22:10:54Z",
-    "url": "https://github.com/J535D165/datahugger",
-    "codeOfConduct": null,
-    "forkCount": 7,
-    "fundingLinks": [],
-    "isSecurityPolicyEnabled": false,
-    "isTemplate": false,
-    "latestRelease": {
-      "name": "v0.10.4",
-      "tagName": "v0.10.4",
-      "url": "https://github.com/J535D165/datahugger/releases/tag/v0.10.4",
-      "publishedAt": "2023-10-30T09:36:56Z"
-    },
-    "primaryLanguage": {
-      "name": "Python"
-    },
-    "securityPolicyUrl": "",
-    "stargazerCount": 24,
-    "watchers": {
-      "totalCount": 1
-    },
-    "topics": [
-      "scientific",
-      "scientific-data",
-      "cli",
-      "data",
-      "dataverse",
-      "dryad",
-      "figshare",
-      "github",
-      "python",
-      "repository",
-      "research",
-      "research-data-management",
-      "science",
-      "utrecht-university",
-      "zenodo",
-      "datacite",
-      "dataone",
-      "mendeley-data",
-      "rdm"
-    ],
-    "languages": [
-      "Python"
-    ],
-    "openedGoodFirstIssues": 0,
-    "hasGoodFirstIssues": false,
-    "openedHelpWantedIssues": 1,
-    "hasHelpWantedIssues": true,
-    "openedToContributionsIssues": 1,
-    "popularityScore": 25
   },
   {
     "createdAt": "2019-11-23T11:08:03Z",
@@ -7718,7 +7718,7 @@
       "url": ""
     },
     "name": "fake-xrm-easy",
-    "openIssuesCount": 43,
+    "openIssuesCount": 45,
     "owner": {
       "id": "MDEyOk9yZ2FuaXphdGlvbjE1NzkxNjEx",
       "is_bot": false,
