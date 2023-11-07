@@ -164,7 +164,7 @@
       "url": "https://api.github.com/licenses/mit"
     },
     "name": "PowerPlatformConnectors",
-    "openIssuesCount": 179,
+    "openIssuesCount": 184,
     "owner": {
       "id": "MDEyOk9yZ2FuaXphdGlvbjYxNTQ3MjI=",
       "is_bot": false,
@@ -179,7 +179,7 @@
       "name": "Other",
       "url": "https://github.com/microsoft/.github/blob/main/CODE_OF_CONDUCT.md"
     },
-    "forkCount": 1125,
+    "forkCount": 1126,
     "fundingLinks": [],
     "isSecurityPolicyEnabled": true,
     "isTemplate": false,
@@ -238,7 +238,7 @@
     "updatedAt": "2023-11-01T08:06:03Z",
     "url": "https://github.com/inoerp/inoERP",
     "codeOfConduct": null,
-    "forkCount": 678,
+    "forkCount": 677,
     "fundingLinks": [],
     "isSecurityPolicyEnabled": false,
     "isTemplate": false,
@@ -288,7 +288,7 @@
       "url": "https://api.github.com/licenses/mit"
     },
     "name": "AL",
-    "openIssuesCount": 461,
+    "openIssuesCount": 462,
     "owner": {
       "id": "MDEyOk9yZ2FuaXphdGlvbjYxNTQ3MjI=",
       "is_bot": false,
@@ -296,7 +296,7 @@
       "type": "Organization",
       "url": "https://github.com/microsoft"
     },
-    "updatedAt": "2023-11-04T17:11:58Z",
+    "updatedAt": "2023-11-07T08:57:04Z",
     "url": "https://github.com/microsoft/AL",
     "codeOfConduct": {
       "key": "other",
@@ -348,7 +348,7 @@
       "url": "https://api.github.com/licenses/gpl-3.0"
     },
     "name": "XrmToolBox",
-    "openIssuesCount": 55,
+    "openIssuesCount": 54,
     "owner": {
       "id": "MDQ6VXNlcjEwNzc0MzE3",
       "is_bot": false,
@@ -645,7 +645,7 @@
     "updatedAt": "2023-11-02T07:43:55Z",
     "url": "https://github.com/aprildunnam/PowerApps",
     "codeOfConduct": null,
-    "forkCount": 213,
+    "forkCount": 214,
     "fundingLinks": [],
     "isSecurityPolicyEnabled": false,
     "isTemplate": false,
@@ -931,7 +931,7 @@
       "url": "https://api.github.com/licenses/mit"
     },
     "name": "supaglue",
-    "openIssuesCount": 26,
+    "openIssuesCount": 27,
     "owner": {
       "id": "O_kgDOBzTXvQ",
       "is_bot": false,
@@ -939,7 +939,7 @@
       "type": "Organization",
       "url": "https://github.com/supaglue-labs"
     },
-    "updatedAt": "2023-11-03T04:42:37Z",
+    "updatedAt": "2023-11-07T02:17:19Z",
     "url": "https://github.com/supaglue-labs/supaglue",
     "codeOfConduct": {
       "key": "contributor_covenant",
@@ -960,7 +960,7 @@
       "name": "TypeScript"
     },
     "securityPolicyUrl": "https://github.com/supaglue-labs/supaglue/security/policy",
-    "stargazerCount": 296,
+    "stargazerCount": 297,
     "watchers": {
       "totalCount": 6
     },
@@ -997,7 +997,7 @@
     "openedHelpWantedIssues": 0,
     "hasHelpWantedIssues": false,
     "openedToContributionsIssues": 0,
-    "popularityScore": 302
+    "popularityScore": 303
   },
   {
     "createdAt": "2017-02-26T06:08:21Z",
@@ -1092,7 +1092,7 @@
     "updatedAt": "2023-11-01T15:47:51Z",
     "url": "https://github.com/jordimontana82/fake-xrm-easy",
     "codeOfConduct": null,
-    "forkCount": 174,
+    "forkCount": 175,
     "fundingLinks": [],
     "isSecurityPolicyEnabled": false,
     "isTemplate": false,
@@ -1521,6 +1521,67 @@
     "popularityScore": 199
   },
   {
+    "createdAt": "2016-05-20T12:32:41Z",
+    "description": "Chrome, Edge Chromium and Firefox Extension for Dynamics CRM/365/Power Apps Power users",
+    "fullName": "rajyraman/Levelup-for-Dynamics-CRM",
+    "hasIssues": true,
+    "homepage": "",
+    "isArchived": false,
+    "language": "TypeScript",
+    "license": {
+      "key": "mit",
+      "name": "MIT License",
+      "url": "https://api.github.com/licenses/mit"
+    },
+    "name": "Levelup-for-Dynamics-CRM",
+    "openIssuesCount": 69,
+    "owner": {
+      "id": "MDQ6VXNlcjUwMzUyNjY=",
+      "is_bot": false,
+      "login": "rajyraman",
+      "type": "User",
+      "url": "https://github.com/rajyraman"
+    },
+    "updatedAt": "2023-11-06T19:12:02Z",
+    "url": "https://github.com/rajyraman/Levelup-for-Dynamics-CRM",
+    "codeOfConduct": null,
+    "forkCount": 59,
+    "fundingLinks": [],
+    "isSecurityPolicyEnabled": false,
+    "isTemplate": false,
+    "latestRelease": {
+      "name": "levelup-for-dynamics-365-power-apps-3.6.3",
+      "tagName": "v3.6.3",
+      "url": "https://github.com/rajyraman/Levelup-for-Dynamics-CRM/releases/tag/v3.6.3",
+      "publishedAt": "2023-03-12T19:40:38Z"
+    },
+    "primaryLanguage": {
+      "name": "TypeScript"
+    },
+    "securityPolicyUrl": "",
+    "stargazerCount": 169,
+    "watchers": {
+      "totalCount": 22
+    },
+    "topics": [
+      "dynamics-crm",
+      "chrome-extension",
+      "dynamics-365",
+      "powerapps"
+    ],
+    "languages": [
+      "TypeScript",
+      "HTML",
+      "JavaScript"
+    ],
+    "openedGoodFirstIssues": 0,
+    "hasGoodFirstIssues": false,
+    "openedHelpWantedIssues": 0,
+    "hasHelpWantedIssues": false,
+    "openedToContributionsIssues": 0,
+    "popularityScore": 191
+  },
+  {
     "createdAt": "2022-07-15T17:14:24Z",
     "description": "30 Day of Learning Resources, Samples and Curricula",
     "fullName": "microsoft/30daysof",
@@ -1582,67 +1643,6 @@
     "popularityScore": 199
   },
   {
-    "createdAt": "2016-05-20T12:32:41Z",
-    "description": "Chrome, Edge Chromium and Firefox Extension for Dynamics CRM/365/Power Apps Power users",
-    "fullName": "rajyraman/Levelup-for-Dynamics-CRM",
-    "hasIssues": true,
-    "homepage": "",
-    "isArchived": false,
-    "language": "TypeScript",
-    "license": {
-      "key": "mit",
-      "name": "MIT License",
-      "url": "https://api.github.com/licenses/mit"
-    },
-    "name": "Levelup-for-Dynamics-CRM",
-    "openIssuesCount": 69,
-    "owner": {
-      "id": "MDQ6VXNlcjUwMzUyNjY=",
-      "is_bot": false,
-      "login": "rajyraman",
-      "type": "User",
-      "url": "https://github.com/rajyraman"
-    },
-    "updatedAt": "2023-11-01T05:05:29Z",
-    "url": "https://github.com/rajyraman/Levelup-for-Dynamics-CRM",
-    "codeOfConduct": null,
-    "forkCount": 59,
-    "fundingLinks": [],
-    "isSecurityPolicyEnabled": false,
-    "isTemplate": false,
-    "latestRelease": {
-      "name": "levelup-for-dynamics-365-power-apps-3.6.3",
-      "tagName": "v3.6.3",
-      "url": "https://github.com/rajyraman/Levelup-for-Dynamics-CRM/releases/tag/v3.6.3",
-      "publishedAt": "2023-03-12T19:40:38Z"
-    },
-    "primaryLanguage": {
-      "name": "TypeScript"
-    },
-    "securityPolicyUrl": "",
-    "stargazerCount": 168,
-    "watchers": {
-      "totalCount": 22
-    },
-    "topics": [
-      "dynamics-crm",
-      "chrome-extension",
-      "dynamics-365",
-      "powerapps"
-    ],
-    "languages": [
-      "TypeScript",
-      "HTML",
-      "JavaScript"
-    ],
-    "openedGoodFirstIssues": 0,
-    "hasGoodFirstIssues": false,
-    "openedHelpWantedIssues": 0,
-    "hasHelpWantedIssues": false,
-    "openedToContributionsIssues": 0,
-    "popularityScore": 190
-  },
-  {
     "createdAt": "2020-11-03T23:59:14Z",
     "description": "The Power Platform VSCode extension makes it easy to manage Power Platform environments and allows the developer to create, build and deploy Power Platform solutions, packages and portals.",
     "fullName": "microsoft/powerplatform-vscode",
@@ -1664,7 +1664,7 @@
       "type": "Organization",
       "url": "https://github.com/microsoft"
     },
-    "updatedAt": "2023-11-05T11:46:03Z",
+    "updatedAt": "2023-11-06T18:03:37Z",
     "url": "https://github.com/microsoft/powerplatform-vscode",
     "codeOfConduct": {
       "key": "other",
@@ -1685,7 +1685,7 @@
       "name": "TypeScript"
     },
     "securityPolicyUrl": "https://github.com/microsoft/powerplatform-vscode/security/policy",
-    "stargazerCount": 161,
+    "stargazerCount": 162,
     "watchers": {
       "totalCount": 22
     },
@@ -1706,7 +1706,7 @@
     "openedHelpWantedIssues": 0,
     "hasHelpWantedIssues": false,
     "openedToContributionsIssues": 0,
-    "popularityScore": 183
+    "popularityScore": 184
   },
   {
     "createdAt": "2022-11-28T22:58:45Z",
@@ -1835,7 +1835,7 @@
       "url": "https://api.github.com/licenses/mit"
     },
     "name": "XrmDefinitelyTyped",
-    "openIssuesCount": 70,
+    "openIssuesCount": 69,
     "owner": {
       "id": "MDEyOk9yZ2FuaXphdGlvbjcwMTUzMDA=",
       "is_bot": false,
@@ -1846,7 +1846,7 @@
     "updatedAt": "2023-08-10T13:12:54Z",
     "url": "https://github.com/delegateas/XrmDefinitelyTyped",
     "codeOfConduct": null,
-    "forkCount": 52,
+    "forkCount": 51,
     "fundingLinks": [],
     "isSecurityPolicyEnabled": false,
     "isTemplate": false,
@@ -2136,14 +2136,14 @@
       "type": "Organization",
       "url": "https://github.com/microsoft"
     },
-    "updatedAt": "2023-11-05T19:57:41Z",
+    "updatedAt": "2023-11-06T21:05:11Z",
     "url": "https://github.com/microsoft/teams-powerapps-app-templates",
     "codeOfConduct": {
       "key": "other",
       "name": "Other",
       "url": "https://github.com/microsoft/teams-powerapps-app-templates/blob/main/CODE_OF_CONDUCT.md"
     },
-    "forkCount": 75,
+    "forkCount": 76,
     "fundingLinks": [],
     "isSecurityPolicyEnabled": true,
     "isTemplate": false,
@@ -2155,7 +2155,7 @@
     },
     "primaryLanguage": null,
     "securityPolicyUrl": "https://github.com/microsoft/teams-powerapps-app-templates/security/policy",
-    "stargazerCount": 113,
+    "stargazerCount": 114,
     "watchers": {
       "totalCount": 15
     },
@@ -2169,7 +2169,7 @@
     "openedHelpWantedIssues": 0,
     "hasHelpWantedIssues": false,
     "openedToContributionsIssues": 0,
-    "popularityScore": 128
+    "popularityScore": 129
   },
   {
     "createdAt": "2020-11-04T00:21:18Z",
@@ -2696,7 +2696,7 @@
       "type": "User",
       "url": "https://github.com/GuidoPreite"
     },
-    "updatedAt": "2023-11-03T11:04:46Z",
+    "updatedAt": "2023-11-07T04:23:50Z",
     "url": "https://github.com/GuidoPreite/DRB",
     "codeOfConduct": null,
     "forkCount": 12,
@@ -2713,7 +2713,7 @@
       "name": "JavaScript"
     },
     "securityPolicyUrl": "",
-    "stargazerCount": 84,
+    "stargazerCount": 85,
     "watchers": {
       "totalCount": 6
     },
@@ -2737,7 +2737,7 @@
     "openedHelpWantedIssues": 0,
     "hasHelpWantedIssues": false,
     "openedToContributionsIssues": 0,
-    "popularityScore": 90
+    "popularityScore": 91
   },
   {
     "createdAt": "2017-04-04T00:58:26Z",
@@ -2753,7 +2753,7 @@
       "url": "https://api.github.com/licenses/mit"
     },
     "name": "OrgDbOrgSettings",
-    "openIssuesCount": 1,
+    "openIssuesCount": 2,
     "owner": {
       "id": "MDQ6VXNlcjIyOTIyNjA=",
       "is_bot": false,
@@ -2866,6 +2866,59 @@
     "popularityScore": 86
   },
   {
+    "createdAt": "2021-01-20T18:46:59Z",
+    "description": "The website for the PnP Power Platform samples gallery, including Power Apps, Power Automate, Power Virtual Agents, Portals, etc.",
+    "fullName": "pnp/powerplatform-samples",
+    "hasIssues": true,
+    "homepage": "https://aka.ms/powerplatform-samples",
+    "isArchived": false,
+    "language": "",
+    "license": {
+      "key": "mit",
+      "name": "MIT License",
+      "url": "https://api.github.com/licenses/mit"
+    },
+    "name": "powerplatform-samples",
+    "openIssuesCount": 21,
+    "owner": {
+      "id": "MDEyOk9yZ2FuaXphdGlvbjMxNDQzOTI5",
+      "is_bot": false,
+      "login": "pnp",
+      "type": "Organization",
+      "url": "https://github.com/pnp"
+    },
+    "updatedAt": "2023-11-07T09:57:44Z",
+    "url": "https://github.com/pnp/powerplatform-samples",
+    "codeOfConduct": null,
+    "forkCount": 79,
+    "fundingLinks": [],
+    "isSecurityPolicyEnabled": false,
+    "isTemplate": false,
+    "latestRelease": null,
+    "primaryLanguage": null,
+    "securityPolicyUrl": "",
+    "stargazerCount": 76,
+    "watchers": {
+      "totalCount": 18
+    },
+    "topics": [
+      "powerapps",
+      "powerfx",
+      "powervirtualagent",
+      "powerautomate",
+      "powerpages",
+      "powerpageshackathon",
+      "hacktoberfest"
+    ],
+    "languages": [],
+    "openedGoodFirstIssues": 0,
+    "hasGoodFirstIssues": false,
+    "openedHelpWantedIssues": 0,
+    "hasHelpWantedIssues": false,
+    "openedToContributionsIssues": 0,
+    "popularityScore": 94
+  },
+  {
     "createdAt": "2017-12-25T03:40:06Z",
     "description": "To make of you a Ninja Developer in Dynamics 365 For Finance and Operations",
     "fullName": "HichemDax/D365FONinjaDevTools",
@@ -2931,59 +2984,6 @@
     "hasHelpWantedIssues": false,
     "openedToContributionsIssues": 0,
     "popularityScore": 110
-  },
-  {
-    "createdAt": "2021-01-20T18:46:59Z",
-    "description": "The website for the PnP Power Platform samples gallery, including Power Apps, Power Automate, Power Virtual Agents, Portals, etc.",
-    "fullName": "pnp/powerplatform-samples",
-    "hasIssues": true,
-    "homepage": "https://aka.ms/powerplatform-samples",
-    "isArchived": false,
-    "language": "",
-    "license": {
-      "key": "mit",
-      "name": "MIT License",
-      "url": "https://api.github.com/licenses/mit"
-    },
-    "name": "powerplatform-samples",
-    "openIssuesCount": 20,
-    "owner": {
-      "id": "MDEyOk9yZ2FuaXphdGlvbjMxNDQzOTI5",
-      "is_bot": false,
-      "login": "pnp",
-      "type": "Organization",
-      "url": "https://github.com/pnp"
-    },
-    "updatedAt": "2023-11-01T01:35:09Z",
-    "url": "https://github.com/pnp/powerplatform-samples",
-    "codeOfConduct": null,
-    "forkCount": 79,
-    "fundingLinks": [],
-    "isSecurityPolicyEnabled": false,
-    "isTemplate": false,
-    "latestRelease": null,
-    "primaryLanguage": null,
-    "securityPolicyUrl": "",
-    "stargazerCount": 75,
-    "watchers": {
-      "totalCount": 18
-    },
-    "topics": [
-      "powerapps",
-      "powerfx",
-      "powervirtualagent",
-      "powerautomate",
-      "powerpages",
-      "powerpageshackathon",
-      "hacktoberfest"
-    ],
-    "languages": [],
-    "openedGoodFirstIssues": 0,
-    "hasGoodFirstIssues": false,
-    "openedHelpWantedIssues": 0,
-    "hasHelpWantedIssues": false,
-    "openedToContributionsIssues": 0,
-    "popularityScore": 93
   },
   {
     "createdAt": "2020-09-08T19:35:34Z",
@@ -4523,7 +4523,7 @@
       "url": "https://api.github.com/licenses/mit"
     },
     "name": "Power-Platform-For-Beginners",
-    "openIssuesCount": 0,
+    "openIssuesCount": 1,
     "owner": {
       "id": "MDEyOk9yZ2FuaXphdGlvbjYxNTQ3MjI=",
       "is_bot": false,
@@ -4531,7 +4531,7 @@
       "type": "Organization",
       "url": "https://github.com/microsoft"
     },
-    "updatedAt": "2023-11-04T06:11:56Z",
+    "updatedAt": "2023-11-07T05:29:17Z",
     "url": "https://github.com/microsoft/Power-Platform-For-Beginners",
     "codeOfConduct": {
       "key": "other",
@@ -4547,7 +4547,7 @@
       "name": "HTML"
     },
     "securityPolicyUrl": "https://github.com/microsoft/Power-Platform-For-Beginners/security/policy",
-    "stargazerCount": 43,
+    "stargazerCount": 44,
     "watchers": {
       "totalCount": 10
     },
@@ -4569,7 +4569,7 @@
     "openedHelpWantedIssues": 0,
     "hasHelpWantedIssues": false,
     "openedToContributionsIssues": 0,
-    "popularityScore": 53
+    "popularityScore": 54
   },
   {
     "createdAt": "2020-09-05T13:48:00Z",
@@ -7718,7 +7718,7 @@
       "url": ""
     },
     "name": "fake-xrm-easy",
-    "openIssuesCount": 45,
+    "openIssuesCount": 46,
     "owner": {
       "id": "MDEyOk9yZ2FuaXphdGlvbjE1NzkxNjEx",
       "is_bot": false,
