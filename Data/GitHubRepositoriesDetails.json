@@ -21,7 +21,7 @@
       "type": "User",
       "url": "https://github.com/sandroasp"
     },
-    "updatedAt": "2023-11-05T10:57:23Z",
+    "updatedAt": "2023-11-07T12:48:27Z",
     "url": "https://github.com/sandroasp/Microsoft-Integration-and-Azure-Stencils-Pack-for-Visio",
     "codeOfConduct": null,
     "forkCount": 418,
@@ -38,7 +38,7 @@
       "name": "PowerShell"
     },
     "securityPolicyUrl": "",
-    "stargazerCount": 1347,
+    "stargazerCount": 1346,
     "watchers": {
       "totalCount": 116
     },
@@ -67,7 +67,7 @@
     "openedHelpWantedIssues": 0,
     "hasHelpWantedIssues": false,
     "openedToContributionsIssues": 0,
-    "popularityScore": 1463
+    "popularityScore": 1462
   },
   {
     "createdAt": "2018-11-21T16:54:50Z",
@@ -83,7 +83,7 @@
       "url": "https://api.github.com/licenses/mit"
     },
     "name": "Microsoft365DSC",
-    "openIssuesCount": 186,
+    "openIssuesCount": 189,
     "owner": {
       "id": "MDEyOk9yZ2FuaXphdGlvbjYxNTQ3MjI=",
       "is_bot": false,
@@ -91,14 +91,14 @@
       "type": "Organization",
       "url": "https://github.com/microsoft"
     },
-    "updatedAt": "2023-11-06T09:07:44Z",
+    "updatedAt": "2023-11-07T15:04:27Z",
     "url": "https://github.com/microsoft/Microsoft365DSC",
     "codeOfConduct": {
       "key": "contributor_covenant",
       "name": "Contributor Covenant",
       "url": "https://github.com/microsoft/Microsoft365DSC/blob/Dev/CODE_OF_CONDUCT.md"
     },
-    "forkCount": 397,
+    "forkCount": 399,
     "fundingLinks": [],
     "isSecurityPolicyEnabled": true,
     "isTemplate": false,
@@ -112,7 +112,7 @@
       "name": "PowerShell"
     },
     "securityPolicyUrl": "https://github.com/microsoft/Microsoft365DSC/security/policy",
-    "stargazerCount": 1194,
+    "stargazerCount": 1195,
     "watchers": {
       "totalCount": 66
     },
@@ -148,7 +148,7 @@
     "openedHelpWantedIssues": 2,
     "hasHelpWantedIssues": true,
     "openedToContributionsIssues": 2,
-    "popularityScore": 1260
+    "popularityScore": 1261
   },
   {
     "createdAt": "2018-12-13T05:33:24Z",
@@ -164,7 +164,7 @@
       "url": "https://api.github.com/licenses/mit"
     },
     "name": "PowerPlatformConnectors",
-    "openIssuesCount": 184,
+    "openIssuesCount": 183,
     "owner": {
       "id": "MDEyOk9yZ2FuaXphdGlvbjYxNTQ3MjI=",
       "is_bot": false,
@@ -179,7 +179,7 @@
       "name": "Other",
       "url": "https://github.com/microsoft/.github/blob/main/CODE_OF_CONDUCT.md"
     },
-    "forkCount": 1126,
+    "forkCount": 1127,
     "fundingLinks": [],
     "isSecurityPolicyEnabled": true,
     "isTemplate": false,
@@ -288,7 +288,7 @@
       "url": "https://api.github.com/licenses/mit"
     },
     "name": "AL",
-    "openIssuesCount": 462,
+    "openIssuesCount": 464,
     "owner": {
       "id": "MDEyOk9yZ2FuaXphdGlvbjYxNTQ3MjI=",
       "is_bot": false,
@@ -356,7 +356,7 @@
       "type": "User",
       "url": "https://github.com/MscrmTools"
     },
-    "updatedAt": "2023-11-01T09:34:39Z",
+    "updatedAt": "2023-11-07T12:39:04Z",
     "url": "https://github.com/MscrmTools/XrmToolBox",
     "codeOfConduct": null,
     "forkCount": 203,
@@ -382,7 +382,7 @@
       "name": "C#"
     },
     "securityPolicyUrl": "",
-    "stargazerCount": 541,
+    "stargazerCount": 540,
     "watchers": {
       "totalCount": 82
     },
@@ -402,7 +402,77 @@
     "openedHelpWantedIssues": 1,
     "hasHelpWantedIssues": true,
     "openedToContributionsIssues": 1,
-    "popularityScore": 623
+    "popularityScore": 622
+  },
+  {
+    "createdAt": "2015-02-05T20:58:06Z",
+    "description": "An application that gather multiple tools to ease the customization and configuration of Microsoft Dynamics CRM/365/Dataverse/PowerApps",
+    "fullName": "MscrmTools/XrmToolBox",
+    "hasIssues": true,
+    "homepage": "https://www.xrmtoolbox.com",
+    "isArchived": false,
+    "language": "C#",
+    "license": {
+      "key": "gpl-3.0",
+      "name": "GNU General Public License v3.0",
+      "url": "https://api.github.com/licenses/gpl-3.0"
+    },
+    "name": "XrmToolBox",
+    "openIssuesCount": 53,
+    "owner": {
+      "id": "MDQ6VXNlcjEwNzc0MzE3",
+      "is_bot": false,
+      "login": "MscrmTools",
+      "type": "User",
+      "url": "https://github.com/MscrmTools"
+    },
+    "updatedAt": "2023-11-07T12:39:04Z",
+    "url": "https://github.com/MscrmTools/XrmToolBox",
+    "codeOfConduct": null,
+    "forkCount": 203,
+    "fundingLinks": [
+      {
+        "platform": "GITHUB",
+        "url": "https://github.com/MscrmTools"
+      },
+      {
+        "platform": "CUSTOM",
+        "url": "https://paypal.me/tanguytouzard"
+      }
+    ],
+    "isSecurityPolicyEnabled": false,
+    "isTemplate": false,
+    "latestRelease": {
+      "name": "XrmToolBox v1.2023.10.67",
+      "tagName": "v1.2023.10.67",
+      "url": "https://github.com/MscrmTools/XrmToolBox/releases/tag/v1.2023.10.67",
+      "publishedAt": "2023-10-31T09:29:37Z"
+    },
+    "primaryLanguage": {
+      "name": "C#"
+    },
+    "securityPolicyUrl": "",
+    "stargazerCount": 540,
+    "watchers": {
+      "totalCount": 82
+    },
+    "topics": [
+      "xrmtoolbox",
+      "microsoft-dynamics-crm",
+      "cds",
+      "powerapps",
+      "microsoft-dynamics",
+      "microsoft-dataverse"
+    ],
+    "languages": [
+      "C#"
+    ],
+    "openedGoodFirstIssues": 0,
+    "hasGoodFirstIssues": false,
+    "openedHelpWantedIssues": 1,
+    "hasHelpWantedIssues": true,
+    "openedToContributionsIssues": 1,
+    "popularityScore": 622
   },
   {
     "createdAt": "2020-11-03T17:49:34Z",
@@ -567,7 +637,7 @@
       "type": "User",
       "url": "https://github.com/mbrg"
     },
-    "updatedAt": "2023-11-01T02:00:20Z",
+    "updatedAt": "2023-11-08T09:09:07Z",
     "url": "https://github.com/mbrg/power-pwn",
     "codeOfConduct": null,
     "forkCount": 35,
@@ -584,7 +654,7 @@
       "name": "Python"
     },
     "securityPolicyUrl": "",
-    "stargazerCount": 371,
+    "stargazerCount": 373,
     "watchers": {
       "totalCount": 5
     },
@@ -618,7 +688,7 @@
     "openedHelpWantedIssues": 0,
     "hasHelpWantedIssues": false,
     "openedToContributionsIssues": 0,
-    "popularityScore": 376
+    "popularityScore": 378
   },
   {
     "createdAt": "2017-12-06T03:33:42Z",
@@ -642,7 +712,7 @@
       "type": "User",
       "url": "https://github.com/aprildunnam"
     },
-    "updatedAt": "2023-11-02T07:43:55Z",
+    "updatedAt": "2023-11-08T07:27:41Z",
     "url": "https://github.com/aprildunnam/PowerApps",
     "codeOfConduct": null,
     "forkCount": 214,
@@ -652,7 +722,7 @@
     "latestRelease": null,
     "primaryLanguage": null,
     "securityPolicyUrl": "",
-    "stargazerCount": 338,
+    "stargazerCount": 339,
     "watchers": {
       "totalCount": 43
     },
@@ -667,7 +737,7 @@
     "openedHelpWantedIssues": 0,
     "hasHelpWantedIssues": false,
     "openedToContributionsIssues": 0,
-    "popularityScore": 381
+    "popularityScore": 382
   },
   {
     "createdAt": "2021-02-24T22:16:04Z",
@@ -736,7 +806,7 @@
       "url": "https://api.github.com/licenses/mit"
     },
     "name": "azure-functions-openapi-extension",
-    "openIssuesCount": 173,
+    "openIssuesCount": 174,
     "owner": {
       "id": "MDEyOk9yZ2FuaXphdGlvbjY4NDQ0OTg=",
       "is_bot": false,
@@ -744,7 +814,7 @@
       "type": "Organization",
       "url": "https://github.com/Azure"
     },
-    "updatedAt": "2023-11-04T10:38:30Z",
+    "updatedAt": "2023-11-07T12:55:10Z",
     "url": "https://github.com/Azure/azure-functions-openapi-extension",
     "codeOfConduct": {
       "key": "other",
@@ -765,7 +835,7 @@
       "name": "C#"
     },
     "securityPolicyUrl": "https://github.com/Azure/azure-functions-openapi-extension/security/policy",
-    "stargazerCount": 334,
+    "stargazerCount": 333,
     "watchers": {
       "totalCount": 38
     },
@@ -788,7 +858,7 @@
     "openedHelpWantedIssues": 0,
     "hasHelpWantedIssues": false,
     "openedToContributionsIssues": 4,
-    "popularityScore": 372
+    "popularityScore": 371
   },
   {
     "createdAt": "2020-05-09T12:49:51Z",
@@ -931,7 +1001,7 @@
       "url": "https://api.github.com/licenses/mit"
     },
     "name": "supaglue",
-    "openIssuesCount": 27,
+    "openIssuesCount": 23,
     "owner": {
       "id": "O_kgDOBzTXvQ",
       "is_bot": false,
@@ -939,7 +1009,7 @@
       "type": "Organization",
       "url": "https://github.com/supaglue-labs"
     },
-    "updatedAt": "2023-11-07T02:17:19Z",
+    "updatedAt": "2023-11-08T03:41:25Z",
     "url": "https://github.com/supaglue-labs/supaglue",
     "codeOfConduct": {
       "key": "contributor_covenant",
@@ -951,16 +1021,16 @@
     "isSecurityPolicyEnabled": true,
     "isTemplate": false,
     "latestRelease": {
-      "name": "v0.18.2",
-      "tagName": "v0.18.2",
-      "url": "https://github.com/supaglue-labs/supaglue/releases/tag/v0.18.2",
-      "publishedAt": "2023-11-03T23:34:33Z"
+      "name": "v0.19.0",
+      "tagName": "v0.19.0",
+      "url": "https://github.com/supaglue-labs/supaglue/releases/tag/v0.19.0",
+      "publishedAt": "2023-11-08T06:00:47Z"
     },
     "primaryLanguage": {
       "name": "TypeScript"
     },
     "securityPolicyUrl": "https://github.com/supaglue-labs/supaglue/security/policy",
-    "stargazerCount": 297,
+    "stargazerCount": 298,
     "watchers": {
       "totalCount": 6
     },
@@ -997,7 +1067,7 @@
     "openedHelpWantedIssues": 0,
     "hasHelpWantedIssues": false,
     "openedToContributionsIssues": 0,
-    "popularityScore": 303
+    "popularityScore": 304
   },
   {
     "createdAt": "2017-02-26T06:08:21Z",
@@ -1152,7 +1222,7 @@
       "url": "https://api.github.com/licenses/mit"
     },
     "name": "PowerPlatform-DataverseServiceClient",
-    "openIssuesCount": 26,
+    "openIssuesCount": 22,
     "owner": {
       "id": "MDEyOk9yZ2FuaXphdGlvbjYxNTQ3MjI=",
       "is_bot": false,
@@ -1172,10 +1242,10 @@
     "isSecurityPolicyEnabled": true,
     "isTemplate": false,
     "latestRelease": {
-      "name": "1.1.14 Nuget release",
-      "tagName": "1.1.14",
-      "url": "https://github.com/microsoft/PowerPlatform-DataverseServiceClient/releases/tag/1.1.14",
-      "publishedAt": "2023-08-24T23:30:52Z"
+      "name": "1.1.16 Nuget release",
+      "tagName": "1.1.16",
+      "url": "https://github.com/microsoft/PowerPlatform-DataverseServiceClient/releases/tag/1.1.16",
+      "publishedAt": "2023-11-08T00:34:19Z"
     },
     "primaryLanguage": {
       "name": "C#"
@@ -1226,7 +1296,7 @@
       "type": "Organization",
       "url": "https://github.com/microsoft"
     },
-    "updatedAt": "2023-11-01T05:03:44Z",
+    "updatedAt": "2023-11-07T20:43:40Z",
     "url": "https://github.com/microsoft/powercat-creator-kit",
     "codeOfConduct": {
       "key": "other",
@@ -1247,7 +1317,7 @@
       "name": "CSS"
     },
     "securityPolicyUrl": "https://github.com/microsoft/powercat-creator-kit/security/policy",
-    "stargazerCount": 249,
+    "stargazerCount": 250,
     "watchers": {
       "totalCount": 30
     },
@@ -1263,7 +1333,7 @@
     "openedHelpWantedIssues": 0,
     "hasHelpWantedIssues": false,
     "openedToContributionsIssues": 2,
-    "popularityScore": 279
+    "popularityScore": 280
   },
   {
     "createdAt": "2016-10-31T17:00:14Z",
@@ -1360,7 +1430,7 @@
       "type": "Organization",
       "url": "https://github.com/OfficeDev"
     },
-    "updatedAt": "2023-10-17T21:04:45Z",
+    "updatedAt": "2023-11-07T12:54:18Z",
     "url": "https://github.com/OfficeDev/microsoft-teams-apps-requestateam",
     "codeOfConduct": {
       "key": "other",
@@ -1381,7 +1451,7 @@
       "name": "PowerShell"
     },
     "securityPolicyUrl": "https://github.com/OfficeDev/microsoft-teams-apps-requestateam/security/policy",
-    "stargazerCount": 215,
+    "stargazerCount": 214,
     "watchers": {
       "totalCount": 46
     },
@@ -1401,7 +1471,7 @@
     "openedHelpWantedIssues": 30,
     "hasHelpWantedIssues": true,
     "openedToContributionsIssues": 47,
-    "popularityScore": 261
+    "popularityScore": 260
   },
   {
     "createdAt": "2021-04-19T05:18:05Z",
@@ -1417,7 +1487,7 @@
       "url": "https://api.github.com/licenses/mit"
     },
     "name": "powerautomate-samples",
-    "openIssuesCount": 12,
+    "openIssuesCount": 11,
     "owner": {
       "id": "MDEyOk9yZ2FuaXphdGlvbjMxNDQzOTI5",
       "is_bot": false,
@@ -1455,6 +1525,67 @@
     "hasHelpWantedIssues": false,
     "openedToContributionsIssues": 0,
     "popularityScore": 222
+  },
+  {
+    "createdAt": "2016-05-20T12:32:41Z",
+    "description": "Chrome, Edge Chromium and Firefox Extension for Dynamics CRM/365/Power Apps Power users",
+    "fullName": "rajyraman/Levelup-for-Dynamics-CRM",
+    "hasIssues": true,
+    "homepage": "",
+    "isArchived": false,
+    "language": "TypeScript",
+    "license": {
+      "key": "mit",
+      "name": "MIT License",
+      "url": "https://api.github.com/licenses/mit"
+    },
+    "name": "Levelup-for-Dynamics-CRM",
+    "openIssuesCount": 69,
+    "owner": {
+      "id": "MDQ6VXNlcjUwMzUyNjY=",
+      "is_bot": false,
+      "login": "rajyraman",
+      "type": "User",
+      "url": "https://github.com/rajyraman"
+    },
+    "updatedAt": "2023-11-06T19:12:02Z",
+    "url": "https://github.com/rajyraman/Levelup-for-Dynamics-CRM",
+    "codeOfConduct": null,
+    "forkCount": 59,
+    "fundingLinks": [],
+    "isSecurityPolicyEnabled": false,
+    "isTemplate": false,
+    "latestRelease": {
+      "name": "levelup-for-dynamics-365-power-apps-3.6.3",
+      "tagName": "v3.6.3",
+      "url": "https://github.com/rajyraman/Levelup-for-Dynamics-CRM/releases/tag/v3.6.3",
+      "publishedAt": "2023-03-12T19:40:38Z"
+    },
+    "primaryLanguage": {
+      "name": "TypeScript"
+    },
+    "securityPolicyUrl": "",
+    "stargazerCount": 169,
+    "watchers": {
+      "totalCount": 22
+    },
+    "topics": [
+      "dynamics-crm",
+      "chrome-extension",
+      "dynamics-365",
+      "powerapps"
+    ],
+    "languages": [
+      "TypeScript",
+      "HTML",
+      "JavaScript"
+    ],
+    "openedGoodFirstIssues": 0,
+    "hasGoodFirstIssues": false,
+    "openedHelpWantedIssues": 0,
+    "hasHelpWantedIssues": false,
+    "openedToContributionsIssues": 0,
+    "popularityScore": 191
   },
   {
     "createdAt": "2020-08-06T19:28:51Z",
@@ -1521,67 +1652,6 @@
     "popularityScore": 199
   },
   {
-    "createdAt": "2016-05-20T12:32:41Z",
-    "description": "Chrome, Edge Chromium and Firefox Extension for Dynamics CRM/365/Power Apps Power users",
-    "fullName": "rajyraman/Levelup-for-Dynamics-CRM",
-    "hasIssues": true,
-    "homepage": "",
-    "isArchived": false,
-    "language": "TypeScript",
-    "license": {
-      "key": "mit",
-      "name": "MIT License",
-      "url": "https://api.github.com/licenses/mit"
-    },
-    "name": "Levelup-for-Dynamics-CRM",
-    "openIssuesCount": 69,
-    "owner": {
-      "id": "MDQ6VXNlcjUwMzUyNjY=",
-      "is_bot": false,
-      "login": "rajyraman",
-      "type": "User",
-      "url": "https://github.com/rajyraman"
-    },
-    "updatedAt": "2023-11-06T19:12:02Z",
-    "url": "https://github.com/rajyraman/Levelup-for-Dynamics-CRM",
-    "codeOfConduct": null,
-    "forkCount": 59,
-    "fundingLinks": [],
-    "isSecurityPolicyEnabled": false,
-    "isTemplate": false,
-    "latestRelease": {
-      "name": "levelup-for-dynamics-365-power-apps-3.6.3",
-      "tagName": "v3.6.3",
-      "url": "https://github.com/rajyraman/Levelup-for-Dynamics-CRM/releases/tag/v3.6.3",
-      "publishedAt": "2023-03-12T19:40:38Z"
-    },
-    "primaryLanguage": {
-      "name": "TypeScript"
-    },
-    "securityPolicyUrl": "",
-    "stargazerCount": 169,
-    "watchers": {
-      "totalCount": 22
-    },
-    "topics": [
-      "dynamics-crm",
-      "chrome-extension",
-      "dynamics-365",
-      "powerapps"
-    ],
-    "languages": [
-      "TypeScript",
-      "HTML",
-      "JavaScript"
-    ],
-    "openedGoodFirstIssues": 0,
-    "hasGoodFirstIssues": false,
-    "openedHelpWantedIssues": 0,
-    "hasHelpWantedIssues": false,
-    "openedToContributionsIssues": 0,
-    "popularityScore": 191
-  },
-  {
     "createdAt": "2022-07-15T17:14:24Z",
     "description": "30 Day of Learning Resources, Samples and Curricula",
     "fullName": "microsoft/30daysof",
@@ -1603,7 +1673,7 @@
       "type": "Organization",
       "url": "https://github.com/microsoft"
     },
-    "updatedAt": "2023-11-02T09:08:55Z",
+    "updatedAt": "2023-11-07T13:00:13Z",
     "url": "https://github.com/microsoft/30daysof",
     "codeOfConduct": {
       "key": "other",
@@ -1619,7 +1689,7 @@
       "name": "JavaScript"
     },
     "securityPolicyUrl": "https://github.com/microsoft/30daysof/security/policy",
-    "stargazerCount": 168,
+    "stargazerCount": 167,
     "watchers": {
       "totalCount": 31
     },
@@ -1640,7 +1710,7 @@
     "openedHelpWantedIssues": 0,
     "hasHelpWantedIssues": false,
     "openedToContributionsIssues": 0,
-    "popularityScore": 199
+    "popularityScore": 198
   },
   {
     "createdAt": "2020-11-03T23:59:14Z",
@@ -1656,7 +1726,7 @@
       "url": "https://api.github.com/licenses/mit"
     },
     "name": "powerplatform-vscode",
-    "openIssuesCount": 42,
+    "openIssuesCount": 43,
     "owner": {
       "id": "MDEyOk9yZ2FuaXphdGlvbjYxNTQ3MjI=",
       "is_bot": false,
@@ -1730,7 +1800,7 @@
       "type": "Organization",
       "url": "https://github.com/microsoft"
     },
-    "updatedAt": "2023-11-03T20:00:39Z",
+    "updatedAt": "2023-11-07T13:01:42Z",
     "url": "https://github.com/microsoft/Low-Code",
     "codeOfConduct": {
       "key": "other",
@@ -1746,7 +1816,7 @@
       "name": "JavaScript"
     },
     "securityPolicyUrl": "https://github.com/microsoft/Low-Code/security/policy",
-    "stargazerCount": 152,
+    "stargazerCount": 151,
     "watchers": {
       "totalCount": 8
     },
@@ -1771,7 +1841,7 @@
     "openedHelpWantedIssues": 0,
     "hasHelpWantedIssues": false,
     "openedToContributionsIssues": 0,
-    "popularityScore": 160
+    "popularityScore": 159
   },
   {
     "createdAt": "2022-07-28T15:54:59Z",
@@ -1795,7 +1865,7 @@
       "type": "Organization",
       "url": "https://github.com/pnp"
     },
-    "updatedAt": "2023-11-02T21:37:27Z",
+    "updatedAt": "2023-11-08T04:40:27Z",
     "url": "https://github.com/pnp/powerapps-designtoolkit",
     "codeOfConduct": null,
     "forkCount": 32,
@@ -1805,7 +1875,7 @@
     "latestRelease": null,
     "primaryLanguage": null,
     "securityPolicyUrl": "",
-    "stargazerCount": 130,
+    "stargazerCount": 131,
     "watchers": {
       "totalCount": 14
     },
@@ -1819,7 +1889,7 @@
     "openedHelpWantedIssues": 0,
     "hasHelpWantedIssues": false,
     "openedToContributionsIssues": 0,
-    "popularityScore": 144
+    "popularityScore": 145
   },
   {
     "createdAt": "2015-09-30T11:52:00Z",
@@ -2073,7 +2143,7 @@
       "type": "User",
       "url": "https://github.com/Zerg00s"
     },
-    "updatedAt": "2023-09-27T23:46:38Z",
+    "updatedAt": "2023-11-08T10:20:27Z",
     "url": "https://github.com/Zerg00s/FlowPowerAppsMigrator",
     "codeOfConduct": null,
     "forkCount": 31,
@@ -2090,7 +2160,7 @@
       "name": "PowerShell"
     },
     "securityPolicyUrl": "",
-    "stargazerCount": 117,
+    "stargazerCount": 118,
     "watchers": {
       "totalCount": 15
     },
@@ -2112,7 +2182,7 @@
     "openedHelpWantedIssues": 0,
     "hasHelpWantedIssues": false,
     "openedToContributionsIssues": 0,
-    "popularityScore": 132
+    "popularityScore": 133
   },
   {
     "createdAt": "2022-11-16T18:09:18Z",
@@ -2136,7 +2206,7 @@
       "type": "Organization",
       "url": "https://github.com/microsoft"
     },
-    "updatedAt": "2023-11-06T21:05:11Z",
+    "updatedAt": "2023-11-07T11:32:29Z",
     "url": "https://github.com/microsoft/teams-powerapps-app-templates",
     "codeOfConduct": {
       "key": "other",
@@ -2155,7 +2225,7 @@
     },
     "primaryLanguage": null,
     "securityPolicyUrl": "https://github.com/microsoft/teams-powerapps-app-templates/security/policy",
-    "stargazerCount": 114,
+    "stargazerCount": 115,
     "watchers": {
       "totalCount": 15
     },
@@ -2169,7 +2239,7 @@
     "openedHelpWantedIssues": 0,
     "hasHelpWantedIssues": false,
     "openedToContributionsIssues": 0,
-    "popularityScore": 129
+    "popularityScore": 130
   },
   {
     "createdAt": "2020-11-04T00:21:18Z",
@@ -2185,7 +2255,7 @@
       "url": "https://api.github.com/licenses/mit"
     },
     "name": "powerplatform-build-tools",
-    "openIssuesCount": 24,
+    "openIssuesCount": 25,
     "owner": {
       "id": "MDEyOk9yZ2FuaXphdGlvbjYxNTQ3MjI=",
       "is_bot": false,
@@ -2261,7 +2331,7 @@
       "type": "Organization",
       "url": "https://github.com/OfficeDev"
     },
-    "updatedAt": "2023-10-26T08:01:56Z",
+    "updatedAt": "2023-11-08T06:03:33Z",
     "url": "https://github.com/OfficeDev/Project-Accelerator",
     "codeOfConduct": {
       "key": "other",
@@ -2275,7 +2345,7 @@
     "latestRelease": null,
     "primaryLanguage": null,
     "securityPolicyUrl": "https://github.com/OfficeDev/Project-Accelerator/security/policy",
-    "stargazerCount": 107,
+    "stargazerCount": 108,
     "watchers": {
       "totalCount": 41
     },
@@ -2292,7 +2362,7 @@
     "openedHelpWantedIssues": 0,
     "hasHelpWantedIssues": false,
     "openedToContributionsIssues": 0,
-    "popularityScore": 148
+    "popularityScore": 149
   },
   {
     "createdAt": "2016-08-01T12:35:15Z",
@@ -2374,7 +2444,7 @@
       "type": "Organization",
       "url": "https://github.com/ProvisionGenie"
     },
-    "updatedAt": "2023-10-02T21:40:55Z",
+    "updatedAt": "2023-11-07T12:57:33Z",
     "url": "https://github.com/ProvisionGenie/ProvisionGenie",
     "codeOfConduct": {
       "key": "contributor_covenant",
@@ -2395,7 +2465,7 @@
       "name": "Bicep"
     },
     "securityPolicyUrl": "",
-    "stargazerCount": 98,
+    "stargazerCount": 97,
     "watchers": {
       "totalCount": 6
     },
@@ -2417,7 +2487,7 @@
     "openedHelpWantedIssues": 3,
     "hasHelpWantedIssues": true,
     "openedToContributionsIssues": 5,
-    "popularityScore": 104
+    "popularityScore": 103
   },
   {
     "createdAt": "2016-10-14T17:43:27Z",
@@ -2753,7 +2823,7 @@
       "url": "https://api.github.com/licenses/mit"
     },
     "name": "OrgDbOrgSettings",
-    "openIssuesCount": 2,
+    "openIssuesCount": 1,
     "owner": {
       "id": "MDQ6VXNlcjIyOTIyNjA=",
       "is_bot": false,
@@ -2769,10 +2839,10 @@
     "isSecurityPolicyEnabled": false,
     "isTemplate": false,
     "latestRelease": {
-      "name": "DaysBeforeEmailDescriptionIsMigrated",
-      "tagName": "v1.0.2305.3102",
-      "url": "https://github.com/seanmcne/OrgDbOrgSettings/releases/tag/v1.0.2305.3102",
-      "publishedAt": "2023-05-31T19:32:01Z"
+      "name": "Updates for access teams settings",
+      "tagName": "v1.0.2311.0702",
+      "url": "https://github.com/seanmcne/OrgDbOrgSettings/releases/tag/v1.0.2311.0702",
+      "publishedAt": "2023-11-08T04:27:56Z"
     },
     "primaryLanguage": {
       "name": "HTML"
@@ -2879,7 +2949,7 @@
       "url": "https://api.github.com/licenses/mit"
     },
     "name": "powerplatform-samples",
-    "openIssuesCount": 21,
+    "openIssuesCount": 23,
     "owner": {
       "id": "MDEyOk9yZ2FuaXphdGlvbjMxNDQzOTI5",
       "is_bot": false,
@@ -2890,7 +2960,7 @@
     "updatedAt": "2023-11-07T09:57:44Z",
     "url": "https://github.com/pnp/powerplatform-samples",
     "codeOfConduct": null,
-    "forkCount": 79,
+    "forkCount": 80,
     "fundingLinks": [],
     "isSecurityPolicyEnabled": false,
     "isTemplate": false,
@@ -3242,7 +3312,7 @@
       "type": "Organization",
       "url": "https://github.com/microsoft"
     },
-    "updatedAt": "2023-09-14T19:31:39Z",
+    "updatedAt": "2023-11-07T12:51:27Z",
     "url": "https://github.com/microsoft/developerkorea",
     "codeOfConduct": {
       "key": "other",
@@ -3258,7 +3328,7 @@
       "name": "C#"
     },
     "securityPolicyUrl": "https://github.com/microsoft/developerkorea/security/policy",
-    "stargazerCount": 68,
+    "stargazerCount": 67,
     "watchers": {
       "totalCount": 8
     },
@@ -3280,67 +3350,7 @@
     "openedHelpWantedIssues": 0,
     "hasHelpWantedIssues": false,
     "openedToContributionsIssues": 0,
-    "popularityScore": 76
-  },
-  {
-    "createdAt": "2016-04-18T10:30:56Z",
-    "description": "Ribbon Workbench 2016 for Dynamics 365",
-    "fullName": "scottdurow/RibbonWorkbench",
-    "hasIssues": true,
-    "homepage": "https://ribbonworkbench.uservoice.com/",
-    "isArchived": false,
-    "language": "JavaScript",
-    "license": {
-      "key": "mit",
-      "name": "MIT License",
-      "url": "https://api.github.com/licenses/mit"
-    },
-    "name": "RibbonWorkbench",
-    "openIssuesCount": 82,
-    "owner": {
-      "id": "MDQ6VXNlcjI4NzExMjE=",
-      "is_bot": false,
-      "login": "scottdurow",
-      "type": "User",
-      "url": "https://github.com/scottdurow"
-    },
-    "updatedAt": "2023-08-18T14:38:00Z",
-    "url": "https://github.com/scottdurow/RibbonWorkbench",
-    "codeOfConduct": null,
-    "forkCount": 22,
-    "fundingLinks": [],
-    "isSecurityPolicyEnabled": false,
-    "isTemplate": false,
-    "latestRelease": {
-      "name": "SmartButtons v1.2.638.1",
-      "tagName": "SmartButtons.v1.2.638.1",
-      "url": "https://github.com/scottdurow/RibbonWorkbench/releases/tag/SmartButtons.v1.2.638.1",
-      "publishedAt": "2021-08-09T02:41:03Z"
-    },
-    "primaryLanguage": {
-      "name": "JavaScript"
-    },
-    "securityPolicyUrl": "",
-    "stargazerCount": 66,
-    "watchers": {
-      "totalCount": 11
-    },
-    "topics": [
-      "dynamics365"
-    ],
-    "languages": [
-      "JavaScript",
-      "TypeScript",
-      "Batchfile",
-      "PowerShell",
-      "HTML"
-    ],
-    "openedGoodFirstIssues": 0,
-    "hasGoodFirstIssues": false,
-    "openedHelpWantedIssues": 1,
-    "hasHelpWantedIssues": true,
-    "openedToContributionsIssues": 1,
-    "popularityScore": 77
+    "popularityScore": 75
   },
   {
     "createdAt": "2016-09-01T14:28:51Z",
@@ -3411,6 +3421,66 @@
     "hasHelpWantedIssues": true,
     "openedToContributionsIssues": 4,
     "popularityScore": 81
+  },
+  {
+    "createdAt": "2016-04-18T10:30:56Z",
+    "description": "Ribbon Workbench 2016 for Dynamics 365",
+    "fullName": "scottdurow/RibbonWorkbench",
+    "hasIssues": true,
+    "homepage": "https://ribbonworkbench.uservoice.com/",
+    "isArchived": false,
+    "language": "JavaScript",
+    "license": {
+      "key": "mit",
+      "name": "MIT License",
+      "url": "https://api.github.com/licenses/mit"
+    },
+    "name": "RibbonWorkbench",
+    "openIssuesCount": 82,
+    "owner": {
+      "id": "MDQ6VXNlcjI4NzExMjE=",
+      "is_bot": false,
+      "login": "scottdurow",
+      "type": "User",
+      "url": "https://github.com/scottdurow"
+    },
+    "updatedAt": "2023-08-18T14:38:00Z",
+    "url": "https://github.com/scottdurow/RibbonWorkbench",
+    "codeOfConduct": null,
+    "forkCount": 22,
+    "fundingLinks": [],
+    "isSecurityPolicyEnabled": false,
+    "isTemplate": false,
+    "latestRelease": {
+      "name": "SmartButtons v1.2.638.1",
+      "tagName": "SmartButtons.v1.2.638.1",
+      "url": "https://github.com/scottdurow/RibbonWorkbench/releases/tag/SmartButtons.v1.2.638.1",
+      "publishedAt": "2021-08-09T02:41:03Z"
+    },
+    "primaryLanguage": {
+      "name": "JavaScript"
+    },
+    "securityPolicyUrl": "",
+    "stargazerCount": 66,
+    "watchers": {
+      "totalCount": 11
+    },
+    "topics": [
+      "dynamics365"
+    ],
+    "languages": [
+      "JavaScript",
+      "TypeScript",
+      "Batchfile",
+      "PowerShell",
+      "HTML"
+    ],
+    "openedGoodFirstIssues": 0,
+    "hasGoodFirstIssues": false,
+    "openedHelpWantedIssues": 1,
+    "hasHelpWantedIssues": true,
+    "openedToContributionsIssues": 1,
+    "popularityScore": 77
   },
   {
     "createdAt": "2018-04-23T11:14:20Z",
@@ -3549,7 +3619,7 @@
       "type": "User",
       "url": "https://github.com/phuocle"
     },
-    "updatedAt": "2023-10-07T15:01:29Z",
+    "updatedAt": "2023-11-07T20:58:10Z",
     "url": "https://github.com/phuocle/Dynamics-Crm-DevKit",
     "codeOfConduct": null,
     "forkCount": 13,
@@ -3566,7 +3636,7 @@
       "name": "C#"
     },
     "securityPolicyUrl": "",
-    "stargazerCount": 59,
+    "stargazerCount": 60,
     "watchers": {
       "totalCount": 16
     },
@@ -3594,7 +3664,7 @@
     "openedHelpWantedIssues": 0,
     "hasHelpWantedIssues": false,
     "openedToContributionsIssues": 0,
-    "popularityScore": 75
+    "popularityScore": 76
   },
   {
     "createdAt": "2015-08-03T12:57:55Z",
@@ -3680,14 +3750,14 @@
       "type": "Organization",
       "url": "https://github.com/Azure"
     },
-    "updatedAt": "2023-10-09T04:28:49Z",
+    "updatedAt": "2023-11-08T10:33:55Z",
     "url": "https://github.com/Azure/apim-lab",
     "codeOfConduct": {
       "key": "other",
       "name": "Other",
       "url": "https://github.com/Azure/apim-lab/blob/main/CODE_OF_CONDUCT.md"
     },
-    "forkCount": 54,
+    "forkCount": 55,
     "fundingLinks": [],
     "isSecurityPolicyEnabled": true,
     "isTemplate": false,
@@ -3701,7 +3771,7 @@
       "name": "HTML"
     },
     "securityPolicyUrl": "https://github.com/Azure/apim-lab/security/policy",
-    "stargazerCount": 56,
+    "stargazerCount": 57,
     "watchers": {
       "totalCount": 11
     },
@@ -3738,7 +3808,7 @@
     "openedHelpWantedIssues": 4,
     "hasHelpWantedIssues": true,
     "openedToContributionsIssues": 9,
-    "popularityScore": 67
+    "popularityScore": 68
   },
   {
     "createdAt": "2019-02-26T10:15:12Z",
@@ -3895,10 +3965,10 @@
       "type": "User",
       "url": "https://github.com/ben-howard"
     },
-    "updatedAt": "2023-11-03T19:56:59Z",
+    "updatedAt": "2023-11-08T04:29:59Z",
     "url": "https://github.com/ben-howard/Planner-PowerBI-with-PowerAutomate",
     "codeOfConduct": null,
-    "forkCount": 6,
+    "forkCount": 7,
     "fundingLinks": [],
     "isSecurityPolicyEnabled": false,
     "isTemplate": false,
@@ -3910,9 +3980,9 @@
     },
     "primaryLanguage": null,
     "securityPolicyUrl": "",
-    "stargazerCount": 53,
+    "stargazerCount": 54,
     "watchers": {
-      "totalCount": 9
+      "totalCount": 10
     },
     "topics": [
       "microsoft-planner",
@@ -3926,7 +3996,7 @@
     "openedHelpWantedIssues": 0,
     "hasHelpWantedIssues": false,
     "openedToContributionsIssues": 0,
-    "popularityScore": 62
+    "popularityScore": 64
   },
   {
     "createdAt": "2019-09-25T15:20:07Z",
@@ -4139,9 +4209,9 @@
     "isTemplate": false,
     "latestRelease": {
       "name": "Power Platform deprecation update",
-      "tagName": "2023.11.4.4",
-      "url": "https://github.com/tcorcor1/power-platform-deprecation-tracker/releases/tag/2023.11.4.4",
-      "publishedAt": "2023-11-04T00:00:04Z"
+      "tagName": "2023.11.7.3",
+      "url": "https://github.com/tcorcor1/power-platform-deprecation-tracker/releases/tag/2023.11.7.3",
+      "publishedAt": "2023-11-07T12:00:03Z"
     },
     "primaryLanguage": null,
     "securityPolicyUrl": "",
@@ -4224,6 +4294,68 @@
     "popularityScore": 74
   },
   {
+    "createdAt": "2020-04-21T19:12:20Z",
+    "description": "Easily call the Dataverse WebApi from TypeScript using SDK style types, with a NodeJS implementation for integration testing.",
+    "fullName": "scottdurow/dataverse-ify",
+    "hasIssues": true,
+    "homepage": "",
+    "isArchived": false,
+    "language": "TypeScript",
+    "license": {
+      "key": "mit",
+      "name": "MIT License",
+      "url": "https://api.github.com/licenses/mit"
+    },
+    "name": "dataverse-ify",
+    "openIssuesCount": 13,
+    "owner": {
+      "id": "MDQ6VXNlcjI4NzExMjE=",
+      "is_bot": false,
+      "login": "scottdurow",
+      "type": "User",
+      "url": "https://github.com/scottdurow"
+    },
+    "updatedAt": "2023-07-19T12:46:28Z",
+    "url": "https://github.com/scottdurow/dataverse-ify",
+    "codeOfConduct": null,
+    "forkCount": 12,
+    "fundingLinks": [],
+    "isSecurityPolicyEnabled": false,
+    "isTemplate": false,
+    "latestRelease": {
+      "name": "v1.0.13",
+      "tagName": "v1.0.13",
+      "url": "https://github.com/scottdurow/dataverse-ify/releases/tag/v1.0.13",
+      "publishedAt": "2022-11-22T00:28:27Z"
+    },
+    "primaryLanguage": {
+      "name": "TypeScript"
+    },
+    "securityPolicyUrl": "",
+    "stargazerCount": 47,
+    "watchers": {
+      "totalCount": 9
+    },
+    "topics": [
+      "codegen",
+      "dataverse",
+      "microsoft"
+    ],
+    "languages": [
+      "TypeScript",
+      "JavaScript",
+      "CSS",
+      "EJS",
+      "HTML"
+    ],
+    "openedGoodFirstIssues": 0,
+    "hasGoodFirstIssues": false,
+    "openedHelpWantedIssues": 0,
+    "hasHelpWantedIssues": false,
+    "openedToContributionsIssues": 0,
+    "popularityScore": 56
+  },
+  {
     "createdAt": "2018-04-03T10:12:11Z",
     "description": "Warehouse Control System for Microsoft Dynamics NAV",
     "fullName": "OlegLobakov/WarehouseControlSystem",
@@ -4289,66 +4421,56 @@
     "popularityScore": 56
   },
   {
-    "createdAt": "2020-04-21T19:12:20Z",
-    "description": "Easily call the Dataverse WebApi from TypeScript using SDK style types, with a NodeJS implementation for integration testing.",
-    "fullName": "scottdurow/dataverse-ify",
+    "createdAt": "2021-05-02T08:44:47Z",
+    "description": "Power Automate demos & proof of concepts",
+    "fullName": "DamoBird365/PowerAutomate",
     "hasIssues": true,
-    "homepage": "",
+    "homepage": "https://damobird365.com",
     "isArchived": false,
-    "language": "TypeScript",
+    "language": "",
     "license": {
       "key": "mit",
       "name": "MIT License",
       "url": "https://api.github.com/licenses/mit"
     },
-    "name": "dataverse-ify",
-    "openIssuesCount": 13,
+    "name": "PowerAutomate",
+    "openIssuesCount": 1,
     "owner": {
-      "id": "MDQ6VXNlcjI4NzExMjE=",
+      "id": "MDQ6VXNlcjQ2ODExOTIw",
       "is_bot": false,
-      "login": "scottdurow",
+      "login": "DamoBird365",
       "type": "User",
-      "url": "https://github.com/scottdurow"
+      "url": "https://github.com/DamoBird365"
     },
-    "updatedAt": "2023-07-19T12:46:28Z",
-    "url": "https://github.com/scottdurow/dataverse-ify",
+    "updatedAt": "2023-11-07T17:18:13Z",
+    "url": "https://github.com/DamoBird365/PowerAutomate",
     "codeOfConduct": null,
-    "forkCount": 12,
+    "forkCount": 18,
     "fundingLinks": [],
     "isSecurityPolicyEnabled": false,
     "isTemplate": false,
-    "latestRelease": {
-      "name": "v1.0.13",
-      "tagName": "v1.0.13",
-      "url": "https://github.com/scottdurow/dataverse-ify/releases/tag/v1.0.13",
-      "publishedAt": "2022-11-22T00:28:27Z"
-    },
-    "primaryLanguage": {
-      "name": "TypeScript"
-    },
+    "latestRelease": null,
+    "primaryLanguage": null,
     "securityPolicyUrl": "",
-    "stargazerCount": 47,
+    "stargazerCount": 46,
     "watchers": {
-      "totalCount": 9
+      "totalCount": 3
     },
     "topics": [
-      "codegen",
-      "dataverse",
-      "microsoft"
+      "powerautomate",
+      "powerplatform",
+      "excelscripts",
+      "sharepoint",
+      "teams",
+      "power-automate"
     ],
-    "languages": [
-      "TypeScript",
-      "JavaScript",
-      "CSS",
-      "EJS",
-      "HTML"
-    ],
+    "languages": [],
     "openedGoodFirstIssues": 0,
     "hasGoodFirstIssues": false,
     "openedHelpWantedIssues": 0,
     "hasHelpWantedIssues": false,
     "openedToContributionsIssues": 0,
-    "popularityScore": 56
+    "popularityScore": 49
   },
   {
     "createdAt": "2022-11-03T19:09:28Z",
@@ -4402,58 +4524,6 @@
     "hasHelpWantedIssues": false,
     "openedToContributionsIssues": 0,
     "popularityScore": 49
-  },
-  {
-    "createdAt": "2021-05-02T08:44:47Z",
-    "description": "Power Automate demos & proof of concepts",
-    "fullName": "DamoBird365/PowerAutomate",
-    "hasIssues": true,
-    "homepage": "https://damobird365.com",
-    "isArchived": false,
-    "language": "",
-    "license": {
-      "key": "mit",
-      "name": "MIT License",
-      "url": "https://api.github.com/licenses/mit"
-    },
-    "name": "PowerAutomate",
-    "openIssuesCount": 1,
-    "owner": {
-      "id": "MDQ6VXNlcjQ2ODExOTIw",
-      "is_bot": false,
-      "login": "DamoBird365",
-      "type": "User",
-      "url": "https://github.com/DamoBird365"
-    },
-    "updatedAt": "2023-10-31T04:06:20Z",
-    "url": "https://github.com/DamoBird365/PowerAutomate",
-    "codeOfConduct": null,
-    "forkCount": 18,
-    "fundingLinks": [],
-    "isSecurityPolicyEnabled": false,
-    "isTemplate": false,
-    "latestRelease": null,
-    "primaryLanguage": null,
-    "securityPolicyUrl": "",
-    "stargazerCount": 45,
-    "watchers": {
-      "totalCount": 3
-    },
-    "topics": [
-      "powerautomate",
-      "powerplatform",
-      "excelscripts",
-      "sharepoint",
-      "teams",
-      "power-automate"
-    ],
-    "languages": [],
-    "openedGoodFirstIssues": 0,
-    "hasGoodFirstIssues": false,
-    "openedHelpWantedIssues": 0,
-    "hasHelpWantedIssues": false,
-    "openedToContributionsIssues": 0,
-    "popularityScore": 48
   },
   {
     "createdAt": "2021-08-17T02:58:17Z",
@@ -4765,75 +4835,6 @@
     "popularityScore": 64
   },
   {
-    "createdAt": "2018-09-25T09:28:30Z",
-    "description": "R engine to orchestrate and run (meta)data workflows",
-    "fullName": "r-geoflow/geoflow",
-    "hasIssues": true,
-    "homepage": "https://github.com/r-geoflow/geoflow/wiki",
-    "isArchived": false,
-    "language": "R",
-    "license": {
-      "key": "",
-      "name": "",
-      "url": ""
-    },
-    "name": "geoflow",
-    "openIssuesCount": 23,
-    "owner": {
-      "id": "O_kgDOBa3UxA",
-      "is_bot": false,
-      "login": "r-geoflow",
-      "type": "Organization",
-      "url": "https://github.com/r-geoflow"
-    },
-    "updatedAt": "2023-10-19T14:35:26Z",
-    "url": "https://github.com/r-geoflow/geoflow",
-    "codeOfConduct": {
-      "key": "contributor_covenant",
-      "name": "Contributor Covenant",
-      "url": "https://github.com/r-geoflow/geoflow/blob/master/CODE_OF_CONDUCT.md"
-    },
-    "forkCount": 14,
-    "fundingLinks": [],
-    "isSecurityPolicyEnabled": false,
-    "isTemplate": false,
-    "latestRelease": null,
-    "primaryLanguage": {
-      "name": "R"
-    },
-    "securityPolicyUrl": "",
-    "stargazerCount": 38,
-    "watchers": {
-      "totalCount": 7
-    },
-    "topics": [
-      "r",
-      "geospatial",
-      "spatial",
-      "workflow",
-      "data",
-      "metadata",
-      "fair",
-      "inspire",
-      "iso",
-      "ogc",
-      "orchestrator",
-      "zenodo",
-      "dataverse",
-      "postgis",
-      "ocs"
-    ],
-    "languages": [
-      "R"
-    ],
-    "openedGoodFirstIssues": 0,
-    "hasGoodFirstIssues": false,
-    "openedHelpWantedIssues": 5,
-    "hasHelpWantedIssues": true,
-    "openedToContributionsIssues": 5,
-    "popularityScore": 45
-  },
-  {
     "createdAt": "2019-11-01T03:58:16Z",
     "description": "Repository to host the PowerApps Azure Lab",
     "fullName": "microsoft/PowerApps-Azure-Lab",
@@ -4892,63 +4893,130 @@
     "popularityScore": 47
   },
   {
-    "createdAt": "2021-10-08T08:31:56Z",
-    "description": "PowerApps-docstring is a console based, pipeline ready application that automatically generates user and technical documentation for Power Apps.",
-    "fullName": "sebastian-muthwill/powerapps-docstring",
+    "createdAt": "2018-09-25T09:28:30Z",
+    "description": "R engine to orchestrate and run (meta)data workflows",
+    "fullName": "r-geoflow/geoflow",
+    "hasIssues": true,
+    "homepage": "https://github.com/r-geoflow/geoflow/wiki",
+    "isArchived": false,
+    "language": "R",
+    "license": {
+      "key": "",
+      "name": "",
+      "url": ""
+    },
+    "name": "geoflow",
+    "openIssuesCount": 24,
+    "owner": {
+      "id": "O_kgDOBa3UxA",
+      "is_bot": false,
+      "login": "r-geoflow",
+      "type": "Organization",
+      "url": "https://github.com/r-geoflow"
+    },
+    "updatedAt": "2023-10-19T14:35:26Z",
+    "url": "https://github.com/r-geoflow/geoflow",
+    "codeOfConduct": {
+      "key": "contributor_covenant",
+      "name": "Contributor Covenant",
+      "url": "https://github.com/r-geoflow/geoflow/blob/master/CODE_OF_CONDUCT.md"
+    },
+    "forkCount": 14,
+    "fundingLinks": [],
+    "isSecurityPolicyEnabled": false,
+    "isTemplate": false,
+    "latestRelease": null,
+    "primaryLanguage": {
+      "name": "R"
+    },
+    "securityPolicyUrl": "",
+    "stargazerCount": 38,
+    "watchers": {
+      "totalCount": 7
+    },
+    "topics": [
+      "r",
+      "geospatial",
+      "spatial",
+      "workflow",
+      "data",
+      "metadata",
+      "fair",
+      "inspire",
+      "iso",
+      "ogc",
+      "orchestrator",
+      "zenodo",
+      "dataverse",
+      "postgis",
+      "ocs"
+    ],
+    "languages": [
+      "R"
+    ],
+    "openedGoodFirstIssues": 0,
+    "hasGoodFirstIssues": false,
+    "openedHelpWantedIssues": 5,
+    "hasHelpWantedIssues": true,
+    "openedToContributionsIssues": 5,
+    "popularityScore": 45
+  },
+  {
+    "createdAt": "2022-04-25T19:27:15Z",
+    "description": "TrulyResponsive is the framework to build PowerApps that show the right UX on any device.",
+    "fullName": "Feincraft/TrulyResponsive",
     "hasIssues": true,
     "homepage": "",
     "isArchived": false,
-    "language": "Python",
+    "language": "",
     "license": {
-      "key": "mit",
-      "name": "MIT License",
-      "url": "https://api.github.com/licenses/mit"
+      "key": "",
+      "name": "",
+      "url": ""
     },
-    "name": "powerapps-docstring",
-    "openIssuesCount": 14,
+    "name": "TrulyResponsive",
+    "openIssuesCount": 0,
     "owner": {
-      "id": "MDQ6VXNlcjEwMzc1NzI1",
+      "id": "MDQ6VXNlcjMyMDk2NTMx",
       "is_bot": false,
-      "login": "sebastian-muthwill",
+      "login": "Feincraft",
       "type": "User",
-      "url": "https://github.com/sebastian-muthwill"
+      "url": "https://github.com/Feincraft"
     },
-    "updatedAt": "2023-10-31T07:33:53Z",
-    "url": "https://github.com/sebastian-muthwill/powerapps-docstring",
+    "updatedAt": "2023-09-28T12:15:45Z",
+    "url": "https://github.com/Feincraft/TrulyResponsive",
     "codeOfConduct": null,
-    "forkCount": 3,
+    "forkCount": 7,
     "fundingLinks": [],
     "isSecurityPolicyEnabled": false,
     "isTemplate": false,
     "latestRelease": {
-      "name": "v0.4.0-alpha",
-      "tagName": "v0.4.0-alpha",
-      "url": "https://github.com/sebastian-muthwill/powerapps-docstring/releases/tag/v0.4.0-alpha",
-      "publishedAt": "2021-11-10T07:43:15Z"
+      "name": "TrulyResponsive v4.1",
+      "tagName": "v4.1",
+      "url": "https://github.com/Feincraft/TrulyResponsive/releases/tag/v4.1",
+      "publishedAt": "2022-05-04T12:36:59Z"
     },
-    "primaryLanguage": {
-      "name": "Python"
-    },
+    "primaryLanguage": null,
     "securityPolicyUrl": "",
     "stargazerCount": 36,
     "watchers": {
-      "totalCount": 5
+      "totalCount": 4
     },
     "topics": [
+      "framework",
+      "mobileapp-development",
       "powerapps",
-      "documentation",
-      "docstrings"
+      "powerplatform",
+      "responsive-design",
+      "ux"
     ],
-    "languages": [
-      "Python",
-      "kvlang"
-    ],
+    "languages": [],
     "openedGoodFirstIssues": 0,
     "hasGoodFirstIssues": false,
     "openedHelpWantedIssues": 0,
     "hasHelpWantedIssues": false,
     "openedToContributionsIssues": 0,
-    "popularityScore": 41
+    "popularityScore": 40
   },
   {
     "createdAt": "2019-09-17T00:42:05Z",
@@ -5024,112 +5092,56 @@
     "popularityScore": 41
   },
   {
-    "createdAt": "2022-04-25T19:27:15Z",
-    "description": "TrulyResponsive is the framework to build PowerApps that show the right UX on any device.",
-    "fullName": "Feincraft/TrulyResponsive",
+    "createdAt": "2021-10-08T08:31:56Z",
+    "description": "PowerApps-docstring is a console based, pipeline ready application that automatically generates user and technical documentation for Power Apps.",
+    "fullName": "sebastian-muthwill/powerapps-docstring",
     "hasIssues": true,
     "homepage": "",
     "isArchived": false,
-    "language": "",
-    "license": {
-      "key": "",
-      "name": "",
-      "url": ""
-    },
-    "name": "TrulyResponsive",
-    "openIssuesCount": 0,
-    "owner": {
-      "id": "MDQ6VXNlcjMyMDk2NTMx",
-      "is_bot": false,
-      "login": "Feincraft",
-      "type": "User",
-      "url": "https://github.com/Feincraft"
-    },
-    "updatedAt": "2023-09-28T12:15:45Z",
-    "url": "https://github.com/Feincraft/TrulyResponsive",
-    "codeOfConduct": null,
-    "forkCount": 7,
-    "fundingLinks": [],
-    "isSecurityPolicyEnabled": false,
-    "isTemplate": false,
-    "latestRelease": {
-      "name": "TrulyResponsive v4.1",
-      "tagName": "v4.1",
-      "url": "https://github.com/Feincraft/TrulyResponsive/releases/tag/v4.1",
-      "publishedAt": "2022-05-04T12:36:59Z"
-    },
-    "primaryLanguage": null,
-    "securityPolicyUrl": "",
-    "stargazerCount": 36,
-    "watchers": {
-      "totalCount": 4
-    },
-    "topics": [
-      "framework",
-      "mobileapp-development",
-      "powerapps",
-      "powerplatform",
-      "responsive-design",
-      "ux"
-    ],
-    "languages": [],
-    "openedGoodFirstIssues": 0,
-    "hasGoodFirstIssues": false,
-    "openedHelpWantedIssues": 0,
-    "hasHelpWantedIssues": false,
-    "openedToContributionsIssues": 0,
-    "popularityScore": 40
-  },
-  {
-    "createdAt": "2020-10-30T02:45:02Z",
-    "description": "Template repository for the ALM of Power Platform solutions with GitHub",
-    "fullName": "rpothin/PowerPlatform-ALM-With-GitHub-Template",
-    "hasIssues": true,
-    "homepage": "",
-    "isArchived": false,
-    "language": "PowerShell",
+    "language": "Python",
     "license": {
       "key": "mit",
       "name": "MIT License",
       "url": "https://api.github.com/licenses/mit"
     },
-    "name": "PowerPlatform-ALM-With-GitHub-Template",
-    "openIssuesCount": 11,
+    "name": "powerapps-docstring",
+    "openIssuesCount": 14,
     "owner": {
-      "id": "MDQ6VXNlcjIzMjQwMjQ1",
+      "id": "MDQ6VXNlcjEwMzc1NzI1",
       "is_bot": false,
-      "login": "rpothin",
+      "login": "sebastian-muthwill",
       "type": "User",
-      "url": "https://github.com/rpothin"
+      "url": "https://github.com/sebastian-muthwill"
     },
-    "updatedAt": "2023-10-06T02:12:14Z",
-    "url": "https://github.com/rpothin/PowerPlatform-ALM-With-GitHub-Template",
-    "codeOfConduct": {
-      "key": "contributor_covenant",
-      "name": "Contributor Covenant",
-      "url": "https://github.com/rpothin/PowerPlatform-ALM-With-GitHub-Template/blob/main/CODE_OF_CONDUCT.md"
-    },
-    "forkCount": 2,
+    "updatedAt": "2023-10-31T07:33:53Z",
+    "url": "https://github.com/sebastian-muthwill/powerapps-docstring",
+    "codeOfConduct": null,
+    "forkCount": 3,
     "fundingLinks": [],
     "isSecurityPolicyEnabled": false,
-    "isTemplate": true,
-    "latestRelease": null,
+    "isTemplate": false,
+    "latestRelease": {
+      "name": "v0.4.0-alpha",
+      "tagName": "v0.4.0-alpha",
+      "url": "https://github.com/sebastian-muthwill/powerapps-docstring/releases/tag/v0.4.0-alpha",
+      "publishedAt": "2021-11-10T07:43:15Z"
+    },
     "primaryLanguage": {
-      "name": "PowerShell"
+      "name": "Python"
     },
     "securityPolicyUrl": "",
-    "stargazerCount": 35,
+    "stargazerCount": 36,
     "watchers": {
-      "totalCount": 6
+      "totalCount": 5
     },
     "topics": [
-      "power-platform",
-      "github-actions",
-      "powershell"
+      "powerapps",
+      "documentation",
+      "docstrings"
     ],
     "languages": [
-      "PowerShell",
-      "Dockerfile"
+      "Python",
+      "kvlang"
     ],
     "openedGoodFirstIssues": 0,
     "hasGoodFirstIssues": false,
@@ -5259,6 +5271,64 @@
     "popularityScore": 41
   },
   {
+    "createdAt": "2020-10-30T02:45:02Z",
+    "description": "Template repository for the ALM of Power Platform solutions with GitHub",
+    "fullName": "rpothin/PowerPlatform-ALM-With-GitHub-Template",
+    "hasIssues": true,
+    "homepage": "",
+    "isArchived": false,
+    "language": "PowerShell",
+    "license": {
+      "key": "mit",
+      "name": "MIT License",
+      "url": "https://api.github.com/licenses/mit"
+    },
+    "name": "PowerPlatform-ALM-With-GitHub-Template",
+    "openIssuesCount": 11,
+    "owner": {
+      "id": "MDQ6VXNlcjIzMjQwMjQ1",
+      "is_bot": false,
+      "login": "rpothin",
+      "type": "User",
+      "url": "https://github.com/rpothin"
+    },
+    "updatedAt": "2023-10-06T02:12:14Z",
+    "url": "https://github.com/rpothin/PowerPlatform-ALM-With-GitHub-Template",
+    "codeOfConduct": {
+      "key": "contributor_covenant",
+      "name": "Contributor Covenant",
+      "url": "https://github.com/rpothin/PowerPlatform-ALM-With-GitHub-Template/blob/main/CODE_OF_CONDUCT.md"
+    },
+    "forkCount": 2,
+    "fundingLinks": [],
+    "isSecurityPolicyEnabled": false,
+    "isTemplate": true,
+    "latestRelease": null,
+    "primaryLanguage": {
+      "name": "PowerShell"
+    },
+    "securityPolicyUrl": "",
+    "stargazerCount": 35,
+    "watchers": {
+      "totalCount": 6
+    },
+    "topics": [
+      "power-platform",
+      "github-actions",
+      "powershell"
+    ],
+    "languages": [
+      "PowerShell",
+      "Dockerfile"
+    ],
+    "openedGoodFirstIssues": 0,
+    "hasGoodFirstIssues": false,
+    "openedHelpWantedIssues": 0,
+    "hasHelpWantedIssues": false,
+    "openedToContributionsIssues": 0,
+    "popularityScore": 41
+  },
+  {
     "createdAt": "2020-01-22T10:19:37Z",
     "description": "A Template and Provisioning process to create a fully automated Build and Deploy Project for the Microsoft Power Platform",
     "fullName": "dylanhaskins/PowerPlatformCICD",
@@ -5321,63 +5391,6 @@
     "popularityScore": 41
   },
   {
-    "createdAt": "2016-11-14T05:07:34Z",
-    "description": "Tools for Dynamics CRM",
-    "fullName": "deepakkumar1984/XrmToolBoxPlugins",
-    "hasIssues": true,
-    "homepage": "",
-    "isArchived": false,
-    "language": "C#",
-    "license": {
-      "key": "mit",
-      "name": "MIT License",
-      "url": "https://api.github.com/licenses/mit"
-    },
-    "name": "XrmToolBoxPlugins",
-    "openIssuesCount": 41,
-    "owner": {
-      "id": "MDQ6VXNlcjYzMjgzNjE=",
-      "is_bot": false,
-      "login": "deepakkumar1984",
-      "type": "User",
-      "url": "https://github.com/deepakkumar1984"
-    },
-    "updatedAt": "2023-05-26T07:42:11Z",
-    "url": "https://github.com/deepakkumar1984/XrmToolBoxPlugins",
-    "codeOfConduct": null,
-    "forkCount": 35,
-    "fundingLinks": [],
-    "isSecurityPolicyEnabled": false,
-    "isTemplate": false,
-    "latestRelease": null,
-    "primaryLanguage": {
-      "name": "C#"
-    },
-    "securityPolicyUrl": "",
-    "stargazerCount": 33,
-    "watchers": {
-      "totalCount": 9
-    },
-    "topics": [
-      "dynamics-365",
-      "dynamics-crm",
-      "xrmtoolbox",
-      "xrm",
-      "recycle-bin",
-      "user-audit-trail",
-      "storage-manager"
-    ],
-    "languages": [
-      "C#"
-    ],
-    "openedGoodFirstIssues": 0,
-    "hasGoodFirstIssues": false,
-    "openedHelpWantedIssues": 0,
-    "hasHelpWantedIssues": false,
-    "openedToContributionsIssues": 0,
-    "popularityScore": 42
-  },
-  {
     "createdAt": "2020-12-18T04:10:17Z",
     "description": "PowerShell module for Microsoft Dataverse and Power Platform automation (Data Management, administration and DevOps activities)",
     "fullName": "AymericM78/PowerDataOps",
@@ -5434,6 +5447,63 @@
     "hasHelpWantedIssues": false,
     "openedToContributionsIssues": 0,
     "popularityScore": 38
+  },
+  {
+    "createdAt": "2016-11-14T05:07:34Z",
+    "description": "Tools for Dynamics CRM",
+    "fullName": "deepakkumar1984/XrmToolBoxPlugins",
+    "hasIssues": true,
+    "homepage": "",
+    "isArchived": false,
+    "language": "C#",
+    "license": {
+      "key": "mit",
+      "name": "MIT License",
+      "url": "https://api.github.com/licenses/mit"
+    },
+    "name": "XrmToolBoxPlugins",
+    "openIssuesCount": 41,
+    "owner": {
+      "id": "MDQ6VXNlcjYzMjgzNjE=",
+      "is_bot": false,
+      "login": "deepakkumar1984",
+      "type": "User",
+      "url": "https://github.com/deepakkumar1984"
+    },
+    "updatedAt": "2023-05-26T07:42:11Z",
+    "url": "https://github.com/deepakkumar1984/XrmToolBoxPlugins",
+    "codeOfConduct": null,
+    "forkCount": 35,
+    "fundingLinks": [],
+    "isSecurityPolicyEnabled": false,
+    "isTemplate": false,
+    "latestRelease": null,
+    "primaryLanguage": {
+      "name": "C#"
+    },
+    "securityPolicyUrl": "",
+    "stargazerCount": 33,
+    "watchers": {
+      "totalCount": 9
+    },
+    "topics": [
+      "dynamics-365",
+      "dynamics-crm",
+      "xrmtoolbox",
+      "xrm",
+      "recycle-bin",
+      "user-audit-trail",
+      "storage-manager"
+    ],
+    "languages": [
+      "C#"
+    ],
+    "openedGoodFirstIssues": 0,
+    "hasGoodFirstIssues": false,
+    "openedHelpWantedIssues": 0,
+    "hasHelpWantedIssues": false,
+    "openedToContributionsIssues": 0,
+    "popularityScore": 42
   },
   {
     "createdAt": "2023-05-25T11:08:38Z",
@@ -5505,64 +5575,6 @@
     "popularityScore": 42
   },
   {
-    "createdAt": "2020-09-30T15:44:45Z",
-    "description": "XrmToolBox tool to allow you to document your cloud flows within Microsoft Power Automate",
-    "fullName": "LinkeD365/FlowToVisio",
-    "hasIssues": true,
-    "homepage": "https://linked365.blog/2020/10/14/flow-to-visio-xrmtoolbox-addon/",
-    "isArchived": false,
-    "language": "C#",
-    "license": {
-      "key": "gpl-3.0",
-      "name": "GNU General Public License v3.0",
-      "url": "https://api.github.com/licenses/gpl-3.0"
-    },
-    "name": "FlowToVisio",
-    "openIssuesCount": 8,
-    "owner": {
-      "id": "MDQ6VXNlcjQzOTg4Nzcx",
-      "is_bot": false,
-      "login": "LinkeD365",
-      "type": "User",
-      "url": "https://github.com/LinkeD365"
-    },
-    "updatedAt": "2023-10-31T08:29:39Z",
-    "url": "https://github.com/LinkeD365/FlowToVisio",
-    "codeOfConduct": null,
-    "forkCount": 6,
-    "fundingLinks": [],
-    "isSecurityPolicyEnabled": false,
-    "isTemplate": false,
-    "latestRelease": {
-      "name": "1506",
-      "tagName": "1506",
-      "url": "https://github.com/LinkeD365/FlowToVisio/releases/tag/1506",
-      "publishedAt": "2023-03-12T17:43:37Z"
-    },
-    "primaryLanguage": {
-      "name": "C#"
-    },
-    "securityPolicyUrl": "",
-    "stargazerCount": 31,
-    "watchers": {
-      "totalCount": 5
-    },
-    "topics": [
-      "xrmtoolbox",
-      "powerautomate",
-      "visio"
-    ],
-    "languages": [
-      "C#"
-    ],
-    "openedGoodFirstIssues": 0,
-    "hasGoodFirstIssues": false,
-    "openedHelpWantedIssues": 0,
-    "hasHelpWantedIssues": false,
-    "openedToContributionsIssues": 0,
-    "popularityScore": 36
-  },
-  {
     "createdAt": "2019-06-23T05:07:12Z",
     "description": "XrmToolBox Plugin for building and deploying custom control using PCF",
     "fullName": "Power-Maverick/PCF-CustomControlBuilder",
@@ -5630,6 +5642,64 @@
     "hasHelpWantedIssues": true,
     "openedToContributionsIssues": 1,
     "popularityScore": 35
+  },
+  {
+    "createdAt": "2020-09-30T15:44:45Z",
+    "description": "XrmToolBox tool to allow you to document your cloud flows within Microsoft Power Automate",
+    "fullName": "LinkeD365/FlowToVisio",
+    "hasIssues": true,
+    "homepage": "https://linked365.blog/2020/10/14/flow-to-visio-xrmtoolbox-addon/",
+    "isArchived": false,
+    "language": "C#",
+    "license": {
+      "key": "gpl-3.0",
+      "name": "GNU General Public License v3.0",
+      "url": "https://api.github.com/licenses/gpl-3.0"
+    },
+    "name": "FlowToVisio",
+    "openIssuesCount": 8,
+    "owner": {
+      "id": "MDQ6VXNlcjQzOTg4Nzcx",
+      "is_bot": false,
+      "login": "LinkeD365",
+      "type": "User",
+      "url": "https://github.com/LinkeD365"
+    },
+    "updatedAt": "2023-10-31T08:29:39Z",
+    "url": "https://github.com/LinkeD365/FlowToVisio",
+    "codeOfConduct": null,
+    "forkCount": 6,
+    "fundingLinks": [],
+    "isSecurityPolicyEnabled": false,
+    "isTemplate": false,
+    "latestRelease": {
+      "name": "1506",
+      "tagName": "1506",
+      "url": "https://github.com/LinkeD365/FlowToVisio/releases/tag/1506",
+      "publishedAt": "2023-03-12T17:43:37Z"
+    },
+    "primaryLanguage": {
+      "name": "C#"
+    },
+    "securityPolicyUrl": "",
+    "stargazerCount": 31,
+    "watchers": {
+      "totalCount": 5
+    },
+    "topics": [
+      "xrmtoolbox",
+      "powerautomate",
+      "visio"
+    ],
+    "languages": [
+      "C#"
+    ],
+    "openedGoodFirstIssues": 0,
+    "hasGoodFirstIssues": false,
+    "openedHelpWantedIssues": 0,
+    "hasHelpWantedIssues": false,
+    "openedToContributionsIssues": 0,
+    "popularityScore": 36
   },
   {
     "createdAt": "2019-04-08T06:28:20Z",
@@ -5705,6 +5775,71 @@
     "popularityScore": 56
   },
   {
+    "createdAt": "2017-08-18T01:53:25Z",
+    "description": "",
+    "fullName": "PaulNieuwelaar/notifyjs",
+    "hasIssues": true,
+    "homepage": "",
+    "isArchived": false,
+    "language": "JavaScript",
+    "license": {
+      "key": "other",
+      "name": "Other",
+      "url": ""
+    },
+    "name": "notifyjs",
+    "openIssuesCount": 3,
+    "owner": {
+      "id": "MDQ6VXNlcjE0MDQ4Mzgy",
+      "is_bot": false,
+      "login": "PaulNieuwelaar",
+      "type": "User",
+      "url": "https://github.com/PaulNieuwelaar"
+    },
+    "updatedAt": "2023-09-29T07:18:04Z",
+    "url": "https://github.com/PaulNieuwelaar/notifyjs",
+    "codeOfConduct": null,
+    "forkCount": 9,
+    "fundingLinks": [],
+    "isSecurityPolicyEnabled": false,
+    "isTemplate": false,
+    "latestRelease": {
+      "name": "v2.0",
+      "tagName": "v2.0.1",
+      "url": "https://github.com/PaulNieuwelaar/notifyjs/releases/tag/v2.0.1",
+      "publishedAt": "2020-12-02T21:18:35Z"
+    },
+    "primaryLanguage": {
+      "name": "JavaScript"
+    },
+    "securityPolicyUrl": "",
+    "stargazerCount": 30,
+    "watchers": {
+      "totalCount": 6
+    },
+    "topics": [
+      "crm",
+      "dynamics",
+      "dynamics365",
+      "notifyjs",
+      "paulnieuwelaar",
+      "notification",
+      "bar",
+      "magnetism"
+    ],
+    "languages": [
+      "JavaScript",
+      "CSS",
+      "C#"
+    ],
+    "openedGoodFirstIssues": 0,
+    "hasGoodFirstIssues": false,
+    "openedHelpWantedIssues": 0,
+    "hasHelpWantedIssues": false,
+    "openedToContributionsIssues": 0,
+    "popularityScore": 36
+  },
+  {
     "createdAt": "2019-01-23T20:47:13Z",
     "description": "Visual studio addin for D365 Finance and operations",
     "fullName": "shashisadasivan/SSD365VSAddIn",
@@ -5772,71 +5907,6 @@
     "hasHelpWantedIssues": false,
     "openedToContributionsIssues": 1,
     "popularityScore": 40
-  },
-  {
-    "createdAt": "2017-08-18T01:53:25Z",
-    "description": "",
-    "fullName": "PaulNieuwelaar/notifyjs",
-    "hasIssues": true,
-    "homepage": "",
-    "isArchived": false,
-    "language": "JavaScript",
-    "license": {
-      "key": "other",
-      "name": "Other",
-      "url": ""
-    },
-    "name": "notifyjs",
-    "openIssuesCount": 3,
-    "owner": {
-      "id": "MDQ6VXNlcjE0MDQ4Mzgy",
-      "is_bot": false,
-      "login": "PaulNieuwelaar",
-      "type": "User",
-      "url": "https://github.com/PaulNieuwelaar"
-    },
-    "updatedAt": "2023-09-29T07:18:04Z",
-    "url": "https://github.com/PaulNieuwelaar/notifyjs",
-    "codeOfConduct": null,
-    "forkCount": 9,
-    "fundingLinks": [],
-    "isSecurityPolicyEnabled": false,
-    "isTemplate": false,
-    "latestRelease": {
-      "name": "v2.0",
-      "tagName": "v2.0.1",
-      "url": "https://github.com/PaulNieuwelaar/notifyjs/releases/tag/v2.0.1",
-      "publishedAt": "2020-12-02T21:18:35Z"
-    },
-    "primaryLanguage": {
-      "name": "JavaScript"
-    },
-    "securityPolicyUrl": "",
-    "stargazerCount": 30,
-    "watchers": {
-      "totalCount": 6
-    },
-    "topics": [
-      "crm",
-      "dynamics",
-      "dynamics365",
-      "notifyjs",
-      "paulnieuwelaar",
-      "notification",
-      "bar",
-      "magnetism"
-    ],
-    "languages": [
-      "JavaScript",
-      "CSS",
-      "C#"
-    ],
-    "openedGoodFirstIssues": 0,
-    "hasGoodFirstIssues": false,
-    "openedHelpWantedIssues": 0,
-    "hasHelpWantedIssues": false,
-    "openedToContributionsIssues": 0,
-    "popularityScore": 36
   },
   {
     "createdAt": "2020-02-17T17:41:16Z",
@@ -5960,6 +6030,64 @@
     "popularityScore": 33
   },
   {
+    "createdAt": "2020-08-22T12:15:19Z",
+    "description": "Generic OAuth2 Library for Business Central",
+    "fullName": "msnraju/BC-OAuth-2.0-Authorization",
+    "hasIssues": true,
+    "homepage": "https://www.msnjournals.com/post/generic-oauth2-library-for-business-central",
+    "isArchived": false,
+    "language": "Perl",
+    "license": {
+      "key": "mit",
+      "name": "MIT License",
+      "url": "https://api.github.com/licenses/mit"
+    },
+    "name": "BC-OAuth-2.0-Authorization",
+    "openIssuesCount": 2,
+    "owner": {
+      "id": "MDQ6VXNlcjE3Nzg0MjU5",
+      "is_bot": false,
+      "login": "msnraju",
+      "type": "User",
+      "url": "https://github.com/msnraju"
+    },
+    "updatedAt": "2023-10-24T16:26:37Z",
+    "url": "https://github.com/msnraju/BC-OAuth-2.0-Authorization",
+    "codeOfConduct": null,
+    "forkCount": 26,
+    "fundingLinks": [],
+    "isSecurityPolicyEnabled": false,
+    "isTemplate": false,
+    "latestRelease": null,
+    "primaryLanguage": {
+      "name": "Perl"
+    },
+    "securityPolicyUrl": "",
+    "stargazerCount": 28,
+    "watchers": {
+      "totalCount": 4
+    },
+    "topics": [
+      "oauth2",
+      "al-language",
+      "business-central",
+      "dynamics-365",
+      "dynamics-nav",
+      "oauth2-client",
+      "generic-oauth2-library"
+    ],
+    "languages": [
+      "Perl",
+      "JavaScript"
+    ],
+    "openedGoodFirstIssues": 0,
+    "hasGoodFirstIssues": false,
+    "openedHelpWantedIssues": 0,
+    "hasHelpWantedIssues": false,
+    "openedToContributionsIssues": 0,
+    "popularityScore": 32
+  },
+  {
     "createdAt": "2018-05-08T06:56:56Z",
     "description": "D365 Extension for SpecFlow allows you to automatically test your Dynamics 365 CE implementation. It provides a broad set of SpecFlow steps to help you create your scripts very rapidly. It leverages the EasyRepro library from Microsoft for the User Interface related tests.",
     "fullName": "DynamicHands/Crm.Specflow",
@@ -6030,54 +6158,55 @@
     "popularityScore": 37
   },
   {
-    "createdAt": "2020-08-22T12:15:19Z",
-    "description": "Generic OAuth2 Library for Business Central",
-    "fullName": "msnraju/BC-OAuth-2.0-Authorization",
+    "createdAt": "2015-11-24T17:33:15Z",
+    "description": "Create simple scripts to interact with Dynamics CRM using Node.js",
+    "fullName": "crisfervil/DynamicsNode",
     "hasIssues": true,
-    "homepage": "https://www.msnjournals.com/post/generic-oauth2-library-for-business-central",
+    "homepage": "https://dynamicsnode.js.org",
     "isArchived": false,
-    "language": "Perl",
+    "language": "TypeScript",
     "license": {
       "key": "mit",
       "name": "MIT License",
       "url": "https://api.github.com/licenses/mit"
     },
-    "name": "BC-OAuth-2.0-Authorization",
-    "openIssuesCount": 2,
+    "name": "DynamicsNode",
+    "openIssuesCount": 4,
     "owner": {
-      "id": "MDQ6VXNlcjE3Nzg0MjU5",
+      "id": "MDQ6VXNlcjc5MDIzNTc=",
       "is_bot": false,
-      "login": "msnraju",
+      "login": "crisfervil",
       "type": "User",
-      "url": "https://github.com/msnraju"
+      "url": "https://github.com/crisfervil"
     },
-    "updatedAt": "2023-10-24T16:26:37Z",
-    "url": "https://github.com/msnraju/BC-OAuth-2.0-Authorization",
+    "updatedAt": "2023-06-02T12:18:56Z",
+    "url": "https://github.com/crisfervil/DynamicsNode",
     "codeOfConduct": null,
-    "forkCount": 26,
+    "forkCount": 6,
     "fundingLinks": [],
     "isSecurityPolicyEnabled": false,
     "isTemplate": false,
     "latestRelease": null,
     "primaryLanguage": {
-      "name": "Perl"
+      "name": "TypeScript"
     },
     "securityPolicyUrl": "",
-    "stargazerCount": 28,
+    "stargazerCount": 27,
     "watchers": {
-      "totalCount": 4
+      "totalCount": 7
     },
     "topics": [
-      "oauth2",
-      "al-language",
-      "business-central",
+      "dynamics-crm",
+      "xrm",
+      "dynamics",
+      "node",
       "dynamics-365",
-      "dynamics-nav",
-      "oauth2-client",
-      "generic-oauth2-library"
+      "dynamics-crm-online",
+      "node-js"
     ],
     "languages": [
-      "Perl",
+      "TypeScript",
+      "C#",
       "JavaScript"
     ],
     "openedGoodFirstIssues": 0,
@@ -6085,69 +6214,7 @@
     "openedHelpWantedIssues": 0,
     "hasHelpWantedIssues": false,
     "openedToContributionsIssues": 0,
-    "popularityScore": 32
-  },
-  {
-    "createdAt": "2019-01-31T12:24:00Z",
-    "description": "Set of PowerShell scripts to maintain D365FFO (Dynamics 365 for Finance and Operations)",
-    "fullName": "valerymoskalenko/D365FFO-PowerShell-scripts",
-    "hasIssues": true,
-    "homepage": "",
-    "isArchived": false,
-    "language": "PowerShell",
-    "license": {
-      "key": "mit",
-      "name": "MIT License",
-      "url": "https://api.github.com/licenses/mit"
-    },
-    "name": "D365FFO-PowerShell-scripts",
-    "openIssuesCount": 1,
-    "owner": {
-      "id": "MDQ6VXNlcjIyNTg5Mzky",
-      "is_bot": false,
-      "login": "valerymoskalenko",
-      "type": "User",
-      "url": "https://github.com/valerymoskalenko"
-    },
-    "updatedAt": "2023-11-02T10:53:05Z",
-    "url": "https://github.com/valerymoskalenko/D365FFO-PowerShell-scripts",
-    "codeOfConduct": null,
-    "forkCount": 9,
-    "fundingLinks": [],
-    "isSecurityPolicyEnabled": false,
-    "isTemplate": false,
-    "latestRelease": null,
-    "primaryLanguage": {
-      "name": "PowerShell"
-    },
-    "securityPolicyUrl": "",
-    "stargazerCount": 27,
-    "watchers": {
-      "totalCount": 9
-    },
-    "topics": [
-      "dynamics",
-      "d365fo",
-      "dynamics-365",
-      "d365tools",
-      "ax7",
-      "powershell-script",
-      "finops",
-      "devops",
-      "devops-tools",
-      "fno",
-      "fsc",
-      "fscm"
-    ],
-    "languages": [
-      "PowerShell"
-    ],
-    "openedGoodFirstIssues": 0,
-    "hasGoodFirstIssues": false,
-    "openedHelpWantedIssues": 0,
-    "hasHelpWantedIssues": false,
-    "openedToContributionsIssues": 0,
-    "popularityScore": 36
+    "popularityScore": 34
   },
   {
     "createdAt": "2019-01-31T14:14:39Z",
@@ -6216,63 +6283,66 @@
     "popularityScore": 42
   },
   {
-    "createdAt": "2015-11-24T17:33:15Z",
-    "description": "Create simple scripts to interact with Dynamics CRM using Node.js",
-    "fullName": "crisfervil/DynamicsNode",
+    "createdAt": "2019-01-31T12:24:00Z",
+    "description": "Set of PowerShell scripts to maintain D365FFO (Dynamics 365 for Finance and Operations)",
+    "fullName": "valerymoskalenko/D365FFO-PowerShell-scripts",
     "hasIssues": true,
-    "homepage": "https://dynamicsnode.js.org",
+    "homepage": "",
     "isArchived": false,
-    "language": "TypeScript",
+    "language": "PowerShell",
     "license": {
       "key": "mit",
       "name": "MIT License",
       "url": "https://api.github.com/licenses/mit"
     },
-    "name": "DynamicsNode",
-    "openIssuesCount": 4,
+    "name": "D365FFO-PowerShell-scripts",
+    "openIssuesCount": 1,
     "owner": {
-      "id": "MDQ6VXNlcjc5MDIzNTc=",
+      "id": "MDQ6VXNlcjIyNTg5Mzky",
       "is_bot": false,
-      "login": "crisfervil",
+      "login": "valerymoskalenko",
       "type": "User",
-      "url": "https://github.com/crisfervil"
+      "url": "https://github.com/valerymoskalenko"
     },
-    "updatedAt": "2023-06-02T12:18:56Z",
-    "url": "https://github.com/crisfervil/DynamicsNode",
+    "updatedAt": "2023-11-02T10:53:05Z",
+    "url": "https://github.com/valerymoskalenko/D365FFO-PowerShell-scripts",
     "codeOfConduct": null,
-    "forkCount": 6,
+    "forkCount": 9,
     "fundingLinks": [],
     "isSecurityPolicyEnabled": false,
     "isTemplate": false,
     "latestRelease": null,
     "primaryLanguage": {
-      "name": "TypeScript"
+      "name": "PowerShell"
     },
     "securityPolicyUrl": "",
     "stargazerCount": 27,
     "watchers": {
-      "totalCount": 7
+      "totalCount": 9
     },
     "topics": [
-      "dynamics-crm",
-      "xrm",
       "dynamics",
-      "node",
+      "d365fo",
       "dynamics-365",
-      "dynamics-crm-online",
-      "node-js"
+      "d365tools",
+      "ax7",
+      "powershell-script",
+      "finops",
+      "devops",
+      "devops-tools",
+      "fno",
+      "fsc",
+      "fscm"
     ],
     "languages": [
-      "TypeScript",
-      "C#",
-      "JavaScript"
+      "PowerShell"
     ],
     "openedGoodFirstIssues": 0,
     "hasGoodFirstIssues": false,
     "openedHelpWantedIssues": 0,
     "hasHelpWantedIssues": false,
     "openedToContributionsIssues": 0,
-    "popularityScore": 34
+    "popularityScore": 36
   },
   {
     "createdAt": "2016-02-26T17:21:03Z",
@@ -6335,6 +6405,69 @@
     "hasHelpWantedIssues": false,
     "openedToContributionsIssues": 0,
     "popularityScore": 41
+  },
+  {
+    "createdAt": "2017-05-09T15:52:03Z",
+    "description": "DevOps tools for Microsoft Dynamics 365",
+    "fullName": "Innofactor/Innofactor.Crm.CI",
+    "hasIssues": true,
+    "homepage": "",
+    "isArchived": false,
+    "language": "C#",
+    "license": {
+      "key": "gpl-3.0",
+      "name": "GNU General Public License v3.0",
+      "url": "https://api.github.com/licenses/gpl-3.0"
+    },
+    "name": "Innofactor.Crm.CI",
+    "openIssuesCount": 26,
+    "owner": {
+      "id": "MDEyOk9yZ2FuaXphdGlvbjE5MTQ0NzI=",
+      "is_bot": false,
+      "login": "Innofactor",
+      "type": "Organization",
+      "url": "https://github.com/Innofactor"
+    },
+    "updatedAt": "2023-09-27T07:54:22Z",
+    "url": "https://github.com/Innofactor/Innofactor.Crm.CI",
+    "codeOfConduct": null,
+    "forkCount": 13,
+    "fundingLinks": [],
+    "isSecurityPolicyEnabled": false,
+    "isTemplate": false,
+    "latestRelease": {
+      "name": "Shuffle Tools for XrmToolBox 1.2021.3.1",
+      "tagName": "1.2021.3.1",
+      "url": "https://github.com/Innofactor/Innofactor.Crm.CI/releases/tag/1.2021.3.1",
+      "publishedAt": "2021-03-07T12:55:07Z"
+    },
+    "primaryLanguage": {
+      "name": "C#"
+    },
+    "securityPolicyUrl": "",
+    "stargazerCount": 25,
+    "watchers": {
+      "totalCount": 12
+    },
+    "topics": [
+      "dynamics365",
+      "devops-tools",
+      "shuffle",
+      "dynamics-crm",
+      "dynamics-365"
+    ],
+    "languages": [
+      "C#",
+      "PowerShell",
+      "JavaScript",
+      "Batchfile"
+    ],
+    "openedGoodFirstIssues": 0,
+    "hasGoodFirstIssues": false,
+    "openedHelpWantedIssues": 0,
+    "hasHelpWantedIssues": false,
+    "openedToContributionsIssues": 0,
+    "popularityScore": 37
   },
   {
     "createdAt": "2017-08-24T15:04:23Z",
@@ -6449,69 +6582,6 @@
     "hasHelpWantedIssues": false,
     "openedToContributionsIssues": 0,
     "popularityScore": 28
-  },
-  {
-    "createdAt": "2017-05-09T15:52:03Z",
-    "description": "DevOps tools for Microsoft Dynamics 365",
-    "fullName": "Innofactor/Innofactor.Crm.CI",
-    "hasIssues": true,
-    "homepage": "",
-    "isArchived": false,
-    "language": "C#",
-    "license": {
-      "key": "gpl-3.0",
-      "name": "GNU General Public License v3.0",
-      "url": "https://api.github.com/licenses/gpl-3.0"
-    },
-    "name": "Innofactor.Crm.CI",
-    "openIssuesCount": 26,
-    "owner": {
-      "id": "MDEyOk9yZ2FuaXphdGlvbjE5MTQ0NzI=",
-      "is_bot": false,
-      "login": "Innofactor",
-      "type": "Organization",
-      "url": "https://github.com/Innofactor"
-    },
-    "updatedAt": "2023-09-27T07:54:22Z",
-    "url": "https://github.com/Innofactor/Innofactor.Crm.CI",
-    "codeOfConduct": null,
-    "forkCount": 13,
-    "fundingLinks": [],
-    "isSecurityPolicyEnabled": false,
-    "isTemplate": false,
-    "latestRelease": {
-      "name": "Shuffle Tools for XrmToolBox 1.2021.3.1",
-      "tagName": "1.2021.3.1",
-      "url": "https://github.com/Innofactor/Innofactor.Crm.CI/releases/tag/1.2021.3.1",
-      "publishedAt": "2021-03-07T12:55:07Z"
-    },
-    "primaryLanguage": {
-      "name": "C#"
-    },
-    "securityPolicyUrl": "",
-    "stargazerCount": 25,
-    "watchers": {
-      "totalCount": 12
-    },
-    "topics": [
-      "dynamics365",
-      "devops-tools",
-      "shuffle",
-      "dynamics-crm",
-      "dynamics-365"
-    ],
-    "languages": [
-      "C#",
-      "PowerShell",
-      "JavaScript",
-      "Batchfile"
-    ],
-    "openedGoodFirstIssues": 0,
-    "hasGoodFirstIssues": false,
-    "openedHelpWantedIssues": 0,
-    "hasHelpWantedIssues": false,
-    "openedToContributionsIssues": 0,
-    "popularityScore": 37
   },
   {
     "createdAt": "2022-08-03T14:35:12Z",
@@ -6641,59 +6711,6 @@
     "popularityScore": 33
   },
   {
-    "createdAt": "2019-11-23T11:08:03Z",
-    "description": "Examples from my blog",
-    "fullName": "srenders/blog",
-    "hasIssues": true,
-    "homepage": "",
-    "isArchived": false,
-    "language": "AL",
-    "license": {
-      "key": "",
-      "name": "",
-      "url": ""
-    },
-    "name": "blog",
-    "openIssuesCount": 0,
-    "owner": {
-      "id": "MDQ6VXNlcjE3NTExMjU0",
-      "is_bot": false,
-      "login": "srenders",
-      "type": "User",
-      "url": "https://github.com/srenders"
-    },
-    "updatedAt": "2023-06-15T14:04:00Z",
-    "url": "https://github.com/srenders/blog",
-    "codeOfConduct": null,
-    "forkCount": 27,
-    "fundingLinks": [],
-    "isSecurityPolicyEnabled": false,
-    "isTemplate": false,
-    "latestRelease": null,
-    "primaryLanguage": {
-      "name": "AL"
-    },
-    "securityPolicyUrl": "",
-    "stargazerCount": 24,
-    "watchers": {
-      "totalCount": 14
-    },
-    "topics": [
-      "dynamics-365",
-      "rdlc",
-      "powerbi"
-    ],
-    "languages": [
-      "AL"
-    ],
-    "openedGoodFirstIssues": 0,
-    "hasGoodFirstIssues": false,
-    "openedHelpWantedIssues": 0,
-    "hasHelpWantedIssues": false,
-    "openedToContributionsIssues": 0,
-    "popularityScore": 38
-  },
-  {
     "createdAt": "2017-07-17T19:42:06Z",
     "description": "AL code examples to call web services with Dynamics 365 for Financials and Operations, Business Edition.",
     "fullName": "ajkauffmann/ALWebServiceExamples",
@@ -6747,6 +6764,59 @@
     "hasHelpWantedIssues": false,
     "openedToContributionsIssues": 0,
     "popularityScore": 30
+  },
+  {
+    "createdAt": "2019-11-23T11:08:03Z",
+    "description": "Examples from my blog",
+    "fullName": "srenders/blog",
+    "hasIssues": true,
+    "homepage": "",
+    "isArchived": false,
+    "language": "AL",
+    "license": {
+      "key": "",
+      "name": "",
+      "url": ""
+    },
+    "name": "blog",
+    "openIssuesCount": 0,
+    "owner": {
+      "id": "MDQ6VXNlcjE3NTExMjU0",
+      "is_bot": false,
+      "login": "srenders",
+      "type": "User",
+      "url": "https://github.com/srenders"
+    },
+    "updatedAt": "2023-06-15T14:04:00Z",
+    "url": "https://github.com/srenders/blog",
+    "codeOfConduct": null,
+    "forkCount": 27,
+    "fundingLinks": [],
+    "isSecurityPolicyEnabled": false,
+    "isTemplate": false,
+    "latestRelease": null,
+    "primaryLanguage": {
+      "name": "AL"
+    },
+    "securityPolicyUrl": "",
+    "stargazerCount": 24,
+    "watchers": {
+      "totalCount": 14
+    },
+    "topics": [
+      "dynamics-365",
+      "rdlc",
+      "powerbi"
+    ],
+    "languages": [
+      "AL"
+    ],
+    "openedGoodFirstIssues": 0,
+    "hasGoodFirstIssues": false,
+    "openedHelpWantedIssues": 0,
+    "hasHelpWantedIssues": false,
+    "openedToContributionsIssues": 0,
+    "popularityScore": 38
   },
   {
     "createdAt": "2017-01-10T10:23:57Z",
@@ -6865,64 +6935,9 @@
     "popularityScore": 29
   },
   {
-    "createdAt": "2017-06-24T15:12:16Z",
-    "description": "",
-    "fullName": "ajkauffmann/ALCodeSamples",
-    "hasIssues": true,
-    "homepage": "",
-    "isArchived": false,
-    "language": "Perl",
-    "license": {
-      "key": "mit",
-      "name": "MIT License",
-      "url": "https://api.github.com/licenses/mit"
-    },
-    "name": "ALCodeSamples",
-    "openIssuesCount": 0,
-    "owner": {
-      "id": "MDQ6VXNlcjE5MTU1ODMx",
-      "is_bot": false,
-      "login": "ajkauffmann",
-      "type": "User",
-      "url": "https://github.com/ajkauffmann"
-    },
-    "updatedAt": "2023-06-28T12:35:48Z",
-    "url": "https://github.com/ajkauffmann/ALCodeSamples",
-    "codeOfConduct": null,
-    "forkCount": 25,
-    "fundingLinks": [],
-    "isSecurityPolicyEnabled": false,
-    "isTemplate": false,
-    "latestRelease": null,
-    "primaryLanguage": {
-      "name": "Perl"
-    },
-    "securityPolicyUrl": "",
-    "stargazerCount": 22,
-    "watchers": {
-      "totalCount": 5
-    },
-    "topics": [
-      "dynamics-nav",
-      "al-language",
-      "dynamics-365",
-      "visual-studio-code",
-      "msdyn365"
-    ],
-    "languages": [
-      "Perl"
-    ],
-    "openedGoodFirstIssues": 0,
-    "hasGoodFirstIssues": false,
-    "openedHelpWantedIssues": 0,
-    "hasHelpWantedIssues": false,
-    "openedToContributionsIssues": 0,
-    "popularityScore": 27
-  },
-  {
-    "createdAt": "2019-03-23T12:04:57Z",
-    "description": "This library provides an easy way to generate filtered data compatible with the Configuration Data Migration Tool. These zip files can be used to push specific records between Dynamics 365 environments using the Dynamics 365 Package Deployer.",
-    "fullName": "abvogel/Microsoft.Xrm.DevOps.Data",
+    "createdAt": "2019-04-08T06:28:48Z",
+    "description": "Export and import data for Microsoft Dataverse. Supports JSON and CSV.",
+    "fullName": "Capgemini/xrm-datamigration",
     "hasIssues": true,
     "homepage": "",
     "isArchived": false,
@@ -6932,112 +6947,56 @@
       "name": "MIT License",
       "url": "https://api.github.com/licenses/mit"
     },
-    "name": "Microsoft.Xrm.DevOps.Data",
-    "openIssuesCount": 10,
+    "name": "xrm-datamigration",
+    "openIssuesCount": 26,
     "owner": {
-      "id": "MDQ6VXNlcjc3Njg3MDA=",
+      "id": "MDEyOk9yZ2FuaXphdGlvbjEwNDk3NzM=",
       "is_bot": false,
-      "login": "abvogel",
-      "type": "User",
-      "url": "https://github.com/abvogel"
+      "login": "Capgemini",
+      "type": "Organization",
+      "url": "https://github.com/Capgemini"
     },
-    "updatedAt": "2023-08-24T15:27:09Z",
-    "url": "https://github.com/abvogel/Microsoft.Xrm.DevOps.Data",
+    "updatedAt": "2023-10-12T18:23:49Z",
+    "url": "https://github.com/Capgemini/xrm-datamigration",
     "codeOfConduct": null,
-    "forkCount": 2,
+    "forkCount": 10,
     "fundingLinks": [],
     "isSecurityPolicyEnabled": false,
     "isTemplate": false,
-    "latestRelease": null,
+    "latestRelease": {
+      "name": "More examples added",
+      "tagName": "1.0.0.2",
+      "url": "https://github.com/Capgemini/xrm-datamigration/releases/tag/1.0.0.2",
+      "publishedAt": "2019-04-10T08:18:15Z"
+    },
     "primaryLanguage": {
       "name": "C#"
     },
     "securityPolicyUrl": "",
     "stargazerCount": 22,
     "watchers": {
-      "totalCount": 9
+      "totalCount": 23
     },
     "topics": [
-      "dynamics-crm",
-      "c-sharp",
-      "dynamics",
+      "power-apps",
+      "power-platform",
       "dynamics-365",
-      "dynamics-crm-online",
-      "devops-tools",
-      "data-migration-tool",
-      "crm-configuration-migration",
-      "package-deployer",
-      "crm-package-deployer"
+      "dynamics-crm",
+      "dynamics",
+      "common-data-service",
+      "cds",
+      "microsoft",
+      "powerplatform"
     ],
     "languages": [
-      "C#",
-      "PowerShell"
+      "C#"
     ],
-    "openedGoodFirstIssues": 1,
+    "openedGoodFirstIssues": 2,
     "hasGoodFirstIssues": true,
     "openedHelpWantedIssues": 0,
     "hasHelpWantedIssues": false,
-    "openedToContributionsIssues": 1,
-    "popularityScore": 31
-  },
-  {
-    "createdAt": "2022-06-17T15:28:25Z",
-    "description": "A way to dynamically render controls in Power Apps",
-    "fullName": "microsoft/shapeshifter",
-    "hasIssues": true,
-    "homepage": "",
-    "isArchived": false,
-    "language": "TypeScript",
-    "license": {
-      "key": "mit",
-      "name": "MIT License",
-      "url": "https://api.github.com/licenses/mit"
-    },
-    "name": "shapeshifter",
-    "openIssuesCount": 0,
-    "owner": {
-      "id": "MDEyOk9yZ2FuaXphdGlvbjYxNTQ3MjI=",
-      "is_bot": false,
-      "login": "microsoft",
-      "type": "Organization",
-      "url": "https://github.com/microsoft"
-    },
-    "updatedAt": "2023-07-04T11:28:12Z",
-    "url": "https://github.com/microsoft/shapeshifter",
-    "codeOfConduct": {
-      "key": "other",
-      "name": "Other",
-      "url": "https://github.com/microsoft/.github/blob/main/CODE_OF_CONDUCT.md"
-    },
-    "forkCount": 13,
-    "fundingLinks": [],
-    "isSecurityPolicyEnabled": true,
-    "isTemplate": false,
-    "latestRelease": null,
-    "primaryLanguage": {
-      "name": "TypeScript"
-    },
-    "securityPolicyUrl": "https://github.com/microsoft/shapeshifter/security/policy",
-    "stargazerCount": 22,
-    "watchers": {
-      "totalCount": 4
-    },
-    "topics": [
-      "powerapps",
-      "fluentui",
-      "powerapps-component-framework",
-      "reactjs"
-    ],
-    "languages": [
-      "TypeScript",
-      "Dockerfile"
-    ],
-    "openedGoodFirstIssues": 0,
-    "hasGoodFirstIssues": false,
-    "openedHelpWantedIssues": 0,
-    "hasHelpWantedIssues": false,
-    "openedToContributionsIssues": 0,
-    "popularityScore": 26
+    "openedToContributionsIssues": 2,
+    "popularityScore": 45
   },
   {
     "createdAt": "2015-05-04T06:49:29Z",
@@ -7112,9 +7071,123 @@
     "popularityScore": 26
   },
   {
-    "createdAt": "2019-04-08T06:28:48Z",
-    "description": "Export and import data for Microsoft Dataverse. Supports JSON and CSV.",
-    "fullName": "Capgemini/xrm-datamigration",
+    "createdAt": "2017-06-24T15:12:16Z",
+    "description": "",
+    "fullName": "ajkauffmann/ALCodeSamples",
+    "hasIssues": true,
+    "homepage": "",
+    "isArchived": false,
+    "language": "Perl",
+    "license": {
+      "key": "mit",
+      "name": "MIT License",
+      "url": "https://api.github.com/licenses/mit"
+    },
+    "name": "ALCodeSamples",
+    "openIssuesCount": 0,
+    "owner": {
+      "id": "MDQ6VXNlcjE5MTU1ODMx",
+      "is_bot": false,
+      "login": "ajkauffmann",
+      "type": "User",
+      "url": "https://github.com/ajkauffmann"
+    },
+    "updatedAt": "2023-06-28T12:35:48Z",
+    "url": "https://github.com/ajkauffmann/ALCodeSamples",
+    "codeOfConduct": null,
+    "forkCount": 25,
+    "fundingLinks": [],
+    "isSecurityPolicyEnabled": false,
+    "isTemplate": false,
+    "latestRelease": null,
+    "primaryLanguage": {
+      "name": "Perl"
+    },
+    "securityPolicyUrl": "",
+    "stargazerCount": 22,
+    "watchers": {
+      "totalCount": 5
+    },
+    "topics": [
+      "dynamics-nav",
+      "al-language",
+      "dynamics-365",
+      "visual-studio-code",
+      "msdyn365"
+    ],
+    "languages": [
+      "Perl"
+    ],
+    "openedGoodFirstIssues": 0,
+    "hasGoodFirstIssues": false,
+    "openedHelpWantedIssues": 0,
+    "hasHelpWantedIssues": false,
+    "openedToContributionsIssues": 0,
+    "popularityScore": 27
+  },
+  {
+    "createdAt": "2022-06-17T15:28:25Z",
+    "description": "A way to dynamically render controls in Power Apps",
+    "fullName": "microsoft/shapeshifter",
+    "hasIssues": true,
+    "homepage": "",
+    "isArchived": false,
+    "language": "TypeScript",
+    "license": {
+      "key": "mit",
+      "name": "MIT License",
+      "url": "https://api.github.com/licenses/mit"
+    },
+    "name": "shapeshifter",
+    "openIssuesCount": 0,
+    "owner": {
+      "id": "MDEyOk9yZ2FuaXphdGlvbjYxNTQ3MjI=",
+      "is_bot": false,
+      "login": "microsoft",
+      "type": "Organization",
+      "url": "https://github.com/microsoft"
+    },
+    "updatedAt": "2023-07-04T11:28:12Z",
+    "url": "https://github.com/microsoft/shapeshifter",
+    "codeOfConduct": {
+      "key": "other",
+      "name": "Other",
+      "url": "https://github.com/microsoft/.github/blob/main/CODE_OF_CONDUCT.md"
+    },
+    "forkCount": 13,
+    "fundingLinks": [],
+    "isSecurityPolicyEnabled": true,
+    "isTemplate": false,
+    "latestRelease": null,
+    "primaryLanguage": {
+      "name": "TypeScript"
+    },
+    "securityPolicyUrl": "https://github.com/microsoft/shapeshifter/security/policy",
+    "stargazerCount": 22,
+    "watchers": {
+      "totalCount": 4
+    },
+    "topics": [
+      "powerapps",
+      "fluentui",
+      "powerapps-component-framework",
+      "reactjs"
+    ],
+    "languages": [
+      "TypeScript",
+      "Dockerfile"
+    ],
+    "openedGoodFirstIssues": 0,
+    "hasGoodFirstIssues": false,
+    "openedHelpWantedIssues": 0,
+    "hasHelpWantedIssues": false,
+    "openedToContributionsIssues": 0,
+    "popularityScore": 26
+  },
+  {
+    "createdAt": "2019-03-23T12:04:57Z",
+    "description": "This library provides an easy way to generate filtered data compatible with the Configuration Data Migration Tool. These zip files can be used to push specific records between Dynamics 365 environments using the Dynamics 365 Package Deployer.",
+    "fullName": "abvogel/Microsoft.Xrm.DevOps.Data",
     "hasIssues": true,
     "homepage": "",
     "isArchived": false,
@@ -7124,112 +7197,53 @@
       "name": "MIT License",
       "url": "https://api.github.com/licenses/mit"
     },
-    "name": "xrm-datamigration",
-    "openIssuesCount": 26,
+    "name": "Microsoft.Xrm.DevOps.Data",
+    "openIssuesCount": 10,
     "owner": {
-      "id": "MDEyOk9yZ2FuaXphdGlvbjEwNDk3NzM=",
+      "id": "MDQ6VXNlcjc3Njg3MDA=",
       "is_bot": false,
-      "login": "Capgemini",
-      "type": "Organization",
-      "url": "https://github.com/Capgemini"
+      "login": "abvogel",
+      "type": "User",
+      "url": "https://github.com/abvogel"
     },
-    "updatedAt": "2023-10-12T18:23:49Z",
-    "url": "https://github.com/Capgemini/xrm-datamigration",
+    "updatedAt": "2023-08-24T15:27:09Z",
+    "url": "https://github.com/abvogel/Microsoft.Xrm.DevOps.Data",
     "codeOfConduct": null,
-    "forkCount": 10,
+    "forkCount": 2,
     "fundingLinks": [],
     "isSecurityPolicyEnabled": false,
     "isTemplate": false,
-    "latestRelease": {
-      "name": "More examples added",
-      "tagName": "1.0.0.2",
-      "url": "https://github.com/Capgemini/xrm-datamigration/releases/tag/1.0.0.2",
-      "publishedAt": "2019-04-10T08:18:15Z"
-    },
+    "latestRelease": null,
     "primaryLanguage": {
       "name": "C#"
     },
     "securityPolicyUrl": "",
     "stargazerCount": 22,
     "watchers": {
-      "totalCount": 23
+      "totalCount": 9
     },
     "topics": [
-      "power-apps",
-      "power-platform",
-      "dynamics-365",
       "dynamics-crm",
+      "c-sharp",
       "dynamics",
-      "common-data-service",
-      "cds",
-      "microsoft",
-      "powerplatform"
+      "dynamics-365",
+      "dynamics-crm-online",
+      "devops-tools",
+      "data-migration-tool",
+      "crm-configuration-migration",
+      "package-deployer",
+      "crm-package-deployer"
     ],
     "languages": [
-      "C#"
+      "C#",
+      "PowerShell"
     ],
-    "openedGoodFirstIssues": 2,
+    "openedGoodFirstIssues": 1,
     "hasGoodFirstIssues": true,
     "openedHelpWantedIssues": 0,
     "hasHelpWantedIssues": false,
-    "openedToContributionsIssues": 2,
-    "popularityScore": 45
-  },
-  {
-    "createdAt": "2019-02-19T14:51:49Z",
-    "description": "Dynamics 365 Customer Engagement DevOps tutorial material repository",
-    "fullName": "microsoft-d365-ce-pfe-devops/D365-CE-DevOps-Tutorial",
-    "hasIssues": true,
-    "homepage": "",
-    "isArchived": false,
-    "language": "JavaScript",
-    "license": {
-      "key": "",
-      "name": "",
-      "url": ""
-    },
-    "name": "D365-CE-DevOps-Tutorial",
-    "openIssuesCount": 0,
-    "owner": {
-      "id": "MDEyOk9yZ2FuaXphdGlvbjQ4MTg5NTI2",
-      "is_bot": false,
-      "login": "microsoft-d365-ce-pfe-devops",
-      "type": "Organization",
-      "url": "https://github.com/microsoft-d365-ce-pfe-devops"
-    },
-    "updatedAt": "2023-06-23T11:03:42Z",
-    "url": "https://github.com/microsoft-d365-ce-pfe-devops/D365-CE-DevOps-Tutorial",
-    "codeOfConduct": null,
-    "forkCount": 24,
-    "fundingLinks": [],
-    "isSecurityPolicyEnabled": false,
-    "isTemplate": false,
-    "latestRelease": null,
-    "primaryLanguage": {
-      "name": "JavaScript"
-    },
-    "securityPolicyUrl": "",
-    "stargazerCount": 21,
-    "watchers": {
-      "totalCount": 7
-    },
-    "topics": [
-      "dynamics",
-      "dynamics-365",
-      "dynamics-crm",
-      "dynamics-crm-online",
-      "azure-devops",
-      "automated-deployment"
-    ],
-    "languages": [
-      "JavaScript"
-    ],
-    "openedGoodFirstIssues": 0,
-    "hasGoodFirstIssues": false,
-    "openedHelpWantedIssues": 0,
-    "hasHelpWantedIssues": false,
-    "openedToContributionsIssues": 0,
-    "popularityScore": 28
+    "openedToContributionsIssues": 1,
+    "popularityScore": 31
   },
   {
     "createdAt": "2019-03-25T23:36:18Z",
@@ -7286,6 +7300,62 @@
     "hasHelpWantedIssues": false,
     "openedToContributionsIssues": 0,
     "popularityScore": 23
+  },
+  {
+    "createdAt": "2019-02-19T14:51:49Z",
+    "description": "Dynamics 365 Customer Engagement DevOps tutorial material repository",
+    "fullName": "microsoft-d365-ce-pfe-devops/D365-CE-DevOps-Tutorial",
+    "hasIssues": true,
+    "homepage": "",
+    "isArchived": false,
+    "language": "JavaScript",
+    "license": {
+      "key": "",
+      "name": "",
+      "url": ""
+    },
+    "name": "D365-CE-DevOps-Tutorial",
+    "openIssuesCount": 0,
+    "owner": {
+      "id": "MDEyOk9yZ2FuaXphdGlvbjQ4MTg5NTI2",
+      "is_bot": false,
+      "login": "microsoft-d365-ce-pfe-devops",
+      "type": "Organization",
+      "url": "https://github.com/microsoft-d365-ce-pfe-devops"
+    },
+    "updatedAt": "2023-06-23T11:03:42Z",
+    "url": "https://github.com/microsoft-d365-ce-pfe-devops/D365-CE-DevOps-Tutorial",
+    "codeOfConduct": null,
+    "forkCount": 24,
+    "fundingLinks": [],
+    "isSecurityPolicyEnabled": false,
+    "isTemplate": false,
+    "latestRelease": null,
+    "primaryLanguage": {
+      "name": "JavaScript"
+    },
+    "securityPolicyUrl": "",
+    "stargazerCount": 21,
+    "watchers": {
+      "totalCount": 7
+    },
+    "topics": [
+      "dynamics",
+      "dynamics-365",
+      "dynamics-crm",
+      "dynamics-crm-online",
+      "azure-devops",
+      "automated-deployment"
+    ],
+    "languages": [
+      "JavaScript"
+    ],
+    "openedGoodFirstIssues": 0,
+    "hasGoodFirstIssues": false,
+    "openedHelpWantedIssues": 0,
+    "hasHelpWantedIssues": false,
+    "openedToContributionsIssues": 0,
+    "popularityScore": 28
   },
   {
     "createdAt": "2020-05-03T23:27:27Z",
@@ -9171,7 +9241,7 @@
       "url": "https://api.github.com/licenses/mit"
     },
     "name": "Templates-for-Power-Platform",
-    "openIssuesCount": 6,
+    "openIssuesCount": 5,
     "owner": {
       "id": "MDEyOk9yZ2FuaXphdGlvbjYxNTQ3MjI=",
       "is_bot": false,
