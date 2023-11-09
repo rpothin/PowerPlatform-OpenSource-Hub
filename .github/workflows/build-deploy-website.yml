@@ -1,0 +1,64 @@
+name: build-deploy-website
+# Build and deploy the website to showcase the referenced GitHub repositories
+
+# Workflow triggered on every push in the "Website" folder in the main branch - but can also be triggered manually without input parameters
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'Website/**'
+      - '!.devcontainer/**'
+      - '!.github/**'
+      - '!Configuration/**'
+      - '!Data/**'
+      - '!Scripts/**'
+      - '!CODE_OF_CONDUCT.md'
+      - '!LICENSE'
+      - '!README.md'
+  workflow_dispatch:
+
+# Concurrency configuration for the current workflow - Keep only the latest workflow queued for the considered group and the considered issue
+concurrency:
+  group: build-deploy-website
+  cancel-in-progress: true
+
+jobs:
+  build-deploy-website:
+    runs-on: ubuntu-latest
+    env:
+      RUNNER_DEBUG: 1
+    
+    steps:
+      # Checkout the repository content
+      - uses: actions/checkout@v4
+      
+      # Setup Node.js
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: Website/package-lock.json
+
+      # Build the website
+      - name: Build website
+        working-directory: Website
+        run: |
+          npm ci
+          npm run build
+
+      # Push the built website to the workflow artifacts
+      #   Action: https://docs.github.com/en/free-pro-team@latest/actions/guides/storing-workflow-data-as-artifacts
+      - name: Upload website
+        uses: actions/upload-artifact@v3
+        with:
+          name: Website
+          path: Website/build
+
+      # Deploy website to GitHub Pages
+      #   Docs: https://github.com/peaceiris/actions-gh-pages#%EF%B8%8F-docusaurus
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./Website/build
