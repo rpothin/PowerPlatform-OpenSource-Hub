@@ -28,3 +28,12 @@
   justify-content: center;
   width: 100%;
 }
+
+.filterPaneAndGallery {
+  display: flex;
+  padding: 30px;
+}
+
+[data-theme="dark"] .filterPaneAndGallery {
+  background-color: #1f1f1f;
+}
