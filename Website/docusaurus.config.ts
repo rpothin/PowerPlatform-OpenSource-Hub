@@ -5,7 +5,7 @@ import type * as Preset from '@docusaurus/preset-classic';
 const config: Config = {
   title: 'Power Platform Open-Source Hub',
   tagline: 'Your amazing journey in Power Platform open-source ecosystem could start here 🧳',
-  favicon: 'img/favicon.ico',
+  favicon: 'img/PowerPlatform_scalable.svg', //'img/favicon.ico',
 
   // Set the production url of your site here
   url: 'https://rpothin.github.io',

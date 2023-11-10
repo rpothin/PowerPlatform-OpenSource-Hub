@@ -3,37 +3,43 @@
  * and scoped locally.
  */
 
+/* Styling for the hero banner */
 .heroBanner {
-  padding: 4rem 0;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
+  padding: 4rem 0; /* Padding at the top and bottom */
+  text-align: center; /* Center align text */
+  position: relative; /* Positioning relative to its normal position */
+  overflow: hidden; /* Hide any content that goes beyond the box */
 }
 
+/* Media query for screens with max width of 996px */
 @media screen and (max-width: 996px) {
   .heroBanner {
-    padding: 2rem;
+    padding: 2rem; /* Reduce padding for smaller screens */
   }
 }
 
+/* Styling for buttons */
 .buttons {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: flex; /* Use flexbox for layout */
+  align-items: center; /* Center items vertically */
+  justify-content: center; /* Center items horizontally */
 }
 
+/* Styling for the search box */
 .searchBox {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
+  display: flex; /* Use flexbox for layout */
+  align-items: center; /* Center items vertically */
+  justify-content: center; /* Center items horizontally */
+  width: 100%; /* Full width */
 }
 
+/* Styling for the filter pane and gallery */
 .filterPaneAndGallery {
-  display: flex;
-  padding: 30px;
+  display: flex; /* Use flexbox for layout */
+  padding: 30px; /* Padding all around */
 }
 
+/* Styling for the filter pane and gallery in dark theme */
 [data-theme="dark"] .filterPaneAndGallery {
-  background-color: #1f1f1f;
+  background-color: #1f1f1f; /* Dark background color */
 }

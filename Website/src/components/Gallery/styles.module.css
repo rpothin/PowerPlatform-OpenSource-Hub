@@ -1,36 +1,54 @@
+/* Styling for the gallery */
 .gallery {
-    display: -webkit-flex;
-    display: flex;
-    -webkit-flex-direction: row;
-    flex-direction: row;
-    -webkit-flex-wrap: wrap;
-    flex-wrap: wrap;
-    -webkit-justify-content: space-around;
-    justify-content: space-around;
-    -webkit-align-content: flex-start;
-    align-content: flex-start;
-    -webkit-align-items: flex-start;
-    align-items: flex-start;
-    padding: 20px;
-    width: 100%;
+    display: -webkit-flex; /* Use flexbox for layout, with webkit prefix for compatibility */
+    display: flex; /* Use flexbox for layout */
+    -webkit-flex-direction: row; /* Arrange items in a row, with webkit prefix for compatibility */
+    flex-direction: row; /* Arrange items in a row */
+    -webkit-flex-wrap: wrap; /* Allow items to wrap onto the next line, with webkit prefix for compatibility */
+    flex-wrap: wrap; /* Allow items to wrap onto the next line */
+    -webkit-justify-content: space-around; /* Distribute items evenly with equal space around them, with webkit prefix for compatibility */
+    justify-content: space-around; /* Distribute items evenly with equal space around them */
+    -webkit-align-content: flex-start; /* Align content blocks at the start of the container, with webkit prefix for compatibility */
+    align-content: flex-start; /* Align content blocks at the start of the container */
+    -webkit-align-items: flex-start; /* Align items at the start of the line, with webkit prefix for compatibility */
+    align-items: flex-start; /* Align items at the start of the line */
+    padding: 20px; /* Add padding all around */
+    width: 100%; /* Full width */
 }
 
+/* Styling for the gallery item */
 .galleryItem {
     flex: 1 1 300px; /* flex-grow | flex-shrink | flex-basis */
-    height: 300px;
-    margin: 10px; /* Adjust as needed */
+    height: 300px; /* Set height */
+    margin: 10px; /* Add margin all around */
 }
 
+/* Styling for the gallery item title */
 .galleryItemTitle {
-    height: 20%;
+    height: 20%; /* Set height to 20% of the parent container */
 }
 
+/* Styling for the gallery item subtitle */
 .galleryItemSubtitle {
-    height: 60%;
+    font-size: 13px; /* Set font size */
+    height: 60%; /* Set height to 60% of the parent container */
+    padding: 20px; /* Add padding all around */
 }
 
+/* Styling for the gallery item stars count */
 .galleryItemStarsCount {
-    position: absolute;
-    bottom: 0;
-    left: 0;
+    position: absolute; /* Positioning relative to the nearest positioned ancestor */
+    bottom: 0; /* Position at the bottom */
+    left: 0; /* Position at the left */
+}
+
+/* Styling for the badges (shield.io images) */
+.badges {
+    position: absolute; /* Positioning relative to the nearest positioned ancestor */
+    bottom: 0; /* Position at the bottom */
+    right: 0; /* Position at the right */
+    padding-top: 8px; /* Add padding at the top */
+    padding-bottom: 16px; /* Add padding at the bottom */
+    padding-right: 16px; /* Add padding at the right */
+    padding-left: 8px; /* Add padding at the left */
 }

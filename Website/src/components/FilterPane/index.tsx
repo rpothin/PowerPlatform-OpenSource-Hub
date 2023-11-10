@@ -1,7 +1,9 @@
+// Importing necessary libraries and components
 import React, { useState } from 'react';
 import { Stack, Text, Checkbox, DefaultButton } from '@fluentui/react';
 import styles from './styles.module.css';
 
+// Function to extract distinct topics from items
 function extractDistinctTopics(items: { topics?: string[] }[]): string[] {
     const topicsSet = new Set<string>();
     items.forEach(item => {
@@ -12,6 +14,7 @@ function extractDistinctTopics(items: { topics?: string[] }[]): string[] {
     return Array.from(topicsSet).sort();
 }
 
+// Function to extract distinct languages from items
 function extractDistinctLanguages(items: { language?: string }[]): string[] {
     const languagesSet = new Set<string>();
     items.forEach(item => {
@@ -22,18 +25,30 @@ function extractDistinctLanguages(items: { language?: string }[]): string[] {
     return Array.from(languagesSet).sort();
 }
 
-const FilterPane = ({ items, onTopicsChange, onLanguagesChange }) => {
+// Defining the FilterPane component
+const FilterPane = ({ items, onGoodFirstIssueChange, onTopicsChange, onLanguagesChange }) => {
+  // Defining state variables
   const [showAllTopics, setShowAllTopics] = useState(false);
   const [showAllLanguages, setShowAllLanguages] = useState(false);
+  const [hasGoodFirstIssueChecked, setHasGoodFirstIssue] = useState(false);
   const [selectedTopics, setSelectedTopics] = useState<string[]>([]);
   const [selectedLanguages, setSelectedLanguages] = useState<string[]>([]);
 
+  // Extracting topics and languages from items
   const topics = extractDistinctTopics(items);
   const languages = extractDistinctLanguages(items);
 
+  // Determining which topics and languages to display
   const displayedTopics = showAllTopics ? topics : topics.slice(0, 10);
   const displayedLanguages = showAllLanguages ? languages : languages.slice(0, 10);
 
+  // Function to handle good first issue change
+  const handleGoodFirstIssueChange = (checked: boolean) => {
+    setHasGoodFirstIssue(checked);
+    onGoodFirstIssueChange(checked);
+  };
+
+  // Function to handle topic change
   const handleTopicChange = (topic: string, checked: boolean) => {
     const newSelectedTopics = checked
       ? [...selectedTopics, topic]
@@ -42,6 +57,7 @@ const FilterPane = ({ items, onTopicsChange, onLanguagesChange }) => {
     onTopicsChange(newSelectedTopics);
   };
 
+  // Function to handle language change
   const handleLanguageChange = (language: string, checked: boolean) => {
     const newSelectedLanguages = checked
       ? [...selectedLanguages, language]
@@ -50,11 +66,12 @@ const FilterPane = ({ items, onTopicsChange, onLanguagesChange }) => {
     onLanguagesChange(newSelectedLanguages);
   };
 
+  // Rendering the FilterPane component
   return (
     <div className={styles.filterPane}>
         <Stack className="filter-pane" tokens={{ childrenGap: 10 }}>
             <Text variant="large">Help Required</Text>
-            <Checkbox label="Has good first issue" />
+            <Checkbox label="Has good first issue" onChange={(e, checked) => handleGoodFirstIssueChange(checked)} />
             <Checkbox label="Has help wanted issue" />
             <Text variant="large">Topics</Text>
             <Stack tokens={{ childrenGap: 10 }}>
@@ -87,4 +104,5 @@ const FilterPane = ({ items, onTopicsChange, onLanguagesChange }) => {
   );
 };
 
+// Exporting the FilterPane component
 export default FilterPane;

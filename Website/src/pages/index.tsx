@@ -1,3 +1,4 @@
+// Importing necessary libraries and components
 import clsx from 'clsx';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
@@ -9,20 +10,23 @@ import { FluentProvider } from '@fluentui/react-provider';
 
 import styles from './index.module.css';
 
+// Importing data from a JSON file
 import data from '../../../Data/GitHubRepositoriesDetails.json';
 import Gallery from '../components//Gallery';
 import FilterPane from '../components/FilterPane';
 
+// Initializing Fluent UI icons
 initializeIcons();
 
+// Defining the Repository interface
 interface Repository {
     fullName: string;
     description: string;
     stargazerCount: number;
     topics: string[];
     language: string;
-    hasGoodFirstIssue: boolean;
-    hasHelpWantedIssue: boolean;
+    hasGoodFirstIssues?: boolean;
+    hasHelpWantedIssues?: boolean;
     // Add more properties as needed
 }
 
@@ -31,31 +35,37 @@ function escapeRegExp(string) {
   return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); // $& means the whole matched string
 }
 
+// Defining the HomePage component
 const HomePage = () => {
   const {siteConfig} = useDocusaurusContext();
+  // Defining state variables
   const [searchText, setSearchText] = useState('');
   const [items, setItems] = useState<Repository[]>([]);
+  const [hasGoodFirstIssueChecked, setHasGoodFirstIssue] = useState(false);
   const [selectedTopics, setSelectedTopics] = useState<string[]>([]);
   const [selectedLanguages, setSelectedLanguages] = useState<string[]>([]);
 
+  // Function to handle search text change
   const handleSearchChange = (event) => {
     setSearchText(event.target.value);
   };
 
+  // useEffect hook to filter items based on search text
   useEffect(() => {
-    const sanitizedSearchText = escapeRegExp(searchText);
-
+    const sanitizedSearchText = escapeRegExp(searchText.toLowerCase());
+  
     if (searchText === '') {
-      setItems(data.slice(0, 20)); // Keep only the first 20 items for tests
+      setItems(data);
     } else {
-      const filteredItems = data.filter(item => item.fullName.includes(sanitizedSearchText)); // filter items based on search text
+      const filteredItems = data.filter(item => item.fullName.toLowerCase().includes(sanitizedSearchText)); // filter items based on search text
       setItems(filteredItems);
     }
   }, [searchText]);
 
+  // Rendering the HomePage component
   return (
     <Layout
-      title={`Hello from ${siteConfig.title}`}
+      title={`${siteConfig.title}`}
       description="Description will go into a meta tag in <head />">
       <header className={clsx('hero hero--primary', styles.heroBanner)}>
         <div className="container" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column' }}>
@@ -93,11 +103,13 @@ const HomePage = () => {
           <div className={styles.filterPaneAndGallery} >
             <FilterPane 
               items={items}
+              onGoodFirstIssueChange={setHasGoodFirstIssue}
               onTopicsChange={setSelectedTopics}
               onLanguagesChange={setSelectedLanguages}
             />
             <Gallery
               items={items}
+              hasGoodFirstIssueChecked={hasGoodFirstIssueChecked}
               selectedTopics={selectedTopics}
               selectedLanguages={selectedLanguages}
             />
@@ -108,4 +120,5 @@ const HomePage = () => {
   );
 }
 
+// Exporting the HomePage component
 export default HomePage;
