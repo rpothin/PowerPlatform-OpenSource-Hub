@@ -5,10 +5,18 @@
 
 /* Styling for the hero banner */
 .heroBanner {
-  padding: 4rem 0; /* Padding at the top and bottom */
-  text-align: center; /* Center align text */
-  position: relative; /* Positioning relative to its normal position */
-  overflow: hidden; /* Hide any content that goes beyond the box */
+  padding: 4rem 0; /* Padding top and bottom */
+  text-align: center; /* Center text */
+  position: relative; /* Positioning relative to the nearest positioned ancestor */
+  overflow: hidden; /* Hide content that overflows the container */
+  /* Lighter gradient background for light mode */
+  background: linear-gradient(90deg, rgba(44,142,75,0.8) 0%, rgba(185,228,247,0.8) 35%, rgba(10,110,159,0.8) 100%);
+}
+
+/* Styling for the hero banner in dark theme */
+[data-theme="dark"] .heroBanner {
+  /* Darker gradient background for dark mode */
+  background: linear-gradient(90deg, rgba(44,142,75,1.2) 0%, rgba(185,228,247,1.2) 35%, rgba(10,110,159,1.2) 100%);
 }
 
 /* Media query for screens with max width of 996px */
@@ -16,6 +24,11 @@
   .heroBanner {
     padding: 2rem; /* Reduce padding for smaller screens */
   }
+}
+
+.heroBar {
+  max-width: 740px;
+  text-align: center;
 }
 
 /* Styling for buttons */

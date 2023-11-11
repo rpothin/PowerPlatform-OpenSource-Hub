@@ -42,6 +42,7 @@ const HomePage = () => {
   const [searchText, setSearchText] = useState('');
   const [items, setItems] = useState<Repository[]>([]);
   const [hasGoodFirstIssueChecked, setHasGoodFirstIssue] = useState(false);
+  const [hasHelpWantedIssueChecked, setHasHelpWantedIssue] = useState(false);
   const [selectedTopics, setSelectedTopics] = useState<string[]>([]);
   const [selectedLanguages, setSelectedLanguages] = useState<string[]>([]);
 
@@ -69,10 +70,19 @@ const HomePage = () => {
       description="Description will go into a meta tag in <head />">
       <header className={clsx('hero hero--primary', styles.heroBanner)}>
         <div className="container" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column' }}>
-          <Heading as="h1" className="hero__title">
+          <Heading as="h2" className="hero__title" style={{
+                background: 'linear-gradient(90deg, rgba(10,110,159,1.2) 0%, rgba(10,110,159,1.2) 0%, rgba(44,142,75,1.2) 100%)',
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+              }}>
             {siteConfig.title}
           </Heading>
-          <p className="hero__subtitle">{siteConfig.tagline}</p>
+          <p className="hero__subtitle" style={{
+              color: "#242424",
+              padding: "10px 0 20px 0",
+            }}>
+            {siteConfig.tagline}
+          </p>
           <SearchBox
             styles={{
               root: {
@@ -104,12 +114,14 @@ const HomePage = () => {
             <FilterPane 
               items={items}
               onGoodFirstIssueChange={setHasGoodFirstIssue}
+              onHelpWanteIssueChange={setHasHelpWantedIssue}
               onTopicsChange={setSelectedTopics}
               onLanguagesChange={setSelectedLanguages}
             />
             <Gallery
               items={items}
               hasGoodFirstIssueChecked={hasGoodFirstIssueChecked}
+              hasHelpWantedIssueChecked={hasHelpWantedIssueChecked}
               selectedTopics={selectedTopics}
               selectedLanguages={selectedLanguages}
             />

@@ -44,11 +44,10 @@
 
 /* Styling for the badges (shield.io images) */
 .badges {
-    position: absolute; /* Positioning relative to the nearest positioned ancestor */
-    bottom: 0; /* Position at the bottom */
-    right: 0; /* Position at the right */
-    padding-top: 8px; /* Add padding at the top */
-    padding-bottom: 16px; /* Add padding at the bottom */
-    padding-right: 16px; /* Add padding at the right */
-    padding-left: 8px; /* Add padding at the left */
+    padding: 10px; /* Add padding all around */
+}
+
+/* Styling for one badge (shield.io image) */
+.badge {
+    padding: 2px;
 }
