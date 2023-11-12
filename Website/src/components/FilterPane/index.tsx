@@ -85,10 +85,18 @@ const FilterPane = ({ items, onGoodFirstIssueChange, onHelpWanteIssueChange, onT
       <Checkbox 
         label="Has good first issue" 
         onChange={(e, checked) => handleGoodFirstIssueChange(checked)}
+        styles={{ 
+          text: { color: isDarkTheme ? 'rgb(173, 173, 173)' : 'inherit' }, 
+          checkbox: { borderColor: isDarkTheme ? 'rgb(173, 173, 173)' : 'inherit' } 
+        }}
       />
       <Checkbox 
         label="Has help wanted issue" 
         onChange={(e, checked) => handleHelpWantedIssueChange(checked)}
+        styles={{ 
+          text: { color: isDarkTheme ? 'rgb(173, 173, 173)' : 'inherit' }, 
+          checkbox: { borderColor: isDarkTheme ? 'rgb(173, 173, 173)' : 'inherit' } 
+        }}
       />
       <Text variant="large" style={{ color: isDarkTheme ? 'rgb(173, 173, 173)' : 'inherit' }}>Topics</Text>
       <Stack tokens={{ childrenGap: 10 }}>
@@ -98,6 +106,10 @@ const FilterPane = ({ items, onGoodFirstIssueChange, onHelpWanteIssueChange, onT
               key={index} 
               label={topic} 
               onChange={(e, checked) => handleTopicChange(topic, checked)}
+              styles={{ 
+                text: { color: isDarkTheme ? 'rgb(173, 173, 173)' : 'inherit' }, 
+                checkbox: { borderColor: isDarkTheme ? 'rgb(173, 173, 173)' : 'inherit' } 
+              }}
             />
           ))}
         </Stack>
@@ -114,7 +126,11 @@ const FilterPane = ({ items, onGoodFirstIssueChange, onHelpWanteIssueChange, onT
             <Checkbox 
               key={index} 
               label={language} 
-              onChange={(e, checked) => handleLanguageChange(language, checked)} 
+              onChange={(e, checked) => handleLanguageChange(language, checked)}
+              styles={{ 
+                text: { color: isDarkTheme ? 'rgb(173, 173, 173)' : 'inherit' }, 
+                checkbox: { borderColor: isDarkTheme ? 'rgb(173, 173, 173)' : 'inherit' } 
+              }}
             />
           ))}
         </Stack>

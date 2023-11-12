@@ -23,9 +23,20 @@
     margin: 10px; /* Add margin all around */
 }
 
+/* Styling for the gallery item in dark theme */
+[data-theme="dark"] .galleryItem {
+    background-color: #333; /* Set background color */
+}
+
 /* Styling for the gallery item title */
 .galleryItemTitle {
+    padding-top: 20px; /* Add padding at the top */
     height: 20%; /* Set height to 20% of the parent container */
+}
+
+/* Styling for the gallery item title in dark theme */
+[data-theme="dark"] .galleryItemTitle {
+    color: #fff; /* Set text color */
 }
 
 /* Styling for the gallery item subtitle */
@@ -40,6 +51,11 @@
     position: absolute; /* Positioning relative to the nearest positioned ancestor */
     bottom: 0; /* Position at the bottom */
     left: 0; /* Position at the left */
+}
+
+/* Styling for the gallery item stars count in dark theme */
+[data-theme="dark"] .galleryItemStarsCount {
+    color: #fff; /* Set text color */
 }
 
 /* Styling for the badges (shield.io images) */
