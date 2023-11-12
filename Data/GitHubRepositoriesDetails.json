@@ -91,7 +91,7 @@
       "type": "Organization",
       "url": "https://github.com/microsoft"
     },
-    "updatedAt": "2023-11-11T01:50:19Z",
+    "updatedAt": "2023-11-11T17:46:46Z",
     "url": "https://github.com/microsoft/Microsoft365DSC",
     "codeOfConduct": {
       "key": "contributor_covenant",
@@ -112,7 +112,7 @@
       "name": "PowerShell"
     },
     "securityPolicyUrl": "https://github.com/microsoft/Microsoft365DSC/security/policy",
-    "stargazerCount": 1201,
+    "stargazerCount": 1202,
     "watchers": {
       "totalCount": 65
     },
@@ -148,7 +148,7 @@
     "openedHelpWantedIssues": 2,
     "hasHelpWantedIssues": true,
     "openedToContributionsIssues": 2,
-    "popularityScore": 1266
+    "popularityScore": 1267
   },
   {
     "createdAt": "2018-12-13T05:33:24Z",
@@ -164,7 +164,7 @@
       "url": "https://api.github.com/licenses/mit"
     },
     "name": "PowerPlatformConnectors",
-    "openIssuesCount": 183,
+    "openIssuesCount": 180,
     "owner": {
       "id": "MDEyOk9yZ2FuaXphdGlvbjYxNTQ3MjI=",
       "is_bot": false,
@@ -172,7 +172,7 @@
       "type": "Organization",
       "url": "https://github.com/microsoft"
     },
-    "updatedAt": "2023-11-04T16:22:36Z",
+    "updatedAt": "2023-11-11T22:34:45Z",
     "url": "https://github.com/microsoft/PowerPlatformConnectors",
     "codeOfConduct": {
       "key": "other",
@@ -188,7 +188,7 @@
       "name": "C#"
     },
     "securityPolicyUrl": "https://github.com/microsoft/PowerPlatformConnectors/security/policy",
-    "stargazerCount": 799,
+    "stargazerCount": 800,
     "watchers": {
       "totalCount": 54
     },
@@ -211,7 +211,7 @@
     "openedHelpWantedIssues": 0,
     "hasHelpWantedIssues": false,
     "openedToContributionsIssues": 0,
-    "popularityScore": 853
+    "popularityScore": 854
   },
   {
     "createdAt": "2014-01-30T09:46:28Z",
@@ -288,7 +288,7 @@
       "url": "https://api.github.com/licenses/mit"
     },
     "name": "AL",
-    "openIssuesCount": 469,
+    "openIssuesCount": 465,
     "owner": {
       "id": "MDEyOk9yZ2FuaXphdGlvbjYxNTQ3MjI=",
       "is_bot": false,
@@ -1108,7 +1108,7 @@
     "securityPolicyUrl": "",
     "stargazerCount": 261,
     "watchers": {
-      "totalCount": 35
+      "totalCount": 36
     },
     "topics": [
       "dynamics-crm",
@@ -1136,7 +1136,7 @@
     "openedHelpWantedIssues": 16,
     "hasHelpWantedIssues": true,
     "openedToContributionsIssues": 16,
-    "popularityScore": 296
+    "popularityScore": 297
   },
   {
     "createdAt": "2020-03-05T00:58:17Z",
@@ -1730,7 +1730,7 @@
       "type": "Organization",
       "url": "https://github.com/microsoft"
     },
-    "updatedAt": "2023-11-08T17:28:53Z",
+    "updatedAt": "2023-11-12T10:40:46Z",
     "url": "https://github.com/microsoft/Low-Code",
     "codeOfConduct": {
       "key": "other",
@@ -1746,7 +1746,7 @@
       "name": "JavaScript"
     },
     "securityPolicyUrl": "https://github.com/microsoft/Low-Code/security/policy",
-    "stargazerCount": 152,
+    "stargazerCount": 153,
     "watchers": {
       "totalCount": 8
     },
@@ -1771,7 +1771,7 @@
     "openedHelpWantedIssues": 0,
     "hasHelpWantedIssues": false,
     "openedToContributionsIssues": 0,
-    "popularityScore": 160
+    "popularityScore": 161
   },
   {
     "createdAt": "2022-07-28T15:54:59Z",
@@ -2513,7 +2513,7 @@
       "name": "Other",
       "url": "https://github.com/pnp/powerfx-samples/blob/main/CODE_OF_CONDUCT.md"
     },
-    "forkCount": 39,
+    "forkCount": 40,
     "fundingLinks": [],
     "isSecurityPolicyEnabled": true,
     "isTemplate": false,
@@ -2807,6 +2807,59 @@
     "popularityScore": 108
   },
   {
+    "createdAt": "2021-01-20T18:46:59Z",
+    "description": "The website for the PnP Power Platform samples gallery, including Power Apps, Power Automate, Power Virtual Agents, Portals, etc.",
+    "fullName": "pnp/powerplatform-samples",
+    "hasIssues": true,
+    "homepage": "https://aka.ms/powerplatform-samples",
+    "isArchived": false,
+    "language": "",
+    "license": {
+      "key": "mit",
+      "name": "MIT License",
+      "url": "https://api.github.com/licenses/mit"
+    },
+    "name": "powerplatform-samples",
+    "openIssuesCount": 24,
+    "owner": {
+      "id": "MDEyOk9yZ2FuaXphdGlvbjMxNDQzOTI5",
+      "is_bot": false,
+      "login": "pnp",
+      "type": "Organization",
+      "url": "https://github.com/pnp"
+    },
+    "updatedAt": "2023-11-11T18:11:30Z",
+    "url": "https://github.com/pnp/powerplatform-samples",
+    "codeOfConduct": null,
+    "forkCount": 82,
+    "fundingLinks": [],
+    "isSecurityPolicyEnabled": false,
+    "isTemplate": false,
+    "latestRelease": null,
+    "primaryLanguage": null,
+    "securityPolicyUrl": "",
+    "stargazerCount": 77,
+    "watchers": {
+      "totalCount": 18
+    },
+    "topics": [
+      "powerapps",
+      "powerfx",
+      "powervirtualagent",
+      "powerautomate",
+      "powerpages",
+      "powerpageshackathon",
+      "hacktoberfest"
+    ],
+    "languages": [],
+    "openedGoodFirstIssues": 0,
+    "hasGoodFirstIssues": false,
+    "openedHelpWantedIssues": 0,
+    "hasHelpWantedIssues": false,
+    "openedToContributionsIssues": 0,
+    "popularityScore": 95
+  },
+  {
     "createdAt": "2022-08-12T16:05:07Z",
     "description": "This repository contains presentations and workshops created by the Microsoft Power Platform Advocates.",
     "fullName": "microsoft/PowerPlatformAdvocates",
@@ -2864,59 +2917,6 @@
     "hasHelpWantedIssues": false,
     "openedToContributionsIssues": 0,
     "popularityScore": 87
-  },
-  {
-    "createdAt": "2021-01-20T18:46:59Z",
-    "description": "The website for the PnP Power Platform samples gallery, including Power Apps, Power Automate, Power Virtual Agents, Portals, etc.",
-    "fullName": "pnp/powerplatform-samples",
-    "hasIssues": true,
-    "homepage": "https://aka.ms/powerplatform-samples",
-    "isArchived": false,
-    "language": "",
-    "license": {
-      "key": "mit",
-      "name": "MIT License",
-      "url": "https://api.github.com/licenses/mit"
-    },
-    "name": "powerplatform-samples",
-    "openIssuesCount": 24,
-    "owner": {
-      "id": "MDEyOk9yZ2FuaXphdGlvbjMxNDQzOTI5",
-      "is_bot": false,
-      "login": "pnp",
-      "type": "Organization",
-      "url": "https://github.com/pnp"
-    },
-    "updatedAt": "2023-11-07T09:57:44Z",
-    "url": "https://github.com/pnp/powerplatform-samples",
-    "codeOfConduct": null,
-    "forkCount": 82,
-    "fundingLinks": [],
-    "isSecurityPolicyEnabled": false,
-    "isTemplate": false,
-    "latestRelease": null,
-    "primaryLanguage": null,
-    "securityPolicyUrl": "",
-    "stargazerCount": 76,
-    "watchers": {
-      "totalCount": 18
-    },
-    "topics": [
-      "powerapps",
-      "powerfx",
-      "powervirtualagent",
-      "powerautomate",
-      "powerpages",
-      "powerpageshackathon",
-      "hacktoberfest"
-    ],
-    "languages": [],
-    "openedGoodFirstIssues": 0,
-    "hasGoodFirstIssues": false,
-    "openedHelpWantedIssues": 0,
-    "hasHelpWantedIssues": false,
-    "openedToContributionsIssues": 0,
-    "popularityScore": 94
   },
   {
     "createdAt": "2017-12-25T03:40:06Z",
@@ -10346,6 +10346,110 @@
     "popularityScore": 14
   },
   {
+    "createdAt": "2021-06-12T00:09:08Z",
+    "description": "Contactless Business Card: This component adds a user profile page in your app. The data source used is Office 365 but you can change it to Microsoft 365 or Dynamics 365 if need be. The QR code is generated via web api and it doesn't requires a power automate flow. This can be really handy for your Sales Team or Field Service Team, to enable them with a no contact business card sharing at no cost and saving you dollars.",
+    "fullName": "Experience-Digital-MS/eBusinessCard",
+    "hasIssues": true,
+    "homepage": "https://www.linkedin.com/company/experiencedigitalms",
+    "isArchived": false,
+    "language": "",
+    "license": {
+      "key": "mit",
+      "name": "MIT License",
+      "url": "https://api.github.com/licenses/mit"
+    },
+    "name": "eBusinessCard",
+    "openIssuesCount": 1,
+    "owner": {
+      "id": "MDQ6VXNlcjg0NzAxMTQ3",
+      "is_bot": false,
+      "login": "Experience-Digital-MS",
+      "type": "User",
+      "url": "https://github.com/Experience-Digital-MS"
+    },
+    "updatedAt": "2023-10-13T00:09:35Z",
+    "url": "https://github.com/Experience-Digital-MS/eBusinessCard",
+    "codeOfConduct": null,
+    "forkCount": 0,
+    "fundingLinks": [],
+    "isSecurityPolicyEnabled": false,
+    "isTemplate": false,
+    "latestRelease": null,
+    "primaryLanguage": null,
+    "securityPolicyUrl": "",
+    "stargazerCount": 11,
+    "watchers": {
+      "totalCount": 2
+    },
+    "topics": [
+      "powerapps",
+      "business-card",
+      "components"
+    ],
+    "languages": [],
+    "openedGoodFirstIssues": 0,
+    "hasGoodFirstIssues": false,
+    "openedHelpWantedIssues": 0,
+    "hasHelpWantedIssues": false,
+    "openedToContributionsIssues": 0,
+    "popularityScore": 13
+  },
+  {
+    "createdAt": "2023-05-13T06:22:31Z",
+    "description": "This is a demo repository to showcase scenarios how Professional Developers (AKA code-first developers) can make use of Power Platform to be more productive and/or innovative.",
+    "fullName": "marcelbf/InventAPI",
+    "hasIssues": true,
+    "homepage": "",
+    "isArchived": false,
+    "language": "HTML",
+    "license": {
+      "key": "",
+      "name": "",
+      "url": ""
+    },
+    "name": "InventAPI",
+    "openIssuesCount": 0,
+    "owner": {
+      "id": "MDQ6VXNlcjQ5NjA4NjY4",
+      "is_bot": false,
+      "login": "marcelbf",
+      "type": "User",
+      "url": "https://github.com/marcelbf"
+    },
+    "updatedAt": "2023-10-05T21:59:38Z",
+    "url": "https://github.com/marcelbf/InventAPI",
+    "codeOfConduct": null,
+    "forkCount": 3,
+    "fundingLinks": [],
+    "isSecurityPolicyEnabled": false,
+    "isTemplate": false,
+    "latestRelease": null,
+    "primaryLanguage": {
+      "name": "HTML"
+    },
+    "securityPolicyUrl": "",
+    "stargazerCount": 11,
+    "watchers": {
+      "totalCount": 2
+    },
+    "topics": [
+      "powerapps",
+      "powerapps-cli",
+      "powerplatform"
+    ],
+    "languages": [
+      "HTML",
+      "CSS",
+      "C#"
+    ],
+    "openedGoodFirstIssues": 0,
+    "hasGoodFirstIssues": false,
+    "openedHelpWantedIssues": 0,
+    "hasHelpWantedIssues": false,
+    "openedToContributionsIssues": 0,
+    "popularityScore": 13
+  },
+  {
     "createdAt": "2020-05-20T18:31:45Z",
     "description": "Version 2 of the Dataverse Data Explorer. ",
     "fullName": "scholarsportal/dataverse-data-explorer-v2",
@@ -10404,221 +10508,6 @@
     "hasHelpWantedIssues": false,
     "openedToContributionsIssues": 0,
     "popularityScore": 16
-  },
-  {
-    "createdAt": "2023-05-13T06:22:31Z",
-    "description": "This is a demo repository to showcase scenarios how Professional Developers (AKA code-first developers) can make use of Power Platform to be more productive and/or innovative.",
-    "fullName": "marcelbf/InventAPI",
-    "hasIssues": true,
-    "homepage": "",
-    "isArchived": false,
-    "language": "HTML",
-    "license": {
-      "key": "",
-      "name": "",
-      "url": ""
-    },
-    "name": "InventAPI",
-    "openIssuesCount": 0,
-    "owner": {
-      "id": "MDQ6VXNlcjQ5NjA4NjY4",
-      "is_bot": false,
-      "login": "marcelbf",
-      "type": "User",
-      "url": "https://github.com/marcelbf"
-    },
-    "updatedAt": "2023-10-05T21:59:38Z",
-    "url": "https://github.com/marcelbf/InventAPI",
-    "codeOfConduct": null,
-    "forkCount": 3,
-    "fundingLinks": [],
-    "isSecurityPolicyEnabled": false,
-    "isTemplate": false,
-    "latestRelease": null,
-    "primaryLanguage": {
-      "name": "HTML"
-    },
-    "securityPolicyUrl": "",
-    "stargazerCount": 11,
-    "watchers": {
-      "totalCount": 2
-    },
-    "topics": [
-      "powerapps",
-      "powerapps-cli",
-      "powerplatform"
-    ],
-    "languages": [
-      "HTML",
-      "CSS",
-      "C#"
-    ],
-    "openedGoodFirstIssues": 0,
-    "hasGoodFirstIssues": false,
-    "openedHelpWantedIssues": 0,
-    "hasHelpWantedIssues": false,
-    "openedToContributionsIssues": 0,
-    "popularityScore": 13
-  },
-  {
-    "createdAt": "2021-06-12T00:09:08Z",
-    "description": "Contactless Business Card: This component adds a user profile page in your app. The data source used is Office 365 but you can change it to Microsoft 365 or Dynamics 365 if need be. The QR code is generated via web api and it doesn't requires a power automate flow. This can be really handy for your Sales Team or Field Service Team, to enable them with a no contact business card sharing at no cost and saving you dollars.",
-    "fullName": "Experience-Digital-MS/eBusinessCard",
-    "hasIssues": true,
-    "homepage": "https://www.linkedin.com/company/experiencedigitalms",
-    "isArchived": false,
-    "language": "",
-    "license": {
-      "key": "mit",
-      "name": "MIT License",
-      "url": "https://api.github.com/licenses/mit"
-    },
-    "name": "eBusinessCard",
-    "openIssuesCount": 1,
-    "owner": {
-      "id": "MDQ6VXNlcjg0NzAxMTQ3",
-      "is_bot": false,
-      "login": "Experience-Digital-MS",
-      "type": "User",
-      "url": "https://github.com/Experience-Digital-MS"
-    },
-    "updatedAt": "2023-10-13T00:09:35Z",
-    "url": "https://github.com/Experience-Digital-MS/eBusinessCard",
-    "codeOfConduct": null,
-    "forkCount": 0,
-    "fundingLinks": [],
-    "isSecurityPolicyEnabled": false,
-    "isTemplate": false,
-    "latestRelease": null,
-    "primaryLanguage": null,
-    "securityPolicyUrl": "",
-    "stargazerCount": 11,
-    "watchers": {
-      "totalCount": 2
-    },
-    "topics": [
-      "powerapps",
-      "business-card",
-      "components"
-    ],
-    "languages": [],
-    "openedGoodFirstIssues": 0,
-    "hasGoodFirstIssues": false,
-    "openedHelpWantedIssues": 0,
-    "hasHelpWantedIssues": false,
-    "openedToContributionsIssues": 0,
-    "popularityScore": 13
-  },
-  {
-    "createdAt": "2021-02-04T09:10:06Z",
-    "description": "Ready-to-use OData client for communication with Microsoft Dataverse Web API",
-    "fullName": "LarsBauer/DataverseODataClient",
-    "hasIssues": true,
-    "homepage": "https://www.nuget.org/packages/BauerApps.DataverseODataClient/",
-    "isArchived": false,
-    "language": "C#",
-    "license": {
-      "key": "mit",
-      "name": "MIT License",
-      "url": "https://api.github.com/licenses/mit"
-    },
-    "name": "DataverseODataClient",
-    "openIssuesCount": 0,
-    "owner": {
-      "id": "MDQ6VXNlcjM5MjAwNDU=",
-      "is_bot": false,
-      "login": "LarsBauer",
-      "type": "User",
-      "url": "https://github.com/LarsBauer"
-    },
-    "updatedAt": "2023-06-28T21:00:36Z",
-    "url": "https://github.com/LarsBauer/DataverseODataClient",
-    "codeOfConduct": null,
-    "forkCount": 1,
-    "fundingLinks": [],
-    "isSecurityPolicyEnabled": false,
-    "isTemplate": false,
-    "latestRelease": null,
-    "primaryLanguage": {
-      "name": "C#"
-    },
-    "securityPolicyUrl": "",
-    "stargazerCount": 10,
-    "watchers": {
-      "totalCount": 2
-    },
-    "topics": [
-      "asp-net-core",
-      "azure-functions",
-      "azure",
-      "microsoft-dataverse",
-      "odata",
-      "azure-identity",
-      "azure-web-app"
-    ],
-    "languages": [
-      "C#"
-    ],
-    "openedGoodFirstIssues": 0,
-    "hasGoodFirstIssues": false,
-    "openedHelpWantedIssues": 0,
-    "hasHelpWantedIssues": false,
-    "openedToContributionsIssues": 0,
-    "popularityScore": 12
-  },
-  {
-    "createdAt": "2020-10-08T13:39:38Z",
-    "description": "Fluent UI DataList Component for D365/PowerApps",
-    "fullName": "michal-turzynski/pcf-fluentui-grid",
-    "hasIssues": true,
-    "homepage": "",
-    "isArchived": false,
-    "language": "TypeScript",
-    "license": {
-      "key": "",
-      "name": "",
-      "url": ""
-    },
-    "name": "pcf-fluentui-grid",
-    "openIssuesCount": 0,
-    "owner": {
-      "id": "MDQ6VXNlcjI4NDQwMw==",
-      "is_bot": false,
-      "login": "michal-turzynski",
-      "type": "User",
-      "url": "https://github.com/michal-turzynski"
-    },
-    "updatedAt": "2023-08-24T07:22:01Z",
-    "url": "https://github.com/michal-turzynski/pcf-fluentui-grid",
-    "codeOfConduct": null,
-    "forkCount": 2,
-    "fundingLinks": [],
-    "isSecurityPolicyEnabled": false,
-    "isTemplate": false,
-    "latestRelease": null,
-    "primaryLanguage": {
-      "name": "TypeScript"
-    },
-    "securityPolicyUrl": "",
-    "stargazerCount": 10,
-    "watchers": {
-      "totalCount": 3
-    },
-    "topics": [
-      "powerapps",
-      "pcf",
-      "fluentui"
-    ],
-    "languages": [
-      "TypeScript",
-      "JavaScript"
-    ],
-    "openedGoodFirstIssues": 0,
-    "hasGoodFirstIssues": false,
-    "openedHelpWantedIssues": 0,
-    "hasHelpWantedIssues": false,
-    "openedToContributionsIssues": 0,
-    "popularityScore": 13
   },
   {
     "createdAt": "2023-09-08T01:41:12Z",
@@ -10681,6 +10570,63 @@
     "popularityScore": 14
   },
   {
+    "createdAt": "2021-02-04T09:10:06Z",
+    "description": "Ready-to-use OData client for communication with Microsoft Dataverse Web API",
+    "fullName": "LarsBauer/DataverseODataClient",
+    "hasIssues": true,
+    "homepage": "https://www.nuget.org/packages/BauerApps.DataverseODataClient/",
+    "isArchived": false,
+    "language": "C#",
+    "license": {
+      "key": "mit",
+      "name": "MIT License",
+      "url": "https://api.github.com/licenses/mit"
+    },
+    "name": "DataverseODataClient",
+    "openIssuesCount": 0,
+    "owner": {
+      "id": "MDQ6VXNlcjM5MjAwNDU=",
+      "is_bot": false,
+      "login": "LarsBauer",
+      "type": "User",
+      "url": "https://github.com/LarsBauer"
+    },
+    "updatedAt": "2023-06-28T21:00:36Z",
+    "url": "https://github.com/LarsBauer/DataverseODataClient",
+    "codeOfConduct": null,
+    "forkCount": 1,
+    "fundingLinks": [],
+    "isSecurityPolicyEnabled": false,
+    "isTemplate": false,
+    "latestRelease": null,
+    "primaryLanguage": {
+      "name": "C#"
+    },
+    "securityPolicyUrl": "",
+    "stargazerCount": 10,
+    "watchers": {
+      "totalCount": 2
+    },
+    "topics": [
+      "asp-net-core",
+      "azure-functions",
+      "azure",
+      "microsoft-dataverse",
+      "odata",
+      "azure-identity",
+      "azure-web-app"
+    ],
+    "languages": [
+      "C#"
+    ],
+    "openedGoodFirstIssues": 0,
+    "hasGoodFirstIssues": false,
+    "openedHelpWantedIssues": 0,
+    "hasHelpWantedIssues": false,
+    "openedToContributionsIssues": 0,
+    "popularityScore": 12
+  },
+  {
     "createdAt": "2020-04-19T13:37:13Z",
     "description": "Coding standards and Guidelines for Customizing and Extending PowerApps & Dynamics 365",
     "fullName": "AutomateValue/PowerApps-Guidelines",
@@ -10738,59 +10684,6 @@
     "hasHelpWantedIssues": false,
     "openedToContributionsIssues": 0,
     "popularityScore": 16
-  },
-  {
-    "createdAt": "2020-09-17T19:43:14Z",
-    "description": "Vue.js web resource sample for creating a multi-page modal dialog in Dynamics 365",
-    "fullName": "tcorcor1/multipage-modal-D365-vue",
-    "hasIssues": true,
-    "homepage": "https://tldr-dynamics.com/blog/create-multipage-modal-dialog-vue",
-    "isArchived": false,
-    "language": "Vue",
-    "license": {
-      "key": "",
-      "name": "",
-      "url": ""
-    },
-    "name": "multipage-modal-D365-vue",
-    "openIssuesCount": 0,
-    "owner": {
-      "id": "MDQ6VXNlcjQ1NTY4MzA2",
-      "is_bot": false,
-      "login": "tcorcor1",
-      "type": "User",
-      "url": "https://github.com/tcorcor1"
-    },
-    "updatedAt": "2023-05-11T17:26:06Z",
-    "url": "https://github.com/tcorcor1/multipage-modal-D365-vue",
-    "codeOfConduct": null,
-    "forkCount": 0,
-    "fundingLinks": [],
-    "isSecurityPolicyEnabled": false,
-    "isTemplate": false,
-    "latestRelease": null,
-    "primaryLanguage": {
-      "name": "Vue"
-    },
-    "securityPolicyUrl": "",
-    "stargazerCount": 10,
-    "watchers": {
-      "totalCount": 4
-    },
-    "topics": [
-      "dynamics365",
-      "vue"
-    ],
-    "languages": [
-      "Vue",
-      "HTML"
-    ],
-    "openedGoodFirstIssues": 0,
-    "hasGoodFirstIssues": false,
-    "openedHelpWantedIssues": 0,
-    "hasHelpWantedIssues": false,
-    "openedToContributionsIssues": 0,
-    "popularityScore": 14
   },
   {
     "createdAt": "2020-03-03T14:31:07Z",
@@ -11043,6 +10936,60 @@
     "hasHelpWantedIssues": false,
     "openedToContributionsIssues": 0,
     "popularityScore": 17
+  },
+  {
+    "createdAt": "2020-10-08T13:39:38Z",
+    "description": "Fluent UI DataList Component for D365/PowerApps",
+    "fullName": "michal-turzynski/pcf-fluentui-grid",
+    "hasIssues": true,
+    "homepage": "",
+    "isArchived": false,
+    "language": "TypeScript",
+    "license": {
+      "key": "",
+      "name": "",
+      "url": ""
+    },
+    "name": "pcf-fluentui-grid",
+    "openIssuesCount": 0,
+    "owner": {
+      "id": "MDQ6VXNlcjI4NDQwMw==",
+      "is_bot": false,
+      "login": "michal-turzynski",
+      "type": "User",
+      "url": "https://github.com/michal-turzynski"
+    },
+    "updatedAt": "2023-08-24T07:22:01Z",
+    "url": "https://github.com/michal-turzynski/pcf-fluentui-grid",
+    "codeOfConduct": null,
+    "forkCount": 2,
+    "fundingLinks": [],
+    "isSecurityPolicyEnabled": false,
+    "isTemplate": false,
+    "latestRelease": null,
+    "primaryLanguage": {
+      "name": "TypeScript"
+    },
+    "securityPolicyUrl": "",
+    "stargazerCount": 10,
+    "watchers": {
+      "totalCount": 3
+    },
+    "topics": [
+      "powerapps",
+      "pcf",
+      "fluentui"
+    ],
+    "languages": [
+      "TypeScript",
+      "JavaScript"
+    ],
+    "openedGoodFirstIssues": 0,
+    "hasGoodFirstIssues": false,
+    "openedHelpWantedIssues": 0,
+    "hasHelpWantedIssues": false,
+    "openedToContributionsIssues": 0,
+    "popularityScore": 13
   },
   {
     "createdAt": "2021-03-16T18:52:07Z",
