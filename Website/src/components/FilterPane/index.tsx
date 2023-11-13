@@ -144,6 +144,7 @@ const FilterPane = ({ items, onGoodFirstIssueChange, onHelpWanteIssueChange, onT
                       color: isDarkTheme ? 'rgb(173, 173, 173)' : 'inherit',
                     },
                   },
+                  marginBottom: '10px',
                 },
                 checkbox: { 
                   borderColor: isDarkTheme ? 'rgb(173, 173, 173)' : 'inherit' 
@@ -179,6 +180,7 @@ const FilterPane = ({ items, onGoodFirstIssueChange, onHelpWanteIssueChange, onT
                       color: isDarkTheme ? 'rgb(173, 173, 173)' : 'inherit',
                     },
                   },
+                  marginBottom: '10px',
                 },
                 checkbox: { 
                   borderColor: isDarkTheme ? 'rgb(173, 173, 173)' : 'inherit' 
