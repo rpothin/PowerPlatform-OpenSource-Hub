@@ -19,10 +19,20 @@ initializeIcons();
 // Defining the Repository interface
 interface Repository {
     fullName: string;
+    name: string;
+    owner: {
+        login: string;
+    };
     description: string;
-    stargazerCount: number;
+    license: {
+        name: string;
+    };
+    codeOfConduct: {
+        name: string;
+    };
     topics: string[];
     language: string;
+    stargazerCount: number;
     hasGoodFirstIssues?: boolean;
     hasHelpWantedIssues?: boolean;
 }
@@ -43,8 +53,11 @@ const App = () => {
   const [items, setItems] = useState<Repository[]>([]);
   const [hasGoodFirstIssueChecked, setHasGoodFirstIssue] = useState(false);
   const [hasHelpWantedIssueChecked, setHasHelpWantedIssue] = useState(false);
+  const [hasCodeOfConductChecked, setHasCodeOfConduct] = useState(false);
   const [selectedTopics, setSelectedTopics] = useState<string[]>([]);
   const [selectedLanguages, setSelectedLanguages] = useState<string[]>([]);
+  const [selectedLicenses, setSelectedLicenses] = useState<string[]>([]);
+  const [selectedOwners, setSelectedOwners] = useState<string[]>([]);
 
   // Function to handle search text change
   const handleSearchChange = (event) => {
@@ -118,15 +131,21 @@ const App = () => {
                 items={items}
                 onGoodFirstIssueChange={setHasGoodFirstIssue}
                 onHelpWanteIssueChange={setHasHelpWantedIssue}
+                onCodeOfConductChange={setHasCodeOfConduct}
                 onTopicsChange={setSelectedTopics}
                 onLanguagesChange={setSelectedLanguages}
+                onLicensesChange={setSelectedLicenses}
+                onOwnersChange={setSelectedOwners}
               />
               <Gallery
                 items={items}
                 hasGoodFirstIssueChecked={hasGoodFirstIssueChecked}
                 hasHelpWantedIssueChecked={hasHelpWantedIssueChecked}
+                hasCodeOfConductChecked={hasCodeOfConductChecked}
                 selectedTopics={selectedTopics}
                 selectedLanguages={selectedLanguages}
+                selectedLicenses={selectedLicenses}
+                selectedOwners={selectedOwners}
               />
             </div>
         </main>

@@ -4,7 +4,7 @@ import { DocumentCard, DocumentCardDetails, DocumentCardTitle, Dialog, DialogTyp
 import styles from './styles.module.css'
 
 // Filter the items based on the selected criteria in the FilterPane
-function filterItems(items, hasGoodFirstIssueChecked, hasHelpWantedIssueChecked, selectedTopics, selectedLanguages) {
+function filterItems(items, hasGoodFirstIssueChecked, hasHelpWantedIssueChecked, hasCodeOfConductChecked, selectedTopics, selectedLanguages, selectedLicenses, selectedOwners) {
     let filteredItems = items;
 
     // Filter based on 'hasGoodFirstIssues' status
@@ -15,6 +15,11 @@ function filterItems(items, hasGoodFirstIssueChecked, hasHelpWantedIssueChecked,
     // Filter based on 'hasHelpWantedIssues' status
     if (hasHelpWantedIssueChecked) {
         filteredItems = filteredItems.filter(item => item.hasHelpWantedIssues);
+    }
+
+    // Filter based on the 'codeOfConduct' property is not null and 'codeOfConduct.name' is not null
+    if (hasCodeOfConductChecked) {
+        filteredItems = filteredItems.filter(item => item.codeOfConduct != null && item.codeOfConduct.name != null);
     }
 
     // Filter based on selected topics - should include all selected topics
@@ -31,16 +36,30 @@ function filterItems(items, hasGoodFirstIssueChecked, hasHelpWantedIssueChecked,
         );
     }
 
+    // Filter based on selected licenses (check 'license.name' property) - should include all selected licenses
+    if (selectedLicenses.length > 0) {
+        filteredItems = filteredItems.filter(item =>
+            selectedLicenses.every(license => item.license.name === license)
+        );
+    }
+
+    // Filter based on selected owners (check 'owner.login' property) - should include all selected owners
+    if (selectedOwners.length > 0) {
+        filteredItems = filteredItems.filter(item =>
+            selectedOwners.every(owner => item.owner.login === owner)
+        );
+    }
+
     return filteredItems;
 }
 
 // Defining the Gallery component
-const Gallery = ({ items, hasGoodFirstIssueChecked, hasHelpWantedIssueChecked, selectedTopics = [], selectedLanguages = [] }) => {
+const Gallery = ({ items, hasGoodFirstIssueChecked, hasHelpWantedIssueChecked, hasCodeOfConductChecked, selectedTopics = [], selectedLanguages = [], selectedLicenses = [], selectedOwners = [] }) => {
     const [selectedItem, setSelectedItem] = useState(null);
     const [hideDialog, setHideDialog] = useState(true);
     
     // Filter items based on selected criteria
-    const filteredItems = filterItems(items, hasGoodFirstIssueChecked, hasHelpWantedIssueChecked, selectedTopics, selectedLanguages);
+    const filteredItems = filterItems(items, hasGoodFirstIssueChecked, hasHelpWantedIssueChecked, hasCodeOfConductChecked, selectedTopics, selectedLanguages, selectedLicenses, selectedOwners);
 
     const openDialog = (item) => {
         setSelectedItem(item);

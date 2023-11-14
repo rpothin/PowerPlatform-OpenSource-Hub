@@ -12,6 +12,6 @@
     align-content: flex-start; /* Align content blocks at the start of the container */
     -webkit-align-items: flex-start; /* Align items at the start of the line, with webkit prefix for compatibility */
     align-items: flex-start; /* Align items at the start of the line */
-    width: 15%; /* Set width to 15% of the parent container */
+    width: 20%; /* Set width to 15% of the parent container */
     padding: 20px; /* Add padding all around */
 }
