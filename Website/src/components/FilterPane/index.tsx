@@ -120,7 +120,12 @@ function countItemsWithOwner(items: { owner?: { login?: string } }[], owner: str
 // Defining the FilterPane component
 const FilterPane = ({ items, onGoodFirstIssueChange, onHelpWanteIssueChange, onCodeOfConductChange, onTopicsChange, onLanguagesChange, onLicensesChange, onOwnersChange }) => {
   // Defining state variables
-  const [showContributionOpportunitiesFilter, setShowContributionOpportunitiesFilter] = useState(false);
+  const [showContributionOpportunitiesFilter, setShowContributionOpportunitiesFilter] = useState(true);
+  const [showTopicsFilter, setShowTopicsFilter] = useState(false);
+  const [showLanguagesFilter, setShowLanguagesFilter] = useState(false);
+  const [showLicensesFilter, setShowLicensesFilter] = useState(false);
+  const [showOwnersFilter, setShowOwnersFilter] = useState(false);
+  const [checkboxStates, setCheckboxStates] = useState({});
   const [hasGoodFirstIssueChecked, setHasGoodFirstIssue] = useState(false);
   const [hasHelpWantedIssueChecked, setHasHelpWantedIssue] = useState(false);
   const [hasCodeOfConductChecked, setHasCodeOfConduct] = useState(false);
@@ -228,10 +233,14 @@ const FilterPane = ({ items, onGoodFirstIssueChange, onHelpWanteIssueChange, onC
         </div>
       </Text>
       {showContributionOpportunitiesFilter && (
-      <>
+        <>
           <Checkbox 
             label={"Has good first issue (" + goodFirstIssueCount +  ")"} 
-            onChange={(e, checked) => handleGoodFirstIssueChange(checked)}
+            checked={checkboxStates['goodFirstIssue'] || false} 
+            onChange={(e, checked) => {
+              handleGoodFirstIssueChange(checked);
+              setCheckboxStates(prevState => ({...prevState, 'goodFirstIssue': checked}));
+            }}
             styles={{ 
               root: {
                 selectors: {
@@ -253,7 +262,11 @@ const FilterPane = ({ items, onGoodFirstIssueChange, onHelpWanteIssueChange, onC
           />
           <Checkbox 
             label={"Has help wanted issue (" + helpWantedIssueCount + ")"} 
-            onChange={(e, checked) => handleHelpWantedIssueChange(checked)}
+            checked={checkboxStates['helpWantedIssue'] || false}
+            onChange={(e, checked) => {
+              handleHelpWantedIssueChange(checked);
+              setCheckboxStates(prevState => ({...prevState, 'helpWantedIssue': checked}));
+            }}
             styles={{ 
               root: {
                 selectors: {
@@ -275,7 +288,11 @@ const FilterPane = ({ items, onGoodFirstIssueChange, onHelpWanteIssueChange, onC
           />
           <Checkbox 
             label={"Has code of conduct (" + codeOfConductCount +  ")"} 
-            onChange={(e, checked) => handleCodeOfConductChange(checked)}
+            checked={checkboxStates['codeOfConduct'] || false}
+            onChange={(e, checked) => {
+              handleCodeOfConductChange(checked);
+              setCheckboxStates(prevState => ({...prevState, 'codeOfConduct': checked}));
+            }}
             styles={{ 
               root: {
                 selectors: {
@@ -295,7 +312,7 @@ const FilterPane = ({ items, onGoodFirstIssueChange, onHelpWanteIssueChange, onC
               },
             }}
           />
-          </>
+        </>
       )}
       <Text 
         variant="large" 
@@ -304,44 +321,56 @@ const FilterPane = ({ items, onGoodFirstIssueChange, onHelpWanteIssueChange, onC
           marginTop: '20px', 
           marginBottom: '15px' 
         }}
+        onClick={() => setShowTopicsFilter(!showTopicsFilter)}
       >
-        Topics
+        <div style={{ display: 'flex', justifyContent: 'space-between', width: `${filterSectionLabelMaxLength}ch` }}>
+            <span>Topics</span>
+            <Icon iconName={showTopicsFilter ? 'ChevronUp' : 'ChevronDown'} />
+        </div>
       </Text>
-      <Stack tokens={{ childrenGap: 10 }}>
-        <Stack>
-          {displayedTopics.map((topic, index) => (
-            <Checkbox 
-              key={index} 
-              label={topic + " (" + countItemsWithTopic(items, topic) + ")"} 
-              onChange={(e, checked) => handleTopicChange(topic, checked)}
-              styles={{ 
-                root: {
-                  selectors: {
-                    ':hover .ms-Checkbox-checkbox': {
-                      borderColor: isDarkTheme ? 'rgb(173, 173, 173)' : 'inherit',
+      {showTopicsFilter && (
+        <>
+          <Stack tokens={{ childrenGap: 10 }}>
+            <Stack>
+              {displayedTopics.map((topic, index) => (
+                <Checkbox 
+                  key={index} 
+                  label={topic + " (" + countItemsWithTopic(items, topic) + ")"} 
+                  checked={checkboxStates[topic] || false}
+                  onChange={(e, checked) => {
+                    handleTopicChange(topic, checked);
+                    setCheckboxStates(prevState => ({...prevState, [topic]: checked}));
+                  }}
+                  styles={{ 
+                    root: {
+                      selectors: {
+                        ':hover .ms-Checkbox-checkbox': {
+                          borderColor: isDarkTheme ? 'rgb(173, 173, 173)' : 'inherit',
+                        },
+                        ':hover .ms-Checkbox-text': {
+                          color: isDarkTheme ? 'rgb(173, 173, 173)' : 'inherit',
+                        },
+                      },
+                      marginBottom: '10px',
                     },
-                    ':hover .ms-Checkbox-text': {
-                      color: isDarkTheme ? 'rgb(173, 173, 173)' : 'inherit',
+                    checkbox: { 
+                      borderColor: isDarkTheme ? 'rgb(173, 173, 173)' : 'inherit' 
                     },
-                  },
-                  marginBottom: '10px',
-                },
-                checkbox: { 
-                  borderColor: isDarkTheme ? 'rgb(173, 173, 173)' : 'inherit' 
-                },
-                text: { 
-                  color: isDarkTheme ? 'rgb(173, 173, 173)' : 'inherit' 
-                },
-              }}
-            />
-          ))}
-        </Stack>
-        {topics.length > 10 && (
-          <DefaultButton onClick={() => setShowAllTopics(!showAllTopics)}>
-            {showAllTopics ? 'Display Less' : 'Display More'}
-          </DefaultButton>
-        )}
-      </Stack>
+                    text: { 
+                      color: isDarkTheme ? 'rgb(173, 173, 173)' : 'inherit' 
+                    },
+                  }}
+                />
+              ))}
+            </Stack>
+            {topics.length > 10 && (
+              <DefaultButton onClick={() => setShowAllTopics(!showAllTopics)}>
+                {showAllTopics ? 'Display Less' : 'Display More'}
+              </DefaultButton>
+            )}
+          </Stack>
+        </>
+      )}
       <Text 
         variant="large" 
         style={{ 
@@ -349,133 +378,169 @@ const FilterPane = ({ items, onGoodFirstIssueChange, onHelpWanteIssueChange, onC
           marginTop: '20px', 
           marginBottom: '15px' 
         }}
+        onClick={() => setShowLanguagesFilter(!showLanguagesFilter)}
       >
-        Languages
+        <div style={{ display: 'flex', justifyContent: 'space-between', width: `${filterSectionLabelMaxLength}ch` }}>
+            <span>Languages</span>
+            <Icon iconName={showLanguagesFilter ? 'ChevronUp' : 'ChevronDown'} />
+        </div>
       </Text>
-      <Stack tokens={{ childrenGap: 10 }}>
-        <Stack>
-          {displayedLanguages.map((language, index) => (
-            <Checkbox 
-              key={index} 
-              label={language + " (" + countItemsWithLanguage(items, language) + ")"} 
-              onChange={(e, checked) => handleLanguageChange(language, checked)}
-              styles={{ 
-                root: {
-                  selectors: {
-                    ':hover .ms-Checkbox-checkbox': {
-                      borderColor: isDarkTheme ? 'rgb(173, 173, 173)' : 'inherit',
+      {showLanguagesFilter && (
+        <>
+          <Stack tokens={{ childrenGap: 10 }}>
+            <Stack>
+              {displayedLanguages.map((language, index) => (
+                <Checkbox 
+                  key={index} 
+                  label={language + " (" + countItemsWithLanguage(items, language) + ")"} 
+                  checked={checkboxStates[language] || false}
+                  onChange={(e, checked) => {
+                    handleLanguageChange(language, checked);
+                    setCheckboxStates(prevState => ({...prevState, [language]: checked}));
+                  }}
+                  styles={{ 
+                    root: {
+                      selectors: {
+                        ':hover .ms-Checkbox-checkbox': {
+                          borderColor: isDarkTheme ? 'rgb(173, 173, 173)' : 'inherit',
+                        },
+                        ':hover .ms-Checkbox-text': {
+                          color: isDarkTheme ? 'rgb(173, 173, 173)' : 'inherit',
+                        },
+                      },
+                      marginBottom: '10px',
                     },
-                    ':hover .ms-Checkbox-text': {
-                      color: isDarkTheme ? 'rgb(173, 173, 173)' : 'inherit',
+                    checkbox: { 
+                      borderColor: isDarkTheme ? 'rgb(173, 173, 173)' : 'inherit' 
                     },
-                  },
-                  marginBottom: '10px',
-                },
-                checkbox: { 
-                  borderColor: isDarkTheme ? 'rgb(173, 173, 173)' : 'inherit' 
-                },
-                text: { 
-                  color: isDarkTheme ? 'rgb(173, 173, 173)' : 'inherit' 
-                },
-              }}
-            />
-          ))}
-        </Stack>
-        {languages.length > 10 && (
-          <DefaultButton onClick={() => setShowAllLanguages(!showAllLanguages)}>
-            {showAllLanguages ? 'Display Less' : 'Display More'}
-          </DefaultButton>
-        )}
-      </Stack>
-    </Stack>
-    <Text 
-      variant="large" 
-      style={{ 
-        color: isDarkTheme ? 'rgb(173, 173, 173)' : 'inherit', 
-        marginTop: '20px', 
-        marginBottom: '15px' 
-      }}
-    >
-      Licenses
-    </Text>
-    <Stack tokens={{ childrenGap: 10 }}>
-      <Stack>
-        {displayedLicenses.map((license, index) => (
-          <Checkbox 
-            key={index} 
-            label={license + " (" + countItemsWithLicense(items, license) + ")"} 
-            onChange={(e, checked) => handleLicenseChange(license, checked)}
-            styles={{ 
-              root: {
-                selectors: {
-                  ':hover .ms-Checkbox-checkbox': {
-                    borderColor: isDarkTheme ? 'rgb(173, 173, 173)' : 'inherit',
-                  },
-                  ':hover .ms-Checkbox-text': {
-                    color: isDarkTheme ? 'rgb(173, 173, 173)' : 'inherit',
-                  },
-                },
-                marginBottom: '10px',
-              },
-              checkbox: { 
-                borderColor: isDarkTheme ? 'rgb(173, 173, 173)' : 'inherit' 
-              },
-              text: { 
-                color: isDarkTheme ? 'rgb(173, 173, 173)' : 'inherit' 
-              },
-            }}
-          />
-        ))}
-      </Stack>
-      {licenses.length > 10 && (
-        <DefaultButton onClick={() => setShowAllLicenses(!showAllLicenses)}>
-          {showAllLicenses ? 'Display Less' : 'Display More'}
-        </DefaultButton>
+                    text: { 
+                      color: isDarkTheme ? 'rgb(173, 173, 173)' : 'inherit' 
+                    },
+                  }}
+                />
+              ))}
+            </Stack>
+            {languages.length > 10 && (
+              <DefaultButton onClick={() => setShowAllLanguages(!showAllLanguages)}>
+                {showAllLanguages ? 'Display Less' : 'Display More'}
+              </DefaultButton>
+            )}
+          </Stack>
+        </>
       )}
-    </Stack>
-    <Text 
-      variant="large" 
-      style={{ 
-        color: isDarkTheme ? 'rgb(173, 173, 173)' : 'inherit', 
-        marginTop: '20px', 
-        marginBottom: '15px' 
-      }}
-    >
-      Owners
-    </Text>
-    <Stack tokens={{ childrenGap: 10 }}>
-      <Stack>
-        {displayedOwners.map((owner, index) => (
-          <Checkbox 
-            key={index} 
-            label={owner + " (" + countItemsWithOwner(items, owner) + ")"} 
-            onChange={(e, checked) => handleOwnerChange(owner, checked)}
-            styles={{ 
-              root: {
-                selectors: {
-                  ':hover .ms-Checkbox-checkbox': {
-                    borderColor: isDarkTheme ? 'rgb(173, 173, 173)' : 'inherit',
-                  },
-                  ':hover .ms-Checkbox-text': {
-                    color: isDarkTheme ? 'rgb(173, 173, 173)' : 'inherit',
-                  },
-                },
-                marginBottom: '10px',
-              },
-              checkbox: { 
-                borderColor: isDarkTheme ? 'rgb(173, 173, 173)' : 'inherit' 
-              },
-              text: { 
-                color: isDarkTheme ? 'rgb(173, 173, 173)' : 'inherit' 
-              },
-            }}
-          />
-        ))}
-      </Stack>
-      {owners.length > 10 && (
-        <DefaultButton onClick={() => setShowAllOwners(!showAllOwners)}>
-          {showAllOwners ? 'Display Less' : 'Display More'}
-        </DefaultButton>
+      <Text 
+        variant="large" 
+        style={{ 
+          color: isDarkTheme ? 'rgb(173, 173, 173)' : 'inherit', 
+          marginTop: '20px', 
+          marginBottom: '15px' 
+        }}
+        onClick = {() => setShowLicensesFilter(!showLicensesFilter)}
+      >
+        <div style={{ display: 'flex', justifyContent: 'space-between', width: `${filterSectionLabelMaxLength}ch` }}>
+            <span>Licenses</span>
+            <Icon iconName={showLicensesFilter ? 'ChevronUp' : 'ChevronDown'} />
+        </div>
+      </Text>
+      {showLicensesFilter && (
+        <>
+          <Stack tokens={{ childrenGap: 10 }}>
+            <Stack>
+              {displayedLicenses.map((license, index) => (
+                <Checkbox 
+                  key={index} 
+                  label={license + " (" + countItemsWithLicense(items, license) + ")"} 
+                  checked={checkboxStates[license] || false}
+                  onChange={(e, checked) => {
+                    handleLicenseChange(license, checked);
+                    setCheckboxStates(prevState => ({...prevState, [license]: checked}));
+                  }}
+                  styles={{ 
+                    root: {
+                      selectors: {
+                        ':hover .ms-Checkbox-checkbox': {
+                          borderColor: isDarkTheme ? 'rgb(173, 173, 173)' : 'inherit',
+                        },
+                        ':hover .ms-Checkbox-text': {
+                          color: isDarkTheme ? 'rgb(173, 173, 173)' : 'inherit',
+                        },
+                      },
+                      marginBottom: '10px',
+                    },
+                    checkbox: { 
+                      borderColor: isDarkTheme ? 'rgb(173, 173, 173)' : 'inherit' 
+                    },
+                    text: { 
+                      color: isDarkTheme ? 'rgb(173, 173, 173)' : 'inherit' 
+                    },
+                  }}
+                />
+              ))}
+            </Stack>
+            {licenses.length > 10 && (
+              <DefaultButton onClick={() => setShowAllLicenses(!showAllLicenses)}>
+                {showAllLicenses ? 'Display Less' : 'Display More'}
+              </DefaultButton>
+            )}
+          </Stack>
+        </>
+      )}
+      <Text 
+        variant="large" 
+        style={{ 
+          color: isDarkTheme ? 'rgb(173, 173, 173)' : 'inherit', 
+          marginTop: '20px', 
+          marginBottom: '15px' 
+        }}
+        onClick={() => setShowOwnersFilter(!showOwnersFilter)}
+      >
+        <div style={{ display: 'flex', justifyContent: 'space-between', width: `${filterSectionLabelMaxLength}ch` }}>
+            <span>Owners</span>
+            <Icon iconName={showOwnersFilter ? 'ChevronUp' : 'ChevronDown'} />
+        </div>
+      </Text>
+      {showOwnersFilter && (
+        <>
+          <Stack tokens={{ childrenGap: 10 }}>
+            <Stack>
+              {displayedOwners.map((owner, index) => (
+                <Checkbox 
+                  key={index} 
+                  label={owner + " (" + countItemsWithOwner(items, owner) + ")"} 
+                  checked={checkboxStates[owner] || false}
+                  onChange={(e, checked) => {
+                    handleOwnerChange(owner, checked);
+                    setCheckboxStates(prevState => ({...prevState, [owner]: checked}));
+                  }}
+                  styles={{ 
+                    root: {
+                      selectors: {
+                        ':hover .ms-Checkbox-checkbox': {
+                          borderColor: isDarkTheme ? 'rgb(173, 173, 173)' : 'inherit',
+                        },
+                        ':hover .ms-Checkbox-text': {
+                          color: isDarkTheme ? 'rgb(173, 173, 173)' : 'inherit',
+                        },
+                      },
+                      marginBottom: '10px',
+                    },
+                    checkbox: { 
+                      borderColor: isDarkTheme ? 'rgb(173, 173, 173)' : 'inherit' 
+                    },
+                    text: { 
+                      color: isDarkTheme ? 'rgb(173, 173, 173)' : 'inherit' 
+                    },
+                  }}
+                />
+              ))}
+            </Stack>
+            {owners.length > 10 && (
+              <DefaultButton onClick={() => setShowAllOwners(!showAllOwners)}>
+                {showAllOwners ? 'Display Less' : 'Display More'}
+              </DefaultButton>
+            )}
+          </Stack>
+        </>
       )}
     </Stack>
   </div>

@@ -36,17 +36,17 @@ function filterItems(items, hasGoodFirstIssueChecked, hasHelpWantedIssueChecked,
         );
     }
 
-    // Filter based on selected licenses (check 'license.name' property) - should include all selected licenses
+    // Filter based on selected licenses (check 'license.name' property) - should include any of the selected licenses
     if (selectedLicenses.length > 0) {
         filteredItems = filteredItems.filter(item =>
-            selectedLicenses.every(license => item.license.name === license)
+            selectedLicenses.includes(item.license.name)
         );
     }
 
-    // Filter based on selected owners (check 'owner.login' property) - should include all selected owners
+    // Filter based on selected owners (check 'owner.login' property) - should include any of the selected owners
     if (selectedOwners.length > 0) {
         filteredItems = filteredItems.filter(item =>
-            selectedOwners.every(owner => item.owner.login === owner)
+            selectedOwners.includes(item.owner.login)
         );
     }
 
