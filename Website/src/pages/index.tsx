@@ -6,6 +6,7 @@ import Layout from '@theme/Layout';
 import Heading from '@theme/Heading';
 import React, { useState, useEffect } from "react";
 import { SearchBox } from "@fluentui/react/lib/SearchBox";
+import Fuse from 'fuse.js';
 import { initializeIcons } from "@fluentui/react/lib/Icons";
 import { FluentProvider, webLightTheme, webDarkTheme } from '@fluentui/react-components';
 import styles from './index.module.css';
@@ -72,12 +73,18 @@ const App = () => {
   
   // useEffect hook to filter items based on search text
   useEffect(() => {
-    const sanitizedSearchText = escapeRegExp(searchText.toLowerCase());
+    const fuse = new Fuse(data, {
+      keys: ['fullName', 'description', 'topics', 'language', 'owner.login', 'license.name', 'codeOfConduct.name'],
+      includeScore: true,
+      findAllMatches: true,
+      threshold: 0.3 // you can adjust this threshold value according to your needs
+    });
   
     if (searchText === '') {
       setItems(data);
     } else {
-      const filteredItems = data.filter(item => item.fullName.toLowerCase().includes(sanitizedSearchText));
+      const result = fuse.search(searchText);
+      const filteredItems = result.map(item => item.item);
       setItems(filteredItems);
     }
   }, [searchText]);
