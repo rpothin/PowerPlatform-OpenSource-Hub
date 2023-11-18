@@ -82,7 +82,11 @@ const config: Config = {
       style: 'dark',
       links: [
         {
-          label: "Built With Docusaurus ",
+          label: "Inspired by Awesome AZD",
+          to: "https://azure.github.io/awesome-azd/",
+        },
+        {
+          label: "Built With Docusaurus",
           to: "https://docusaurus.io",
         },
         {
