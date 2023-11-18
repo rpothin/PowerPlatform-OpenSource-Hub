@@ -20,6 +20,7 @@ initializeIcons();
 // Defining the Repository interface
 interface Repository {
     fullName: string;
+    url: string;
     name: string;
     owner: {
         login: string;
@@ -60,11 +61,6 @@ const App = () => {
   const [selectedLicenses, setSelectedLicenses] = useState<string[]>([]);
   const [selectedOwners, setSelectedOwners] = useState<string[]>([]);
 
-  // Function to handle search text change
-  const handleSearchChange = (event) => {
-    setSearchText(event.target.value);
-  };
-
   useEffect(() => {
     setTimeout(() => {
       setLoading(false);
@@ -88,6 +84,11 @@ const App = () => {
       setItems(filteredItems);
     }
   }, [searchText]);
+
+  // Function to handle search text change
+  const handleSearchChange = (event) => {
+    setSearchText(event.target.value);
+  };
 
   // Rendering the HomePage component
   return !loading ? (

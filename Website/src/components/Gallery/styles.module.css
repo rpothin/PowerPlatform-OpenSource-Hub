@@ -1,25 +1,18 @@
 /* Styling for the gallery */
 .gallery {
-    display: -webkit-flex; /* Use flexbox for layout, with webkit prefix for compatibility */
-    display: flex; /* Use flexbox for layout */
-    -webkit-flex-direction: row; /* Arrange items in a row, with webkit prefix for compatibility */
-    flex-direction: row; /* Arrange items in a row */
-    -webkit-flex-wrap: wrap; /* Allow items to wrap onto the next line, with webkit prefix for compatibility */
-    flex-wrap: wrap; /* Allow items to wrap onto the next line */
-    -webkit-justify-content: space-around; /* Distribute items evenly with equal space around them, with webkit prefix for compatibility */
-    justify-content: space-around; /* Distribute items evenly with equal space around them */
-    -webkit-align-content: flex-start; /* Align content blocks at the start of the container, with webkit prefix for compatibility */
-    align-content: flex-start; /* Align content blocks at the start of the container */
-    -webkit-align-items: flex-start; /* Align items at the start of the line, with webkit prefix for compatibility */
-    align-items: flex-start; /* Align items at the start of the line */
-    padding: 20px; /* Add padding all around */
-    width: 100%; /* Full width */
+    display: flex;
+    flex-wrap: wrap;
+    flex: 1;
+    width: 100%;
+    padding: 10px;
+    grid-template-columns: repeat(auto-fit, minmax(285px, 1fr));
 }
 
 /* Styling for the gallery item */
 .galleryItem {
     flex: 1 1 300px; /* flex-grow | flex-shrink | flex-basis */
-    height: 300px; /* Set height */
+    max-width: 450px; /* Set max width */
+    max-height: 400px; /* Set max height */
     margin: 10px; /* Add margin all around */
 }
 
@@ -66,4 +59,31 @@
 /* Styling for one badge (shield.io image) */
 .badge {
     padding: 2px;
+}
+
+/* Keep for future change on light vs dark theme */
+.cardBreakLine {
+    border-top: 1px solid #f0f0f0;
+}
+
+[data-theme="dark"] .cardBreakLine {
+    border-top: 1px solid black;
+}
+
+/* Styling for the card header and footer footer - flex row with space between */
+.cardHeader, .cardFooter  {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    width: 100%;
+}
+
+.dialogTitle {
+    margin-bottom: 16px;
+    /* Make it flex row with space between */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }

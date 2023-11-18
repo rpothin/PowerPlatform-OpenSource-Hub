@@ -1,12 +1,47 @@
 // Importing necessary libraries and components
 import React, { useState } from 'react';
 import { DocumentCard, DocumentCardDetails, DocumentCardTitle, Dialog, DialogType, Link } from '@fluentui/react';
+
+import {
+    makeStyles,
+    Body1,
+    Caption1,
+    Button,
+    shorthands,
+    Subtitle1,
+    Text,
+    Badge,
+} from "@fluentui/react-components";
+
+import {
+    ArrowReplyRegular,
+    ShareRegular
+} from "@fluentui/react-icons";
+
+import {
+    Card,
+    CardFooter,
+    CardHeader,
+    CardPreview,
+} from "@fluentui/react-components";
+
+import {
+    DialogTrigger,
+    DialogSurface,
+    DialogTitle,
+    DialogBody,
+    DialogActions,
+    DialogContent,
+} from "@fluentui/react-components";
+
+import { OpenRegular, ArrowExpand16Regular, Star16Filled } from "@fluentui/react-icons";
+
 import styles from './styles.module.css'
 
 // Filter the items based on the selected criteria in the FilterPane
 function filterItems(items, hasGoodFirstIssueChecked, hasHelpWantedIssueChecked, hasCodeOfConductChecked, selectedTopics, selectedLanguages, selectedLicenses, selectedOwners) {
     let filteredItems = items;
-
+    
     // Filter based on 'hasGoodFirstIssues' status
     if (hasGoodFirstIssueChecked) {
         filteredItems = filteredItems.filter(item => item.hasGoodFirstIssues);
@@ -69,47 +104,106 @@ const Gallery = ({ items, hasGoodFirstIssueChecked, hasHelpWantedIssueChecked, h
     const closeDialog = () => {
         setHideDialog(true);
     }
+    
+    // Function to open item.url in a new tab
+    const openInGitHub = (url) => {
+        window.open(url, "_blank");
+    }
 
     // Rendering the Gallery component
     return (
-        <div className={styles.gallery}>
-            {filteredItems.map((item, index) => (
-                <DocumentCard className={styles.galleryItem} key={index}>
-                    <DocumentCardDetails>
-                        <DocumentCardTitle className={styles.galleryItemTitle} title={item.fullName} />
-                        <div className={styles.galleryItemSubtitle}>
-                            {item.description.length > 200 ? 
+            <div className={styles.gallery}>
+                {filteredItems.map((item, index) => (
+                    <Card className={styles.galleryItem}>
+                        {(["microsoft", "azure"].includes(item.owner.login.toLowerCase()) ? (
+                            <CardHeader
+                                header={
+                                    <div className={styles.cardHeader}>
+                                        <div className={styles.cardHeaderLeftContent}>
+                                            <img src="/PowerPlatform-OpenSource-Hub/img/Microsoft.svg" alt='Microsoft logo' width="16px" height="16px" style={{ paddingRight: '5px' }} />
+                                            <Body1>
+                                                Microsoft Authored
+                                            </Body1>
+                                        </div>
+                                        <Badge appearance="filled" color="warning" icon={<Star16Filled />} key={index}>{item.stargazerCount}</Badge>
+                                    </div>
+                                }
+                            />
+                        ) : (
+                            <CardHeader
+                                header={
+                                    <div className={styles.cardHeader}>
+                                        <div className={styles.cardHeaderLeftContent}>
+                                            <img src="/PowerPlatform-OpenSource-Hub/img/Community.svg" alt='Community icon' width="16px" height="16px" style={{ paddingRight: '5px' }} />
+                                            <Body1>
+                                                Community Authored
+                                            </Body1>
+                                        </div>
+                                        <Badge appearance="filled" color="warning" icon={<Star16Filled />} key={index}>{item.stargazerCount}</Badge>
+                                    </div>
+                                }
+                            />
+                        ))}
+
+                        <CardPreview className={styles.cardBreakLine} />
+
+                        <Subtitle1 style={{ maxHeight: '60px', height: '60px', fontSize: '16px' }}>
+                            {item.fullName}
+                        </Subtitle1>
+
+                        <Text>
+                            {item.description.length > 150 ? 
                                 <p>
-                                    {item.description.substring(0, 200) + '... '}
-                                    <Link onClick={() => openDialog(item)}>See more</Link>
+                                    {item.description.substring(0, 150) + '... '}
                                 </p> 
-                            : 
+                                : 
                                 item.description
                             }
+                        </Text>
+
+                        <div style={{ display: 'flex', flexWrap: 'wrap' }}>
+                            {item.topics.slice(0, 5).map((topic, index) => (
+                                <Badge appearance="outline" key={index} style={{ marginRight: '2px', marginBottom: '2px' }}>{topic}</Badge>
+                            ))}
                         </div>
-                        <DocumentCardTitle className={styles.galleryItemStarsCount} title={`⭐ ${item.stargazerCount}`} shouldTruncate showAsSecondaryTitle />
-                        <div className={styles.badges}>
-                            {item.hasGoodFirstIssues && 
-                                <img className={styles.badge} alt="HasGoodFirstIssueBadge" src="https://img.shields.io/badge/Has%20Good%201st%20Issue-7057ff" />
-                            }
-                            {item.hasHelpWantedIssues && 
-                                <img className={styles.badge} alt="HasHelpWantedIssueBadge" src="https://img.shields.io/badge/Has%20Help%20Wanted%20Issue-008672" />
-                            }
-                        </div>
-                    </DocumentCardDetails>
-                </DocumentCard>
-            ))}
-            <Dialog
-                hidden={hideDialog}
-                onDismiss={closeDialog}
-                dialogContentProps={{
-                    type: DialogType.largeHeader,
-                    title: selectedItem?.fullName,
-                    subText: selectedItem?.description
-                }}
-            />
-        </div>
-    );
+                        
+
+                        <CardPreview className={styles.cardBreakLine} />
+
+                        <CardFooter className={styles.cardFooter}>
+                            <Button icon={<OpenRegular fontSize={16} />} onClick={() => openInGitHub(item.url)}>Open in GitHub</Button>
+                            {(item.description.length > 150 || item.topics.length > 5) && (
+                                <Button icon={<ArrowExpand16Regular fontSize={16} />} onClick={() => openDialog(item)}>See more...</Button>
+                            )}
+                        </CardFooter>
+                    </Card>
+                ))}
+                <Dialog hidden={hideDialog}>
+                    <DialogSurface>
+                        <DialogTitle className={styles.dialogTitle}>
+                            {selectedItem?.fullName}
+                            <Badge appearance="filled" color="warning" icon={<Star16Filled />}>{selectedItem?.stargazerCount}</Badge>
+                        </DialogTitle>
+                        <DialogContent style={{ marginBottom: '16px', marginTop: '16px' }}>
+                            <DialogBody>
+                                <Text>
+                                    {selectedItem?.description}
+                                </Text>
+                                <div style={{ display: 'flex', flexWrap: 'wrap' }}>
+                                    {selectedItem?.topics.map((topic, index) => (
+                                        <Badge appearance="outline" key={index} style={{ marginRight: '2px', marginBottom: '1px' }}>{topic}</Badge>
+                                    ))}
+                                </div>
+                            </DialogBody>
+                        </DialogContent>
+                        <DialogActions>
+                            <Button appearance="secondary" onClick={closeDialog}>Close</Button>
+                            <Button appearance="primary" onClick={() => openInGitHub(selectedItem?.url)}>Open in GitHub</Button>
+                        </DialogActions>
+                    </DialogSurface>
+                </Dialog>
+            </div>
+      );
 };
 
 // Exporting the Gallery component

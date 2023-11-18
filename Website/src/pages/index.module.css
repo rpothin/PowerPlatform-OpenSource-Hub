@@ -48,8 +48,19 @@
 
 /* Styling for the filter pane and gallery */
 .filterPaneAndGallery {
-  display: flex; /* Use flexbox for layout */
-  padding: 30px; /* Padding all around */
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between; /* Change this line */
+  align-items: flex-start; /* Change this line */
+  padding: 30px;
+  position: relative;
+}
+
+@media (max-width: 600px) {
+  .filterPaneAndGallery {
+    flex-direction: column;
+    align-items: stretch;
+  }
 }
 
 /* Styling for the filter pane and gallery in dark theme */

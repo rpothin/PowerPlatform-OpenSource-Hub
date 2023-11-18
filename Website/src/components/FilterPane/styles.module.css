@@ -1,17 +1,6 @@
 /* Styling for the filter pane */
 .filterPane {
-    display: -webkit-flex; /* Use flexbox for layout, with webkit prefix for compatibility */
-    display: flex; /* Use flexbox for layout */
-    -webkit-flex-direction: column; /* Arrange items in a column, with webkit prefix for compatibility */
-    flex-direction: column; /* Arrange items in a column */
-    -webkit-flex-wrap: wrap; /* Allow items to wrap onto the next line, with webkit prefix for compatibility */
-    flex-wrap: wrap; /* Allow items to wrap onto the next line */
-    -webkit-justify-content: flex-start; /* Align items at the start of the container, with webkit prefix for compatibility */
-    justify-content: flex-start; /* Align items at the start of the container */
-    -webkit-align-content: flex-start; /* Align content blocks at the start of the container, with webkit prefix for compatibility */
-    align-content: flex-start; /* Align content blocks at the start of the container */
-    -webkit-align-items: flex-start; /* Align items at the start of the line, with webkit prefix for compatibility */
-    align-items: flex-start; /* Align items at the start of the line */
-    width: 20%; /* Set width to 15% of the parent container */
-    padding: 20px; /* Add padding all around */
+    flex: 1;
+    padding: 10px;
+    max-width: 500px;
 }
