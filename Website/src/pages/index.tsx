@@ -35,8 +35,15 @@ interface Repository {
     topics: string[];
     language: string;
     stargazerCount: number;
+    watchers: {
+        totalCount: number;
+    };
     hasGoodFirstIssues?: boolean;
     hasHelpWantedIssues?: boolean;
+    latestRelease?: {
+      tagName: string;
+      publishedAt: string;
+    };
 }
 
 // Function to escape special characters

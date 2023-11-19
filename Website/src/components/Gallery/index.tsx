@@ -1,6 +1,7 @@
 // Importing necessary libraries and components
 import React, { useState } from 'react';
 import { DocumentCard, DocumentCardDetails, DocumentCardTitle, Dialog, DialogType, Link } from '@fluentui/react';
+import { format } from 'date-fns';
 
 import {
     makeStyles,
@@ -34,7 +35,7 @@ import {
     DialogContent,
 } from "@fluentui/react-components";
 
-import { OpenRegular, ArrowExpand16Regular, Star16Filled } from "@fluentui/react-icons";
+import { OpenRegular, ArrowExpand16Regular, Star16Filled, Eye16Filled } from "@fluentui/react-icons";
 
 import styles from './styles.module.css'
 
@@ -172,9 +173,7 @@ const Gallery = ({ items, hasGoodFirstIssueChecked, hasHelpWantedIssueChecked, h
 
                         <CardFooter className={styles.cardFooter}>
                             <Button icon={<OpenRegular fontSize={16} />} onClick={() => openInGitHub(item.url)}>Open in GitHub</Button>
-                            {(item.description.length > 150 || item.topics.length > 5) && (
-                                <Button icon={<ArrowExpand16Regular fontSize={16} />} onClick={() => openDialog(item)}>See more...</Button>
-                            )}
+                            <Button icon={<ArrowExpand16Regular fontSize={16} />} onClick={() => openDialog(item)}>See more...</Button>
                         </CardFooter>
                     </Card>
                 ))}
@@ -185,18 +184,32 @@ const Gallery = ({ items, hasGoodFirstIssueChecked, hasHelpWantedIssueChecked, h
                     <DialogSurface>
                         <DialogTitle className={styles.dialogTitle}>
                             {selectedItem?.fullName}
-                            <Badge appearance="filled" color="warning" icon={<Star16Filled />}>{selectedItem?.stargazerCount}</Badge>
+                            <div style={{ display: 'flex', gap: '8px' }}>
+                                <Badge appearance="filled" color="warning" icon={<Star16Filled />}>{selectedItem?.stargazerCount}</Badge>
+                                <Badge appearance="outline" icon={<Eye16Filled />}>{selectedItem?.watchers.totalCount}</Badge>
+                            </div>
                         </DialogTitle>
                         <DialogContent style={{ marginBottom: '16px', marginTop: '16px' }}>
                             <DialogBody>
-                                <Text>
-                                    {selectedItem?.description}
-                                </Text>
-                                <div style={{ display: 'flex', flexWrap: 'wrap' }}>
-                                    {selectedItem?.topics.map((topic, index) => (
-                                        <Badge appearance="outline" key={index} style={{ marginRight: '2px', marginBottom: '1px' }}>{topic}</Badge>
-                                    ))}
-                                </div>
+                                    <div style={{ display: 'flex', flexDirection: 'column' }}>
+                                        <Text>
+                                            {selectedItem?.description}
+                                        </Text>
+                                        <div style={{ marginTop: '10px', display: 'flex', flexWrap: 'wrap', flexDirection: 'column' }}>
+                                            <Badge appearance="tint" style={{ marginBottom: '4px' }}>License: {selectedItem?.license.name}</Badge>
+                                            <Badge appearance="tint" style={{ marginBottom: '4px' }}>Good 1st Issues: {selectedItem?.openedGoodFirstIssues}</Badge>
+                                            <Badge appearance="tint" style={{ marginBottom: '4px' }}>Help Wanted Issues: {selectedItem?.openedHelpWantedIssues}</Badge>
+                                            <Badge appearance="tint" style={{ marginBottom: '4px' }}>Language: {selectedItem?.language}</Badge>
+                                            {selectedItem?.latestRelease && (
+                                                <Badge appearance="tint" style={{ marginBottom: '4px' }}>Latest Release: {selectedItem?.latestRelease.tagName} ({format(new Date(selectedItem?.latestRelease.publishedAt), 'yyyy-MM-dd')})</Badge>
+                                            )}
+                                        </div>
+                                    </div>
+                                    <div style={{ display: 'flex', flexWrap: 'wrap' }}>
+                                        {selectedItem?.topics.map((topic, index) => (
+                                            <Badge appearance="outline" key={index} style={{ marginRight: '2px', marginBottom: '1px' }}>{topic}</Badge>
+                                        ))}
+                                    </div>
                             </DialogBody>
                         </DialogContent>
                         <DialogActions>
