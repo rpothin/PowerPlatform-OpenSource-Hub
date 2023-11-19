@@ -178,7 +178,10 @@ const Gallery = ({ items, hasGoodFirstIssueChecked, hasHelpWantedIssueChecked, h
                         </CardFooter>
                     </Card>
                 ))}
-                <Dialog hidden={hideDialog}>
+                <Dialog
+                    hidden={hideDialog} 
+                    onDismiss={closeDialog}
+                >
                     <DialogSurface>
                         <DialogTitle className={styles.dialogTitle}>
                             {selectedItem?.fullName}
