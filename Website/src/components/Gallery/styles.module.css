@@ -1,11 +1,10 @@
 /* Styling for the gallery */
 .gallery {
-    display: flex;
-    flex-wrap: wrap;
-    flex: 1;
+    display: grid;
     width: 100%;
     padding: 10px;
-    grid-template-columns: repeat(auto-fit, minmax(285px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    grid-gap: 10px; /* adjust as needed */
 }
 
 /* Styling for the gallery item */
