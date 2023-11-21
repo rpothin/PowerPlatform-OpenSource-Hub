@@ -13,5 +13,6 @@
 				"ritwickdey.LiveServer"
 			]
 		}
-	}
+	},
+	"postCreateCommand": "npm install --save docusaurus"
 }
