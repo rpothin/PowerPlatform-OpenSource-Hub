@@ -97,3 +97,11 @@
     flex-direction: row;
     justify-content: space-between;
 }
+
+/* Styling for the card header right content to be aligned vertically */
+.cardHeaderRightContent {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-end;
+}

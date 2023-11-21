@@ -44,6 +44,7 @@ interface Repository {
       tagName: string;
       publishedAt: string;
     };
+    updatedAt: string;
 }
 
 // Function to escape special characters

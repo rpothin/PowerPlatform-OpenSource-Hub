@@ -38,7 +38,7 @@ import {
     DialogContent,
 } from "@fluentui/react-components";
 
-import { OpenRegular, ArrowExpand16Regular, Star16Filled, Eye16Filled } from "@fluentui/react-icons";
+import { OpenRegular, ArrowExpand16Regular, Star16Filled, Eye16Filled, Dismiss24Regular } from "@fluentui/react-icons";
 
 import styles from './styles.module.css'
 
@@ -152,6 +152,14 @@ const Gallery = ({ items, hasGoodFirstIssueChecked, hasHelpWantedIssueChecked, h
     // Sort the filtered items based on the selected order by option
     const sortedItems = sortItems(filteredItems);
 
+    // Helper function to check if a date is within the last 10 days
+    const isActive = (dateString) => {
+        const date = new Date(dateString);
+        const thirtyDaysAgo = new Date();
+        thirtyDaysAgo.setDate(thirtyDaysAgo.getDate() - 10);
+        return date >= thirtyDaysAgo;
+    }
+
     // Rendering the Gallery component
     return (
         <div style={{ width: '100%' }}>
@@ -187,7 +195,10 @@ const Gallery = ({ items, hasGoodFirstIssueChecked, hasHelpWantedIssueChecked, h
                                                 Microsoft Authored
                                             </Body1>
                                         </div>
-                                        <Badge appearance="filled" color="warning" icon={<Star16Filled />} key={index}>{item.stargazerCount}</Badge>
+                                        <div className={styles.cardHeaderRightContent}>
+                                            {isActive(item.updatedAt) && <Badge appearance="outline" style={{ marginRight: '5px' }}>🔥 Active</Badge>}
+                                            <Badge appearance="filled" color="warning" icon={<Star16Filled />} key={index}>{item.stargazerCount}</Badge>
+                                        </div>
                                     </div>
                                 }
                             />
@@ -201,7 +212,10 @@ const Gallery = ({ items, hasGoodFirstIssueChecked, hasHelpWantedIssueChecked, h
                                                 Community Authored
                                             </Body1>
                                         </div>
-                                        <Badge appearance="filled" color="warning" icon={<Star16Filled />} key={index}>{item.stargazerCount}</Badge>
+                                        <div className={styles.cardHeaderRightContent}>
+                                            {isActive(item.updatedAt) && <Badge appearance="outline" style={{ marginRight: '5px' }}>🔥 Active</Badge>}
+                                            <Badge appearance="filled" color="warning" icon={<Star16Filled />} key={index}>{item.stargazerCount}</Badge>
+                                        </div>
                                     </div>
                                 }
                             />
@@ -245,9 +259,18 @@ const Gallery = ({ items, hasGoodFirstIssueChecked, hasHelpWantedIssueChecked, h
                     <DialogSurface>
                         <DialogTitle className={styles.dialogTitle}>
                             {selectedItem?.fullName}
-                            <div style={{ display: 'flex', gap: '8px' }}>
+                            <div style={{ display: 'flex', gap: '5px', flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}>
+                                {isActive(selectedItem?.updatedAt) && <Badge appearance="outline">🔥 Active</Badge>}
                                 <Badge appearance="filled" color="warning" icon={<Star16Filled />}>{selectedItem?.stargazerCount}</Badge>
                                 <Badge appearance="outline" icon={<Eye16Filled />}>{selectedItem?.watchers.totalCount}</Badge>
+                                <DialogTrigger action="close">
+                                    <Button
+                                        appearance="subtle"
+                                        aria-label="close"
+                                        icon={<Dismiss24Regular />}
+                                        onClick={closeDialog}
+                                    />
+                                </DialogTrigger>
                             </div>
                         </DialogTitle>
                         <DialogContent style={{ marginBottom: '16px', marginTop: '16px' }}>
