@@ -17,21 +17,20 @@
   "dependencies": {
     "@docusaurus/core": "3.0.0",
     "@docusaurus/preset-classic": "3.0.0",
-    "@fluentui/react": "^8.112.8",
-    "@fluentui/react-components": "^9.39.0",
+    "@fluentui/react": "^8.112.9",
+    "@fluentui/react-components": "^9.41.0",
     "@types/date-fns": "^2.6.0",
-    "clsx": "^1.2.1",
+    "clsx": "^2.0.0",
     "date-fns": "^2.30.0",
-    "docusaurus": "^1.14.7",
     "fuse.js": "^7.0.0",
-    "prism-react-renderer": "^2.1.0",
-    "react": "^18.0.0",
-    "react-dom": "^18.0.0"
+    "prism-react-renderer": "^2.3.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
     "@docusaurus/tsconfig": "3.0.0",
     "@docusaurus/types": "3.0.0",
-    "typescript": "~5.2.2"
+    "typescript": "^5.3.2"
   },
   "browserslist": {
     "production": [
