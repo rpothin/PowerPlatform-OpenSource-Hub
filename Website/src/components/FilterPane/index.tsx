@@ -1,6 +1,15 @@
 // Importing necessary libraries and components
 import React, { useState } from 'react';
-import { Stack, Text, Checkbox, DefaultButton, useTheme, Icon } from '@fluentui/react';
+import { Stack, Text, DefaultButton, useTheme, Icon } from '@fluentui/react';
+import {
+  Accordion,
+  AccordionHeader,
+  AccordionItem,
+  AccordionPanel,
+  AccordionToggleEventHandler,
+  Checkbox,
+} from "@fluentui/react-components";
+import type { CheckboxProps } from "@fluentui/react-components";
 import styles from './styles.module.css';
 
 // Function to count the number of items where the 'hasGoodFirstIssues' property is true
@@ -126,9 +135,9 @@ const FilterPane = ({ items, onGoodFirstIssueChange, onHelpWanteIssueChange, onC
   const [showLicensesFilter, setShowLicensesFilter] = useState(false);
   const [showOwnersFilter, setShowOwnersFilter] = useState(false);
   const [checkboxStates, setCheckboxStates] = useState({});
-  const [hasGoodFirstIssueChecked, setHasGoodFirstIssue] = useState(false);
-  const [hasHelpWantedIssueChecked, setHasHelpWantedIssue] = useState(false);
-  const [hasCodeOfConductChecked, setHasCodeOfConduct] = useState(false);
+  const [hasGoodFirstIssueChecked, setHasGoodFirstIssue] = React.useState<CheckboxProps["checked"]>(false);
+  const [hasHelpWantedIssueChecked, setHasHelpWantedIssue] = React.useState<CheckboxProps["checked"]>(false);
+  const [hasCodeOfConductChecked, setHasCodeOfConduct] = React.useState<CheckboxProps["checked"]>(false);
   const [selectedTopics, setSelectedTopics] = useState<string[]>([]);
   const [showAllTopics, setShowAllTopics] = useState(false);
   const [selectedLanguages, setSelectedLanguages] = useState<string[]>([]);
@@ -164,42 +173,42 @@ const FilterPane = ({ items, onGoodFirstIssueChange, onHelpWanteIssueChange, onC
   const displayedOwners = showAllOwners ? owners : owners.slice(0, 10);
 
   // Function to handle good first issue change
-  const handleGoodFirstIssueChange = (checked: boolean) => {
-  setHasGoodFirstIssue(checked);
-  onGoodFirstIssueChange(checked);
+  const handleGoodFirstIssueChange = (checked: CheckboxProps["checked"]) => {
+    setHasGoodFirstIssue(checked);
+    onGoodFirstIssueChange(checked);
   };
 
   // Function to handle help wanted issue change
-  const handleHelpWantedIssueChange = (checked: boolean) => {
-  setHasHelpWantedIssue(checked);
-  onHelpWanteIssueChange(checked);
+  const handleHelpWantedIssueChange = (checked: CheckboxProps["checked"]) => {
+    setHasHelpWantedIssue(checked);
+    onHelpWanteIssueChange(checked);
   };
 
   // Function to handle code of conduct change
-  const handleCodeOfConductChange = (checked: boolean) => {
+  const handleCodeOfConductChange = (checked: CheckboxProps["checked"]) => {
     setHasCodeOfConduct(checked);
     onCodeOfConductChange(checked);
   };
 
   // Function to handle topic change
-  const handleTopicChange = (topic: string, checked: boolean) => {
-  const newSelectedTopics = checked
-    ? [...selectedTopics, topic]
-    : selectedTopics.filter(t => t !== topic);
-  setSelectedTopics(newSelectedTopics);
-  onTopicsChange(newSelectedTopics);
+  const handleTopicChange = (topic: string, checked: CheckboxProps["checked"]) => {
+    const newSelectedTopics = checked
+      ? [...selectedTopics, topic]
+      : selectedTopics.filter(t => t !== topic);
+    setSelectedTopics(newSelectedTopics);
+    onTopicsChange(newSelectedTopics);
   };
 
   // Function to handle language change
-  const handleLanguageChange = (language: string, checked: boolean) => {
-  const newSelectedLanguages = checked
-    ? [...selectedLanguages, language]
-    : selectedLanguages.filter(l => l !== language);
-  setSelectedLanguages(newSelectedLanguages);
-  onLanguagesChange(newSelectedLanguages);
+  const handleLanguageChange = (language: string, checked: CheckboxProps["checked"]) => {
+    const newSelectedLanguages = checked
+      ? [...selectedLanguages, language]
+      : selectedLanguages.filter(l => l !== language);
+    setSelectedLanguages(newSelectedLanguages);
+    onLanguagesChange(newSelectedLanguages); // You need to pass this function as a prop to FilterPane
   };
 
-  const handleLicenseChange = (license: string, checked: boolean) => {
+  const handleLicenseChange = (license: string, checked: CheckboxProps["checked"]) => {
     const newSelectedLicenses = checked
       ? [...selectedLicenses, license]
       : selectedLicenses.filter(l => l !== license);
@@ -207,7 +216,7 @@ const FilterPane = ({ items, onGoodFirstIssueChange, onHelpWanteIssueChange, onC
     onLicensesChange(newSelectedLicenses); // You need to pass this function as a prop to FilterPane
   };
 
-  const handleOwnerChange = (owner: string, checked: boolean) => {
+  const handleOwnerChange = (owner: string, checked: CheckboxProps["checked"]) => {
     const newSelectedOwners = checked
       ? [...selectedOwners, owner]
       : selectedOwners.filter(o => o !== owner);
@@ -216,334 +225,156 @@ const FilterPane = ({ items, onGoodFirstIssueChange, onHelpWanteIssueChange, onC
   };
 
   // Rendering the FilterPane component
-  return (
-  <div className={styles.filterPane}> 
-    <Stack className="filter-pane" tokens={{ childrenGap: 10 }}>
-      <Text 
-        variant="large" 
-        style={{ 
-          color: isDarkTheme ? 'rgb(173, 173, 173)' : 'inherit', 
-          marginBottom: '15px' 
-        }}
-        onClick={() => setShowContributionOpportunitiesFilter(!showContributionOpportunitiesFilter)}
-      >
-        <div style={{ display: 'flex', justifyContent: 'space-between', width: `${filterSectionLabelMaxLength}ch` }}>
-            <span>Contribution Opportunities</span>
-            <Icon iconName={showContributionOpportunitiesFilter ? 'ChevronUp' : 'ChevronDown'} />
-        </div>
-      </Text>
-      {showContributionOpportunitiesFilter && (
-        <>
-          <Checkbox 
-            label={"Has good first issue (" + goodFirstIssueCount +  ")"} 
-            checked={checkboxStates['goodFirstIssue'] || false} 
-            onChange={(e, checked) => {
-              handleGoodFirstIssueChange(checked);
-              setCheckboxStates(prevState => ({...prevState, 'goodFirstIssue': checked}));
-            }}
-            styles={{ 
-              root: {
-                selectors: {
-                  ':hover .ms-Checkbox-checkbox': {
-                    borderColor: isDarkTheme ? 'rgb(173, 173, 173)' : 'inherit',
-                  },
-                  ':hover .ms-Checkbox-text': {
-                    color: isDarkTheme ? 'rgb(173, 173, 173)' : 'inherit',
-                  },
-                },
-              },
-              checkbox: { 
-                borderColor: isDarkTheme ? 'rgb(173, 173, 173)' : 'inherit' 
-              },
-              text: { 
-                color: isDarkTheme ? 'rgb(173, 173, 173)' : 'inherit' 
-              },
-            }}
-          />
-          <Checkbox 
+  return(
+    <Accordion
+      defaultOpenItems="1"
+      multiple
+      collapsible
+      style={{
+        width: '350px',
+        minWidth: '350px',
+      }}
+    >
+      <AccordionItem value="1">
+        <AccordionHeader style={{ marginBottom: '10px' }} size="large" expandIconPosition="end">Contribution Opportunities</AccordionHeader>
+        <AccordionPanel>
+          <div style={{ display: 'flex', flexDirection: 'column' }}>
+            <Checkbox 
+              label={"Has good first issue (" + goodFirstIssueCount +  ")"}
+              checked={checkboxStates['goodFirstIssue'] || false} 
+              onChange={(e, data) => {
+                handleGoodFirstIssueChange(data.checked);
+                setCheckboxStates(prevState => ({...prevState, 'goodFirstIssue': data.checked}));
+              }}
+            />
+            <Checkbox 
             label={"Has help wanted issue (" + helpWantedIssueCount + ")"} 
             checked={checkboxStates['helpWantedIssue'] || false}
-            onChange={(e, checked) => {
-              handleHelpWantedIssueChange(checked);
-              setCheckboxStates(prevState => ({...prevState, 'helpWantedIssue': checked}));
-            }}
-            styles={{ 
-              root: {
-                selectors: {
-                  ':hover .ms-Checkbox-checkbox': {
-                    borderColor: isDarkTheme ? 'rgb(173, 173, 173)' : 'inherit',
-                  },
-                  ':hover .ms-Checkbox-text': {
-                    color: isDarkTheme ? 'rgb(173, 173, 173)' : 'inherit',
-                  },
-                },
-              },
-              checkbox: { 
-                borderColor: isDarkTheme ? 'rgb(173, 173, 173)' : 'inherit' 
-              },
-              text: { 
-                color: isDarkTheme ? 'rgb(173, 173, 173)' : 'inherit' 
-              },
+            onChange={(e, data) => {
+              handleHelpWantedIssueChange(data.checked);
+              setCheckboxStates(prevState => ({...prevState, 'helpWantedIssue': data.checked}));
             }}
           />
           <Checkbox 
             label={"Has code of conduct (" + codeOfConductCount +  ")"} 
             checked={checkboxStates['codeOfConduct'] || false}
-            onChange={(e, checked) => {
-              handleCodeOfConductChange(checked);
-              setCheckboxStates(prevState => ({...prevState, 'codeOfConduct': checked}));
-            }}
-            styles={{ 
-              root: {
-                selectors: {
-                  ':hover .ms-Checkbox-checkbox': {
-                    borderColor: isDarkTheme ? 'rgb(173, 173, 173)' : 'inherit',
-                  },
-                  ':hover .ms-Checkbox-text': {
-                    color: isDarkTheme ? 'rgb(173, 173, 173)' : 'inherit',
-                  },
-                },
-              },
-              checkbox: { 
-                borderColor: isDarkTheme ? 'rgb(173, 173, 173)' : 'inherit' 
-              },
-              text: { 
-                color: isDarkTheme ? 'rgb(173, 173, 173)' : 'inherit' 
-              },
+            onChange={(e, data) => {
+              handleCodeOfConductChange(data.checked);
+              setCheckboxStates(prevState => ({...prevState, 'codeOfConduct': data.checked}));
             }}
           />
-        </>
-      )}
-      <Text 
-        variant="large" 
-        style={{ 
-          color: isDarkTheme ? 'rgb(173, 173, 173)' : 'inherit', 
-          marginTop: '20px', 
-          marginBottom: '15px' 
-        }}
-        onClick={() => setShowTopicsFilter(!showTopicsFilter)}
-      >
-        <div style={{ display: 'flex', justifyContent: 'space-between', width: `${filterSectionLabelMaxLength}ch` }}>
-            <span>Topics</span>
-            <Icon iconName={showTopicsFilter ? 'ChevronUp' : 'ChevronDown'} />
-        </div>
-      </Text>
-      {showTopicsFilter && (
-        <>
-          <Stack tokens={{ childrenGap: 10 }}>
-            <Stack>
-              {displayedTopics.map((topic, index) => (
-                <Checkbox 
-                  key={index} 
-                  label={topic + " (" + countItemsWithTopic(items, topic) + ")"} 
-                  checked={checkboxStates[topic] || false}
-                  onChange={(e, checked) => {
-                    handleTopicChange(topic, checked);
-                    setCheckboxStates(prevState => ({...prevState, [topic]: checked}));
-                  }}
-                  styles={{ 
-                    root: {
-                      selectors: {
-                        ':hover .ms-Checkbox-checkbox': {
-                          borderColor: isDarkTheme ? 'rgb(173, 173, 173)' : 'inherit',
-                        },
-                        ':hover .ms-Checkbox-text': {
-                          color: isDarkTheme ? 'rgb(173, 173, 173)' : 'inherit',
-                        },
-                      },
-                      marginBottom: '10px',
-                    },
-                    checkbox: { 
-                      borderColor: isDarkTheme ? 'rgb(173, 173, 173)' : 'inherit' 
-                    },
-                    text: { 
-                      color: isDarkTheme ? 'rgb(173, 173, 173)' : 'inherit' 
-                    },
-                  }}
-                />
-              ))}
+          </div>
+        </AccordionPanel>
+      </AccordionItem>
+      <AccordionItem value="2">
+        <AccordionHeader style={{ marginTop: '10px', marginBottom: '10px' }} size="large" expandIconPosition="end">Topics</AccordionHeader>
+        <AccordionPanel>
+            <div style={{ display: 'flex', flexDirection: 'column' }}>
+              <Stack tokens={{ childrenGap: 10 }}>
+                <Stack>
+                  {displayedTopics.map((topic, index) => (
+                    <Checkbox 
+                      key={index} 
+                      label={topic + " (" + countItemsWithTopic(items, topic) + ")"} 
+                      checked={checkboxStates[topic] || false}
+                      onChange={(e, data) => {
+                        handleTopicChange(topic, data.checked);
+                        setCheckboxStates(prevState => ({...prevState, [topic]: data.checked}));
+                      }}
+                    />
+                  ))}
+                </Stack>
+                {topics.length > 10 && (
+                  <DefaultButton onClick={() => setShowAllTopics(!showAllTopics)}>
+                    {showAllTopics ? 'View Less' : 'View All'}
+                  </DefaultButton>
+                )}
+              </Stack>
+            </div>
+        </AccordionPanel>
+      </AccordionItem>
+      <AccordionItem value="3">
+        <AccordionHeader style={{ marginTop: '10px', marginBottom: '10px' }} size="large" expandIconPosition="end">Languages</AccordionHeader>
+        <AccordionPanel>
+          <div style={{ display: 'flex', flexDirection: 'column' }}>
+            <Stack tokens={{ childrenGap: 10 }}>
+              <Stack>
+                {displayedLanguages.map((language, index) => (
+                  <Checkbox 
+                    key={index} 
+                    label={language + " (" + countItemsWithLanguage(items, language) + ")"} 
+                    checked={checkboxStates[language] || false}
+                    onChange={(e, data) => {
+                      handleLanguageChange(language, data.checked);
+                      setCheckboxStates(prevState => ({...prevState, [language]: data.checked}));
+                    }}
+                  />
+                ))}
+              </Stack>
+              {languages.length > 10 && (
+                <DefaultButton onClick={() => setShowAllLanguages(!showAllLanguages)}>
+                  {showAllLanguages ? 'View Less' : 'View All'}
+                </DefaultButton>
+              )}
             </Stack>
-            {topics.length > 10 && (
-              <DefaultButton onClick={() => setShowAllTopics(!showAllTopics)}>
-                {showAllTopics ? 'Display Less' : 'Display More'}
-              </DefaultButton>
-            )}
-          </Stack>
-        </>
-      )}
-      <Text 
-        variant="large" 
-        style={{ 
-          color: isDarkTheme ? 'rgb(173, 173, 173)' : 'inherit', 
-          marginTop: '20px', 
-          marginBottom: '15px' 
-        }}
-        onClick={() => setShowLanguagesFilter(!showLanguagesFilter)}
-      >
-        <div style={{ display: 'flex', justifyContent: 'space-between', width: `${filterSectionLabelMaxLength}ch` }}>
-            <span>Languages</span>
-            <Icon iconName={showLanguagesFilter ? 'ChevronUp' : 'ChevronDown'} />
-        </div>
-      </Text>
-      {showLanguagesFilter && (
-        <>
-          <Stack tokens={{ childrenGap: 10 }}>
-            <Stack>
-              {displayedLanguages.map((language, index) => (
-                <Checkbox 
-                  key={index} 
-                  label={language + " (" + countItemsWithLanguage(items, language) + ")"} 
-                  checked={checkboxStates[language] || false}
-                  onChange={(e, checked) => {
-                    handleLanguageChange(language, checked);
-                    setCheckboxStates(prevState => ({...prevState, [language]: checked}));
-                  }}
-                  styles={{ 
-                    root: {
-                      selectors: {
-                        ':hover .ms-Checkbox-checkbox': {
-                          borderColor: isDarkTheme ? 'rgb(173, 173, 173)' : 'inherit',
-                        },
-                        ':hover .ms-Checkbox-text': {
-                          color: isDarkTheme ? 'rgb(173, 173, 173)' : 'inherit',
-                        },
-                      },
-                      marginBottom: '10px',
-                    },
-                    checkbox: { 
-                      borderColor: isDarkTheme ? 'rgb(173, 173, 173)' : 'inherit' 
-                    },
-                    text: { 
-                      color: isDarkTheme ? 'rgb(173, 173, 173)' : 'inherit' 
-                    },
-                  }}
-                />
-              ))}
+          </div>
+        </AccordionPanel>
+      </AccordionItem>
+      <AccordionItem value="4">
+        <AccordionHeader style={{ marginTop: '10px', marginBottom: '10px' }} size="large" expandIconPosition="end">Licenses</AccordionHeader>
+        <AccordionPanel>
+          <div style={{ display: 'flex', flexDirection: 'column' }}>
+            <Stack tokens={{ childrenGap: 10 }}>
+              <Stack>
+                {displayedLicenses.map((license, index) => (
+                  <Checkbox 
+                    key={index} 
+                    label={license + " (" + countItemsWithLicense(items, license) + ")"} 
+                    checked={checkboxStates[license] || false}
+                    onChange={(e, data) => {
+                      handleLicenseChange(license, data.checked);
+                      setCheckboxStates(prevState => ({...prevState, [license]: data.checked}));
+                    }}
+                  />
+                ))}
+              </Stack>
+              {licenses.length > 10 && (
+                <DefaultButton onClick={() => setShowAllLicenses(!showAllLicenses)}>
+                  {showAllLicenses ? 'View Less' : 'View All'}
+                </DefaultButton>
+              )}
             </Stack>
-            {languages.length > 10 && (
-              <DefaultButton onClick={() => setShowAllLanguages(!showAllLanguages)}>
-                {showAllLanguages ? 'Display Less' : 'Display More'}
-              </DefaultButton>
-            )}
-          </Stack>
-        </>
-      )}
-      <Text 
-        variant="large" 
-        style={{ 
-          color: isDarkTheme ? 'rgb(173, 173, 173)' : 'inherit', 
-          marginTop: '20px', 
-          marginBottom: '15px' 
-        }}
-        onClick = {() => setShowLicensesFilter(!showLicensesFilter)}
-      >
-        <div style={{ display: 'flex', justifyContent: 'space-between', width: `${filterSectionLabelMaxLength}ch` }}>
-            <span>Licenses</span>
-            <Icon iconName={showLicensesFilter ? 'ChevronUp' : 'ChevronDown'} />
-        </div>
-      </Text>
-      {showLicensesFilter && (
-        <>
-          <Stack tokens={{ childrenGap: 10 }}>
-            <Stack>
-              {displayedLicenses.map((license, index) => (
-                <Checkbox 
-                  key={index} 
-                  label={license + " (" + countItemsWithLicense(items, license) + ")"} 
-                  checked={checkboxStates[license] || false}
-                  onChange={(e, checked) => {
-                    handleLicenseChange(license, checked);
-                    setCheckboxStates(prevState => ({...prevState, [license]: checked}));
-                  }}
-                  styles={{ 
-                    root: {
-                      selectors: {
-                        ':hover .ms-Checkbox-checkbox': {
-                          borderColor: isDarkTheme ? 'rgb(173, 173, 173)' : 'inherit',
-                        },
-                        ':hover .ms-Checkbox-text': {
-                          color: isDarkTheme ? 'rgb(173, 173, 173)' : 'inherit',
-                        },
-                      },
-                      marginBottom: '10px',
-                    },
-                    checkbox: { 
-                      borderColor: isDarkTheme ? 'rgb(173, 173, 173)' : 'inherit' 
-                    },
-                    text: { 
-                      color: isDarkTheme ? 'rgb(173, 173, 173)' : 'inherit' 
-                    },
-                  }}
-                />
-              ))}
+          </div>
+        </AccordionPanel>
+      </AccordionItem>
+      <AccordionItem value="5">
+        <AccordionHeader style={{ marginTop: '10px', marginBottom: '10px' }} size="large" expandIconPosition="end">Owners</AccordionHeader>
+        <AccordionPanel>
+          <div style={{ display: 'flex', flexDirection: 'column' }}>
+            <Stack tokens={{ childrenGap: 10 }}>
+              <Stack>
+                {displayedOwners.map((owner, index) => (
+                  <Checkbox 
+                    key={index} 
+                    label={owner + " (" + countItemsWithOwner(items, owner) + ")"} 
+                    checked={checkboxStates[owner] || false}
+                    onChange={(e, data) => {
+                      handleOwnerChange(owner, data.checked);
+                      setCheckboxStates(prevState => ({...prevState, [owner]: data.checked}));
+                    }}
+                  />
+                ))}
+              </Stack>
+              {owners.length > 10 && (
+                <DefaultButton onClick={() => setShowAllOwners(!showAllOwners)}>
+                  {showAllOwners ? 'View Less' : 'View All'}
+                </DefaultButton>
+              )}
             </Stack>
-            {licenses.length > 10 && (
-              <DefaultButton onClick={() => setShowAllLicenses(!showAllLicenses)}>
-                {showAllLicenses ? 'Display Less' : 'Display More'}
-              </DefaultButton>
-            )}
-          </Stack>
-        </>
-      )}
-      <Text 
-        variant="large" 
-        style={{ 
-          color: isDarkTheme ? 'rgb(173, 173, 173)' : 'inherit', 
-          marginTop: '20px', 
-          marginBottom: '15px' 
-        }}
-        onClick={() => setShowOwnersFilter(!showOwnersFilter)}
-      >
-        <div style={{ display: 'flex', justifyContent: 'space-between', width: `${filterSectionLabelMaxLength}ch` }}>
-            <span>Owners</span>
-            <Icon iconName={showOwnersFilter ? 'ChevronUp' : 'ChevronDown'} />
-        </div>
-      </Text>
-      {showOwnersFilter && (
-        <>
-          <Stack tokens={{ childrenGap: 10 }}>
-            <Stack>
-              {displayedOwners.map((owner, index) => (
-                <Checkbox 
-                  key={index} 
-                  label={owner + " (" + countItemsWithOwner(items, owner) + ")"} 
-                  checked={checkboxStates[owner] || false}
-                  onChange={(e, checked) => {
-                    handleOwnerChange(owner, checked);
-                    setCheckboxStates(prevState => ({...prevState, [owner]: checked}));
-                  }}
-                  styles={{ 
-                    root: {
-                      selectors: {
-                        ':hover .ms-Checkbox-checkbox': {
-                          borderColor: isDarkTheme ? 'rgb(173, 173, 173)' : 'inherit',
-                        },
-                        ':hover .ms-Checkbox-text': {
-                          color: isDarkTheme ? 'rgb(173, 173, 173)' : 'inherit',
-                        },
-                      },
-                      marginBottom: '10px',
-                    },
-                    checkbox: { 
-                      borderColor: isDarkTheme ? 'rgb(173, 173, 173)' : 'inherit' 
-                    },
-                    text: { 
-                      color: isDarkTheme ? 'rgb(173, 173, 173)' : 'inherit' 
-                    },
-                  }}
-                />
-              ))}
-            </Stack>
-            {owners.length > 10 && (
-              <DefaultButton onClick={() => setShowAllOwners(!showAllOwners)}>
-                {showAllOwners ? 'Display Less' : 'Display More'}
-              </DefaultButton>
-            )}
-          </Stack>
-        </>
-      )}
-    </Stack>
-  </div>
+          </div>
+        </AccordionPanel>
+      </AccordionItem>
+    </Accordion>
   );
 };
 
