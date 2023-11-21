@@ -1,18 +1,22 @@
-name: build-deploy-website
-# Build and deploy the website to showcase the referenced GitHub repositories
+name: build-push-website-to-gh-pages
+# Build and push the website to the gh-pages branch
 
-# Workflow triggered on every push in the "Website" folder in the main branch - but can also be triggered manually without input parameters
+# Workflow triggered on every push in the "Website" folder or in the "Data/GitHubRepositoriesDetails.json" file in the main branch
+# Can also be triggered manually without input parameters
 on:
   push:
     branches:
       - main
     paths:
       - 'Website/**'
+      - 'Data/GitHubRepositoriesDetails.json'
       - '!.devcontainer/**'
       - '!.github/**'
+      - '!.vscode/**'
       - '!Configuration/**'
-      - '!Data/**'
+      - '!Data/GitHubRepositoriesPopularityScoresSnapshot.json'
       - '!Scripts/**'
+      - '!.gitignore'
       - '!CODE_OF_CONDUCT.md'
       - '!LICENSE'
       - '!README.md'
