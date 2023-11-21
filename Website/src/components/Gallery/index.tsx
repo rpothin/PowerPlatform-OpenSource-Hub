@@ -10,14 +10,17 @@ import {
     Button,
     shorthands,
     Subtitle1,
-    Text,
     Badge,
+    Text,
 } from "@fluentui/react-components";
 
 import {
-    ArrowReplyRegular,
-    ShareRegular
-} from "@fluentui/react-icons";
+    Combobox,
+    Option,
+    useId,
+  } from "@fluentui/react-components";
+
+import type { ComboboxProps } from "@fluentui/react-components";
 
 import {
     Card,
@@ -93,6 +96,17 @@ function filterItems(items, hasGoodFirstIssueChecked, hasHelpWantedIssueChecked,
 const Gallery = ({ items, hasGoodFirstIssueChecked, hasHelpWantedIssueChecked, hasCodeOfConductChecked, selectedTopics = [], selectedLanguages = [], selectedLicenses = [], selectedOwners = [] }) => {
     const [selectedItem, setSelectedItem] = useState(null);
     const [hideDialog, setHideDialog] = useState(true);
+    const comboId = useId("combo-orderby");
+    const options = [
+        { key: 'starsAsc', text: 'Stars (Ascending)' },
+        { key: 'starsDesc', text: 'Stars (Descending)' },
+        { key: 'alphabeticalAsc', text: 'Alphabetical (Ascending)' },
+        { key: 'alphabeticalDesc', text: 'Alphabetical (Descending)' },
+    ];
+    const [selectedOptions, setSelectedOptions] = React.useState<string[]>([
+        "starsDesc",
+    ]);
+    const [value, setValue] = React.useState("Stars (Descending)");
     
     // Filter items based on selected criteria
     const filteredItems = filterItems(items, hasGoodFirstIssueChecked, hasHelpWantedIssueChecked, hasCodeOfConductChecked, selectedTopics, selectedLanguages, selectedLicenses, selectedOwners);
@@ -111,12 +125,59 @@ const Gallery = ({ items, hasGoodFirstIssueChecked, hasHelpWantedIssueChecked, h
         window.open(url, "_blank");
     }
 
+    // Function to handle the change in order by combobox
+    const onOptionSelect: Partial<ComboboxProps>["onOptionSelect"] = (ev, data) => {
+        //alert(`onOptionSelect fired for ${data.optionText} / ${data.selectedOptions[0]} (${data.selectedOptions.length} selected options)`);
+        setSelectedOptions(data.selectedOptions);
+        setValue(data.optionText ?? "");
+    };
+
+    // Function to sort the filtered items based on the selected order by option
+    const sortItems = (items) => {
+        const selectedOption = selectedOptions[0];
+        switch (selectedOption) {
+            case 'starsAsc':
+                return items.sort((a, b) => a.stargazerCount - b.stargazerCount);
+            case 'starsDesc':
+                return items.sort((a, b) => b.stargazerCount - a.stargazerCount);
+            case 'alphabeticalAsc':
+                return items.sort((a, b) => a.fullName.localeCompare(b.fullName));
+            case 'alphabeticalDesc':
+                return items.sort((a, b) => b.fullName.localeCompare(a.fullName));
+            default:
+                return items;
+        }
+    }
+
+    // Sort the filtered items based on the selected order by option
+    const sortedItems = sortItems(filteredItems);
+
     // Rendering the Gallery component
     return (
+        <div style={{ width: '100%' }}>
+            <div className={styles.galleryHeader}>
+                <Text size={400}>{`${filteredItems.length} repositories found`}</Text>
+                <div style={{ display: 'flex', alignItems: 'center' }}>
+                    <Text id={comboId} style={{ marginRight: '10px' }} size={400}>Order By</Text>
+                    <Combobox
+                        aria-labelledby={comboId}
+                        style={{ marginRight: '20px' }} // Add a 20px margin on the right
+                        value={value}
+                        selectedOptions={selectedOptions}
+                        onOptionSelect={onOptionSelect}
+                    >
+                        {options.map((option) => (
+                            <Option value={option.key} text={option.text}>
+                                {option.text}
+                            </Option>
+                        ))}
+                    </Combobox>
+                </div>
+            </div>
             <div className={styles.gallery}>
-                {filteredItems.map((item, index) => (
-                    <Card className={styles.galleryItem}>
-                        {(["microsoft", "azure"].includes(item.owner.login.toLowerCase()) ? (
+                {sortedItems.map((item, index) => (
+                    <Card className={styles.galleryItem} key={index}>
+                        {["microsoft", "azure"].includes(item.owner.login.toLowerCase()) ? (
                             <CardHeader
                                 header={
                                     <div className={styles.cardHeader}>
@@ -144,7 +205,7 @@ const Gallery = ({ items, hasGoodFirstIssueChecked, hasHelpWantedIssueChecked, h
                                     </div>
                                 }
                             />
-                        ))}
+                        )}
 
                         <CardPreview className={styles.cardBreakLine} />
 
@@ -153,11 +214,11 @@ const Gallery = ({ items, hasGoodFirstIssueChecked, hasHelpWantedIssueChecked, h
                         </Subtitle1>
 
                         <Text>
-                            {item.description.length > 150 ? 
+                            {item.description.length > 150 ?
                                 <p>
                                     {item.description.substring(0, 150) + '... '}
-                                </p> 
-                                : 
+                                </p>
+                                :
                                 item.description
                             }
                         </Text>
@@ -167,7 +228,7 @@ const Gallery = ({ items, hasGoodFirstIssueChecked, hasHelpWantedIssueChecked, h
                                 <Badge appearance="outline" key={index} style={{ marginRight: '2px', marginBottom: '2px' }}>{topic}</Badge>
                             ))}
                         </div>
-                        
+
 
                         <CardPreview className={styles.cardBreakLine} />
 
@@ -178,7 +239,7 @@ const Gallery = ({ items, hasGoodFirstIssueChecked, hasHelpWantedIssueChecked, h
                     </Card>
                 ))}
                 <Dialog
-                    hidden={hideDialog} 
+                    hidden={hideDialog}
                     onDismiss={closeDialog}
                 >
                     <DialogSurface>
@@ -191,25 +252,25 @@ const Gallery = ({ items, hasGoodFirstIssueChecked, hasHelpWantedIssueChecked, h
                         </DialogTitle>
                         <DialogContent style={{ marginBottom: '16px', marginTop: '16px' }}>
                             <DialogBody>
-                                    <div style={{ display: 'flex', flexDirection: 'column' }}>
-                                        <Text>
-                                            {selectedItem?.description}
-                                        </Text>
-                                        <div style={{ marginTop: '10px', display: 'flex', flexWrap: 'wrap', flexDirection: 'column' }}>
-                                            <Badge appearance="tint" style={{ marginBottom: '4px' }}>License: {selectedItem?.license.name}</Badge>
-                                            <Badge appearance="tint" style={{ marginBottom: '4px' }}>Good 1st Issues: {selectedItem?.openedGoodFirstIssues}</Badge>
-                                            <Badge appearance="tint" style={{ marginBottom: '4px' }}>Help Wanted Issues: {selectedItem?.openedHelpWantedIssues}</Badge>
-                                            <Badge appearance="tint" style={{ marginBottom: '4px' }}>Language: {selectedItem?.language}</Badge>
-                                            {selectedItem?.latestRelease && (
-                                                <Badge appearance="tint" style={{ marginBottom: '4px' }}>Latest Release: {selectedItem?.latestRelease.tagName} ({format(new Date(selectedItem?.latestRelease.publishedAt), 'yyyy-MM-dd')})</Badge>
-                                            )}
-                                        </div>
+                                <div style={{ display: 'flex', flexDirection: 'column' }}>
+                                    <Text>
+                                        {selectedItem?.description}
+                                    </Text>
+                                    <div style={{ marginTop: '10px', display: 'flex', flexWrap: 'wrap', flexDirection: 'column' }}>
+                                        <Badge appearance="tint" style={{ marginBottom: '4px' }}>License: {selectedItem?.license.name}</Badge>
+                                        <Badge appearance="tint" style={{ marginBottom: '4px' }}>Good 1st Issues: {selectedItem?.openedGoodFirstIssues}</Badge>
+                                        <Badge appearance="tint" style={{ marginBottom: '4px' }}>Help Wanted Issues: {selectedItem?.openedHelpWantedIssues}</Badge>
+                                        <Badge appearance="tint" style={{ marginBottom: '4px' }}>Language: {selectedItem?.language}</Badge>
+                                        {selectedItem?.latestRelease && (
+                                            <Badge appearance="tint" style={{ marginBottom: '4px' }}>Latest Release: {selectedItem?.latestRelease.tagName} ({format(new Date(selectedItem?.latestRelease.publishedAt), 'yyyy-MM-dd')})</Badge>
+                                        )}
                                     </div>
-                                    <div style={{ display: 'flex', flexWrap: 'wrap' }}>
-                                        {selectedItem?.topics.map((topic, index) => (
-                                            <Badge appearance="outline" key={index} style={{ marginRight: '2px', marginBottom: '1px' }}>{topic}</Badge>
-                                        ))}
-                                    </div>
+                                </div>
+                                <div style={{ display: 'flex', flexWrap: 'wrap' }}>
+                                    {selectedItem?.topics.map((topic, index) => (
+                                        <Badge appearance="outline" key={index} style={{ marginRight: '2px', marginBottom: '1px' }}>{topic}</Badge>
+                                    ))}
+                                </div>
                             </DialogBody>
                         </DialogContent>
                         <DialogActions>
@@ -219,7 +280,8 @@ const Gallery = ({ items, hasGoodFirstIssueChecked, hasHelpWantedIssueChecked, h
                     </DialogSurface>
                 </Dialog>
             </div>
-      );
+        </div>
+    );
 };
 
 // Exporting the Gallery component

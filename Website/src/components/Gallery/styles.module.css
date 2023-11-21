@@ -1,3 +1,14 @@
+/* Styling for the gallery header */
+.galleryHeader {
+    width: 100%; /* Full width */
+    display: flex; /* Use flexbox for layout */
+    flex-direction: row; /* Set direction to row */
+    justify-content: space-between; /* Space items evenly */
+    align-items: center; /* Center items vertically */
+    padding: 10px; /* Add padding all around */
+    margin-left: 10px; /* Add margin to the left */
+}
+
 /* Styling for the gallery */
 .gallery {
     display: grid;
