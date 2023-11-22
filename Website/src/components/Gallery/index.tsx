@@ -12,6 +12,7 @@ import {
     Subtitle1,
     Badge,
     Text,
+    Tooltip,
 } from "@fluentui/react-components";
 
 import {
@@ -196,7 +197,11 @@ const Gallery = ({ items, hasGoodFirstIssueChecked, hasHelpWantedIssueChecked, h
                                             </Body1>
                                         </div>
                                         <div className={styles.cardHeaderRightContent}>
-                                            {isActive(item.updatedAt) && <Badge appearance="outline" style={{ marginRight: '5px' }}>🔥 Active</Badge>}
+                                            {isActive(item.updatedAt) && 
+                                                <Tooltip content={`Last update on: ${format(new Date(item.updatedAt), 'yyyy-MM-dd')}`} relationship={'label'}>
+                                                    <Badge appearance="outline" style={{ marginRight: '5px' }}>🔥 Active</Badge>
+                                                </Tooltip>
+                                            }
                                             <Badge appearance="filled" color="warning" icon={<Star16Filled />} key={index}>{item.stargazerCount}</Badge>
                                         </div>
                                     </div>
@@ -213,7 +218,11 @@ const Gallery = ({ items, hasGoodFirstIssueChecked, hasHelpWantedIssueChecked, h
                                             </Body1>
                                         </div>
                                         <div className={styles.cardHeaderRightContent}>
-                                            {isActive(item.updatedAt) && <Badge appearance="outline" style={{ marginRight: '5px' }}>🔥 Active</Badge>}
+                                            {isActive(item.updatedAt) && 
+                                                <Tooltip content={`Last update on: ${format(new Date(item.updatedAt), 'yyyy-MM-dd')}`} relationship={'label'}>
+                                                    <Badge appearance="outline" style={{ marginRight: '5px' }}>🔥 Active</Badge>
+                                                </Tooltip>
+                                            }
                                             <Badge appearance="filled" color="warning" icon={<Star16Filled />} key={index}>{item.stargazerCount}</Badge>
                                         </div>
                                     </div>
@@ -260,7 +269,11 @@ const Gallery = ({ items, hasGoodFirstIssueChecked, hasHelpWantedIssueChecked, h
                         <DialogTitle className={styles.dialogTitle}>
                             {selectedItem?.fullName}
                             <div style={{ display: 'flex', gap: '5px', flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}>
-                                {isActive(selectedItem?.updatedAt) && <Badge appearance="outline">🔥 Active</Badge>}
+                                {isActive(selectedItem?.updatedAt) && 
+                                    <Tooltip content={`Last update on: ${format(new Date(selectedItem?.updatedAt), 'yyyy-MM-dd')}`} relationship={'label'}>
+                                        <Badge appearance="outline" style={{ marginRight: '5px' }}>🔥 Active</Badge>
+                                    </Tooltip>
+                                }
                                 <Badge appearance="filled" color="warning" icon={<Star16Filled />}>{selectedItem?.stargazerCount}</Badge>
                                 <Badge appearance="outline" icon={<Eye16Filled />}>{selectedItem?.watchers.totalCount}</Badge>
                                 <DialogTrigger action="close">
@@ -280,10 +293,14 @@ const Gallery = ({ items, hasGoodFirstIssueChecked, hasHelpWantedIssueChecked, h
                                         {selectedItem?.description}
                                     </Text>
                                     <div style={{ marginTop: '10px', display: 'flex', flexWrap: 'wrap', flexDirection: 'column' }}>
-                                        <Badge appearance="tint" style={{ marginBottom: '4px' }}>License: {selectedItem?.license.name}</Badge>
+                                        {selectedItem?.license.name && (
+                                            <Badge appearance="tint" style={{ marginBottom: '4px' }}>License: {selectedItem?.license.name}</Badge>
+                                        )}
                                         <Badge appearance="tint" style={{ marginBottom: '4px' }}>Good 1st Issues: {selectedItem?.openedGoodFirstIssues}</Badge>
                                         <Badge appearance="tint" style={{ marginBottom: '4px' }}>Help Wanted Issues: {selectedItem?.openedHelpWantedIssues}</Badge>
-                                        <Badge appearance="tint" style={{ marginBottom: '4px' }}>Language: {selectedItem?.language}</Badge>
+                                        {selectedItem?.language && (
+                                            <Badge appearance="tint" style={{ marginBottom: '4px' }}>Language: {selectedItem?.language}</Badge>
+                                        )}
                                         {selectedItem?.latestRelease && (
                                             <Badge appearance="tint" style={{ marginBottom: '4px' }}>Latest Release: {selectedItem?.latestRelease.tagName} ({format(new Date(selectedItem?.latestRelease.publishedAt), 'yyyy-MM-dd')})</Badge>
                                         )}
