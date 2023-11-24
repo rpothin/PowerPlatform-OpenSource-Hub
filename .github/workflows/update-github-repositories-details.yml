@@ -66,3 +66,11 @@ jobs:
         shell: pwsh
         env:
           GITHUB_TOKEN: ${{ secrets.PAT_WORKFLOW_UPDATE }}
+
+      # Triggere the build-push-website-to-gh-pages workflow in the current repository using GitHub CLI
+      - name: Trigger build-push-website-to-gh-pages workflow
+        run: |
+          gh workflow run build-push-website-to-gh-pages.yml --ref main
+        shell: pwsh
+        env:
+          GITHUB_TOKEN: ${{ secrets.PAT_WORKFLOW_UPDATE }}
