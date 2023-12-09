@@ -91,7 +91,7 @@
       "type": "Organization",
       "url": "https://github.com/microsoft"
     },
-    "updatedAt": "2023-12-07T00:02:53Z",
+    "updatedAt": "2023-12-09T01:37:58Z",
     "url": "https://github.com/microsoft/PowerApps-Samples",
     "codeOfConduct": {
       "key": "other",
@@ -112,7 +112,7 @@
       "name": "C#"
     },
     "securityPolicyUrl": "https://github.com/microsoft/PowerApps-Samples/security/policy",
-    "stargazerCount": 1264,
+    "stargazerCount": 1266,
     "watchers": {
       "totalCount": 113
     },
@@ -147,7 +147,7 @@
     "openedHelpWantedIssues": 0,
     "hasHelpWantedIssues": false,
     "openedToContributionsIssues": 0,
-    "popularityScore": 1377
+    "popularityScore": 1379
   },
   {
     "createdAt": "2018-11-21T16:54:50Z",
@@ -163,7 +163,7 @@
       "url": "https://api.github.com/licenses/mit"
     },
     "name": "Microsoft365DSC",
-    "openIssuesCount": 237,
+    "openIssuesCount": 239,
     "owner": {
       "id": "MDEyOk9yZ2FuaXphdGlvbjYxNTQ3MjI=",
       "is_bot": false,
@@ -171,14 +171,14 @@
       "type": "Organization",
       "url": "https://github.com/microsoft"
     },
-    "updatedAt": "2023-12-05T15:19:55Z",
+    "updatedAt": "2023-12-08T20:31:46Z",
     "url": "https://github.com/microsoft/Microsoft365DSC",
     "codeOfConduct": {
       "key": "contributor_covenant",
       "name": "Contributor Covenant",
       "url": "https://github.com/microsoft/Microsoft365DSC/blob/Dev/CODE_OF_CONDUCT.md"
     },
-    "forkCount": 408,
+    "forkCount": 409,
     "fundingLinks": [],
     "isSecurityPolicyEnabled": true,
     "isTemplate": false,
@@ -192,9 +192,9 @@
       "name": "PowerShell"
     },
     "securityPolicyUrl": "https://github.com/microsoft/Microsoft365DSC/security/policy",
-    "stargazerCount": 1223,
+    "stargazerCount": 1224,
     "watchers": {
-      "totalCount": 68
+      "totalCount": 69
     },
     "topics": [
       "microsoft365",
@@ -228,7 +228,7 @@
     "openedHelpWantedIssues": 3,
     "hasHelpWantedIssues": true,
     "openedToContributionsIssues": 3,
-    "popularityScore": 1291
+    "popularityScore": 1293
   },
   {
     "createdAt": "2018-12-13T05:33:24Z",
@@ -428,7 +428,7 @@
       "url": "https://api.github.com/licenses/gpl-3.0"
     },
     "name": "XrmToolBox",
-    "openIssuesCount": 49,
+    "openIssuesCount": 50,
     "owner": {
       "id": "MDQ6VXNlcjEwNzc0MzE3",
       "is_bot": false,
@@ -647,10 +647,10 @@
       "type": "User",
       "url": "https://github.com/mbrg"
     },
-    "updatedAt": "2023-12-05T13:52:02Z",
+    "updatedAt": "2023-12-08T13:19:38Z",
     "url": "https://github.com/mbrg/power-pwn",
     "codeOfConduct": null,
-    "forkCount": 36,
+    "forkCount": 37,
     "fundingLinks": [],
     "isSecurityPolicyEnabled": false,
     "isTemplate": false,
@@ -666,7 +666,7 @@
     "securityPolicyUrl": "",
     "stargazerCount": 384,
     "watchers": {
-      "totalCount": 6
+      "totalCount": 7
     },
     "topics": [
       "defcon30",
@@ -698,7 +698,7 @@
     "openedHelpWantedIssues": 0,
     "hasHelpWantedIssues": false,
     "openedToContributionsIssues": 0,
-    "popularityScore": 390
+    "popularityScore": 391
   },
   {
     "createdAt": "2021-02-24T22:16:04Z",
@@ -895,7 +895,7 @@
     "updatedAt": "2023-12-04T10:30:09Z",
     "url": "https://github.com/modery/PowerDocu",
     "codeOfConduct": null,
-    "forkCount": 45,
+    "forkCount": 46,
     "fundingLinks": [],
     "isSecurityPolicyEnabled": false,
     "isTemplate": false,
@@ -3707,7 +3707,7 @@
       "url": "https://api.github.com/licenses/mit"
     },
     "name": "dynamics-webapi-toolkit",
-    "openIssuesCount": 15,
+    "openIssuesCount": 14,
     "owner": {
       "id": "MDEyOk9yZ2FuaXphdGlvbjIwNjU2MzA5",
       "is_bot": false,
@@ -3906,7 +3906,7 @@
       "name": "Other",
       "url": "https://github.com/Azure/apim-lab/blob/main/CODE_OF_CONDUCT.md"
     },
-    "forkCount": 58,
+    "forkCount": 59,
     "fundingLinks": [],
     "isSecurityPolicyEnabled": true,
     "isTemplate": false,
@@ -4419,9 +4419,9 @@
     "isTemplate": false,
     "latestRelease": {
       "name": "Power Platform deprecation update",
-      "tagName": "2023.12.5.3",
-      "url": "https://github.com/tcorcor1/power-platform-deprecation-tracker/releases/tag/2023.12.5.3",
-      "publishedAt": "2023-12-05T00:00:03Z"
+      "tagName": "2023.12.8.3",
+      "url": "https://github.com/tcorcor1/power-platform-deprecation-tracker/releases/tag/2023.12.8.3",
+      "publishedAt": "2023-12-08T12:00:04Z"
     },
     "primaryLanguage": null,
     "securityPolicyUrl": "",
@@ -4566,6 +4566,58 @@
     "popularityScore": 74
   },
   {
+    "createdAt": "2021-05-02T08:44:47Z",
+    "description": "Power Automate demos & proof of concepts",
+    "fullName": "DamoBird365/PowerAutomate",
+    "hasIssues": true,
+    "homepage": "https://damobird365.com",
+    "isArchived": false,
+    "language": "",
+    "license": {
+      "key": "mit",
+      "name": "MIT License",
+      "url": "https://api.github.com/licenses/mit"
+    },
+    "name": "PowerAutomate",
+    "openIssuesCount": 1,
+    "owner": {
+      "id": "MDQ6VXNlcjQ2ODExOTIw",
+      "is_bot": false,
+      "login": "DamoBird365",
+      "type": "User",
+      "url": "https://github.com/DamoBird365"
+    },
+    "updatedAt": "2023-12-08T14:23:23Z",
+    "url": "https://github.com/DamoBird365/PowerAutomate",
+    "codeOfConduct": null,
+    "forkCount": 18,
+    "fundingLinks": [],
+    "isSecurityPolicyEnabled": false,
+    "isTemplate": false,
+    "latestRelease": null,
+    "primaryLanguage": null,
+    "securityPolicyUrl": "",
+    "stargazerCount": 48,
+    "watchers": {
+      "totalCount": 3
+    },
+    "topics": [
+      "powerautomate",
+      "powerplatform",
+      "excelscripts",
+      "sharepoint",
+      "teams",
+      "power-automate"
+    ],
+    "languages": [],
+    "openedGoodFirstIssues": 0,
+    "hasGoodFirstIssues": false,
+    "openedHelpWantedIssues": 0,
+    "hasHelpWantedIssues": false,
+    "openedToContributionsIssues": 0,
+    "popularityScore": 51
+  },
+  {
     "createdAt": "2018-04-03T10:12:11Z",
     "description": "Warehouse Control System for Microsoft Dynamics NAV",
     "fullName": "OlegLobakov/WarehouseControlSystem",
@@ -4629,58 +4681,6 @@
     "hasHelpWantedIssues": false,
     "openedToContributionsIssues": 0,
     "popularityScore": 57
-  },
-  {
-    "createdAt": "2021-05-02T08:44:47Z",
-    "description": "Power Automate demos & proof of concepts",
-    "fullName": "DamoBird365/PowerAutomate",
-    "hasIssues": true,
-    "homepage": "https://damobird365.com",
-    "isArchived": false,
-    "language": "",
-    "license": {
-      "key": "mit",
-      "name": "MIT License",
-      "url": "https://api.github.com/licenses/mit"
-    },
-    "name": "PowerAutomate",
-    "openIssuesCount": 1,
-    "owner": {
-      "id": "MDQ6VXNlcjQ2ODExOTIw",
-      "is_bot": false,
-      "login": "DamoBird365",
-      "type": "User",
-      "url": "https://github.com/DamoBird365"
-    },
-    "updatedAt": "2023-11-26T06:15:47Z",
-    "url": "https://github.com/DamoBird365/PowerAutomate",
-    "codeOfConduct": null,
-    "forkCount": 18,
-    "fundingLinks": [],
-    "isSecurityPolicyEnabled": false,
-    "isTemplate": false,
-    "latestRelease": null,
-    "primaryLanguage": null,
-    "securityPolicyUrl": "",
-    "stargazerCount": 47,
-    "watchers": {
-      "totalCount": 3
-    },
-    "topics": [
-      "powerautomate",
-      "powerplatform",
-      "excelscripts",
-      "sharepoint",
-      "teams",
-      "power-automate"
-    ],
-    "languages": [],
-    "openedGoodFirstIssues": 0,
-    "hasGoodFirstIssues": false,
-    "openedHelpWantedIssues": 0,
-    "hasHelpWantedIssues": false,
-    "openedToContributionsIssues": 0,
-    "popularityScore": 50
   },
   {
     "createdAt": "2022-11-03T19:09:28Z",
@@ -5011,7 +5011,7 @@
       "url": ""
     },
     "name": "geoflow",
-    "openIssuesCount": 26,
+    "openIssuesCount": 25,
     "owner": {
       "id": "O_kgDOBa3UxA",
       "is_bot": false,
@@ -8121,7 +8121,7 @@
       "url": "https://api.github.com/licenses/mit"
     },
     "name": "XrmFramework",
-    "openIssuesCount": 3,
+    "openIssuesCount": 4,
     "owner": {
       "id": "O_kgDOB9xtBA",
       "is_bot": false,
@@ -9246,53 +9246,55 @@
     "popularityScore": 25
   },
   {
-    "createdAt": "2020-08-24T08:31:38Z",
-    "description": "Handling SharePoint Documents in Business Central",
-    "fullName": "msnraju/sp-document-explorer",
+    "createdAt": "2021-12-03T22:56:27Z",
+    "description": "The ultimate collection of extensions for Power Platform!",
+    "fullName": "Power-Maverick/PowerPlatform-VSCode-ExtensionPack",
     "hasIssues": true,
-    "homepage": "",
+    "homepage": "https://marketplace.visualstudio.com/items?itemName=danish-naglekar.power-platform-extension-pack",
     "isArchived": false,
-    "language": "Perl",
+    "language": "",
     "license": {
       "key": "mit",
       "name": "MIT License",
       "url": "https://api.github.com/licenses/mit"
     },
-    "name": "sp-document-explorer",
+    "name": "PowerPlatform-VSCode-ExtensionPack",
     "openIssuesCount": 0,
     "owner": {
-      "id": "MDQ6VXNlcjE3Nzg0MjU5",
+      "id": "MDQ6VXNlcjM2MTM1NTIw",
       "is_bot": false,
-      "login": "msnraju",
+      "login": "Power-Maverick",
       "type": "User",
-      "url": "https://github.com/msnraju"
+      "url": "https://github.com/Power-Maverick"
     },
-    "updatedAt": "2023-10-24T16:29:51Z",
-    "url": "https://github.com/msnraju/sp-document-explorer",
+    "updatedAt": "2023-11-24T04:23:55Z",
+    "url": "https://github.com/Power-Maverick/PowerPlatform-VSCode-ExtensionPack",
     "codeOfConduct": null,
-    "forkCount": 11,
-    "fundingLinks": [],
+    "forkCount": 2,
+    "fundingLinks": [
+      {
+        "platform": "GITHUB",
+        "url": "https://github.com/Power-Maverick"
+      }
+    ],
     "isSecurityPolicyEnabled": false,
     "isTemplate": false,
     "latestRelease": null,
-    "primaryLanguage": {
-      "name": "Perl"
-    },
+    "primaryLanguage": null,
     "securityPolicyUrl": "",
     "stargazerCount": 14,
     "watchers": {
       "totalCount": 2
     },
     "topics": [
-      "sharepoint",
-      "business-central",
-      "al-language",
-      "oauth2-client",
-      "dynamics-365"
+      "power-platform",
+      "dataverse",
+      "dynamics-365",
+      "visual-studio-code",
+      "vscode",
+      "vscode-extension"
     ],
-    "languages": [
-      "Perl"
-    ],
+    "languages": [],
     "openedGoodFirstIssues": 0,
     "hasGoodFirstIssues": false,
     "openedHelpWantedIssues": 0,
@@ -9301,59 +9303,63 @@
     "popularityScore": 16
   },
   {
-    "createdAt": "2023-05-13T06:22:31Z",
-    "description": "This is a demo repository to showcase scenarios how Professional Developers (AKA code-first developers) can make use of Power Platform to be more productive and/or innovative.",
-    "fullName": "marcelbf/InventAPI",
+    "createdAt": "2022-07-21T09:41:50Z",
+    "description": "A demo showing how to maintain persistency on Power Platform by installing an automation factory that creates, executes and deletes arbitrary commands.",
+    "fullName": "mbrg/powerful",
     "hasIssues": true,
     "homepage": "",
     "isArchived": false,
-    "language": "HTML",
+    "language": "Python",
     "license": {
-      "key": "",
-      "name": "",
-      "url": ""
+      "key": "mit",
+      "name": "MIT License",
+      "url": "https://api.github.com/licenses/mit"
     },
-    "name": "InventAPI",
+    "name": "powerful",
     "openIssuesCount": 0,
     "owner": {
-      "id": "MDQ6VXNlcjQ5NjA4NjY4",
+      "id": "MDQ6VXNlcjExMDc0NDMz",
       "is_bot": false,
-      "login": "marcelbf",
+      "login": "mbrg",
       "type": "User",
-      "url": "https://github.com/marcelbf"
+      "url": "https://github.com/mbrg"
     },
-    "updatedAt": "2023-11-23T21:12:29Z",
-    "url": "https://github.com/marcelbf/InventAPI",
+    "updatedAt": "2023-11-22T23:35:25Z",
+    "url": "https://github.com/mbrg/powerful",
     "codeOfConduct": null,
-    "forkCount": 3,
+    "forkCount": 2,
     "fundingLinks": [],
     "isSecurityPolicyEnabled": false,
     "isTemplate": false,
     "latestRelease": null,
     "primaryLanguage": {
-      "name": "HTML"
+      "name": "Python"
     },
     "securityPolicyUrl": "",
     "stargazerCount": 14,
     "watchers": {
-      "totalCount": 2
+      "totalCount": 1
     },
     "topics": [
-      "powerapps",
-      "powerapps-cli",
-      "powerplatform"
+      "defcon",
+      "hacking",
+      "pentesting",
+      "defcon30",
+      "lowcode",
+      "nocode",
+      "powerautomate",
+      "powerplatform",
+      "redteam"
     ],
     "languages": [
-      "HTML",
-      "CSS",
-      "C#"
+      "Python"
     ],
     "openedGoodFirstIssues": 0,
     "hasGoodFirstIssues": false,
     "openedHelpWantedIssues": 0,
     "hasHelpWantedIssues": false,
     "openedToContributionsIssues": 0,
-    "popularityScore": 16
+    "popularityScore": 15
   },
   {
     "createdAt": "2020-02-03T13:02:58Z",
@@ -9414,65 +9420,6 @@
     "hasHelpWantedIssues": false,
     "openedToContributionsIssues": 0,
     "popularityScore": 18
-  },
-  {
-    "createdAt": "2022-07-21T09:41:50Z",
-    "description": "A demo showing how to maintain persistency on Power Platform by installing an automation factory that creates, executes and deletes arbitrary commands.",
-    "fullName": "mbrg/powerful",
-    "hasIssues": true,
-    "homepage": "",
-    "isArchived": false,
-    "language": "Python",
-    "license": {
-      "key": "mit",
-      "name": "MIT License",
-      "url": "https://api.github.com/licenses/mit"
-    },
-    "name": "powerful",
-    "openIssuesCount": 0,
-    "owner": {
-      "id": "MDQ6VXNlcjExMDc0NDMz",
-      "is_bot": false,
-      "login": "mbrg",
-      "type": "User",
-      "url": "https://github.com/mbrg"
-    },
-    "updatedAt": "2023-11-22T23:35:25Z",
-    "url": "https://github.com/mbrg/powerful",
-    "codeOfConduct": null,
-    "forkCount": 2,
-    "fundingLinks": [],
-    "isSecurityPolicyEnabled": false,
-    "isTemplate": false,
-    "latestRelease": null,
-    "primaryLanguage": {
-      "name": "Python"
-    },
-    "securityPolicyUrl": "",
-    "stargazerCount": 14,
-    "watchers": {
-      "totalCount": 1
-    },
-    "topics": [
-      "defcon",
-      "hacking",
-      "pentesting",
-      "defcon30",
-      "lowcode",
-      "nocode",
-      "powerautomate",
-      "powerplatform",
-      "redteam"
-    ],
-    "languages": [
-      "Python"
-    ],
-    "openedGoodFirstIssues": 0,
-    "hasGoodFirstIssues": false,
-    "openedHelpWantedIssues": 0,
-    "hasHelpWantedIssues": false,
-    "openedToContributionsIssues": 0,
-    "popularityScore": 15
   },
   {
     "createdAt": "2023-05-15T19:39:00Z",
@@ -9537,6 +9484,67 @@
     "hasHelpWantedIssues": false,
     "openedToContributionsIssues": 0,
     "popularityScore": 20
+  },
+  {
+    "createdAt": "2023-05-13T13:46:12Z",
+    "description": "Materiais, tutoriais e dicas sobre Power Platform criados pela equipe de especialistas em Power Platform da Microsoft Brasil.",
+    "fullName": "microsoft/powerplatformconnect",
+    "hasIssues": false,
+    "homepage": "https://microsoft.github.io/powerplatformconnect/",
+    "isArchived": false,
+    "language": "SCSS",
+    "license": {
+      "key": "mit",
+      "name": "MIT License",
+      "url": "https://api.github.com/licenses/mit"
+    },
+    "name": "powerplatformconnect",
+    "openIssuesCount": 0,
+    "owner": {
+      "id": "MDEyOk9yZ2FuaXphdGlvbjYxNTQ3MjI=",
+      "is_bot": false,
+      "login": "microsoft",
+      "type": "Organization",
+      "url": "https://github.com/microsoft"
+    },
+    "updatedAt": "2023-11-19T19:27:39Z",
+    "url": "https://github.com/microsoft/powerplatformconnect",
+    "codeOfConduct": {
+      "key": "other",
+      "name": "Other",
+      "url": "https://github.com/microsoft/.github/blob/main/CODE_OF_CONDUCT.md"
+    },
+    "forkCount": 0,
+    "fundingLinks": [],
+    "isSecurityPolicyEnabled": true,
+    "isTemplate": false,
+    "latestRelease": null,
+    "primaryLanguage": {
+      "name": "SCSS"
+    },
+    "securityPolicyUrl": "https://github.com/microsoft/powerplatformconnect/security/policy",
+    "stargazerCount": 14,
+    "watchers": {
+      "totalCount": 3
+    },
+    "topics": [
+      "powerplatform",
+      "powerapps",
+      "powerautomate",
+      "powerpages",
+      "powervirtualagent"
+    ],
+    "languages": [
+      "SCSS",
+      "HTML",
+      "Ruby"
+    ],
+    "openedGoodFirstIssues": 0,
+    "hasGoodFirstIssues": false,
+    "openedHelpWantedIssues": 0,
+    "hasHelpWantedIssues": false,
+    "openedToContributionsIssues": 0,
+    "popularityScore": 17
   },
   {
     "createdAt": "2021-01-25T13:45:51Z",
@@ -9667,116 +9675,166 @@
     "popularityScore": 16
   },
   {
-    "createdAt": "2023-05-13T13:46:12Z",
-    "description": "Materiais, tutoriais e dicas sobre Power Platform criados pela equipe de especialistas em Power Platform da Microsoft Brasil.",
-    "fullName": "microsoft/powerplatformconnect",
-    "hasIssues": false,
-    "homepage": "https://microsoft.github.io/powerplatformconnect/",
-    "isArchived": false,
-    "language": "SCSS",
-    "license": {
-      "key": "mit",
-      "name": "MIT License",
-      "url": "https://api.github.com/licenses/mit"
-    },
-    "name": "powerplatformconnect",
-    "openIssuesCount": 0,
-    "owner": {
-      "id": "MDEyOk9yZ2FuaXphdGlvbjYxNTQ3MjI=",
-      "is_bot": false,
-      "login": "microsoft",
-      "type": "Organization",
-      "url": "https://github.com/microsoft"
-    },
-    "updatedAt": "2023-11-19T19:27:39Z",
-    "url": "https://github.com/microsoft/powerplatformconnect",
-    "codeOfConduct": {
-      "key": "other",
-      "name": "Other",
-      "url": "https://github.com/microsoft/.github/blob/main/CODE_OF_CONDUCT.md"
-    },
-    "forkCount": 0,
-    "fundingLinks": [],
-    "isSecurityPolicyEnabled": true,
-    "isTemplate": false,
-    "latestRelease": null,
-    "primaryLanguage": {
-      "name": "SCSS"
-    },
-    "securityPolicyUrl": "https://github.com/microsoft/powerplatformconnect/security/policy",
-    "stargazerCount": 14,
-    "watchers": {
-      "totalCount": 3
-    },
-    "topics": [
-      "powerplatform",
-      "powerapps",
-      "powerautomate",
-      "powerpages",
-      "powervirtualagent"
-    ],
-    "languages": [
-      "SCSS",
-      "HTML",
-      "Ruby"
-    ],
-    "openedGoodFirstIssues": 0,
-    "hasGoodFirstIssues": false,
-    "openedHelpWantedIssues": 0,
-    "hasHelpWantedIssues": false,
-    "openedToContributionsIssues": 0,
-    "popularityScore": 17
-  },
-  {
-    "createdAt": "2021-12-03T22:56:27Z",
-    "description": "The ultimate collection of extensions for Power Platform!",
-    "fullName": "Power-Maverick/PowerPlatform-VSCode-ExtensionPack",
+    "createdAt": "2023-05-13T06:22:31Z",
+    "description": "This is a demo repository to showcase scenarios how Professional Developers (AKA code-first developers) can make use of Power Platform to be more productive and/or innovative.",
+    "fullName": "marcelbf/InventAPI",
     "hasIssues": true,
-    "homepage": "https://marketplace.visualstudio.com/items?itemName=danish-naglekar.power-platform-extension-pack",
+    "homepage": "",
     "isArchived": false,
-    "language": "",
+    "language": "HTML",
     "license": {
-      "key": "mit",
-      "name": "MIT License",
-      "url": "https://api.github.com/licenses/mit"
+      "key": "",
+      "name": "",
+      "url": ""
     },
-    "name": "PowerPlatform-VSCode-ExtensionPack",
+    "name": "InventAPI",
     "openIssuesCount": 0,
     "owner": {
-      "id": "MDQ6VXNlcjM2MTM1NTIw",
+      "id": "MDQ6VXNlcjQ5NjA4NjY4",
       "is_bot": false,
-      "login": "Power-Maverick",
+      "login": "marcelbf",
       "type": "User",
-      "url": "https://github.com/Power-Maverick"
+      "url": "https://github.com/marcelbf"
     },
-    "updatedAt": "2023-11-24T04:23:55Z",
-    "url": "https://github.com/Power-Maverick/PowerPlatform-VSCode-ExtensionPack",
+    "updatedAt": "2023-11-23T21:12:29Z",
+    "url": "https://github.com/marcelbf/InventAPI",
     "codeOfConduct": null,
-    "forkCount": 2,
-    "fundingLinks": [
-      {
-        "platform": "GITHUB",
-        "url": "https://github.com/Power-Maverick"
-      }
-    ],
+    "forkCount": 3,
+    "fundingLinks": [],
     "isSecurityPolicyEnabled": false,
     "isTemplate": false,
     "latestRelease": null,
-    "primaryLanguage": null,
+    "primaryLanguage": {
+      "name": "HTML"
+    },
     "securityPolicyUrl": "",
     "stargazerCount": 14,
     "watchers": {
       "totalCount": 2
     },
     "topics": [
-      "power-platform",
-      "dataverse",
-      "dynamics-365",
-      "visual-studio-code",
-      "vscode",
-      "vscode-extension"
+      "powerapps",
+      "powerapps-cli",
+      "powerplatform"
     ],
-    "languages": [],
+    "languages": [
+      "HTML",
+      "CSS",
+      "C#"
+    ],
+    "openedGoodFirstIssues": 0,
+    "hasGoodFirstIssues": false,
+    "openedHelpWantedIssues": 0,
+    "hasHelpWantedIssues": false,
+    "openedToContributionsIssues": 0,
+    "popularityScore": 16
+  },
+  {
+    "createdAt": "2020-08-24T08:31:38Z",
+    "description": "Handling SharePoint Documents in Business Central",
+    "fullName": "msnraju/sp-document-explorer",
+    "hasIssues": true,
+    "homepage": "",
+    "isArchived": false,
+    "language": "Perl",
+    "license": {
+      "key": "mit",
+      "name": "MIT License",
+      "url": "https://api.github.com/licenses/mit"
+    },
+    "name": "sp-document-explorer",
+    "openIssuesCount": 0,
+    "owner": {
+      "id": "MDQ6VXNlcjE3Nzg0MjU5",
+      "is_bot": false,
+      "login": "msnraju",
+      "type": "User",
+      "url": "https://github.com/msnraju"
+    },
+    "updatedAt": "2023-10-24T16:29:51Z",
+    "url": "https://github.com/msnraju/sp-document-explorer",
+    "codeOfConduct": null,
+    "forkCount": 11,
+    "fundingLinks": [],
+    "isSecurityPolicyEnabled": false,
+    "isTemplate": false,
+    "latestRelease": null,
+    "primaryLanguage": {
+      "name": "Perl"
+    },
+    "securityPolicyUrl": "",
+    "stargazerCount": 14,
+    "watchers": {
+      "totalCount": 2
+    },
+    "topics": [
+      "sharepoint",
+      "business-central",
+      "al-language",
+      "oauth2-client",
+      "dynamics-365"
+    ],
+    "languages": [
+      "Perl"
+    ],
+    "openedGoodFirstIssues": 0,
+    "hasGoodFirstIssues": false,
+    "openedHelpWantedIssues": 0,
+    "hasHelpWantedIssues": false,
+    "openedToContributionsIssues": 0,
+    "popularityScore": 16
+  },
+  {
+    "createdAt": "2021-11-01T18:00:42Z",
+    "description": "GitHub Action to publish repository content on Dataverse",
+    "fullName": "IQSS/dataverse-uploader",
+    "hasIssues": true,
+    "homepage": "",
+    "isArchived": false,
+    "language": "Python",
+    "license": {
+      "key": "mit",
+      "name": "MIT License",
+      "url": "https://api.github.com/licenses/mit"
+    },
+    "name": "dataverse-uploader",
+    "openIssuesCount": 6,
+    "owner": {
+      "id": "MDEyOk9yZ2FuaXphdGlvbjY3NTIzNw==",
+      "is_bot": false,
+      "login": "IQSS",
+      "type": "Organization",
+      "url": "https://github.com/IQSS"
+    },
+    "updatedAt": "2023-10-03T08:59:00Z",
+    "url": "https://github.com/IQSS/dataverse-uploader",
+    "codeOfConduct": null,
+    "forkCount": 8,
+    "fundingLinks": [],
+    "isSecurityPolicyEnabled": false,
+    "isTemplate": false,
+    "latestRelease": {
+      "name": "Dataverse Uploader Action",
+      "tagName": "v1.4",
+      "url": "https://github.com/IQSS/dataverse-uploader/releases/tag/v1.4",
+      "publishedAt": "2023-01-25T17:26:48Z"
+    },
+    "primaryLanguage": {
+      "name": "Python"
+    },
+    "securityPolicyUrl": "",
+    "stargazerCount": 13,
+    "watchers": {
+      "totalCount": 3
+    },
+    "topics": [
+      "data-repository",
+      "dataverse",
+      "dataverse-api"
+    ],
+    "languages": [
+      "Python"
+    ],
     "openedGoodFirstIssues": 0,
     "hasGoodFirstIssues": false,
     "openedHelpWantedIssues": 0,
@@ -9845,124 +9903,6 @@
     "popularityScore": 17
   },
   {
-    "createdAt": "2023-03-02T13:44:57Z",
-    "description": "This is a Power Platform custom connector project for OpenAI API and Azure OpenAI Service API.",
-    "fullName": "devrel-kr/azure-openai-connector",
-    "hasIssues": true,
-    "homepage": "",
-    "isArchived": false,
-    "language": "Bicep",
-    "license": {
-      "key": "mit",
-      "name": "MIT License",
-      "url": "https://api.github.com/licenses/mit"
-    },
-    "name": "azure-openai-connector",
-    "openIssuesCount": 0,
-    "owner": {
-      "id": "MDEyOk9yZ2FuaXphdGlvbjY0Mzk1ODQz",
-      "is_bot": false,
-      "login": "devrel-kr",
-      "type": "Organization",
-      "url": "https://github.com/devrel-kr"
-    },
-    "updatedAt": "2023-10-22T11:59:54Z",
-    "url": "https://github.com/devrel-kr/azure-openai-connector",
-    "codeOfConduct": null,
-    "forkCount": 21,
-    "fundingLinks": [],
-    "isSecurityPolicyEnabled": false,
-    "isTemplate": false,
-    "latestRelease": null,
-    "primaryLanguage": {
-      "name": "Bicep"
-    },
-    "securityPolicyUrl": "",
-    "stargazerCount": 13,
-    "watchers": {
-      "totalCount": 4
-    },
-    "topics": [
-      "azure-functions",
-      "custom-connector",
-      "openai-api",
-      "power-platform",
-      "azure-openai-api",
-      "hacktoberfest"
-    ],
-    "languages": [
-      "Bicep",
-      "C#",
-      "PowerShell",
-      "Shell",
-      "Dockerfile"
-    ],
-    "openedGoodFirstIssues": 0,
-    "hasGoodFirstIssues": false,
-    "openedHelpWantedIssues": 0,
-    "hasHelpWantedIssues": false,
-    "openedToContributionsIssues": 0,
-    "popularityScore": 17
-  },
-  {
-    "createdAt": "2021-11-01T18:00:42Z",
-    "description": "GitHub Action to publish repository content on Dataverse",
-    "fullName": "IQSS/dataverse-uploader",
-    "hasIssues": true,
-    "homepage": "",
-    "isArchived": false,
-    "language": "Python",
-    "license": {
-      "key": "mit",
-      "name": "MIT License",
-      "url": "https://api.github.com/licenses/mit"
-    },
-    "name": "dataverse-uploader",
-    "openIssuesCount": 6,
-    "owner": {
-      "id": "MDEyOk9yZ2FuaXphdGlvbjY3NTIzNw==",
-      "is_bot": false,
-      "login": "IQSS",
-      "type": "Organization",
-      "url": "https://github.com/IQSS"
-    },
-    "updatedAt": "2023-10-03T08:59:00Z",
-    "url": "https://github.com/IQSS/dataverse-uploader",
-    "codeOfConduct": null,
-    "forkCount": 8,
-    "fundingLinks": [],
-    "isSecurityPolicyEnabled": false,
-    "isTemplate": false,
-    "latestRelease": {
-      "name": "Dataverse Uploader Action",
-      "tagName": "v1.4",
-      "url": "https://github.com/IQSS/dataverse-uploader/releases/tag/v1.4",
-      "publishedAt": "2023-01-25T17:26:48Z"
-    },
-    "primaryLanguage": {
-      "name": "Python"
-    },
-    "securityPolicyUrl": "",
-    "stargazerCount": 13,
-    "watchers": {
-      "totalCount": 3
-    },
-    "topics": [
-      "data-repository",
-      "dataverse",
-      "dataverse-api"
-    ],
-    "languages": [
-      "Python"
-    ],
-    "openedGoodFirstIssues": 0,
-    "hasGoodFirstIssues": false,
-    "openedHelpWantedIssues": 0,
-    "hasHelpWantedIssues": false,
-    "openedToContributionsIssues": 0,
-    "popularityScore": 16
-  },
-  {
     "createdAt": "2020-08-28T20:37:56Z",
     "description": "A PowerShell module to synchronize and validate XLIFF translation files.",
     "fullName": "rvanbekkum/ps-xliff-sync",
@@ -10021,6 +9961,56 @@
     "hasHelpWantedIssues": false,
     "openedToContributionsIssues": 0,
     "popularityScore": 18
+  },
+  {
+    "createdAt": "2020-11-18T21:10:12Z",
+    "description": "Microsoft Teams service issues and Message Center notifications as Teams posts and to SharePoint lists.",
+    "fullName": "tobiheim/teams-health-feature-monitoring",
+    "hasIssues": true,
+    "homepage": "",
+    "isArchived": false,
+    "language": "",
+    "license": {
+      "key": "mit",
+      "name": "MIT License",
+      "url": "https://api.github.com/licenses/mit"
+    },
+    "name": "teams-health-feature-monitoring",
+    "openIssuesCount": 0,
+    "owner": {
+      "id": "MDQ6VXNlcjIyODkzNTM2",
+      "is_bot": false,
+      "login": "tobiheim",
+      "type": "User",
+      "url": "https://github.com/tobiheim"
+    },
+    "updatedAt": "2023-12-06T11:58:58Z",
+    "url": "https://github.com/tobiheim/teams-health-feature-monitoring",
+    "codeOfConduct": null,
+    "forkCount": 0,
+    "fundingLinks": [],
+    "isSecurityPolicyEnabled": false,
+    "isTemplate": false,
+    "latestRelease": null,
+    "primaryLanguage": null,
+    "securityPolicyUrl": "",
+    "stargazerCount": 13,
+    "watchers": {
+      "totalCount": 3
+    },
+    "topics": [
+      "office365",
+      "microsoftteams",
+      "powerautomate",
+      "graphapi"
+    ],
+    "languages": [],
+    "openedGoodFirstIssues": 0,
+    "hasGoodFirstIssues": false,
+    "openedHelpWantedIssues": 0,
+    "hasHelpWantedIssues": false,
+    "openedToContributionsIssues": 0,
+    "popularityScore": 16
   },
   {
     "createdAt": "2021-01-05T23:03:53Z",
@@ -10265,54 +10255,64 @@
     "popularityScore": 26
   },
   {
-    "createdAt": "2020-11-18T21:10:12Z",
-    "description": "Microsoft Teams service issues and Message Center notifications as Teams posts and to SharePoint lists.",
-    "fullName": "tobiheim/teams-health-feature-monitoring",
+    "createdAt": "2023-03-02T13:44:57Z",
+    "description": "This is a Power Platform custom connector project for OpenAI API and Azure OpenAI Service API.",
+    "fullName": "devrel-kr/azure-openai-connector",
     "hasIssues": true,
     "homepage": "",
     "isArchived": false,
-    "language": "",
+    "language": "Bicep",
     "license": {
       "key": "mit",
       "name": "MIT License",
       "url": "https://api.github.com/licenses/mit"
     },
-    "name": "teams-health-feature-monitoring",
+    "name": "azure-openai-connector",
     "openIssuesCount": 0,
     "owner": {
-      "id": "MDQ6VXNlcjIyODkzNTM2",
+      "id": "MDEyOk9yZ2FuaXphdGlvbjY0Mzk1ODQz",
       "is_bot": false,
-      "login": "tobiheim",
-      "type": "User",
-      "url": "https://github.com/tobiheim"
+      "login": "devrel-kr",
+      "type": "Organization",
+      "url": "https://github.com/devrel-kr"
     },
-    "updatedAt": "2023-12-06T11:58:58Z",
-    "url": "https://github.com/tobiheim/teams-health-feature-monitoring",
+    "updatedAt": "2023-10-22T11:59:54Z",
+    "url": "https://github.com/devrel-kr/azure-openai-connector",
     "codeOfConduct": null,
-    "forkCount": 0,
+    "forkCount": 21,
     "fundingLinks": [],
     "isSecurityPolicyEnabled": false,
     "isTemplate": false,
     "latestRelease": null,
-    "primaryLanguage": null,
+    "primaryLanguage": {
+      "name": "Bicep"
+    },
     "securityPolicyUrl": "",
     "stargazerCount": 13,
     "watchers": {
-      "totalCount": 3
+      "totalCount": 4
     },
     "topics": [
-      "office365",
-      "microsoftteams",
-      "powerautomate",
-      "graphapi"
+      "azure-functions",
+      "custom-connector",
+      "openai-api",
+      "power-platform",
+      "azure-openai-api",
+      "hacktoberfest"
     ],
-    "languages": [],
+    "languages": [
+      "Bicep",
+      "C#",
+      "PowerShell",
+      "Shell",
+      "Dockerfile"
+    ],
     "openedGoodFirstIssues": 0,
     "hasGoodFirstIssues": false,
     "openedHelpWantedIssues": 0,
     "hasHelpWantedIssues": false,
     "openedToContributionsIssues": 0,
-    "popularityScore": 16
+    "popularityScore": 17
   },
   {
     "createdAt": "2015-06-11T05:09:08Z",
@@ -10610,55 +10610,6 @@
     "popularityScore": 14
   },
   {
-    "createdAt": "2021-06-12T00:09:08Z",
-    "description": "Contactless Business Card: This component adds a user profile page in your app. The data source used is Office 365 but you can change it to Microsoft 365 or Dynamics 365 if need be. The QR code is generated via web api and it doesn't requires a power automate flow. This can be really handy for your Sales Team or Field Service Team, to enable them with a no contact business card sharing at no cost and saving you dollars.",
-    "fullName": "Experience-Digital-MS/eBusinessCard",
-    "hasIssues": true,
-    "homepage": "https://www.linkedin.com/company/experiencedigitalms",
-    "isArchived": false,
-    "language": "",
-    "license": {
-      "key": "mit",
-      "name": "MIT License",
-      "url": "https://api.github.com/licenses/mit"
-    },
-    "name": "eBusinessCard",
-    "openIssuesCount": 1,
-    "owner": {
-      "id": "MDQ6VXNlcjg0NzAxMTQ3",
-      "is_bot": false,
-      "login": "Experience-Digital-MS",
-      "type": "User",
-      "url": "https://github.com/Experience-Digital-MS"
-    },
-    "updatedAt": "2023-10-13T00:09:35Z",
-    "url": "https://github.com/Experience-Digital-MS/eBusinessCard",
-    "codeOfConduct": null,
-    "forkCount": 0,
-    "fundingLinks": [],
-    "isSecurityPolicyEnabled": false,
-    "isTemplate": false,
-    "latestRelease": null,
-    "primaryLanguage": null,
-    "securityPolicyUrl": "",
-    "stargazerCount": 11,
-    "watchers": {
-      "totalCount": 2
-    },
-    "topics": [
-      "powerapps",
-      "business-card",
-      "components"
-    ],
-    "languages": [],
-    "openedGoodFirstIssues": 0,
-    "hasGoodFirstIssues": false,
-    "openedHelpWantedIssues": 0,
-    "hasHelpWantedIssues": false,
-    "openedToContributionsIssues": 0,
-    "popularityScore": 13
-  },
-  {
     "createdAt": "2020-05-20T18:31:45Z",
     "description": "Version 2 of the Dataverse Data Explorer. ",
     "fullName": "scholarsportal/dataverse-data-explorer-v2",
@@ -10719,67 +10670,53 @@
     "popularityScore": 16
   },
   {
-    "createdAt": "2022-09-28T19:47:05Z",
-    "description": "D365 FSC DevOps setup&maintenance tools for GitHub",
-    "fullName": "ciellosinc/FSC-PS",
+    "createdAt": "2021-06-12T00:09:08Z",
+    "description": "Contactless Business Card: This component adds a user profile page in your app. The data source used is Office 365 but you can change it to Microsoft 365 or Dynamics 365 if need be. The QR code is generated via web api and it doesn't requires a power automate flow. This can be really handy for your Sales Team or Field Service Team, to enable them with a no contact business card sharing at no cost and saving you dollars.",
+    "fullName": "Experience-Digital-MS/eBusinessCard",
     "hasIssues": true,
-    "homepage": "",
+    "homepage": "https://www.linkedin.com/company/experiencedigitalms",
     "isArchived": false,
-    "language": "PowerShell",
+    "language": "",
     "license": {
-      "key": "apache-2.0",
-      "name": "Apache License 2.0",
-      "url": "https://api.github.com/licenses/apache-2.0"
+      "key": "mit",
+      "name": "MIT License",
+      "url": "https://api.github.com/licenses/mit"
     },
-    "name": "FSC-PS",
-    "openIssuesCount": 0,
+    "name": "eBusinessCard",
+    "openIssuesCount": 1,
     "owner": {
-      "id": "O_kgDOBtSmKA",
+      "id": "MDQ6VXNlcjg0NzAxMTQ3",
       "is_bot": false,
-      "login": "ciellosinc",
-      "type": "Organization",
-      "url": "https://github.com/ciellosinc"
+      "login": "Experience-Digital-MS",
+      "type": "User",
+      "url": "https://github.com/Experience-Digital-MS"
     },
-    "updatedAt": "2023-12-06T13:52:26Z",
-    "url": "https://github.com/ciellosinc/FSC-PS",
+    "updatedAt": "2023-10-13T00:09:35Z",
+    "url": "https://github.com/Experience-Digital-MS/eBusinessCard",
     "codeOfConduct": null,
     "forkCount": 0,
     "fundingLinks": [],
     "isSecurityPolicyEnabled": false,
     "isTemplate": false,
     "latestRelease": null,
-    "primaryLanguage": {
-      "name": "PowerShell"
-    },
+    "primaryLanguage": null,
     "securityPolicyUrl": "",
-    "stargazerCount": 10,
+    "stargazerCount": 11,
     "watchers": {
       "totalCount": 2
     },
     "topics": [
-      "d365fo",
-      "dynamics-365",
-      "powershell",
-      "d365tools",
-      "d365",
-      "devops-tools",
-      "fsc",
-      "retail",
-      "d365actions",
-      "devops",
-      "365",
-      "dynamics"
+      "powerapps",
+      "business-card",
+      "components"
     ],
-    "languages": [
-      "PowerShell",
-      "C#"
-    ],
+    "languages": [],
     "openedGoodFirstIssues": 0,
     "hasGoodFirstIssues": false,
     "openedHelpWantedIssues": 0,
     "hasHelpWantedIssues": false,
     "openedToContributionsIssues": 0,
-    "popularityScore": 12
+    "popularityScore": 13
   },
   {
     "createdAt": "2018-07-28T00:10:22Z",
@@ -11045,61 +10982,63 @@
     "popularityScore": 13
   },
   {
-    "createdAt": "2021-02-04T09:10:06Z",
-    "description": "Ready-to-use OData client for communication with Microsoft Dataverse Web API",
-    "fullName": "LarsBauer/DataverseODataClient",
+    "createdAt": "2022-07-24T01:29:22Z",
+    "description": "Notebook templates for support, administration, learning, training... related to Power Platform.",
+    "fullName": "rpothin/Power-Platform-Notebooks",
     "hasIssues": true,
-    "homepage": "https://www.nuget.org/packages/BauerApps.DataverseODataClient/",
+    "homepage": "",
     "isArchived": false,
-    "language": "C#",
+    "language": "Shell",
     "license": {
       "key": "mit",
       "name": "MIT License",
       "url": "https://api.github.com/licenses/mit"
     },
-    "name": "DataverseODataClient",
+    "name": "Power-Platform-Notebooks",
     "openIssuesCount": 0,
     "owner": {
-      "id": "MDQ6VXNlcjM5MjAwNDU=",
+      "id": "MDQ6VXNlcjIzMjQwMjQ1",
       "is_bot": false,
-      "login": "LarsBauer",
+      "login": "rpothin",
       "type": "User",
-      "url": "https://github.com/LarsBauer"
+      "url": "https://github.com/rpothin"
     },
-    "updatedAt": "2023-06-28T21:00:36Z",
-    "url": "https://github.com/LarsBauer/DataverseODataClient",
-    "codeOfConduct": null,
+    "updatedAt": "2023-12-08T15:15:38Z",
+    "url": "https://github.com/rpothin/Power-Platform-Notebooks",
+    "codeOfConduct": {
+      "key": "contributor_covenant",
+      "name": "Contributor Covenant",
+      "url": "https://github.com/rpothin/Power-Platform-Notebooks/blob/main/CODE_OF_CONDUCT.md"
+    },
     "forkCount": 1,
     "fundingLinks": [],
     "isSecurityPolicyEnabled": false,
     "isTemplate": false,
     "latestRelease": null,
     "primaryLanguage": {
-      "name": "C#"
+      "name": "Shell"
     },
     "securityPolicyUrl": "",
     "stargazerCount": 10,
     "watchers": {
-      "totalCount": 2
+      "totalCount": 5
     },
     "topics": [
-      "asp-net-core",
-      "azure-functions",
-      "azure",
-      "microsoft-dataverse",
-      "odata",
-      "azure-identity",
-      "azure-web-app"
+      "csharp",
+      "interactive-programming",
+      "power-platform",
+      "powershell"
     ],
     "languages": [
-      "C#"
+      "Shell",
+      "Dockerfile"
     ],
     "openedGoodFirstIssues": 0,
     "hasGoodFirstIssues": false,
     "openedHelpWantedIssues": 0,
     "hasHelpWantedIssues": false,
     "openedToContributionsIssues": 0,
-    "popularityScore": 12
+    "popularityScore": 15
   },
   {
     "createdAt": "2020-03-03T14:31:07Z",
@@ -11206,6 +11145,126 @@
     "hasHelpWantedIssues": false,
     "openedToContributionsIssues": 0,
     "popularityScore": 13
+  },
+  {
+    "createdAt": "2022-09-28T19:47:05Z",
+    "description": "D365 FSC DevOps setup&maintenance tools for GitHub",
+    "fullName": "ciellosinc/FSC-PS",
+    "hasIssues": true,
+    "homepage": "",
+    "isArchived": false,
+    "language": "PowerShell",
+    "license": {
+      "key": "apache-2.0",
+      "name": "Apache License 2.0",
+      "url": "https://api.github.com/licenses/apache-2.0"
+    },
+    "name": "FSC-PS",
+    "openIssuesCount": 0,
+    "owner": {
+      "id": "O_kgDOBtSmKA",
+      "is_bot": false,
+      "login": "ciellosinc",
+      "type": "Organization",
+      "url": "https://github.com/ciellosinc"
+    },
+    "updatedAt": "2023-12-06T13:52:26Z",
+    "url": "https://github.com/ciellosinc/FSC-PS",
+    "codeOfConduct": null,
+    "forkCount": 0,
+    "fundingLinks": [],
+    "isSecurityPolicyEnabled": false,
+    "isTemplate": false,
+    "latestRelease": null,
+    "primaryLanguage": {
+      "name": "PowerShell"
+    },
+    "securityPolicyUrl": "",
+    "stargazerCount": 10,
+    "watchers": {
+      "totalCount": 2
+    },
+    "topics": [
+      "d365fo",
+      "dynamics-365",
+      "powershell",
+      "d365tools",
+      "d365",
+      "devops-tools",
+      "fsc",
+      "retail",
+      "d365actions",
+      "devops",
+      "365",
+      "dynamics"
+    ],
+    "languages": [
+      "PowerShell",
+      "C#"
+    ],
+    "openedGoodFirstIssues": 0,
+    "hasGoodFirstIssues": false,
+    "openedHelpWantedIssues": 0,
+    "hasHelpWantedIssues": false,
+    "openedToContributionsIssues": 0,
+    "popularityScore": 12
+  },
+  {
+    "createdAt": "2021-02-04T09:10:06Z",
+    "description": "Ready-to-use OData client for communication with Microsoft Dataverse Web API",
+    "fullName": "LarsBauer/DataverseODataClient",
+    "hasIssues": true,
+    "homepage": "https://www.nuget.org/packages/BauerApps.DataverseODataClient/",
+    "isArchived": false,
+    "language": "C#",
+    "license": {
+      "key": "mit",
+      "name": "MIT License",
+      "url": "https://api.github.com/licenses/mit"
+    },
+    "name": "DataverseODataClient",
+    "openIssuesCount": 0,
+    "owner": {
+      "id": "MDQ6VXNlcjM5MjAwNDU=",
+      "is_bot": false,
+      "login": "LarsBauer",
+      "type": "User",
+      "url": "https://github.com/LarsBauer"
+    },
+    "updatedAt": "2023-06-28T21:00:36Z",
+    "url": "https://github.com/LarsBauer/DataverseODataClient",
+    "codeOfConduct": null,
+    "forkCount": 1,
+    "fundingLinks": [],
+    "isSecurityPolicyEnabled": false,
+    "isTemplate": false,
+    "latestRelease": null,
+    "primaryLanguage": {
+      "name": "C#"
+    },
+    "securityPolicyUrl": "",
+    "stargazerCount": 10,
+    "watchers": {
+      "totalCount": 2
+    },
+    "topics": [
+      "asp-net-core",
+      "azure-functions",
+      "azure",
+      "microsoft-dataverse",
+      "odata",
+      "azure-identity",
+      "azure-web-app"
+    ],
+    "languages": [
+      "C#"
+    ],
+    "openedGoodFirstIssues": 0,
+    "hasGoodFirstIssues": false,
+    "openedHelpWantedIssues": 0,
+    "hasHelpWantedIssues": false,
+    "openedToContributionsIssues": 0,
+    "popularityScore": 12
   },
   {
     "createdAt": "2021-03-16T18:52:07Z",
