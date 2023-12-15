@@ -56,7 +56,7 @@ jobs:
       # Push the built website to the workflow artifacts
       #   Action: https://docs.github.com/en/free-pro-team@latest/actions/guides/storing-workflow-data-as-artifacts
       - name: Upload website
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: Website
           path: Website/build
