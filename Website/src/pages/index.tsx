@@ -47,12 +47,41 @@ interface Repository {
     updatedAt: string;
 }
 
-// Function to escape special characters
+/**
+ * Escapes special characters in a string to be used in a regular expression.
+ * @param {string} string - The input string to escape.
+ * @returns {string} The escaped string.
+ */
 function escapeRegExp(string) {
   return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); // $& means the whole matched string
 }
 
-// Defining the App component
+/**
+ * Filters an array of repositories based on a search text.
+ * @param data - The array of repositories to filter.
+ * @param searchText - The search text to filter the repositories by.
+ * @returns The filtered array of repositories.
+ */
+export const filterItems = (data: Repository[], searchText: string): Repository[] => {
+  const fuse = new Fuse(data, {
+    keys: ['fullName', 'description', 'topics', 'language', 'owner.login', 'license.name', 'codeOfConduct.name'],
+    includeScore: true,
+    findAllMatches: true,
+    threshold: 0.3
+  });
+
+  if (searchText === '') {
+    return data;
+  } else {
+    const result = fuse.search(searchText);
+    return result.map(item => item.item);
+  }
+};
+
+/**
+ * The main component of the application.
+ * Renders the homepage with search functionality, filter pane, and gallery.
+ */
 const App = () => {
   const { siteConfig } = useDocusaurusContext();
   const { colorMode } = useColorMode();
@@ -77,20 +106,7 @@ const App = () => {
   
   // useEffect hook to filter items based on search text
   useEffect(() => {
-    const fuse = new Fuse(data, {
-      keys: ['fullName', 'description', 'topics', 'language', 'owner.login', 'license.name', 'codeOfConduct.name'],
-      includeScore: true,
-      findAllMatches: true,
-      threshold: 0.3 // you can adjust this threshold value according to your needs
-    });
-  
-    if (searchText === '') {
-      setItems(data);
-    } else {
-      const result = fuse.search(searchText);
-      const filteredItems = result.map(item => item.item);
-      setItems(filteredItems);
-    }
+    setItems(filterItems(data, searchText));
   }, [searchText]);
 
   // Function to handle search text change
@@ -169,7 +185,10 @@ const App = () => {
   ) : null;
 }
 
-// Exporting the HomePage component
+/**
+ * Renders the home page of the website.
+ * @returns The JSX element representing the home page.
+ */
 export default function HomePage(): JSX.Element {
   const {siteConfig} = useDocusaurusContext();
 
