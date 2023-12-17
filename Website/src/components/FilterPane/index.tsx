@@ -1,33 +1,53 @@
 // Importing necessary libraries and components
+// React library
 import React, { useState } from 'react';
-import { Stack, Text, DefaultButton, useTheme, Icon } from '@fluentui/react';
+
+// Fluent UI libraries
+import { Stack, DefaultButton, useTheme } from '@fluentui/react';
 import {
   Accordion,
   AccordionHeader,
   AccordionItem,
   AccordionPanel,
-  AccordionToggleEventHandler,
   Checkbox,
 } from "@fluentui/react-components";
 import type { CheckboxProps } from "@fluentui/react-components";
-import styles from './styles.module.css';
 
-// Function to count the number of items where the 'hasGoodFirstIssues' property is true
+/**
+ * Counts the number of items where the 'hasGoodFirstIssues' property is true.
+ * 
+ * @param items - An array of items with optional 'hasGoodFirstIssues' property.
+ * @returns The count of items with 'hasGoodFirstIssues' set to true.
+ */
 function countGoodFirstIssues(items: { hasGoodFirstIssues?: boolean }[]): number {
   return items.filter(item => item.hasGoodFirstIssues).length;
 }
 
-// Function to count the number of items where the 'hasHelpWantedIssues' property is true
+/**
+ * Counts the number of items where the 'hasHelpWantedIssues' property is true.
+ * 
+ * @param items - An array of items with optional 'hasHelpWantedIssues' property.
+ * @returns The count of items with 'hasHelpWantedIssues' set to true.
+ */
 function countHelpWantedIssues(items: { hasHelpWantedIssues?: boolean }[]): number {
   return items.filter(item => item.hasHelpWantedIssues).length;
 }
 
-// Function to count the number of items where the 'codeOfConduct' property is not null and 'codeOfConduct.name' is not null
+/**
+ * Counts the number of items where the 'codeOfConduct' property is not null and 'codeOfConduct.name' is not null.
+ * 
+ * @param items - An array of items to count.
+ * @returns The number of items that meet the criteria.
+ */
 function countCodeOfConduct(items: { codeOfConduct?: { name?: string } }[]): number {
   return items.filter(item => item.codeOfConduct && item.codeOfConduct.name).length;
 }
 
-// Function to extract distinct topics from items ordered by count of items with that topic
+/**
+ * Extracts distinct topics from items ordered by count of items with that topic.
+ * @param items - An array of items with topics.
+ * @returns An array of distinct topics.
+ */
 function extractDistinctTopics(items: { topics?: string[] }[]): string[] {
   const topicCounts: { [topic: string]: number } = {};
   items.forEach(item => {
@@ -49,12 +69,22 @@ function extractDistinctTopics(items: { topics?: string[] }[]): string[] {
   return filteredTopics;
 }
 
-// Function to count the number of items with a specified topic
+/**
+ * Counts the number of items with a specified topic.
+ * 
+ * @param items - An array of items with optional topics.
+ * @param topic - The topic to count.
+ * @returns The number of items with the specified topic.
+ */
 function countItemsWithTopic(items: { topics?: string[] }[], topic: string): number {
   return items.filter(item => item.topics && item.topics.includes(topic)).length;
 }
 
-// Function to extract distinct languages from items ordered by count of items with that language
+/**
+ * Function to extract distinct languages from items ordered by count of items with that language.
+ * @param items - An array of items with a language property.
+ * @returns An array of distinct languages, ordered by the count of items with that language.
+ */
 function extractDistinctLanguages(items: { language?: string }[]): string[] {
   const languageCounts: { [language: string]: number } = {};
   items.forEach(item => {
@@ -73,12 +103,23 @@ function extractDistinctLanguages(items: { language?: string }[]): string[] {
   return sortedLanguages;
 }
 
-// Function to count the number of items with a specified language
+/**
+ * Counts the number of items with a specified language.
+ * 
+ * @param items - The array of items to count.
+ * @param language - The language to filter the items by.
+ * @returns The number of items with the specified language.
+ */
 function countItemsWithLanguage(items: { language?: string }[], language: string): number {
   return items.filter(item => item.language === language).length;
 }
 
-// Function to extract distinct licenses from items ordered by count of items with that license
+/**
+ * Function to extract distinct licenses from items ordered by count of items with that license.
+ * 
+ * @param items - An array of items with license information.
+ * @returns An array of distinct licenses, ordered by the count of items with that license.
+ */
 function extractDistinctLicenses(items: { license?: { name?: string } }[]): string[] {
   const licenseCounts: { [license: string]: number } = {};
   items.forEach(item => {
@@ -97,12 +138,22 @@ function extractDistinctLicenses(items: { license?: { name?: string } }[]): stri
   return sortedLicenses;
 }
 
-// Function to count the number of items with a specified license
+/**
+ * Counts the number of items with a specified license.
+ * 
+ * @param items - An array of items with optional license information.
+ * @param license - The name of the license to count.
+ * @returns The number of items with the specified license.
+ */
 function countItemsWithLicense(items: { license?: { name?: string } }[], license: string): number {
   return items.filter(item => item.license && item.license.name === license).length;
 }
 
-// Function to extract distinct owners from items ordered by count of items with that owner
+/**
+ * Function to extract distinct owners from items ordered by count of items with that owner.
+ * @param items - An array of items with owner information.
+ * @returns An array of distinct owners, ordered by the count of items with that owner.
+ */
 function extractDistinctOwners(items: { owner?: { login?: string } }[]): string[] {
   const ownerCounts: { [owner: string]: number } = {};
   items.forEach(item => {
@@ -121,9 +172,35 @@ function extractDistinctOwners(items: { owner?: { login?: string } }[]): string[
   return sortedOwners;
 }
 
-// Function to count the number of items with a specified owner
+/**
+ * Counts the number of items with a specified owner.
+ * 
+ * @param items - An array of items with an optional owner property.
+ * @param owner - The owner to filter the items by.
+ * @returns The number of items with the specified owner.
+ */
 function countItemsWithOwner(items: { owner?: { login?: string } }[], owner: string): number {
   return items.filter(item => item.owner && item.owner.login === owner).length;
+}
+
+/**
+ * Custom hook to create handlers.
+ * 
+ * @template T - The type of the items in the state array.
+ * @param initialState - The initial state array.
+ * @param callback - The callback function to be called when the state changes.
+ * @returns The handler function.
+ */
+function useHandler<T>(initialState: T[], callback: (newState: T[]) => void) {
+  const [state, setState] = useState<T[]>(initialState);
+
+  const handler = (item: T, checked: CheckboxProps["checked"]) => {
+    const newState = checked ? [...state, item] : state.filter(i => i !== item);
+    setState(newState);
+    callback(newState);
+  };
+
+  return handler;
 }
 
 // Defining the FilterPane component

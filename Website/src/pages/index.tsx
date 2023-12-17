@@ -1,14 +1,17 @@
 // Importing necessary libraries and components
+// Third-party libraries
 import clsx from 'clsx';
+import Fuse from 'fuse.js';
+import React, { useState, useEffect } from "react";
+import { FluentProvider, webLightTheme, webDarkTheme } from '@fluentui/react-components';
+import { SearchBox } from "@fluentui/react/lib/SearchBox";
+import { initializeIcons } from "@fluentui/react/lib/Icons";
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import { useColorMode } from "@docusaurus/theme-common";
 import Layout from '@theme/Layout';
 import Heading from '@theme/Heading';
-import React, { useState, useEffect } from "react";
-import { SearchBox } from "@fluentui/react/lib/SearchBox";
-import Fuse from 'fuse.js';
-import { initializeIcons } from "@fluentui/react/lib/Icons";
-import { FluentProvider, webLightTheme, webDarkTheme } from '@fluentui/react-components';
+
+// Local files
 import styles from './index.module.css';
 import data from '../../../Data/GitHubRepositoriesDetails.json';
 import Gallery from '../components//Gallery';
