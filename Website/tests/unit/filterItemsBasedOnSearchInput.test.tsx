@@ -68,8 +68,23 @@ describe('filterItemsBasedOnSearchInput', () => {
     expect(result).toEqual(data);
   });
 
-  it('returns a filtered list when the search text is not empty', () => {
+  it('returns a filtered list when the search text is not empty and the search text has an exact match in the fullname of a repository', () => {
     const result = filterItemsBasedOnSearchInput(data, 'rpothin');
     expect(result).toEqual([data[1]]);
+  });
+
+  it('return a filtered list when the search text is not empty and the search text has a fuzzy match in the fullname of a repository', () => {
+    const result = filterItemsBasedOnSearchInput(data, 'rppooothin');
+    expect(result).toEqual([data[1]]);
+  });
+
+  it('returns a filtered list when the search text is not empty and the search text has an exact match in the license name of a repository', () => {
+    const result = filterItemsBasedOnSearchInput(data, 'MIT');
+    expect(result).toEqual([data[0]]);
+  });
+
+  it('returns a filtered list when the search text is not empty and the search text has a fuzzy match in the code of conduct name of a repository', () => {
+    const result = filterItemsBasedOnSearchInput(data, 'Covenaant');
+    expect(result).toEqual([data[0]]);
   });
 });
