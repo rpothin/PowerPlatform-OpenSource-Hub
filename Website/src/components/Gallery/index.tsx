@@ -4,14 +4,11 @@ import React, { useState } from 'react';
 import { format } from 'date-fns';
 
 // Fluent UI libraries
-import { DocumentCard, DocumentCardDetails, DocumentCardTitle, Dialog, DialogType, Link } from '@fluentui/react';
+import { Dialog } from '@fluentui/react';
 import {
     Badge,
     Body1,
     Button,
-    Caption1,
-    makeStyles,
-    shorthands,
     Subtitle1,
     Text,
     Tooltip,
