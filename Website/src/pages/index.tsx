@@ -12,65 +12,15 @@ import Layout from '@theme/Layout';
 import Heading from '@theme/Heading';
 
 // Local files
+import { Repository } from '../types/repository';
+import { filterItemsBasedOnSearchInput } from '../utils/filterItemsBasedOnSearchInput';
 import styles from './index.module.css';
 import data from '../../../Data/GitHubRepositoriesDetails.json';
-import Gallery from '../components//Gallery';
+import Gallery from '../components/Gallery';
 import FilterPane from '../components/FilterPane';
 
 // Initializing Fluent UI icons
 initializeIcons();
-
-// Defining the Repository interface
-interface Repository {
-    fullName: string;
-    url: string;
-    name: string;
-    owner: {
-        login: string;
-    };
-    description: string;
-    license: {
-        name: string;
-    };
-    codeOfConduct: {
-        name: string;
-    };
-    topics: string[];
-    language: string;
-    stargazerCount: number;
-    watchers: {
-        totalCount: number;
-    };
-    hasGoodFirstIssues?: boolean;
-    hasHelpWantedIssues?: boolean;
-    latestRelease?: {
-      tagName: string;
-      publishedAt: string;
-    };
-    updatedAt: string;
-}
-
-/**
- * Filters an array of repositories based on a search text.
- * @param data - The array of repositories to filter.
- * @param searchText - The search text to filter the repositories by.
- * @returns The filtered array of repositories.
- */
-export const filterItems = (data: Repository[], searchText: string): Repository[] => {
-  const fuse = new Fuse(data, {
-    keys: ['fullName', 'description', 'topics', 'language', 'owner.login', 'license.name', 'codeOfConduct.name'],
-    includeScore: true,
-    findAllMatches: true,
-    threshold: 0.3
-  });
-
-  if (searchText === '') {
-    return data;
-  } else {
-    const result = fuse.search(searchText);
-    return result.map(item => item.item);
-  }
-};
 
 /**
  * The main component of the application.
@@ -100,7 +50,7 @@ const App = () => {
   
   // useEffect hook to filter items based on search text
   useEffect(() => {
-    setItems(filterItems(data, searchText));
+    setItems(filterItemsBasedOnSearchInput(data, searchText));
   }, [searchText]);
 
   // Function to handle search text change
