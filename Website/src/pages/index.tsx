@@ -51,15 +51,6 @@ interface Repository {
 }
 
 /**
- * Escapes special characters in a string to be used in a regular expression.
- * @param {string} string - The input string to escape.
- * @returns {string} The escaped string.
- */
-function escapeRegExp(string) {
-  return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); // $& means the whole matched string
-}
-
-/**
  * Filters an array of repositories based on a search text.
  * @param data - The array of repositories to filter.
  * @param searchText - The search text to filter the repositories by.
