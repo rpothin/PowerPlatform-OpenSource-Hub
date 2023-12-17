@@ -19,3 +19,13 @@ updates:
     commit-message:
       # Prefix all commit messages with "github-action-version-update"
       prefix: "github-action-version-update"
+
+  # Enable version updates for package.json files of the Website
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "daily"
+    assignees:
+      - "rpothin"
+    commit-message:
+      prefix: "npm-version-update"
