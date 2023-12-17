@@ -10,13 +10,16 @@
     "deploy": "docusaurus deploy",
     "clear": "docusaurus clear",
     "serve": "docusaurus serve",
+    "test": "jest Website/tests/",
+    "test:unit": "jest Website/tests/unit/",
+    "test:ui": "jest Website/tests/ui/",
     "write-translations": "docusaurus write-translations",
     "write-heading-ids": "docusaurus write-heading-ids",
     "typecheck": "tsc"
   },
   "dependencies": {
-    "@docusaurus/core": "3.0.0",
-    "@docusaurus/preset-classic": "3.0.0",
+    "@docusaurus/core": "^3.0.1",
+    "@docusaurus/preset-classic": "^3.0.1",
     "@fluentui/react": "^8.112.9",
     "@fluentui/react-components": "^9.41.0",
     "@types/date-fns": "^2.6.0",
@@ -29,8 +32,8 @@
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
-    "@docusaurus/tsconfig": "3.0.0",
-    "@docusaurus/types": "3.0.0",
+    "@docusaurus/tsconfig": "^3.0.1",
+    "@docusaurus/types": "^3.0.1",
     "typescript": "^5.3.2"
   },
   "browserslist": {
