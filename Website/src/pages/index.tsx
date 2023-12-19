@@ -2,7 +2,8 @@
 // Third-party libraries
 import clsx from 'clsx';
 import Fuse from 'fuse.js';
-import React, { useState, useEffect } from "react";
+import * as React from 'react';
+import { useState, useEffect } from 'react';
 import { FluentProvider, webLightTheme, webDarkTheme } from '@fluentui/react-components';
 import { SearchBox } from "@fluentui/react/lib/SearchBox";
 import { initializeIcons } from "@fluentui/react/lib/Icons";

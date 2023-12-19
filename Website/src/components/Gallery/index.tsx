@@ -1,6 +1,7 @@
 // Importing necessary libraries and components
 // React library
-import React, { useState } from 'react';
+import * as React from 'react';
+import { useState } from 'react';
 import { format } from 'date-fns';
 
 // Fluent UI libraries
