@@ -13,195 +13,8 @@ import {
 } from "@fluentui/react-components";
 import type { CheckboxProps } from "@fluentui/react-components";
 
-/**
- * Counts the number of items where the 'hasGoodFirstIssues' property is true.
- * 
- * @param items - An array of items with optional 'hasGoodFirstIssues' property.
- * @returns The count of items with 'hasGoodFirstIssues' set to true.
- */
-function countGoodFirstIssues(items: { hasGoodFirstIssues?: boolean }[]): number {
-  return items.filter(item => item.hasGoodFirstIssues).length;
-}
-
-/**
- * Counts the number of items where the 'hasHelpWantedIssues' property is true.
- * 
- * @param items - An array of items with optional 'hasHelpWantedIssues' property.
- * @returns The count of items with 'hasHelpWantedIssues' set to true.
- */
-function countHelpWantedIssues(items: { hasHelpWantedIssues?: boolean }[]): number {
-  return items.filter(item => item.hasHelpWantedIssues).length;
-}
-
-/**
- * Counts the number of items where the 'codeOfConduct' property is not null and 'codeOfConduct.name' is not null.
- * 
- * @param items - An array of items to count.
- * @returns The number of items that meet the criteria.
- */
-function countCodeOfConduct(items: { codeOfConduct?: { name?: string } }[]): number {
-  return items.filter(item => item.codeOfConduct && item.codeOfConduct.name).length;
-}
-
-/**
- * Extracts distinct topics from items ordered by count of items with that topic.
- * @param items - An array of items with topics.
- * @returns An array of distinct topics.
- */
-function extractDistinctTopics(items: { topics?: string[] }[]): string[] {
-  const topicCounts: { [topic: string]: number } = {};
-  items.forEach(item => {
-    if (item.topics) {
-      item.topics.forEach(topic => {
-        if (!topicCounts[topic]) {
-          topicCounts[topic] = 0;
-        }
-        topicCounts[topic]++;
-      });
-    }
-  });
-
-  const filteredTopics = Object.entries(topicCounts)
-    .filter(([_, count]) => count >= 3)
-    .sort((a, b) => b[1] - a[1])
-    .map(([topic]) => topic);
-
-  return filteredTopics;
-}
-
-/**
- * Counts the number of items with a specified topic.
- * 
- * @param items - An array of items with optional topics.
- * @param topic - The topic to count.
- * @returns The number of items with the specified topic.
- */
-function countItemsWithTopic(items: { topics?: string[] }[], topic: string): number {
-  return items.filter(item => item.topics && item.topics.includes(topic)).length;
-}
-
-/**
- * Function to extract distinct languages from items ordered by count of items with that language.
- * @param items - An array of items with a language property.
- * @returns An array of distinct languages, ordered by the count of items with that language.
- */
-function extractDistinctLanguages(items: { language?: string }[]): string[] {
-  const languageCounts: { [language: string]: number } = {};
-  items.forEach(item => {
-    if (item.language) {
-      if (!languageCounts[item.language]) {
-        languageCounts[item.language] = 0;
-      }
-      languageCounts[item.language]++;
-    }
-  });
-
-  const sortedLanguages = Object.entries(languageCounts)
-    .sort((a, b) => b[1] - a[1])
-    .map(([language]) => language);
-
-  return sortedLanguages;
-}
-
-/**
- * Counts the number of items with a specified language.
- * 
- * @param items - The array of items to count.
- * @param language - The language to filter the items by.
- * @returns The number of items with the specified language.
- */
-function countItemsWithLanguage(items: { language?: string }[], language: string): number {
-  return items.filter(item => item.language === language).length;
-}
-
-/**
- * Function to extract distinct licenses from items ordered by count of items with that license.
- * 
- * @param items - An array of items with license information.
- * @returns An array of distinct licenses, ordered by the count of items with that license.
- */
-function extractDistinctLicenses(items: { license?: { name?: string } }[]): string[] {
-  const licenseCounts: { [license: string]: number } = {};
-  items.forEach(item => {
-    if (item.license && item.license.name) {
-      if (!licenseCounts[item.license.name]) {
-        licenseCounts[item.license.name] = 0;
-      }
-      licenseCounts[item.license.name]++;
-    }
-  });
-
-  const sortedLicenses = Object.entries(licenseCounts)
-    .sort((a, b) => b[1] - a[1])
-    .map(([license]) => license);
-
-  return sortedLicenses;
-}
-
-/**
- * Counts the number of items with a specified license.
- * 
- * @param items - An array of items with optional license information.
- * @param license - The name of the license to count.
- * @returns The number of items with the specified license.
- */
-function countItemsWithLicense(items: { license?: { name?: string } }[], license: string): number {
-  return items.filter(item => item.license && item.license.name === license).length;
-}
-
-/**
- * Function to extract distinct owners from items ordered by count of items with that owner.
- * @param items - An array of items with owner information.
- * @returns An array of distinct owners, ordered by the count of items with that owner.
- */
-function extractDistinctOwners(items: { owner?: { login?: string } }[]): string[] {
-  const ownerCounts: { [owner: string]: number } = {};
-  items.forEach(item => {
-    if (item.owner && item.owner.login) {
-      if (!ownerCounts[item.owner.login]) {
-        ownerCounts[item.owner.login] = 0;
-      }
-      ownerCounts[item.owner.login]++;
-    }
-  });
-
-  const sortedOwners = Object.entries(ownerCounts)
-    .sort((a, b) => b[1] - a[1])
-    .map(([owner]) => owner);
-
-  return sortedOwners;
-}
-
-/**
- * Counts the number of items with a specified owner.
- * 
- * @param items - An array of items with an optional owner property.
- * @param owner - The owner to filter the items by.
- * @returns The number of items with the specified owner.
- */
-function countItemsWithOwner(items: { owner?: { login?: string } }[], owner: string): number {
-  return items.filter(item => item.owner && item.owner.login === owner).length;
-}
-
-/**
- * Custom hook to create handlers.
- * 
- * @template T - The type of the items in the state array.
- * @param initialState - The initial state array.
- * @param callback - The callback function to be called when the state changes.
- * @returns The handler function.
- */
-function useHandler<T>(initialState: T[], callback: (newState: T[]) => void) {
-  const [state, setState] = useState<T[]>(initialState);
-
-  const handler = (item: T, checked: CheckboxProps["checked"]) => {
-    const newState = checked ? [...state, item] : state.filter(i => i !== item);
-    setState(newState);
-    callback(newState);
-  };
-
-  return handler;
-}
+// Local files
+import { countItemsByProperty, extractDistinctProperties } from '../../utils/filterPaneUtils';
 
 // Defining the FilterPane component
 const FilterPane = ({ items, onGoodFirstIssueChange, onHelpWanteIssueChange, onCodeOfConductChange, onTopicsChange, onLanguagesChange, onLicensesChange, onOwnersChange }) => {
@@ -233,15 +46,15 @@ const FilterPane = ({ items, onGoodFirstIssueChange, onHelpWanteIssueChange, onC
   const isDarkTheme = theme.palette.themePrimary === '#ffffff'; // Adjust this condition based on your theme configuration
 
   // Extracting information from items
-  const topics = extractDistinctTopics(items);
-  const languages = extractDistinctLanguages(items);
-  const licenses = extractDistinctLicenses(items);
-  const owners = extractDistinctOwners(items);
+  const topics = extractDistinctProperties(items, 'topics');
+  const languages = extractDistinctProperties(items, 'language');
+  const licenses = extractDistinctProperties(items, 'license.name');
+  const owners = extractDistinctProperties(items, 'owner.login');
 
   // Counts
-  const goodFirstIssueCount = countGoodFirstIssues(items);
-  const helpWantedIssueCount = countHelpWantedIssues(items);
-  const codeOfConductCount = countCodeOfConduct(items);
+  const goodFirstIssueCount = countItemsByProperty(items, 'hasGoodFirstIssues', true);
+  const helpWantedIssueCount = countItemsByProperty(items, 'hasHelpWantedIssues', true);
+  const codeOfConductCount = countItemsByProperty(items, 'hasCodeOfConduct', true);
 
   // Determining which information to display
   const displayedTopics = showAllTopics ? topics : topics.slice(0, 10);
@@ -352,7 +165,7 @@ const FilterPane = ({ items, onGoodFirstIssueChange, onHelpWanteIssueChange, onC
                   {displayedTopics.map((topic, index) => (
                     <Checkbox 
                       key={index} 
-                      label={topic + " (" + countItemsWithTopic(items, topic) + ")"} 
+                      label={topic + " (" + countItemsByProperty(items, 'topics', topic) + ")"}
                       checked={checkboxStates[topic] || false}
                       onChange={(e, data) => {
                         handleTopicChange(topic, data.checked);
@@ -379,7 +192,7 @@ const FilterPane = ({ items, onGoodFirstIssueChange, onHelpWanteIssueChange, onC
                 {displayedLanguages.map((language, index) => (
                   <Checkbox 
                     key={index} 
-                    label={language + " (" + countItemsWithLanguage(items, language) + ")"} 
+                    label={language + " (" + countItemsByProperty(items, 'language', language) + ")"} 
                     checked={checkboxStates[language] || false}
                     onChange={(e, data) => {
                       handleLanguageChange(language, data.checked);
@@ -406,7 +219,7 @@ const FilterPane = ({ items, onGoodFirstIssueChange, onHelpWanteIssueChange, onC
                 {displayedLicenses.map((license, index) => (
                   <Checkbox 
                     key={index} 
-                    label={license + " (" + countItemsWithLicense(items, license) + ")"} 
+                    label={license + " (" + countItemsByProperty(items, 'license.name', license) + ")"} 
                     checked={checkboxStates[license] || false}
                     onChange={(e, data) => {
                       handleLicenseChange(license, data.checked);
@@ -433,7 +246,7 @@ const FilterPane = ({ items, onGoodFirstIssueChange, onHelpWanteIssueChange, onC
                 {displayedOwners.map((owner, index) => (
                   <Checkbox 
                     key={index} 
-                    label={owner + " (" + countItemsWithOwner(items, owner) + ")"} 
+                    label={owner + " (" + countItemsByProperty(items, 'owner.login', owner) + ")"} 
                     checked={checkboxStates[owner] || false}
                     onChange={(e, data) => {
                       handleOwnerChange(owner, data.checked);
