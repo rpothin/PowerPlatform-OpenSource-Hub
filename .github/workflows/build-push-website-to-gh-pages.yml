@@ -53,6 +53,13 @@ jobs:
           npm ci
           npm run build
 
+      # Run unit tests
+      - name: Run unit tests
+        working-directory: Website
+        run: |
+          npm ci
+          npm run test:unit
+
       # Push the built website to the workflow artifacts
       #   Action: https://docs.github.com/en/free-pro-team@latest/actions/guides/storing-workflow-data-as-artifacts
       - name: Upload website
