@@ -39,148 +39,8 @@ import {
 import { ArrowExpand16Regular, Dismiss24Regular, Eye16Filled, OpenRegular, Star16Filled } from "@fluentui/react-icons";
 
 // Local files
+import { filterItems, sortItems, isActive } from '../../utils/galleryUtils';
 import styles from './styles.module.css';
-
-/**
- * Represents an item in the gallery.
- */
-type Item = {
-    hasGoodFirstIssues: boolean;
-    hasHelpWantedIssues: boolean;
-    codeOfConduct: { name: string } | null;
-    topics: string[];
-    languages: string[];
-    license: { name: string };
-    owner: { login: string };
-};
-
-/**
- * Filters the items based on the "hasGoodFirstIssueChecked" parameter.
- * @param items - The array of items to filter.
- * @param hasGoodFirstIssueChecked - Indicates whether to filter by items with good first issues.
- * @returns The filtered array of items.
- */
-function filterByGoodFirstIssues(items: Item[], hasGoodFirstIssueChecked: boolean) {
-    return hasGoodFirstIssueChecked ? items.filter(item => item.hasGoodFirstIssues) : items;
-}
-
-/**
- * Filters the items based on the "hasHelpWantedIssueChecked" parameter.
- * @param items - The array of items to filter.
- * @param hasHelpWantedIssueChecked - Indicates whether to filter by items with help wanted issues.
- * @returns The filtered array of items.
- */
-function filterByHelpWantedIssues(items: Item[], hasHelpWantedIssueChecked: boolean) {
-    return hasHelpWantedIssueChecked ? items.filter(item => item.hasHelpWantedIssues) : items;
-}
-
-/**
- * Filters the items based on the "hasCodeOfConductChecked" parameter.
- * @param items - The array of items to filter.
- * @param hasCodeOfConductChecked - Indicates whether to filter by items with a code of conduct.
- * @returns The filtered array of items.
- */
-function filterByCodeOfConduct(items: Item[], hasCodeOfConductChecked: boolean) {
-    return hasCodeOfConductChecked ? items.filter(item => item.codeOfConduct && item.codeOfConduct.name) : items;
-}
-
-/**
- * Filters the items based on the selected topics.
- * @param items - The array of items to filter.
- * @param selectedTopics - The array of selected topics.
- * @returns The filtered array of items.
- */
-function filterByTopics(items: Item[], selectedTopics: string[]) {
-    return selectedTopics.length > 0 ? items.filter(item => selectedTopics.every(topic => item.topics.includes(topic))) : items;
-}
-
-/**
- * Filters the items based on the selected languages.
- * @param items - The array of items to filter.
- * @param selectedLanguages - The array of selected languages.
- * @returns The filtered array of items.
- */
-function filterByLanguages(items: Item[], selectedLanguages: string[]) {
-    return selectedLanguages.length > 0 ? items.filter(item => selectedLanguages.every(language => item.languages.includes(language))) : items;
-}
-
-/**
- * Filters the items based on the selected licenses.
- * @param items - The array of items to filter.
- * @param selectedLicenses - The array of selected licenses.
- * @returns The filtered array of items.
- */
-function filterByLicenses(items: Item[], selectedLicenses: string[]) {
-    return selectedLicenses.length > 0 ? items.filter(item => selectedLicenses.includes(item.license.name)) : items;
-}
-
-/**
- * Filters the items based on the selected owners.
- * @param items - The array of items to filter.
- * @param selectedOwners - The array of selected owners.
- * @returns The filtered array of items.
- */
-function filterByOwners(items: Item[], selectedOwners: string[]) {
-    return selectedOwners.length > 0 ? items.filter(item => selectedOwners.includes(item.owner.login)) : items;
-}
-
-/**
- * Filters the items based on the provided filter parameters.
- * @param items - The array of items to filter.
- * @param hasGoodFirstIssueChecked - Indicates whether to filter by items with good first issues.
- * @param hasHelpWantedIssueChecked - Indicates whether to filter by items with help wanted issues.
- * @param hasCodeOfConductChecked - Indicates whether to filter by items with a code of conduct.
- * @param selectedTopics - The array of selected topics.
- * @param selectedLanguages - The array of selected languages.
- * @param selectedLicenses - The array of selected licenses.
- * @param selectedOwners - The array of selected owners.
- * @returns The filtered array of items.
- */
-function filterItems(items: Item[], hasGoodFirstIssueChecked: boolean, hasHelpWantedIssueChecked: boolean, hasCodeOfConductChecked: boolean, selectedTopics: string[], selectedLanguages: string[], selectedLicenses: string[], selectedOwners: string[]) {
-    let filteredItems = items;
-    filteredItems = filterByGoodFirstIssues(filteredItems, hasGoodFirstIssueChecked);
-    filteredItems = filterByHelpWantedIssues(filteredItems, hasHelpWantedIssueChecked);
-    filteredItems = filterByCodeOfConduct(filteredItems, hasCodeOfConductChecked);
-    filteredItems = filterByTopics(filteredItems, selectedTopics);
-    filteredItems = filterByLanguages(filteredItems, selectedLanguages);
-    filteredItems = filterByLicenses(filteredItems, selectedLicenses);
-    filteredItems = filterByOwners(filteredItems, selectedOwners);
-    return filteredItems;
-}
-
-/**
- * Sorts the items based on the selected options.
- * @param {Array} items - The array of items to be sorted.
- * @param {Array} selectedOptions - The selected options for sorting.
- * @returns {Array} - The sorted array of items.
- */
-const sortItems = (items, selectedOptions) => {
-    const selectedOption = selectedOptions[0];
-    switch (selectedOption) {
-        case 'starsAsc':
-            return items.sort((a, b) => a.stargazerCount - b.stargazerCount);
-        case 'starsDesc':
-            return items.sort((a, b) => b.stargazerCount - a.stargazerCount);
-        case 'alphabeticalAsc':
-            return items.sort((a, b) => a.fullName.localeCompare(b.fullName));
-        case 'alphabeticalDesc':
-            return items.sort((a, b) => b.fullName.localeCompare(a.fullName));
-        default:
-            return items;
-    }
-}
-
-/**
- * Checks if a date is active (within the last 10 days).
- * @param {string} dateString - The date string to be checked.
- * @returns {boolean} - True if the date is active, false otherwise.
- */
-const isActive = (dateString) => {
-    const date = new Date(dateString);
-    const thirtyDaysAgo = new Date();
-    thirtyDaysAgo.setDate(thirtyDaysAgo.getDate() - 10);
-    return date >= thirtyDaysAgo;
-}
 
 // Defining the Gallery component
 const Gallery = ({ items, hasGoodFirstIssueChecked, hasHelpWantedIssueChecked, hasCodeOfConductChecked, selectedTopics = [], selectedLanguages = [], selectedLicenses = [], selectedOwners = [] }) => {
@@ -199,7 +59,15 @@ const Gallery = ({ items, hasGoodFirstIssueChecked, hasHelpWantedIssueChecked, h
     const [value, setValue] = React.useState("Stars (Descending)");
     
     // Filter items based on selected criteria
-    const filteredItems = filterItems(items, hasGoodFirstIssueChecked, hasHelpWantedIssueChecked, hasCodeOfConductChecked, selectedTopics, selectedLanguages, selectedLicenses, selectedOwners);
+    const filteredItems = filterItems(items, {
+        hasGoodFirstIssueChecked,
+        hasHelpWantedIssueChecked,
+        hasCodeOfConductChecked,
+        selectedTopics,
+        selectedLanguages,
+        selectedLicenses,
+        selectedOwners,
+    });
 
     /**
      * Opens a dialog with the selected item.

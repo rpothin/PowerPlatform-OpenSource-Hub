@@ -15,6 +15,7 @@ export interface Repository {
     };
     topics: string[];
     language: string;
+    languages: string[];
     stargazerCount: number;
     watchers: {
         totalCount: number;
@@ -27,3 +28,16 @@ export interface Repository {
     };
     updatedAt: string;
 }
+
+/**
+ * Represents an item in the gallery.
+ */
+export type Item = {
+    hasGoodFirstIssues: boolean;
+    hasHelpWantedIssues: boolean;
+    codeOfConduct: { name: string } | null;
+    topics: string[];
+    languages: string[];
+    license: { name: string };
+    owner: { login: string };
+};
