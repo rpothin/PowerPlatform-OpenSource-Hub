@@ -2,6 +2,16 @@ import { data } from './mockData';
 import { filterItemsBasedOnSearchInput } from '../../src/utils/filterItemsBasedOnSearchInput';
 
 describe('filterItemsBasedOnSearchInput', () => {
+  it('returns an empty list when the array is empty and the search text is empty', () => {
+    const result = filterItemsBasedOnSearchInput([], '');
+    expect(result).toEqual([]);
+  });
+
+  it('returns an empty list when the array is empty and the search text is not empty', () => {
+    const result = filterItemsBasedOnSearchInput([], 'abc');
+    expect(result).toEqual([]);
+  });
+  
   it('returns the full list when the search text is empty', () => {
     const result = filterItemsBasedOnSearchInput(data, '');
     expect(result).toEqual(data);

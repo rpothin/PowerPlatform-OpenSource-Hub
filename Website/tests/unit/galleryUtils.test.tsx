@@ -2,6 +2,19 @@ import { data } from './mockData';
 import { filterItems, sortItems, isActive } from '../../src/utils/galleryUtils';
 
 describe('filterItems', () => {
+  it('returns the full list when the items array is empty, but the filter parameters are not', () => {
+    const result = filterItems([], {
+      hasGoodFirstIssueChecked: false,
+      hasHelpWantedIssueChecked: false,
+      hasCodeOfConductChecked: false,
+      selectedTopics: [],
+      selectedLanguages: [],
+      selectedLicenses: [],
+      selectedOwners: []
+    });
+    expect(result).toEqual([]);
+  });
+  
   it('returns the full list when no filters are specified', () => {
     const result = filterItems(data, {
       hasGoodFirstIssueChecked: false,
@@ -108,6 +121,21 @@ describe('filterItems', () => {
 });
 
 describe('sortItems', () => {
+    it('returns an empty list when the items array is empty', () => {
+        const result = sortItems([], []);
+        expect(result).toEqual([]);
+    });
+
+    it('returns the full list with its order by default when no sort option is specified', () => {
+        const result = sortItems(data, []);
+        expect(result).toEqual(data);
+    });
+
+    it('returns an empty list when the items array is empty, but the sort option is not empty', () => {
+        const result = sortItems([], ['starsAsc']);
+        expect(result).toEqual([]);
+    });
+
     it('returns the full list with its order by default when no sort option is specified', () => {
         const result = sortItems(data, []);
         expect(result).toEqual(data);
@@ -135,6 +163,16 @@ describe('sortItems', () => {
 });
 
 describe('isActive', () => {
+    it('returns false when the date is null', () => {
+        const result = isActive(null);
+        expect(result).toEqual(false);
+    });
+
+    it('returns false when the date is not a valid date string', () => {
+        const result = isActive('abc');
+        expect(result).toEqual(false);
+    });
+
     it('returns true when the date is within the last 10 days', () => {
         const today = new Date();
         today.setDate(today.getDate() - 5);

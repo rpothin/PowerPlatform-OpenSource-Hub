@@ -2,22 +2,36 @@
 import { Item } from '../types/repository';
 
 /**
+ * Represents the filter parameters for the gallery.
+ */
+export type FilterParams = {
+    hasGoodFirstIssueChecked: boolean;
+    hasHelpWantedIssueChecked: boolean;
+    hasCodeOfConductChecked: boolean;
+    selectedTopics: string[];
+    selectedLanguages: string[];
+    selectedLicenses: string[];
+    selectedOwners: string[];
+};
+
+/**
  * Filters the items based on the provided filter parameters.
  * @param items - The array of items to filter.
  * @param filterParams - The object containing the filter parameters.
  * @returns The filtered array of items.
  */
-export function filterItems(items, filterParams) {
-    return items.filter(item => {
+export function filterItems(items, filterParams: FilterParams) {
+    const itemsCopy = [...items]; // Create a copy of the array
+    return itemsCopy.filter(item => {
         const { hasGoodFirstIssueChecked, hasHelpWantedIssueChecked, hasCodeOfConductChecked, selectedTopics, selectedLanguages, selectedLicenses, selectedOwners } = filterParams;
         return (
-            (!hasGoodFirstIssueChecked || item.hasGoodFirstIssues) &&
-            (!hasHelpWantedIssueChecked || item.hasHelpWantedIssues) &&
-            (!hasCodeOfConductChecked || (item.codeOfConduct && item.codeOfConduct.name)) &&
-            (selectedTopics.length === 0 || selectedTopics.every(topic => item.topics.includes(topic))) &&
-            (selectedLanguages.length === 0 || selectedLanguages.every(language => item.languages.includes(language))) &&
-            (selectedLicenses.length === 0 || selectedLicenses.includes(item.license.name)) &&
-            (selectedOwners.length === 0 || selectedOwners.includes(item.owner.login))
+                (!hasGoodFirstIssueChecked || item.hasGoodFirstIssues) &&
+                (!hasHelpWantedIssueChecked || item.hasHelpWantedIssues) &&
+                (!hasCodeOfConductChecked || (item.codeOfConduct && item.codeOfConduct.name)) &&
+                (selectedTopics.length === 0 || selectedTopics.every(topic => item.topics.includes(topic))) &&
+                (selectedLanguages.length === 0 || selectedLanguages.every(language => item.languages.includes(language))) &&
+                (selectedLicenses.length === 0 || selectedLicenses.includes(item.license.name)) &&
+                (selectedOwners.length === 0 || selectedOwners.includes(item.owner.login))
         );
     });
 }
