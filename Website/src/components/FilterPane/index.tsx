@@ -55,7 +55,7 @@ const FilterPane = ({ items, onGoodFirstIssueChange, onHelpWanteIssueChange, onC
   // Counts
   const goodFirstIssueCount = countItemsByProperty(items, 'hasGoodFirstIssues', true);
   const helpWantedIssueCount = countItemsByProperty(items, 'hasHelpWantedIssues', true);
-  const codeOfConductCount = countItemsByProperty(items, 'hasCodeOfConduct', true);
+  const codeOfConductCount = countItemsByProperty(items, 'codeOfConduct', 'NotNull');
 
   // Determining which information to display
   const displayedTopics = showAllTopics ? topics : topics.slice(0, 10);
