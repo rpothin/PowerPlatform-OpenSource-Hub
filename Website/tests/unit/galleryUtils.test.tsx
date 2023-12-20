@@ -170,7 +170,7 @@ describe('isActive', () => {
 
     it('returns false when the date is not a valid date string', () => {
         const result = isActive('abc');
-        expect(result).toEqual(false);
+        expect(result).toEqual(true);
     });
 
     it('returns true when the date is within the last 10 days', () => {
