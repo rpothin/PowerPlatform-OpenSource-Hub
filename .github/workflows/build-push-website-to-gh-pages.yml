@@ -46,18 +46,22 @@ jobs:
           cache: npm
           cache-dependency-path: Website/package-lock.json
 
+      # Install dependencies
+      - name: Install dependencies
+        working-directory: Website
+        run: |
+          npm ci
+
       # Build the website
       - name: Build website
         working-directory: Website
         run: |
-          npm ci
           npm run build
 
       # Run unit tests
       - name: Run unit tests
         working-directory: Website
         run: |
-          npm ci
           npm run test:unit
 
       # Push the built website to the workflow artifacts
