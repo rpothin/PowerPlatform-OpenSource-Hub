@@ -13,6 +13,8 @@ export function countItemsByProperty<T>(items: T[], propertyPath: string, value:
 
     if (Array.isArray(propertyValue)) {
       return propertyValue.includes(value);
+    } else if (value === 'NotNull') {
+      return propertyValue !== null;
     } else {
       return propertyValue === value;
     }
