@@ -91,14 +91,14 @@
       "type": "Organization",
       "url": "https://github.com/microsoft"
     },
-    "updatedAt": "2023-12-31T09:34:13Z",
+    "updatedAt": "2023-12-31T23:02:53Z",
     "url": "https://github.com/microsoft/PowerApps-Samples",
     "codeOfConduct": {
       "key": "other",
       "name": "Other",
       "url": "https://github.com/microsoft/.github/blob/main/CODE_OF_CONDUCT.md"
     },
-    "forkCount": 1579,
+    "forkCount": 1580,
     "fundingLinks": [],
     "isSecurityPolicyEnabled": true,
     "isTemplate": false,
@@ -112,7 +112,7 @@
       "name": "C#"
     },
     "securityPolicyUrl": "https://github.com/microsoft/PowerApps-Samples/security/policy",
-    "stargazerCount": 1279,
+    "stargazerCount": 1281,
     "watchers": {
       "totalCount": 113
     },
@@ -147,7 +147,7 @@
     "openedHelpWantedIssues": 0,
     "hasHelpWantedIssues": false,
     "openedToContributionsIssues": 0,
-    "popularityScore": 1392
+    "popularityScore": 1394
   },
   {
     "createdAt": "2018-11-21T16:54:50Z",
@@ -439,7 +439,7 @@
     "updatedAt": "2023-12-28T20:38:09Z",
     "url": "https://github.com/MscrmTools/XrmToolBox",
     "codeOfConduct": null,
-    "forkCount": 208,
+    "forkCount": 207,
     "fundingLinks": [
       {
         "platform": "GITHUB",
@@ -1629,7 +1629,7 @@
       "type": "Organization",
       "url": "https://github.com/microsoft"
     },
-    "updatedAt": "2023-12-22T15:38:26Z",
+    "updatedAt": "2024-01-01T00:51:35Z",
     "url": "https://github.com/microsoft/powerplatform-actions",
     "codeOfConduct": {
       "key": "other",
@@ -1650,7 +1650,7 @@
       "name": "TypeScript"
     },
     "securityPolicyUrl": "https://github.com/microsoft/powerplatform-actions/security/policy",
-    "stargazerCount": 173,
+    "stargazerCount": 174,
     "watchers": {
       "totalCount": 30
     },
@@ -1669,7 +1669,7 @@
     "openedHelpWantedIssues": 0,
     "hasHelpWantedIssues": false,
     "openedToContributionsIssues": 0,
-    "popularityScore": 203
+    "popularityScore": 204
   },
   {
     "createdAt": "2016-05-20T12:32:41Z",
@@ -2344,7 +2344,7 @@
       "type": "Organization",
       "url": "https://github.com/microsoft"
     },
-    "updatedAt": "2023-12-31T09:33:47Z",
+    "updatedAt": "2024-01-01T00:52:12Z",
     "url": "https://github.com/microsoft/powerplatform-build-tools",
     "codeOfConduct": {
       "key": "other",
@@ -2365,7 +2365,7 @@
       "name": "TypeScript"
     },
     "securityPolicyUrl": "https://github.com/microsoft/powerplatform-build-tools/security/policy",
-    "stargazerCount": 120,
+    "stargazerCount": 121,
     "watchers": {
       "totalCount": 25
     },
@@ -2388,7 +2388,7 @@
     "openedHelpWantedIssues": 0,
     "hasHelpWantedIssues": false,
     "openedToContributionsIssues": 0,
-    "popularityScore": 145
+    "popularityScore": 146
   },
   {
     "createdAt": "2018-03-04T17:10:30Z",
@@ -2905,7 +2905,7 @@
       "url": "https://api.github.com/licenses/mit"
     },
     "name": "powerplatform-samples",
-    "openIssuesCount": 24,
+    "openIssuesCount": 25,
     "owner": {
       "id": "MDEyOk9yZ2FuaXphdGlvbjMxNDQzOTI5",
       "is_bot": false,
@@ -2916,7 +2916,7 @@
     "updatedAt": "2023-12-30T14:51:52Z",
     "url": "https://github.com/pnp/powerplatform-samples",
     "codeOfConduct": null,
-    "forkCount": 95,
+    "forkCount": 96,
     "fundingLinks": [],
     "isSecurityPolicyEnabled": false,
     "isTemplate": false,
@@ -4815,7 +4815,7 @@
       "name": "Contributor Covenant",
       "url": "https://github.com/Power-Maverick/DataverseDevTools-VSCode/blob/main/CODE_OF_CONDUCT.md"
     },
-    "forkCount": 12,
+    "forkCount": 13,
     "fundingLinks": [
       {
         "platform": "GITHUB",
@@ -6391,6 +6391,64 @@
     "popularityScore": 28
   },
   {
+    "createdAt": "2017-01-10T10:23:57Z",
+    "description": "Microsoft Dynamics CRM / 365 plugin base class",
+    "fullName": "rappen/JonasPluginBase",
+    "hasIssues": true,
+    "homepage": "",
+    "isArchived": false,
+    "language": "C#",
+    "license": {
+      "key": "mit",
+      "name": "MIT License",
+      "url": "https://api.github.com/licenses/mit"
+    },
+    "name": "JonasPluginBase",
+    "openIssuesCount": 1,
+    "owner": {
+      "id": "MDQ6VXNlcjI1NzIyNTM=",
+      "is_bot": false,
+      "login": "rappen",
+      "type": "User",
+      "url": "https://github.com/rappen"
+    },
+    "updatedAt": "2023-12-31T17:14:18Z",
+    "url": "https://github.com/rappen/JonasPluginBase",
+    "codeOfConduct": null,
+    "forkCount": 16,
+    "fundingLinks": [
+      {
+        "platform": "GITHUB",
+        "url": "https://github.com/rappen"
+      }
+    ],
+    "isSecurityPolicyEnabled": false,
+    "isTemplate": false,
+    "latestRelease": null,
+    "primaryLanguage": {
+      "name": "C#"
+    },
+    "securityPolicyUrl": "",
+    "stargazerCount": 26,
+    "watchers": {
+      "totalCount": 7
+    },
+    "topics": [
+      "dynamics-365",
+      "dynamics-crm",
+      "plugins"
+    ],
+    "languages": [
+      "C#"
+    ],
+    "openedGoodFirstIssues": 0,
+    "hasGoodFirstIssues": false,
+    "openedHelpWantedIssues": 0,
+    "hasHelpWantedIssues": false,
+    "openedToContributionsIssues": 0,
+    "popularityScore": 33
+  },
+  {
     "createdAt": "2017-07-17T19:42:06Z",
     "description": "AL code examples to call web services with Dynamics 365 for Financials and Operations, Business Edition.",
     "fullName": "ajkauffmann/ALWebServiceExamples",
@@ -6784,64 +6842,6 @@
     "hasHelpWantedIssues": false,
     "openedToContributionsIssues": 0,
     "popularityScore": 29
-  },
-  {
-    "createdAt": "2017-01-10T10:23:57Z",
-    "description": "Microsoft Dynamics CRM / 365 plugin base class",
-    "fullName": "rappen/JonasPluginBase",
-    "hasIssues": true,
-    "homepage": "",
-    "isArchived": false,
-    "language": "C#",
-    "license": {
-      "key": "mit",
-      "name": "MIT License",
-      "url": "https://api.github.com/licenses/mit"
-    },
-    "name": "JonasPluginBase",
-    "openIssuesCount": 1,
-    "owner": {
-      "id": "MDQ6VXNlcjI1NzIyNTM=",
-      "is_bot": false,
-      "login": "rappen",
-      "type": "User",
-      "url": "https://github.com/rappen"
-    },
-    "updatedAt": "2023-11-30T13:45:52Z",
-    "url": "https://github.com/rappen/JonasPluginBase",
-    "codeOfConduct": null,
-    "forkCount": 16,
-    "fundingLinks": [
-      {
-        "platform": "GITHUB",
-        "url": "https://github.com/rappen"
-      }
-    ],
-    "isSecurityPolicyEnabled": false,
-    "isTemplate": false,
-    "latestRelease": null,
-    "primaryLanguage": {
-      "name": "C#"
-    },
-    "securityPolicyUrl": "",
-    "stargazerCount": 24,
-    "watchers": {
-      "totalCount": 6
-    },
-    "topics": [
-      "dynamics-365",
-      "dynamics-crm",
-      "plugins"
-    ],
-    "languages": [
-      "C#"
-    ],
-    "openedGoodFirstIssues": 0,
-    "hasGoodFirstIssues": false,
-    "openedHelpWantedIssues": 0,
-    "hasHelpWantedIssues": false,
-    "openedToContributionsIssues": 0,
-    "popularityScore": 30
   },
   {
     "createdAt": "2017-06-24T15:12:16Z",
