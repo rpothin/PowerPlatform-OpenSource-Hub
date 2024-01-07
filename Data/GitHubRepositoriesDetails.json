@@ -91,7 +91,7 @@
       "type": "Organization",
       "url": "https://github.com/microsoft"
     },
-    "updatedAt": "2024-01-05T10:45:27Z",
+    "updatedAt": "2024-01-06T19:43:39Z",
     "url": "https://github.com/microsoft/PowerApps-Samples",
     "codeOfConduct": {
       "key": "other",
@@ -112,7 +112,7 @@
       "name": "C#"
     },
     "securityPolicyUrl": "https://github.com/microsoft/PowerApps-Samples/security/policy",
-    "stargazerCount": 1287,
+    "stargazerCount": 1286,
     "watchers": {
       "totalCount": 113
     },
@@ -147,7 +147,7 @@
     "openedHelpWantedIssues": 0,
     "hasHelpWantedIssues": false,
     "openedToContributionsIssues": 0,
-    "popularityScore": 1400
+    "popularityScore": 1399
   },
   {
     "createdAt": "2018-11-21T16:54:50Z",
@@ -252,7 +252,7 @@
       "type": "Organization",
       "url": "https://github.com/microsoft"
     },
-    "updatedAt": "2024-01-04T13:31:52Z",
+    "updatedAt": "2024-01-06T20:43:31Z",
     "url": "https://github.com/microsoft/PowerPlatformConnectors",
     "codeOfConduct": {
       "key": "other",
@@ -268,7 +268,7 @@
       "name": "C#"
     },
     "securityPolicyUrl": "https://github.com/microsoft/PowerPlatformConnectors/security/policy",
-    "stargazerCount": 821,
+    "stargazerCount": 820,
     "watchers": {
       "totalCount": 54
     },
@@ -291,7 +291,7 @@
     "openedHelpWantedIssues": 0,
     "hasHelpWantedIssues": false,
     "openedToContributionsIssues": 0,
-    "popularityScore": 875
+    "popularityScore": 874
   },
   {
     "createdAt": "2014-01-30T09:46:28Z",
@@ -722,7 +722,7 @@
       "type": "Organization",
       "url": "https://github.com/pnp"
     },
-    "updatedAt": "2024-01-02T13:24:37Z",
+    "updatedAt": "2024-01-06T20:34:50Z",
     "url": "https://github.com/pnp/powerapps-samples",
     "codeOfConduct": {
       "key": "other",
@@ -736,7 +736,7 @@
     "latestRelease": null,
     "primaryLanguage": null,
     "securityPolicyUrl": "https://github.com/pnp/powerapps-samples/security/policy",
-    "stargazerCount": 352,
+    "stargazerCount": 353,
     "watchers": {
       "totalCount": 31
     },
@@ -751,7 +751,7 @@
     "openedHelpWantedIssues": 0,
     "hasHelpWantedIssues": false,
     "openedToContributionsIssues": 0,
-    "popularityScore": 383
+    "popularityScore": 384
   },
   {
     "createdAt": "2017-12-06T03:33:42Z",
@@ -1147,67 +1147,6 @@
     "popularityScore": 293
   },
   {
-    "createdAt": "2022-02-03T00:22:40Z",
-    "description": "This toolkit helps create well-designed Power App experiences on the web & mobile. It contains a component library; PCF controls and other utilities that increase developer productivity.",
-    "fullName": "microsoft/powercat-creator-kit",
-    "hasIssues": true,
-    "homepage": "",
-    "isArchived": false,
-    "language": "CSS",
-    "license": {
-      "key": "mit",
-      "name": "MIT License",
-      "url": "https://api.github.com/licenses/mit"
-    },
-    "name": "powercat-creator-kit",
-    "openIssuesCount": 167,
-    "owner": {
-      "id": "MDEyOk9yZ2FuaXphdGlvbjYxNTQ3MjI=",
-      "is_bot": false,
-      "login": "microsoft",
-      "type": "Organization",
-      "url": "https://github.com/microsoft"
-    },
-    "updatedAt": "2024-01-02T13:24:48Z",
-    "url": "https://github.com/microsoft/powercat-creator-kit",
-    "codeOfConduct": {
-      "key": "other",
-      "name": "Other",
-      "url": "https://github.com/microsoft/powercat-creator-kit/blob/main/CODE_OF_CONDUCT.md"
-    },
-    "forkCount": 40,
-    "fundingLinks": [],
-    "isSecurityPolicyEnabled": true,
-    "isTemplate": false,
-    "latestRelease": {
-      "name": "Creator Kit July 2023",
-      "tagName": "CreatorKit-July2023",
-      "url": "https://github.com/microsoft/powercat-creator-kit/releases/tag/CreatorKit-July2023",
-      "publishedAt": "2023-07-27T16:23:49Z"
-    },
-    "primaryLanguage": {
-      "name": "CSS"
-    },
-    "securityPolicyUrl": "https://github.com/microsoft/powercat-creator-kit/security/policy",
-    "stargazerCount": 262,
-    "watchers": {
-      "totalCount": 29
-    },
-    "topics": [
-      "pcf",
-      "powerapps"
-    ],
-    "languages": [
-      "CSS"
-    ],
-    "openedGoodFirstIssues": 2,
-    "hasGoodFirstIssues": true,
-    "openedHelpWantedIssues": 0,
-    "hasHelpWantedIssues": false,
-    "openedToContributionsIssues": 2,
-    "popularityScore": 291
-  },
-  {
     "createdAt": "2014-11-23T18:59:18Z",
     "description": "The testing framework for Dynamics CRM and Dynamics 365 which runs on an In-Memory context and deals with mocks or fakes for you",
     "fullName": "jordimontana82/fake-xrm-easy",
@@ -1277,6 +1216,67 @@
     "hasHelpWantedIssues": true,
     "openedToContributionsIssues": 16,
     "popularityScore": 297
+  },
+  {
+    "createdAt": "2022-02-03T00:22:40Z",
+    "description": "This toolkit helps create well-designed Power App experiences on the web & mobile. It contains a component library; PCF controls and other utilities that increase developer productivity.",
+    "fullName": "microsoft/powercat-creator-kit",
+    "hasIssues": true,
+    "homepage": "",
+    "isArchived": false,
+    "language": "CSS",
+    "license": {
+      "key": "mit",
+      "name": "MIT License",
+      "url": "https://api.github.com/licenses/mit"
+    },
+    "name": "powercat-creator-kit",
+    "openIssuesCount": 167,
+    "owner": {
+      "id": "MDEyOk9yZ2FuaXphdGlvbjYxNTQ3MjI=",
+      "is_bot": false,
+      "login": "microsoft",
+      "type": "Organization",
+      "url": "https://github.com/microsoft"
+    },
+    "updatedAt": "2024-01-02T13:24:48Z",
+    "url": "https://github.com/microsoft/powercat-creator-kit",
+    "codeOfConduct": {
+      "key": "other",
+      "name": "Other",
+      "url": "https://github.com/microsoft/powercat-creator-kit/blob/main/CODE_OF_CONDUCT.md"
+    },
+    "forkCount": 40,
+    "fundingLinks": [],
+    "isSecurityPolicyEnabled": true,
+    "isTemplate": false,
+    "latestRelease": {
+      "name": "Creator Kit July 2023",
+      "tagName": "CreatorKit-July2023",
+      "url": "https://github.com/microsoft/powercat-creator-kit/releases/tag/CreatorKit-July2023",
+      "publishedAt": "2023-07-27T16:23:49Z"
+    },
+    "primaryLanguage": {
+      "name": "CSS"
+    },
+    "securityPolicyUrl": "https://github.com/microsoft/powercat-creator-kit/security/policy",
+    "stargazerCount": 262,
+    "watchers": {
+      "totalCount": 29
+    },
+    "topics": [
+      "pcf",
+      "powerapps"
+    ],
+    "languages": [
+      "CSS"
+    ],
+    "openedGoodFirstIssues": 2,
+    "hasGoodFirstIssues": true,
+    "openedHelpWantedIssues": 0,
+    "hasHelpWantedIssues": false,
+    "openedToContributionsIssues": 2,
+    "popularityScore": 291
   },
   {
     "createdAt": "2020-03-05T00:58:17Z",
@@ -1815,7 +1815,7 @@
       "type": "Organization",
       "url": "https://github.com/microsoft"
     },
-    "updatedAt": "2023-12-10T14:58:07Z",
+    "updatedAt": "2024-01-07T04:30:14Z",
     "url": "https://github.com/microsoft/powerplatform-vscode",
     "codeOfConduct": {
       "key": "other",
@@ -1836,7 +1836,7 @@
       "name": "TypeScript"
     },
     "securityPolicyUrl": "https://github.com/microsoft/powerplatform-vscode/security/policy",
-    "stargazerCount": 165,
+    "stargazerCount": 166,
     "watchers": {
       "totalCount": 22
     },
@@ -1857,7 +1857,7 @@
     "openedHelpWantedIssues": 0,
     "hasHelpWantedIssues": false,
     "openedToContributionsIssues": 0,
-    "popularityScore": 187
+    "popularityScore": 188
   },
   {
     "createdAt": "2022-11-28T22:58:45Z",
@@ -2142,6 +2142,63 @@
     "popularityScore": 167
   },
   {
+    "createdAt": "2020-08-06T19:25:30Z",
+    "description": "This repo contains sample workflow definitions for GitHub Actions for Microsoft Power Platform.",
+    "fullName": "microsoft/powerplatform-actions-lab",
+    "hasIssues": false,
+    "homepage": "",
+    "isArchived": false,
+    "language": "",
+    "license": {
+      "key": "mit",
+      "name": "MIT License",
+      "url": "https://api.github.com/licenses/mit"
+    },
+    "name": "powerplatform-actions-lab",
+    "openIssuesCount": 7,
+    "owner": {
+      "id": "MDEyOk9yZ2FuaXphdGlvbjYxNTQ3MjI=",
+      "is_bot": false,
+      "login": "microsoft",
+      "type": "Organization",
+      "url": "https://github.com/microsoft"
+    },
+    "updatedAt": "2023-12-14T19:36:29Z",
+    "url": "https://github.com/microsoft/powerplatform-actions-lab",
+    "codeOfConduct": {
+      "key": "other",
+      "name": "Other",
+      "url": "https://github.com/microsoft/powerplatform-actions-lab/blob/main/CODE_OF_CONDUCT.md"
+    },
+    "forkCount": 172,
+    "fundingLinks": [],
+    "isSecurityPolicyEnabled": true,
+    "isTemplate": false,
+    "latestRelease": {
+      "name": "Add new sample workflows",
+      "tagName": "1.0.2",
+      "url": "https://github.com/microsoft/powerplatform-actions-lab/releases/tag/1.0.2",
+      "publishedAt": "2023-04-07T04:35:44Z"
+    },
+    "primaryLanguage": null,
+    "securityPolicyUrl": "https://github.com/microsoft/powerplatform-actions-lab/security/policy",
+    "stargazerCount": 123,
+    "watchers": {
+      "totalCount": 26
+    },
+    "topics": [
+      "powerplatform",
+      "github-actions"
+    ],
+    "languages": [],
+    "openedGoodFirstIssues": 0,
+    "hasGoodFirstIssues": false,
+    "openedHelpWantedIssues": 0,
+    "hasHelpWantedIssues": false,
+    "openedToContributionsIssues": 0,
+    "popularityScore": 149
+  },
+  {
     "createdAt": "2020-11-04T00:21:18Z",
     "description": "Power Platform Build Tools automate common build and deployment tasks related to Power Platform. This includes synchronization of solution metadata (a.k.a. solutions) between development environments and source control, generating build artifacts, deploying to downstream environments, provisioning/de-provisioning of environments, and the ability to perform static analysis checks against your solution using the PowerApps checker service.",
     "fullName": "microsoft/powerplatform-build-tools",
@@ -2210,124 +2267,6 @@
     "popularityScore": 148
   },
   {
-    "createdAt": "2020-08-06T19:25:30Z",
-    "description": "This repo contains sample workflow definitions for GitHub Actions for Microsoft Power Platform.",
-    "fullName": "microsoft/powerplatform-actions-lab",
-    "hasIssues": false,
-    "homepage": "",
-    "isArchived": false,
-    "language": "",
-    "license": {
-      "key": "mit",
-      "name": "MIT License",
-      "url": "https://api.github.com/licenses/mit"
-    },
-    "name": "powerplatform-actions-lab",
-    "openIssuesCount": 7,
-    "owner": {
-      "id": "MDEyOk9yZ2FuaXphdGlvbjYxNTQ3MjI=",
-      "is_bot": false,
-      "login": "microsoft",
-      "type": "Organization",
-      "url": "https://github.com/microsoft"
-    },
-    "updatedAt": "2023-12-14T19:36:29Z",
-    "url": "https://github.com/microsoft/powerplatform-actions-lab",
-    "codeOfConduct": {
-      "key": "other",
-      "name": "Other",
-      "url": "https://github.com/microsoft/powerplatform-actions-lab/blob/main/CODE_OF_CONDUCT.md"
-    },
-    "forkCount": 172,
-    "fundingLinks": [],
-    "isSecurityPolicyEnabled": true,
-    "isTemplate": false,
-    "latestRelease": {
-      "name": "Add new sample workflows",
-      "tagName": "1.0.2",
-      "url": "https://github.com/microsoft/powerplatform-actions-lab/releases/tag/1.0.2",
-      "publishedAt": "2023-04-07T04:35:44Z"
-    },
-    "primaryLanguage": null,
-    "securityPolicyUrl": "https://github.com/microsoft/powerplatform-actions-lab/security/policy",
-    "stargazerCount": 123,
-    "watchers": {
-      "totalCount": 26
-    },
-    "topics": [
-      "powerplatform",
-      "github-actions"
-    ],
-    "languages": [],
-    "openedGoodFirstIssues": 0,
-    "hasGoodFirstIssues": false,
-    "openedHelpWantedIssues": 0,
-    "hasHelpWantedIssues": false,
-    "openedToContributionsIssues": 0,
-    "popularityScore": 149
-  },
-  {
-    "createdAt": "2021-06-15T02:54:34Z",
-    "description": "US Government Business Applications Demo Repository",
-    "fullName": "microsoft/Federal-Business-Applications",
-    "hasIssues": true,
-    "homepage": "",
-    "isArchived": false,
-    "language": "C#",
-    "license": {
-      "key": "mit",
-      "name": "MIT License",
-      "url": "https://api.github.com/licenses/mit"
-    },
-    "name": "Federal-Business-Applications",
-    "openIssuesCount": 4,
-    "owner": {
-      "id": "MDEyOk9yZ2FuaXphdGlvbjYxNTQ3MjI=",
-      "is_bot": false,
-      "login": "microsoft",
-      "type": "Organization",
-      "url": "https://github.com/microsoft"
-    },
-    "updatedAt": "2024-01-02T18:54:16Z",
-    "url": "https://github.com/microsoft/Federal-Business-Applications",
-    "codeOfConduct": {
-      "key": "other",
-      "name": "Other",
-      "url": "https://github.com/microsoft/Federal-Business-Applications/blob/main/CODE_OF_CONDUCT.md"
-    },
-    "forkCount": 44,
-    "fundingLinks": [],
-    "isSecurityPolicyEnabled": true,
-    "isTemplate": false,
-    "latestRelease": null,
-    "primaryLanguage": {
-      "name": "C#"
-    },
-    "securityPolicyUrl": "https://github.com/microsoft/Federal-Business-Applications/security/policy",
-    "stargazerCount": 122,
-    "watchers": {
-      "totalCount": 30
-    },
-    "topics": [
-      "microsoft",
-      "powerapps",
-      "powerplatform",
-      "powerautomate",
-      "powerbi",
-      "d365"
-    ],
-    "languages": [
-      "C#",
-      "PowerShell"
-    ],
-    "openedGoodFirstIssues": 0,
-    "hasGoodFirstIssues": false,
-    "openedHelpWantedIssues": 0,
-    "hasHelpWantedIssues": false,
-    "openedToContributionsIssues": 0,
-    "popularityScore": 152
-  },
-  {
     "createdAt": "2018-07-26T00:10:24Z",
     "description": "Converts SharePoint Data sources for the MS Flow and PowerApps to a new tenant of your choice.",
     "fullName": "Zerg00s/FlowPowerAppsMigrator",
@@ -2389,6 +2328,67 @@
     "hasHelpWantedIssues": false,
     "openedToContributionsIssues": 0,
     "popularityScore": 137
+  },
+  {
+    "createdAt": "2021-06-15T02:54:34Z",
+    "description": "US Government Business Applications Demo Repository",
+    "fullName": "microsoft/Federal-Business-Applications",
+    "hasIssues": true,
+    "homepage": "",
+    "isArchived": false,
+    "language": "C#",
+    "license": {
+      "key": "mit",
+      "name": "MIT License",
+      "url": "https://api.github.com/licenses/mit"
+    },
+    "name": "Federal-Business-Applications",
+    "openIssuesCount": 4,
+    "owner": {
+      "id": "MDEyOk9yZ2FuaXphdGlvbjYxNTQ3MjI=",
+      "is_bot": false,
+      "login": "microsoft",
+      "type": "Organization",
+      "url": "https://github.com/microsoft"
+    },
+    "updatedAt": "2024-01-06T20:43:34Z",
+    "url": "https://github.com/microsoft/Federal-Business-Applications",
+    "codeOfConduct": {
+      "key": "other",
+      "name": "Other",
+      "url": "https://github.com/microsoft/Federal-Business-Applications/blob/main/CODE_OF_CONDUCT.md"
+    },
+    "forkCount": 44,
+    "fundingLinks": [],
+    "isSecurityPolicyEnabled": true,
+    "isTemplate": false,
+    "latestRelease": null,
+    "primaryLanguage": {
+      "name": "C#"
+    },
+    "securityPolicyUrl": "https://github.com/microsoft/Federal-Business-Applications/security/policy",
+    "stargazerCount": 121,
+    "watchers": {
+      "totalCount": 30
+    },
+    "topics": [
+      "microsoft",
+      "powerapps",
+      "powerplatform",
+      "powerautomate",
+      "powerbi",
+      "d365"
+    ],
+    "languages": [
+      "C#",
+      "PowerShell"
+    ],
+    "openedGoodFirstIssues": 0,
+    "hasGoodFirstIssues": false,
+    "openedHelpWantedIssues": 0,
+    "hasHelpWantedIssues": false,
+    "openedToContributionsIssues": 0,
+    "popularityScore": 151
   },
   {
     "createdAt": "2018-03-04T17:10:30Z",
@@ -2701,6 +2701,59 @@
     "popularityScore": 103
   },
   {
+    "createdAt": "2021-02-24T21:49:48Z",
+    "description": "This repository contains samples for Power Fx low-code programming language https://github.com/microsoft/Power-Fx",
+    "fullName": "pnp/powerfx-samples",
+    "hasIssues": true,
+    "homepage": "https://aka.ms/powerplatform-samples",
+    "isArchived": false,
+    "language": "",
+    "license": {
+      "key": "mit",
+      "name": "MIT License",
+      "url": "https://api.github.com/licenses/mit"
+    },
+    "name": "powerfx-samples",
+    "openIssuesCount": 3,
+    "owner": {
+      "id": "MDEyOk9yZ2FuaXphdGlvbjMxNDQzOTI5",
+      "is_bot": false,
+      "login": "pnp",
+      "type": "Organization",
+      "url": "https://github.com/pnp"
+    },
+    "updatedAt": "2023-12-30T14:53:57Z",
+    "url": "https://github.com/pnp/powerfx-samples",
+    "codeOfConduct": {
+      "key": "other",
+      "name": "Other",
+      "url": "https://github.com/pnp/powerfx-samples/blob/main/CODE_OF_CONDUCT.md"
+    },
+    "forkCount": 42,
+    "fundingLinks": [],
+    "isSecurityPolicyEnabled": true,
+    "isTemplate": false,
+    "latestRelease": null,
+    "primaryLanguage": null,
+    "securityPolicyUrl": "https://github.com/pnp/powerfx-samples/security/policy",
+    "stargazerCount": 95,
+    "watchers": {
+      "totalCount": 26
+    },
+    "topics": [
+      "powerapps",
+      "powerfx",
+      "hacktoberfest"
+    ],
+    "languages": [],
+    "openedGoodFirstIssues": 0,
+    "hasGoodFirstIssues": false,
+    "openedHelpWantedIssues": 0,
+    "hasHelpWantedIssues": false,
+    "openedToContributionsIssues": 0,
+    "popularityScore": 121
+  },
+  {
     "createdAt": "2016-10-14T17:43:27Z",
     "description": "A promise-based JavaScript library for the Microsoft Dynamics CRM WebApi - TypeScript type definitions available",
     "fullName": "XRM-OSS/Xrm-WebApi-Client",
@@ -2758,59 +2811,6 @@
       "JavaScript",
       "HTML"
     ],
-    "openedGoodFirstIssues": 0,
-    "hasGoodFirstIssues": false,
-    "openedHelpWantedIssues": 0,
-    "hasHelpWantedIssues": false,
-    "openedToContributionsIssues": 0,
-    "popularityScore": 121
-  },
-  {
-    "createdAt": "2021-02-24T21:49:48Z",
-    "description": "This repository contains samples for Power Fx low-code programming language https://github.com/microsoft/Power-Fx",
-    "fullName": "pnp/powerfx-samples",
-    "hasIssues": true,
-    "homepage": "https://aka.ms/powerplatform-samples",
-    "isArchived": false,
-    "language": "",
-    "license": {
-      "key": "mit",
-      "name": "MIT License",
-      "url": "https://api.github.com/licenses/mit"
-    },
-    "name": "powerfx-samples",
-    "openIssuesCount": 3,
-    "owner": {
-      "id": "MDEyOk9yZ2FuaXphdGlvbjMxNDQzOTI5",
-      "is_bot": false,
-      "login": "pnp",
-      "type": "Organization",
-      "url": "https://github.com/pnp"
-    },
-    "updatedAt": "2023-12-30T14:53:57Z",
-    "url": "https://github.com/pnp/powerfx-samples",
-    "codeOfConduct": {
-      "key": "other",
-      "name": "Other",
-      "url": "https://github.com/pnp/powerfx-samples/blob/main/CODE_OF_CONDUCT.md"
-    },
-    "forkCount": 42,
-    "fundingLinks": [],
-    "isSecurityPolicyEnabled": true,
-    "isTemplate": false,
-    "latestRelease": null,
-    "primaryLanguage": null,
-    "securityPolicyUrl": "https://github.com/pnp/powerfx-samples/security/policy",
-    "stargazerCount": 95,
-    "watchers": {
-      "totalCount": 26
-    },
-    "topics": [
-      "powerapps",
-      "powerfx",
-      "hacktoberfest"
-    ],
-    "languages": [],
     "openedGoodFirstIssues": 0,
     "hasGoodFirstIssues": false,
     "openedHelpWantedIssues": 0,
@@ -2905,7 +2905,7 @@
       "url": "https://api.github.com/licenses/mit"
     },
     "name": "powerplatform-samples",
-    "openIssuesCount": 26,
+    "openIssuesCount": 27,
     "owner": {
       "id": "MDEyOk9yZ2FuaXphdGlvbjMxNDQzOTI5",
       "is_bot": false,
@@ -3285,7 +3285,7 @@
       "type": "User",
       "url": "https://github.com/Power-Maverick"
     },
-    "updatedAt": "2024-01-02T13:24:32Z",
+    "updatedAt": "2024-01-07T07:54:12Z",
     "url": "https://github.com/Power-Maverick/awesome-power-platform",
     "codeOfConduct": {
       "key": "contributor_covenant",
@@ -3299,7 +3299,7 @@
     "latestRelease": null,
     "primaryLanguage": null,
     "securityPolicyUrl": "",
-    "stargazerCount": 73,
+    "stargazerCount": 72,
     "watchers": {
       "totalCount": 6
     },
@@ -3320,7 +3320,7 @@
     "openedHelpWantedIssues": 0,
     "hasHelpWantedIssues": false,
     "openedToContributionsIssues": 0,
-    "popularityScore": 79
+    "popularityScore": 78
   },
   {
     "createdAt": "2016-04-18T10:30:56Z",
@@ -3383,61 +3383,6 @@
     "popularityScore": 81
   },
   {
-    "createdAt": "2020-09-03T14:58:25Z",
-    "description": "A curated collection of learning resources to help deepen your understanding of the Microsoft Power Automate service. Updated regularly. Contributions encouraged via a pull request (see contributing.md).",
-    "fullName": "iamericfletcher/awesome-power-automate-learning-resources",
-    "hasIssues": true,
-    "homepage": "",
-    "isArchived": false,
-    "language": "",
-    "license": {
-      "key": "cc0-1.0",
-      "name": "Creative Commons Zero v1.0 Universal",
-      "url": "https://api.github.com/licenses/cc0-1.0"
-    },
-    "name": "awesome-power-automate-learning-resources",
-    "openIssuesCount": 0,
-    "owner": {
-      "id": "MDQ6VXNlcjY0MTY1MzI3",
-      "is_bot": false,
-      "login": "iamericfletcher",
-      "type": "User",
-      "url": "https://github.com/iamericfletcher"
-    },
-    "updatedAt": "2023-11-23T03:11:38Z",
-    "url": "https://github.com/iamericfletcher/awesome-power-automate-learning-resources",
-    "codeOfConduct": {
-      "key": "contributor_covenant",
-      "name": "Contributor Covenant",
-      "url": "https://github.com/iamericfletcher/awesome-power-automate-learning-resources/blob/master/code_of_conduct.md"
-    },
-    "forkCount": 3,
-    "fundingLinks": [],
-    "isSecurityPolicyEnabled": false,
-    "isTemplate": false,
-    "latestRelease": null,
-    "primaryLanguage": null,
-    "securityPolicyUrl": "",
-    "stargazerCount": 69,
-    "watchers": {
-      "totalCount": 10
-    },
-    "topics": [
-      "microsoft",
-      "awesome",
-      "awesome-list",
-      "microsoft-flow",
-      "power-automate"
-    ],
-    "languages": [],
-    "openedGoodFirstIssues": 0,
-    "hasGoodFirstIssues": false,
-    "openedHelpWantedIssues": 0,
-    "hasHelpWantedIssues": false,
-    "openedToContributionsIssues": 0,
-    "popularityScore": 79
-  },
-  {
     "createdAt": "2017-05-24T08:56:02Z",
     "description": "Engine which simulates your exact Dynamics 365/CRM instance locally including all of it's logic!",
     "fullName": "delegateas/XrmMockup",
@@ -3496,6 +3441,61 @@
     "hasHelpWantedIssues": false,
     "openedToContributionsIssues": 0,
     "popularityScore": 89
+  },
+  {
+    "createdAt": "2020-09-03T14:58:25Z",
+    "description": "A curated collection of learning resources to help deepen your understanding of the Microsoft Power Automate service. Updated regularly. Contributions encouraged via a pull request (see contributing.md).",
+    "fullName": "iamericfletcher/awesome-power-automate-learning-resources",
+    "hasIssues": true,
+    "homepage": "",
+    "isArchived": false,
+    "language": "",
+    "license": {
+      "key": "cc0-1.0",
+      "name": "Creative Commons Zero v1.0 Universal",
+      "url": "https://api.github.com/licenses/cc0-1.0"
+    },
+    "name": "awesome-power-automate-learning-resources",
+    "openIssuesCount": 0,
+    "owner": {
+      "id": "MDQ6VXNlcjY0MTY1MzI3",
+      "is_bot": false,
+      "login": "iamericfletcher",
+      "type": "User",
+      "url": "https://github.com/iamericfletcher"
+    },
+    "updatedAt": "2023-11-23T03:11:38Z",
+    "url": "https://github.com/iamericfletcher/awesome-power-automate-learning-resources",
+    "codeOfConduct": {
+      "key": "contributor_covenant",
+      "name": "Contributor Covenant",
+      "url": "https://github.com/iamericfletcher/awesome-power-automate-learning-resources/blob/master/code_of_conduct.md"
+    },
+    "forkCount": 3,
+    "fundingLinks": [],
+    "isSecurityPolicyEnabled": false,
+    "isTemplate": false,
+    "latestRelease": null,
+    "primaryLanguage": null,
+    "securityPolicyUrl": "",
+    "stargazerCount": 69,
+    "watchers": {
+      "totalCount": 10
+    },
+    "topics": [
+      "microsoft",
+      "awesome",
+      "awesome-list",
+      "microsoft-flow",
+      "power-automate"
+    ],
+    "languages": [],
+    "openedGoodFirstIssues": 0,
+    "hasGoodFirstIssues": false,
+    "openedHelpWantedIssues": 0,
+    "hasHelpWantedIssues": false,
+    "openedToContributionsIssues": 0,
+    "popularityScore": 79
   },
   {
     "createdAt": "2019-04-29T14:52:32Z",
@@ -3630,63 +3630,6 @@
     "popularityScore": 81
   },
   {
-    "createdAt": "2018-04-23T11:14:20Z",
-    "description": "Dynamics 365 Web API Toolkit for PHP",
-    "fullName": "AlexaCRM/dynamics-webapi-toolkit",
-    "hasIssues": true,
-    "homepage": "",
-    "isArchived": false,
-    "language": "PHP",
-    "license": {
-      "key": "mit",
-      "name": "MIT License",
-      "url": "https://api.github.com/licenses/mit"
-    },
-    "name": "dynamics-webapi-toolkit",
-    "openIssuesCount": 13,
-    "owner": {
-      "id": "MDEyOk9yZ2FuaXphdGlvbjIwNjU2MzA5",
-      "is_bot": false,
-      "login": "AlexaCRM",
-      "type": "Organization",
-      "url": "https://github.com/AlexaCRM"
-    },
-    "updatedAt": "2023-11-10T03:59:17Z",
-    "url": "https://github.com/AlexaCRM/dynamics-webapi-toolkit",
-    "codeOfConduct": null,
-    "forkCount": 48,
-    "fundingLinks": [],
-    "isSecurityPolicyEnabled": false,
-    "isTemplate": false,
-    "latestRelease": null,
-    "primaryLanguage": {
-      "name": "PHP"
-    },
-    "securityPolicyUrl": "",
-    "stargazerCount": 64,
-    "watchers": {
-      "totalCount": 8
-    },
-    "topics": [
-      "dynamics-365",
-      "dynamics365",
-      "dynamics-crm",
-      "dynamics-crm-online",
-      "odata-client",
-      "cds",
-      "powerapps"
-    ],
-    "languages": [
-      "PHP"
-    ],
-    "openedGoodFirstIssues": 0,
-    "hasGoodFirstIssues": false,
-    "openedHelpWantedIssues": 0,
-    "hasHelpWantedIssues": false,
-    "openedToContributionsIssues": 0,
-    "popularityScore": 72
-  },
-  {
     "createdAt": "2018-10-31T15:56:06Z",
     "description": "PowerApps samples",
     "fullName": "Eickhel/PowerApps-samples",
@@ -3743,6 +3686,63 @@
     "hasHelpWantedIssues": false,
     "openedToContributionsIssues": 0,
     "popularityScore": 74
+  },
+  {
+    "createdAt": "2018-04-23T11:14:20Z",
+    "description": "Dynamics 365 Web API Toolkit for PHP",
+    "fullName": "AlexaCRM/dynamics-webapi-toolkit",
+    "hasIssues": true,
+    "homepage": "",
+    "isArchived": false,
+    "language": "PHP",
+    "license": {
+      "key": "mit",
+      "name": "MIT License",
+      "url": "https://api.github.com/licenses/mit"
+    },
+    "name": "dynamics-webapi-toolkit",
+    "openIssuesCount": 13,
+    "owner": {
+      "id": "MDEyOk9yZ2FuaXphdGlvbjIwNjU2MzA5",
+      "is_bot": false,
+      "login": "AlexaCRM",
+      "type": "Organization",
+      "url": "https://github.com/AlexaCRM"
+    },
+    "updatedAt": "2023-11-10T03:59:17Z",
+    "url": "https://github.com/AlexaCRM/dynamics-webapi-toolkit",
+    "codeOfConduct": null,
+    "forkCount": 48,
+    "fundingLinks": [],
+    "isSecurityPolicyEnabled": false,
+    "isTemplate": false,
+    "latestRelease": null,
+    "primaryLanguage": {
+      "name": "PHP"
+    },
+    "securityPolicyUrl": "",
+    "stargazerCount": 64,
+    "watchers": {
+      "totalCount": 8
+    },
+    "topics": [
+      "dynamics-365",
+      "dynamics365",
+      "dynamics-crm",
+      "dynamics-crm-online",
+      "odata-client",
+      "cds",
+      "powerapps"
+    ],
+    "languages": [
+      "PHP"
+    ],
+    "openedGoodFirstIssues": 0,
+    "hasGoodFirstIssues": false,
+    "openedHelpWantedIssues": 0,
+    "hasHelpWantedIssues": false,
+    "openedToContributionsIssues": 0,
+    "popularityScore": 72
   },
   {
     "createdAt": "2021-09-01T15:32:37Z",
@@ -6521,7 +6521,7 @@
       "url": ""
     },
     "name": "ChartComponents",
-    "openIssuesCount": 9,
+    "openIssuesCount": 10,
     "owner": {
       "id": "MDQ6VXNlcjMxNDc5ODMy",
       "is_bot": false,
