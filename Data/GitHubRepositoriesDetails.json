@@ -24,7 +24,7 @@
     "updatedAt": "2024-01-12T20:54:11Z",
     "url": "https://github.com/sandroasp/Microsoft-Integration-and-Azure-Stencils-Pack-for-Visio",
     "codeOfConduct": null,
-    "forkCount": 418,
+    "forkCount": 417,
     "fundingLinks": [],
     "isSecurityPolicyEnabled": false,
     "isTemplate": false,
@@ -83,7 +83,7 @@
       "url": "https://api.github.com/licenses/mit"
     },
     "name": "PowerApps-Samples",
-    "openIssuesCount": 26,
+    "openIssuesCount": 27,
     "owner": {
       "id": "MDEyOk9yZ2FuaXphdGlvbjYxNTQ3MjI=",
       "is_bot": false,
@@ -91,14 +91,14 @@
       "type": "Organization",
       "url": "https://github.com/microsoft"
     },
-    "updatedAt": "2024-01-13T12:19:52Z",
+    "updatedAt": "2024-01-15T03:42:52Z",
     "url": "https://github.com/microsoft/PowerApps-Samples",
     "codeOfConduct": {
       "key": "other",
       "name": "Other",
       "url": "https://github.com/microsoft/.github/blob/main/CODE_OF_CONDUCT.md"
     },
-    "forkCount": 1587,
+    "forkCount": 1588,
     "fundingLinks": [],
     "isSecurityPolicyEnabled": true,
     "isTemplate": false,
@@ -112,7 +112,7 @@
       "name": "C#"
     },
     "securityPolicyUrl": "https://github.com/microsoft/PowerApps-Samples/security/policy",
-    "stargazerCount": 1291,
+    "stargazerCount": 1292,
     "watchers": {
       "totalCount": 113
     },
@@ -147,7 +147,7 @@
     "openedHelpWantedIssues": 0,
     "hasHelpWantedIssues": false,
     "openedToContributionsIssues": 0,
-    "popularityScore": 1404
+    "popularityScore": 1405
   },
   {
     "createdAt": "2018-11-21T16:54:50Z",
@@ -178,7 +178,7 @@
       "name": "Contributor Covenant",
       "url": "https://github.com/microsoft/Microsoft365DSC/blob/Dev/CODE_OF_CONDUCT.md"
     },
-    "forkCount": 424,
+    "forkCount": 423,
     "fundingLinks": [],
     "isSecurityPolicyEnabled": true,
     "isTemplate": false,
@@ -244,7 +244,7 @@
       "url": "https://api.github.com/licenses/mit"
     },
     "name": "PowerPlatformConnectors",
-    "openIssuesCount": 191,
+    "openIssuesCount": 192,
     "owner": {
       "id": "MDEyOk9yZ2FuaXphdGlvbjYxNTQ3MjI=",
       "is_bot": false,
@@ -252,7 +252,7 @@
       "type": "Organization",
       "url": "https://github.com/microsoft"
     },
-    "updatedAt": "2024-01-12T17:25:58Z",
+    "updatedAt": "2024-01-14T17:08:09Z",
     "url": "https://github.com/microsoft/PowerPlatformConnectors",
     "codeOfConduct": {
       "key": "other",
@@ -268,7 +268,7 @@
       "name": "C#"
     },
     "securityPolicyUrl": "https://github.com/microsoft/PowerPlatformConnectors/security/policy",
-    "stargazerCount": 825,
+    "stargazerCount": 826,
     "watchers": {
       "totalCount": 54
     },
@@ -291,7 +291,7 @@
     "openedHelpWantedIssues": 0,
     "hasHelpWantedIssues": false,
     "openedToContributionsIssues": 0,
-    "popularityScore": 879
+    "popularityScore": 880
   },
   {
     "createdAt": "2014-01-30T09:46:28Z",
@@ -394,7 +394,7 @@
     "securityPolicyUrl": "https://github.com/microsoft/AL/security/policy",
     "stargazerCount": 685,
     "watchers": {
-      "totalCount": 163
+      "totalCount": 164
     },
     "topics": [
       "al-language",
@@ -412,7 +412,7 @@
     "openedHelpWantedIssues": 0,
     "hasHelpWantedIssues": false,
     "openedToContributionsIssues": 0,
-    "popularityScore": 848
+    "popularityScore": 849
   },
   {
     "createdAt": "2015-02-05T20:58:06Z",
@@ -577,7 +577,7 @@
       "type": "User",
       "url": "https://github.com/demianrasko"
     },
-    "updatedAt": "2024-01-09T06:38:13Z",
+    "updatedAt": "2024-01-15T07:03:03Z",
     "url": "https://github.com/demianrasko/Dynamics-365-Workflow-Tools",
     "codeOfConduct": {
       "key": "contributor_covenant",
@@ -598,7 +598,7 @@
       "name": "C#"
     },
     "securityPolicyUrl": "",
-    "stargazerCount": 441,
+    "stargazerCount": 442,
     "watchers": {
       "totalCount": 70
     },
@@ -623,7 +623,7 @@
     "openedHelpWantedIssues": 0,
     "hasHelpWantedIssues": false,
     "openedToContributionsIssues": 0,
-    "popularityScore": 511
+    "popularityScore": 512
   },
   {
     "createdAt": "2022-06-14T11:40:21Z",
@@ -4021,6 +4021,61 @@
     "popularityScore": 69
   },
   {
+    "createdAt": "2021-10-01T08:06:29Z",
+    "description": "Contains a PowerAutomate file that takes data from Planner, writes it to Excel, which is then visualised in Power BI",
+    "fullName": "ben-howard/Planner-PowerBI-with-PowerAutomate",
+    "hasIssues": true,
+    "homepage": "",
+    "isArchived": false,
+    "language": "",
+    "license": {
+      "key": "gpl-3.0",
+      "name": "GNU General Public License v3.0",
+      "url": "https://api.github.com/licenses/gpl-3.0"
+    },
+    "name": "Planner-PowerBI-with-PowerAutomate",
+    "openIssuesCount": 13,
+    "owner": {
+      "id": "MDQ6VXNlcjM3MDg1MjM0",
+      "is_bot": false,
+      "login": "ben-howard",
+      "type": "User",
+      "url": "https://github.com/ben-howard"
+    },
+    "updatedAt": "2024-01-15T09:20:11Z",
+    "url": "https://github.com/ben-howard/Planner-PowerBI-with-PowerAutomate",
+    "codeOfConduct": null,
+    "forkCount": 7,
+    "fundingLinks": [],
+    "isSecurityPolicyEnabled": false,
+    "isTemplate": false,
+    "latestRelease": {
+      "name": "Fixed Null row issue in Users table",
+      "tagName": "v1.6",
+      "url": "https://github.com/ben-howard/Planner-PowerBI-with-PowerAutomate/releases/tag/v1.6",
+      "publishedAt": "2023-03-09T17:34:37Z"
+    },
+    "primaryLanguage": null,
+    "securityPolicyUrl": "",
+    "stargazerCount": 56,
+    "watchers": {
+      "totalCount": 11
+    },
+    "topics": [
+      "microsoft-planner",
+      "power-bi",
+      "power-automate",
+      "microsoft-flow"
+    ],
+    "languages": [],
+    "openedGoodFirstIssues": 0,
+    "hasGoodFirstIssues": false,
+    "openedHelpWantedIssues": 0,
+    "hasHelpWantedIssues": false,
+    "openedToContributionsIssues": 0,
+    "popularityScore": 67
+  },
+  {
     "createdAt": "2016-01-30T15:46:16Z",
     "description": "generate POCO classes from OData service",
     "fullName": "moh-hassan/odata2poco",
@@ -4088,61 +4143,6 @@
     "hasHelpWantedIssues": false,
     "openedToContributionsIssues": 0,
     "popularityScore": 62
-  },
-  {
-    "createdAt": "2021-10-01T08:06:29Z",
-    "description": "Contains a PowerAutomate file that takes data from Planner, writes it to Excel, which is then visualised in Power BI",
-    "fullName": "ben-howard/Planner-PowerBI-with-PowerAutomate",
-    "hasIssues": true,
-    "homepage": "",
-    "isArchived": false,
-    "language": "",
-    "license": {
-      "key": "gpl-3.0",
-      "name": "GNU General Public License v3.0",
-      "url": "https://api.github.com/licenses/gpl-3.0"
-    },
-    "name": "Planner-PowerBI-with-PowerAutomate",
-    "openIssuesCount": 13,
-    "owner": {
-      "id": "MDQ6VXNlcjM3MDg1MjM0",
-      "is_bot": false,
-      "login": "ben-howard",
-      "type": "User",
-      "url": "https://github.com/ben-howard"
-    },
-    "updatedAt": "2023-11-27T06:55:50Z",
-    "url": "https://github.com/ben-howard/Planner-PowerBI-with-PowerAutomate",
-    "codeOfConduct": null,
-    "forkCount": 7,
-    "fundingLinks": [],
-    "isSecurityPolicyEnabled": false,
-    "isTemplate": false,
-    "latestRelease": {
-      "name": "Fixed Null row issue in Users table",
-      "tagName": "v1.6",
-      "url": "https://github.com/ben-howard/Planner-PowerBI-with-PowerAutomate/releases/tag/v1.6",
-      "publishedAt": "2023-03-09T17:34:37Z"
-    },
-    "primaryLanguage": null,
-    "securityPolicyUrl": "",
-    "stargazerCount": 55,
-    "watchers": {
-      "totalCount": 11
-    },
-    "topics": [
-      "microsoft-planner",
-      "power-bi",
-      "power-automate",
-      "microsoft-flow"
-    ],
-    "languages": [],
-    "openedGoodFirstIssues": 0,
-    "hasGoodFirstIssues": false,
-    "openedHelpWantedIssues": 0,
-    "hasHelpWantedIssues": false,
-    "openedToContributionsIssues": 0,
-    "popularityScore": 66
   },
   {
     "createdAt": "2019-09-25T15:20:07Z",
@@ -5133,7 +5133,7 @@
       "url": "https://api.github.com/licenses/mit"
     },
     "name": "provision-assist-m365",
-    "openIssuesCount": 34,
+    "openIssuesCount": 36,
     "owner": {
       "id": "MDEyOk9yZ2FuaXphdGlvbjMxNDQzOTI5",
       "is_bot": false,
@@ -8199,66 +8199,6 @@
     "popularityScore": 20
   },
   {
-    "createdAt": "2019-07-12T08:07:26Z",
-    "description": "This component displays BPFs with all process stages categories of entities from a grid/views",
-    "fullName": "allandecastro/BusinessProcessFlowViewer",
-    "hasIssues": true,
-    "homepage": "",
-    "isArchived": false,
-    "language": "TypeScript",
-    "license": {
-      "key": "mit",
-      "name": "MIT License",
-      "url": "https://api.github.com/licenses/mit"
-    },
-    "name": "BusinessProcessFlowViewer",
-    "openIssuesCount": 6,
-    "owner": {
-      "id": "MDQ6VXNlcjk3NDkwMDI=",
-      "is_bot": false,
-      "login": "allandecastro",
-      "type": "User",
-      "url": "https://github.com/allandecastro"
-    },
-    "updatedAt": "2024-01-12T09:13:49Z",
-    "url": "https://github.com/allandecastro/BusinessProcessFlowViewer",
-    "codeOfConduct": null,
-    "forkCount": 6,
-    "fundingLinks": [],
-    "isSecurityPolicyEnabled": false,
-    "isTemplate": false,
-    "latestRelease": {
-      "name": "1.0.28",
-      "tagName": "1.0.28",
-      "url": "https://github.com/allandecastro/BusinessProcessFlowViewer/releases/tag/1.0.28",
-      "publishedAt": "2020-10-25T15:11:51Z"
-    },
-    "primaryLanguage": {
-      "name": "TypeScript"
-    },
-    "securityPolicyUrl": "",
-    "stargazerCount": 16,
-    "watchers": {
-      "totalCount": 8
-    },
-    "topics": [
-      "powerappscomponentframework",
-      "powerapps",
-      "dynamics-365",
-      "pcf"
-    ],
-    "languages": [
-      "TypeScript",
-      "CSS"
-    ],
-    "openedGoodFirstIssues": 0,
-    "hasGoodFirstIssues": false,
-    "openedHelpWantedIssues": 0,
-    "hasHelpWantedIssues": false,
-    "openedToContributionsIssues": 0,
-    "popularityScore": 24
-  },
-  {
     "createdAt": "2018-05-23T13:23:02Z",
     "description": "A tool for curating data by adding labels, groups, weights and other details to assist with informed reuse",
     "fullName": "scholarsportal/Dataverse-Data-Curation-Tool",
@@ -8379,6 +8319,66 @@
     "hasHelpWantedIssues": false,
     "openedToContributionsIssues": 0,
     "popularityScore": 20
+  },
+  {
+    "createdAt": "2019-07-12T08:07:26Z",
+    "description": "This component displays BPFs with all process stages categories of entities from a grid/views",
+    "fullName": "allandecastro/BusinessProcessFlowViewer",
+    "hasIssues": true,
+    "homepage": "",
+    "isArchived": false,
+    "language": "TypeScript",
+    "license": {
+      "key": "mit",
+      "name": "MIT License",
+      "url": "https://api.github.com/licenses/mit"
+    },
+    "name": "BusinessProcessFlowViewer",
+    "openIssuesCount": 6,
+    "owner": {
+      "id": "MDQ6VXNlcjk3NDkwMDI=",
+      "is_bot": false,
+      "login": "allandecastro",
+      "type": "User",
+      "url": "https://github.com/allandecastro"
+    },
+    "updatedAt": "2024-01-14T12:44:55Z",
+    "url": "https://github.com/allandecastro/BusinessProcessFlowViewer",
+    "codeOfConduct": null,
+    "forkCount": 6,
+    "fundingLinks": [],
+    "isSecurityPolicyEnabled": false,
+    "isTemplate": false,
+    "latestRelease": {
+      "name": "1.0.28",
+      "tagName": "1.0.28",
+      "url": "https://github.com/allandecastro/BusinessProcessFlowViewer/releases/tag/1.0.28",
+      "publishedAt": "2020-10-25T15:11:51Z"
+    },
+    "primaryLanguage": {
+      "name": "TypeScript"
+    },
+    "securityPolicyUrl": "",
+    "stargazerCount": 15,
+    "watchers": {
+      "totalCount": 8
+    },
+    "topics": [
+      "powerappscomponentframework",
+      "powerapps",
+      "dynamics-365",
+      "pcf"
+    ],
+    "languages": [
+      "TypeScript",
+      "CSS"
+    ],
+    "openedGoodFirstIssues": 0,
+    "hasGoodFirstIssues": false,
+    "openedHelpWantedIssues": 0,
+    "hasHelpWantedIssues": false,
+    "openedToContributionsIssues": 0,
+    "popularityScore": 23
   },
   {
     "createdAt": "2021-08-09T06:55:59Z",
