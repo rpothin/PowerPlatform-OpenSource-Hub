@@ -58,6 +58,12 @@ jobs:
         run: |
           npm run build
 
+      # Check if ts-node is installed
+      - name: Check ts-node
+        working-directory: Website
+        run: |
+          npx ts-node --version
+      
       # Run unit tests
       - name: Run unit tests
         working-directory: Website
