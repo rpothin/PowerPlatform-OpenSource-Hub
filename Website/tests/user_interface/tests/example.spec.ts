@@ -1,18 +1,8 @@
 import { test, expect } from '@playwright/test';
 
-test('has title', async ({ page }) => {
-  await page.goto('https://playwright.dev/');
-
-  // Expect a title "to contain" a substring.
-  await expect(page).toHaveTitle(/Playwright/);
-});
-
-test('get started link', async ({ page }) => {
-  await page.goto('https://playwright.dev/');
-
-  // Click the get started link.
-  await page.getByRole('link', { name: 'Get started' }).click();
-
-  // Expects page to have a heading with the name of Installation.
-  await expect(page.getByRole('heading', { name: 'Installation' })).toBeVisible();
+// Validate that the title of the "http://localhost:3000/PowerPlatform-OpenSource-Hub/" web page is "Power Platform Open-Source Hub"
+// The class of the title is "hero__title"
+test('Validate that the title of the website opened locally', async ({ page }) => {
+  await page.goto('http://localhost:3000/PowerPlatform-OpenSource-Hub/');
+  await expect(page).toHaveTitle(/Power Platform Open-Source Hub/);
 });
