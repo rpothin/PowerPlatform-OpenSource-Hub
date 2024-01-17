@@ -1,2 +1,6 @@
 # Exclude node_modules folder from remote
 node_modules
+
+# Exclude package.json and package-lock.json (only the ones at the root level) from remote
+package.json
+package-lock.json
