@@ -19,13 +19,15 @@
   },
   "dependencies": {
     "@docusaurus/core": "^3.0.1",
+    "@docusaurus/plugin-content-docs": "^3.1.0",
     "@docusaurus/preset-classic": "^3.0.1",
+    "@docusaurus/theme-common": "^3.1.0",
     "@fluentui/react": "^8.112.9",
     "@fluentui/react-components": "^9.41.0",
+    "@fluentui/react-icons": "^2.0.225",
     "@types/date-fns": "^2.6.0",
     "clsx": "^2.0.0",
     "date-fns": "^2.30.0",
-    "docusaurus": "^1.14.7",
     "fuse.js": "^7.0.0",
     "prism-react-renderer": "^2.3.0",
     "react": "^18.2.0",
@@ -35,10 +37,8 @@
     "@docusaurus/tsconfig": "^3.0.1",
     "@docusaurus/types": "^3.0.1",
     "@types/jest": "^29.5.11",
-    "gulp": "^4.0.2",
     "jest": "^29.7.0",
     "ts-jest": "^29.1.1",
-    "ts-node": "^10.9.2",
     "typescript": "^5.3.2"
   },
   "browserslist": {

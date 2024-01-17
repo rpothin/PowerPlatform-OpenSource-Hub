@@ -14,5 +14,5 @@
 			]
 		}
 	},
-	"postCreateCommand": "npm install --save docusaurus"
+	"postCreateCommand": "npm install --save docusaurus && npm install -g depcheck"
 }
