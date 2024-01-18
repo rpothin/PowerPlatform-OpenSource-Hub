@@ -1,0 +1,63 @@
+name: update-clean-website-dependencies
+# Update and clean website dependencies
+
+# Workflow triggered every day at 01:00 AM EST
+# Can also be triggered manually without input parameters
+on:
+    schedule:
+      - cron: '0 6 * * *' # Every day at 01:00 AM EST
+    workflow_dispatch:
+
+# Concurrency configuration for the current workflow - Keep only the latest workflow queued for the considered group
+concurrency:
+  group: update-clean-website-dependencies
+  cancel-in-progress: true
+
+jobs:
+    update-clean-website-dependencies:
+        runs-on: ubuntu-latest
+        env:
+          RUNNER_DEBUG: 1
+
+        steps:
+            # Action used to checkout the main branch in the current repository
+            #   Community action: https://github.com/actions/checkout
+            - name: Checkout
+              uses: actions/checkout@v4.1.1
+
+            # Setup Node.js
+            #  Action: https://github.com/actions/setup-node
+            - uses: actions/setup-node@v4
+              with:
+                node-version: 20
+                cache: npm
+                cache-dependency-path: Website/package-lock.json
+
+            # Install dependencies and update dependencies
+            - name: Install dependencies and update dependencies
+              working-directory: Website
+              run: |
+                npm ci
+                ncu -u
+                npm install
+
+            # Remove unused dependencies
+            - name: Remove unused dependencies
+              working-directory: Website
+              run: |
+                npm install -g depcheck
+                depcheck || true
+                for pkg in $(depcheck --json | jq -r '.dependencies[]'); do npm uninstall $pkg; done
+            
+            # Run unit tests
+            - name: Run unit tests
+              working-directory: Website
+              run: |
+                npm run test:unit
+
+            # Commit and push if it's necessary
+            - name: Commit and push if it's necessary
+              run: |
+                git config --local user.email "action@github.com"
+                git config --local user.name "GitHub Action"
+                git diff --quiet && git diff --staged --quiet || (git add . && git commit -m "Automated update of dependencies, removal of unused dependencies and tests" && git push)
