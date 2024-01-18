@@ -54,7 +54,12 @@ jobs:
               run: |
                 npm install -g depcheck
                 depcheck || true
-                for pkg in $(depcheck --json | jq -r '.dependencies[]'); do echo "Uninstalling $pkg"; npm uninstall $pkg; done
+                unused=$(depcheck --json | jq -r '.dependencies[]')
+                if [ -z "$unused" ]; then
+                    echo "No unused dependencies to uninstall"
+                else
+                    for pkg in $unused; do echo "Uninstalling $pkg"; npm uninstall $pkg; done
+                fi
             
             # Run unit tests
             - name: Run unit tests
