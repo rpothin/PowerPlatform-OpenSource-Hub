@@ -79,12 +79,12 @@ jobs:
           npx playwright test
 
       # Upload Playwright test results to workflow run artifacts
-      - uses: actions/upload-artifact@v3
+      - name: Upload user interface tests report
+        uses: actions/upload-artifact@v4
         if: always()
         with:
           name: user-interface-tests-report
-          path: Website/tests/user_interface/playwright-report/
-          retention-days: 15
+          path: Website/tests/user_interface/playwright-report/index.html
 
       # Push the built website to the workflow artifacts
       #   Action: https://docs.github.com/en/free-pro-team@latest/actions/guides/storing-workflow-data-as-artifacts
