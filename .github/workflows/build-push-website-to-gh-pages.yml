@@ -64,6 +64,12 @@ jobs:
         run: |
           npm run test:unit
 
+      # Run user interface tests (Playwright)
+      - name: Run user interface tests
+        working-directory: Website/tests/user_interface
+        run: |
+          npm run test:ui
+
       # Push the built website to the workflow artifacts
       #   Action: https://docs.github.com/en/free-pro-team@latest/actions/guides/storing-workflow-data-as-artifacts
       - name: Upload website
