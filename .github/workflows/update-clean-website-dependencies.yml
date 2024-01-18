@@ -25,6 +25,12 @@ jobs:
             - name: Checkout
               uses: actions/checkout@v4.1.1
 
+            # Set a current date environment variable in the following format: YYYYMMDD
+            - name: Set current date as env variable
+              id: current_date
+              run: echo "NOW=$(date +'%Y%m%d')" >> $env:GITHUB_OUTPUT
+              shell: pwsh
+
             # Setup Node.js
             #  Action: https://github.com/actions/setup-node
             - uses: actions/setup-node@v4
@@ -48,7 +54,7 @@ jobs:
               run: |
                 npm install -g depcheck
                 depcheck || true
-                for pkg in $(depcheck --json | jq -r '.dependencies[]'); do npm uninstall $pkg; done
+                for pkg in $(depcheck --json | jq -r '.dependencies[]'); do echo "Uninstalling $pkg"; npm uninstall $pkg; done
             
             # Run unit tests
             - name: Run unit tests
@@ -61,4 +67,4 @@ jobs:
               run: |
                 git config --local user.email "action@github.com"
                 git config --local user.name "GitHub Action"
-                git diff --quiet && git diff --staged --quiet || (git add . && git commit -m "Automated update of dependencies, removal of unused dependencies and tests" && git push)
+                git diff --quiet && git diff --staged --quiet || (git add . && git commit -m "Automated update of dependencies, removal of unused dependencies and tests - ${{ steps.current_date.outputs.NOW }}.${{ github.run_number }}" && git push)
