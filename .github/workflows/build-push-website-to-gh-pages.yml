@@ -78,25 +78,13 @@ jobs:
           npm ci
           npx playwright test
 
-      - name: Tests
-        run: |
-          ls
-
-          ls Website
-
-          ls Website/tests
-
-          ls Website/tests/user_interface
-
-          ls Website/tests/user_interface/playwright-report
-
       # Upload Playwright test results to workflow run artifacts
       - name: Upload user interface tests report
         uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: user-interface-tests-report
-          path: Website/tests/user_interface/playwright-report/index.html
+          name: UserInterfaceTestsReport
+          path: Website/tests/user_interface/playwright-report
 
       # Push the built website to the workflow artifacts
       #   Action: https://docs.github.com/en/free-pro-team@latest/actions/guides/storing-workflow-data-as-artifacts
