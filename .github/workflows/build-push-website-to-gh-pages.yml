@@ -78,6 +78,18 @@ jobs:
           npm ci
           npx playwright test
 
+      - name: Tests
+        run: |
+          ls
+
+          ls Website
+
+          ls Website/tests
+
+          ls Website/tests/user_interface
+
+          ls Website/tests/user_interface/playwright-report
+
       # Upload Playwright test results to workflow run artifacts
       - name: Upload user interface tests report
         uses: actions/upload-artifact@v4
