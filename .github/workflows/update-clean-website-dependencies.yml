@@ -37,6 +37,7 @@ jobs:
             - name: Install dependencies and update dependencies
               working-directory: Website
               run: |
+                npm install -g npm-check-updates
                 npm ci
                 ncu -u
                 npm install
