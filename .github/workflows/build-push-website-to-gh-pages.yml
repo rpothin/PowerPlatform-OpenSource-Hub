@@ -69,6 +69,7 @@ jobs:
         working-directory: Website/tests/user_interface
         run: |
           npx playwright install --with-deps
+          npm install @playwright/test
 
       # Run user interface tests (Playwright)
       - name: Run user interface tests
