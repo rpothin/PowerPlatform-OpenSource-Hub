@@ -68,7 +68,16 @@ jobs:
       - name: Run user interface tests
         working-directory: Website/tests/user_interface
         run: |
-          npm run test:ui
+          npx playwright install --with-deps # Install Playwright Browsers
+          npx playwright test
+
+      # Upload Playwright test results to workflow run artifacts
+      - uses: actions/upload-artifact@v3
+        if: always()
+        with:
+          name: user-interface-tests-report
+          path: Website/tests/user_interface/playwright-report/
+          retention-days: 15
 
       # Push the built website to the workflow artifacts
       #   Action: https://docs.github.com/en/free-pro-team@latest/actions/guides/storing-workflow-data-as-artifacts
