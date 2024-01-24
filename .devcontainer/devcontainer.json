@@ -10,9 +10,10 @@
 				"GitHub.copilot-chat",
 				"github.vscode-github-actions",
 				"pspester.pester-test",
-				"ritwickdey.LiveServer"
+				"ritwickdey.LiveServer",
+				"ms-vscode.powershell"
 			]
 		}
 	},
-	"postCreateCommand": "npm install --save docusaurus && npm install -g depcheck"
+	"postCreateCommand": "npm install -g depcheck && cd Website/tests/user_interface && npm install @playwright/test && npx playwright install --with-deps --force && npx playwright install msedge --force && npx playwright install chrome --force"
 }
