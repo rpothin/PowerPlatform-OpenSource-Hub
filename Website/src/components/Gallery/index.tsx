@@ -111,7 +111,7 @@ const Gallery = ({ items, hasGoodFirstIssueChecked, hasHelpWantedIssueChecked, h
     return (
         <div style={{ width: '100%' }}>
             <div className={styles.galleryHeader}>
-                <Text size={400}>{`${filteredItems.length} repositories found`}</Text>
+                <Text id="repositoryCount" size={400}>{`${filteredItems.length} repositories found`}</Text>
                 <div style={{ display: 'flex', alignItems: 'center' }}>
                     <Text id={comboId} style={{ marginRight: '10px' }} size={400}>Order By</Text>
                     <Combobox
