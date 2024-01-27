@@ -20,6 +20,8 @@
 
 /* Styling for the gallery item */
 .galleryItem {
+    display: flex; /* Use flexbox for layout */
+    flex-direction: column; /* Set direction to column */
     flex: 1 1 300px; /* flex-grow | flex-shrink | flex-basis */
     max-width: 450px; /* Set max width */
     max-height: 400px; /* Set max height */
@@ -88,6 +90,11 @@
     align-items: center;
     padding: 10px;
     width: 100%;
+}
+
+.cardFooter {
+    margin-top: auto;
+    height: 50px; /* set to your desired fixed height */
 }
 
 .dialogTitle {

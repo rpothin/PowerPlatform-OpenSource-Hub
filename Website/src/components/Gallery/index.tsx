@@ -198,9 +198,6 @@ const Gallery = ({ items, hasGoodFirstIssueChecked, hasHelpWantedIssueChecked, h
                             ))}
                         </div>
 
-
-                        <CardPreview className={styles.cardBreakLine} />
-
                         <CardFooter className={styles.cardFooter}>
                             <Button icon={<OpenRegular fontSize={16} />} onClick={() => openInGitHub(item.url)}>Open in GitHub</Button>
                             <Button icon={<ArrowExpand16Regular fontSize={16} />} onClick={() => openDialog(item)}>See more...</Button>
