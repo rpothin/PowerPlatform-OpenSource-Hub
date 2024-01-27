@@ -1,5 +1,4 @@
 import { test, expect } from '@playwright/test';
-import exp from 'constants';
 
 // Validate that when I enter a search term, the count of repositories found is updated (smaller than the one before entering the search term)
 test('Validate that when I enter a search term, the count of repositories found is updated (smaller than the one before entering the search term)', async ({ page }) => {
