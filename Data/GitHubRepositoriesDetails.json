@@ -171,7 +171,7 @@
       "type": "Organization",
       "url": "https://github.com/microsoft"
     },
-    "updatedAt": "2024-01-26T17:36:05Z",
+    "updatedAt": "2024-01-28T00:57:09Z",
     "url": "https://github.com/microsoft/Microsoft365DSC",
     "codeOfConduct": {
       "key": "contributor_covenant",
@@ -192,7 +192,7 @@
       "name": "PowerShell"
     },
     "securityPolicyUrl": "https://github.com/microsoft/Microsoft365DSC/security/policy",
-    "stargazerCount": 1268,
+    "stargazerCount": 1269,
     "watchers": {
       "totalCount": 68
     },
@@ -228,7 +228,7 @@
     "openedHelpWantedIssues": 4,
     "hasHelpWantedIssues": true,
     "openedToContributionsIssues": 4,
-    "popularityScore": 1336
+    "popularityScore": 1337
   },
   {
     "createdAt": "2018-12-13T05:33:24Z",
@@ -244,7 +244,7 @@
       "url": "https://api.github.com/licenses/mit"
     },
     "name": "PowerPlatformConnectors",
-    "openIssuesCount": 201,
+    "openIssuesCount": 202,
     "owner": {
       "id": "MDEyOk9yZ2FuaXphdGlvbjYxNTQ3MjI=",
       "is_bot": false,
@@ -259,7 +259,7 @@
       "name": "Other",
       "url": "https://github.com/microsoft/.github/blob/main/CODE_OF_CONDUCT.md"
     },
-    "forkCount": 1172,
+    "forkCount": 1173,
     "fundingLinks": [],
     "isSecurityPolicyEnabled": true,
     "isTemplate": false,
@@ -270,7 +270,7 @@
     "securityPolicyUrl": "https://github.com/microsoft/PowerPlatformConnectors/security/policy",
     "stargazerCount": 838,
     "watchers": {
-      "totalCount": 55
+      "totalCount": 56
     },
     "topics": [
       "microsoft",
@@ -291,7 +291,7 @@
     "openedHelpWantedIssues": 0,
     "hasHelpWantedIssues": false,
     "openedToContributionsIssues": 0,
-    "popularityScore": 893
+    "popularityScore": 894
   },
   {
     "createdAt": "2014-01-30T09:46:28Z",
@@ -383,7 +383,7 @@
       "name": "Other",
       "url": "https://github.com/microsoft/.github/blob/main/CODE_OF_CONDUCT.md"
     },
-    "forkCount": 255,
+    "forkCount": 254,
     "fundingLinks": [],
     "isSecurityPolicyEnabled": true,
     "isTemplate": false,
@@ -439,7 +439,7 @@
     "updatedAt": "2024-01-23T02:01:08Z",
     "url": "https://github.com/MscrmTools/XrmToolBox",
     "codeOfConduct": null,
-    "forkCount": 207,
+    "forkCount": 206,
     "fundingLinks": [
       {
         "platform": "GITHUB",
@@ -4391,7 +4391,7 @@
       "type": "User",
       "url": "https://github.com/OlegLobakov"
     },
-    "updatedAt": "2024-01-16T05:25:04Z",
+    "updatedAt": "2024-01-28T09:02:21Z",
     "url": "https://github.com/OlegLobakov/WarehouseControlSystem",
     "codeOfConduct": null,
     "forkCount": 25,
@@ -4408,7 +4408,7 @@
       "name": "C#"
     },
     "securityPolicyUrl": "",
-    "stargazerCount": 51,
+    "stargazerCount": 52,
     "watchers": {
       "totalCount": 9
     },
@@ -4432,7 +4432,7 @@
     "openedHelpWantedIssues": 0,
     "hasHelpWantedIssues": false,
     "openedToContributionsIssues": 0,
-    "popularityScore": 60
+    "popularityScore": 61
   },
   {
     "createdAt": "2022-11-30T02:44:47Z",
@@ -6052,6 +6052,68 @@
     "popularityScore": 33
   },
   {
+    "createdAt": "2019-01-31T12:24:00Z",
+    "description": "Set of PowerShell scripts to maintain D365FFO (Dynamics 365 for Finance and Operations)",
+    "fullName": "valerymoskalenko/D365FFO-PowerShell-scripts",
+    "hasIssues": true,
+    "homepage": "",
+    "isArchived": false,
+    "language": "PowerShell",
+    "license": {
+      "key": "mit",
+      "name": "MIT License",
+      "url": "https://api.github.com/licenses/mit"
+    },
+    "name": "D365FFO-PowerShell-scripts",
+    "openIssuesCount": 1,
+    "owner": {
+      "id": "MDQ6VXNlcjIyNTg5Mzky",
+      "is_bot": false,
+      "login": "valerymoskalenko",
+      "type": "User",
+      "url": "https://github.com/valerymoskalenko"
+    },
+    "updatedAt": "2024-01-28T09:34:42Z",
+    "url": "https://github.com/valerymoskalenko/D365FFO-PowerShell-scripts",
+    "codeOfConduct": null,
+    "forkCount": 9,
+    "fundingLinks": [],
+    "isSecurityPolicyEnabled": false,
+    "isTemplate": false,
+    "latestRelease": null,
+    "primaryLanguage": {
+      "name": "PowerShell"
+    },
+    "securityPolicyUrl": "",
+    "stargazerCount": 29,
+    "watchers": {
+      "totalCount": 9
+    },
+    "topics": [
+      "dynamics",
+      "d365fo",
+      "dynamics-365",
+      "d365tools",
+      "ax7",
+      "powershell-script",
+      "finops",
+      "devops",
+      "devops-tools",
+      "fno",
+      "fsc",
+      "fscm"
+    ],
+    "languages": [
+      "PowerShell"
+    ],
+    "openedGoodFirstIssues": 0,
+    "hasGoodFirstIssues": false,
+    "openedHelpWantedIssues": 0,
+    "hasHelpWantedIssues": false,
+    "openedToContributionsIssues": 0,
+    "popularityScore": 38
+  },
+  {
     "createdAt": "2020-08-22T12:15:19Z",
     "description": "Generic OAuth2 Library for Business Central",
     "fullName": "msnraju/BC-OAuth-2.0-Authorization",
@@ -6252,68 +6314,6 @@
     "hasHelpWantedIssues": true,
     "openedToContributionsIssues": 1,
     "popularityScore": 30
-  },
-  {
-    "createdAt": "2019-01-31T12:24:00Z",
-    "description": "Set of PowerShell scripts to maintain D365FFO (Dynamics 365 for Finance and Operations)",
-    "fullName": "valerymoskalenko/D365FFO-PowerShell-scripts",
-    "hasIssues": true,
-    "homepage": "",
-    "isArchived": false,
-    "language": "PowerShell",
-    "license": {
-      "key": "mit",
-      "name": "MIT License",
-      "url": "https://api.github.com/licenses/mit"
-    },
-    "name": "D365FFO-PowerShell-scripts",
-    "openIssuesCount": 1,
-    "owner": {
-      "id": "MDQ6VXNlcjIyNTg5Mzky",
-      "is_bot": false,
-      "login": "valerymoskalenko",
-      "type": "User",
-      "url": "https://github.com/valerymoskalenko"
-    },
-    "updatedAt": "2023-12-13T15:07:33Z",
-    "url": "https://github.com/valerymoskalenko/D365FFO-PowerShell-scripts",
-    "codeOfConduct": null,
-    "forkCount": 9,
-    "fundingLinks": [],
-    "isSecurityPolicyEnabled": false,
-    "isTemplate": false,
-    "latestRelease": null,
-    "primaryLanguage": {
-      "name": "PowerShell"
-    },
-    "securityPolicyUrl": "",
-    "stargazerCount": 28,
-    "watchers": {
-      "totalCount": 9
-    },
-    "topics": [
-      "dynamics",
-      "d365fo",
-      "dynamics-365",
-      "d365tools",
-      "ax7",
-      "powershell-script",
-      "finops",
-      "devops",
-      "devops-tools",
-      "fno",
-      "fsc",
-      "fscm"
-    ],
-    "languages": [
-      "PowerShell"
-    ],
-    "openedGoodFirstIssues": 0,
-    "hasGoodFirstIssues": false,
-    "openedHelpWantedIssues": 0,
-    "hasHelpWantedIssues": false,
-    "openedToContributionsIssues": 0,
-    "popularityScore": 37
   },
   {
     "createdAt": "2017-01-10T10:23:57Z",
@@ -7393,7 +7393,7 @@
       "url": ""
     },
     "name": "fake-xrm-easy",
-    "openIssuesCount": 49,
+    "openIssuesCount": 50,
     "owner": {
       "id": "MDEyOk9yZ2FuaXphdGlvbjE1NzkxNjEx",
       "is_bot": false,
@@ -10013,10 +10013,10 @@
     "isSecurityPolicyEnabled": false,
     "isTemplate": false,
     "latestRelease": {
-      "name": "v11.1.1",
-      "tagName": "v11.1.1",
-      "url": "https://github.com/yagasoft/DynamicsCrm-CodeGenerator/releases/tag/v11.1.1",
-      "publishedAt": "2023-05-29T12:58:16Z"
+      "name": "v11.1.2",
+      "tagName": "v11.1.2",
+      "url": "https://github.com/yagasoft/DynamicsCrm-CodeGenerator/releases/tag/v11.1.2",
+      "publishedAt": "2024-01-27T17:49:35Z"
     },
     "primaryLanguage": {
       "name": "C#"
