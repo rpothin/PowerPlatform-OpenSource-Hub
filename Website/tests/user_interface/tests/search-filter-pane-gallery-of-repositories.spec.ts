@@ -1,7 +1,10 @@
 import { test, expect } from '@playwright/test';
+import describe from '@playwright/test';
+
+// #region Search functionality tests
 
 // Validate that when I enter a search term, the count of repositories found is updated (smaller than the one before entering the search term)
-test('Validate that when I enter a search term, the count of repositories found is updated (smaller than the one before entering the search term)', async ({ page }) => {
+test('Validate the count of repositories found behavios when I enter a search term', async ({ page }) => {
   await page.goto('/');
 
   // Extract the initial count of repositories found (before entering the search term) from the element with "repositoryCount" id
@@ -23,12 +26,16 @@ test('Validate that when I enter a search term, the count of repositories found 
   expect(count).toBeLessThan(initialCount);
 });
 
+// #endregion
+
+// #region Filter pane functionality tests
+
 // Validate the filters default presentation
 // - all checkboxes are unchecked
 // - the list of the available sections is as expected (the order is important)
 // - only the "Contribution Opportunities" section is expanded
 // - the "Contribution Opportunities" section contains the expected checkboxes
-test('Validate the filters default presentation', async ({ page }) => {
+test('Validate the filter pane default presentation', async ({ page }) => {
   await page.goto('/');
 
   // Array of the expected sections (the order is important)
@@ -54,7 +61,7 @@ test('Validate the filters default presentation', async ({ page }) => {
     const isChecked = await checkbox.isChecked();
     expect(isChecked).toBe(false);
   }
-  
+
   // Validate that the list of the available sections is as expected (the order is important)
   // Each section is a div element with "fui-AccordionItem" class
   const sections = await page.$$('.fui-AccordionItem');
@@ -100,26 +107,124 @@ test('Validate the filters default presentation', async ({ page }) => {
   expect(contributionOpportunitiesCheckboxesNames).toEqual(expectedContributionOpportunitiesCheckboxes);
 });
 
-// Validate that when I check the "Has good first issue" checkbox, the count presented in the checkbox label is equal to the count of repositories found
-test('Validate that when I check the "Has good first issue" checkbox, the count presented in the checkbox label is equal to the count of repositories found', async ({ page }) => {
+// Validate that all sections in the filter pane can be expanded/collapsed
+test('Validate that all sections in the filter pane can be expanded / collapsed', async ({ page }) => {
   await page.goto('/');
 
-  // Click on the checkbox with "checkbox-r1" id
-  await page.click('#checkbox-r1');
+  // Validate that any section in the filter pane can be expanded/collapsed
+  // The button element in each section has a "aria-expanded" attribute allowing to know if the section is expanded or not
+  const sections = await page.$$('.fui-AccordionItem');
+  for (let section of sections) {
+    // Get the initial state of the section
+    const expanded = await section.$$('button[aria-expanded="true"]');
 
-  // Extract the expected count of repositories from the label of the checkbox with "checkbox-r1" id
-  // The label we are looking for is an element of type "label" with "for" attribute equal to "checkbox-r1"
-  // The format of the value we will get is "Has good first issue (X)"
-  const expectedCountText = await page.innerText('label[for="checkbox-r1"]');
-  // Extract the number from the expected count text
+    // Click on the section element
+    await section.click();
+
+    // Get the new state of the section
+    const newExpanded = await section.$$('button[aria-expanded="true"]');
+
+    // Validate that the state of the section has changed considering the initial state we got before clicking on the section element
+    expect(expanded.length).not.toBe(newExpanded.length);
+
+    // Click on the section element
+    await section.click();
+
+    // Get the new state of the section
+    const newExpandedAgain = await section.$$('button[aria-expanded="true"]');
+
+    // Validate that the state of the section has changed considering the initial state we got before clicking on the section element
+    expect(expanded.length).toBe(newExpandedAgain.length);
+  }
+});
+
+// Validate that when I check a checkbox in the filter pane, the count presented in the checkbox label is equal to the count of repositories found
+test('Validate that when I check a checkbox in the filter pane, the count presented in the checkbox label is equal to the count of repositories found', async ({ page }) => {
+  await page.goto('/');
+
+  // Get all the checkboxes in the filter pane
+  await page.waitForSelector('input[id^="checkbox-r"]');
+  const checkboxes = await page.$$eval('input[id^="checkbox-r"]', (elements) => elements.map((element) => element.id));
+
+  // Randomly select a checkbox
+  const randomIndex = Math.floor(Math.random() * checkboxes.length);
+  const checkbox = checkboxes[randomIndex];
+  
+  // Extract the expected count of repositories from the label
+  // The format of the value we will get is "Checkbox Label (X)"
+  const expectedCountText = await page.innerText('label[for="' + checkbox + '"]');
   const expectedCount = parseInt(expectedCountText.split('(')[1].split(')')[0]);
+
+  // Click on the checkbox
+  await page.click('#' + checkbox);
 
   // Extract the count of repositories found (after checking the checkbox) from the element with "repositoryCount" id
   // The format of the value we will get is "X repositories found"
   const countText = await page.innerText('#repositoryCount');
-  // Extract the number from the count text
   const count = parseInt(countText.split(' ')[0]);
 
   // Validate that the count of repositories found is equal to the expected count
   expect(count).toBe(expectedCount);
 });
+
+// Validate the visual behavior of a checkbox,
+// - the checkbox is checked when we click on it
+// - the checkbox is still checked when we collapse then expand the section where the checkbox is
+/*test('Validate the visual behavior of a checkbox', async ({ page }) => {
+  await page.goto('/');
+
+  // Get all the checkboxes in the filter pane
+  await page.waitForSelector('input[id^="checkbox-r"]');
+  const checkboxes = await page.$$eval('input[id^="checkbox-r"]', (elements) => elements.map((element) => element.id));
+
+  // Randomly select a checkbox
+  const randomIndex = Math.floor(Math.random() * checkboxes.length);
+  const checkbox = checkboxes[randomIndex];
+
+  console.log('checkbox: ' + checkbox);
+
+  // Click on the checkbox
+  await page.click('#' + checkbox);
+
+  // Validate that the checkbox is checked
+  const isChecked = await page.isChecked('#' + checkbox);
+  expect(isChecked).toBe(true);
+
+  // Collapse then expand the section where the checkbox is
+  // The management of the section is done by clicking on the header of the section - a div element with "fui-AccordionHeader" class under the div element with "fui-AccordionItem" class
+  // The checkbox is an input item under a span under a div under a div with "fui-AccordionPanel" class under the div element with "fui-AccordionItem" class
+  let checkboxElement = await page.$('#' + checkbox);
+  const sectionHeader = await checkboxElement.evaluate((checkbox) => {
+    // Traverse up the DOM tree to find the associated section header
+    let parent = checkbox.parentElement;
+    while (parent && !parent.classList.contains('fui-AccordionItem')) {
+      parent = parent.parentElement;
+    }
+    if (parent) {
+      return parent.querySelector('.fui-AccordionHeader').textContent;
+    }
+    return null;
+  });
+  
+  console.log('sectionHeader: ' + sectionHeader);
+  
+  // Collapse the section
+  await page.click('div.fui-AccordionItem:has(button:has-text("' + sectionHeader + '")) button');
+
+  // Expand the section
+  await page.click('div.fui-AccordionItem:has(button:has-text("' + sectionHeader + '")) button');
+
+  await page.waitForSelector('#' + checkbox, { state: 'visible' });
+  checkboxElement = await page.$('#' + checkbox);
+  await checkboxElement.scrollIntoViewIfNeeded();
+
+  // Validate that the checkbox is still checked
+  const isStillChecked = await page.isChecked('#' + checkbox);
+  expect(isStillChecked).toBe(true);
+});*/
+
+// #endregion
+
+// #region Gallery functionality tests
+
+// #endregion
