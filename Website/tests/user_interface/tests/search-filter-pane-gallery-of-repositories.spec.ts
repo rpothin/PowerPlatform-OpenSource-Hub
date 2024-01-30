@@ -4,23 +4,17 @@ import describe from '@playwright/test';
 // #region Search functionality tests
 
 // Validate that when I enter a search term, the count of repositories found is updated (smaller than the one before entering the search term)
-test('Validate the count of repositories found behavios when I enter a search term', async ({ page }) => {
+test('Validate the count of repositories found when I enter a search term', async ({ page }) => {
   await page.goto('/');
 
-  // Extract the initial count of repositories found (before entering the search term) from the element with "repositoryCount" id
-  // The format of the value we will get is "X repositories found"
-  const initialCountText = await page.innerText('#repositoryCount');
-  // Extract the number from the initial count text
-  const initialCount = parseInt(initialCountText.split(' ')[0]);
+  // Extract the initial count of repositories found (before entering the search term)
+  const initialCount = await getCountOfRepositories(page);
 
   // Enter a search term in the search box (id = "filterBar")
   await page.fill('#filterBar', 'power');
 
-  // Extract the count of repositories found (after entering the search term) from the element with "repositoryCount" id
-  // The format of the value we will get is "X repositories found"
-  const countText = await page.innerText('#repositoryCount');
-  // Extract the number from the count text
-  const count = parseInt(countText.split(' ')[0]);
+  // Extract the count of repositories found (after entering the search term)
+  const count = await getCountOfRepositories(page);
 
   // Validate that the count of repositories found is smaller than the initial count
   expect(count).toBeLessThan(initialCount);
@@ -113,13 +107,15 @@ test('Validate that all sections in the filter pane can be expanded / collapsed'
 
   // Validate that any section in the filter pane can be expanded/collapsed
   // The button element in each section has a "aria-expanded" attribute allowing to know if the section is expanded or not
+  await page.waitForSelector('.fui-AccordionItem');
   const sections = await page.$$('.fui-AccordionItem');
   for (let section of sections) {
     // Get the initial state of the section
     const expanded = await section.$$('button[aria-expanded="true"]');
 
-    // Click on the section element
-    await section.click();
+    // Instead of clicking on the entire section, click on the header of the section
+    const header = await section.$('button[aria-expanded]');
+    await header.click();
 
     // Get the new state of the section
     const newExpanded = await section.$$('button[aria-expanded="true"]');
@@ -127,8 +123,8 @@ test('Validate that all sections in the filter pane can be expanded / collapsed'
     // Validate that the state of the section has changed considering the initial state we got before clicking on the section element
     expect(expanded.length).not.toBe(newExpanded.length);
 
-    // Click on the section element
-    await section.click();
+    // Instead of clicking on the entire section, click on the header of the section
+    await header.click();
 
     // Get the new state of the section
     const newExpandedAgain = await section.$$('button[aria-expanded="true"]');
@@ -142,26 +138,23 @@ test('Validate that all sections in the filter pane can be expanded / collapsed'
 test('Validate that when I check a checkbox in the filter pane, the count presented in the checkbox label is equal to the count of repositories found', async ({ page }) => {
   await page.goto('/');
 
-  // Get all the checkboxes in the filter pane
-  await page.waitForSelector('input[id^="checkbox-r"]');
-  const checkboxes = await page.$$eval('input[id^="checkbox-r"]', (elements) => elements.map((element) => element.id));
+  // Get a random section and a random checkbox within that section, excluding the "Languages" section
+  const { section, header, checkbox } = await getRandomSectionAndCheckbox(page, ['Languages']); // This exclusion means there is a bug regarding the "Languages" section we will need to address
 
-  // Randomly select a checkbox
-  const randomIndex = Math.floor(Math.random() * checkboxes.length);
-  const checkbox = checkboxes[randomIndex];
+  // Get the ID of the checkbox
+  const checkboxId = await checkbox.evaluate((el) => el.id);
   
   // Extract the expected count of repositories from the label
   // The format of the value we will get is "Checkbox Label (X)"
-  const expectedCountText = await page.innerText('label[for="' + checkbox + '"]');
-  const expectedCount = parseInt(expectedCountText.split('(')[1].split(')')[0]);
+  const labelElement = await page.$(`label[for="${checkboxId}"]`);
+  const labelText = await labelElement.evaluate(el => el.textContent);
+  const expectedCount = parseInt(labelText.split('(')[1].split(')')[0]);
 
   // Click on the checkbox
-  await page.click('#' + checkbox);
+  await checkbox.click();
 
-  // Extract the count of repositories found (after checking the checkbox) from the element with "repositoryCount" id
-  // The format of the value we will get is "X repositories found"
-  const countText = await page.innerText('#repositoryCount');
-  const count = parseInt(countText.split(' ')[0]);
+  // Extract the count of repositories found (after checking the checkbox)
+  const count = await getCountOfRepositories(page);
 
   // Validate that the count of repositories found is equal to the expected count
   expect(count).toBe(expectedCount);
@@ -170,61 +163,104 @@ test('Validate that when I check a checkbox in the filter pane, the count presen
 // Validate the visual behavior of a checkbox,
 // - the checkbox is checked when we click on it
 // - the checkbox is still checked when we collapse then expand the section where the checkbox is
-/*test('Validate the visual behavior of a checkbox', async ({ page }) => {
+test('Validate the visual behavior of a checkbox', async ({ page }) => {
   await page.goto('/');
 
-  // Get all the checkboxes in the filter pane
-  await page.waitForSelector('input[id^="checkbox-r"]');
-  const checkboxes = await page.$$eval('input[id^="checkbox-r"]', (elements) => elements.map((element) => element.id));
+  // Get a random section and a random checkbox within that section
+  const { section, header, checkbox } = await getRandomSectionAndCheckbox(page);
 
-  // Randomly select a checkbox
-  const randomIndex = Math.floor(Math.random() * checkboxes.length);
-  const checkbox = checkboxes[randomIndex];
+  // Get the ID of the checkbox
+  const checkboxId = await checkbox.evaluate((el) => el.id);
 
-  console.log('checkbox: ' + checkbox);
+  // Get the label associated to the checkbox
+  const labelElement = await page.$(`label[for="${checkboxId}"]`);
+  const labelText = await labelElement.evaluate(el => el.textContent);
+  const trimmedLabelText = labelText.split('(')[0].trim();
 
   // Click on the checkbox
-  await page.click('#' + checkbox);
+  await checkbox.click();
 
   // Validate that the checkbox is checked
-  const isChecked = await page.isChecked('#' + checkbox);
+  const isChecked = await checkbox.isChecked();
   expect(isChecked).toBe(true);
 
-  // Collapse then expand the section where the checkbox is
-  // The management of the section is done by clicking on the header of the section - a div element with "fui-AccordionHeader" class under the div element with "fui-AccordionItem" class
-  // The checkbox is an input item under a span under a div under a div with "fui-AccordionPanel" class under the div element with "fui-AccordionItem" class
-  let checkboxElement = await page.$('#' + checkbox);
-  const sectionHeader = await checkboxElement.evaluate((checkbox) => {
-    // Traverse up the DOM tree to find the associated section header
-    let parent = checkbox.parentElement;
-    while (parent && !parent.classList.contains('fui-AccordionItem')) {
-      parent = parent.parentElement;
-    }
-    if (parent) {
-      return parent.querySelector('.fui-AccordionHeader').textContent;
-    }
-    return null;
-  });
-  
-  console.log('sectionHeader: ' + sectionHeader);
-  
   // Collapse the section
-  await page.click('div.fui-AccordionItem:has(button:has-text("' + sectionHeader + '")) button');
+  await header.click();
 
   // Expand the section
-  await page.click('div.fui-AccordionItem:has(button:has-text("' + sectionHeader + '")) button');
+  await header.click();
 
-  await page.waitForSelector('#' + checkbox, { state: 'visible' });
-  checkboxElement = await page.$('#' + checkbox);
-  await checkboxElement.scrollIntoViewIfNeeded();
+  // Find the checkbox again based on the label text
+  const newCheckboxLabel = await page.$(`label:has-text("${trimmedLabelText}")`);
+  const newCheckboxId = await newCheckboxLabel.evaluate(el => el.getAttribute('for'));
+  const newCheckbox = await page.$(`#${newCheckboxId}`);
 
   // Validate that the checkbox is still checked
-  const isStillChecked = await page.isChecked('#' + checkbox);
-  expect(isStillChecked).toBe(true);
-});*/
+  const isCheckedAgain = await newCheckbox.isChecked();
+  expect(isCheckedAgain).toBe(true);
+});
 
 // #endregion
 
 // #region Gallery functionality tests
+
+// #endregion
+
+// #region Helper functions
+
+/**
+ * Retrieves the count of repositories in the header of the gallery
+ * 
+ * @param {Page} page - The page object representing the web page.
+ * @returns {Promise<number>} The count of repositories.
+ */
+async function getCountOfRepositories(page) {
+  const countText = await page.innerText('#repositoryCount');
+  return parseInt(countText.split(' ')[0]);
+}
+
+/**
+ * Expands the section if it is not already expanded.
+ * @param {ElementHandle} section - The section element to expand.
+ * @returns {ElementHandle} - The header element of the expanded section.
+ */
+async function expandSectionIfNotExpanded(section) {
+  const expanded = await section.$$('button[aria-expanded="true"]');
+  const header = await section.$('button[aria-expanded]');
+  if (expanded.length === 0) {
+    await header.click();
+  }
+  return header;
+}
+
+/**
+ * Retrieves a random section, its header, and a checkbox within that section.
+ * Expands the section if it is not already expanded.
+ * 
+ * @param {Page} page - The page object representing the web page.
+ * @param {string[]} [excludedSections] - The list of section names to exclude from the selection process.
+ * @returns {Promise<{ section: ElementHandle, checkbox: ElementHandle, header: ElementHandle }>} The random section, checkbox, and header elements.
+ */
+async function getRandomSectionAndCheckbox(page, excludedSections = []) {
+  // Get a random section
+  await page.waitForSelector('.fui-AccordionItem');
+  const sections = await page.$$('.fui-AccordionItem');
+  const filteredSections = sections.filter(async (section) => {
+    const sectionName = await section.innerText('.section-name');
+    return excludedSections && !excludedSections.includes(sectionName);
+  });
+  const randomIndex = Math.floor(Math.random() * filteredSections.length);
+  const section = filteredSections[randomIndex];
+  
+  // Expand the section if it is not already expanded  
+  const header = await expandSectionIfNotExpanded(section);
+  
+  // Get a random checkbox within the section
+  const checkboxes = await section.$$('input[id^="checkbox-r"]');
+  const randomCheckboxIndex = Math.floor(Math.random() * checkboxes.length);
+  const checkbox = checkboxes[randomCheckboxIndex];
+  
+  return { section, header, checkbox };
+}
 
 // #endregion
