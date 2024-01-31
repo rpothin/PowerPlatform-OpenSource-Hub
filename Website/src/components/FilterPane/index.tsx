@@ -48,7 +48,7 @@ const FilterPane = ({ items, onGoodFirstIssueChange, onHelpWanteIssueChange, onC
 
   // Extracting information from items
   const topics = extractDistinctProperties(items, 'topics');
-  const languages = extractDistinctProperties(items, 'language');
+  const languages = extractDistinctProperties(items, 'languages');
   const licenses = extractDistinctProperties(items, 'license.name');
   const owners = extractDistinctProperties(items, 'owner.login');
 
