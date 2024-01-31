@@ -193,7 +193,7 @@ const FilterPane = ({ items, onGoodFirstIssueChange, onHelpWanteIssueChange, onC
                 {displayedLanguages.map((language, index) => (
                   <Checkbox 
                     key={index} 
-                    label={language + " (" + countItemsByProperty(items, 'language', language) + ")"} 
+                    label={language + " (" + countItemsByProperty(items, 'languages', language) + ")"} 
                     checked={checkboxStates[language] || false}
                     onChange={(e, data) => {
                       handleLanguageChange(language, data.checked);
