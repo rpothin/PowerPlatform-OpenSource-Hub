@@ -103,3 +103,32 @@ jobs:
           publish_dir: ./Website/build
           user_name: 'github-actions[bot]'
           user_email: 'github-actions[bot]@users.noreply.github.com'
+
+  codeql-analysis:
+    runs-on: ubuntu-latest
+    env:
+      RUNNER_DEBUG: 1
+        
+    steps:
+      # Checkout the repository content
+      #   Action: https://github.com/actions/checkout
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        
+      # Initializes the CodeQL tools for scanning.
+      #   Action: https://github.com/github/codeql-action
+      - name: Initialize CodeQL
+        uses: github/codeql-action/init@v1
+        with:
+          languages: 'javascript' # Set the language of your project here
+
+      # Autobuild attempts to build any compiled languages  (C/C++, C#, or Java).
+      # If this step fails, then you should remove it and run the build manually (see below)
+      #   Action: https://github.com/github/codeql-action
+      - name: Autobuild
+        uses: github/codeql-action/autobuild@v1
+        
+      # Perform CodeQL Analysis
+      #   Action: https://github.com/github/codeql-action
+      - name: Perform CodeQL Analysis
+        uses: github/codeql-action/analyze@v1
