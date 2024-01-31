@@ -201,7 +201,7 @@ test('Validate the visual behavior of a checkbox', async ({ page }) => {
 // - there are no more than 10 checkboxes presented
 // - the checboxes are presented in descending order based on the count of repositories found
 // - if there are more than 10 checkboxes available, there is a "View All" button at the end of the list
-test('Validate the presentation of the checkboxes in the filter pane', async ({ page }) => {
+test('Validate the presentation of the checkboxes in the sections of the filter pane with a dynamic list of checkboxes', async ({ page }) => {
   await page.goto('/');
 
   // Get all the sections in the filter pane
@@ -240,20 +240,24 @@ test('Validate the presentation of the checkboxes in the filter pane', async ({ 
   }
 });
 
-// Validate that for any section with a dynamic list of checkboxes in the filter pane
+// Validate that for any section with a dynamic list of checkboxes (do not consider "Contribution Opportunities") in the filter pane where there is a "View All" button,
 // - when I click on the "View All" button, the list of checkboxes is expanded
 // - the "View All" button is replaced by a "View Less" button
 // - all the checkboxes are presented (new count of checkboxes is greater than the initial count)
 // - the checboxes are still presented in descending order based on the count of repositories found
 // - when I click on the "View Less" button, the list of checkboxes is collapsed (new count of checkboxes is equal to the initial count)
-test('Validate the "View All" and "View Less" buttons in the filter pane', async ({ page }) => {
+test('Validate the "View All" and "View Less" buttons in the filter pane in a relevant section', async ({ page }) => {
   await page.goto('/');
 
   let { section, header, checkbox } = await getRandomSectionAndCheckbox(page);
+  let viewAllButton = await section.$('button:has-text("View All")');
 
-  while (header === "Contribution Opportunities") { // Exclude the "Contribution Opportunities" section because it has a static list of checkboxes
+  while (header === "Contribution Opportunities" || !viewAllButton) { // Exclude the "Contribution Opportunities" section because it has a static list of checkboxes
     // Get a new random section and checkbox
     ({ section, header, checkbox } = await getRandomSectionAndCheckbox(page));
+
+    // Get the "View All" button
+    viewAllButton = await section.$('button:has-text("View All")');
   }
 
   // Get the initial count of checkboxes
@@ -261,7 +265,6 @@ test('Validate the "View All" and "View Less" buttons in the filter pane', async
   const initialCheckboxesCount = initialCheckboxes.length;
 
   // Click on the "View All" button
-  const viewAllButton = await section.$('button:has-text("View All")');
   await viewAllButton.click();
 
   // Get the new count of checkboxes
@@ -349,6 +352,8 @@ async function getRandomSectionAndCheckbox(page) {
   
   // Expand the section if it is not already expanded  
   const header = await expandSectionIfNotExpanded(section);
+
+  console.log('Random section selected:', (await header.evaluate(el => el.textContent)).trim());
   
   // Get a random checkbox within the section
   const checkboxes = await section.$$('input[id^="checkbox-r"]');
