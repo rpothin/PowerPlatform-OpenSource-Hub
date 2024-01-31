@@ -139,16 +139,14 @@ test('Validate that when I check a checkbox in the filter pane, the count presen
   await page.goto('/');
 
   // Get a random section and a random checkbox within that section, excluding the "Languages" section
-  const { section, header, checkbox } = await getRandomSectionAndCheckbox(page, ['Languages']); // This exclusion means there is a bug regarding the "Languages" section we will need to address
+  const { section, header, checkbox } = await getRandomSectionAndCheckbox(page);
 
   // Get the ID of the checkbox
   const checkboxId = await checkbox.evaluate((el) => el.id);
   
   // Extract the expected count of repositories from the label
-  // The format of the value we will get is "Checkbox Label (X)"
-  const labelElement = await page.$(`label[for="${checkboxId}"]`);
-  const labelText = await labelElement.evaluate(el => el.textContent);
-  const expectedCount = parseInt(labelText.split('(')[1].split(')')[0]);
+  const checkboxLabelParts = await extractCheckboxLabelParts(page, checkboxId);
+  const expectedCount = checkboxLabelParts.count;
 
   // Click on the checkbox
   await checkbox.click();
@@ -173,9 +171,8 @@ test('Validate the visual behavior of a checkbox', async ({ page }) => {
   const checkboxId = await checkbox.evaluate((el) => el.id);
 
   // Get the label associated to the checkbox
-  const labelElement = await page.$(`label[for="${checkboxId}"]`);
-  const labelText = await labelElement.evaluate(el => el.textContent);
-  const trimmedLabelText = labelText.split('(')[0].trim();
+  const checkboxLabelParts = await extractCheckboxLabelParts(page, checkboxId);
+  const trimmedLabelText = checkboxLabelParts.name;
 
   // Click on the checkbox
   await checkbox.click();
@@ -198,6 +195,109 @@ test('Validate the visual behavior of a checkbox', async ({ page }) => {
   // Validate that the checkbox is still checked
   const isCheckedAgain = await newCheckbox.isChecked();
   expect(isCheckedAgain).toBe(true);
+});
+
+// Validate that for all sections with a dynamic list of checkboxes (do not consider "Contribution Opportunities") in the filter pane,
+// - there are no more than 10 checkboxes presented
+// - the checboxes are presented in descending order based on the count of repositories found
+// - if there are more than 10 checkboxes available, there is a "View All" button at the end of the list
+test('Validate the presentation of the checkboxes in the filter pane', async ({ page }) => {
+  await page.goto('/');
+
+  // Get all the sections in the filter pane
+  await page.waitForSelector('.fui-AccordionItem');
+  const sections = await page.$$('.fui-AccordionItem:not(:has-text("Contribution Opportunities"))'); // Exclude the "Contribution Opportunities" section because it has a static list of checkboxes
+
+  // Validate that for all sections in the filter pane
+  for (let section of sections) {
+    // Expand the section if it is not already expanded
+    const header = await expandSectionIfNotExpanded(section);
+
+    // Get the checkboxes in the section
+    const checkboxes = await section.$$('input[id^="checkbox-r"]');
+
+    // Validate that there are no more than 10 checkboxes presented
+    expect(checkboxes.length).toBeLessThanOrEqual(10);
+
+    // Validate that the checboxes are presented in an order based on the count of repositories found
+    let previousCount = null;
+    let previousCheckboxLabelName = '';
+    for (let checkbox of checkboxes) {
+      const checkboxId = await checkbox.evaluate(el => el.id);
+      const checkboxLabelParts = await extractCheckboxLabelParts(page, checkboxId);
+      const count = checkboxLabelParts.count;
+      if (previousCount !== null) { // Skip the first checkbox
+        expect(count).toBeLessThanOrEqual(previousCount);
+      }
+      previousCount = count;
+    }
+
+    // If there are more than 10 checkboxes available, validate that there is a "View All" button at the end of the list
+    if (checkboxes.length > 10) {
+      const viewAllButton = await section.$('button:has-text("View All")');
+      expect(viewAllButton).toBeTruthy();
+    }
+  }
+});
+
+// Validate that for any section with a dynamic list of checkboxes in the filter pane
+// - when I click on the "View All" button, the list of checkboxes is expanded
+// - the "View All" button is replaced by a "View Less" button
+// - all the checkboxes are presented (new count of checkboxes is greater than the initial count)
+// - the checboxes are still presented in descending order based on the count of repositories found
+// - when I click on the "View Less" button, the list of checkboxes is collapsed (new count of checkboxes is equal to the initial count)
+test('Validate the "View All" and "View Less" buttons in the filter pane', async ({ page }) => {
+  await page.goto('/');
+
+  let { section, header, checkbox } = await getRandomSectionAndCheckbox(page);
+
+  while (header === "Contribution Opportunities") { // Exclude the "Contribution Opportunities" section because it has a static list of checkboxes
+    // Get a new random section and checkbox
+    ({ section, header, checkbox } = await getRandomSectionAndCheckbox(page));
+  }
+
+  // Get the initial count of checkboxes
+  const initialCheckboxes = await section.$$('input[id^="checkbox-r"]');
+  const initialCheckboxesCount = initialCheckboxes.length;
+
+  // Click on the "View All" button
+  const viewAllButton = await section.$('button:has-text("View All")');
+  await viewAllButton.click();
+
+  // Get the new count of checkboxes
+  const newCheckboxes = await section.$$('input[id^="checkbox-r"]');
+  const newCheckboxesCount = newCheckboxes.length;
+
+  // Validate that the list of checkboxes is expanded
+  expect(newCheckboxesCount).toBeGreaterThan(initialCheckboxesCount);
+
+  // Validate that the "View All" button is replaced by a "View Less" button
+  const viewLessButton = await section.$('button:has-text("View Less")');
+  expect(viewLessButton).toBeTruthy();
+  const viewAllButtonAfterCollapse = await section.$('button:has-text("View All")');
+  expect(viewAllButtonAfterCollapse).toBeFalsy();
+
+  // Validate that the checboxes are still presented in descending order based on the count of repositories found
+  let previousCount = null;
+  for (let checkbox of newCheckboxes) {
+    const checkboxId = await checkbox.evaluate(el => el.id);
+    const checkboxLabelParts = await extractCheckboxLabelParts(page, checkboxId);
+    const count = checkboxLabelParts.count;
+    if (previousCount !== null) { // Skip the first checkbox
+      expect(count).toBeLessThanOrEqual(previousCount);
+    }
+    previousCount = count;
+  }
+
+  // Click on the "View Less" button
+  await viewLessButton.click();
+
+  // Get the new count of checkboxes
+  const newCheckboxesAgain = await section.$$('input[id^="checkbox-r"]');
+  const newCheckboxesCountAgain = newCheckboxesAgain.length;
+
+  // Validate that the list of checkboxes is collapsed
+  expect(newCheckboxesCountAgain).toBe(initialCheckboxesCount);
 });
 
 // #endregion
@@ -238,19 +338,14 @@ async function expandSectionIfNotExpanded(section) {
  * Expands the section if it is not already expanded.
  * 
  * @param {Page} page - The page object representing the web page.
- * @param {string[]} [excludedSections] - The list of section names to exclude from the selection process.
  * @returns {Promise<{ section: ElementHandle, checkbox: ElementHandle, header: ElementHandle }>} The random section, checkbox, and header elements.
  */
-async function getRandomSectionAndCheckbox(page, excludedSections = []) {
+async function getRandomSectionAndCheckbox(page) {
   // Get a random section
   await page.waitForSelector('.fui-AccordionItem');
   const sections = await page.$$('.fui-AccordionItem');
-  const filteredSections = sections.filter(async (section) => {
-    const sectionName = await section.innerText('.section-name');
-    return excludedSections && !excludedSections.includes(sectionName);
-  });
-  const randomIndex = Math.floor(Math.random() * filteredSections.length);
-  const section = filteredSections[randomIndex];
+  const randomIndex = Math.floor(Math.random() * sections.length);
+  const section = sections[randomIndex];
   
   // Expand the section if it is not already expanded  
   const header = await expandSectionIfNotExpanded(section);
@@ -261,6 +356,22 @@ async function getRandomSectionAndCheckbox(page, excludedSections = []) {
   const checkbox = checkboxes[randomCheckboxIndex];
   
   return { section, header, checkbox };
+}
+
+/**
+ * Retrieves the name and count from a checkbox label text.
+ * 
+ * @param {Page} page - The page object representing the web page.
+ * @param {string} checkboxId - The ID of the checkbox.
+ * @returns {Object} An object with the extracted name and count.
+ */
+async function extractCheckboxLabelParts(page, checkboxId) {  
+  const labelElement = await page.$(`label[for="${checkboxId}"]`);
+  const labelText = await labelElement.evaluate(el => el.textContent);
+  const parts = labelText.split('(');
+  const name = parts[0].trim();
+  const count = parseInt(parts[1].split(')')[0]);
+  return { name, count };
 }
 
 // #endregion
