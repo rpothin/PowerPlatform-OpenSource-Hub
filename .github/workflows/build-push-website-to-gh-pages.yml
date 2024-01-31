@@ -132,3 +132,8 @@ jobs:
       #   Action: https://github.com/github/codeql-action
       - name: Perform CodeQL Analysis
         uses: github/codeql-action/analyze@v3
+
+      # Perform a dependency review
+      #   Action: https://github.com/actions/dependency-review-action
+      - name: 'Dependency Review'
+        uses: actions/dependency-review-action@v4
