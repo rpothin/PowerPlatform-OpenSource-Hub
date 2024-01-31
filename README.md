@@ -18,6 +18,15 @@
         <img src="https://img.shields.io/github/stars/rpothin/PowerPlatform-OpenSource-Hub?style=social" /></a>
 </p>
 
+<p align="center">
+    <a href="https://github.com/rpothin/PowerPlatform-OpenSource-Hub/actions/workflows/update-github-repositories-details.yml" alt="Update repositories details">
+        <img src="https://github.com/rpothin/PowerPlatform-OpenSource-Hub/actions/workflows/update-github-repositories-details.yml/badge.svg" /></a>
+    <a href="https://github.com/rpothin/PowerPlatform-OpenSource-Hub/actions/workflows/update-readme-with-github-repositories-details.yml" alt="Update README">
+        <img src="https://github.com/rpothin/PowerPlatform-OpenSource-Hub/actions/workflows/update-readme-with-github-repositories-details.yml/badge.svg" /></a>
+    <a href="https://github.com/rpothin/PowerPlatform-OpenSource-Hub/actions/workflows/pages/pages-build-deployment" alt="Update website">
+        <img src="https://github.com/rpothin/PowerPlatform-OpenSource-Hub/actions/workflows/pages/pages-build-deployment/badge.svg" /></a>
+</p>
+
 <h3 align="center">
   <a href="https://github.com/rpothin/PowerPlatform-OpenSource-Hub/discussions/new/choose">📢 Start a discussion</a>
 </h3>
