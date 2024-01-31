@@ -104,7 +104,7 @@ jobs:
           user_name: 'github-actions[bot]'
           user_email: 'github-actions[bot]@users.noreply.github.com'
 
-  codeql-analysis-and-dependency-review:
+  codeql-analysis:
     runs-on: ubuntu-latest
     env:
       RUNNER_DEBUG: 1
@@ -132,8 +132,3 @@ jobs:
       #   Action: https://github.com/github/codeql-action
       - name: Perform CodeQL Analysis
         uses: github/codeql-action/analyze@v3
-
-      # Perform a dependency review
-      #   Action: https://github.com/actions/dependency-review-action
-      - name: 'Dependency Review'
-        uses: actions/dependency-review-action@v4
