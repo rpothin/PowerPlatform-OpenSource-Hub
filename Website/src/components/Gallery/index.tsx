@@ -99,7 +99,6 @@ const Gallery = ({ items, hasGoodFirstIssueChecked, hasHelpWantedIssueChecked, h
      * @param data - The selected options data.
      */
     const onOptionSelect: Partial<ComboboxProps>["onOptionSelect"] = (ev, data) => {
-        //alert(`onOptionSelect fired for ${data.optionText} / ${data.selectedOptions[0]} (${data.selectedOptions.length} selected options)`);
         setSelectedOptions(data.selectedOptions);
         setValue(data.optionText ?? "");
     };
