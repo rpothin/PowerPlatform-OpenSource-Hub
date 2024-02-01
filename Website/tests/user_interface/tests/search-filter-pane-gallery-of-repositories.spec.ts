@@ -303,9 +303,105 @@ test('Validate the "View All" and "View Less" buttons in the filter pane in a re
   expect(newCheckboxesCountAgain).toBe(initialCheckboxesCount);
 });
 
+// Validate that when you check 2 random checkboxes in 2 random sections in the filter pane,
+// the count of repositories found is less or equal than the smallest count in the labels of the 2 checkboxes
+test('Validate that when you check 2 random checkboxes in 2 random sections in the filter pane, the count of repositories found is less or equal than the smallest count in the labels of the 2 checkboxes', async ({ page }) => {
+  await page.goto('/');
+
+  // Get the first random section and checkbox
+  const { section: section1, checkbox: checkbox1 } = await getRandomSectionAndCheckbox(page);
+  const checkboxId1 = await checkbox1.evaluate(el => el.id);
+  const checkboxLabelParts1 = await extractCheckboxLabelParts(page, checkboxId1);
+  const count1 = checkboxLabelParts1.count;
+
+  // Get the second random section and checkbox
+  let { section: section2, checkbox: checkbox2 } = await getRandomSectionAndCheckbox(page);
+
+  while (section2 === section1) {
+    // Get a new random section and checkbox
+    ({ section: section2, checkbox: checkbox2 } = await getRandomSectionAndCheckbox(page));
+  }
+
+  const checkboxId2 = await checkbox2.evaluate(el => el.id);
+  const checkboxLabelParts2 = await extractCheckboxLabelParts(page, checkboxId2);
+  const count2 = checkboxLabelParts2.count;
+
+  // Click on the first checkbox
+  await checkbox1.click();
+
+  // Click on the second checkbox
+  await checkbox2.click();
+
+  // Extract the count of repositories found (after checking the checkboxes)
+  const count = await getCountOfRepositories(page);
+
+  // Validate that the count of repositories found is less or equal than the smallest count in the labels of the 2 checkboxes
+  expect(count).toBeLessThanOrEqual(Math.min(count1, count2));
+});
+
 // #endregion
 
 // #region Gallery functionality tests
+
+// Validate that the default sorting option in the gallery is "Stars (Descending)"
+test('Validate the default sorting option in the gallery', async ({ page }) => {
+  await page.goto('/');
+
+  // Get the input element with id "orderByCombobox"
+  await page.waitForSelector('#orderByCombobox');
+  const orderByCombobox = await page.$('#orderByCombobox');
+
+  // Get the value of the "orderByCombobox" input element
+  const value = await orderByCombobox.inputValue();
+
+  // Validate that the default sorting option in the gallery is "Stars (Descending)"
+  expect(value).toBe('Stars (Descending)');
+});
+
+// Validate that when I change the sorting option in the gallery, the count of repositories found is the same
+/*test('Validate that when I change the sorting option in the gallery, the count of repositories found is the same', async ({ page }) => {
+  await page.goto('/');
+
+  // Get the input element with id "orderByCombobox"
+  await page.waitForSelector('#orderByCombobox');
+  const orderByCombobox = await page.$('#orderByCombobox');
+
+  // Get the combo box options
+  const options = await getComboboxOptions(page, orderByCombobox);
+
+  // Get the initial count of repositories found
+  const initialCount = await getCountOfRepositories(page);
+
+  // Get the value of the "orderByCombobox" input element
+  const value = await orderByCombobox.inputValue();
+
+  // Take a screenshot of the page before changing the sorting option
+  await page.screenshot({ path: 'before-changing-sorting-option.png' });
+
+  // Randomly select a different option than the selected one
+  const selectedIndex = options.indexOf(value);
+  let randomIndex = Math.floor(Math.random() * options.length);
+
+  while (randomIndex === selectedIndex) {
+    randomIndex = Math.floor(Math.random() * options.length);
+  }
+
+  let randomOption = options[randomIndex];
+
+  console.log('Selected option:', value);
+  console.log('Random option:', randomOption);
+
+  selectComboboxOption(page, orderByCombobox, randomOption);
+
+  // Take a screenshot of the page after changing the sorting option
+  await page.screenshot({ path: 'after-changing-sorting-option.png' });
+
+  // Extract the count of repositories found (after changing the sorting option)
+  const count = await getCountOfRepositories(page);
+
+  // Validate that the count of repositories found is the same
+  expect(count).toBe(initialCount);
+});*/
 
 // #endregion
 
@@ -377,6 +473,83 @@ async function extractCheckboxLabelParts(page, checkboxId) {
   const name = parts[0].trim();
   const count = parseInt(parts[1].split(')')[0]);
   return { name, count };
+}
+
+/**
+ * Retrieves the options from a combobox element.
+ * 
+ * @param {Page} page - The page object representing the browser page.
+ * @param {Combobox} combobox - The combobox element to retrieve options from.
+ * @returns {Promise<string[]>} - A promise that resolves to an array of options.
+ */
+async function getComboboxOptions(page, combobox) {
+  let options = [];
+  let inputValue = '';
+  let activeDescendant = '';
+  
+  // Click on the combobox to focus it
+  await combobox.click();
+  await combobox.focus();
+
+  // While the aria-activedescendant attribute stop changin,
+  // - press the "ArrowUp" key
+  // - get the value of the aria-activedescendant attribute, if it is equal to the previous value stop the loop
+  // - select the option with the value of the aria-activedescendant attribute
+  // - press the "Enter" key
+  // - add the combobox input value to the list of options
+  // - repeat the steps
+  let previousActiveDescendant = '';
+  let bottomReached = false;
+  while (!bottomReached) {
+    await page.keyboard.press('ArrowUp');
+    await page.keyboard.press('ArrowUp');
+    activeDescendant = await combobox.evaluate(el => el.getAttribute('aria-activedescendant'));
+    await page.keyboard.press('Enter');
+
+    if (activeDescendant === previousActiveDescendant) {
+      bottomReached = true;
+    } else {
+      inputValue = await combobox.inputValue();
+      options.push(inputValue);
+      previousActiveDescendant = activeDescendant;
+    }
+  }
+
+  // Do the same steps but with the "ArrowDown" key
+  previousActiveDescendant = '';
+  let topReached = false;
+  while (!topReached) {
+    await page.keyboard.press('ArrowDown');
+    await page.keyboard.press('ArrowDown');
+    activeDescendant = await combobox.evaluate(el => el.getAttribute('aria-activedescendant'));
+    await page.keyboard.press('Enter');
+    
+    if (activeDescendant === previousActiveDescendant) {
+      topReached = true;
+    } else {
+      inputValue = await combobox.inputValue();
+      options.push(inputValue);
+      previousActiveDescendant = activeDescendant;
+    }
+  }
+
+  return options;
+}
+
+/**
+ * Selects an option from a combobox.
+ * @param {Page} page - The page object.
+ * @param {ElementHandle} combobox - The combobox element.
+ * @param {string} option - The option to select.
+ * @returns {Promise<void>} - A promise that resolves when the option is selected.
+ */
+async function selectComboboxOption(page, combobox, option) {
+  // Click on the combobox to focus it
+  await combobox.click();
+  await combobox.focus();
+  
+  await page.keyboard.type(option);
+  await page.keyboard.press('Enter');
 }
 
 // #endregion
