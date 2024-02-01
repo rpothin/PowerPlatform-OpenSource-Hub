@@ -115,6 +115,7 @@ const Gallery = ({ items, hasGoodFirstIssueChecked, hasHelpWantedIssueChecked, h
                 <div style={{ display: 'flex', alignItems: 'center' }}>
                     <Text id={comboId} style={{ marginRight: '10px' }} size={400}>Order By</Text>
                     <Combobox
+                        id="orderByCombobox" // Add an ID for easier UI testing
                         aria-labelledby={comboId}
                         style={{ marginRight: '20px' }} // Add a 20px margin on the right
                         value={value}
