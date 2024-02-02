@@ -40,7 +40,7 @@
     "securityPolicyUrl": "",
     "stargazerCount": 1371,
     "watchers": {
-      "totalCount": 117
+      "totalCount": 118
     },
     "topics": [
       "stencils",
@@ -67,7 +67,7 @@
     "openedHelpWantedIssues": 0,
     "hasHelpWantedIssues": false,
     "openedToContributionsIssues": 0,
-    "popularityScore": 1488
+    "popularityScore": 1489
   },
   {
     "createdAt": "2018-03-26T22:41:09Z",
@@ -83,7 +83,7 @@
       "url": "https://api.github.com/licenses/mit"
     },
     "name": "PowerApps-Samples",
-    "openIssuesCount": 29,
+    "openIssuesCount": 28,
     "owner": {
       "id": "MDEyOk9yZ2FuaXphdGlvbjYxNTQ3MjI=",
       "is_bot": false,
@@ -91,7 +91,7 @@
       "type": "Organization",
       "url": "https://github.com/microsoft"
     },
-    "updatedAt": "2024-01-31T09:24:06Z",
+    "updatedAt": "2024-02-02T09:27:41Z",
     "url": "https://github.com/microsoft/PowerApps-Samples",
     "codeOfConduct": {
       "key": "other",
@@ -112,7 +112,7 @@
       "name": "C#"
     },
     "securityPolicyUrl": "https://github.com/microsoft/PowerApps-Samples/security/policy",
-    "stargazerCount": 1304,
+    "stargazerCount": 1305,
     "watchers": {
       "totalCount": 112
     },
@@ -147,7 +147,7 @@
     "openedHelpWantedIssues": 0,
     "hasHelpWantedIssues": false,
     "openedToContributionsIssues": 0,
-    "popularityScore": 1416
+    "popularityScore": 1417
   },
   {
     "createdAt": "2018-11-21T16:54:50Z",
@@ -163,7 +163,7 @@
       "url": "https://api.github.com/licenses/mit"
     },
     "name": "Microsoft365DSC",
-    "openIssuesCount": 299,
+    "openIssuesCount": 302,
     "owner": {
       "id": "MDEyOk9yZ2FuaXphdGlvbjYxNTQ3MjI=",
       "is_bot": false,
@@ -171,7 +171,7 @@
       "type": "Organization",
       "url": "https://github.com/microsoft"
     },
-    "updatedAt": "2024-02-01T08:28:52Z",
+    "updatedAt": "2024-02-02T08:35:34Z",
     "url": "https://github.com/microsoft/Microsoft365DSC",
     "codeOfConduct": {
       "key": "contributor_covenant",
@@ -183,18 +183,18 @@
     "isSecurityPolicyEnabled": true,
     "isTemplate": false,
     "latestRelease": {
-      "name": "Release 1.24.124.1",
-      "tagName": "1.24.124.1",
-      "url": "https://github.com/microsoft/Microsoft365DSC/releases/tag/1.24.124.1",
-      "publishedAt": "2024-01-30T07:57:58Z"
+      "name": "Release 1.24.131.1",
+      "tagName": "1.24.131.1",
+      "url": "https://github.com/microsoft/Microsoft365DSC/releases/tag/1.24.131.1",
+      "publishedAt": "2024-02-02T01:13:27Z"
     },
     "primaryLanguage": {
       "name": "PowerShell"
     },
     "securityPolicyUrl": "https://github.com/microsoft/Microsoft365DSC/security/policy",
-    "stargazerCount": 1275,
+    "stargazerCount": 1278,
     "watchers": {
-      "totalCount": 68
+      "totalCount": 69
     },
     "topics": [
       "microsoft365",
@@ -228,7 +228,7 @@
     "openedHelpWantedIssues": 4,
     "hasHelpWantedIssues": true,
     "openedToContributionsIssues": 4,
-    "popularityScore": 1343
+    "popularityScore": 1347
   },
   {
     "createdAt": "2018-12-13T05:33:24Z",
@@ -244,7 +244,7 @@
       "url": "https://api.github.com/licenses/mit"
     },
     "name": "PowerPlatformConnectors",
-    "openIssuesCount": 191,
+    "openIssuesCount": 190,
     "owner": {
       "id": "MDEyOk9yZ2FuaXphdGlvbjYxNTQ3MjI=",
       "is_bot": false,
@@ -259,7 +259,7 @@
       "name": "Other",
       "url": "https://github.com/microsoft/.github/blob/main/CODE_OF_CONDUCT.md"
     },
-    "forkCount": 1175,
+    "forkCount": 1177,
     "fundingLinks": [],
     "isSecurityPolicyEnabled": true,
     "isTemplate": false,
@@ -376,7 +376,7 @@
       "type": "Organization",
       "url": "https://github.com/microsoft"
     },
-    "updatedAt": "2024-01-29T16:42:24Z",
+    "updatedAt": "2024-02-02T01:54:38Z",
     "url": "https://github.com/microsoft/AL",
     "codeOfConduct": {
       "key": "other",
@@ -392,7 +392,7 @@
       "name": "PowerShell"
     },
     "securityPolicyUrl": "https://github.com/microsoft/AL/security/policy",
-    "stargazerCount": 687,
+    "stargazerCount": 688,
     "watchers": {
       "totalCount": 165
     },
@@ -412,7 +412,7 @@
     "openedHelpWantedIssues": 0,
     "hasHelpWantedIssues": false,
     "openedToContributionsIssues": 0,
-    "popularityScore": 852
+    "popularityScore": 853
   },
   {
     "createdAt": "2015-02-05T20:58:06Z",
@@ -701,6 +701,55 @@
     "popularityScore": 409
   },
   {
+    "createdAt": "2017-12-06T03:33:42Z",
+    "description": "Collection of Power Apps template apps, components and examples",
+    "fullName": "aprildunnam/PowerApps",
+    "hasIssues": true,
+    "homepage": "",
+    "isArchived": false,
+    "language": "",
+    "license": {
+      "key": "other",
+      "name": "Other",
+      "url": ""
+    },
+    "name": "PowerApps",
+    "openIssuesCount": 38,
+    "owner": {
+      "id": "MDQ6VXNlcjIwNzYwODU3",
+      "is_bot": false,
+      "login": "aprildunnam",
+      "type": "User",
+      "url": "https://github.com/aprildunnam"
+    },
+    "updatedAt": "2024-02-02T06:13:28Z",
+    "url": "https://github.com/aprildunnam/PowerApps",
+    "codeOfConduct": null,
+    "forkCount": 216,
+    "fundingLinks": [],
+    "isSecurityPolicyEnabled": false,
+    "isTemplate": false,
+    "latestRelease": null,
+    "primaryLanguage": null,
+    "securityPolicyUrl": "",
+    "stargazerCount": 356,
+    "watchers": {
+      "totalCount": 47
+    },
+    "topics": [
+      "components",
+      "powerapps",
+      "powerplatform"
+    ],
+    "languages": [],
+    "openedGoodFirstIssues": 0,
+    "hasGoodFirstIssues": false,
+    "openedHelpWantedIssues": 0,
+    "hasHelpWantedIssues": false,
+    "openedToContributionsIssues": 0,
+    "popularityScore": 403
+  },
+  {
     "createdAt": "2021-02-24T22:16:04Z",
     "description": "Contains curated community Microsoft Power App samples",
     "fullName": "pnp/powerapps-samples",
@@ -752,55 +801,6 @@
     "hasHelpWantedIssues": false,
     "openedToContributionsIssues": 0,
     "popularityScore": 387
-  },
-  {
-    "createdAt": "2017-12-06T03:33:42Z",
-    "description": "Collection of Power Apps template apps, components and examples",
-    "fullName": "aprildunnam/PowerApps",
-    "hasIssues": true,
-    "homepage": "",
-    "isArchived": false,
-    "language": "",
-    "license": {
-      "key": "other",
-      "name": "Other",
-      "url": ""
-    },
-    "name": "PowerApps",
-    "openIssuesCount": 38,
-    "owner": {
-      "id": "MDQ6VXNlcjIwNzYwODU3",
-      "is_bot": false,
-      "login": "aprildunnam",
-      "type": "User",
-      "url": "https://github.com/aprildunnam"
-    },
-    "updatedAt": "2024-01-30T15:12:19Z",
-    "url": "https://github.com/aprildunnam/PowerApps",
-    "codeOfConduct": null,
-    "forkCount": 216,
-    "fundingLinks": [],
-    "isSecurityPolicyEnabled": false,
-    "isTemplate": false,
-    "latestRelease": null,
-    "primaryLanguage": null,
-    "securityPolicyUrl": "",
-    "stargazerCount": 354,
-    "watchers": {
-      "totalCount": 47
-    },
-    "topics": [
-      "components",
-      "powerapps",
-      "powerplatform"
-    ],
-    "languages": [],
-    "openedGoodFirstIssues": 0,
-    "hasGoodFirstIssues": false,
-    "openedHelpWantedIssues": 0,
-    "hasHelpWantedIssues": false,
-    "openedToContributionsIssues": 0,
-    "popularityScore": 401
   },
   {
     "createdAt": "2020-07-20T18:51:25Z",
@@ -892,7 +892,7 @@
       "type": "User",
       "url": "https://github.com/modery"
     },
-    "updatedAt": "2024-01-31T07:09:34Z",
+    "updatedAt": "2024-02-02T06:36:24Z",
     "url": "https://github.com/modery/PowerDocu",
     "codeOfConduct": null,
     "forkCount": 51,
@@ -909,7 +909,7 @@
       "name": "C#"
     },
     "securityPolicyUrl": "",
-    "stargazerCount": 337,
+    "stargazerCount": 338,
     "watchers": {
       "totalCount": 27
     },
@@ -929,7 +929,7 @@
     "openedHelpWantedIssues": 0,
     "hasHelpWantedIssues": false,
     "openedToContributionsIssues": 0,
-    "popularityScore": 364
+    "popularityScore": 365
   },
   {
     "createdAt": "2023-01-30T20:31:26Z",
@@ -1221,7 +1221,7 @@
       "url": "https://api.github.com/licenses/mit"
     },
     "name": "PowerApps-Tooling",
-    "openIssuesCount": 16,
+    "openIssuesCount": 15,
     "owner": {
       "id": "MDEyOk9yZ2FuaXphdGlvbjYxNTQ3MjI=",
       "is_bot": false,
@@ -1680,7 +1680,7 @@
       "url": "https://api.github.com/licenses/mit"
     },
     "name": "powerplatform-actions",
-    "openIssuesCount": 19,
+    "openIssuesCount": 18,
     "owner": {
       "id": "MDEyOk9yZ2FuaXphdGlvbjYxNTQ3MjI=",
       "is_bot": false,
@@ -1700,10 +1700,10 @@
     "isSecurityPolicyEnabled": true,
     "isTemplate": false,
     "latestRelease": {
-      "name": "v1.2.0, September Refresh",
-      "tagName": "v1.2.0",
-      "url": "https://github.com/microsoft/powerplatform-actions/releases/tag/v1.2.0",
-      "publishedAt": "2023-10-23T20:19:24Z"
+      "name": "v1.3.0, January Refresh",
+      "tagName": "v1.3.0",
+      "url": "https://github.com/microsoft/powerplatform-actions/releases/tag/v1.3.0",
+      "publishedAt": "2024-02-01T23:42:01Z"
     },
     "primaryLanguage": {
       "name": "TypeScript"
@@ -1805,7 +1805,7 @@
       "url": "https://api.github.com/licenses/mit"
     },
     "name": "powerplatform-vscode",
-    "openIssuesCount": 48,
+    "openIssuesCount": 49,
     "owner": {
       "id": "MDEyOk9yZ2FuaXphdGlvbjYxNTQ3MjI=",
       "is_bot": false,
@@ -2102,7 +2102,7 @@
       "url": "https://api.github.com/licenses/mit"
     },
     "name": "powerplatform-build-tools",
-    "openIssuesCount": 60,
+    "openIssuesCount": 61,
     "owner": {
       "id": "MDEyOk9yZ2FuaXphdGlvbjYxNTQ3MjI=",
       "is_bot": false,
@@ -2117,15 +2117,15 @@
       "name": "Other",
       "url": "https://github.com/microsoft/powerplatform-build-tools/blob/main/CODE_OF_CONDUCT.md"
     },
-    "forkCount": 34,
+    "forkCount": 35,
     "fundingLinks": [],
     "isSecurityPolicyEnabled": true,
     "isTemplate": false,
     "latestRelease": {
-      "name": "Power Platform Build Tools v2.0.47",
-      "tagName": "v2.0.47",
-      "url": "https://github.com/microsoft/powerplatform-build-tools/releases/tag/v2.0.47",
-      "publishedAt": "2023-10-23T20:09:34Z"
+      "name": "Power Platform Build Tools v2.0.51",
+      "tagName": "v2.0.51",
+      "url": "https://github.com/microsoft/powerplatform-build-tools/releases/tag/v2.0.51",
+      "publishedAt": "2024-02-01T18:27:40Z"
     },
     "primaryLanguage": {
       "name": "TypeScript"
@@ -2297,7 +2297,7 @@
       "name": "Other",
       "url": "https://github.com/microsoft/powerplatform-actions-lab/blob/main/CODE_OF_CONDUCT.md"
     },
-    "forkCount": 173,
+    "forkCount": 174,
     "fundingLinks": [],
     "isSecurityPolicyEnabled": true,
     "isTemplate": false,
@@ -2625,6 +2625,7 @@
       "MDX",
       "JavaScript",
       "CSS",
+      "Astro",
       "TypeScript"
     ],
     "openedGoodFirstIssues": 0,
@@ -2746,6 +2747,59 @@
     "popularityScore": 112
   },
   {
+    "createdAt": "2021-02-24T21:49:48Z",
+    "description": "This repository contains samples for Power Fx low-code programming language https://github.com/microsoft/Power-Fx",
+    "fullName": "pnp/powerfx-samples",
+    "hasIssues": true,
+    "homepage": "https://aka.ms/powerplatform-samples",
+    "isArchived": false,
+    "language": "",
+    "license": {
+      "key": "mit",
+      "name": "MIT License",
+      "url": "https://api.github.com/licenses/mit"
+    },
+    "name": "powerfx-samples",
+    "openIssuesCount": 3,
+    "owner": {
+      "id": "MDEyOk9yZ2FuaXphdGlvbjMxNDQzOTI5",
+      "is_bot": false,
+      "login": "pnp",
+      "type": "Organization",
+      "url": "https://github.com/pnp"
+    },
+    "updatedAt": "2024-02-02T06:33:51Z",
+    "url": "https://github.com/pnp/powerfx-samples",
+    "codeOfConduct": {
+      "key": "other",
+      "name": "Other",
+      "url": "https://github.com/pnp/powerfx-samples/blob/main/CODE_OF_CONDUCT.md"
+    },
+    "forkCount": 42,
+    "fundingLinks": [],
+    "isSecurityPolicyEnabled": true,
+    "isTemplate": false,
+    "latestRelease": null,
+    "primaryLanguage": null,
+    "securityPolicyUrl": "https://github.com/pnp/powerfx-samples/security/policy",
+    "stargazerCount": 98,
+    "watchers": {
+      "totalCount": 27
+    },
+    "topics": [
+      "powerapps",
+      "powerfx",
+      "hacktoberfest"
+    ],
+    "languages": [],
+    "openedGoodFirstIssues": 0,
+    "hasGoodFirstIssues": false,
+    "openedHelpWantedIssues": 0,
+    "hasHelpWantedIssues": false,
+    "openedToContributionsIssues": 0,
+    "popularityScore": 125
+  },
+  {
     "createdAt": "2021-06-10T14:08:58Z",
     "description": "ProvisionGenie 🧞 is an open-source project by Luise Freese & Carmen Ysewijn. We provision Microsoft Teams teams with channels, additional libraries, lists, and more. We educate users to make better decisions and work in Teams like it is intended to be used.",
     "fullName": "ProvisionGenie/ProvisionGenie",
@@ -2811,59 +2865,6 @@
     "hasHelpWantedIssues": true,
     "openedToContributionsIssues": 5,
     "popularityScore": 104
-  },
-  {
-    "createdAt": "2021-02-24T21:49:48Z",
-    "description": "This repository contains samples for Power Fx low-code programming language https://github.com/microsoft/Power-Fx",
-    "fullName": "pnp/powerfx-samples",
-    "hasIssues": true,
-    "homepage": "https://aka.ms/powerplatform-samples",
-    "isArchived": false,
-    "language": "",
-    "license": {
-      "key": "mit",
-      "name": "MIT License",
-      "url": "https://api.github.com/licenses/mit"
-    },
-    "name": "powerfx-samples",
-    "openIssuesCount": 3,
-    "owner": {
-      "id": "MDEyOk9yZ2FuaXphdGlvbjMxNDQzOTI5",
-      "is_bot": false,
-      "login": "pnp",
-      "type": "Organization",
-      "url": "https://github.com/pnp"
-    },
-    "updatedAt": "2024-01-30T10:21:40Z",
-    "url": "https://github.com/pnp/powerfx-samples",
-    "codeOfConduct": {
-      "key": "other",
-      "name": "Other",
-      "url": "https://github.com/pnp/powerfx-samples/blob/main/CODE_OF_CONDUCT.md"
-    },
-    "forkCount": 42,
-    "fundingLinks": [],
-    "isSecurityPolicyEnabled": true,
-    "isTemplate": false,
-    "latestRelease": null,
-    "primaryLanguage": null,
-    "securityPolicyUrl": "https://github.com/pnp/powerfx-samples/security/policy",
-    "stargazerCount": 97,
-    "watchers": {
-      "totalCount": 27
-    },
-    "topics": [
-      "powerapps",
-      "powerfx",
-      "hacktoberfest"
-    ],
-    "languages": [],
-    "openedGoodFirstIssues": 0,
-    "hasGoodFirstIssues": false,
-    "openedHelpWantedIssues": 0,
-    "hasHelpWantedIssues": false,
-    "openedToContributionsIssues": 0,
-    "popularityScore": 124
   },
   {
     "createdAt": "2016-10-14T17:43:27Z",
@@ -3109,7 +3110,7 @@
     "securityPolicyUrl": "",
     "stargazerCount": 85,
     "watchers": {
-      "totalCount": 28
+      "totalCount": 27
     },
     "topics": [
       "crm2011",
@@ -3133,7 +3134,7 @@
     "openedHelpWantedIssues": 0,
     "hasHelpWantedIssues": false,
     "openedToContributionsIssues": 0,
-    "popularityScore": 113
+    "popularityScore": 112
   },
   {
     "createdAt": "2022-08-12T16:05:07Z",
@@ -3157,7 +3158,7 @@
       "type": "Organization",
       "url": "https://github.com/microsoft"
     },
-    "updatedAt": "2024-01-18T07:45:27Z",
+    "updatedAt": "2024-02-02T05:53:55Z",
     "url": "https://github.com/microsoft/PowerPlatformAdvocates",
     "codeOfConduct": {
       "key": "other",
@@ -3173,7 +3174,7 @@
       "name": "Bicep"
     },
     "securityPolicyUrl": "https://github.com/microsoft/PowerPlatformAdvocates/security/policy",
-    "stargazerCount": 82,
+    "stargazerCount": 83,
     "watchers": {
       "totalCount": 10
     },
@@ -3192,7 +3193,7 @@
     "openedHelpWantedIssues": 0,
     "hasHelpWantedIssues": false,
     "openedToContributionsIssues": 0,
-    "popularityScore": 92
+    "popularityScore": 93
   },
   {
     "createdAt": "2017-12-25T03:40:06Z",
@@ -4135,6 +4136,68 @@
     "popularityScore": 66
   },
   {
+    "createdAt": "2019-12-05T17:07:15Z",
+    "description": "Dynamics 365 for Finance and Operations AOT Browser",
+    "fullName": "arganollc/aotbrowser",
+    "hasIssues": true,
+    "homepage": "",
+    "isArchived": false,
+    "language": "C#",
+    "license": {
+      "key": "mit",
+      "name": "MIT License",
+      "url": "https://api.github.com/licenses/mit"
+    },
+    "name": "aotbrowser",
+    "openIssuesCount": 1,
+    "owner": {
+      "id": "MDEyOk9yZ2FuaXphdGlvbjU4NTI5MDE5",
+      "is_bot": false,
+      "login": "arganollc",
+      "type": "Organization",
+      "url": "https://github.com/arganollc"
+    },
+    "updatedAt": "2024-02-02T08:50:13Z",
+    "url": "https://github.com/arganollc/aotbrowser",
+    "codeOfConduct": null,
+    "forkCount": 14,
+    "fundingLinks": [],
+    "isSecurityPolicyEnabled": false,
+    "isTemplate": false,
+    "latestRelease": {
+      "name": "AOTBrowser-863.0.5.8",
+      "tagName": "863.0.5.8",
+      "url": "https://github.com/arganollc/aotbrowser/releases/tag/863.0.5.8",
+      "publishedAt": "2024-02-01T18:21:20Z"
+    },
+    "primaryLanguage": {
+      "name": "C#"
+    },
+    "securityPolicyUrl": "",
+    "stargazerCount": 56,
+    "watchers": {
+      "totalCount": 11
+    },
+    "topics": [
+      "d365fo",
+      "xplusplus",
+      "aot-browser",
+      "dynamics",
+      "dynamics-365",
+      "morphx"
+    ],
+    "languages": [
+      "C#",
+      "PowerShell"
+    ],
+    "openedGoodFirstIssues": 0,
+    "hasGoodFirstIssues": false,
+    "openedHelpWantedIssues": 0,
+    "hasHelpWantedIssues": false,
+    "openedToContributionsIssues": 0,
+    "popularityScore": 67
+  },
+  {
     "createdAt": "2021-05-02T08:44:47Z",
     "description": "Power Automate demos & proof of concepts",
     "fullName": "DamoBird365/PowerAutomate",
@@ -4185,6 +4248,58 @@
     "hasHelpWantedIssues": false,
     "openedToContributionsIssues": 0,
     "popularityScore": 58
+  },
+  {
+    "createdAt": "2019-09-25T15:20:07Z",
+    "description": "A template to empower developers and reduce time wasted on control changes",
+    "fullName": "iAmManCat/PowerApps-Branding-Template",
+    "hasIssues": true,
+    "homepage": "https://powerusers.microsoft.com/t5/Community-App-Samples/Branding-Template-App-Automagical/td-p/363582",
+    "isArchived": false,
+    "language": "PowerShell",
+    "license": {
+      "key": "mit",
+      "name": "MIT License",
+      "url": "https://api.github.com/licenses/mit"
+    },
+    "name": "PowerApps-Branding-Template",
+    "openIssuesCount": 0,
+    "owner": {
+      "id": "MDQ6VXNlcjQzNzUxMzE2",
+      "is_bot": false,
+      "login": "iAmManCat",
+      "type": "User",
+      "url": "https://github.com/iAmManCat"
+    },
+    "updatedAt": "2024-02-02T06:33:05Z",
+    "url": "https://github.com/iAmManCat/PowerApps-Branding-Template",
+    "codeOfConduct": null,
+    "forkCount": 21,
+    "fundingLinks": [],
+    "isSecurityPolicyEnabled": false,
+    "isTemplate": false,
+    "latestRelease": null,
+    "primaryLanguage": {
+      "name": "PowerShell"
+    },
+    "securityPolicyUrl": "",
+    "stargazerCount": 55,
+    "watchers": {
+      "totalCount": 4
+    },
+    "topics": [
+      "powerapps",
+      "branding"
+    ],
+    "languages": [
+      "PowerShell"
+    ],
+    "openedGoodFirstIssues": 0,
+    "hasGoodFirstIssues": false,
+    "openedHelpWantedIssues": 0,
+    "hasHelpWantedIssues": false,
+    "openedToContributionsIssues": 0,
+    "popularityScore": 59
   },
   {
     "createdAt": "2016-01-30T15:46:16Z",
@@ -4254,120 +4369,6 @@
     "hasHelpWantedIssues": false,
     "openedToContributionsIssues": 0,
     "popularityScore": 62
-  },
-  {
-    "createdAt": "2019-12-05T17:07:15Z",
-    "description": "Dynamics 365 for Finance and Operations AOT Browser",
-    "fullName": "arganollc/aotbrowser",
-    "hasIssues": true,
-    "homepage": "",
-    "isArchived": false,
-    "language": "C#",
-    "license": {
-      "key": "mit",
-      "name": "MIT License",
-      "url": "https://api.github.com/licenses/mit"
-    },
-    "name": "aotbrowser",
-    "openIssuesCount": 1,
-    "owner": {
-      "id": "MDEyOk9yZ2FuaXphdGlvbjU4NTI5MDE5",
-      "is_bot": false,
-      "login": "arganollc",
-      "type": "Organization",
-      "url": "https://github.com/arganollc"
-    },
-    "updatedAt": "2024-01-18T14:50:18Z",
-    "url": "https://github.com/arganollc/aotbrowser",
-    "codeOfConduct": null,
-    "forkCount": 14,
-    "fundingLinks": [],
-    "isSecurityPolicyEnabled": false,
-    "isTemplate": false,
-    "latestRelease": {
-      "name": "AOTBrowser-863.0.5.6",
-      "tagName": "863.0.5.6",
-      "url": "https://github.com/arganollc/aotbrowser/releases/tag/863.0.5.6",
-      "publishedAt": "2024-01-31T19:30:17Z"
-    },
-    "primaryLanguage": {
-      "name": "C#"
-    },
-    "securityPolicyUrl": "",
-    "stargazerCount": 55,
-    "watchers": {
-      "totalCount": 11
-    },
-    "topics": [
-      "d365fo",
-      "xplusplus",
-      "aot-browser",
-      "dynamics",
-      "dynamics-365",
-      "morphx"
-    ],
-    "languages": [
-      "C#",
-      "PowerShell"
-    ],
-    "openedGoodFirstIssues": 0,
-    "hasGoodFirstIssues": false,
-    "openedHelpWantedIssues": 0,
-    "hasHelpWantedIssues": false,
-    "openedToContributionsIssues": 0,
-    "popularityScore": 66
-  },
-  {
-    "createdAt": "2019-09-25T15:20:07Z",
-    "description": "A template to empower developers and reduce time wasted on control changes",
-    "fullName": "iAmManCat/PowerApps-Branding-Template",
-    "hasIssues": true,
-    "homepage": "https://powerusers.microsoft.com/t5/Community-App-Samples/Branding-Template-App-Automagical/td-p/363582",
-    "isArchived": false,
-    "language": "PowerShell",
-    "license": {
-      "key": "mit",
-      "name": "MIT License",
-      "url": "https://api.github.com/licenses/mit"
-    },
-    "name": "PowerApps-Branding-Template",
-    "openIssuesCount": 0,
-    "owner": {
-      "id": "MDQ6VXNlcjQzNzUxMzE2",
-      "is_bot": false,
-      "login": "iAmManCat",
-      "type": "User",
-      "url": "https://github.com/iAmManCat"
-    },
-    "updatedAt": "2023-12-15T07:35:26Z",
-    "url": "https://github.com/iAmManCat/PowerApps-Branding-Template",
-    "codeOfConduct": null,
-    "forkCount": 21,
-    "fundingLinks": [],
-    "isSecurityPolicyEnabled": false,
-    "isTemplate": false,
-    "latestRelease": null,
-    "primaryLanguage": {
-      "name": "PowerShell"
-    },
-    "securityPolicyUrl": "",
-    "stargazerCount": 54,
-    "watchers": {
-      "totalCount": 4
-    },
-    "topics": [
-      "powerapps",
-      "branding"
-    ],
-    "languages": [
-      "PowerShell"
-    ],
-    "openedGoodFirstIssues": 0,
-    "hasGoodFirstIssues": false,
-    "openedHelpWantedIssues": 0,
-    "hasHelpWantedIssues": false,
-    "openedToContributionsIssues": 0,
-    "popularityScore": 58
   },
   {
     "createdAt": "2018-04-03T10:12:11Z",
@@ -4465,9 +4466,9 @@
     "isTemplate": false,
     "latestRelease": {
       "name": "Power Platform deprecation update",
-      "tagName": "2024.2.1.3",
-      "url": "https://github.com/tcorcor1/power-platform-deprecation-tracker/releases/tag/2024.2.1.3",
-      "publishedAt": "2024-02-01T00:00:03Z"
+      "tagName": "2024.2.2.3",
+      "url": "https://github.com/tcorcor1/power-platform-deprecation-tracker/releases/tag/2024.2.2.3",
+      "publishedAt": "2024-02-02T00:00:03Z"
     },
     "primaryLanguage": null,
     "securityPolicyUrl": "",
@@ -4968,10 +4969,10 @@
     "isSecurityPolicyEnabled": false,
     "isTemplate": false,
     "latestRelease": {
-      "name": "ProvisionAssist_v1.1.0",
-      "tagName": "v1.1.0",
-      "url": "https://github.com/pnp/provision-assist-m365/releases/tag/v1.1.0",
-      "publishedAt": "2023-12-13T12:29:07Z"
+      "name": "ProvisionAssist_v1.1.1",
+      "tagName": "v1.1.1",
+      "url": "https://github.com/pnp/provision-assist-m365/releases/tag/v1.1.1",
+      "publishedAt": "2024-02-01T16:10:07Z"
     },
     "primaryLanguage": {
       "name": "PowerShell"
@@ -7244,7 +7245,12 @@
     "fundingLinks": [],
     "isSecurityPolicyEnabled": false,
     "isTemplate": false,
-    "latestRelease": null,
+    "latestRelease": {
+      "name": "2.2",
+      "tagName": "v2.2",
+      "url": "https://github.com/Dimsi-BS/XrmFramework/releases/tag/v2.2",
+      "publishedAt": "2024-02-01T19:41:44Z"
+    },
     "primaryLanguage": {
       "name": "C#"
     },
@@ -8068,7 +8074,7 @@
       "name": "Other",
       "url": "https://github.com/Azure-Samples/gh-codespaces-copilot-in-a-day-ko/blob/main/.github/CODE_OF_CONDUCT.md"
     },
-    "forkCount": 23,
+    "forkCount": 22,
     "fundingLinks": [],
     "isSecurityPolicyEnabled": false,
     "isTemplate": false,
@@ -9997,7 +10003,7 @@
     "updatedAt": "2024-01-19T02:45:17Z",
     "url": "https://github.com/BeverCRM/PCF-EditableTable",
     "codeOfConduct": null,
-    "forkCount": 1,
+    "forkCount": 2,
     "fundingLinks": [],
     "isSecurityPolicyEnabled": false,
     "isTemplate": false,
@@ -11025,7 +11031,7 @@
       "url": ""
     },
     "name": "SSW.Dory",
-    "openIssuesCount": 36,
+    "openIssuesCount": 37,
     "owner": {
       "id": "MDEyOk9yZ2FuaXphdGlvbjc5NDc5MzY=",
       "is_bot": false,
