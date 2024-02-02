@@ -499,15 +499,15 @@ async function getComboboxOptions(page, combobox) {
   // - add the combobox input value to the list of options
   // - repeat the steps
   let previousActiveDescendant = '';
-  let bottomReached = false;
-  while (!bottomReached) {
+  let topReached = false;
+  while (!topReached) {
     await page.keyboard.press('ArrowUp');
     await page.keyboard.press('ArrowUp');
     activeDescendant = await combobox.evaluate(el => el.getAttribute('aria-activedescendant'));
     await page.keyboard.press('Enter');
 
     if (activeDescendant === previousActiveDescendant) {
-      bottomReached = true;
+      topReached = true;
     } else {
       inputValue = await combobox.inputValue();
       options.push(inputValue);
@@ -517,15 +517,15 @@ async function getComboboxOptions(page, combobox) {
 
   // Do the same steps but with the "ArrowDown" key
   previousActiveDescendant = '';
-  let topReached = false;
-  while (!topReached) {
+  let bottomReached = false;
+  while (!bottomReached) {
     await page.keyboard.press('ArrowDown');
     await page.keyboard.press('ArrowDown');
     activeDescendant = await combobox.evaluate(el => el.getAttribute('aria-activedescendant'));
     await page.keyboard.press('Enter');
     
     if (activeDescendant === previousActiveDescendant) {
-      topReached = true;
+      bottomReached = true;
     } else {
       inputValue = await combobox.inputValue();
       options.push(inputValue);
