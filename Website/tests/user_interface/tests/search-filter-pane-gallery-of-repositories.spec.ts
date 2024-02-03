@@ -359,49 +359,117 @@ test('Validate the default sorting option in the gallery', async ({ page }) => {
 });
 
 // Validate that when I change the sorting option in the gallery, the count of repositories found is the same
-/*test('Validate that when I change the sorting option in the gallery, the count of repositories found is the same', async ({ page }) => {
+test('Validate that when I change the sorting option in the gallery, the count of repositories found is the same', async ({ page }) => {
+  await page.goto('/');
+
+  // Get the initial count of repositories found
+  const initialCount = await getCountOfRepositories(page);
+
+  // Get the input element with id "orderByCombobox"
+  await page.waitForSelector('#orderByCombobox');
+  const orderByCombobox = await page.$('#orderByCombobox');
+  
+  // Click on the combobox to focus it
+  await orderByCombobox.click();
+  await orderByCombobox.focus();
+
+  let activeDescendant = '';
+  let previousActiveDescendant = '';
+  let topReached = false;
+  while (!topReached) {
+    await page.keyboard.press('ArrowUp');
+    await page.keyboard.press('ArrowUp');
+    activeDescendant = await orderByCombobox.evaluate(el => el.getAttribute('aria-activedescendant'));
+    await page.keyboard.press('Enter');
+
+    if (activeDescendant === previousActiveDescendant) {
+      topReached = true;
+    } else {
+      // Validate that the count of repositories found is the same
+      const count = await getCountOfRepositories(page);
+      expect(count).toBe(initialCount);
+
+      previousActiveDescendant = activeDescendant;
+    }
+  }
+
+  previousActiveDescendant = '';
+  let bottomReached = false;
+  while (!bottomReached) {
+    await page.keyboard.press('ArrowDown');
+    await page.keyboard.press('ArrowDown');
+    activeDescendant = await orderByCombobox.evaluate(el => el.getAttribute('aria-activedescendant'));
+    await page.keyboard.press('Enter');
+    
+    if (activeDescendant === previousActiveDescendant) {
+      bottomReached = true;
+    } else {
+      // Validate that the count of repositories found is the same
+      const count = await getCountOfRepositories(page);
+      expect(count).toBe(initialCount);
+
+      previousActiveDescendant = activeDescendant;
+    }
+  }
+});
+
+// Validate that when I change the sorting option in the gallery, the order of repositories is updated and consistent with the selected sorting option
+// - if the selected sorting option is "Stars (Descending)", the order of repositories is consistent with the number of stars in descending order
+// - if the selected sorting option is "Stars (Ascending)", the order of repositories is consistent with the number of stars in ascending order
+// - if the selected sorting option is "Alphabetical (Ascending)", the order of repositories is consistent with the name of repositories in ascending order
+// - if the selected sorting option is "Alphabetical (Descending)", the order of repositories is consistent with the name of repositories in descending order
+test('Validate that when I change the sorting option in the gallery, the order of repositories is updated and consistent with the selected sorting option', async ({ page }) => {
   await page.goto('/');
 
   // Get the input element with id "orderByCombobox"
   await page.waitForSelector('#orderByCombobox');
   const orderByCombobox = await page.$('#orderByCombobox');
+  
+  // Click on the combobox to focus it
+  await orderByCombobox.click();
+  await orderByCombobox.focus();
 
-  // Get the combo box options
-  const options = await getComboboxOptions(page, orderByCombobox);
+  let activeDescendant = '';
+  let inputValue = '';
+  let previousActiveDescendant = '';
+  let topReached = false;
+  while (!topReached) {
+    await page.keyboard.press('ArrowUp');
+    await page.keyboard.press('ArrowUp');
+    activeDescendant = await orderByCombobox.evaluate(el => el.getAttribute('aria-activedescendant'));
+    await page.keyboard.press('Enter');
 
-  // Get the initial count of repositories found
-  const initialCount = await getCountOfRepositories(page);
+    // Get the name of the current sorting option
+    inputValue = await orderByCombobox.inputValue();
 
-  // Get the value of the "orderByCombobox" input element
-  const value = await orderByCombobox.inputValue();
+    if (activeDescendant === previousActiveDescendant) {
+      topReached = true;
+    } else {
+      // Validate the order of repositories based on the selected sorting option
+      await validateGalleryItemOrders(page, inputValue);
 
-  // Take a screenshot of the page before changing the sorting option
-  await page.screenshot({ path: 'before-changing-sorting-option.png' });
-
-  // Randomly select a different option than the selected one
-  const selectedIndex = options.indexOf(value);
-  let randomIndex = Math.floor(Math.random() * options.length);
-
-  while (randomIndex === selectedIndex) {
-    randomIndex = Math.floor(Math.random() * options.length);
+      previousActiveDescendant = activeDescendant;
+    }
   }
 
-  let randomOption = options[randomIndex];
+  previousActiveDescendant = '';
+  let bottomReached = false;
+  while (!bottomReached) {
+    await page.keyboard.press('ArrowDown');
+    await page.keyboard.press('ArrowDown');
+    activeDescendant = await orderByCombobox.evaluate(el => el.getAttribute('aria-activedescendant'));
+    await page.keyboard.press('Enter');
+    
+    if (activeDescendant === previousActiveDescendant) {
+      bottomReached = true;
+    } else {
+      // Validate the order of repositories based on the selected sorting option
+      await validateGalleryItemOrders(page, inputValue);
 
-  console.log('Selected option:', value);
-  console.log('Random option:', randomOption);
-
-  selectComboboxOption(page, orderByCombobox, randomOption);
-
-  // Take a screenshot of the page after changing the sorting option
-  await page.screenshot({ path: 'after-changing-sorting-option.png' });
-
-  // Extract the count of repositories found (after changing the sorting option)
-  const count = await getCountOfRepositories(page);
-
-  // Validate that the count of repositories found is the same
-  expect(count).toBe(initialCount);
-});*/
+      previousActiveDescendant = activeDescendant;
+    }
+  }
+});
 
 // #endregion
 
@@ -476,80 +544,88 @@ async function extractCheckboxLabelParts(page, checkboxId) {
 }
 
 /**
- * Retrieves the options from a combobox element.
- * 
- * @param {Page} page - The page object representing the browser page.
- * @param {Combobox} combobox - The combobox element to retrieve options from.
- * @returns {Promise<string[]>} - A promise that resolves to an array of options.
+ * Compares two strings and returns a comparison result.
+ * @param s1 The first string to compare.
+ * @param s2 The second string to compare.
+ * @returns A string indicating the comparison result.
  */
-async function getComboboxOptions(page, combobox) {
-  let options = [];
-  let inputValue = '';
-  let activeDescendant = '';
-  
-  // Click on the combobox to focus it
-  await combobox.click();
-  await combobox.focus();
-
-  // While the aria-activedescendant attribute stop changin,
-  // - press the "ArrowUp" key
-  // - get the value of the aria-activedescendant attribute, if it is equal to the previous value stop the loop
-  // - select the option with the value of the aria-activedescendant attribute
-  // - press the "Enter" key
-  // - add the combobox input value to the list of options
-  // - repeat the steps
-  let previousActiveDescendant = '';
-  let topReached = false;
-  while (!topReached) {
-    await page.keyboard.press('ArrowUp');
-    await page.keyboard.press('ArrowUp');
-    activeDescendant = await combobox.evaluate(el => el.getAttribute('aria-activedescendant'));
-    await page.keyboard.press('Enter');
-
-    if (activeDescendant === previousActiveDescendant) {
-      topReached = true;
-    } else {
-      inputValue = await combobox.inputValue();
-      options.push(inputValue);
-      previousActiveDescendant = activeDescendant;
-    }
+function compareStrings(s1: string, s2: string): string {
+  if (s1 < s2) {
+      return `${s1} comes before ${s2}`;
+  } else if (s1 > s2) {
+      return `${s1} comes after ${s2}`;
+  } else {
+      return "Both strings are equal";
   }
-
-  // Do the same steps but with the "ArrowDown" key
-  previousActiveDescendant = '';
-  let bottomReached = false;
-  while (!bottomReached) {
-    await page.keyboard.press('ArrowDown');
-    await page.keyboard.press('ArrowDown');
-    activeDescendant = await combobox.evaluate(el => el.getAttribute('aria-activedescendant'));
-    await page.keyboard.press('Enter');
-    
-    if (activeDescendant === previousActiveDescendant) {
-      bottomReached = true;
-    } else {
-      inputValue = await combobox.inputValue();
-      options.push(inputValue);
-      previousActiveDescendant = activeDescendant;
-    }
-  }
-
-  return options;
 }
 
 /**
- * Selects an option from a combobox.
- * @param {Page} page - The page object.
- * @param {ElementHandle} combobox - The combobox element.
- * @param {string} option - The option to select.
- * @returns {Promise<void>} - A promise that resolves when the option is selected.
+ * Validates the order of gallery items based on the selected sorting option.
+ * 
+ * @param {Page} page - The page object representing the UI page.
+ * @param {string} orderByComboboxValue - The value of the selected sorting option.
+ * @returns {Promise<void>} - A promise that resolves when the validation is complete.
  */
-async function selectComboboxOption(page, combobox, option) {
-  // Click on the combobox to focus it
-  await combobox.click();
-  await combobox.focus();
-  
-  await page.keyboard.type(option);
-  await page.keyboard.press('Enter');
+async function validateGalleryItemOrders(page, orderByComboboxValue) {
+  // Switch case based on the selected sorting option to validate the order of repositories
+  switch (orderByComboboxValue) {
+    case 'Stars (Descending)':
+      // Validate that the order of repositories is consistent with the number of stars in descending order
+      const starsBadgesDescending = await page.$$('#starsBadge');
+
+      let previousStars = null;
+      for (let badge of starsBadgesDescending) {
+        const stars = await badge.innerText();
+        if (previousStars !== null) { // Skip the first badge
+          expect(parseInt(stars)).toBeLessThanOrEqual(previousStars);
+        }
+        previousStars = parseInt(stars);
+      }
+
+      break;
+    case 'Stars (Ascending)':
+      // Validate that the order of repositories is consistent with the number of stars in ascending order
+      const starsBadgesAscending = await page.$$('#starsBadge');
+
+      let previousStarsAscending = null;
+      for (let badge of starsBadgesAscending) {
+        const stars = await badge.innerText();
+        if (previousStarsAscending !== null) { // Skip the first badge
+          expect(parseInt(stars)).toBeGreaterThanOrEqual(previousStarsAscending);
+        }
+        previousStarsAscending = parseInt(stars);
+      }
+
+      break;
+    case 'Alphabetical (Ascending)':
+      // Validate that the order of repositories is consistent with the name of repositories in ascending order
+      const repositoryNamesAscending = await page.$$('.fui-Subtitle1');
+
+      let previousNameAscending = '';
+      for (let name of repositoryNamesAscending) {
+        const currentName = await name.innerText();
+        if (previousNameAscending !== '') { // Skip the first name
+          expect(compareStrings(previousNameAscending, currentName)).toBe(`${previousNameAscending} comes before ${currentName}`);
+        }
+        previousNameAscending = currentName;
+      }
+
+      break;
+    case 'Alphabetical (Descending)':
+      // Validate that the order of repositories is consistent with the name of repositories in descending order
+      const repositoryNamesDescending = await page.$$('.fui-Subtitle1');
+
+      let previousNameDescending = '';
+      for (let name of repositoryNamesDescending) {
+        const currentName = await name.innerText();
+        if (previousNameDescending !== '') { // Skip the first name
+          expect(compareStrings(previousNameDescending, currentName)).toBe(`${previousNameDescending} comes after ${currentName}`);
+        }
+        previousNameDescending = currentName;
+      }
+
+      break;
+  }
 }
 
 // #endregion
