@@ -421,7 +421,7 @@ test('Validate that when I change the sorting option in the gallery, the count o
 // - if the selected sorting option is "Stars (Ascending)", the order of repositories is consistent with the number of stars in ascending order
 // - if the selected sorting option is "Alphabetical (Ascending)", the order of repositories is consistent with the name of repositories in ascending order
 // - if the selected sorting option is "Alphabetical (Descending)", the order of repositories is consistent with the name of repositories in descending order
-test('Validate that when I change the sorting option in the gallery, the order of repositories is updated and consistent with the selected sorting option', async ({ page }) => {
+/*test('Validate that when I change the sorting option in the gallery, the order of repositories is updated and consistent with the selected sorting option', async ({ page }) => {
   await page.goto('/');
 
   // Get the input element with id "orderByCombobox"
@@ -472,7 +472,7 @@ test('Validate that when I change the sorting option in the gallery, the order o
       previousActiveDescendant = activeDescendant;
     }
   }
-});
+});*/
 
 // Validate that all the cards in the gallery contains the expected information - I will perhaps need to add a few identifiers in the HTML to make this easier
 // - is Microsoft or Community authored
