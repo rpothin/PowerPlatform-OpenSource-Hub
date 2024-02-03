@@ -166,10 +166,10 @@ const Gallery = ({ items, hasGoodFirstIssueChecked, hasHelpWantedIssueChecked, h
                                         <div className={styles.cardHeaderRightContent}>
                                             {isActive(item.updatedAt) && 
                                                 <Tooltip content={`Last update on: ${format(new Date(item.updatedAt), 'yyyy-MM-dd')}`} relationship={'label'}>
-                                                    <Badge appearance="outline" style={{ marginRight: '5px' }}>🔥 Active</Badge>
+                                                    <Badge id="activeBadge" appearance="outline" style={{ marginRight: '5px' }}>🔥 Active</Badge>
                                                 </Tooltip>
                                             }
-                                            <Badge appearance="filled" color="warning" icon={<Star16Filled />} key={index}>{item.stargazerCount}</Badge>
+                                            <Badge id="starsBadge" appearance="filled" color="warning" icon={<Star16Filled />} key={index}>{item.stargazerCount}</Badge>
                                         </div>
                                     </div>
                                 }
