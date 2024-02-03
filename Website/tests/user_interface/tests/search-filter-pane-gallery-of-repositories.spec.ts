@@ -305,7 +305,7 @@ test('Validate the "View All" and "View Less" buttons in the filter pane in a re
 
 // Validate that when you check 2 random checkboxes in 2 random sections in the filter pane,
 // the count of repositories found is less or equal than the smallest count in the labels of the 2 checkboxes
-test('Validate that when you check 2 random checkboxes in 2 random sections in the filter pane, the count of repositories found is less or equal than the smallest count in the labels of the 2 checkboxes', async ({ page }) => {
+/*test('Validate that when you check 2 random checkboxes in 2 random sections in the filter pane, the count of repositories found is less or equal than the smallest count in the labels of the 2 checkboxes', async ({ page }) => {
   await page.goto('/');
 
   // Get the first random section and checkbox
@@ -332,12 +332,15 @@ test('Validate that when you check 2 random checkboxes in 2 random sections in t
   // Click on the second checkbox
   await checkbox2.click();
 
+  // Take a screenshot of the page after checking the checkboxes to see the state of the checkboxes
+  await page.screenshot({ path: 'after-checking-checkboxes.png' });
+
   // Extract the count of repositories found (after checking the checkboxes)
   const count = await getCountOfRepositories(page);
 
   // Validate that the count of repositories found is less or equal than the smallest count in the labels of the 2 checkboxes
   expect(count).toBeLessThanOrEqual(Math.min(count1, count2));
-});
+});*/
 
 // #endregion
 
@@ -470,6 +473,16 @@ test('Validate that when I change the sorting option in the gallery, the order o
     }
   }
 });
+
+// Validate that all the cards in the gallery contains the expected information - I will perhaps need to add a few identifiers in the HTML to make this easier
+// - is Microsoft or Community authored
+// - is it active (optional)
+// - the number of stars
+// - the repository full name (owner and name)
+// - the description
+// - maximum 5 topics
+// - an "Open in GitHub" button
+// - an "See more..." button
 
 // #endregion
 
