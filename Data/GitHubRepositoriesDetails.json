@@ -21,7 +21,7 @@
       "type": "User",
       "url": "https://github.com/sandroasp"
     },
-    "updatedAt": "2024-02-03T17:39:32Z",
+    "updatedAt": "2024-02-04T12:02:49Z",
     "url": "https://github.com/sandroasp/Microsoft-Integration-and-Azure-Stencils-Pack-for-Visio",
     "codeOfConduct": null,
     "forkCount": 417,
@@ -38,7 +38,7 @@
       "name": "PowerShell"
     },
     "securityPolicyUrl": "",
-    "stargazerCount": 1373,
+    "stargazerCount": 1374,
     "watchers": {
       "totalCount": 118
     },
@@ -67,7 +67,7 @@
     "openedHelpWantedIssues": 0,
     "hasHelpWantedIssues": false,
     "openedToContributionsIssues": 0,
-    "popularityScore": 1491
+    "popularityScore": 1492
   },
   {
     "createdAt": "2018-03-26T22:41:09Z",
@@ -91,7 +91,7 @@
       "type": "Organization",
       "url": "https://github.com/microsoft"
     },
-    "updatedAt": "2024-02-04T08:59:27Z",
+    "updatedAt": "2024-02-05T05:36:08Z",
     "url": "https://github.com/microsoft/PowerApps-Samples",
     "codeOfConduct": {
       "key": "other",
@@ -112,7 +112,7 @@
       "name": "C#"
     },
     "securityPolicyUrl": "https://github.com/microsoft/PowerApps-Samples/security/policy",
-    "stargazerCount": 1307,
+    "stargazerCount": 1308,
     "watchers": {
       "totalCount": 112
     },
@@ -147,7 +147,7 @@
     "openedHelpWantedIssues": 0,
     "hasHelpWantedIssues": false,
     "openedToContributionsIssues": 0,
-    "popularityScore": 1419
+    "popularityScore": 1420
   },
   {
     "createdAt": "2018-11-21T16:54:50Z",
@@ -163,7 +163,7 @@
       "url": "https://api.github.com/licenses/mit"
     },
     "name": "Microsoft365DSC",
-    "openIssuesCount": 303,
+    "openIssuesCount": 302,
     "owner": {
       "id": "MDEyOk9yZ2FuaXphdGlvbjYxNTQ3MjI=",
       "is_bot": false,
@@ -171,14 +171,14 @@
       "type": "Organization",
       "url": "https://github.com/microsoft"
     },
-    "updatedAt": "2024-02-02T18:32:36Z",
+    "updatedAt": "2024-02-05T10:53:57Z",
     "url": "https://github.com/microsoft/Microsoft365DSC",
     "codeOfConduct": {
       "key": "contributor_covenant",
       "name": "Contributor Covenant",
       "url": "https://github.com/microsoft/Microsoft365DSC/blob/Dev/CODE_OF_CONDUCT.md"
     },
-    "forkCount": 426,
+    "forkCount": 427,
     "fundingLinks": [],
     "isSecurityPolicyEnabled": true,
     "isTemplate": false,
@@ -192,7 +192,7 @@
       "name": "PowerShell"
     },
     "securityPolicyUrl": "https://github.com/microsoft/Microsoft365DSC/security/policy",
-    "stargazerCount": 1280,
+    "stargazerCount": 1283,
     "watchers": {
       "totalCount": 69
     },
@@ -228,7 +228,7 @@
     "openedHelpWantedIssues": 4,
     "hasHelpWantedIssues": true,
     "openedToContributionsIssues": 4,
-    "popularityScore": 1349
+    "popularityScore": 1352
   },
   {
     "createdAt": "2018-12-13T05:33:24Z",
@@ -485,77 +485,6 @@
     "popularityScore": 632
   },
   {
-    "createdAt": "2020-11-03T17:49:34Z",
-    "description": "Actionable AI SDK for Microsoft Power Apps to enable text and voice conversations with actions",
-    "fullName": "alan-ai/alan-sdk-pcf",
-    "hasIssues": true,
-    "homepage": "https://alan.app",
-    "isArchived": false,
-    "language": "",
-    "license": {
-      "key": "",
-      "name": "",
-      "url": ""
-    },
-    "name": "alan-sdk-pcf",
-    "openIssuesCount": 0,
-    "owner": {
-      "id": "MDEyOk9yZ2FuaXphdGlvbjU0OTYwNzgw",
-      "is_bot": false,
-      "login": "alan-ai",
-      "type": "Organization",
-      "url": "https://github.com/alan-ai"
-    },
-    "updatedAt": "2024-02-03T16:37:42Z",
-    "url": "https://github.com/alan-ai/alan-sdk-pcf",
-    "codeOfConduct": null,
-    "forkCount": 0,
-    "fundingLinks": [],
-    "isSecurityPolicyEnabled": false,
-    "isTemplate": false,
-    "latestRelease": {
-      "name": "Alan PCF v1.0.0",
-      "tagName": "1.0.0",
-      "url": "https://github.com/alan-ai/alan-sdk-pcf/releases/tag/1.0.0",
-      "publishedAt": "2020-11-04T11:12:51Z"
-    },
-    "primaryLanguage": null,
-    "securityPolicyUrl": "",
-    "stargazerCount": 445,
-    "watchers": {
-      "totalCount": 9
-    },
-    "topics": [
-      "alan-studio",
-      "chatbot",
-      "voice",
-      "voice-assistant",
-      "voice-ai",
-      "alan-voice",
-      "voice-commands",
-      "voice-control",
-      "conversational-ai",
-      "speech-recognition",
-      "text-to-speech",
-      "machine-learning",
-      "microsoft-power-apps",
-      "pcf",
-      "power-apps",
-      "sdk",
-      "tts",
-      "voice-interface",
-      "vui",
-      "multimodal"
-    ],
-    "languages": [],
-    "openedGoodFirstIssues": 0,
-    "hasGoodFirstIssues": false,
-    "openedHelpWantedIssues": 0,
-    "hasHelpWantedIssues": false,
-    "openedToContributionsIssues": 0,
-    "popularityScore": 454
-  },
-  {
     "createdAt": "2017-04-01T23:36:13Z",
     "description": "Dynamics 365 Workflow Tools is a Community solution that expands Microsoft Dynamics 365 (CRM) Workflow features with lots of new posibilities. This helps you to build very advanced Codeless solutions in CRM.",
     "fullName": "demianrasko/Dynamics-365-Workflow-Tools",
@@ -626,6 +555,77 @@
     "popularityScore": 514
   },
   {
+    "createdAt": "2020-11-03T17:49:34Z",
+    "description": "Actionable AI SDK for Microsoft Power Apps to enable text and voice conversations with actions",
+    "fullName": "alan-ai/alan-sdk-pcf",
+    "hasIssues": true,
+    "homepage": "https://alan.app",
+    "isArchived": false,
+    "language": "",
+    "license": {
+      "key": "",
+      "name": "",
+      "url": ""
+    },
+    "name": "alan-sdk-pcf",
+    "openIssuesCount": 0,
+    "owner": {
+      "id": "MDEyOk9yZ2FuaXphdGlvbjU0OTYwNzgw",
+      "is_bot": false,
+      "login": "alan-ai",
+      "type": "Organization",
+      "url": "https://github.com/alan-ai"
+    },
+    "updatedAt": "2024-02-04T14:05:13Z",
+    "url": "https://github.com/alan-ai/alan-sdk-pcf",
+    "codeOfConduct": null,
+    "forkCount": 0,
+    "fundingLinks": [],
+    "isSecurityPolicyEnabled": false,
+    "isTemplate": false,
+    "latestRelease": {
+      "name": "Alan PCF v1.0.0",
+      "tagName": "1.0.0",
+      "url": "https://github.com/alan-ai/alan-sdk-pcf/releases/tag/1.0.0",
+      "publishedAt": "2020-11-04T11:12:51Z"
+    },
+    "primaryLanguage": null,
+    "securityPolicyUrl": "",
+    "stargazerCount": 444,
+    "watchers": {
+      "totalCount": 9
+    },
+    "topics": [
+      "alan-studio",
+      "chatbot",
+      "voice",
+      "voice-assistant",
+      "voice-ai",
+      "alan-voice",
+      "voice-commands",
+      "voice-control",
+      "conversational-ai",
+      "speech-recognition",
+      "text-to-speech",
+      "machine-learning",
+      "microsoft-power-apps",
+      "pcf",
+      "power-apps",
+      "sdk",
+      "tts",
+      "voice-interface",
+      "vui",
+      "multimodal"
+    ],
+    "languages": [],
+    "openedGoodFirstIssues": 0,
+    "hasGoodFirstIssues": false,
+    "openedHelpWantedIssues": 0,
+    "hasHelpWantedIssues": false,
+    "openedToContributionsIssues": 0,
+    "popularityScore": 453
+  },
+  {
     "createdAt": "2022-06-14T11:40:21Z",
     "description": "An offensive and defensive security toolset for Microsoft 365 Power Platform",
     "fullName": "mbrg/power-pwn",
@@ -647,7 +647,7 @@
       "type": "User",
       "url": "https://github.com/mbrg"
     },
-    "updatedAt": "2024-02-01T05:34:16Z",
+    "updatedAt": "2024-02-04T17:54:23Z",
     "url": "https://github.com/mbrg/power-pwn",
     "codeOfConduct": null,
     "forkCount": 38,
@@ -664,7 +664,7 @@
       "name": "Python"
     },
     "securityPolicyUrl": "",
-    "stargazerCount": 402,
+    "stargazerCount": 403,
     "watchers": {
       "totalCount": 7
     },
@@ -698,7 +698,7 @@
     "openedHelpWantedIssues": 0,
     "hasHelpWantedIssues": false,
     "openedToContributionsIssues": 0,
-    "popularityScore": 409
+    "popularityScore": 410
   },
   {
     "createdAt": "2017-12-06T03:33:42Z",
@@ -953,7 +953,7 @@
       "type": "Organization",
       "url": "https://github.com/supaglue-labs"
     },
-    "updatedAt": "2024-02-03T20:42:26Z",
+    "updatedAt": "2024-02-05T09:20:05Z",
     "url": "https://github.com/supaglue-labs/supaglue",
     "codeOfConduct": {
       "key": "contributor_covenant",
@@ -974,7 +974,7 @@
       "name": "TypeScript"
     },
     "securityPolicyUrl": "https://github.com/supaglue-labs/supaglue/security/policy",
-    "stargazerCount": 331,
+    "stargazerCount": 333,
     "watchers": {
       "totalCount": 6
     },
@@ -1010,7 +1010,7 @@
     "openedHelpWantedIssues": 0,
     "hasHelpWantedIssues": false,
     "openedToContributionsIssues": 0,
-    "popularityScore": 337
+    "popularityScore": 339
   },
   {
     "createdAt": "2020-05-09T12:49:51Z",
@@ -1168,7 +1168,7 @@
       "type": "Organization",
       "url": "https://github.com/microsoft"
     },
-    "updatedAt": "2024-01-27T10:07:07Z",
+    "updatedAt": "2024-02-05T03:01:00Z",
     "url": "https://github.com/microsoft/powercat-creator-kit",
     "codeOfConduct": {
       "key": "other",
@@ -1189,7 +1189,7 @@
       "name": "CSS"
     },
     "securityPolicyUrl": "https://github.com/microsoft/powercat-creator-kit/security/policy",
-    "stargazerCount": 266,
+    "stargazerCount": 267,
     "watchers": {
       "totalCount": 30
     },
@@ -1205,7 +1205,7 @@
     "openedHelpWantedIssues": 0,
     "hasHelpWantedIssues": false,
     "openedToContributionsIssues": 2,
-    "popularityScore": 296
+    "popularityScore": 297
   },
   {
     "createdAt": "2020-06-30T21:48:13Z",
@@ -1805,7 +1805,7 @@
       "url": "https://api.github.com/licenses/mit"
     },
     "name": "powerplatform-vscode",
-    "openIssuesCount": 49,
+    "openIssuesCount": 48,
     "owner": {
       "id": "MDEyOk9yZ2FuaXphdGlvbjYxNTQ3MjI=",
       "is_bot": false,
@@ -1886,7 +1886,7 @@
       "name": "Other",
       "url": "https://github.com/microsoft/30daysof/blob/main/CODE_OF_CONDUCT.md"
     },
-    "forkCount": 55,
+    "forkCount": 56,
     "fundingLinks": [],
     "isSecurityPolicyEnabled": true,
     "isTemplate": false,
@@ -5891,7 +5891,7 @@
     "updatedAt": "2023-12-11T23:26:22Z",
     "url": "https://github.com/Capgemini/powerapps-specflow-bindings",
     "codeOfConduct": null,
-    "forkCount": 19,
+    "forkCount": 20,
     "fundingLinks": [],
     "isSecurityPolicyEnabled": false,
     "isTemplate": false,
@@ -7177,7 +7177,7 @@
     "updatedAt": "2024-01-26T06:35:14Z",
     "url": "https://github.com/Capgemini/xrm-datamigration",
     "codeOfConduct": null,
-    "forkCount": 10,
+    "forkCount": 11,
     "fundingLinks": [],
     "isSecurityPolicyEnabled": false,
     "isTemplate": false,
@@ -7413,7 +7413,7 @@
       "url": ""
     },
     "name": "fake-xrm-easy",
-    "openIssuesCount": 50,
+    "openIssuesCount": 51,
     "owner": {
       "id": "MDEyOk9yZ2FuaXphdGlvbjE1NzkxNjEx",
       "is_bot": false,
@@ -8463,7 +8463,7 @@
     "updatedAt": "2024-01-20T15:53:43Z",
     "url": "https://github.com/Capgemini/powerapps-project-template",
     "codeOfConduct": null,
-    "forkCount": 3,
+    "forkCount": 4,
     "fundingLinks": [],
     "isSecurityPolicyEnabled": false,
     "isTemplate": false,
@@ -10810,7 +10810,7 @@
     "updatedAt": "2023-10-17T18:49:14Z",
     "url": "https://github.com/Capgemini/xrm-datamigration-xrmtoolbox",
     "codeOfConduct": null,
-    "forkCount": 3,
+    "forkCount": 4,
     "fundingLinks": [],
     "isSecurityPolicyEnabled": false,
     "isTemplate": false,
