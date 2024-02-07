@@ -1,5 +1,4 @@
 import { test, expect } from '@playwright/test';
-import describe from '@playwright/test';
 
 // #region Search functionality tests
 
@@ -246,101 +245,121 @@ test('Validate the presentation of the checkboxes in the sections of the filter 
 // - all the checkboxes are presented (new count of checkboxes is greater than the initial count)
 // - the checboxes are still presented in descending order based on the count of repositories found
 // - when I click on the "View Less" button, the list of checkboxes is collapsed (new count of checkboxes is equal to the initial count)
-test('Validate the "View All" and "View Less" buttons in the filter pane in a relevant section', async ({ page }) => {
+test('Validate the "View All" and "View Less" buttons in the filter pane in all relevant sections', async ({ page }) => {
   await page.goto('/');
 
-  let { section, header, checkbox } = await getRandomSectionAndCheckbox(page);
-  let viewAllButton = await section.$('button:has-text("View All")');
+  // Get all sections
+  const sections = await getAllSections(page);
 
-  while (header === "Contribution Opportunities" || !viewAllButton) { // Exclude the "Contribution Opportunities" section because it has a static list of checkboxes
-    // Get a new random section and checkbox
-    ({ section, header, checkbox } = await getRandomSectionAndCheckbox(page));
-
+  // Iterate through each section
+  for (let section of sections) {
     // Get the "View All" button
-    viewAllButton = await section.$('button:has-text("View All")');
-  }
+    let viewAllButton = await section.section.$('button:has-text("View All")');
 
-  // Get the initial count of checkboxes
-  const initialCheckboxes = await section.$$('input[id^="checkbox-r"]');
-  const initialCheckboxesCount = initialCheckboxes.length;
-
-  // Click on the "View All" button
-  await viewAllButton.click();
-
-  // Get the new count of checkboxes
-  const newCheckboxes = await section.$$('input[id^="checkbox-r"]');
-  const newCheckboxesCount = newCheckboxes.length;
-
-  // Validate that the list of checkboxes is expanded
-  expect(newCheckboxesCount).toBeGreaterThan(initialCheckboxesCount);
-
-  // Validate that the "View All" button is replaced by a "View Less" button
-  const viewLessButton = await section.$('button:has-text("View Less")');
-  expect(viewLessButton).toBeTruthy();
-  const viewAllButtonAfterCollapse = await section.$('button:has-text("View All")');
-  expect(viewAllButtonAfterCollapse).toBeFalsy();
-
-  // Validate that the checboxes are still presented in descending order based on the count of repositories found
-  let previousCount = null;
-  for (let checkbox of newCheckboxes) {
-    const checkboxId = await checkbox.evaluate(el => el.id);
-    const checkboxLabelParts = await extractCheckboxLabelParts(page, checkboxId);
-    const count = checkboxLabelParts.count;
-    if (previousCount !== null) { // Skip the first checkbox
-      expect(count).toBeLessThanOrEqual(previousCount);
+    // Skip the section if it is the "Contribution Opportunities" section or if there is no "View All" button
+    if (section.headerText === "Contribution Opportunities" || !viewAllButton) {
+      continue;
     }
-    previousCount = count;
+
+    // Get the initial count of checkboxes
+    const initialCheckboxes = await section.$$('input[id^="checkbox-r"]');
+    const initialCheckboxesCount = initialCheckboxes.length;
+
+    // Click on the "View All" button
+    await viewAllButton.click();
+
+    // Get the new count of checkboxes
+    const newCheckboxes = await section.$$('input[id^="checkbox-r"]');
+    const newCheckboxesCount = newCheckboxes.length;
+
+    // Validate that the list of checkboxes is expanded
+    expect(newCheckboxesCount).toBeGreaterThan(initialCheckboxesCount);
+
+    // Validate that the "View All" button is replaced by a "View Less" button
+    const viewLessButton = await section.$('button:has-text("View Less")');
+    expect(viewLessButton).toBeTruthy();
+    const viewAllButtonAfterCollapse = await section.$('button:has-text("View All")');
+    expect(viewAllButtonAfterCollapse).toBeFalsy();
+
+    // Validate that the checkboxes are still presented in descending order based on the count of repositories found
+    let previousCount = null;
+    for (let checkbox of newCheckboxes) {
+      const checkboxId = await checkbox.evaluate(el => el.id);
+      const checkboxLabelParts = await extractCheckboxLabelParts(page, checkboxId);
+      const count = checkboxLabelParts.count;
+      if (previousCount !== null) { // Skip the first checkbox
+        expect(count).toBeLessThanOrEqual(previousCount);
+      }
+      previousCount = count;
+    }
+
+    // Click on the "View Less" button
+    await viewLessButton.click();
+
+    // Get the new count of checkboxes
+    const newCheckboxesAgain = await section.$$('input[id^="checkbox-r"]');
+    const newCheckboxesCountAgain = newCheckboxesAgain.length;
+
+    // Validate that the list of checkboxes is collapsed
+    expect(newCheckboxesCountAgain).toBe(initialCheckboxesCount);
   }
-
-  // Click on the "View Less" button
-  await viewLessButton.click();
-
-  // Get the new count of checkboxes
-  const newCheckboxesAgain = await section.$$('input[id^="checkbox-r"]');
-  const newCheckboxesCountAgain = newCheckboxesAgain.length;
-
-  // Validate that the list of checkboxes is collapsed
-  expect(newCheckboxesCountAgain).toBe(initialCheckboxesCount);
 });
 
-// Validate that when you check 2 random checkboxes in 2 random sections in the filter pane,
-// the count of repositories found is less or equal than the smallest count in the labels of the 2 checkboxes
-/*test('Validate that when you check 2 random checkboxes in 2 random sections in the filter pane, the count of repositories found is less or equal than the smallest count in the labels of the 2 checkboxes', async ({ page }) => {
+// Validate the count of repositories based on the selection of 2 checkboxes in each section
+// - if the section is "Licenses" or "Owners", the count of repositories is the sum of the counts of the 2 checkboxes
+// - if the section is "Contribution Opportunities", "Topics", or "Languages", the count of repositories is the minimum of the counts of the 2 checkboxes
+test('Validate the count of repositories based on the selection of 2 checkboxes in each section', async ({ page }) => {
+  // Define some variables to handle different behaviors based on section
+  const sectionsWithSumBehavior = ["Licenses", "Owners"];
+  const sectionsWithMinBehavior = ["Contribution Opportunities", "Topics", "Languages"];
+
   await page.goto('/');
 
-  // Get the first random section and checkbox
-  const { section: section1, checkbox: checkbox1 } = await getRandomSectionAndCheckbox(page);
-  const checkboxId1 = await checkbox1.evaluate(el => el.id);
-  const checkboxLabelParts1 = await extractCheckboxLabelParts(page, checkboxId1);
-  const count1 = checkboxLabelParts1.count;
+  // Get all sections
+  const sections = await getAllSections(page);
 
-  // Get the second random section and checkbox
-  let { section: section2, checkbox: checkbox2 } = await getRandomSectionAndCheckbox(page);
+  for (const section of sections) {
+    const sectionElement = section.section;
 
-  while (section2 === section1) {
-    // Get a new random section and checkbox
-    ({ section: section2, checkbox: checkbox2 } = await getRandomSectionAndCheckbox(page));
+    // Expand the section if it is not already expanded
+    const header = await expandSectionIfNotExpanded(sectionElement);
+
+    // Get the first random checkbox in the section
+    const checkbox1 = await getRandomCheckboxInSection(sectionElement);
+    const checkboxLabelParts1 = checkbox1.checkboxLabelParts;
+    const count1 = checkboxLabelParts1.count;
+
+    // Get the second random checkbox in the same section, excluding the first checkbox
+    const checkbox2 = await getRandomCheckboxInSection(sectionElement, checkbox1.checkboxId);
+    const checkboxLabelParts2 = checkbox2.checkboxLabelParts;
+    const count2 = checkboxLabelParts2.count;
+
+    // Click on the first checkbox
+    await checkbox1.checkbox.click();
+
+    // Click on the second checkbox
+    await checkbox2.checkbox.click();
+
+    // Extract the count of repositories found (after checking the checkboxes)
+    const count = await getCountOfRepositories(page);
+
+    // Validate checkbox behavior based on section
+    const sumCounts = count1 + count2;
+    const minCounts = Math.min(count1, count2);
+
+    if (sectionsWithSumBehavior.includes(section.headerText)) {
+      expect(count).toEqual(sumCounts);
+    } else if (sectionsWithMinBehavior.includes(section.headerText)) {
+      expect(count).toBeLessThanOrEqual(minCounts);
+    } else {
+      throw new Error('There is no behavior defined for the following section: ' + section.headerText);
+    }
+
+    // Uncheck the checkboxes before moving to the next section
+    await checkbox1.checkbox.click();
+    await checkbox2.checkbox.click();
   }
-
-  const checkboxId2 = await checkbox2.evaluate(el => el.id);
-  const checkboxLabelParts2 = await extractCheckboxLabelParts(page, checkboxId2);
-  const count2 = checkboxLabelParts2.count;
-
-  // Click on the first checkbox
-  await checkbox1.click();
-
-  // Click on the second checkbox
-  await checkbox2.click();
-
-  // Take a screenshot of the page after checking the checkboxes to see the state of the checkboxes
-  await page.screenshot({ path: 'after-checking-checkboxes.png' });
-
-  // Extract the count of repositories found (after checking the checkboxes)
-  const count = await getCountOfRepositories(page);
-
-  // Validate that the count of repositories found is less or equal than the smallest count in the labels of the 2 checkboxes
-  expect(count).toBeLessThanOrEqual(Math.min(count1, count2));
-});*/
+});
 
 // #endregion
 
@@ -514,11 +533,32 @@ async function expandSectionIfNotExpanded(section) {
 }
 
 /**
- * Retrieves a random section, its header, and a checkbox within that section.
+ * Retrieves all sections from the page.
+ * @param {Page} page - The page object representing the web page.
+ * @returns {Promise<Array<{ section: ElementHandle, headerText: string }>>} - A promise that resolves to an array of objects containing the section element and its header text.
+ */
+async function getAllSections(page) {
+  await page.waitForSelector('.fui-AccordionItem');
+  const sections = await page.$$('.fui-AccordionItem');
+
+  const result = [];
+  for (let section of sections) {
+    const header = await section.$('button');
+    const headerText = await header.evaluate(el => el.textContent);
+    result.push({ section, headerText });
+  }
+
+  return result;
+}
+
+/**
+ * Retrieves random section, its header, and a checkbox within that section.
+ * Expands random sect if it is not already ex anded a checkbox within that section.
  * Expands the section if it is not already expanded.
  * 
  * @param {Page} page - The page object representing the web page.
- * @returns {Promise<{ section: ElementHandle, checkbox: ElementHandle, header: ElementHandle }>} The random section, checkbox, and header elements.
+ * @returns {Promise<{ section: ElementHandleionAndCheckbox checkbox  // Get a random section
+: ElementHandle, header: ElementHandle }>} The random section, checkbox, and header elements.
  */
 async function getRandomSectionAndCheckbox(page) {
   // Get a random section
@@ -529,15 +569,41 @@ async function getRandomSectionAndCheckbox(page) {
   
   // Expand the section if it is not already expanded  
   const header = await expandSectionIfNotExpanded(section);
-
-  console.log('Random section selected:', (await header.evaluate(el => el.textContent)).trim());
   
   // Get a random checkbox within the section
-  const checkboxes = await section.$$('input[id^="checkbox-r"]');
-  const randomCheckboxIndex = Math.floor(Math.random() * checkboxes.length);
-  const checkbox = checkboxes[randomCheckboxIndex];
+  const checkboxDetails = await getRandomCheckboxInSection(section);
+  const checkbox = checkboxDetails.checkbox;
   
   return { section, header, checkbox };
+}
+
+/**
+ * Retrieves a random checkbox from a given section, excluding a potentially already selected checkbox.
+ * @param section - The section containing the checkboxes.
+ * @param selectedCheckboxId - The ID of the selected checkbox to be excluded (optional).
+ * @returns An object containing the randomly selected checkbox, its ID, and its label parts.
+ */
+async function getRandomCheckboxInSection(section, selectedCheckboxId = '') {
+  let checkbox = null;
+  let checkboxId = '';
+  let randomCheckboxIndex = -1;
+  
+  await section.waitForSelector('input[id^="checkbox-r"]');
+  const checkboxes = await section.$$('input[id^="checkbox-r"]');
+
+  while (!checkboxId) {
+    randomCheckboxIndex = Math.floor(Math.random() * checkboxes.length);
+    checkbox = checkboxes[randomCheckboxIndex];
+    checkboxId = await checkbox.evaluate(el => el.id);
+
+    if (selectedCheckboxId !== '' && checkboxId === selectedCheckboxId) {
+      checkboxId = '';
+    }
+  }
+
+  const checkboxLabelParts = await extractCheckboxLabelParts(section, checkboxId);
+  
+  return { checkbox, checkboxId, checkboxLabelParts };
 }
 
 /**
