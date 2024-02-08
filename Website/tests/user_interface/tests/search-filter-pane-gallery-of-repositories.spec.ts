@@ -365,6 +365,23 @@ test('Validate the count of repositories based on the selection of 2 checkboxes 
 
 // #region Gallery functionality tests
 
+// Validate that the count of repositories in the header of the gallery is equal to the count of repositories found
+test('Validate the count of repositories in the header of the gallery', async ({ page }) => {
+  await page.goto('/');
+
+  // Get the count of repositories in the header of the gallery
+  const repositoriesCountInHeader = await getCountOfRepositories(page);
+
+  // Get all the elements with class "galleryItem_vxLB"
+  const galleryItems = await page.$$('.galleryItem_vxLB');
+
+  // Get the count of repositories found
+  const countOfRepositoriesPresentedInGallery = galleryItems.length;
+
+  // Validate that the count of repositories in the header of the gallery is equal to the count of repositories found
+  expect(repositoriesCountInHeader).toBe(countOfRepositoriesPresentedInGallery);
+});
+
 // Validate that the default sorting option in the gallery is "Stars (Descending)"
 test('Validate the default sorting option in the gallery', async ({ page }) => {
   await page.goto('/');
@@ -440,7 +457,7 @@ test('Validate that when I change the sorting option in the gallery, the count o
 // - if the selected sorting option is "Stars (Ascending)", the order of repositories is consistent with the number of stars in ascending order
 // - if the selected sorting option is "Alphabetical (Ascending)", the order of repositories is consistent with the name of repositories in ascending order
 // - if the selected sorting option is "Alphabetical (Descending)", the order of repositories is consistent with the name of repositories in descending order
-/*test('Validate that when I change the sorting option in the gallery, the order of repositories is updated and consistent with the selected sorting option', async ({ page }) => {
+test('Validate that when I change the sorting option in the gallery, the order of repositories is updated and consistent with the selected sorting option', async ({ page }) => {
   await page.goto('/');
 
   // Get the input element with id "orderByCombobox"
@@ -482,6 +499,9 @@ test('Validate that when I change the sorting option in the gallery, the count o
     activeDescendant = await orderByCombobox.evaluate(el => el.getAttribute('aria-activedescendant'));
     await page.keyboard.press('Enter');
     
+    // Get the name of the current sorting option
+    inputValue = await orderByCombobox.inputValue();
+
     if (activeDescendant === previousActiveDescendant) {
       bottomReached = true;
     } else {
@@ -491,7 +511,7 @@ test('Validate that when I change the sorting option in the gallery, the count o
       previousActiveDescendant = activeDescendant;
     }
   }
-});*/
+});
 
 // Validate that all the cards in the gallery contains the expected information - I will perhaps need to add a few identifiers in the HTML to make this easier
 // - is Microsoft or Community authored
@@ -629,12 +649,15 @@ async function extractCheckboxLabelParts(page, checkboxId) {
  * @returns A string indicating the comparison result.
  */
 function compareStrings(s1: string, s2: string): string {
-  if (s1 < s2) {
-      return `${s1} comes before ${s2}`;
-  } else if (s1 > s2) {
-      return `${s1} comes after ${s2}`;
+  const lowerS1 = s1.toLowerCase();
+  const lowerS2 = s2.toLowerCase();
+
+  if (lowerS1 < lowerS2) {
+    return `${s1} comes before ${s2}`;
+  } else if (lowerS1 > lowerS2) {
+    return `${s1} comes after ${s2}`;
   } else {
-      return "Both strings are equal";
+    return "Both strings are equal";
   }
 }
 
