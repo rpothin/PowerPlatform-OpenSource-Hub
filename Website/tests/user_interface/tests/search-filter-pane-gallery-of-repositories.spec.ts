@@ -579,7 +579,7 @@ test('Validate the information presented in the cards of the gallery', async ({ 
 
 // Validate that when I click on the "Open in GitHub" button in any card - pick a random one - of the gallery,
 // the corresponding GitHub repository (comparison based on card full name) is opened in a new tab
-/*test('Validate that when I click on the "Open in GitHub" button in a random card of the gallery, the corresponding GitHub repository is opened in a new tab', async ({ page }) => {
+test('Validate that when I click on the "Open in GitHub" button in a random card of the gallery, the corresponding GitHub repository is opened in a new tab', async ({ page }) => {
   await page.goto('/');
 
   // Get all the elements with class "galleryItem_vxLB"
@@ -595,7 +595,7 @@ test('Validate the information presented in the cards of the gallery', async ({ 
   const repositoryFullNameText = await repositoryFullName.innerText();
 
   // Prepare for the new tab
-  const newTabPromise = new Promise<Page>(resolve => page.once('popup', resolve));
+  const newTabPromise = page.waitForEvent('popup');
 
   // Click on the "Open in GitHub" button
   const openInGitHubButton = await randomGalleryItem.$('#openInGitHubButton');
@@ -603,14 +603,14 @@ test('Validate the information presented in the cards of the gallery', async ({ 
 
   // Wait for the new tab to open
   const newTab = await newTabPromise;
-  await newTab.waitForLoadState('networkidle');
+  console.log(await newTab.evaluate('location.href'));
 
   // Get the URL of the new tab
   const newTabUrl = newTab.url();
 
   // Validate that the URL of the new tab is the URL of the GitHub repository
   expect(newTabUrl).toContain(repositoryFullNameText);
-});*/
+});
 
 // Validate that when I click on the "See more..." button in a random card of the gallery,
 // a dialog is opened with more information about the repository
