@@ -576,6 +576,38 @@ test('Validate the information presented in the cards of the gallery', async ({ 
   }
 });
 
+// Validate that when I click on the "Open in GitHub" button in any card - pick a random one - of the gallery,
+// the corresponding GitHub repository (comparison based on card full name) is opened in a new tab
+test('Validate that when I click on the "Open in GitHub" button in a random card of the gallery, the corresponding GitHub repository is opened in a new tab', async ({ page }) => {
+  await page.goto('/');
+
+  // Get all the elements with class "galleryItem_vxLB"
+  await page.waitForSelector('.galleryItem_vxLB');
+  const galleryItems = await page.$$('.galleryItem_vxLB');
+
+  // Get a random gallery item
+  const randomIndex = Math.floor(Math.random() * galleryItems.length);
+  const randomGalleryItem = galleryItems[randomIndex];
+
+  // Get the full name of the repository
+  const repositoryFullName = await randomGalleryItem.$('.fui-Subtitle1');
+  const repositoryFullNameText = await repositoryFullName.innerText();
+
+  // Click on the "Open in GitHub" button
+  const openInGitHubButton = await randomGalleryItem.$('#openInGitHubButton');
+  await openInGitHubButton.click();
+
+  // Switch to the new tab
+  const newTab = await page.waitForEvent('popup');
+  await newTab.waitForLoadState('networkidle');
+
+  // Get the URL of the new tab
+  const newTabUrl = newTab.url();
+
+  // Validate that the URL of the new tab is the URL of the GitHub repository
+  expect(newTabUrl).toContain(repositoryFullNameText);
+});
+
 // #endregion
 
 // #region Helper functions
