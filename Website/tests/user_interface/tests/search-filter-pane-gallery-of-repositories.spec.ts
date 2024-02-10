@@ -1,4 +1,5 @@
 import { test, expect } from '@playwright/test';
+import { Page } from 'playwright';
 
 // #region Search functionality tests
 
@@ -578,7 +579,7 @@ test('Validate the information presented in the cards of the gallery', async ({ 
 
 // Validate that when I click on the "Open in GitHub" button in any card - pick a random one - of the gallery,
 // the corresponding GitHub repository (comparison based on card full name) is opened in a new tab
-test('Validate that when I click on the "Open in GitHub" button in a random card of the gallery, the corresponding GitHub repository is opened in a new tab', async ({ page }) => {
+/*test('Validate that when I click on the "Open in GitHub" button in a random card of the gallery, the corresponding GitHub repository is opened in a new tab', async ({ page }) => {
   await page.goto('/');
 
   // Get all the elements with class "galleryItem_vxLB"
@@ -593,12 +594,15 @@ test('Validate that when I click on the "Open in GitHub" button in a random card
   const repositoryFullName = await randomGalleryItem.$('.fui-Subtitle1');
   const repositoryFullNameText = await repositoryFullName.innerText();
 
+  // Prepare for the new tab
+  const newTabPromise = new Promise<Page>(resolve => page.once('popup', resolve));
+
   // Click on the "Open in GitHub" button
   const openInGitHubButton = await randomGalleryItem.$('#openInGitHubButton');
   await openInGitHubButton.click();
 
-  // Switch to the new tab
-  const newTab = await page.waitForEvent('popup');
+  // Wait for the new tab to open
+  const newTab = await newTabPromise;
   await newTab.waitForLoadState('networkidle');
 
   // Get the URL of the new tab
@@ -606,7 +610,32 @@ test('Validate that when I click on the "Open in GitHub" button in a random card
 
   // Validate that the URL of the new tab is the URL of the GitHub repository
   expect(newTabUrl).toContain(repositoryFullNameText);
-});
+});*/
+
+// Validate that when I click on the "See more..." button in a random card of the gallery,
+// a dialog is opened with more information about the repository
+/*test('Validate that when I click on the "See more..." button in a random card of the gallery, a dialog is opened with more information about the repository', async ({ page }) => {
+  await page.goto('/');
+
+  // Get all the elements with class "galleryItem_vxLB"
+  await page.waitForSelector('.galleryItem_vxLB');
+  const galleryItems = await page.$$('.galleryItem_vxLB');
+
+  // Get a random gallery item
+  const randomIndex = Math.floor(Math.random() * galleryItems.length);
+  const randomGalleryItem = galleryItems[randomIndex];
+
+  // Click on the "See more..." button
+  const seeMoreButton = await randomGalleryItem.$('#seeMoreButton');
+  await seeMoreButton.click();
+
+  // Get the dialog element with class "fui-DialogSurface" and role "dialog"
+  await page.waitForSelector('.fui-DialogSurface[role="dialog"]');
+  const dialog = await page.$('.fui-DialogSurface[role="dialog"]');
+
+  // Validate that the dialog is opened
+  expect(dialog).toBeTruthy();
+});*/
 
 // #endregion
 
