@@ -98,7 +98,7 @@
       "name": "Other",
       "url": "https://github.com/microsoft/.github/blob/main/CODE_OF_CONDUCT.md"
     },
-    "forkCount": 1601,
+    "forkCount": 1602,
     "fundingLinks": [],
     "isSecurityPolicyEnabled": true,
     "isTemplate": false,
@@ -163,7 +163,7 @@
       "url": "https://api.github.com/licenses/mit"
     },
     "name": "Microsoft365DSC",
-    "openIssuesCount": 301,
+    "openIssuesCount": 302,
     "owner": {
       "id": "MDEyOk9yZ2FuaXphdGlvbjYxNTQ3MjI=",
       "is_bot": false,
@@ -178,7 +178,7 @@
       "name": "Contributor Covenant",
       "url": "https://github.com/microsoft/Microsoft365DSC/blob/Dev/CODE_OF_CONDUCT.md"
     },
-    "forkCount": 430,
+    "forkCount": 431,
     "fundingLinks": [],
     "isSecurityPolicyEnabled": true,
     "isTemplate": false,
@@ -244,7 +244,7 @@
       "url": "https://api.github.com/licenses/mit"
     },
     "name": "PowerPlatformConnectors",
-    "openIssuesCount": 191,
+    "openIssuesCount": 190,
     "owner": {
       "id": "MDEyOk9yZ2FuaXphdGlvbjYxNTQ3MjI=",
       "is_bot": false,
@@ -259,7 +259,7 @@
       "name": "Other",
       "url": "https://github.com/microsoft/.github/blob/main/CODE_OF_CONDUCT.md"
     },
-    "forkCount": 1178,
+    "forkCount": 1179,
     "fundingLinks": [],
     "isSecurityPolicyEnabled": true,
     "isTemplate": false,
@@ -778,7 +778,7 @@
       "name": "Other",
       "url": "https://github.com/pnp/powerapps-samples/blob/main/CODE_OF_CONDUCT.md"
     },
-    "forkCount": 271,
+    "forkCount": 273,
     "fundingLinks": [],
     "isSecurityPolicyEnabled": true,
     "isTemplate": false,
@@ -1175,7 +1175,7 @@
       "name": "Other",
       "url": "https://github.com/microsoft/powercat-creator-kit/blob/main/CODE_OF_CONDUCT.md"
     },
-    "forkCount": 40,
+    "forkCount": 41,
     "fundingLinks": [],
     "isSecurityPolicyEnabled": true,
     "isTemplate": false,
@@ -1490,7 +1490,7 @@
       "url": "https://api.github.com/licenses/mit"
     },
     "name": "microsoft-teams-apps-requestateam",
-    "openIssuesCount": 133,
+    "openIssuesCount": 134,
     "owner": {
       "id": "MDEyOk9yZ2FuaXphdGlvbjY3ODkzNjI=",
       "is_bot": false,
@@ -1805,7 +1805,7 @@
       "url": "https://api.github.com/licenses/mit"
     },
     "name": "powerplatform-vscode",
-    "openIssuesCount": 56,
+    "openIssuesCount": 57,
     "owner": {
       "id": "MDEyOk9yZ2FuaXphdGlvbjYxNTQ3MjI=",
       "is_bot": false,
@@ -2008,7 +2008,7 @@
     "updatedAt": "2024-02-08T10:38:13Z",
     "url": "https://github.com/pnp/powerapps-designtoolkit",
     "codeOfConduct": null,
-    "forkCount": 33,
+    "forkCount": 34,
     "fundingLinks": [],
     "isSecurityPolicyEnabled": false,
     "isTemplate": false,
@@ -2161,7 +2161,7 @@
       "url": "https://api.github.com/licenses/mit"
     },
     "name": "powerplatform-build-tools",
-    "openIssuesCount": 62,
+    "openIssuesCount": 63,
     "owner": {
       "id": "MDEyOk9yZ2FuaXphdGlvbjYxNTQ3MjI=",
       "is_bot": false,
@@ -2240,7 +2240,7 @@
     "updatedAt": "2024-01-09T11:22:10Z",
     "url": "https://github.com/PowerPlatformAF/PowerPlatformAF",
     "codeOfConduct": null,
-    "forkCount": 16,
+    "forkCount": 17,
     "fundingLinks": [],
     "isSecurityPolicyEnabled": false,
     "isTemplate": false,
@@ -2597,7 +2597,7 @@
     "updatedAt": "2024-02-08T23:52:31Z",
     "url": "https://github.com/mscerts/hub",
     "codeOfConduct": null,
-    "forkCount": 16,
+    "forkCount": 17,
     "fundingLinks": [],
     "isSecurityPolicyEnabled": false,
     "isTemplate": false,
@@ -2747,6 +2747,73 @@
     "popularityScore": 113
   },
   {
+    "createdAt": "2021-06-10T14:08:58Z",
+    "description": "ProvisionGenie 🧞 is an open-source project by Luise Freese & Carmen Ysewijn. We provision Microsoft Teams teams with channels, additional libraries, lists, and more. We educate users to make better decisions and work in Teams like it is intended to be used.",
+    "fullName": "ProvisionGenie/ProvisionGenie",
+    "hasIssues": true,
+    "homepage": "https://www.ProvisionGenie.com",
+    "isArchived": false,
+    "language": "Bicep",
+    "license": {
+      "key": "mit",
+      "name": "MIT License",
+      "url": "https://api.github.com/licenses/mit"
+    },
+    "name": "ProvisionGenie",
+    "openIssuesCount": 10,
+    "owner": {
+      "id": "MDEyOk9yZ2FuaXphdGlvbjg1Njg1MDMz",
+      "is_bot": false,
+      "login": "ProvisionGenie",
+      "type": "Organization",
+      "url": "https://github.com/ProvisionGenie"
+    },
+    "updatedAt": "2024-02-09T18:36:05Z",
+    "url": "https://github.com/ProvisionGenie/ProvisionGenie",
+    "codeOfConduct": {
+      "key": "contributor_covenant",
+      "name": "Contributor Covenant",
+      "url": "https://github.com/ProvisionGenie/ProvisionGenie/blob/main/CODE_OF_CONDUCT.md"
+    },
+    "forkCount": 36,
+    "fundingLinks": [],
+    "isSecurityPolicyEnabled": false,
+    "isTemplate": false,
+    "latestRelease": {
+      "name": "v3.0.0",
+      "tagName": "v3.0.0",
+      "url": "https://github.com/ProvisionGenie/ProvisionGenie/releases/tag/v3.0.0",
+      "publishedAt": "2022-04-08T15:24:52Z"
+    },
+    "primaryLanguage": {
+      "name": "Bicep"
+    },
+    "securityPolicyUrl": "",
+    "stargazerCount": 99,
+    "watchers": {
+      "totalCount": 6
+    },
+    "topics": [
+      "microsoftteams",
+      "powerplatform",
+      "logicapps",
+      "microsoft-teams",
+      "azure",
+      "microsoft",
+      "hacktoberfest"
+    ],
+    "languages": [
+      "Bicep",
+      "PowerShell"
+    ],
+    "openedGoodFirstIssues": 2,
+    "hasGoodFirstIssues": true,
+    "openedHelpWantedIssues": 3,
+    "hasHelpWantedIssues": true,
+    "openedToContributionsIssues": 5,
+    "popularityScore": 105
+  },
+  {
     "createdAt": "2021-02-24T21:49:48Z",
     "description": "This repository contains samples for Power Fx low-code programming language https://github.com/microsoft/Power-Fx",
     "fullName": "pnp/powerfx-samples",
@@ -2798,73 +2865,6 @@
     "hasHelpWantedIssues": false,
     "openedToContributionsIssues": 0,
     "popularityScore": 126
-  },
-  {
-    "createdAt": "2021-06-10T14:08:58Z",
-    "description": "ProvisionGenie 🧞 is an open-source project by Luise Freese & Carmen Ysewijn. We provision Microsoft Teams teams with channels, additional libraries, lists, and more. We educate users to make better decisions and work in Teams like it is intended to be used.",
-    "fullName": "ProvisionGenie/ProvisionGenie",
-    "hasIssues": true,
-    "homepage": "https://www.ProvisionGenie.com",
-    "isArchived": false,
-    "language": "Bicep",
-    "license": {
-      "key": "mit",
-      "name": "MIT License",
-      "url": "https://api.github.com/licenses/mit"
-    },
-    "name": "ProvisionGenie",
-    "openIssuesCount": 10,
-    "owner": {
-      "id": "MDEyOk9yZ2FuaXphdGlvbjg1Njg1MDMz",
-      "is_bot": false,
-      "login": "ProvisionGenie",
-      "type": "Organization",
-      "url": "https://github.com/ProvisionGenie"
-    },
-    "updatedAt": "2024-01-12T09:13:34Z",
-    "url": "https://github.com/ProvisionGenie/ProvisionGenie",
-    "codeOfConduct": {
-      "key": "contributor_covenant",
-      "name": "Contributor Covenant",
-      "url": "https://github.com/ProvisionGenie/ProvisionGenie/blob/main/CODE_OF_CONDUCT.md"
-    },
-    "forkCount": 36,
-    "fundingLinks": [],
-    "isSecurityPolicyEnabled": false,
-    "isTemplate": false,
-    "latestRelease": {
-      "name": "v3.0.0",
-      "tagName": "v3.0.0",
-      "url": "https://github.com/ProvisionGenie/ProvisionGenie/releases/tag/v3.0.0",
-      "publishedAt": "2022-04-08T15:24:52Z"
-    },
-    "primaryLanguage": {
-      "name": "Bicep"
-    },
-    "securityPolicyUrl": "",
-    "stargazerCount": 98,
-    "watchers": {
-      "totalCount": 6
-    },
-    "topics": [
-      "microsoftteams",
-      "powerplatform",
-      "logicapps",
-      "microsoft-teams",
-      "azure",
-      "microsoft",
-      "hacktoberfest"
-    ],
-    "languages": [
-      "Bicep",
-      "PowerShell"
-    ],
-    "openedGoodFirstIssues": 2,
-    "hasGoodFirstIssues": true,
-    "openedHelpWantedIssues": 3,
-    "hasHelpWantedIssues": true,
-    "openedToContributionsIssues": 5,
-    "popularityScore": 104
   },
   {
     "createdAt": "2016-10-14T17:43:27Z",
@@ -3026,7 +3026,7 @@
       "type": "User",
       "url": "https://github.com/GuidoPreite"
     },
-    "updatedAt": "2024-02-07T12:29:52Z",
+    "updatedAt": "2024-02-09T16:12:06Z",
     "url": "https://github.com/GuidoPreite/DRB",
     "codeOfConduct": null,
     "forkCount": 12,
@@ -3043,7 +3043,7 @@
       "name": "JavaScript"
     },
     "securityPolicyUrl": "",
-    "stargazerCount": 91,
+    "stargazerCount": 92,
     "watchers": {
       "totalCount": 6
     },
@@ -3067,7 +3067,7 @@
     "openedHelpWantedIssues": 0,
     "hasHelpWantedIssues": false,
     "openedToContributionsIssues": 0,
-    "popularityScore": 97
+    "popularityScore": 98
   },
   {
     "createdAt": "2017-04-04T00:58:26Z",
@@ -6074,6 +6074,80 @@
     "popularityScore": 36
   },
   {
+    "createdAt": "2022-08-03T14:35:12Z",
+    "description": "One downloader for many scientific data and code repositories! DOI:open_hands:Data",
+    "fullName": "J535D165/datahugger",
+    "hasIssues": true,
+    "homepage": "https://J535D165.github.io/datahugger/",
+    "isArchived": false,
+    "language": "Python",
+    "license": {
+      "key": "mit",
+      "name": "MIT License",
+      "url": "https://api.github.com/licenses/mit"
+    },
+    "name": "datahugger",
+    "openIssuesCount": 7,
+    "owner": {
+      "id": "MDQ6VXNlcjEyOTgxMTM5",
+      "is_bot": false,
+      "login": "J535D165",
+      "type": "User",
+      "url": "https://github.com/J535D165"
+    },
+    "updatedAt": "2024-02-09T23:40:00Z",
+    "url": "https://github.com/J535D165/datahugger",
+    "codeOfConduct": null,
+    "forkCount": 7,
+    "fundingLinks": [],
+    "isSecurityPolicyEnabled": false,
+    "isTemplate": false,
+    "latestRelease": {
+      "name": "v0.10.4",
+      "tagName": "v0.10.4",
+      "url": "https://github.com/J535D165/datahugger/releases/tag/v0.10.4",
+      "publishedAt": "2023-10-30T09:36:56Z"
+    },
+    "primaryLanguage": {
+      "name": "Python"
+    },
+    "securityPolicyUrl": "",
+    "stargazerCount": 30,
+    "watchers": {
+      "totalCount": 2
+    },
+    "topics": [
+      "scientific",
+      "scientific-data",
+      "cli",
+      "data",
+      "dataverse",
+      "dryad",
+      "figshare",
+      "github",
+      "python",
+      "repository",
+      "research",
+      "research-data-management",
+      "science",
+      "utrecht-university",
+      "zenodo",
+      "datacite",
+      "dataone",
+      "mendeley-data",
+      "rdm"
+    ],
+    "languages": [
+      "Python"
+    ],
+    "openedGoodFirstIssues": 0,
+    "hasGoodFirstIssues": false,
+    "openedHelpWantedIssues": 1,
+    "hasHelpWantedIssues": true,
+    "openedToContributionsIssues": 1,
+    "popularityScore": 32
+  },
+  {
     "createdAt": "2022-10-06T00:17:46Z",
     "description": "Run #PowerApps as native desktop apps with this PWA conversion kit",
     "fullName": "Feincraft/PowerProgressive",
@@ -6179,80 +6253,6 @@
     "hasHelpWantedIssues": false,
     "openedToContributionsIssues": 0,
     "popularityScore": 33
-  },
-  {
-    "createdAt": "2022-08-03T14:35:12Z",
-    "description": "One downloader for many scientific data and code repositories! DOI:open_hands:Data",
-    "fullName": "J535D165/datahugger",
-    "hasIssues": true,
-    "homepage": "https://J535D165.github.io/datahugger/",
-    "isArchived": false,
-    "language": "Python",
-    "license": {
-      "key": "mit",
-      "name": "MIT License",
-      "url": "https://api.github.com/licenses/mit"
-    },
-    "name": "datahugger",
-    "openIssuesCount": 7,
-    "owner": {
-      "id": "MDQ6VXNlcjEyOTgxMTM5",
-      "is_bot": false,
-      "login": "J535D165",
-      "type": "User",
-      "url": "https://github.com/J535D165"
-    },
-    "updatedAt": "2024-02-05T22:42:25Z",
-    "url": "https://github.com/J535D165/datahugger",
-    "codeOfConduct": null,
-    "forkCount": 7,
-    "fundingLinks": [],
-    "isSecurityPolicyEnabled": false,
-    "isTemplate": false,
-    "latestRelease": {
-      "name": "v0.10.4",
-      "tagName": "v0.10.4",
-      "url": "https://github.com/J535D165/datahugger/releases/tag/v0.10.4",
-      "publishedAt": "2023-10-30T09:36:56Z"
-    },
-    "primaryLanguage": {
-      "name": "Python"
-    },
-    "securityPolicyUrl": "",
-    "stargazerCount": 29,
-    "watchers": {
-      "totalCount": 2
-    },
-    "topics": [
-      "scientific",
-      "scientific-data",
-      "cli",
-      "data",
-      "dataverse",
-      "dryad",
-      "figshare",
-      "github",
-      "python",
-      "repository",
-      "research",
-      "research-data-management",
-      "science",
-      "utrecht-university",
-      "zenodo",
-      "datacite",
-      "dataone",
-      "mendeley-data",
-      "rdm"
-    ],
-    "languages": [
-      "Python"
-    ],
-    "openedGoodFirstIssues": 0,
-    "hasGoodFirstIssues": false,
-    "openedHelpWantedIssues": 1,
-    "hasHelpWantedIssues": true,
-    "openedToContributionsIssues": 1,
-    "popularityScore": 31
   },
   {
     "createdAt": "2018-05-08T06:56:56Z",
@@ -7960,7 +7960,7 @@
     "updatedAt": "2024-01-17T17:12:47Z",
     "url": "https://github.com/ferrybouwman/Power-BI-Read-Only-REST-API",
     "codeOfConduct": null,
-    "forkCount": 6,
+    "forkCount": 7,
     "fundingLinks": [],
     "isSecurityPolicyEnabled": false,
     "isTemplate": false,
@@ -8261,7 +8261,7 @@
     "hasIssues": false,
     "homepage": "https://rpothin.github.io/PowerPlatform-OpenSource-Hub/",
     "isArchived": false,
-    "language": "PowerShell",
+    "language": "TypeScript",
     "license": {
       "key": "mit",
       "name": "MIT License",
@@ -8276,7 +8276,7 @@
       "type": "User",
       "url": "https://github.com/rpothin"
     },
-    "updatedAt": "2024-01-19T08:17:43Z",
+    "updatedAt": "2024-02-10T03:44:07Z",
     "url": "https://github.com/rpothin/PowerPlatform-OpenSource-Hub",
     "codeOfConduct": {
       "key": "contributor_covenant",
@@ -8289,7 +8289,7 @@
     "isTemplate": false,
     "latestRelease": null,
     "primaryLanguage": {
-      "name": "PowerShell"
+      "name": "TypeScript"
     },
     "securityPolicyUrl": "",
     "stargazerCount": 16,
@@ -8301,8 +8301,8 @@
       "dynamics365"
     ],
     "languages": [
-      "PowerShell",
       "TypeScript",
+      "PowerShell",
       "CSS",
       "MDX",
       "JavaScript"
@@ -10980,7 +10980,7 @@
       "url": "https://api.github.com/licenses/mit"
     },
     "name": "xperience-dynamics365-sales",
-    "openIssuesCount": 1,
+    "openIssuesCount": 0,
     "owner": {
       "id": "MDEyOk9yZ2FuaXphdGlvbjQ3MzQ5NzUx",
       "is_bot": false,
