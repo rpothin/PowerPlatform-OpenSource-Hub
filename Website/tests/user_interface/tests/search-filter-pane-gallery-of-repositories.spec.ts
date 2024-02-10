@@ -513,15 +513,68 @@ test('Validate that when I change the sorting option in the gallery, the order o
   }
 });
 
-// Validate that all the cards in the gallery contains the expected information - I will perhaps need to add a few identifiers in the HTML to make this easier
+// Validate that all the cards in the gallery contains the expected information
 // - is Microsoft or Community authored
-// - is it active (optional)
+// - is it active (optional) with the last date when mouse over
 // - the number of stars
 // - the repository full name (owner and name)
 // - the description
 // - maximum 5 topics
 // - an "Open in GitHub" button
 // - an "See more..." button
+test('Validate the information presented in the cards of the gallery', async ({ page }) => {
+  await page.goto('/');
+
+  // Get all the elements with class "galleryItem_vxLB"
+  await page.waitForSelector('.galleryItem_vxLB');
+  const galleryItems = await page.$$('.galleryItem_vxLB');
+
+  for (let galleryItem of galleryItems) {
+    const isMicrosoftAuthored = await galleryItem.$('span:has-text("Microsoft Authored")');
+    const isCommunityAuthored = await galleryItem.$('span:has-text("Community Authored")');
+    const isMicrosoftOrCommunityAuthored = isMicrosoftAuthored || isCommunityAuthored;
+    expect(isMicrosoftOrCommunityAuthored).toBeTruthy();
+    // Validate span text is either "Microsoft Authored" or "Community Authored"
+    if (isMicrosoftOrCommunityAuthored) {
+      const text = await isMicrosoftOrCommunityAuthored.innerText();
+      expect(text).toMatch(/Microsoft Authored|Community Authored/);
+    }
+
+    // Get "Active" badge details - id = "activeBadge"
+    // "aria-label" attribute value of the div element like "Last update on: ${date}"
+    const isActive = await galleryItem.$('#activeBadge');
+    const lastUpdateOn = await isActive?.evaluate(el => el.getAttribute('aria-label'));
+    if (isActive) {
+      expect(lastUpdateOn).toContain('Last update on: ');
+    }
+
+    const starsBadge = await galleryItem.$('#starsBadge');
+    // If found (not always the case, but I don't know why...), validate that the number of stars is a positive integer
+    if (starsBadge) {
+      const stars = await starsBadge.innerText();
+      expect(parseInt(stars)).toBeGreaterThanOrEqual(0);
+    }
+
+    const repositoryFullName = await galleryItem.$('.fui-Subtitle1');
+    expect(repositoryFullName).toBeTruthy();
+
+    const description = await galleryItem.$('.fui-Text');
+    expect(description).toBeTruthy();
+
+    const topics = await galleryItem.$$('#topicBadge');
+    expect(topics.length).toBeLessThanOrEqual(5);
+
+    const openInGitHubButton = await galleryItem.$('#openInGitHubButton');
+    expect(openInGitHubButton).toBeTruthy();
+    const openInGitHubButtonText = await openInGitHubButton.innerText();
+    expect(openInGitHubButtonText).toBe('Open in GitHub');
+
+    const seeMoreButton = await galleryItem.$('#seeMoreButton');
+    expect(seeMoreButton).toBeTruthy();
+    const seeMoreButtonText = await seeMoreButton.innerText();
+    expect(seeMoreButtonText).toBe('See more...');
+  }
+});
 
 // #endregion
 

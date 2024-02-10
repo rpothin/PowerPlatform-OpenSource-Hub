@@ -194,13 +194,13 @@ const Gallery = ({ items, hasGoodFirstIssueChecked, hasHelpWantedIssueChecked, h
 
                         <div style={{ display: 'flex', flexWrap: 'wrap' }}>
                             {item.topics.slice(0, 5).map((topic, index) => (
-                                <Badge appearance="outline" key={index} style={{ marginRight: '2px', marginBottom: '2px' }}>{topic}</Badge>
+                                <Badge id="topicBadge" appearance="outline" key={index} style={{ marginRight: '2px', marginBottom: '2px' }}>{topic}</Badge>
                             ))}
                         </div>
 
                         <CardFooter className={styles.cardFooter}>
-                            <Button icon={<OpenRegular fontSize={16} />} onClick={() => openInGitHub(item.url)}>Open in GitHub</Button>
-                            <Button icon={<ArrowExpand16Regular fontSize={16} />} onClick={() => openDialog(item)}>See more...</Button>
+                            <Button id="openInGitHubButton" icon={<OpenRegular fontSize={16} />} onClick={() => openInGitHub(item.url)}>Open in GitHub</Button>
+                            <Button id="seeMoreButton" icon={<ArrowExpand16Regular fontSize={16} />} onClick={() => openDialog(item)}>See more...</Button>
                         </CardFooter>
                     </Card>
                 ))}
