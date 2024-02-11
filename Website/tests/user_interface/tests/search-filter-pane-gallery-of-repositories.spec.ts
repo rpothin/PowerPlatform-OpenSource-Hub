@@ -603,7 +603,6 @@ test('Validate that when I click on the "Open in GitHub" button in a random card
 
   // Wait for the new tab to open
   const newTab = await newTabPromise;
-  console.log(await newTab.evaluate('location.href'));
 
   // Get the URL of the new tab
   const newTabUrl = newTab.url();
@@ -614,7 +613,7 @@ test('Validate that when I click on the "Open in GitHub" button in a random card
 
 // Validate that when I click on the "See more..." button in a random card of the gallery,
 // a dialog is opened with more information about the repository
-/*test('Validate that when I click on the "See more..." button in a random card of the gallery, a dialog is opened with more information about the repository', async ({ page }) => {
+test('Validate that when I click on the "See more..." button in a random card of the gallery, a dialog is opened with more information about the repository', async ({ page }) => {
   await page.goto('/');
 
   // Get all the elements with class "galleryItem_vxLB"
@@ -630,12 +629,112 @@ test('Validate that when I click on the "Open in GitHub" button in a random card
   await seeMoreButton.click();
 
   // Get the dialog element with class "fui-DialogSurface" and role "dialog"
-  await page.waitForSelector('.fui-DialogSurface[role="dialog"]');
   const dialog = await page.$('.fui-DialogSurface[role="dialog"]');
 
   // Validate that the dialog is opened
   expect(dialog).toBeTruthy();
-});*/
+
+  // Validate that the information below are present in the dialog
+  // - the repository full name
+  // - the description
+  // - is it active (optional) with the last date when mouse over
+  // - the number of stars
+  // - the number of watchers
+  // - the badges for all the topics
+  // - the license
+  // - the count of good first issues
+  // - the count of help wanted issues
+  // - the main language
+  // - the latest release tag and date if available
+  const dialogTitle = await dialog.$('.fui-DialogTitle');
+  const dialogTitleText = await dialogTitle.innerText();
+  const repositoryFullNameText = dialogTitleText[0];
+  expect(repositoryFullNameText).toBeTruthy();
+
+  const description = await dialog.$('.fui-Text');
+  expect(description).toBeTruthy();
+
+  const isActive = await dialog.$('#activeBadge');
+  const lastUpdateOn = await isActive?.evaluate(el => el.getAttribute('aria-label'));
+  if (isActive) {
+    expect(lastUpdateOn).toContain('Last update on: ');
+  }
+
+  const starsBadge = await dialog.$('#starsBadge');
+  if (starsBadge) {
+    const stars = await starsBadge.innerText();
+    expect(parseInt(stars)).toBeGreaterThanOrEqual(0);
+  }
+
+  const watchersBadge = await dialog.$('#watchersBadge');
+  if (watchersBadge) {
+    const watchers = await watchersBadge.innerText();
+    expect(parseInt(watchers)).toBeGreaterThanOrEqual(0);
+  }
+
+  const topics = await dialog.$$('#topicBadge');
+  expect(topics.length).toBeGreaterThanOrEqual(0);
+
+  const licenseBadge = await dialog.$('#licenseBadge');
+  if (licenseBadge) {
+    const licenseText = await licenseBadge.innerText();
+    expect(licenseText.startsWith('License: ')).toBeTruthy();
+  }
+
+  const goodFirstIssuesBadge = await dialog.$('#goodFirstIssuesBadge');
+  if (goodFirstIssuesBadge) {
+    const goodFirstIssuesText = await goodFirstIssuesBadge.innerText();
+    const goodFirstIssues = parseInt(goodFirstIssuesText.replace('Good 1st Issues: ', ''));
+    expect(goodFirstIssues).toBeGreaterThanOrEqual(0);
+  }
+
+  const helpWantedIssuesBadge = await dialog.$('#helpWantedIssuesBadge');
+  if (helpWantedIssuesBadge) {
+    const helpWantedIssuesText = await helpWantedIssuesBadge.innerText();
+    const helpWantedIssues = parseInt(helpWantedIssuesText.substring("Help Wanted Issues: ".length));
+    expect(helpWantedIssues).toBeGreaterThanOrEqual(0);
+  }
+
+  const mainLanguageBadge = await dialog.$('#mainLanguageBadge');
+  if (mainLanguageBadge) {
+    const mainLanguageText = await mainLanguageBadge.innerText();
+    expect(mainLanguageText.startsWith('Language: ')).toBeTruthy();
+  }
+
+  const latestReleaseBadge = await dialog.$('#latestReleaseBadge');
+  if (latestReleaseBadge) {
+    const latestRelease = await latestReleaseBadge.innerText();
+    expect(latestRelease).toMatch(/^Latest Release: [\w.-]+ \(\d{4}-\d{2}-\d{2}\)$/);
+  }
+
+  // Validate that clicking on the "Open in GitHub" button in the dialog opens the corresponding GitHub repository in a new tab
+  // Prepare for the new tab
+  const newTabPromise = page.waitForEvent('popup');
+
+  // Click on the "Open in GitHub" button
+  const openInGitHubButton = await dialog.$('#openInGitHubButton');
+  await openInGitHubButton.click();
+
+  // Wait for the new tab to open
+  const newTab = await newTabPromise;
+
+  // Get the URL of the new tab
+  const newTabUrl = newTab.url();
+
+  // Validate that the URL of the new tab is the URL of the GitHub repository
+  expect(newTabUrl).toContain(repositoryFullNameText);
+
+  // In the main tab, in the dialog, click on the "Close" button and validate that the dialog is closed
+  const closeButton = await dialog.$('#closeButton');
+  await closeButton.click();
+  
+  // Wait for the dialog to disappear
+  await page.waitForFunction(() => !document.querySelector('.fui-DialogSurface[role="dialog"]'));
+
+  // Validate that the dialog is closed
+  const dialogAfterClose = await page.$('.fui-DialogSurface[role="dialog"]');
+  expect(dialogAfterClose).toBeFalsy();
+});
 
 // #endregion
 

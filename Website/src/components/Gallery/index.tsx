@@ -214,11 +214,11 @@ const Gallery = ({ items, hasGoodFirstIssueChecked, hasHelpWantedIssueChecked, h
                             <div style={{ display: 'flex', gap: '5px', flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}>
                                 {isActive(selectedItem?.updatedAt) && 
                                     <Tooltip content={`Last update on: ${format(new Date(selectedItem?.updatedAt), 'yyyy-MM-dd')}`} relationship={'label'}>
-                                        <Badge appearance="outline" style={{ marginRight: '5px' }}>🔥 Active</Badge>
+                                        <Badge id="activeBadge" appearance="outline" style={{ marginRight: '5px' }}>🔥 Active</Badge>
                                     </Tooltip>
                                 }
-                                <Badge appearance="filled" color="warning" icon={<Star16Filled />}>{selectedItem?.stargazerCount}</Badge>
-                                <Badge appearance="outline" icon={<Eye16Filled />}>{selectedItem?.watchers.totalCount}</Badge>
+                                <Badge id="starsBadge" appearance="filled" color="warning" icon={<Star16Filled />}>{selectedItem?.stargazerCount}</Badge>
+                                <Badge id="watchersBadge" appearance="outline" icon={<Eye16Filled />}>{selectedItem?.watchers.totalCount}</Badge>
                                 <DialogTrigger action="close">
                                     <Button
                                         appearance="subtle"
@@ -237,28 +237,28 @@ const Gallery = ({ items, hasGoodFirstIssueChecked, hasHelpWantedIssueChecked, h
                                     </Text>
                                     <div style={{ marginTop: '10px', display: 'flex', flexWrap: 'wrap', flexDirection: 'column' }}>
                                         {selectedItem?.license.name && (
-                                            <Badge appearance="tint" style={{ marginBottom: '4px' }}>License: {selectedItem?.license.name}</Badge>
+                                            <Badge id="licenseBadge" appearance="tint" style={{ marginBottom: '4px' }}>License: {selectedItem?.license.name}</Badge>
                                         )}
-                                        <Badge appearance="tint" style={{ marginBottom: '4px' }}>Good 1st Issues: {selectedItem?.openedGoodFirstIssues}</Badge>
-                                        <Badge appearance="tint" style={{ marginBottom: '4px' }}>Help Wanted Issues: {selectedItem?.openedHelpWantedIssues}</Badge>
+                                        <Badge id="goodFirstIssuesBadge" appearance="tint" style={{ marginBottom: '4px' }}>Good 1st Issues: {selectedItem?.openedGoodFirstIssues}</Badge>
+                                        <Badge id="helpWantedIssuesBadge" appearance="tint" style={{ marginBottom: '4px' }}>Help Wanted Issues: {selectedItem?.openedHelpWantedIssues}</Badge>
                                         {selectedItem?.language && (
-                                            <Badge appearance="tint" style={{ marginBottom: '4px' }}>Language: {selectedItem?.language}</Badge>
+                                            <Badge id="mainLanguageBadge" appearance="tint" style={{ marginBottom: '4px' }}>Language: {selectedItem?.language}</Badge>
                                         )}
                                         {selectedItem?.latestRelease && (
-                                            <Badge appearance="tint" style={{ marginBottom: '4px' }}>Latest Release: {selectedItem?.latestRelease.tagName} ({format(new Date(selectedItem?.latestRelease.publishedAt), 'yyyy-MM-dd')})</Badge>
+                                            <Badge id="latestReleaseBadge" appearance="tint" style={{ marginBottom: '4px' }}>Latest Release: {selectedItem?.latestRelease.tagName} ({format(new Date(selectedItem?.latestRelease.publishedAt), 'yyyy-MM-dd')})</Badge>
                                         )}
                                     </div>
                                 </div>
                                 <div style={{ display: 'flex', flexWrap: 'wrap' }}>
                                     {selectedItem?.topics.map((topic, index) => (
-                                        <Badge appearance="outline" key={index} style={{ marginRight: '2px', marginBottom: '1px' }}>{topic}</Badge>
+                                        <Badge id="topicBadge" appearance="outline" key={index} style={{ marginRight: '2px', marginBottom: '1px' }}>{topic}</Badge>
                                     ))}
                                 </div>
                             </DialogBody>
                         </DialogContent>
                         <DialogActions>
-                            <Button appearance="secondary" onClick={closeDialog}>Close</Button>
-                            <Button appearance="primary" onClick={() => openInGitHub(selectedItem?.url)}>Open in GitHub</Button>
+                            <Button id="closeButton" appearance="secondary" onClick={closeDialog}>Close</Button>
+                            <Button id="openInGitHubButton" appearance="primary" onClick={() => openInGitHub(selectedItem?.url)}>Open in GitHub</Button>
                         </DialogActions>
                     </DialogSurface>
                 </Dialog>
