@@ -102,13 +102,17 @@ const config: Config = {
           to: "https://azure.github.io/awesome-azd/",
         },
         {
-          label: "Built With Docusaurus",
+          label: "Built with Docusaurus",
           to: "https://docusaurus.io",
+        },
+        {
+          label: `Monitored with Microsoft Clarity`,
+          to: "https://learn.microsoft.com/en-us/clarity/faq#privacy",
         },
         {
           label: `Copyright © ${new Date().getFullYear()} Raphael Pothin`,
           to: "https://github.com/rpothin/",
-        }
+        },
       ],
     },
     prism: {
