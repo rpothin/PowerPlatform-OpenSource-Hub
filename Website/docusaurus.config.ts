@@ -31,26 +31,22 @@ const config: Config = {
 
   presets: [
     [
-      'classic',
+      '@docusaurus/preset-classic',
       {
         docs: {
-          sidebarPath: './sidebars.ts',
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
+          sidebarPath: require.resolve('./sidebars.js'),
           editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+            'https://github.com/rpothin/PowerPlatform-OpenSource-Hub/edit/main/Website/',
         },
         blog: {
           showReadingTime: true,
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+            'https://github.com/rpothin/PowerPlatform-OpenSource-Hub/edit/main/website/blog/',
         },
         theme: {
-          customCss: './src/css/custom.css',
+          customCss: require.resolve('./src/css/custom.css'),
         },
-      } satisfies Preset.Options,
+      },
     ],
   ],
 
@@ -76,17 +72,17 @@ const config: Config = {
     navbar: {
       title: 'PP OSS Hub',
       logo: {
-        alt: 'My Site Logo',
+        alt: 'Power Platform Open-Source Hub Logo',
         src: 'img/PowerPlatform_scalable.svg',
       },
       items: [
-        /*{
+        {
           type: 'docSidebar',
           sidebarId: 'tutorialSidebar',
           position: 'left',
-          label: 'Tutorial',
+          label: 'Documentation',
         },
-        {to: '/blog', label: 'Blog', position: 'left'},*/
+        /*{to: '/blog', label: 'Blog', position: 'left'},*/
         {
           href: 'https://github.com/rpothin/PowerPlatform-OpenSource-Hub',
           label: 'GitHub',

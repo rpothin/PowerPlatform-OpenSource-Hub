@@ -2,46 +2,42 @@
 sidebar_position: 1
 ---
 
-# Tutorial Intro
+# Power Platform Open-Source Hub Presentation
 
-Let's discover **Docusaurus in less than 5 minutes**.
+Accross this section, you will discover a bit more about the Power Platform Open-Source Hub initiative.
 
-## Getting Started
+## Why this initiative?
 
-Get started by **creating a new site**.
+During the summer of 2023, I was looking to contribute to open-source projects around Power Platform, but I couldn't find a centralized place that simplified this process or provided assistance.
 
-Or **try Docusaurus immediately** with **[docusaurus.new](https://docusaurus.new)**.
+This lack of resources and support inspired me to start the Power Platform Open-Source Hub initiative.
 
-### What you'll need
+## The main objective
 
-- [Node.js](https://nodejs.org/en/download/) version 18.0 or above:
-  - When installing Node.js, you are recommended to check all checkboxes related to dependencies.
+The goal of this initiative is to create a platform that not only simplifies the process of contributing to open-source projects related to Power Platform but also provides guidance and support to individuals like myself who are passionate about making a difference in this space.
 
-## Generate a new site
+## How it works
 
-Generate a new Docusaurus site using the **classic template**.
+In the backend (_the GitHub repository behind this website_), GitHub workflows monitoring the topics below are used to maintain a list of open-source projects related to Power Platform.
 
-The classic template will automatically be added to your project after you run the command:
+<div align='center'>
+  <img alt='powerplatform Badge' src='https://img.shields.io/badge/powerplatform-DAAD44' />
+  <img alt='power-platform Badge' src='https://img.shields.io/badge/power--platform-7CE563' />
+  <img alt='powerapps Badge' src='https://img.shields.io/badge/powerapps-08EE31' />
+  <img alt='power-apps Badge' src='https://img.shields.io/badge/power--apps-C484E1' />
+  <img alt='powerautomate Badge' src='https://img.shields.io/badge/powerautomate-5E497C' />
+  <img alt='power-automate Badge' src='https://img.shields.io/badge/power--automate-F7EA82' />
+  <img alt='powervirtualagent Badge' src='https://img.shields.io/badge/powervirtualagent-AE6097' />
+  <img alt='power-virtual-agent Badge' src='https://img.shields.io/badge/power--virtual--agent-34ECEE' />
+  <img alt='dataverse Badge' src='https://img.shields.io/badge/dataverse-6BBAFD' />
+  <img alt='microsoft-dataverse Badge' src='https://img.shields.io/badge/microsoft--dataverse-AD54B6' />
+  <img alt='powerfx Badge' src='https://img.shields.io/badge/powerfx-662DE1' />
+  <img alt='power-fx Badge' src='https://img.shields.io/badge/power--fx-CEEDE8' />
+  <img alt='dynamics365 Badge' src='https://img.shields.io/badge/dynamics365-2309F5' />
+  <img alt='dynamics-365 Badge' src='https://img.shields.io/badge/dynamics--365-A1EF46' />
+  <img alt='pcf-controls Badge' src='https://img.shields.io/badge/pcf--controls-E53DAA' />
+  <img alt='powerappscomponentframework Badge' src='https://img.shields.io/badge/powerappscomponentframework-B30E12' />
+  <img alt='ai-builder Badge' src='https://img.shields.io/badge/ai--builder-5506A9' />
+</div>
 
-```bash
-npm init docusaurus@latest my-website classic
-```
-
-You can type this command into Command Prompt, Powershell, Terminal, or any other integrated terminal of your code editor.
-
-The command also installs all necessary dependencies you need to run Docusaurus.
-
-## Start your site
-
-Run the development server:
-
-```bash
-cd my-website
-npm run start
-```
-
-The `cd` command changes the directory you're working with. In order to work with your newly created Docusaurus site, you'll need to navigate the terminal there.
-
-The `npm run start` command builds your website locally and serves it through a development server, ready for you to view at http://localhost:3000/.
-
-Open `docs/intro.md` (this page) and edit some lines: the site **reloads automatically** and displays your changes.
+This list of repositories is then presented on the website, where people can easily find projects to contribute to, to learn from or to support.
