@@ -1,5 +1,154 @@
 import { test, expect } from '@playwright/test';
-import { Page } from 'playwright';
+
+// #region Header and footer tests
+
+// Validate that the header contains a navigation bar with the expected elements
+// - the logo redirecting to the home page
+// - a link to the documentation section of the website
+// - a link to the GitHub repository in the backend
+// - a switch to change the theme (light/dark)
+test('Validate the header of the website', async ({ page }) => {
+  let documentationLinkFound = false;
+  let gitHubLinkFound = false;
+
+  await page.goto('/');
+
+  // Get the logo
+  await page.waitForSelector('.navbar__brand');
+  const logo = await page.$('.navbar__brand');
+  expect(logo).toBeTruthy();
+
+  // Validate that the logo redirects to the home page
+  const logoHref = await logo.evaluate(el => el.getAttribute('href'));
+  expect(logoHref).toBe('/PowerPlatform-OpenSource-Hub/');
+
+  // Get the Documentation link looking for the inner text
+  // and validate that the link redirects to the documentation section of the website
+  const documentationLink = await page.$('a:has-text("Documentation")');
+  if (documentationLink) {
+    documentationLinkFound = true;
+    const href = await documentationLink.evaluate(el => el.getAttribute('href'));
+    expect(href).toBe('/PowerPlatform-OpenSource-Hub/docs/intro');
+  } else {
+    throw new Error('The Documentation link is not found in the header');
+  }
+
+  // Get the GitHub link looking for the inner text
+  // and validate that the link redirects to the GitHub repository in the backend
+  const gitHubLink = await page.$('a:has-text("GitHub")');
+  if (gitHubLink) {
+    gitHubLinkFound = true;
+    const href = await gitHubLink.evaluate(el => el.getAttribute('href'));
+    expect(href).toBe('https://github.com/rpothin/PowerPlatform-OpenSource-Hub');
+  } else {
+    throw new Error('The GitHub link is not found in the header');
+  }
+
+  // Get the switch to change the theme (light/dark)
+  // and validae that the user can change the theme
+  await page.waitForSelector('.toggleButton_gllP');
+  const themeSwitch = await page.$('.toggleButton_gllP');
+  if (themeSwitch) {
+    // Get the title of the element before click
+    const titleBeforeClick = await themeSwitch.evaluate(el => el.getAttribute('title'));
+    await themeSwitch.click();
+    // Get the title of the element after click
+    const titleAfterClick = await themeSwitch.evaluate(el => el.getAttribute('title'));
+    // Validate that the title has changed
+    expect(titleBeforeClick).not.toBe(titleAfterClick);
+  } else {
+    throw new Error('The theme switch is not found in the header');
+  }
+});
+
+// Validate that the Documentation section of the website
+// - is accessible from the home page
+// - exists
+// - allows to come back to the home page
+test('Validate the Documentation section of the website', async ({ page }) => {
+  let homeLinkFound = false;
+
+  await page.goto('/');
+
+  // Get the Documentation link looking for the inner text
+  // and validate that the link redirects to the Documentation section of the website
+  const documentationLink = await page.$('a:has-text("Documentation")');
+  if (documentationLink) {
+    const href = await documentationLink.evaluate(el => el.getAttribute('href'));
+    await page.goto(href);
+  } else {
+    throw new Error('The Documentation link is not found in the header');
+  }
+
+  // Get the logo
+  await page.waitForSelector('.navbar__brand');
+  const logo = await page.$('.navbar__brand');
+  expect(logo).toBeTruthy();
+
+  // Validate that the logo redirects to the home page
+  const logoHref = await logo.evaluate(el => el.getAttribute('href'));
+  expect(logoHref).toBe('/PowerPlatform-OpenSource-Hub/');
+});
+
+// Validate that the footer contains the expected elements
+// - a link to the Awesome AZD website
+// - a link to the Docusaurus website
+// - a link to the FAQ of Microsoft Clarity regarding privacy
+// - a link to rpothin GitHub profile
+test('Validate the footer of the website', async ({ page }) => {
+  let awesomeAZDLinkFound = false;
+  let docusaurusLinkFound = false;
+  let microsoftClarityLinkFound = false;
+  let rpothinGitHubLinkFound = false;
+
+  await page.goto('/');
+
+  // Get the Awesome AZD link looking for the inner text
+  // and validate that the link redirects to the Awesome AZD website
+  const awesomeAZDLink = await page.$('a:has-text("Inspired by Awesome AZD")');
+  if (awesomeAZDLink) {
+    awesomeAZDLinkFound = true;
+    const href = await awesomeAZDLink.evaluate(el => el.getAttribute('href'));
+    expect(href).toBe('https://azure.github.io/awesome-azd/');
+  } else {
+    throw new Error('The Awesome AZD link is not found in the footer');
+  }
+
+  // Get the Docusaurus link looking for the inner text
+  // and validate that the link redirects to the Docusaurus website
+  const docusaurusLink = await page.$('a:has-text("Built with Docusaurus")');
+  if (docusaurusLink) {
+    docusaurusLinkFound = true;
+    const href = await docusaurusLink.evaluate(el => el.getAttribute('href'));
+    expect(href).toBe('https://docusaurus.io');
+  } else {
+    throw new Error('The Docusaurus link is not found in the footer');
+  }
+
+  // Get the Microsoft Clarity link looking for the inner text
+  // and validate that the link redirects to the FAQ of Microsoft Clarity regarding privacy
+  const microsoftClarityLink = await page.$('a:has-text("Monitored with Microsoft Clarity")');
+  if (microsoftClarityLink) {
+    microsoftClarityLinkFound = true;
+    const href = await microsoftClarityLink.evaluate(el => el.getAttribute('href'));
+    expect(href).toBe('https://learn.microsoft.com/en-us/clarity/faq#privacy');
+  } else {
+    throw new Error('The Microsoft Clarity link is not found in the footer');
+  }
+
+  // Get the rpothin GitHub link looking for the inner text
+  // and validate that the link redirects to the rpothin GitHub profile
+  const rpothinGitHubLink = await page.$('a:has-text("Copyright")');
+  if (rpothinGitHubLink) {
+    rpothinGitHubLinkFound = true;
+    const href = await rpothinGitHubLink.evaluate(el => el.getAttribute('href'));
+    expect(href).toBe('https://github.com/rpothin/');
+  } else {
+    throw new Error('The rpothin GitHub link is not found in the footer');
+  }
+});
+
+// #endregion
 
 // #region Search functionality tests
 
@@ -194,7 +343,12 @@ test('Validate the visual behavior of a checkbox', async ({ page }) => {
 
   // Validate that the checkbox is still checked
   const isCheckedAgain = await newCheckbox.isChecked();
-  expect(isCheckedAgain).toBe(true);
+  try {
+    expect(isCheckedAgain).toBe(true);
+  } catch (error) {
+    await page.screenshot({ path: 'error-screenshot.png' });
+    throw error;
+  }
 });
 
 // Validate that for all sections with a dynamic list of checkboxes (do not consider "Contribution Opportunities") in the filter pane,
