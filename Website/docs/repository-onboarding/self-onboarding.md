@@ -12,7 +12,7 @@ This guide will help you configure your GitHub repository to be part of the Powe
 
 To be able to onboard a repository into the initative you need to have the permission to add topics to it.
 
-If you are not the owner of the repository, you can follow the [Invitation to Join](./invitation-to-join.md) procedure and ask the owner to complete the process.
+If you are not a maintainer of the repository, you can follow the [Invitation to Join](./invitation-to-join.md) procedure and ask the maintainer(s) to complete the process.
 
 ## Steps
 

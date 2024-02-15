@@ -18,7 +18,7 @@ The goal of this initiative is to create a platform that not only simplifies the
 
 ## How it works
 
-In the backend (_the GitHub repository behind this website_), GitHub workflows monitoring the topics below are used to maintain a list of open-source projects related to Power Platform.
+1. Every day, a GitHub workflow get details regarding GitHub repositories with at least one of the following topics and store everything into a JSON file
 
 <div align='center'>
   <img alt='powerplatform Badge' src='https://img.shields.io/badge/powerplatform-DAAD44' />
@@ -40,4 +40,11 @@ In the backend (_the GitHub repository behind this website_), GitHub workflows m
   <img alt='ai-builder Badge' src='https://img.shields.io/badge/ai--builder-5506A9' />
 </div>
 
-This list of repositories is then presented on the website, where people can easily find projects to contribute to, to learn from or to support.
+2. A series of updates are then made:
+    - Sections of the README file are updated to include the latest details regarding the referenced repositories
+    - A new version of the website is deployed to include the updated information
+
+You can consider:
+- The GitHub workflows as the "engine" of the initiative
+- The README file as a summary view of the repositories details
+- The website as the "face" of the initiative
