@@ -1,11 +1,11 @@
 name: 0-update-clean-website-dependencies
 # Update and clean website dependencies
 
-# Workflow triggered every day at 01:00 AM EST
+# Workflow triggered every week on Tuesday at 11:00 AM EST
 # Can also be triggered manually without input parameters
 on:
     schedule:
-      - cron: '0 6 * * *' # Every day at 01:00 AM EST
+      - cron: '0 15 * * 2' # Every Tuesday at 11:00 AM EST
     workflow_dispatch:
 
 # Concurrency configuration for the current workflow - Keep only the latest workflow queued for the considered group
@@ -36,8 +36,6 @@ jobs:
             - uses: actions/setup-node@v4
               with:
                 node-version: 20
-                cache: npm
-                cache-dependency-path: Website/package-lock.json
 
             # Install dependencies and update dependencies
             - name: Install dependencies and update dependencies
@@ -60,6 +58,12 @@ jobs:
                 else
                     for pkg in $unused; do echo "Uninstalling $pkg"; npm uninstall $pkg; done
                 fi
+
+            # Build the website
+            - name: Build website
+              working-directory: Website
+              run: |
+                npm run build
             
             # Run unit tests
             - name: Run unit tests
