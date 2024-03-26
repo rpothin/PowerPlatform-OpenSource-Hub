@@ -22,9 +22,9 @@
     "@docusaurus/plugin-content-docs": "^3.1.1",
     "@docusaurus/preset-classic": "^3.1.1",
     "@docusaurus/theme-common": "^3.1.1",
-    "@fluentui/react": "^8.115.7",
-    "@fluentui/react-components": "^9.47.1",
-    "@fluentui/react-icons": "^2.0.232",
+    "@fluentui/react": "^8.117.0",
+    "@fluentui/react-components": "^9.47.2",
+    "@fluentui/react-icons": "^2.0.233",
     "@types/date-fns": "^2.6.0",
     "clsx": "^2.1.0",
     "date-fns": "^3.6.0",
@@ -40,7 +40,7 @@
     "jest": "^29.7.0",
     "ts-jest": "^29.1.2",
     "ts-node": "^10.9.2",
-    "typescript": "^5.4.2"
+    "typescript": "^5.4.3"
   },
   "browserslist": {
     "production": [
