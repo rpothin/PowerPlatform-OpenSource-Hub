@@ -133,6 +133,86 @@
     "popularityScore": 1506
   },
   {
+    "createdAt": "2018-03-26T22:41:09Z",
+    "description": "Sample code for Power Apps, including Dataverse, model-driven apps, canvas apps, Power Apps component framework, portals, and AI Builder.",
+    "fullName": "microsoft/PowerApps-Samples",
+    "hasIssues": true,
+    "homepage": "https://docs.microsoft.com/powerapps",
+    "isArchived": false,
+    "language": "C#",
+    "license": {
+      "key": "mit",
+      "name": "MIT License",
+      "url": "https://api.github.com/licenses/mit"
+    },
+    "name": "PowerApps-Samples",
+    "openIssuesCount": 30,
+    "owner": {
+      "id": "MDEyOk9yZ2FuaXphdGlvbjYxNTQ3MjI=",
+      "is_bot": false,
+      "login": "microsoft",
+      "type": "Organization",
+      "url": "https://github.com/microsoft"
+    },
+    "updatedAt": "2024-04-06T13:58:28Z",
+    "url": "https://github.com/microsoft/PowerApps-Samples",
+    "codeOfConduct": {
+      "key": "other",
+      "name": "Other",
+      "url": "https://github.com/microsoft/.github/blob/main/CODE_OF_CONDUCT.md"
+    },
+    "forkCount": 1616,
+    "fundingLinks": [],
+    "isSecurityPolicyEnabled": true,
+    "isTemplate": false,
+    "latestRelease": {
+      "name": "Audit entity data changes",
+      "tagName": "179031",
+      "url": "https://github.com/microsoft/PowerApps-Samples/releases/tag/179031",
+      "publishedAt": "2020-08-04T00:31:48Z"
+    },
+    "primaryLanguage": {
+      "name": "C#"
+    },
+    "securityPolicyUrl": "https://github.com/microsoft/PowerApps-Samples/security/policy",
+    "stargazerCount": 1367,
+    "watchers": {
+      "totalCount": 115
+    },
+    "topics": [
+      "dataverse",
+      "dynamics-365",
+      "dynamics365",
+      "microsoft-dataverse",
+      "pcf-controls",
+      "power-apps",
+      "power-platform",
+      "powerapps",
+      "powerappscomponentframework",
+      "powerplatform",
+      "ai-builder",
+      "power-pages"
+    ],
+    "languages": [
+      "C#",
+      "JavaScript",
+      "TypeScript",
+      "PowerShell",
+      "HTML",
+      "CSS",
+      "Jupyter Notebook",
+      "Python",
+      "XSLT",
+      "ASP.NET"
+    ],
+    "openedGoodFirstIssues": 0,
+    "hasGoodFirstIssues": false,
+    "openedHelpWantedIssues": 0,
+    "hasHelpWantedIssues": false,
+    "openedToContributionsIssues": 0,
+    "popularityScore": 1482
+  },
+  {
     "createdAt": "2018-11-21T16:54:50Z",
     "description": "Manages, configures, extracts and monitors Microsoft 365 tenant configurations",
     "fullName": "microsoft/Microsoft365DSC",
@@ -146,7 +226,7 @@
       "url": "https://api.github.com/licenses/mit"
     },
     "name": "Microsoft365DSC",
-    "openIssuesCount": 314,
+    "openIssuesCount": 315,
     "owner": {
       "id": "MDEyOk9yZ2FuaXphdGlvbjYxNTQ3MjI=",
       "is_bot": false,
@@ -212,86 +292,6 @@
     "hasHelpWantedIssues": true,
     "openedToContributionsIssues": 3,
     "popularityScore": 1438
-  },
-  {
-    "createdAt": "2018-03-26T22:41:09Z",
-    "description": "Sample code for Power Apps, including Dataverse, model-driven apps, canvas apps, Power Apps component framework, portals, and AI Builder.",
-    "fullName": "microsoft/PowerApps-Samples",
-    "hasIssues": true,
-    "homepage": "https://docs.microsoft.com/powerapps",
-    "isArchived": false,
-    "language": "C#",
-    "license": {
-      "key": "mit",
-      "name": "MIT License",
-      "url": "https://api.github.com/licenses/mit"
-    },
-    "name": "PowerApps-Samples",
-    "openIssuesCount": 30,
-    "owner": {
-      "id": "MDEyOk9yZ2FuaXphdGlvbjYxNTQ3MjI=",
-      "is_bot": false,
-      "login": "microsoft",
-      "type": "Organization",
-      "url": "https://github.com/microsoft"
-    },
-    "updatedAt": "2024-04-06T09:16:14Z",
-    "url": "https://github.com/microsoft/PowerApps-Samples",
-    "codeOfConduct": {
-      "key": "other",
-      "name": "Other",
-      "url": "https://github.com/microsoft/.github/blob/main/CODE_OF_CONDUCT.md"
-    },
-    "forkCount": 1616,
-    "fundingLinks": [],
-    "isSecurityPolicyEnabled": true,
-    "isTemplate": false,
-    "latestRelease": {
-      "name": "Audit entity data changes",
-      "tagName": "179031",
-      "url": "https://github.com/microsoft/PowerApps-Samples/releases/tag/179031",
-      "publishedAt": "2020-08-04T00:31:48Z"
-    },
-    "primaryLanguage": {
-      "name": "C#"
-    },
-    "securityPolicyUrl": "https://github.com/microsoft/PowerApps-Samples/security/policy",
-    "stargazerCount": 1365,
-    "watchers": {
-      "totalCount": 115
-    },
-    "topics": [
-      "dataverse",
-      "dynamics-365",
-      "dynamics365",
-      "microsoft-dataverse",
-      "pcf-controls",
-      "power-apps",
-      "power-platform",
-      "powerapps",
-      "powerappscomponentframework",
-      "powerplatform",
-      "ai-builder",
-      "power-pages"
-    ],
-    "languages": [
-      "C#",
-      "JavaScript",
-      "TypeScript",
-      "PowerShell",
-      "HTML",
-      "CSS",
-      "Jupyter Notebook",
-      "Python",
-      "XSLT",
-      "ASP.NET"
-    ],
-    "openedGoodFirstIssues": 0,
-    "hasGoodFirstIssues": false,
-    "openedHelpWantedIssues": 0,
-    "hasHelpWantedIssues": false,
-    "openedToContributionsIssues": 0,
-    "popularityScore": 1480
   },
   {
     "createdAt": "2018-12-13T05:33:24Z",
@@ -378,7 +378,7 @@
       "type": "User",
       "url": "https://github.com/inoerp"
     },
-    "updatedAt": "2024-04-01T11:56:51Z",
+    "updatedAt": "2024-04-06T15:28:29Z",
     "url": "https://github.com/inoerp/inoERP",
     "codeOfConduct": null,
     "forkCount": 672,
@@ -395,7 +395,7 @@
       "name": "JavaScript"
     },
     "securityPolicyUrl": "",
-    "stargazerCount": 733,
+    "stargazerCount": 732,
     "watchers": {
       "totalCount": 129
     },
@@ -415,7 +415,7 @@
     "openedHelpWantedIssues": 0,
     "hasHelpWantedIssues": false,
     "openedToContributionsIssues": 0,
-    "popularityScore": 862
+    "popularityScore": 861
   },
   {
     "createdAt": "2016-11-25T15:23:10Z",
@@ -439,7 +439,7 @@
       "type": "Organization",
       "url": "https://github.com/microsoft"
     },
-    "updatedAt": "2024-03-31T14:11:48Z",
+    "updatedAt": "2024-04-06T15:33:43Z",
     "url": "https://github.com/microsoft/AL",
     "codeOfConduct": {
       "key": "other",
@@ -455,7 +455,7 @@
       "name": "PowerShell"
     },
     "securityPolicyUrl": "https://github.com/microsoft/AL/security/policy",
-    "stargazerCount": 700,
+    "stargazerCount": 701,
     "watchers": {
       "totalCount": 165
     },
@@ -475,7 +475,7 @@
     "openedHelpWantedIssues": 0,
     "hasHelpWantedIssues": false,
     "openedToContributionsIssues": 0,
-    "popularityScore": 865
+    "popularityScore": 866
   },
   {
     "createdAt": "2015-02-05T20:58:06Z",
@@ -491,7 +491,7 @@
       "url": "https://api.github.com/licenses/gpl-3.0"
     },
     "name": "XrmToolBox",
-    "openIssuesCount": 58,
+    "openIssuesCount": 59,
     "owner": {
       "id": "MDQ6VXNlcjEwNzc0MzE3",
       "is_bot": false,
@@ -2526,7 +2526,7 @@
     "updatedAt": "2024-04-04T17:40:31Z",
     "url": "https://github.com/pnp/powerplatform-samples",
     "codeOfConduct": null,
-    "forkCount": 120,
+    "forkCount": 119,
     "fundingLinks": [],
     "isSecurityPolicyEnabled": false,
     "isTemplate": false,
@@ -4442,9 +4442,9 @@
     "isTemplate": false,
     "latestRelease": {
       "name": "Power Platform deprecation update",
-      "tagName": "2024.4.2.4",
-      "url": "https://github.com/tcorcor1/power-platform-deprecation-tracker/releases/tag/2024.4.2.4",
-      "publishedAt": "2024-04-02T00:00:04Z"
+      "tagName": "2024.4.6.2",
+      "url": "https://github.com/tcorcor1/power-platform-deprecation-tracker/releases/tag/2024.4.6.2",
+      "publishedAt": "2024-04-06T12:00:03Z"
     },
     "primaryLanguage": null,
     "securityPolicyUrl": "",
@@ -4637,7 +4637,7 @@
       "name": "Other",
       "url": "https://github.com/mscottsewell/Power-BI-D365-Sales/blob/main/CODE_OF_CONDUCT.md"
     },
-    "forkCount": 1,
+    "forkCount": 2,
     "fundingLinks": [],
     "isSecurityPolicyEnabled": false,
     "isTemplate": false,
@@ -6950,7 +6950,7 @@
     "updatedAt": "2024-03-28T20:34:03Z",
     "url": "https://github.com/DynamicsValue/fake-xrm-easy",
     "codeOfConduct": null,
-    "forkCount": 9,
+    "forkCount": 10,
     "fundingLinks": [],
     "isSecurityPolicyEnabled": false,
     "isTemplate": false,
@@ -11508,7 +11508,7 @@
       "type": "Organization",
       "url": "https://github.com/microsoft"
     },
-    "updatedAt": "2024-04-04T07:59:51Z",
+    "updatedAt": "2024-04-06T13:22:12Z",
     "url": "https://github.com/microsoft/global-copilot-summit",
     "codeOfConduct": {
       "key": "other",
@@ -11522,7 +11522,7 @@
     "latestRelease": null,
     "primaryLanguage": null,
     "securityPolicyUrl": "https://github.com/microsoft/global-copilot-summit/security/policy",
-    "stargazerCount": 0,
+    "stargazerCount": 1,
     "watchers": {
       "totalCount": 17
     },
@@ -11543,6 +11543,6 @@
     "openedHelpWantedIssues": 0,
     "hasHelpWantedIssues": false,
     "openedToContributionsIssues": 0,
-    "popularityScore": 17
+    "popularityScore": 18
   }
 ]
