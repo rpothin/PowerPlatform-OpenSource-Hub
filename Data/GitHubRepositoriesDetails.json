@@ -21,7 +21,7 @@
       "type": "Organization",
       "url": "https://github.com/microsoft"
     },
-    "updatedAt": "2024-04-12T21:39:07Z",
+    "updatedAt": "2024-04-13T18:35:23Z",
     "url": "https://github.com/microsoft/Power-Fx",
     "codeOfConduct": {
       "key": "other",
@@ -42,7 +42,7 @@
       "name": "C#"
     },
     "securityPolicyUrl": "https://github.com/microsoft/Power-Fx/security/policy",
-    "stargazerCount": 3108,
+    "stargazerCount": 3109,
     "watchers": {
       "totalCount": 116
     },
@@ -60,7 +60,7 @@
     "openedHelpWantedIssues": 0,
     "hasHelpWantedIssues": false,
     "openedToContributionsIssues": 8,
-    "popularityScore": 3224
+    "popularityScore": 3225
   },
   {
     "createdAt": "2018-04-15T22:28:50Z",
@@ -87,7 +87,7 @@
     "updatedAt": "2024-04-13T03:11:57Z",
     "url": "https://github.com/sandroasp/Microsoft-Integration-and-Azure-Stencils-Pack-for-Visio",
     "codeOfConduct": null,
-    "forkCount": 423,
+    "forkCount": 422,
     "fundingLinks": [],
     "isSecurityPolicyEnabled": false,
     "isTemplate": false,
@@ -131,6 +131,87 @@
     "hasHelpWantedIssues": false,
     "openedToContributionsIssues": 0,
     "popularityScore": 1508
+  },
+  {
+    "createdAt": "2018-11-21T16:54:50Z",
+    "description": "Manages, configures, extracts and monitors Microsoft 365 tenant configurations",
+    "fullName": "microsoft/Microsoft365DSC",
+    "hasIssues": true,
+    "homepage": "https://aka.ms/M365DSC",
+    "isArchived": false,
+    "language": "PowerShell",
+    "license": {
+      "key": "mit",
+      "name": "MIT License",
+      "url": "https://api.github.com/licenses/mit"
+    },
+    "name": "Microsoft365DSC",
+    "openIssuesCount": 324,
+    "owner": {
+      "id": "MDEyOk9yZ2FuaXphdGlvbjYxNTQ3MjI=",
+      "is_bot": false,
+      "login": "microsoft",
+      "type": "Organization",
+      "url": "https://github.com/microsoft"
+    },
+    "updatedAt": "2024-04-14T11:43:09Z",
+    "url": "https://github.com/microsoft/Microsoft365DSC",
+    "codeOfConduct": {
+      "key": "contributor_covenant",
+      "name": "Contributor Covenant",
+      "url": "https://github.com/microsoft/Microsoft365DSC/blob/Dev/CODE_OF_CONDUCT.md"
+    },
+    "forkCount": 423,
+    "fundingLinks": [],
+    "isSecurityPolicyEnabled": true,
+    "isTemplate": false,
+    "latestRelease": {
+      "name": "Release 1.24.403.1",
+      "tagName": "1.24.403.1",
+      "url": "https://github.com/microsoft/Microsoft365DSC/releases/tag/1.24.403.1",
+      "publishedAt": "2024-04-04T10:54:30Z"
+    },
+    "primaryLanguage": {
+      "name": "PowerShell"
+    },
+    "securityPolicyUrl": "https://github.com/microsoft/Microsoft365DSC/security/policy",
+    "stargazerCount": 1374,
+    "watchers": {
+      "totalCount": 74
+    },
+    "topics": [
+      "microsoft365",
+      "powershell",
+      "monitoring",
+      "desiredstateconfiguration",
+      "configuration-as-code",
+      "devops",
+      "office365",
+      "sharepoint",
+      "onedrive",
+      "powerplatform",
+      "teams",
+      "microsoft",
+      "securityandcompliance",
+      "skypeforbusiness",
+      "azuread",
+      "exchangeonline",
+      "intune",
+      "hacktoberfest"
+    ],
+    "languages": [
+      "PowerShell",
+      "TypeScript",
+      "SCSS",
+      "HTML",
+      "CSS"
+    ],
+    "openedGoodFirstIssues": 0,
+    "hasGoodFirstIssues": false,
+    "openedHelpWantedIssues": 3,
+    "hasHelpWantedIssues": true,
+    "openedToContributionsIssues": 3,
+    "popularityScore": 1448
   },
   {
     "createdAt": "2018-03-26T22:41:09Z",
@@ -213,87 +294,6 @@
     "popularityScore": 1489
   },
   {
-    "createdAt": "2018-11-21T16:54:50Z",
-    "description": "Manages, configures, extracts and monitors Microsoft 365 tenant configurations",
-    "fullName": "microsoft/Microsoft365DSC",
-    "hasIssues": true,
-    "homepage": "https://aka.ms/M365DSC",
-    "isArchived": false,
-    "language": "PowerShell",
-    "license": {
-      "key": "mit",
-      "name": "MIT License",
-      "url": "https://api.github.com/licenses/mit"
-    },
-    "name": "Microsoft365DSC",
-    "openIssuesCount": 323,
-    "owner": {
-      "id": "MDEyOk9yZ2FuaXphdGlvbjYxNTQ3MjI=",
-      "is_bot": false,
-      "login": "microsoft",
-      "type": "Organization",
-      "url": "https://github.com/microsoft"
-    },
-    "updatedAt": "2024-04-12T15:07:58Z",
-    "url": "https://github.com/microsoft/Microsoft365DSC",
-    "codeOfConduct": {
-      "key": "contributor_covenant",
-      "name": "Contributor Covenant",
-      "url": "https://github.com/microsoft/Microsoft365DSC/blob/Dev/CODE_OF_CONDUCT.md"
-    },
-    "forkCount": 423,
-    "fundingLinks": [],
-    "isSecurityPolicyEnabled": true,
-    "isTemplate": false,
-    "latestRelease": {
-      "name": "Release 1.24.403.1",
-      "tagName": "1.24.403.1",
-      "url": "https://github.com/microsoft/Microsoft365DSC/releases/tag/1.24.403.1",
-      "publishedAt": "2024-04-04T10:54:30Z"
-    },
-    "primaryLanguage": {
-      "name": "PowerShell"
-    },
-    "securityPolicyUrl": "https://github.com/microsoft/Microsoft365DSC/security/policy",
-    "stargazerCount": 1371,
-    "watchers": {
-      "totalCount": 74
-    },
-    "topics": [
-      "microsoft365",
-      "powershell",
-      "monitoring",
-      "desiredstateconfiguration",
-      "configuration-as-code",
-      "devops",
-      "office365",
-      "sharepoint",
-      "onedrive",
-      "powerplatform",
-      "teams",
-      "microsoft",
-      "securityandcompliance",
-      "skypeforbusiness",
-      "azuread",
-      "exchangeonline",
-      "intune",
-      "hacktoberfest"
-    ],
-    "languages": [
-      "PowerShell",
-      "TypeScript",
-      "SCSS",
-      "HTML",
-      "CSS"
-    ],
-    "openedGoodFirstIssues": 0,
-    "hasGoodFirstIssues": false,
-    "openedHelpWantedIssues": 3,
-    "hasHelpWantedIssues": true,
-    "openedToContributionsIssues": 3,
-    "popularityScore": 1445
-  },
-  {
     "createdAt": "2018-12-13T05:33:24Z",
     "description": "This is a repository for Microsoft Power Automate, Power Apps, and Azure Logic Apps connectors",
     "fullName": "microsoft/PowerPlatformConnectors",
@@ -307,7 +307,7 @@
       "url": "https://api.github.com/licenses/mit"
     },
     "name": "PowerPlatformConnectors",
-    "openIssuesCount": 182,
+    "openIssuesCount": 183,
     "owner": {
       "id": "MDEyOk9yZ2FuaXphdGlvbjYxNTQ3MjI=",
       "is_bot": false,
@@ -1148,7 +1148,7 @@
       "name": "Other",
       "url": "https://github.com/microsoft/powercat-creator-kit/blob/main/CODE_OF_CONDUCT.md"
     },
-    "forkCount": 46,
+    "forkCount": 47,
     "fundingLinks": [],
     "isSecurityPolicyEnabled": true,
     "isTemplate": false,
@@ -2749,7 +2749,7 @@
     "updatedAt": "2024-04-02T14:52:47Z",
     "url": "https://github.com/AlexaCRM/php-crm-toolkit",
     "codeOfConduct": null,
-    "forkCount": 40,
+    "forkCount": 41,
     "fundingLinks": [],
     "isSecurityPolicyEnabled": false,
     "isTemplate": false,
@@ -2765,7 +2765,7 @@
     "securityPolicyUrl": "",
     "stargazerCount": 102,
     "watchers": {
-      "totalCount": 12
+      "totalCount": 13
     },
     "topics": [
       "dynamics-crm",
@@ -2780,7 +2780,7 @@
     "openedHelpWantedIssues": 0,
     "hasHelpWantedIssues": false,
     "openedToContributionsIssues": 0,
-    "popularityScore": 114
+    "popularityScore": 115
   },
   {
     "createdAt": "2022-08-12T16:05:07Z",
@@ -5491,7 +5491,7 @@
       "type": "Organization",
       "url": "https://github.com/Capgemini"
     },
-    "updatedAt": "2024-04-04T19:32:57Z",
+    "updatedAt": "2024-04-13T11:06:50Z",
     "url": "https://github.com/Capgemini/powerapps-specflow-bindings",
     "codeOfConduct": null,
     "forkCount": 21,
@@ -7182,7 +7182,7 @@
       "url": ""
     },
     "name": "JM-Dataverse-Toolbelt",
-    "openIssuesCount": 7,
+    "openIssuesCount": 1,
     "owner": {
       "id": "MDQ6VXNlcjEyMjI5MjQy",
       "is_bot": false,
@@ -7203,10 +7203,10 @@
     "isSecurityPolicyEnabled": false,
     "isTemplate": false,
     "latestRelease": {
-      "name": "Release 3.1.6.2",
-      "tagName": "3.1.6.2",
-      "url": "https://github.com/josephmcmac/JM-Dataverse-Toolbelt/releases/tag/3.1.6.2",
-      "publishedAt": "2023-12-02T01:45:54Z"
+      "name": "Release 3.2.0.0",
+      "tagName": "3.2.0.0",
+      "url": "https://github.com/josephmcmac/JM-Dataverse-Toolbelt/releases/tag/3.2.0.0",
+      "publishedAt": "2024-04-13T12:07:43Z"
     },
     "primaryLanguage": {
       "name": "C#"
