@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkwebsite=self.webpackChunkwebsite||[]).push([[293],{6317:e=>{e.exports=JSON.parse('{"label":"facebook","permalink":"/PowerPlatform-OpenSource-Hub/blog/tags/facebook","allTagsPath":"/PowerPlatform-OpenSource-Hub/blog/tags","count":1,"unlisted":false}')}}]);
