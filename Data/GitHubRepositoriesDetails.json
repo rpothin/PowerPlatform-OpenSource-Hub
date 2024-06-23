@@ -84,7 +84,7 @@
       "type": "Organization",
       "url": "https://github.com/microsoft"
     },
-    "updatedAt": "2024-06-22T03:55:52Z",
+    "updatedAt": "2024-06-22T11:19:51Z",
     "url": "https://github.com/microsoft/Microsoft365DSC",
     "codeOfConduct": {
       "key": "contributor_covenant",
@@ -105,7 +105,7 @@
       "name": "PowerShell"
     },
     "securityPolicyUrl": "https://github.com/microsoft/Microsoft365DSC/security/policy",
-    "stargazerCount": 1447,
+    "stargazerCount": 1448,
     "watchers": {
       "totalCount": 77
     },
@@ -141,7 +141,7 @@
     "openedHelpWantedIssues": 3,
     "hasHelpWantedIssues": true,
     "openedToContributionsIssues": 3,
-    "popularityScore": 1524
+    "popularityScore": 1525
   },
   {
     "createdAt": "2018-03-26T22:41:09Z",
@@ -307,7 +307,7 @@
       "url": "https://api.github.com/licenses/mit"
     },
     "name": "PowerPlatformConnectors",
-    "openIssuesCount": 179,
+    "openIssuesCount": 180,
     "owner": {
       "id": "MDEyOk9yZ2FuaXphdGlvbjYxNTQ3MjI=",
       "is_bot": false,
@@ -378,7 +378,7 @@
       "type": "User",
       "url": "https://github.com/inoerp"
     },
-    "updatedAt": "2024-06-14T01:55:33Z",
+    "updatedAt": "2024-06-22T20:19:01Z",
     "url": "https://github.com/inoerp/inoERP",
     "codeOfConduct": null,
     "forkCount": 673,
@@ -395,7 +395,7 @@
       "name": "JavaScript"
     },
     "securityPolicyUrl": "",
-    "stargazerCount": 749,
+    "stargazerCount": 750,
     "watchers": {
       "totalCount": 129
     },
@@ -415,7 +415,7 @@
     "openedHelpWantedIssues": 0,
     "hasHelpWantedIssues": false,
     "openedToContributionsIssues": 0,
-    "popularityScore": 878
+    "popularityScore": 879
   },
   {
     "createdAt": "2016-11-25T15:23:10Z",
@@ -431,7 +431,7 @@
       "url": "https://api.github.com/licenses/mit"
     },
     "name": "AL",
-    "openIssuesCount": 239,
+    "openIssuesCount": 238,
     "owner": {
       "id": "MDEyOk9yZ2FuaXphdGlvbjYxNTQ3MjI=",
       "is_bot": false,
@@ -764,6 +764,59 @@
     "popularityScore": 445
   },
   {
+    "createdAt": "2021-02-24T22:16:04Z",
+    "description": "Contains curated community Microsoft Power App samples",
+    "fullName": "pnp/powerapps-samples",
+    "hasIssues": true,
+    "homepage": "https://aka.ms/powerplatform-samples",
+    "isArchived": false,
+    "language": "",
+    "license": {
+      "key": "mit",
+      "name": "MIT License",
+      "url": "https://api.github.com/licenses/mit"
+    },
+    "name": "powerapps-samples",
+    "openIssuesCount": 30,
+    "owner": {
+      "id": "MDEyOk9yZ2FuaXphdGlvbjMxNDQzOTI5",
+      "is_bot": false,
+      "login": "pnp",
+      "type": "Organization",
+      "url": "https://github.com/pnp"
+    },
+    "updatedAt": "2024-06-23T05:18:19Z",
+    "url": "https://github.com/pnp/powerapps-samples",
+    "codeOfConduct": {
+      "key": "other",
+      "name": "Other",
+      "url": "https://github.com/pnp/powerapps-samples/blob/main/CODE_OF_CONDUCT.md"
+    },
+    "forkCount": 303,
+    "fundingLinks": [],
+    "isSecurityPolicyEnabled": true,
+    "isTemplate": false,
+    "latestRelease": null,
+    "primaryLanguage": null,
+    "securityPolicyUrl": "https://github.com/pnp/powerapps-samples/security/policy",
+    "stargazerCount": 392,
+    "watchers": {
+      "totalCount": 37
+    },
+    "topics": [
+      "powerapps",
+      "powerplatform",
+      "hacktoberfest"
+    ],
+    "languages": [],
+    "openedGoodFirstIssues": 0,
+    "hasGoodFirstIssues": false,
+    "openedHelpWantedIssues": 0,
+    "hasHelpWantedIssues": false,
+    "openedToContributionsIssues": 0,
+    "popularityScore": 429
+  },
+  {
     "createdAt": "2017-12-06T03:33:42Z",
     "description": "Collection of Power Apps template apps, components and examples",
     "fullName": "aprildunnam/PowerApps",
@@ -811,59 +864,6 @@
     "hasHelpWantedIssues": false,
     "openedToContributionsIssues": 0,
     "popularityScore": 438
-  },
-  {
-    "createdAt": "2021-02-24T22:16:04Z",
-    "description": "Contains curated community Microsoft Power App samples",
-    "fullName": "pnp/powerapps-samples",
-    "hasIssues": true,
-    "homepage": "https://aka.ms/powerplatform-samples",
-    "isArchived": false,
-    "language": "",
-    "license": {
-      "key": "mit",
-      "name": "MIT License",
-      "url": "https://api.github.com/licenses/mit"
-    },
-    "name": "powerapps-samples",
-    "openIssuesCount": 30,
-    "owner": {
-      "id": "MDEyOk9yZ2FuaXphdGlvbjMxNDQzOTI5",
-      "is_bot": false,
-      "login": "pnp",
-      "type": "Organization",
-      "url": "https://github.com/pnp"
-    },
-    "updatedAt": "2024-06-21T04:39:06Z",
-    "url": "https://github.com/pnp/powerapps-samples",
-    "codeOfConduct": {
-      "key": "other",
-      "name": "Other",
-      "url": "https://github.com/pnp/powerapps-samples/blob/main/CODE_OF_CONDUCT.md"
-    },
-    "forkCount": 302,
-    "fundingLinks": [],
-    "isSecurityPolicyEnabled": true,
-    "isTemplate": false,
-    "latestRelease": null,
-    "primaryLanguage": null,
-    "securityPolicyUrl": "https://github.com/pnp/powerapps-samples/security/policy",
-    "stargazerCount": 391,
-    "watchers": {
-      "totalCount": 37
-    },
-    "topics": [
-      "powerapps",
-      "powerplatform",
-      "hacktoberfest"
-    ],
-    "languages": [],
-    "openedGoodFirstIssues": 0,
-    "hasGoodFirstIssues": false,
-    "openedHelpWantedIssues": 0,
-    "hasHelpWantedIssues": false,
-    "openedToContributionsIssues": 0,
-    "popularityScore": 428
   },
   {
     "createdAt": "2021-10-21T07:12:03Z",
@@ -1333,7 +1333,7 @@
       "url": "https://api.github.com/licenses/mit"
     },
     "name": "DynamicsWebApi",
-    "openIssuesCount": 1,
+    "openIssuesCount": 0,
     "owner": {
       "id": "MDQ6VXNlcjE4OTM2NTA=",
       "is_bot": false,
@@ -1414,7 +1414,7 @@
       "type": "Organization",
       "url": "https://github.com/pnp"
     },
-    "updatedAt": "2024-06-17T22:37:02Z",
+    "updatedAt": "2024-06-23T02:37:22Z",
     "url": "https://github.com/pnp/powerautomate-samples",
     "codeOfConduct": {
       "key": "other",
@@ -1428,7 +1428,7 @@
     "latestRelease": null,
     "primaryLanguage": null,
     "securityPolicyUrl": "https://github.com/pnp/powerautomate-samples/security/policy",
-    "stargazerCount": 240,
+    "stargazerCount": 241,
     "watchers": {
       "totalCount": 22
     },
@@ -1443,7 +1443,7 @@
     "openedHelpWantedIssues": 0,
     "hasHelpWantedIssues": false,
     "openedToContributionsIssues": 0,
-    "popularityScore": 262
+    "popularityScore": 263
   },
   {
     "createdAt": "2020-04-20T17:58:04Z",
@@ -2632,7 +2632,7 @@
       "name": "Other",
       "url": "https://github.com/microsoft/PowerPlatformAdvocates/blob/main/CODE_OF_CONDUCT.md"
     },
-    "forkCount": 33,
+    "forkCount": 34,
     "fundingLinks": [],
     "isSecurityPolicyEnabled": true,
     "isTemplate": false,
@@ -3848,6 +3848,61 @@
     "popularityScore": 76
   },
   {
+    "createdAt": "2021-10-01T08:06:29Z",
+    "description": "Contains a PowerAutomate file that takes data from Planner, writes it to Excel, which is then visualised in Power BI",
+    "fullName": "ben-howard/Planner-PowerBI-with-PowerAutomate",
+    "hasIssues": true,
+    "homepage": "",
+    "isArchived": false,
+    "language": "",
+    "license": {
+      "key": "gpl-3.0",
+      "name": "GNU General Public License v3.0",
+      "url": "https://api.github.com/licenses/gpl-3.0"
+    },
+    "name": "Planner-PowerBI-with-PowerAutomate",
+    "openIssuesCount": 14,
+    "owner": {
+      "id": "MDQ6VXNlcjM3MDg1MjM0",
+      "is_bot": false,
+      "login": "ben-howard",
+      "type": "User",
+      "url": "https://github.com/ben-howard"
+    },
+    "updatedAt": "2024-06-22T16:08:43Z",
+    "url": "https://github.com/ben-howard/Planner-PowerBI-with-PowerAutomate",
+    "codeOfConduct": null,
+    "forkCount": 8,
+    "fundingLinks": [],
+    "isSecurityPolicyEnabled": false,
+    "isTemplate": false,
+    "latestRelease": {
+      "name": "Fixed Null row issue in Users table",
+      "tagName": "v1.6",
+      "url": "https://github.com/ben-howard/Planner-PowerBI-with-PowerAutomate/releases/tag/v1.6",
+      "publishedAt": "2023-03-09T17:34:37Z"
+    },
+    "primaryLanguage": null,
+    "securityPolicyUrl": "",
+    "stargazerCount": 67,
+    "watchers": {
+      "totalCount": 10
+    },
+    "topics": [
+      "microsoft-planner",
+      "power-bi",
+      "power-automate",
+      "microsoft-flow"
+    ],
+    "languages": [],
+    "openedGoodFirstIssues": 0,
+    "hasGoodFirstIssues": false,
+    "openedHelpWantedIssues": 0,
+    "hasHelpWantedIssues": false,
+    "openedToContributionsIssues": 0,
+    "popularityScore": 77
+  },
+  {
     "createdAt": "2016-09-01T14:28:51Z",
     "description": "The CRM Power Pane is a helper tool designed to integrate with Microsoft Dynamics CRM application and allow you to manipulate forms or perform actions faster throughout the Microsoft Dynamics CRM application .",
     "fullName": "onurmenal/crm-power-pane",
@@ -3916,61 +3971,6 @@
     "hasHelpWantedIssues": true,
     "openedToContributionsIssues": 4,
     "popularityScore": 82
-  },
-  {
-    "createdAt": "2021-10-01T08:06:29Z",
-    "description": "Contains a PowerAutomate file that takes data from Planner, writes it to Excel, which is then visualised in Power BI",
-    "fullName": "ben-howard/Planner-PowerBI-with-PowerAutomate",
-    "hasIssues": true,
-    "homepage": "",
-    "isArchived": false,
-    "language": "",
-    "license": {
-      "key": "gpl-3.0",
-      "name": "GNU General Public License v3.0",
-      "url": "https://api.github.com/licenses/gpl-3.0"
-    },
-    "name": "Planner-PowerBI-with-PowerAutomate",
-    "openIssuesCount": 14,
-    "owner": {
-      "id": "MDQ6VXNlcjM3MDg1MjM0",
-      "is_bot": false,
-      "login": "ben-howard",
-      "type": "User",
-      "url": "https://github.com/ben-howard"
-    },
-    "updatedAt": "2024-06-12T10:48:51Z",
-    "url": "https://github.com/ben-howard/Planner-PowerBI-with-PowerAutomate",
-    "codeOfConduct": null,
-    "forkCount": 8,
-    "fundingLinks": [],
-    "isSecurityPolicyEnabled": false,
-    "isTemplate": false,
-    "latestRelease": {
-      "name": "Fixed Null row issue in Users table",
-      "tagName": "v1.6",
-      "url": "https://github.com/ben-howard/Planner-PowerBI-with-PowerAutomate/releases/tag/v1.6",
-      "publishedAt": "2023-03-09T17:34:37Z"
-    },
-    "primaryLanguage": null,
-    "securityPolicyUrl": "",
-    "stargazerCount": 66,
-    "watchers": {
-      "totalCount": 10
-    },
-    "topics": [
-      "microsoft-planner",
-      "power-bi",
-      "power-automate",
-      "microsoft-flow"
-    ],
-    "languages": [],
-    "openedGoodFirstIssues": 0,
-    "hasGoodFirstIssues": false,
-    "openedHelpWantedIssues": 0,
-    "hasHelpWantedIssues": false,
-    "openedToContributionsIssues": 0,
-    "popularityScore": 76
   },
   {
     "createdAt": "2019-02-26T10:15:12Z",
@@ -7320,7 +7320,7 @@
       "type": "User",
       "url": "https://github.com/rpothin"
     },
-    "updatedAt": "2024-06-21T11:24:02Z",
+    "updatedAt": "2024-06-22T11:17:24Z",
     "url": "https://github.com/rpothin/PowerPlatform-OpenSource-Hub",
     "codeOfConduct": {
       "key": "contributor_covenant",
@@ -9716,6 +9716,67 @@
     "popularityScore": 21
   },
   {
+    "createdAt": "2023-05-13T13:46:12Z",
+    "description": "Materiais, tutoriais e dicas sobre Power Platform criados pela equipe de especialistas em Power Platform da Microsoft Brasil.",
+    "fullName": "microsoft/powerplatformconnect",
+    "hasIssues": false,
+    "homepage": "https://microsoft.github.io/powerplatformconnect/",
+    "isArchived": false,
+    "language": "SCSS",
+    "license": {
+      "key": "mit",
+      "name": "MIT License",
+      "url": "https://api.github.com/licenses/mit"
+    },
+    "name": "powerplatformconnect",
+    "openIssuesCount": 0,
+    "owner": {
+      "id": "MDEyOk9yZ2FuaXphdGlvbjYxNTQ3MjI=",
+      "is_bot": false,
+      "login": "microsoft",
+      "type": "Organization",
+      "url": "https://github.com/microsoft"
+    },
+    "updatedAt": "2024-06-22T23:35:01Z",
+    "url": "https://github.com/microsoft/powerplatformconnect",
+    "codeOfConduct": {
+      "key": "other",
+      "name": "Other",
+      "url": "https://github.com/microsoft/.github/blob/main/CODE_OF_CONDUCT.md"
+    },
+    "forkCount": 0,
+    "fundingLinks": [],
+    "isSecurityPolicyEnabled": true,
+    "isTemplate": false,
+    "latestRelease": null,
+    "primaryLanguage": {
+      "name": "SCSS"
+    },
+    "securityPolicyUrl": "https://github.com/microsoft/powerplatformconnect/security/policy",
+    "stargazerCount": 15,
+    "watchers": {
+      "totalCount": 4
+    },
+    "topics": [
+      "powerplatform",
+      "powerapps",
+      "powerautomate",
+      "powerpages",
+      "powervirtualagent"
+    ],
+    "languages": [
+      "SCSS",
+      "HTML",
+      "Ruby"
+    ],
+    "openedGoodFirstIssues": 0,
+    "hasGoodFirstIssues": false,
+    "openedHelpWantedIssues": 0,
+    "hasHelpWantedIssues": false,
+    "openedToContributionsIssues": 0,
+    "popularityScore": 19
+  },
+  {
     "createdAt": "2021-11-01T18:00:42Z",
     "description": "GitHub Action to publish repository content on Dataverse",
     "fullName": "IQSS/dataverse-uploader",
@@ -9883,67 +9944,6 @@
     "hasHelpWantedIssues": false,
     "openedToContributionsIssues": 0,
     "popularityScore": 17
-  },
-  {
-    "createdAt": "2023-05-13T13:46:12Z",
-    "description": "Materiais, tutoriais e dicas sobre Power Platform criados pela equipe de especialistas em Power Platform da Microsoft Brasil.",
-    "fullName": "microsoft/powerplatformconnect",
-    "hasIssues": false,
-    "homepage": "https://microsoft.github.io/powerplatformconnect/",
-    "isArchived": false,
-    "language": "SCSS",
-    "license": {
-      "key": "mit",
-      "name": "MIT License",
-      "url": "https://api.github.com/licenses/mit"
-    },
-    "name": "powerplatformconnect",
-    "openIssuesCount": 0,
-    "owner": {
-      "id": "MDEyOk9yZ2FuaXphdGlvbjYxNTQ3MjI=",
-      "is_bot": false,
-      "login": "microsoft",
-      "type": "Organization",
-      "url": "https://github.com/microsoft"
-    },
-    "updatedAt": "2024-06-17T21:23:26Z",
-    "url": "https://github.com/microsoft/powerplatformconnect",
-    "codeOfConduct": {
-      "key": "other",
-      "name": "Other",
-      "url": "https://github.com/microsoft/.github/blob/main/CODE_OF_CONDUCT.md"
-    },
-    "forkCount": 0,
-    "fundingLinks": [],
-    "isSecurityPolicyEnabled": true,
-    "isTemplate": false,
-    "latestRelease": null,
-    "primaryLanguage": {
-      "name": "SCSS"
-    },
-    "securityPolicyUrl": "https://github.com/microsoft/powerplatformconnect/security/policy",
-    "stargazerCount": 14,
-    "watchers": {
-      "totalCount": 4
-    },
-    "topics": [
-      "powerplatform",
-      "powerapps",
-      "powerautomate",
-      "powerpages",
-      "powervirtualagent"
-    ],
-    "languages": [
-      "SCSS",
-      "HTML",
-      "Ruby"
-    ],
-    "openedGoodFirstIssues": 0,
-    "hasGoodFirstIssues": false,
-    "openedHelpWantedIssues": 0,
-    "hasHelpWantedIssues": false,
-    "openedToContributionsIssues": 0,
-    "popularityScore": 18
   },
   {
     "createdAt": "2020-12-05T05:05:01Z",
