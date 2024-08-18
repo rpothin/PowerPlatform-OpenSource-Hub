@@ -13,7 +13,7 @@
       "url": ""
     },
     "name": "activepieces",
-    "openIssuesCount": 203,
+    "openIssuesCount": 204,
     "owner": {
       "id": "O_kgDOBe4rLA",
       "is_bot": false,
@@ -21,14 +21,14 @@
       "type": "Organization",
       "url": "https://github.com/activepieces"
     },
-    "updatedAt": "2024-08-17T07:49:25Z",
+    "updatedAt": "2024-08-18T08:38:28Z",
     "url": "https://github.com/activepieces/activepieces",
     "codeOfConduct": {
       "key": "other",
       "name": "Other",
       "url": "https://github.com/activepieces/activepieces/blob/main/.github/CODE_OF_CONDUCT.md"
     },
-    "forkCount": 1032,
+    "forkCount": 1035,
     "fundingLinks": [],
     "isSecurityPolicyEnabled": true,
     "isTemplate": false,
@@ -42,7 +42,7 @@
       "name": "TypeScript"
     },
     "securityPolicyUrl": "https://github.com/activepieces/activepieces/security/policy",
-    "stargazerCount": 9023,
+    "stargazerCount": 9028,
     "watchers": {
       "totalCount": 56
     },
@@ -81,7 +81,7 @@
     "openedHelpWantedIssues": 4,
     "hasHelpWantedIssues": true,
     "openedToContributionsIssues": 5,
-    "popularityScore": 9079
+    "popularityScore": 9084
   },
   {
     "createdAt": "2021-02-23T22:09:05Z",
@@ -105,7 +105,7 @@
       "type": "Organization",
       "url": "https://github.com/microsoft"
     },
-    "updatedAt": "2024-08-17T00:57:45Z",
+    "updatedAt": "2024-08-17T19:50:57Z",
     "url": "https://github.com/microsoft/Power-Fx",
     "codeOfConduct": {
       "key": "other",
@@ -126,7 +126,7 @@
       "name": "C#"
     },
     "securityPolicyUrl": "https://github.com/microsoft/Power-Fx/security/policy",
-    "stargazerCount": 3168,
+    "stargazerCount": 3169,
     "watchers": {
       "totalCount": 117
     },
@@ -144,7 +144,7 @@
     "openedHelpWantedIssues": 0,
     "hasHelpWantedIssues": false,
     "openedToContributionsIssues": 8,
-    "popularityScore": 3285
+    "popularityScore": 3286
   },
   {
     "createdAt": "2018-11-21T16:54:50Z",
@@ -168,7 +168,7 @@
       "type": "Organization",
       "url": "https://github.com/microsoft"
     },
-    "updatedAt": "2024-08-16T14:42:19Z",
+    "updatedAt": "2024-08-18T07:00:06Z",
     "url": "https://github.com/microsoft/Microsoft365DSC",
     "codeOfConduct": {
       "key": "contributor_covenant",
@@ -189,7 +189,7 @@
       "name": "PowerShell"
     },
     "securityPolicyUrl": "https://github.com/microsoft/Microsoft365DSC/security/policy",
-    "stargazerCount": 1506,
+    "stargazerCount": 1509,
     "watchers": {
       "totalCount": 79
     },
@@ -225,7 +225,7 @@
     "openedHelpWantedIssues": 2,
     "hasHelpWantedIssues": true,
     "openedToContributionsIssues": 2,
-    "popularityScore": 1585
+    "popularityScore": 1588
   },
   {
     "createdAt": "2018-03-26T22:41:09Z",
@@ -391,7 +391,7 @@
       "url": "https://api.github.com/licenses/mit"
     },
     "name": "PowerPlatformConnectors",
-    "openIssuesCount": 196,
+    "openIssuesCount": 197,
     "owner": {
       "id": "MDEyOk9yZ2FuaXphdGlvbjYxNTQ3MjI=",
       "is_bot": false,
@@ -516,7 +516,7 @@
       "url": "https://api.github.com/licenses/mit"
     },
     "name": "AL",
-    "openIssuesCount": 250,
+    "openIssuesCount": 247,
     "owner": {
       "id": "MDEyOk9yZ2FuaXphdGlvbjYxNTQ3MjI=",
       "is_bot": false,
@@ -576,7 +576,7 @@
       "url": "https://api.github.com/licenses/mit"
     },
     "name": "power-pwn",
-    "openIssuesCount": 20,
+    "openIssuesCount": 19,
     "owner": {
       "id": "MDQ6VXNlcjExMDc0NDMz",
       "is_bot": false,
@@ -584,7 +584,7 @@
       "type": "User",
       "url": "https://github.com/mbrg"
     },
-    "updatedAt": "2024-08-16T20:53:29Z",
+    "updatedAt": "2024-08-18T09:58:29Z",
     "url": "https://github.com/mbrg/power-pwn",
     "codeOfConduct": null,
     "forkCount": 69,
@@ -601,7 +601,7 @@
       "name": "Python"
     },
     "securityPolicyUrl": "",
-    "stargazerCount": 709,
+    "stargazerCount": 714,
     "watchers": {
       "totalCount": 15
     },
@@ -637,7 +637,7 @@
     "openedHelpWantedIssues": 0,
     "hasHelpWantedIssues": false,
     "openedToContributionsIssues": 0,
-    "popularityScore": 724
+    "popularityScore": 729
   },
   {
     "createdAt": "2015-02-05T20:58:06Z",
@@ -851,6 +851,59 @@
     "popularityScore": 450
   },
   {
+    "createdAt": "2021-02-24T22:16:04Z",
+    "description": "Contains curated community Microsoft Power App samples",
+    "fullName": "pnp/powerapps-samples",
+    "hasIssues": true,
+    "homepage": "https://aka.ms/powerplatform-samples",
+    "isArchived": false,
+    "language": "",
+    "license": {
+      "key": "mit",
+      "name": "MIT License",
+      "url": "https://api.github.com/licenses/mit"
+    },
+    "name": "powerapps-samples",
+    "openIssuesCount": 30,
+    "owner": {
+      "id": "MDEyOk9yZ2FuaXphdGlvbjMxNDQzOTI5",
+      "is_bot": false,
+      "login": "pnp",
+      "type": "Organization",
+      "url": "https://github.com/pnp"
+    },
+    "updatedAt": "2024-08-17T18:44:48Z",
+    "url": "https://github.com/pnp/powerapps-samples",
+    "codeOfConduct": {
+      "key": "other",
+      "name": "Other",
+      "url": "https://github.com/pnp/powerapps-samples/blob/main/CODE_OF_CONDUCT.md"
+    },
+    "forkCount": 306,
+    "fundingLinks": [],
+    "isSecurityPolicyEnabled": true,
+    "isTemplate": false,
+    "latestRelease": null,
+    "primaryLanguage": null,
+    "securityPolicyUrl": "https://github.com/pnp/powerapps-samples/security/policy",
+    "stargazerCount": 406,
+    "watchers": {
+      "totalCount": 37
+    },
+    "topics": [
+      "powerapps",
+      "powerplatform",
+      "hacktoberfest"
+    ],
+    "languages": [],
+    "openedGoodFirstIssues": 0,
+    "hasGoodFirstIssues": false,
+    "openedHelpWantedIssues": 0,
+    "hasHelpWantedIssues": false,
+    "openedToContributionsIssues": 0,
+    "popularityScore": 443
+  },
+  {
     "createdAt": "2017-12-06T03:33:42Z",
     "description": "Collection of Power Apps template apps, components and examples",
     "fullName": "aprildunnam/PowerApps",
@@ -898,59 +951,6 @@
     "hasHelpWantedIssues": false,
     "openedToContributionsIssues": 0,
     "popularityScore": 453
-  },
-  {
-    "createdAt": "2021-02-24T22:16:04Z",
-    "description": "Contains curated community Microsoft Power App samples",
-    "fullName": "pnp/powerapps-samples",
-    "hasIssues": true,
-    "homepage": "https://aka.ms/powerplatform-samples",
-    "isArchived": false,
-    "language": "",
-    "license": {
-      "key": "mit",
-      "name": "MIT License",
-      "url": "https://api.github.com/licenses/mit"
-    },
-    "name": "powerapps-samples",
-    "openIssuesCount": 30,
-    "owner": {
-      "id": "MDEyOk9yZ2FuaXphdGlvbjMxNDQzOTI5",
-      "is_bot": false,
-      "login": "pnp",
-      "type": "Organization",
-      "url": "https://github.com/pnp"
-    },
-    "updatedAt": "2024-08-15T13:58:46Z",
-    "url": "https://github.com/pnp/powerapps-samples",
-    "codeOfConduct": {
-      "key": "other",
-      "name": "Other",
-      "url": "https://github.com/pnp/powerapps-samples/blob/main/CODE_OF_CONDUCT.md"
-    },
-    "forkCount": 306,
-    "fundingLinks": [],
-    "isSecurityPolicyEnabled": true,
-    "isTemplate": false,
-    "latestRelease": null,
-    "primaryLanguage": null,
-    "securityPolicyUrl": "https://github.com/pnp/powerapps-samples/security/policy",
-    "stargazerCount": 405,
-    "watchers": {
-      "totalCount": 37
-    },
-    "topics": [
-      "powerapps",
-      "powerplatform",
-      "hacktoberfest"
-    ],
-    "languages": [],
-    "openedGoodFirstIssues": 0,
-    "hasGoodFirstIssues": false,
-    "openedHelpWantedIssues": 0,
-    "hasHelpWantedIssues": false,
-    "openedToContributionsIssues": 0,
-    "popularityScore": 442
   },
   {
     "createdAt": "2021-10-21T07:12:03Z",
@@ -4841,7 +4841,7 @@
       "type": "User",
       "url": "https://github.com/Power-Maverick"
     },
-    "updatedAt": "2024-07-29T14:44:19Z",
+    "updatedAt": "2024-08-17T14:06:43Z",
     "url": "https://github.com/Power-Maverick/DataverseDevTools-VSCode",
     "codeOfConduct": {
       "key": "contributor_covenant",
@@ -5287,7 +5287,7 @@
       "type": "Organization",
       "url": "https://github.com/microsoft"
     },
-    "updatedAt": "2024-08-09T22:41:10Z",
+    "updatedAt": "2024-08-18T09:48:11Z",
     "url": "https://github.com/microsoft/PowerApps-Azure-Lab",
     "codeOfConduct": {
       "key": "other",
@@ -5303,7 +5303,7 @@
       "name": "C#"
     },
     "securityPolicyUrl": "https://github.com/microsoft/PowerApps-Azure-Lab/security/policy",
-    "stargazerCount": 44,
+    "stargazerCount": 45,
     "watchers": {
       "totalCount": 9
     },
@@ -5321,7 +5321,7 @@
     "openedHelpWantedIssues": 0,
     "hasHelpWantedIssues": false,
     "openedToContributionsIssues": 0,
-    "popularityScore": 53
+    "popularityScore": 54
   },
   {
     "createdAt": "2016-11-27T17:09:22Z",
@@ -6223,7 +6223,7 @@
       "type": "User",
       "url": "https://github.com/shashisadasivan"
     },
-    "updatedAt": "2024-07-26T06:28:38Z",
+    "updatedAt": "2024-08-17T18:33:01Z",
     "url": "https://github.com/shashisadasivan/SSD365VSAddIn",
     "codeOfConduct": null,
     "forkCount": 20,
@@ -6249,7 +6249,7 @@
       "name": "C#"
     },
     "securityPolicyUrl": "",
-    "stargazerCount": 33,
+    "stargazerCount": 34,
     "watchers": {
       "totalCount": 11
     },
@@ -6268,7 +6268,7 @@
     "openedHelpWantedIssues": 1,
     "hasHelpWantedIssues": true,
     "openedToContributionsIssues": 2,
-    "popularityScore": 44
+    "popularityScore": 45
   },
   {
     "createdAt": "2019-01-31T12:24:00Z",
@@ -6766,7 +6766,7 @@
     "updatedAt": "2024-08-05T19:43:22Z",
     "url": "https://github.com/rajyraman/Power-Fx-.NET-Interactive",
     "codeOfConduct": null,
-    "forkCount": 3,
+    "forkCount": 4,
     "fundingLinks": [],
     "isSecurityPolicyEnabled": false,
     "isTemplate": false,
@@ -7025,6 +7025,65 @@
     "popularityScore": 31
   },
   {
+    "createdAt": "2022-06-17T15:28:25Z",
+    "description": "A way to dynamically render controls in Power Apps",
+    "fullName": "microsoft/shapeshifter",
+    "hasIssues": true,
+    "homepage": "",
+    "isArchived": false,
+    "language": "TypeScript",
+    "license": {
+      "key": "mit",
+      "name": "MIT License",
+      "url": "https://api.github.com/licenses/mit"
+    },
+    "name": "shapeshifter",
+    "openIssuesCount": 0,
+    "owner": {
+      "id": "MDEyOk9yZ2FuaXphdGlvbjYxNTQ3MjI=",
+      "is_bot": false,
+      "login": "microsoft",
+      "type": "Organization",
+      "url": "https://github.com/microsoft"
+    },
+    "updatedAt": "2024-08-18T09:48:02Z",
+    "url": "https://github.com/microsoft/shapeshifter",
+    "codeOfConduct": {
+      "key": "other",
+      "name": "Other",
+      "url": "https://github.com/microsoft/.github/blob/main/CODE_OF_CONDUCT.md"
+    },
+    "forkCount": 14,
+    "fundingLinks": [],
+    "isSecurityPolicyEnabled": true,
+    "isTemplate": false,
+    "latestRelease": null,
+    "primaryLanguage": {
+      "name": "TypeScript"
+    },
+    "securityPolicyUrl": "https://github.com/microsoft/shapeshifter/security/policy",
+    "stargazerCount": 25,
+    "watchers": {
+      "totalCount": 4
+    },
+    "topics": [
+      "powerapps",
+      "fluentui",
+      "powerapps-component-framework",
+      "reactjs"
+    ],
+    "languages": [
+      "TypeScript",
+      "Dockerfile"
+    ],
+    "openedGoodFirstIssues": 0,
+    "hasGoodFirstIssues": false,
+    "openedHelpWantedIssues": 0,
+    "hasHelpWantedIssues": false,
+    "openedToContributionsIssues": 0,
+    "popularityScore": 29
+  },
+  {
     "createdAt": "2020-04-12T20:03:47Z",
     "description": "FakeXrmEasy: The Test Automation Framework for the Power Platform / Dataverse",
     "fullName": "DynamicsValue/fake-xrm-easy",
@@ -7213,65 +7272,6 @@
     "hasHelpWantedIssues": false,
     "openedToContributionsIssues": 0,
     "popularityScore": 26
-  },
-  {
-    "createdAt": "2022-06-17T15:28:25Z",
-    "description": "A way to dynamically render controls in Power Apps",
-    "fullName": "microsoft/shapeshifter",
-    "hasIssues": true,
-    "homepage": "",
-    "isArchived": false,
-    "language": "TypeScript",
-    "license": {
-      "key": "mit",
-      "name": "MIT License",
-      "url": "https://api.github.com/licenses/mit"
-    },
-    "name": "shapeshifter",
-    "openIssuesCount": 0,
-    "owner": {
-      "id": "MDEyOk9yZ2FuaXphdGlvbjYxNTQ3MjI=",
-      "is_bot": false,
-      "login": "microsoft",
-      "type": "Organization",
-      "url": "https://github.com/microsoft"
-    },
-    "updatedAt": "2024-08-05T19:43:27Z",
-    "url": "https://github.com/microsoft/shapeshifter",
-    "codeOfConduct": {
-      "key": "other",
-      "name": "Other",
-      "url": "https://github.com/microsoft/.github/blob/main/CODE_OF_CONDUCT.md"
-    },
-    "forkCount": 14,
-    "fundingLinks": [],
-    "isSecurityPolicyEnabled": true,
-    "isTemplate": false,
-    "latestRelease": null,
-    "primaryLanguage": {
-      "name": "TypeScript"
-    },
-    "securityPolicyUrl": "https://github.com/microsoft/shapeshifter/security/policy",
-    "stargazerCount": 24,
-    "watchers": {
-      "totalCount": 4
-    },
-    "topics": [
-      "powerapps",
-      "fluentui",
-      "powerapps-component-framework",
-      "reactjs"
-    ],
-    "languages": [
-      "TypeScript",
-      "Dockerfile"
-    ],
-    "openedGoodFirstIssues": 0,
-    "hasGoodFirstIssues": false,
-    "openedHelpWantedIssues": 0,
-    "hasHelpWantedIssues": false,
-    "openedToContributionsIssues": 0,
-    "popularityScore": 28
   },
   {
     "createdAt": "2017-05-09T15:52:03Z",
@@ -7533,7 +7533,7 @@
       "type": "User",
       "url": "https://github.com/rpothin"
     },
-    "updatedAt": "2024-08-16T11:24:34Z",
+    "updatedAt": "2024-08-17T11:16:59Z",
     "url": "https://github.com/rpothin/PowerPlatform-OpenSource-Hub",
     "codeOfConduct": {
       "key": "contributor_covenant",
@@ -9542,7 +9542,7 @@
     "updatedAt": "2024-04-04T19:49:13Z",
     "url": "https://github.com/rajyraman/pcf-dev-container",
     "codeOfConduct": null,
-    "forkCount": 2,
+    "forkCount": 3,
     "fundingLinks": [],
     "isSecurityPolicyEnabled": false,
     "isTemplate": true,
