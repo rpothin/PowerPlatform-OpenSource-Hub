@@ -13,7 +13,7 @@
       "url": ""
     },
     "name": "activepieces",
-    "openIssuesCount": 137,
+    "openIssuesCount": 136,
     "owner": {
       "id": "O_kgDOBe4rLA",
       "is_bot": false,
@@ -21,14 +21,14 @@
       "type": "Organization",
       "url": "https://github.com/activepieces"
     },
-    "updatedAt": "2024-09-17T09:52:28Z",
+    "updatedAt": "2024-09-17T11:29:34Z",
     "url": "https://github.com/activepieces/activepieces",
     "codeOfConduct": {
       "key": "other",
       "name": "Other",
       "url": "https://github.com/activepieces/activepieces/blob/main/.github/CODE_OF_CONDUCT.md"
     },
-    "forkCount": 1098,
+    "forkCount": 1099,
     "fundingLinks": [],
     "isSecurityPolicyEnabled": true,
     "isTemplate": false,
@@ -159,7 +159,7 @@
       "url": "https://api.github.com/licenses/mit"
     },
     "name": "Microsoft365DSC",
-    "openIssuesCount": 413,
+    "openIssuesCount": 414,
     "owner": {
       "id": "MDEyOk9yZ2FuaXphdGlvbjYxNTQ3MjI=",
       "is_bot": false,
@@ -240,7 +240,7 @@
       "url": "https://api.github.com/licenses/mit"
     },
     "name": "PowerApps-Samples",
-    "openIssuesCount": 32,
+    "openIssuesCount": 33,
     "owner": {
       "id": "MDEyOk9yZ2FuaXphdGlvbjYxNTQ3MjI=",
       "is_bot": false,
@@ -405,7 +405,7 @@
       "name": "Other",
       "url": "https://github.com/microsoft/.github/blob/main/CODE_OF_CONDUCT.md"
     },
-    "forkCount": 1250,
+    "forkCount": 1251,
     "fundingLinks": [],
     "isSecurityPolicyEnabled": true,
     "isTemplate": false,
@@ -2234,7 +2234,7 @@
       "type": "Organization",
       "url": "https://github.com/microsoft"
     },
-    "updatedAt": "2024-09-12T11:52:51Z",
+    "updatedAt": "2024-09-17T13:02:26Z",
     "url": "https://github.com/microsoft/Federal-Business-Applications",
     "codeOfConduct": {
       "key": "other",
@@ -4255,6 +4255,75 @@
     "popularityScore": 77
   },
   {
+    "createdAt": "2018-03-02T09:47:37Z",
+    "description": "A collection of projects and items template for develop Dynamics 365 Crm",
+    "fullName": "phuocle/Dynamics-Crm-DevKit",
+    "hasIssues": true,
+    "homepage": "",
+    "isArchived": false,
+    "language": "C#",
+    "license": {
+      "key": "mit",
+      "name": "MIT License",
+      "url": "https://api.github.com/licenses/mit"
+    },
+    "name": "Dynamics-Crm-DevKit",
+    "openIssuesCount": 10,
+    "owner": {
+      "id": "MDQ6VXNlcjQ3OTcyOQ==",
+      "is_bot": false,
+      "login": "phuocle",
+      "type": "User",
+      "url": "https://github.com/phuocle"
+    },
+    "updatedAt": "2024-09-17T12:57:37Z",
+    "url": "https://github.com/phuocle/Dynamics-Crm-DevKit",
+    "codeOfConduct": null,
+    "forkCount": 14,
+    "fundingLinks": [],
+    "isSecurityPolicyEnabled": false,
+    "isTemplate": false,
+    "latestRelease": {
+      "name": "Version 3.33.33.33",
+      "tagName": "3.33.33.33",
+      "url": "https://github.com/phuocle/Dynamics-Crm-DevKit/releases/tag/3.33.33.33",
+      "publishedAt": "2023-12-31T10:53:06Z"
+    },
+    "primaryLanguage": {
+      "name": "C#"
+    },
+    "securityPolicyUrl": "",
+    "stargazerCount": 64,
+    "watchers": {
+      "totalCount": 16
+    },
+    "topics": [
+      "dynamics-365",
+      "dynamics-crm",
+      "dynamics365",
+      "fetchxml",
+      "devkit",
+      "tools",
+      "crm",
+      "dataverse"
+    ],
+    "languages": [
+      "C#",
+      "JavaScript",
+      "Batchfile",
+      "PowerShell",
+      "HTML",
+      "Smalltalk",
+      "CSS"
+    ],
+    "openedGoodFirstIssues": 0,
+    "hasGoodFirstIssues": false,
+    "openedHelpWantedIssues": 0,
+    "hasHelpWantedIssues": false,
+    "openedToContributionsIssues": 0,
+    "popularityScore": 80
+  },
+  {
     "createdAt": "2019-09-25T15:20:07Z",
     "description": "A template to empower developers and reduce time wasted on control changes",
     "fullName": "iAmManCat/PowerApps-Branding-Template",
@@ -4305,75 +4374,6 @@
     "hasHelpWantedIssues": false,
     "openedToContributionsIssues": 0,
     "popularityScore": 67
-  },
-  {
-    "createdAt": "2018-03-02T09:47:37Z",
-    "description": "A collection of projects and items template for develop Dynamics 365 Crm",
-    "fullName": "phuocle/Dynamics-Crm-DevKit",
-    "hasIssues": true,
-    "homepage": "",
-    "isArchived": false,
-    "language": "C#",
-    "license": {
-      "key": "mit",
-      "name": "MIT License",
-      "url": "https://api.github.com/licenses/mit"
-    },
-    "name": "Dynamics-Crm-DevKit",
-    "openIssuesCount": 10,
-    "owner": {
-      "id": "MDQ6VXNlcjQ3OTcyOQ==",
-      "is_bot": false,
-      "login": "phuocle",
-      "type": "User",
-      "url": "https://github.com/phuocle"
-    },
-    "updatedAt": "2024-08-12T03:35:09Z",
-    "url": "https://github.com/phuocle/Dynamics-Crm-DevKit",
-    "codeOfConduct": null,
-    "forkCount": 14,
-    "fundingLinks": [],
-    "isSecurityPolicyEnabled": false,
-    "isTemplate": false,
-    "latestRelease": {
-      "name": "Version 3.33.33.33",
-      "tagName": "3.33.33.33",
-      "url": "https://github.com/phuocle/Dynamics-Crm-DevKit/releases/tag/3.33.33.33",
-      "publishedAt": "2023-12-31T10:53:06Z"
-    },
-    "primaryLanguage": {
-      "name": "C#"
-    },
-    "securityPolicyUrl": "",
-    "stargazerCount": 63,
-    "watchers": {
-      "totalCount": 16
-    },
-    "topics": [
-      "dynamics-365",
-      "dynamics-crm",
-      "dynamics365",
-      "fetchxml",
-      "devkit",
-      "tools",
-      "crm",
-      "dataverse"
-    ],
-    "languages": [
-      "C#",
-      "JavaScript",
-      "Batchfile",
-      "PowerShell",
-      "HTML",
-      "Smalltalk",
-      "CSS"
-    ],
-    "openedGoodFirstIssues": 0,
-    "hasGoodFirstIssues": false,
-    "openedHelpWantedIssues": 0,
-    "hasHelpWantedIssues": false,
-    "openedToContributionsIssues": 0,
-    "popularityScore": 79
   },
   {
     "createdAt": "2022-08-03T14:35:12Z",
@@ -7601,7 +7601,7 @@
       "url": "https://api.github.com/licenses/mit"
     },
     "name": "PowerPlatform-OpenSource-Hub",
-    "openIssuesCount": 1,
+    "openIssuesCount": 0,
     "owner": {
       "id": "MDQ6VXNlcjIzMjQwMjQ1",
       "is_bot": false,
@@ -7609,7 +7609,7 @@
       "type": "User",
       "url": "https://github.com/rpothin"
     },
-    "updatedAt": "2024-09-16T11:21:14Z",
+    "updatedAt": "2024-09-17T14:38:27Z",
     "url": "https://github.com/rpothin/PowerPlatform-OpenSource-Hub",
     "codeOfConduct": {
       "key": "contributor_covenant",
