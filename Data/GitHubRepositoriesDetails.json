@@ -13,7 +13,7 @@
       "url": ""
     },
     "name": "activepieces",
-    "openIssuesCount": 143,
+    "openIssuesCount": 144,
     "owner": {
       "id": "O_kgDOBe4rLA",
       "is_bot": false,
@@ -21,28 +21,28 @@
       "type": "Organization",
       "url": "https://github.com/activepieces"
     },
-    "updatedAt": "2024-10-09T04:27:15Z",
+    "updatedAt": "2024-10-10T09:44:55Z",
     "url": "https://github.com/activepieces/activepieces",
     "codeOfConduct": {
       "key": "other",
       "name": "Other",
       "url": "https://github.com/activepieces/activepieces/blob/main/.github/CODE_OF_CONDUCT.md"
     },
-    "forkCount": 1126,
+    "forkCount": 1125,
     "fundingLinks": [],
     "isSecurityPolicyEnabled": true,
     "isTemplate": false,
     "latestRelease": {
-      "name": "0.33.0",
-      "tagName": "0.33.0",
-      "url": "https://github.com/activepieces/activepieces/releases/tag/0.33.0",
-      "publishedAt": "2024-10-01T00:13:39Z"
+      "name": "0.34.0",
+      "tagName": "0.34.0",
+      "url": "https://github.com/activepieces/activepieces/releases/tag/0.34.0",
+      "publishedAt": "2024-10-09T21:13:22Z"
     },
     "primaryLanguage": {
       "name": "TypeScript"
     },
     "securityPolicyUrl": "https://github.com/activepieces/activepieces/security/policy",
-    "stargazerCount": 9487,
+    "stargazerCount": 9497,
     "watchers": {
       "totalCount": 54
     },
@@ -80,7 +80,7 @@
     "openedHelpWantedIssues": 4,
     "hasHelpWantedIssues": true,
     "openedToContributionsIssues": 4,
-    "popularityScore": 9541
+    "popularityScore": 9551
   },
   {
     "createdAt": "2021-02-23T22:09:05Z",
@@ -96,7 +96,7 @@
       "url": "https://api.github.com/licenses/mit"
     },
     "name": "Power-Fx",
-    "openIssuesCount": 291,
+    "openIssuesCount": 290,
     "owner": {
       "id": "MDEyOk9yZ2FuaXphdGlvbjYxNTQ3MjI=",
       "is_bot": false,
@@ -104,7 +104,7 @@
       "type": "Organization",
       "url": "https://github.com/microsoft"
     },
-    "updatedAt": "2024-10-08T17:13:02Z",
+    "updatedAt": "2024-10-10T10:07:48Z",
     "url": "https://github.com/microsoft/Power-Fx",
     "codeOfConduct": {
       "key": "other",
@@ -125,7 +125,7 @@
       "name": "C#"
     },
     "securityPolicyUrl": "https://github.com/microsoft/Power-Fx/security/policy",
-    "stargazerCount": 3188,
+    "stargazerCount": 3189,
     "watchers": {
       "totalCount": 117
     },
@@ -143,7 +143,7 @@
     "openedHelpWantedIssues": 0,
     "hasHelpWantedIssues": false,
     "openedToContributionsIssues": 9,
-    "popularityScore": 3305
+    "popularityScore": 3306
   },
   {
     "createdAt": "2018-11-21T16:54:50Z",
@@ -159,7 +159,7 @@
       "url": "https://api.github.com/licenses/mit"
     },
     "name": "Microsoft365DSC",
-    "openIssuesCount": 432,
+    "openIssuesCount": 433,
     "owner": {
       "id": "MDEyOk9yZ2FuaXphdGlvbjYxNTQ3MjI=",
       "is_bot": false,
@@ -167,7 +167,7 @@
       "type": "Organization",
       "url": "https://github.com/microsoft"
     },
-    "updatedAt": "2024-10-08T22:43:08Z",
+    "updatedAt": "2024-10-10T10:59:55Z",
     "url": "https://github.com/microsoft/Microsoft365DSC",
     "codeOfConduct": {
       "key": "contributor_covenant",
@@ -188,7 +188,7 @@
       "name": "PowerShell"
     },
     "securityPolicyUrl": "https://github.com/microsoft/Microsoft365DSC/security/policy",
-    "stargazerCount": 1556,
+    "stargazerCount": 1557,
     "watchers": {
       "totalCount": 76
     },
@@ -224,7 +224,7 @@
     "openedHelpWantedIssues": 2,
     "hasHelpWantedIssues": true,
     "openedToContributionsIssues": 2,
-    "popularityScore": 1632
+    "popularityScore": 1633
   },
   {
     "createdAt": "2018-03-26T22:41:09Z",
@@ -255,7 +255,7 @@
       "name": "Other",
       "url": "https://github.com/microsoft/.github/blob/main/CODE_OF_CONDUCT.md"
     },
-    "forkCount": 1695,
+    "forkCount": 1696,
     "fundingLinks": [],
     "isSecurityPolicyEnabled": true,
     "isTemplate": false,
@@ -441,6 +441,83 @@
     "popularityScore": 1028
   },
   {
+    "createdAt": "2022-06-14T11:40:21Z",
+    "description": "An offensive security toolset for Microsoft 365 focused on Microsoft Copilot, Copilot Studio and Power Platform",
+    "fullName": "mbrg/power-pwn",
+    "hasIssues": true,
+    "homepage": "",
+    "isArchived": false,
+    "language": "Python",
+    "license": {
+      "key": "mit",
+      "name": "MIT License",
+      "url": "https://api.github.com/licenses/mit"
+    },
+    "name": "power-pwn",
+    "openIssuesCount": 21,
+    "owner": {
+      "id": "MDQ6VXNlcjExMDc0NDMz",
+      "is_bot": false,
+      "login": "mbrg",
+      "type": "User",
+      "url": "https://github.com/mbrg"
+    },
+    "updatedAt": "2024-10-10T09:39:58Z",
+    "url": "https://github.com/mbrg/power-pwn",
+    "codeOfConduct": null,
+    "forkCount": 79,
+    "fundingLinks": [],
+    "isSecurityPolicyEnabled": false,
+    "isTemplate": false,
+    "latestRelease": {
+      "name": "v3.0.1",
+      "tagName": "v3.0.1",
+      "url": "https://github.com/mbrg/power-pwn/releases/tag/v3.0.1",
+      "publishedAt": "2024-08-09T14:46:36Z"
+    },
+    "primaryLanguage": {
+      "name": "Python"
+    },
+    "securityPolicyUrl": "",
+    "stargazerCount": 771,
+    "watchers": {
+      "totalCount": 16
+    },
+    "topics": [
+      "defcon30",
+      "pentesting",
+      "redteam",
+      "hacking",
+      "powerautomate",
+      "roboticprocessautomation",
+      "rpa",
+      "lowcode",
+      "nocode",
+      "m365",
+      "microsoft365",
+      "powerapps",
+      "blackhat2023",
+      "hacking-tool",
+      "redteamer",
+      "redteaming",
+      "blackhat2024",
+      "ai-red-team",
+      "copilotstudio",
+      "copilot-for-microsoft-365"
+    ],
+    "languages": [
+      "Python",
+      "JavaScript",
+      "HTML"
+    ],
+    "openedGoodFirstIssues": 0,
+    "hasGoodFirstIssues": false,
+    "openedHelpWantedIssues": 0,
+    "hasHelpWantedIssues": false,
+    "openedToContributionsIssues": 0,
+    "popularityScore": 787
+  },
+  {
     "createdAt": "2014-01-30T09:46:28Z",
     "description": "inoERP is an OneApp [ Go back-end & Flutter front-end ] based enterprise management system",
     "fullName": "inoerp/inoERP",
@@ -502,83 +579,6 @@
     "popularityScore": 897
   },
   {
-    "createdAt": "2022-06-14T11:40:21Z",
-    "description": "An offensive security toolset for Microsoft 365 focused on Microsoft Copilot, Copilot Studio and Power Platform",
-    "fullName": "mbrg/power-pwn",
-    "hasIssues": true,
-    "homepage": "",
-    "isArchived": false,
-    "language": "Python",
-    "license": {
-      "key": "mit",
-      "name": "MIT License",
-      "url": "https://api.github.com/licenses/mit"
-    },
-    "name": "power-pwn",
-    "openIssuesCount": 21,
-    "owner": {
-      "id": "MDQ6VXNlcjExMDc0NDMz",
-      "is_bot": false,
-      "login": "mbrg",
-      "type": "User",
-      "url": "https://github.com/mbrg"
-    },
-    "updatedAt": "2024-10-09T01:24:49Z",
-    "url": "https://github.com/mbrg/power-pwn",
-    "codeOfConduct": null,
-    "forkCount": 79,
-    "fundingLinks": [],
-    "isSecurityPolicyEnabled": false,
-    "isTemplate": false,
-    "latestRelease": {
-      "name": "v3.0.1",
-      "tagName": "v3.0.1",
-      "url": "https://github.com/mbrg/power-pwn/releases/tag/v3.0.1",
-      "publishedAt": "2024-08-09T14:46:36Z"
-    },
-    "primaryLanguage": {
-      "name": "Python"
-    },
-    "securityPolicyUrl": "",
-    "stargazerCount": 766,
-    "watchers": {
-      "totalCount": 15
-    },
-    "topics": [
-      "defcon30",
-      "pentesting",
-      "redteam",
-      "hacking",
-      "powerautomate",
-      "roboticprocessautomation",
-      "rpa",
-      "lowcode",
-      "nocode",
-      "m365",
-      "microsoft365",
-      "powerapps",
-      "blackhat2023",
-      "hacking-tool",
-      "redteamer",
-      "redteaming",
-      "blackhat2024",
-      "ai-red-team",
-      "copilotstudio",
-      "copilot-for-microsoft-365"
-    ],
-    "languages": [
-      "Python",
-      "JavaScript",
-      "HTML"
-    ],
-    "openedGoodFirstIssues": 0,
-    "hasGoodFirstIssues": false,
-    "openedHelpWantedIssues": 0,
-    "hasHelpWantedIssues": false,
-    "openedToContributionsIssues": 0,
-    "popularityScore": 781
-  },
-  {
     "createdAt": "2016-11-25T15:23:10Z",
     "description": "Home of the Dynamics 365 Business Central AL Language extension for Visual Studio Code. Used to track issues regarding the latest version of the AL compiler and developer tools available in the Visual Studio Code Marketplace or as part of the AL Developer Preview builds for Dynamics 365 Business Central.",
     "fullName": "microsoft/AL",
@@ -592,7 +592,7 @@
       "url": "https://api.github.com/licenses/mit"
     },
     "name": "AL",
-    "openIssuesCount": 235,
+    "openIssuesCount": 236,
     "owner": {
       "id": "MDEyOk9yZ2FuaXphdGlvbjYxNTQ3MjI=",
       "is_bot": false,
@@ -600,7 +600,7 @@
       "type": "Organization",
       "url": "https://github.com/microsoft"
     },
-    "updatedAt": "2024-10-08T07:34:12Z",
+    "updatedAt": "2024-10-10T11:04:35Z",
     "url": "https://github.com/microsoft/AL",
     "codeOfConduct": {
       "key": "other",
@@ -616,7 +616,7 @@
       "name": "PowerShell"
     },
     "securityPolicyUrl": "https://github.com/microsoft/AL/security/policy",
-    "stargazerCount": 739,
+    "stargazerCount": 740,
     "watchers": {
       "totalCount": 166
     },
@@ -636,7 +636,7 @@
     "openedHelpWantedIssues": 0,
     "hasHelpWantedIssues": false,
     "openedToContributionsIssues": 0,
-    "popularityScore": 905
+    "popularityScore": 906
   },
   {
     "createdAt": "2015-02-05T20:58:06Z",
@@ -912,7 +912,7 @@
       "url": "https://api.github.com/licenses/mit"
     },
     "name": "powerapps-samples",
-    "openIssuesCount": 30,
+    "openIssuesCount": 31,
     "owner": {
       "id": "MDEyOk9yZ2FuaXphdGlvbjMxNDQzOTI5",
       "is_bot": false,
@@ -927,7 +927,7 @@
       "name": "Other",
       "url": "https://github.com/pnp/powerapps-samples/blob/main/CODE_OF_CONDUCT.md"
     },
-    "forkCount": 317,
+    "forkCount": 318,
     "fundingLinks": [],
     "isSecurityPolicyEnabled": true,
     "isTemplate": false,
@@ -973,7 +973,7 @@
       "type": "User",
       "url": "https://github.com/modery"
     },
-    "updatedAt": "2024-10-06T18:20:57Z",
+    "updatedAt": "2024-10-09T16:15:31Z",
     "url": "https://github.com/modery/PowerDocu",
     "codeOfConduct": null,
     "forkCount": 70,
@@ -990,7 +990,7 @@
       "name": "C#"
     },
     "securityPolicyUrl": "",
-    "stargazerCount": 417,
+    "stargazerCount": 418,
     "watchers": {
       "totalCount": 29
     },
@@ -1010,7 +1010,7 @@
     "openedHelpWantedIssues": 0,
     "hasHelpWantedIssues": false,
     "openedToContributionsIssues": 0,
-    "popularityScore": 446
+    "popularityScore": 447
   },
   {
     "createdAt": "2020-07-20T18:51:25Z",
@@ -1508,7 +1508,7 @@
       "name": "Other",
       "url": "https://github.com/pnp/powerautomate-samples/blob/main/CODE_OF_CONDUCT.md"
     },
-    "forkCount": 115,
+    "forkCount": 117,
     "fundingLinks": [],
     "isSecurityPolicyEnabled": true,
     "isTemplate": false,
@@ -1752,7 +1752,7 @@
     "updatedAt": "2024-09-16T09:13:51Z",
     "url": "https://github.com/rajyraman/Levelup-for-Dynamics-CRM",
     "codeOfConduct": null,
-    "forkCount": 68,
+    "forkCount": 69,
     "fundingLinks": [],
     "isSecurityPolicyEnabled": false,
     "isTemplate": false,
@@ -1810,7 +1810,7 @@
       "type": "Organization",
       "url": "https://github.com/microsoft"
     },
-    "updatedAt": "2024-10-07T13:40:12Z",
+    "updatedAt": "2024-10-09T13:16:33Z",
     "url": "https://github.com/microsoft/teams-powerapps-app-templates",
     "codeOfConduct": {
       "key": "other",
@@ -2010,7 +2010,7 @@
     "updatedAt": "2024-10-05T12:36:59Z",
     "url": "https://github.com/pnp/powerplatform-samples",
     "codeOfConduct": null,
-    "forkCount": 159,
+    "forkCount": 160,
     "fundingLinks": [],
     "isSecurityPolicyEnabled": false,
     "isTemplate": false,
@@ -2519,7 +2519,7 @@
       "url": "https://api.github.com/licenses/mit"
     },
     "name": "Project-Accelerator",
-    "openIssuesCount": 52,
+    "openIssuesCount": 53,
     "owner": {
       "id": "MDEyOk9yZ2FuaXphdGlvbjY3ODkzNjI=",
       "is_bot": false,
@@ -3408,7 +3408,7 @@
       "name": "Other",
       "url": "https://github.com/microsoft/Power-Platform-For-Beginners/blob/main/CODE_OF_CONDUCT.md"
     },
-    "forkCount": 30,
+    "forkCount": 31,
     "fundingLinks": [],
     "isSecurityPolicyEnabled": true,
     "isTemplate": false,
@@ -3703,7 +3703,7 @@
       "type": "Organization",
       "url": "https://github.com/Azure"
     },
-    "updatedAt": "2024-09-30T14:59:23Z",
+    "updatedAt": "2024-10-09T20:17:18Z",
     "url": "https://github.com/Azure/apim-lab",
     "codeOfConduct": {
       "key": "other",
@@ -3724,7 +3724,7 @@
       "name": "HTML"
     },
     "securityPolicyUrl": "https://github.com/Azure/apim-lab/security/policy",
-    "stargazerCount": 72,
+    "stargazerCount": 73,
     "watchers": {
       "totalCount": 11
     },
@@ -3761,7 +3761,7 @@
     "openedHelpWantedIssues": 4,
     "hasHelpWantedIssues": true,
     "openedToContributionsIssues": 9,
-    "popularityScore": 83
+    "popularityScore": 84
   },
   {
     "createdAt": "2021-10-01T08:06:29Z",
@@ -5360,7 +5360,7 @@
       "type": "User",
       "url": "https://github.com/Feincraft"
     },
-    "updatedAt": "2024-10-06T19:36:32Z",
+    "updatedAt": "2024-10-09T22:04:06Z",
     "url": "https://github.com/Feincraft/TrulyResponsive",
     "codeOfConduct": null,
     "forkCount": 7,
@@ -5375,7 +5375,7 @@
     },
     "primaryLanguage": null,
     "securityPolicyUrl": "",
-    "stargazerCount": 42,
+    "stargazerCount": 43,
     "watchers": {
       "totalCount": 4
     },
@@ -5393,7 +5393,7 @@
     "openedHelpWantedIssues": 0,
     "hasHelpWantedIssues": false,
     "openedToContributionsIssues": 0,
-    "popularityScore": 46
+    "popularityScore": 47
   },
   {
     "createdAt": "2018-09-25T09:28:30Z",
@@ -5602,7 +5602,7 @@
       "type": "Organization",
       "url": "https://github.com/microsoft"
     },
-    "updatedAt": "2024-09-30T07:45:53Z",
+    "updatedAt": "2024-10-09T15:48:36Z",
     "url": "https://github.com/microsoft/Templates-for-Power-Platform",
     "codeOfConduct": {
       "key": "other",
@@ -6544,7 +6544,7 @@
       "url": "https://api.github.com/licenses/mit"
     },
     "name": "terraform-provider-power-platform",
-    "openIssuesCount": 18,
+    "openIssuesCount": 17,
     "owner": {
       "id": "MDEyOk9yZ2FuaXphdGlvbjYxNTQ3MjI=",
       "is_bot": false,
@@ -6552,7 +6552,7 @@
       "type": "Organization",
       "url": "https://github.com/microsoft"
     },
-    "updatedAt": "2024-10-09T07:12:05Z",
+    "updatedAt": "2024-10-10T06:48:20Z",
     "url": "https://github.com/microsoft/terraform-provider-power-platform",
     "codeOfConduct": {
       "key": "other",
@@ -7739,7 +7739,7 @@
       "type": "User",
       "url": "https://github.com/rpothin"
     },
-    "updatedAt": "2024-10-08T15:06:56Z",
+    "updatedAt": "2024-10-09T11:19:59Z",
     "url": "https://github.com/rpothin/PowerPlatform-OpenSource-Hub",
     "codeOfConduct": {
       "key": "contributor_covenant",
@@ -8448,64 +8448,83 @@
     "popularityScore": 21
   },
   {
-    "createdAt": "2020-02-03T13:02:58Z",
-    "description": "",
-    "fullName": "ORBISAG/ORBIS.PCF.ColorfulOptionset",
+    "createdAt": "2023-04-09T04:19:37Z",
+    "description": "GitHub Codespaces & Copilot 핸즈온 워크샵 리포지토리입니다",
+    "fullName": "Azure-Samples/gh-codespaces-copilot-in-a-day-ko",
     "hasIssues": true,
     "homepage": "",
     "isArchived": false,
-    "language": "TypeScript",
+    "language": "Bicep",
     "license": {
       "key": "mit",
       "name": "MIT License",
       "url": "https://api.github.com/licenses/mit"
     },
-    "name": "ORBIS.PCF.ColorfulOptionset",
-    "openIssuesCount": 5,
+    "name": "gh-codespaces-copilot-in-a-day-ko",
+    "openIssuesCount": 2,
     "owner": {
-      "id": "MDEyOk9yZ2FuaXphdGlvbjI5OTQ5NTYz",
+      "id": "MDEyOk9yZ2FuaXphdGlvbjE4NDQ2NjI=",
       "is_bot": false,
-      "login": "ORBISAG",
+      "login": "Azure-Samples",
       "type": "Organization",
-      "url": "https://github.com/ORBISAG"
+      "url": "https://github.com/Azure-Samples"
     },
-    "updatedAt": "2024-06-20T17:12:45Z",
-    "url": "https://github.com/ORBISAG/ORBIS.PCF.ColorfulOptionset",
-    "codeOfConduct": null,
-    "forkCount": 9,
+    "updatedAt": "2024-07-16T04:52:35Z",
+    "url": "https://github.com/Azure-Samples/gh-codespaces-copilot-in-a-day-ko",
+    "codeOfConduct": {
+      "key": "other",
+      "name": "Other",
+      "url": "https://github.com/Azure-Samples/gh-codespaces-copilot-in-a-day-ko/blob/main/.github/CODE_OF_CONDUCT.md"
+    },
+    "forkCount": 25,
     "fundingLinks": [],
     "isSecurityPolicyEnabled": false,
     "isTemplate": false,
-    "latestRelease": {
-      "name": "Release v1.2",
-      "tagName": "v1.2",
-      "url": "https://github.com/ORBISAG/ORBIS.PCF.ColorfulOptionset/releases/tag/v1.2",
-      "publishedAt": "2023-05-11T12:07:20Z"
-    },
+    "latestRelease": null,
     "primaryLanguage": {
-      "name": "TypeScript"
+      "name": "Bicep"
     },
     "securityPolicyUrl": "",
     "stargazerCount": 18,
     "watchers": {
-      "totalCount": 4
+      "totalCount": 27
     },
     "topics": [
-      "pcf",
-      "optionset",
-      "powerplatform",
-      "dynamics365"
+      "github-codespaces",
+      "github-copilot",
+      "hands-on-lab",
+      "aks",
+      "azure",
+      "azure-api-management",
+      "azure-app-service",
+      "azure-kubernetes-services",
+      "bicep",
+      "java",
+      "power-apps",
+      "power-platform",
+      "react",
+      "spring",
+      "terraform",
+      "typescript",
+      "apps-in-a-day",
+      "power-platform-custom-connector"
     ],
     "languages": [
-      "TypeScript",
-      "CSS"
+      "Bicep",
+      "Java",
+      "PowerShell",
+      "JavaScript",
+      "Shell",
+      "CSS",
+      "HTML",
+      "Dockerfile"
     ],
     "openedGoodFirstIssues": 0,
     "hasGoodFirstIssues": false,
     "openedHelpWantedIssues": 0,
     "hasHelpWantedIssues": false,
     "openedToContributionsIssues": 0,
-    "popularityScore": 22
+    "popularityScore": 45
   },
   {
     "createdAt": "2017-06-10T18:57:53Z",
@@ -8582,7 +8601,7 @@
       "type": "Organization",
       "url": "https://github.com/fscpscollaborative"
     },
-    "updatedAt": "2024-10-08T23:40:32Z",
+    "updatedAt": "2024-10-09T23:56:59Z",
     "url": "https://github.com/fscpscollaborative/fscps",
     "codeOfConduct": null,
     "forkCount": 4,
@@ -8863,83 +8882,64 @@
     "popularityScore": 29
   },
   {
-    "createdAt": "2023-04-09T04:19:37Z",
-    "description": "GitHub Codespaces & Copilot 핸즈온 워크샵 리포지토리입니다",
-    "fullName": "Azure-Samples/gh-codespaces-copilot-in-a-day-ko",
+    "createdAt": "2020-02-03T13:02:58Z",
+    "description": "",
+    "fullName": "ORBISAG/ORBIS.PCF.ColorfulOptionset",
     "hasIssues": true,
     "homepage": "",
     "isArchived": false,
-    "language": "Bicep",
+    "language": "TypeScript",
     "license": {
       "key": "mit",
       "name": "MIT License",
       "url": "https://api.github.com/licenses/mit"
     },
-    "name": "gh-codespaces-copilot-in-a-day-ko",
-    "openIssuesCount": 2,
+    "name": "ORBIS.PCF.ColorfulOptionset",
+    "openIssuesCount": 5,
     "owner": {
-      "id": "MDEyOk9yZ2FuaXphdGlvbjE4NDQ2NjI=",
+      "id": "MDEyOk9yZ2FuaXphdGlvbjI5OTQ5NTYz",
       "is_bot": false,
-      "login": "Azure-Samples",
+      "login": "ORBISAG",
       "type": "Organization",
-      "url": "https://github.com/Azure-Samples"
+      "url": "https://github.com/ORBISAG"
     },
-    "updatedAt": "2024-07-16T04:52:35Z",
-    "url": "https://github.com/Azure-Samples/gh-codespaces-copilot-in-a-day-ko",
-    "codeOfConduct": {
-      "key": "other",
-      "name": "Other",
-      "url": "https://github.com/Azure-Samples/gh-codespaces-copilot-in-a-day-ko/blob/main/.github/CODE_OF_CONDUCT.md"
-    },
-    "forkCount": 25,
+    "updatedAt": "2024-06-20T17:12:45Z",
+    "url": "https://github.com/ORBISAG/ORBIS.PCF.ColorfulOptionset",
+    "codeOfConduct": null,
+    "forkCount": 9,
     "fundingLinks": [],
     "isSecurityPolicyEnabled": false,
     "isTemplate": false,
-    "latestRelease": null,
+    "latestRelease": {
+      "name": "Release v1.2",
+      "tagName": "v1.2",
+      "url": "https://github.com/ORBISAG/ORBIS.PCF.ColorfulOptionset/releases/tag/v1.2",
+      "publishedAt": "2023-05-11T12:07:20Z"
+    },
     "primaryLanguage": {
-      "name": "Bicep"
+      "name": "TypeScript"
     },
     "securityPolicyUrl": "",
     "stargazerCount": 18,
     "watchers": {
-      "totalCount": 27
+      "totalCount": 4
     },
     "topics": [
-      "github-codespaces",
-      "github-copilot",
-      "hands-on-lab",
-      "aks",
-      "azure",
-      "azure-api-management",
-      "azure-app-service",
-      "azure-kubernetes-services",
-      "bicep",
-      "java",
-      "power-apps",
-      "power-platform",
-      "react",
-      "spring",
-      "terraform",
-      "typescript",
-      "apps-in-a-day",
-      "power-platform-custom-connector"
+      "pcf",
+      "optionset",
+      "powerplatform",
+      "dynamics365"
     ],
     "languages": [
-      "Bicep",
-      "Java",
-      "PowerShell",
-      "JavaScript",
-      "Shell",
-      "CSS",
-      "HTML",
-      "Dockerfile"
+      "TypeScript",
+      "CSS"
     ],
     "openedGoodFirstIssues": 0,
     "hasGoodFirstIssues": false,
     "openedHelpWantedIssues": 0,
     "hasHelpWantedIssues": false,
     "openedToContributionsIssues": 0,
-    "popularityScore": 45
+    "popularityScore": 22
   },
   {
     "createdAt": "2021-08-09T06:55:59Z",
@@ -9052,6 +9052,63 @@
     "popularityScore": 19
   },
   {
+    "createdAt": "2021-12-03T22:56:27Z",
+    "description": "The ultimate collection of extensions for Power Platform!",
+    "fullName": "Power-Maverick/PowerPlatform-VSCode-ExtensionPack",
+    "hasIssues": true,
+    "homepage": "https://marketplace.visualstudio.com/items?itemName=danish-naglekar.power-platform-extension-pack",
+    "isArchived": false,
+    "language": "",
+    "license": {
+      "key": "mit",
+      "name": "MIT License",
+      "url": "https://api.github.com/licenses/mit"
+    },
+    "name": "PowerPlatform-VSCode-ExtensionPack",
+    "openIssuesCount": 0,
+    "owner": {
+      "id": "MDQ6VXNlcjM2MTM1NTIw",
+      "is_bot": false,
+      "login": "Power-Maverick",
+      "type": "User",
+      "url": "https://github.com/Power-Maverick"
+    },
+    "updatedAt": "2024-09-27T06:05:07Z",
+    "url": "https://github.com/Power-Maverick/PowerPlatform-VSCode-ExtensionPack",
+    "codeOfConduct": null,
+    "forkCount": 2,
+    "fundingLinks": [
+      {
+        "platform": "GITHUB",
+        "url": "https://github.com/Power-Maverick"
+      }
+    ],
+    "isSecurityPolicyEnabled": false,
+    "isTemplate": false,
+    "latestRelease": null,
+    "primaryLanguage": null,
+    "securityPolicyUrl": "",
+    "stargazerCount": 17,
+    "watchers": {
+      "totalCount": 2
+    },
+    "topics": [
+      "power-platform",
+      "dataverse",
+      "dynamics-365",
+      "visual-studio-code",
+      "vscode",
+      "vscode-extension"
+    ],
+    "languages": [],
+    "openedGoodFirstIssues": 0,
+    "hasGoodFirstIssues": false,
+    "openedHelpWantedIssues": 0,
+    "hasHelpWantedIssues": false,
+    "openedToContributionsIssues": 0,
+    "popularityScore": 19
+  },
+  {
     "createdAt": "2022-10-03T07:45:09Z",
     "description": "This control allows the transformation of the default Dynamics 365 grid to an editable grid with add new line functionality.",
     "fullName": "BeverCRM/PCF-EditableTable",
@@ -9119,55 +9176,59 @@
     "popularityScore": 18
   },
   {
-    "createdAt": "2021-12-03T22:56:27Z",
-    "description": "The ultimate collection of extensions for Power Platform!",
-    "fullName": "Power-Maverick/PowerPlatform-VSCode-ExtensionPack",
+    "createdAt": "2022-10-16T19:05:01Z",
+    "description": "Execute Power FX in your client (React) via .NET (WASM) and JS interop.",
+    "fullName": "NETWORG/power-fx-wasm-demo",
     "hasIssues": true,
-    "homepage": "https://marketplace.visualstudio.com/items?itemName=danish-naglekar.power-platform-extension-pack",
+    "homepage": "https://networg.github.io/power-fx-wasm-demo/",
     "isArchived": false,
-    "language": "",
+    "language": "JavaScript",
     "license": {
       "key": "mit",
       "name": "MIT License",
       "url": "https://api.github.com/licenses/mit"
     },
-    "name": "PowerPlatform-VSCode-ExtensionPack",
-    "openIssuesCount": 0,
+    "name": "power-fx-wasm-demo",
+    "openIssuesCount": 3,
     "owner": {
-      "id": "MDQ6VXNlcjM2MTM1NTIw",
+      "id": "MDEyOk9yZ2FuaXphdGlvbjU0Njc1ODU3",
       "is_bot": false,
-      "login": "Power-Maverick",
-      "type": "User",
-      "url": "https://github.com/Power-Maverick"
+      "login": "NETWORG",
+      "type": "Organization",
+      "url": "https://github.com/NETWORG"
     },
-    "updatedAt": "2024-09-27T06:05:07Z",
-    "url": "https://github.com/Power-Maverick/PowerPlatform-VSCode-ExtensionPack",
+    "updatedAt": "2024-10-10T06:08:39Z",
+    "url": "https://github.com/NETWORG/power-fx-wasm-demo",
     "codeOfConduct": null,
-    "forkCount": 2,
-    "fundingLinks": [
-      {
-        "platform": "GITHUB",
-        "url": "https://github.com/Power-Maverick"
-      }
-    ],
+    "forkCount": 3,
+    "fundingLinks": [],
     "isSecurityPolicyEnabled": false,
     "isTemplate": false,
     "latestRelease": null,
-    "primaryLanguage": null,
+    "primaryLanguage": {
+      "name": "JavaScript"
+    },
     "securityPolicyUrl": "",
     "stargazerCount": 17,
     "watchers": {
       "totalCount": 2
     },
     "topics": [
-      "power-platform",
-      "dataverse",
-      "dynamics-365",
-      "visual-studio-code",
-      "vscode",
-      "vscode-extension"
+      "power-fx",
+      "powerfx",
+      "wasm",
+      "power-apps",
+      "react",
+      "typescript"
     ],
-    "languages": [],
+    "languages": [
+      "JavaScript",
+      "C#",
+      "TypeScript",
+      "HTML",
+      "CSS",
+      "Shell"
+    ],
     "openedGoodFirstIssues": 0,
     "hasGoodFirstIssues": false,
     "openedHelpWantedIssues": 0,
@@ -9410,67 +9471,6 @@
     "popularityScore": 18
   },
   {
-    "createdAt": "2022-10-16T19:05:01Z",
-    "description": "Execute Power FX in your client (React) via .NET (WASM) and JS interop.",
-    "fullName": "NETWORG/power-fx-wasm-demo",
-    "hasIssues": true,
-    "homepage": "https://networg.github.io/power-fx-wasm-demo/",
-    "isArchived": false,
-    "language": "JavaScript",
-    "license": {
-      "key": "mit",
-      "name": "MIT License",
-      "url": "https://api.github.com/licenses/mit"
-    },
-    "name": "power-fx-wasm-demo",
-    "openIssuesCount": 3,
-    "owner": {
-      "id": "MDEyOk9yZ2FuaXphdGlvbjU0Njc1ODU3",
-      "is_bot": false,
-      "login": "NETWORG",
-      "type": "Organization",
-      "url": "https://github.com/NETWORG"
-    },
-    "updatedAt": "2024-05-28T20:40:57Z",
-    "url": "https://github.com/NETWORG/power-fx-wasm-demo",
-    "codeOfConduct": null,
-    "forkCount": 3,
-    "fundingLinks": [],
-    "isSecurityPolicyEnabled": false,
-    "isTemplate": false,
-    "latestRelease": null,
-    "primaryLanguage": {
-      "name": "JavaScript"
-    },
-    "securityPolicyUrl": "",
-    "stargazerCount": 16,
-    "watchers": {
-      "totalCount": 2
-    },
-    "topics": [
-      "power-fx",
-      "powerfx",
-      "wasm",
-      "power-apps",
-      "react",
-      "typescript"
-    ],
-    "languages": [
-      "JavaScript",
-      "C#",
-      "TypeScript",
-      "HTML",
-      "CSS",
-      "Shell"
-    ],
-    "openedGoodFirstIssues": 0,
-    "hasGoodFirstIssues": false,
-    "openedHelpWantedIssues": 0,
-    "hasHelpWantedIssues": false,
-    "openedToContributionsIssues": 0,
-    "popularityScore": 18
-  },
-  {
     "createdAt": "2018-03-02T17:51:01Z",
     "description": "Dynamics 365 Finance and Operations (D365FO) - multi file oData client generation T4 templates",
     "fullName": "batetech/D365FO-oData-T4-MultiFile-Templates",
@@ -9631,6 +9631,67 @@
       "HTML",
       "JavaScript",
       "CSS"
+    ],
+    "openedGoodFirstIssues": 0,
+    "hasGoodFirstIssues": false,
+    "openedHelpWantedIssues": 0,
+    "hasHelpWantedIssues": false,
+    "openedToContributionsIssues": 0,
+    "popularityScore": 20
+  },
+  {
+    "createdAt": "2023-05-13T13:46:12Z",
+    "description": "Materiais, tutoriais e dicas sobre Power Platform criados pela equipe de especialistas em Power Platform da Microsoft Brasil.",
+    "fullName": "microsoft/powerplatformconnect",
+    "hasIssues": false,
+    "homepage": "https://microsoft.github.io/powerplatformconnect/",
+    "isArchived": false,
+    "language": "SCSS",
+    "license": {
+      "key": "mit",
+      "name": "MIT License",
+      "url": "https://api.github.com/licenses/mit"
+    },
+    "name": "powerplatformconnect",
+    "openIssuesCount": 1,
+    "owner": {
+      "id": "MDEyOk9yZ2FuaXphdGlvbjYxNTQ3MjI=",
+      "is_bot": false,
+      "login": "microsoft",
+      "type": "Organization",
+      "url": "https://github.com/microsoft"
+    },
+    "updatedAt": "2024-10-09T21:51:34Z",
+    "url": "https://github.com/microsoft/powerplatformconnect",
+    "codeOfConduct": {
+      "key": "other",
+      "name": "Other",
+      "url": "https://github.com/microsoft/.github/blob/main/CODE_OF_CONDUCT.md"
+    },
+    "forkCount": 2,
+    "fundingLinks": [],
+    "isSecurityPolicyEnabled": true,
+    "isTemplate": false,
+    "latestRelease": null,
+    "primaryLanguage": {
+      "name": "SCSS"
+    },
+    "securityPolicyUrl": "https://github.com/microsoft/powerplatformconnect/security/policy",
+    "stargazerCount": 15,
+    "watchers": {
+      "totalCount": 5
+    },
+    "topics": [
+      "powerplatform",
+      "powerapps",
+      "powerautomate",
+      "powerpages",
+      "powervirtualagent"
+    ],
+    "languages": [
+      "SCSS",
+      "HTML",
+      "Ruby"
     ],
     "openedGoodFirstIssues": 0,
     "hasGoodFirstIssues": false,
@@ -9985,67 +10046,6 @@
     "languages": [
       "TypeScript",
       "JavaScript"
-    ],
-    "openedGoodFirstIssues": 0,
-    "hasGoodFirstIssues": false,
-    "openedHelpWantedIssues": 0,
-    "hasHelpWantedIssues": false,
-    "openedToContributionsIssues": 0,
-    "popularityScore": 18
-  },
-  {
-    "createdAt": "2023-05-13T13:46:12Z",
-    "description": "Materiais, tutoriais e dicas sobre Power Platform criados pela equipe de especialistas em Power Platform da Microsoft Brasil.",
-    "fullName": "microsoft/powerplatformconnect",
-    "hasIssues": false,
-    "homepage": "https://microsoft.github.io/powerplatformconnect/",
-    "isArchived": false,
-    "language": "SCSS",
-    "license": {
-      "key": "mit",
-      "name": "MIT License",
-      "url": "https://api.github.com/licenses/mit"
-    },
-    "name": "powerplatformconnect",
-    "openIssuesCount": 1,
-    "owner": {
-      "id": "MDEyOk9yZ2FuaXphdGlvbjYxNTQ3MjI=",
-      "is_bot": false,
-      "login": "microsoft",
-      "type": "Organization",
-      "url": "https://github.com/microsoft"
-    },
-    "updatedAt": "2024-10-01T19:20:15Z",
-    "url": "https://github.com/microsoft/powerplatformconnect",
-    "codeOfConduct": {
-      "key": "other",
-      "name": "Other",
-      "url": "https://github.com/microsoft/.github/blob/main/CODE_OF_CONDUCT.md"
-    },
-    "forkCount": 1,
-    "fundingLinks": [],
-    "isSecurityPolicyEnabled": true,
-    "isTemplate": false,
-    "latestRelease": null,
-    "primaryLanguage": {
-      "name": "SCSS"
-    },
-    "securityPolicyUrl": "https://github.com/microsoft/powerplatformconnect/security/policy",
-    "stargazerCount": 14,
-    "watchers": {
-      "totalCount": 4
-    },
-    "topics": [
-      "powerplatform",
-      "powerapps",
-      "powerautomate",
-      "powerpages",
-      "powervirtualagent"
-    ],
-    "languages": [
-      "SCSS",
-      "HTML",
-      "Ruby"
     ],
     "openedGoodFirstIssues": 0,
     "hasGoodFirstIssues": false,
@@ -11761,7 +11761,7 @@
       "url": "https://api.github.com/licenses/apache-2.0"
     },
     "name": "embc-ess-mod",
-    "openIssuesCount": 39,
+    "openIssuesCount": 40,
     "owner": {
       "id": "MDEyOk9yZ2FuaXphdGlvbjkxNjI4MA==",
       "is_bot": false,
@@ -11769,7 +11769,7 @@
       "type": "Organization",
       "url": "https://github.com/bcgov"
     },
-    "updatedAt": "2024-10-08T21:48:37Z",
+    "updatedAt": "2024-10-09T21:16:57Z",
     "url": "https://github.com/bcgov/embc-ess-mod",
     "codeOfConduct": {
       "key": "contributor_covenant",
@@ -11945,7 +11945,7 @@
       "url": ""
     },
     "name": "dataverse-pm",
-    "openIssuesCount": 164,
+    "openIssuesCount": 165,
     "owner": {
       "id": "MDEyOk9yZ2FuaXphdGlvbjY3NTIzNw==",
       "is_bot": false,
