@@ -13,7 +13,7 @@
       "url": ""
     },
     "name": "activepieces",
-    "openIssuesCount": 147,
+    "openIssuesCount": 141,
     "owner": {
       "id": "O_kgDOBe4rLA",
       "is_bot": false,
@@ -21,14 +21,14 @@
       "type": "Organization",
       "url": "https://github.com/activepieces"
     },
-    "updatedAt": "2024-10-12T10:52:40Z",
+    "updatedAt": "2024-10-13T10:54:50Z",
     "url": "https://github.com/activepieces/activepieces",
     "codeOfConduct": {
       "key": "other",
       "name": "Other",
       "url": "https://github.com/activepieces/activepieces/blob/main/.github/CODE_OF_CONDUCT.md"
     },
-    "forkCount": 1130,
+    "forkCount": 1135,
     "fundingLinks": [],
     "isSecurityPolicyEnabled": true,
     "isTemplate": false,
@@ -42,7 +42,7 @@
       "name": "TypeScript"
     },
     "securityPolicyUrl": "https://github.com/activepieces/activepieces/security/policy",
-    "stargazerCount": 9508,
+    "stargazerCount": 9513,
     "watchers": {
       "totalCount": 54
     },
@@ -80,7 +80,7 @@
     "openedHelpWantedIssues": 4,
     "hasHelpWantedIssues": true,
     "openedToContributionsIssues": 4,
-    "popularityScore": 9562
+    "popularityScore": 9567
   },
   {
     "createdAt": "2021-02-23T22:09:05Z",
@@ -167,7 +167,7 @@
       "type": "Organization",
       "url": "https://github.com/microsoft"
     },
-    "updatedAt": "2024-10-11T19:35:42Z",
+    "updatedAt": "2024-10-12T23:09:15Z",
     "url": "https://github.com/microsoft/Microsoft365DSC",
     "codeOfConduct": {
       "key": "contributor_covenant",
@@ -188,7 +188,7 @@
       "name": "PowerShell"
     },
     "securityPolicyUrl": "https://github.com/microsoft/Microsoft365DSC/security/policy",
-    "stargazerCount": 1560,
+    "stargazerCount": 1562,
     "watchers": {
       "totalCount": 76
     },
@@ -224,7 +224,7 @@
     "openedHelpWantedIssues": 2,
     "hasHelpWantedIssues": true,
     "openedToContributionsIssues": 2,
-    "popularityScore": 1636
+    "popularityScore": 1638
   },
   {
     "createdAt": "2018-03-26T22:41:09Z",
@@ -255,7 +255,7 @@
       "name": "Other",
       "url": "https://github.com/microsoft/.github/blob/main/CODE_OF_CONDUCT.md"
     },
-    "forkCount": 1697,
+    "forkCount": 1698,
     "fundingLinks": [],
     "isSecurityPolicyEnabled": true,
     "isTemplate": false,
@@ -398,7 +398,7 @@
       "type": "Organization",
       "url": "https://github.com/microsoft"
     },
-    "updatedAt": "2024-10-10T18:01:23Z",
+    "updatedAt": "2024-10-12T14:02:38Z",
     "url": "https://github.com/microsoft/PowerPlatformConnectors",
     "codeOfConduct": {
       "key": "other",
@@ -414,7 +414,7 @@
       "name": "C#"
     },
     "securityPolicyUrl": "https://github.com/microsoft/PowerPlatformConnectors/security/policy",
-    "stargazerCount": 970,
+    "stargazerCount": 971,
     "watchers": {
       "totalCount": 59
     },
@@ -438,7 +438,7 @@
     "openedHelpWantedIssues": 0,
     "hasHelpWantedIssues": false,
     "openedToContributionsIssues": 0,
-    "popularityScore": 1029
+    "popularityScore": 1030
   },
   {
     "createdAt": "2022-06-14T11:40:21Z",
@@ -462,7 +462,7 @@
       "type": "User",
       "url": "https://github.com/mbrg"
     },
-    "updatedAt": "2024-10-11T05:36:59Z",
+    "updatedAt": "2024-10-13T03:15:41Z",
     "url": "https://github.com/mbrg/power-pwn",
     "codeOfConduct": null,
     "forkCount": 79,
@@ -479,7 +479,7 @@
       "name": "Python"
     },
     "securityPolicyUrl": "",
-    "stargazerCount": 773,
+    "stargazerCount": 777,
     "watchers": {
       "totalCount": 16
     },
@@ -515,7 +515,7 @@
     "openedHelpWantedIssues": 0,
     "hasHelpWantedIssues": false,
     "openedToContributionsIssues": 0,
-    "popularityScore": 789
+    "popularityScore": 793
   },
   {
     "createdAt": "2014-01-30T09:46:28Z",
@@ -600,7 +600,7 @@
       "type": "Organization",
       "url": "https://github.com/microsoft"
     },
-    "updatedAt": "2024-10-10T11:04:35Z",
+    "updatedAt": "2024-10-12T18:06:03Z",
     "url": "https://github.com/microsoft/AL",
     "codeOfConduct": {
       "key": "other",
@@ -616,7 +616,7 @@
       "name": "PowerShell"
     },
     "securityPolicyUrl": "https://github.com/microsoft/AL/security/policy",
-    "stargazerCount": 740,
+    "stargazerCount": 741,
     "watchers": {
       "totalCount": 166
     },
@@ -636,7 +636,7 @@
     "openedHelpWantedIssues": 0,
     "hasHelpWantedIssues": false,
     "openedToContributionsIssues": 0,
-    "popularityScore": 906
+    "popularityScore": 907
   },
   {
     "createdAt": "2015-02-05T20:58:06Z",
@@ -899,6 +899,67 @@
     "popularityScore": 471
   },
   {
+    "createdAt": "2021-10-21T07:12:03Z",
+    "description": "Generate technical documentation from your existing Power Automate Flows and Power Apps canvas apps",
+    "fullName": "modery/PowerDocu",
+    "hasIssues": true,
+    "homepage": "",
+    "isArchived": false,
+    "language": "C#",
+    "license": {
+      "key": "mit",
+      "name": "MIT License",
+      "url": "https://api.github.com/licenses/mit"
+    },
+    "name": "PowerDocu",
+    "openIssuesCount": 47,
+    "owner": {
+      "id": "MDQ6VXNlcjE1ODk2NzE1",
+      "is_bot": false,
+      "login": "modery",
+      "type": "User",
+      "url": "https://github.com/modery"
+    },
+    "updatedAt": "2024-10-12T17:35:15Z",
+    "url": "https://github.com/modery/PowerDocu",
+    "codeOfConduct": null,
+    "forkCount": 70,
+    "fundingLinks": [],
+    "isSecurityPolicyEnabled": false,
+    "isTemplate": false,
+    "latestRelease": {
+      "name": "v.2.1.0 Release",
+      "tagName": "v-2.1.0",
+      "url": "https://github.com/modery/PowerDocu/releases/tag/v-2.1.0",
+      "publishedAt": "2024-08-27T02:49:43Z"
+    },
+    "primaryLanguage": {
+      "name": "C#"
+    },
+    "securityPolicyUrl": "",
+    "stargazerCount": 420,
+    "watchers": {
+      "totalCount": 30
+    },
+    "topics": [
+      "powerautomate",
+      "documentation",
+      "documentation-generator",
+      "powerplatform",
+      "microsoftflow",
+      "powerapps"
+    ],
+    "languages": [
+      "C#"
+    ],
+    "openedGoodFirstIssues": 0,
+    "hasGoodFirstIssues": false,
+    "openedHelpWantedIssues": 0,
+    "hasHelpWantedIssues": false,
+    "openedToContributionsIssues": 0,
+    "popularityScore": 450
+  },
+  {
     "createdAt": "2021-02-24T22:16:04Z",
     "description": "Contains curated community Microsoft Power App samples",
     "fullName": "pnp/powerapps-samples",
@@ -950,67 +1011,6 @@
     "hasHelpWantedIssues": false,
     "openedToContributionsIssues": 0,
     "popularityScore": 456
-  },
-  {
-    "createdAt": "2021-10-21T07:12:03Z",
-    "description": "Generate technical documentation from your existing Power Automate Flows and Power Apps canvas apps",
-    "fullName": "modery/PowerDocu",
-    "hasIssues": true,
-    "homepage": "",
-    "isArchived": false,
-    "language": "C#",
-    "license": {
-      "key": "mit",
-      "name": "MIT License",
-      "url": "https://api.github.com/licenses/mit"
-    },
-    "name": "PowerDocu",
-    "openIssuesCount": 47,
-    "owner": {
-      "id": "MDQ6VXNlcjE1ODk2NzE1",
-      "is_bot": false,
-      "login": "modery",
-      "type": "User",
-      "url": "https://github.com/modery"
-    },
-    "updatedAt": "2024-10-12T10:21:43Z",
-    "url": "https://github.com/modery/PowerDocu",
-    "codeOfConduct": null,
-    "forkCount": 70,
-    "fundingLinks": [],
-    "isSecurityPolicyEnabled": false,
-    "isTemplate": false,
-    "latestRelease": {
-      "name": "v.2.1.0 Release",
-      "tagName": "v-2.1.0",
-      "url": "https://github.com/modery/PowerDocu/releases/tag/v-2.1.0",
-      "publishedAt": "2024-08-27T02:49:43Z"
-    },
-    "primaryLanguage": {
-      "name": "C#"
-    },
-    "securityPolicyUrl": "",
-    "stargazerCount": 419,
-    "watchers": {
-      "totalCount": 30
-    },
-    "topics": [
-      "powerautomate",
-      "documentation",
-      "documentation-generator",
-      "powerplatform",
-      "microsoftflow",
-      "powerapps"
-    ],
-    "languages": [
-      "C#"
-    ],
-    "openedGoodFirstIssues": 0,
-    "hasGoodFirstIssues": false,
-    "openedHelpWantedIssues": 0,
-    "hasHelpWantedIssues": false,
-    "openedToContributionsIssues": 0,
-    "popularityScore": 449
   },
   {
     "createdAt": "2020-07-20T18:51:25Z",
@@ -6242,7 +6242,7 @@
       "url": "https://api.github.com/licenses/mit"
     },
     "name": "PowerDataOps",
-    "openIssuesCount": 0,
+    "openIssuesCount": 1,
     "owner": {
       "id": "MDQ6VXNlcjEyMDgxMzgz",
       "is_bot": false,
@@ -7686,7 +7686,7 @@
       "type": "User",
       "url": "https://github.com/rpothin"
     },
-    "updatedAt": "2024-10-11T11:18:57Z",
+    "updatedAt": "2024-10-12T11:17:46Z",
     "url": "https://github.com/rpothin/PowerPlatform-OpenSource-Hub",
     "codeOfConduct": {
       "key": "contributor_covenant",
@@ -8476,7 +8476,7 @@
       "type": "Organization",
       "url": "https://github.com/fscpscollaborative"
     },
-    "updatedAt": "2024-10-11T23:33:58Z",
+    "updatedAt": "2024-10-12T23:33:00Z",
     "url": "https://github.com/fscpscollaborative/fscps",
     "codeOfConduct": null,
     "forkCount": 4,
