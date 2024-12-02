@@ -1,51 +1,63 @@
 [
   {
     "fullName": "activepieces/activepieces",
-    "popularityScore": 10079
+    "popularityScore": 10174
   },
   {
     "fullName": "microsoft/Power-Fx",
-    "popularityScore": 3328
+    "popularityScore": 3331
   },
   {
     "fullName": "microsoft/Microsoft365DSC",
-    "popularityScore": 1711
+    "popularityScore": 1715
   },
   {
     "fullName": "microsoft/PowerApps-Samples",
-    "popularityScore": 1645
+    "popularityScore": 1653
   },
   {
     "fullName": "sandroasp/Microsoft-Integration-and-Azure-Stencils-Pack-for-Visio",
-    "popularityScore": 1578
+    "popularityScore": 1579
   },
   {
     "fullName": "microsoft/PowerPlatformConnectors",
-    "popularityScore": 1046
+    "popularityScore": 1053
+  },
+  {
+    "fullName": "microsoft/AL",
+    "popularityScore": 916
+  },
+  {
+    "fullName": "inoerp/inoERP",
+    "popularityScore": 909
   },
   {
     "fullName": "mbrg/power-pwn",
-    "popularityScore": 852
+    "popularityScore": 856
   },
   {
     "fullName": "MscrmTools/XrmToolBox",
-    "popularityScore": 657
+    "popularityScore": 658
+  },
+  {
+    "fullName": "demianrasko/Dynamics-365-Workflow-Tools",
+    "popularityScore": 536
   },
   {
     "fullName": "aprildunnam/PowerApps",
-    "popularityScore": 483
+    "popularityScore": 487
   },
   {
     "fullName": "modery/PowerDocu",
-    "popularityScore": 471
+    "popularityScore": 472
   },
   {
     "fullName": "pnp/powerapps-samples",
-    "popularityScore": 466
+    "popularityScore": 468
   },
   {
     "fullName": "alan-ai/alan-sdk-pcf",
-    "popularityScore": 447
+    "popularityScore": 449
   },
   {
     "fullName": "Azure/azure-functions-openapi-extension",
@@ -53,7 +65,7 @@
   },
   {
     "fullName": "microsoft/PowerApps-Tooling",
-    "popularityScore": 379
+    "popularityScore": 381
   },
   {
     "fullName": "steedos/awesome-low-code",
@@ -85,27 +97,31 @@
   },
   {
     "fullName": "microsoft/powerplatform-actions",
-    "popularityScore": 250
+    "popularityScore": 251
+  },
+  {
+    "fullName": "WaelHamze/xrm-ci-framework",
+    "popularityScore": 237
+  },
+  {
+    "fullName": "pnp/powerplatform-samples",
+    "popularityScore": 236
   },
   {
     "fullName": "microsoft/powerplatform-vscode",
     "popularityScore": 233
   },
   {
-    "fullName": "pnp/powerplatform-samples",
-    "popularityScore": 233
-  },
-  {
     "fullName": "microsoft/powerplatform-build-tools",
-    "popularityScore": 226
+    "popularityScore": 227
   },
   {
     "fullName": "rajyraman/Levelup-for-Dynamics-CRM",
-    "popularityScore": 219
+    "popularityScore": 223
   },
   {
     "fullName": "microsoft/teams-powerapps-app-templates",
-    "popularityScore": 219
+    "popularityScore": 220
   },
   {
     "fullName": "microsoft/Federal-Business-Applications",
@@ -117,19 +133,23 @@
   },
   {
     "fullName": "pnp/powerapps-designtoolkit",
-    "popularityScore": 199
+    "popularityScore": 200
+  },
+  {
+    "fullName": "microsoft/powerplatform-actions-lab",
+    "popularityScore": 181
   },
   {
     "fullName": "OfficeDev/Project-Accelerator",
     "popularityScore": 180
   },
   {
-    "fullName": "microsoft/powerplatform-actions-lab",
-    "popularityScore": 179
-  },
-  {
     "fullName": "microsoft/Low-Code",
     "popularityScore": 177
+  },
+  {
+    "fullName": "delegateas/XrmDefinitelyTyped",
+    "popularityScore": 170
   },
   {
     "fullName": "PowerPlatformAF/PowerPlatformAF",
@@ -140,8 +160,12 @@
     "popularityScore": 155
   },
   {
+    "fullName": "WaelHamze/dyn365-ce-vsts-tasks",
+    "popularityScore": 149
+  },
+  {
     "fullName": "pnp/powerfx-samples",
-    "popularityScore": 148
+    "popularityScore": 149
   },
   {
     "fullName": "microsoft/PowerPlatformAdvocates",
@@ -152,39 +176,63 @@
     "popularityScore": 134
   },
   {
+    "fullName": "XRM-OSS/Xrm-WebApi-Client",
+    "popularityScore": 125
+  },
+  {
+    "fullName": "devkeydet/dyn365-ce-devops",
+    "popularityScore": 125
+  },
+  {
     "fullName": "seanmcne/OrgDbOrgSettings",
     "popularityScore": 121
+  },
+  {
+    "fullName": "AlexaCRM/php-crm-toolkit",
+    "popularityScore": 120
+  },
+  {
+    "fullName": "HichemDax/D365FONinjaDevTools",
+    "popularityScore": 116
   },
   {
     "fullName": "PaulNieuwelaar/alertjs",
     "popularityScore": 113
   },
   {
-    "fullName": "ProvisionGenie/ProvisionGenie",
-    "popularityScore": 107
-  },
-  {
     "fullName": "GuidoPreite/DRB",
     "popularityScore": 107
   },
   {
+    "fullName": "ProvisionGenie/ProvisionGenie",
+    "popularityScore": 107
+  },
+  {
     "fullName": "tcorcor1/power-platform-deprecation-tracker",
-    "popularityScore": 96
+    "popularityScore": 95
   },
   {
     "fullName": "Power-Maverick/awesome-power-platform",
     "popularityScore": 95
   },
   {
+    "fullName": "camelCaseDave/xrm-mock",
+    "popularityScore": 93
+  },
+  {
+    "fullName": "delegateas/XrmMockup",
+    "popularityScore": 92
+  },
+  {
     "fullName": "iamericfletcher/awesome-power-automate-learning-resources",
     "popularityScore": 91
   },
   {
-    "fullName": "microsoft/Power-Platform-For-Beginners",
+    "fullName": "DamoBird365/PowerAutomate",
     "popularityScore": 90
   },
   {
-    "fullName": "DamoBird365/PowerAutomate",
+    "fullName": "microsoft/Power-Platform-For-Beginners",
     "popularityScore": 90
   },
   {
@@ -193,38 +241,50 @@
   },
   {
     "fullName": "AgniusBartninkas/power-automate-desktop-framework",
-    "popularityScore": 86
+    "popularityScore": 87
   },
   {
     "fullName": "AlexaCRM/dynamics-webapi-toolkit",
     "popularityScore": 86
   },
   {
+    "fullName": "onurmenal/crm-power-pane",
+    "popularityScore": 86
+  },
+  {
+    "fullName": "ben-howard/Planner-PowerBI-with-PowerAutomate",
+    "popularityScore": 85
+  },
+  {
     "fullName": "scottdurow/RibbonWorkbench",
     "popularityScore": 85
   },
   {
-    "fullName": "ben-howard/Planner-PowerBI-with-PowerAutomate",
-    "popularityScore": 84
+    "fullName": "pnp/provision-assist-m365",
+    "popularityScore": 82
   },
   {
     "fullName": "Eickhel/PowerApps-samples",
     "popularityScore": 82
   },
   {
+    "fullName": "arganollc/aotbrowser",
+    "popularityScore": 81
+  },
+  {
     "fullName": "microsoft/powerplatform",
     "popularityScore": 81
   },
   {
-    "fullName": "pnp/provision-assist-m365",
-    "popularityScore": 81
+    "fullName": "gdcc/pyDataverse",
+    "popularityScore": 80
   },
   {
-    "fullName": "phuocle/Dynamics-Crm-DevKit",
+    "fullName": "delegateas/XrmContext",
     "popularityScore": 78
   },
   {
-    "fullName": "gdcc/pyDataverse",
+    "fullName": "phuocle/Dynamics-Crm-DevKit",
     "popularityScore": 78
   },
   {
@@ -237,6 +297,10 @@
   },
   {
     "fullName": "scottdurow/dataverse-ify",
+    "popularityScore": 71
+  },
+  {
+    "fullName": "iAmManCat/PowerApps-Branding-Template",
     "popularityScore": 70
   },
   {
@@ -244,20 +308,32 @@
     "popularityScore": 69
   },
   {
-    "fullName": "iAmManCat/PowerApps-Branding-Template",
-    "popularityScore": 69
-  },
-  {
     "fullName": "Capgemini/powerapps-specflow-bindings",
     "popularityScore": 68
+  },
+  {
+    "fullName": "moh-hassan/odata2poco",
+    "popularityScore": 67
+  },
+  {
+    "fullName": "delegateas/Daxif",
+    "popularityScore": 66
   },
   {
     "fullName": "PaulNieuwelaar/processjs",
     "popularityScore": 65
   },
   {
+    "fullName": "OlegLobakov/WarehouseControlSystem",
+    "popularityScore": 65
+  },
+  {
     "fullName": "Power-Maverick/DataverseDevTools-VSCode",
-    "popularityScore": 64
+    "popularityScore": 65
+  },
+  {
+    "fullName": "MaTeMaTuK/pcf-universal-gantt-chart",
+    "popularityScore": 63
   },
   {
     "fullName": "Power-Maverick/PCF-Controls",
@@ -288,15 +364,27 @@
     "popularityScore": 49
   },
   {
+    "fullName": "GearPlug/dynamics365crm-python",
+    "popularityScore": 48
+  },
+  {
+    "fullName": "shashisadasivan/SSD365VSAddIn",
+    "popularityScore": 48
+  },
+  {
     "fullName": "microsoft/terraform-provider-power-platform",
     "popularityScore": 48
   },
   {
-    "fullName": "LinkeD365/FlowToVisio",
-    "popularityScore": 46
+    "fullName": "saintsystems/dynamics-sdk-php",
+    "popularityScore": 47
   },
   {
     "fullName": "sebastian-muthwill/powerapps-docstring",
+    "popularityScore": 46
+  },
+  {
+    "fullName": "LinkeD365/FlowToVisio",
     "popularityScore": 46
   },
   {
@@ -304,7 +392,11 @@
     "popularityScore": 45
   },
   {
-    "fullName": "Power-Maverick/PCF-CustomControlBuilder",
+    "fullName": "srenders/blog",
+    "popularityScore": 45
+  },
+  {
+    "fullName": "Azure-Samples/gh-codespaces-copilot-in-a-day-ko",
     "popularityScore": 44
   },
   {
@@ -312,7 +404,11 @@
     "popularityScore": 44
   },
   {
-    "fullName": "Azure-Samples/gh-codespaces-copilot-in-a-day-ko",
+    "fullName": "valerymoskalenko/D365FFO-PowerShell-scripts",
+    "popularityScore": 44
+  },
+  {
+    "fullName": "Power-Maverick/PCF-CustomControlBuilder",
     "popularityScore": 44
   },
   {
@@ -320,11 +416,15 @@
     "popularityScore": 43
   },
   {
+    "fullName": "Capgemini/powerapps-project-template",
+    "popularityScore": 41
+  },
+  {
     "fullName": "ewingjm/development-hub",
     "popularityScore": 41
   },
   {
-    "fullName": "Capgemini/powerapps-project-template",
+    "fullName": "rappen/JonasPluginBase",
     "popularityScore": 40
   },
   {
@@ -336,24 +436,36 @@
     "popularityScore": 38
   },
   {
+    "fullName": "kip-dk/angular-xrm-webresource",
+    "popularityScore": 37
+  },
+  {
     "fullName": "mVermaat/Crm.Specflow",
     "popularityScore": 37
   },
   {
-    "fullName": "Innofactor/Innofactor.Crm.CI",
-    "popularityScore": 36
+    "fullName": "msnraju/BC-OAuth-2.0-Authorization",
+    "popularityScore": 37
   },
   {
     "fullName": "PaulNieuwelaar/notifyjs",
     "popularityScore": 36
   },
   {
-    "fullName": "Feincraft/PowerProgressive",
-    "popularityScore": 34
+    "fullName": "Innofactor/Innofactor.Crm.CI",
+    "popularityScore": 36
   },
   {
     "fullName": "microsoft/bcsamples-takeorder",
     "popularityScore": 34
+  },
+  {
+    "fullName": "Feincraft/PowerProgressive",
+    "popularityScore": 34
+  },
+  {
+    "fullName": "AshV/Dynamics365BulkSolutionExporter",
+    "popularityScore": 33
   },
   {
     "fullName": "microsoft/global-copilot-summit",
@@ -364,15 +476,19 @@
     "popularityScore": 33
   },
   {
-    "fullName": "microsoft/RTW-Rapid-Screening",
-    "popularityScore": 32
-  },
-  {
     "fullName": "OfficeDev/TACO",
     "popularityScore": 32
   },
   {
+    "fullName": "microsoft/RTW-Rapid-Screening",
+    "popularityScore": 32
+  },
+  {
     "fullName": "Zerg00s/open-ai-teams-chat-bot",
+    "popularityScore": 32
+  },
+  {
+    "fullName": "ajkauffmann/ALWebServiceExamples",
     "popularityScore": 32
   },
   {
@@ -384,6 +500,18 @@
     "popularityScore": 32
   },
   {
+    "fullName": "microsoft/powerplatform-vscode-lab",
+    "popularityScore": 31
+  },
+  {
+    "fullName": "scholarsportal/Dataverse-Data-Explorer",
+    "popularityScore": 30
+  },
+  {
+    "fullName": "DynamicsValue/fake-xrm-easy",
+    "popularityScore": 30
+  },
+  {
     "fullName": "pnp/powerva-samples",
     "popularityScore": 30
   },
@@ -392,23 +520,27 @@
     "popularityScore": 30
   },
   {
-    "fullName": "microsoft/powerplatform-vscode-lab",
-    "popularityScore": 30
-  },
-  {
-    "fullName": "scholarsportal/Dataverse-Data-Explorer",
-    "popularityScore": 30
-  },
-  {
     "fullName": "josephmcmac/JM-Dataverse-Toolbelt",
     "popularityScore": 30
   },
   {
-    "fullName": "DynamicsValue/fake-xrm-easy",
-    "popularityScore": 30
+    "fullName": "microsoft-d365-ce-pfe-devops/D365-CE-DevOps-Tutorial",
+    "popularityScore": 29
+  },
+  {
+    "fullName": "khorozhansky/Advanced-MultiSelect-for-Dynamics",
+    "popularityScore": 29
   },
   {
     "fullName": "microsoft/bcsamples-warehousehelper",
+    "popularityScore": 29
+  },
+  {
+    "fullName": "rvanbekkum/vsc-xliff-sync",
+    "popularityScore": 29
+  },
+  {
+    "fullName": "BenediktBergmann/PCF-Controls",
     "popularityScore": 29
   },
   {
@@ -416,19 +548,35 @@
     "popularityScore": 29
   },
   {
-    "fullName": "denise-msft/PowerAppsScripts",
+    "fullName": "shashisadasivan/EDMXTrimmer",
+    "popularityScore": 28
+  },
+  {
+    "fullName": "MscrmTools/MscrmTools.PortalRecordsMover",
     "popularityScore": 27
   },
   {
     "fullName": "andybega/icews",
+    "popularityScore": 27
+  },
+  {
+    "fullName": "denise-msft/PowerAppsScripts",
+    "popularityScore": 27
+  },
+  {
+    "fullName": "gotdibbs/Dynamics-365-Toolkit",
+    "popularityScore": 27
+  },
+  {
+    "fullName": "AlexaCRM/integration-dynamics",
     "popularityScore": 26
   },
   {
-    "fullName": "YesWeCandrew/PyConnectDataverse",
+    "fullName": "Power-Maverick/PCF-Builder-VSCode",
     "popularityScore": 25
   },
   {
-    "fullName": "Power-Maverick/PCF-Builder-VSCode",
+    "fullName": "YesWeCandrew/PyConnectDataverse",
     "popularityScore": 25
   },
   {
@@ -436,16 +584,48 @@
     "popularityScore": 24
   },
   {
-    "fullName": "DynamicsNinja/PCF-Gallery-Control",
-    "popularityScore": 22
+    "fullName": "msnraju/inline-query",
+    "popularityScore": 24
+  },
+  {
+    "fullName": "fscpscollaborative/fscps",
+    "popularityScore": 24
   },
   {
     "fullName": "ORBISAG/ORBIS.PCF.ColorfulOptionset",
     "popularityScore": 22
   },
   {
+    "fullName": "DynamicsNinja/PCF-Gallery-Control",
+    "popularityScore": 22
+  },
+  {
+    "fullName": "batetech/D365FO-oData-T4-MultiFile-Templates",
+    "popularityScore": 22
+  },
+  {
+    "fullName": "mathyousee/power-platform-snippets",
+    "popularityScore": 21
+  },
+  {
+    "fullName": "NETWORG/power-fx-wasm-demo",
+    "popularityScore": 21
+  },
+  {
     "fullName": "arafattehsin/CognitiveRocket",
     "popularityScore": 21
+  },
+  {
+    "fullName": "srenders/AL-Demos",
+    "popularityScore": 21
+  },
+  {
+    "fullName": "modal-dsl/modal",
+    "popularityScore": 21
+  },
+  {
+    "fullName": "scholarsportal/dataverse-data-explorer-v2",
+    "popularityScore": 20
   },
   {
     "fullName": "AXbusiness/Dynamics365-MetaDataExplorer",
@@ -460,14 +640,6 @@
     "popularityScore": 20
   },
   {
-    "fullName": "mathyousee/power-platform-snippets",
-    "popularityScore": 20
-  },
-  {
-    "fullName": "NETWORG/power-fx-wasm-demo",
-    "popularityScore": 20
-  },
-  {
     "fullName": "gdcc/easyDataverse",
     "popularityScore": 20
   },
@@ -476,8 +648,12 @@
     "popularityScore": 20
   },
   {
-    "fullName": "scholarsportal/dataverse-data-explorer-v2",
-    "popularityScore": 20
+    "fullName": "rvanbekkum/ps-xliff-sync",
+    "popularityScore": 19
+  },
+  {
+    "fullName": "ferrybouwman/Power-BI-Read-Only-REST-API",
+    "popularityScore": 19
   },
   {
     "fullName": "rajyraman/PowerApps-Managed-Identity-Demo-Functions",
@@ -488,11 +664,11 @@
     "popularityScore": 19
   },
   {
-    "fullName": "OfficeDev/microsoft-teams-apps-call-queue-scheduler",
+    "fullName": "Power-Maverick/PowerPlatform-VSCode-ExtensionPack",
     "popularityScore": 19
   },
   {
-    "fullName": "Power-Maverick/PowerPlatform-VSCode-ExtensionPack",
+    "fullName": "OfficeDev/microsoft-teams-apps-call-queue-scheduler",
     "popularityScore": 19
   },
   {
@@ -500,23 +676,7 @@
     "popularityScore": 19
   },
   {
-    "fullName": "ferrybouwman/Power-BI-Read-Only-REST-API",
-    "popularityScore": 19
-  },
-  {
-    "fullName": "kuriwaki/cces_cumulative",
-    "popularityScore": 18
-  },
-  {
     "fullName": "TracyGH/SharePointWorkflowConverter",
-    "popularityScore": 18
-  },
-  {
-    "fullName": "IQSS/dataverse-pm",
-    "popularityScore": 18
-  },
-  {
-    "fullName": "DynamicsNinja/PCF-Carousel-Control",
     "popularityScore": 18
   },
   {
@@ -528,11 +688,47 @@
     "popularityScore": 18
   },
   {
+    "fullName": "IQSS/dataverse-pm",
+    "popularityScore": 18
+  },
+  {
+    "fullName": "DynamicsNinja/PCF-Carousel-Control",
+    "popularityScore": 18
+  },
+  {
+    "fullName": "modal-dsl/modal-vscode",
+    "popularityScore": 18
+  },
+  {
+    "fullName": "kuriwaki/cces_cumulative",
+    "popularityScore": 18
+  },
+  {
+    "fullName": "bcgov/embc-ess-mod",
+    "popularityScore": 17
+  },
+  {
+    "fullName": "rajyraman/Personal-View-to-System-View",
+    "popularityScore": 17
+  },
+  {
     "fullName": "CDCgov/cdh-lava-react",
     "popularityScore": 17
   },
   {
+    "fullName": "tobiheim/teams-health-feature-monitoring",
+    "popularityScore": 16
+  },
+  {
+    "fullName": "PowerAppsDarren/PowerFxSnippets",
+    "popularityScore": 16
+  },
+  {
     "fullName": "mbrg/powerful",
+    "popularityScore": 16
+  },
+  {
+    "fullName": "Akouddane/EasyPlugins",
     "popularityScore": 16
   },
   {
@@ -540,7 +736,7 @@
     "popularityScore": 16
   },
   {
-    "fullName": "tobiheim/teams-health-feature-monitoring",
+    "fullName": "phuocle/Dataverse-Dialog-Builder",
     "popularityScore": 16
   },
   {
@@ -548,11 +744,7 @@
     "popularityScore": 16
   },
   {
-    "fullName": "phuocle/Dataverse-Dialog-Builder",
-    "popularityScore": 16
-  },
-  {
-    "fullName": "PowerAppsDarren/PowerFxSnippets",
+    "fullName": "microsoft/vivalearningsharepointstarterkit",
     "popularityScore": 15
   },
   {
@@ -560,11 +752,7 @@
     "popularityScore": 15
   },
   {
-    "fullName": "aariste/ISVLicenseGenerator",
-    "popularityScore": 15
-  },
-  {
-    "fullName": "microsoft/vivalearningsharepointstarterkit",
+    "fullName": "sminozhenko/OneMoreActionQueueFramework",
     "popularityScore": 15
   },
   {
@@ -572,8 +760,24 @@
     "popularityScore": 15
   },
   {
+    "fullName": "aariste/ISVLicenseGenerator",
+    "popularityScore": 15
+  },
+  {
+    "fullName": "cupo365/enhanced-flow-command-set",
+    "popularityScore": 14
+  },
+  {
     "fullName": "scottdurow/dataverse-auth",
     "popularityScore": 14
+  },
+  {
+    "fullName": "jasonaalmeida/PCF_GridCard",
+    "popularityScore": 13
+  },
+  {
+    "fullName": "rramoscabral/Microsoft-Power-Platform-In-a-Day-Workshop",
+    "popularityScore": 13
   },
   {
     "fullName": "primno/primno",
@@ -584,19 +788,27 @@
     "popularityScore": 13
   },
   {
-    "fullName": "rramoscabral/Microsoft-Power-Platform-In-a-Day-Workshop",
-    "popularityScore": 13
-  },
-  {
     "fullName": "topness-msft/PowerGrid",
     "popularityScore": 12
   },
   {
-    "fullName": "scalable-dynamics/PowerNote",
+    "fullName": "g023/superez-gpt-builder",
+    "popularityScore": 12
+  },
+  {
+    "fullName": "MrThearMan/dynamics-client",
     "popularityScore": 11
   },
   {
     "fullName": "SSWConsulting/SSW.Dory",
+    "popularityScore": 11
+  },
+  {
+    "fullName": "picazin/BCDevApps",
+    "popularityScore": 11
+  },
+  {
+    "fullName": "scalable-dynamics/PowerNote",
     "popularityScore": 11
   },
   {
