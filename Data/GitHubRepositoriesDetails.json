@@ -13,7 +13,7 @@
       "url": ""
     },
     "name": "activepieces",
-    "openIssuesCount": 184,
+    "openIssuesCount": 179,
     "owner": {
       "id": "O_kgDOBe4rLA",
       "is_bot": false,
@@ -21,30 +21,30 @@
       "type": "Organization",
       "url": "https://github.com/activepieces"
     },
-    "updatedAt": "2024-12-24T10:35:13Z",
+    "updatedAt": "2024-12-25T05:41:24Z",
     "url": "https://github.com/activepieces/activepieces",
     "codeOfConduct": {
       "key": "other",
       "name": "Other",
       "url": "https://github.com/activepieces/activepieces/blob/main/.github/CODE_OF_CONDUCT.md"
     },
-    "forkCount": 1297,
+    "forkCount": 1298,
     "fundingLinks": [],
     "isSecurityPolicyEnabled": true,
     "isTemplate": false,
     "latestRelease": {
-      "name": "0.38.2",
-      "tagName": "0.38.2",
-      "url": "https://github.com/activepieces/activepieces/releases/tag/0.38.2",
-      "publishedAt": "2024-12-23T14:58:07Z"
+      "name": "0.38.3",
+      "tagName": "0.38.3",
+      "url": "https://github.com/activepieces/activepieces/releases/tag/0.38.3",
+      "publishedAt": "2024-12-24T14:32:43Z"
     },
     "primaryLanguage": {
       "name": "TypeScript"
     },
     "securityPolicyUrl": "https://github.com/activepieces/activepieces/security/policy",
-    "stargazerCount": 10309,
+    "stargazerCount": 10313,
     "watchers": {
-      "totalCount": 62
+      "totalCount": 60
     },
     "topics": [
       "no-code",
@@ -76,12 +76,12 @@
       "Dockerfile",
       "Shell"
     ],
-    "openedGoodFirstIssues": 2,
+    "openedGoodFirstIssues": 1,
     "hasGoodFirstIssues": true,
     "openedHelpWantedIssues": 0,
     "hasHelpWantedIssues": false,
-    "openedToContributionsIssues": 2,
-    "popularityScore": 10371
+    "openedToContributionsIssues": 1,
+    "popularityScore": 10373
   },
   {
     "createdAt": "2021-02-23T22:09:05Z",
@@ -160,7 +160,7 @@
       "url": "https://api.github.com/licenses/mit"
     },
     "name": "Microsoft365DSC",
-    "openIssuesCount": 464,
+    "openIssuesCount": 463,
     "owner": {
       "id": "MDEyOk9yZ2FuaXphdGlvbjYxNTQ3MjI=",
       "is_bot": false,
@@ -168,7 +168,7 @@
       "type": "Organization",
       "url": "https://github.com/microsoft"
     },
-    "updatedAt": "2024-12-23T22:40:04Z",
+    "updatedAt": "2024-12-24T15:07:21Z",
     "url": "https://github.com/microsoft/Microsoft365DSC",
     "codeOfConduct": {
       "key": "contributor_covenant",
@@ -189,7 +189,7 @@
       "name": "PowerShell"
     },
     "securityPolicyUrl": "https://github.com/microsoft/Microsoft365DSC/security/policy",
-    "stargazerCount": 1660,
+    "stargazerCount": 1661,
     "watchers": {
       "totalCount": 80
     },
@@ -225,7 +225,7 @@
     "openedHelpWantedIssues": 2,
     "hasHelpWantedIssues": true,
     "openedToContributionsIssues": 2,
-    "popularityScore": 1740
+    "popularityScore": 1741
   },
   {
     "createdAt": "2018-03-26T22:41:09Z",
@@ -249,7 +249,7 @@
       "type": "Organization",
       "url": "https://github.com/microsoft"
     },
-    "updatedAt": "2024-12-21T07:44:31Z",
+    "updatedAt": "2024-12-24T17:59:27Z",
     "url": "https://github.com/microsoft/PowerApps-Samples",
     "codeOfConduct": {
       "key": "other",
@@ -270,7 +270,7 @@
       "name": "C#"
     },
     "securityPolicyUrl": "https://github.com/microsoft/PowerApps-Samples/security/policy",
-    "stargazerCount": 1559,
+    "stargazerCount": 1560,
     "watchers": {
       "totalCount": 116
     },
@@ -305,7 +305,7 @@
     "openedHelpWantedIssues": 0,
     "hasHelpWantedIssues": false,
     "openedToContributionsIssues": 0,
-    "popularityScore": 1675
+    "popularityScore": 1676
   },
   {
     "createdAt": "2018-04-15T22:28:50Z",
@@ -332,7 +332,7 @@
     "updatedAt": "2024-12-13T03:38:18Z",
     "url": "https://github.com/sandroasp/Microsoft-Integration-and-Azure-Stencils-Pack-for-Visio",
     "codeOfConduct": null,
-    "forkCount": 437,
+    "forkCount": 436,
     "fundingLinks": [],
     "isSecurityPolicyEnabled": false,
     "isTemplate": false,
@@ -1037,7 +1037,7 @@
       "type": "Organization",
       "url": "https://github.com/Azure"
     },
-    "updatedAt": "2024-12-09T09:50:00Z",
+    "updatedAt": "2024-12-24T12:05:34Z",
     "url": "https://github.com/Azure/azure-functions-openapi-extension",
     "codeOfConduct": {
       "key": "other",
@@ -6221,6 +6221,70 @@
     "popularityScore": 47
   },
   {
+    "createdAt": "2023-01-26T17:21:48Z",
+    "description": "Power Platform Terraform Provider",
+    "fullName": "microsoft/terraform-provider-power-platform",
+    "hasIssues": true,
+    "homepage": "https://registry.terraform.io/providers/microsoft/power-platform/latest/docs",
+    "isArchived": false,
+    "language": "Go",
+    "license": {
+      "key": "mit",
+      "name": "MIT License",
+      "url": "https://api.github.com/licenses/mit"
+    },
+    "name": "terraform-provider-power-platform",
+    "openIssuesCount": 15,
+    "owner": {
+      "id": "MDEyOk9yZ2FuaXphdGlvbjYxNTQ3MjI=",
+      "is_bot": false,
+      "login": "microsoft",
+      "type": "Organization",
+      "url": "https://github.com/microsoft"
+    },
+    "updatedAt": "2024-12-24T14:22:11Z",
+    "url": "https://github.com/microsoft/terraform-provider-power-platform",
+    "codeOfConduct": {
+      "key": "other",
+      "name": "Other",
+      "url": "https://github.com/microsoft/terraform-provider-power-platform/blob/main/CODE_OF_CONDUCT.md"
+    },
+    "forkCount": 14,
+    "fundingLinks": [],
+    "isSecurityPolicyEnabled": true,
+    "isTemplate": false,
+    "latestRelease": {
+      "name": "v3.3.0",
+      "tagName": "v3.3.0",
+      "url": "https://github.com/microsoft/terraform-provider-power-platform/releases/tag/v3.3.0",
+      "publishedAt": "2024-11-28T17:10:12Z"
+    },
+    "primaryLanguage": {
+      "name": "Go"
+    },
+    "securityPolicyUrl": "https://github.com/microsoft/terraform-provider-power-platform/security/policy",
+    "stargazerCount": 37,
+    "watchers": {
+      "totalCount": 13
+    },
+    "topics": [
+      "power-platform",
+      "terraform",
+      "terraform-provider"
+    ],
+    "languages": [
+      "Go",
+      "Makefile",
+      "Shell"
+    ],
+    "openedGoodFirstIssues": 0,
+    "hasGoodFirstIssues": false,
+    "openedHelpWantedIssues": 0,
+    "hasHelpWantedIssues": false,
+    "openedToContributionsIssues": 0,
+    "popularityScore": 50
+  },
+  {
     "createdAt": "2020-02-17T17:41:16Z",
     "description": "A continuous integration solution for Power Apps.",
     "fullName": "ewingjm/development-hub",
@@ -6291,70 +6355,6 @@
     "hasHelpWantedIssues": false,
     "openedToContributionsIssues": 2,
     "popularityScore": 42
-  },
-  {
-    "createdAt": "2023-01-26T17:21:48Z",
-    "description": "Power Platform Terraform Provider",
-    "fullName": "microsoft/terraform-provider-power-platform",
-    "hasIssues": true,
-    "homepage": "https://registry.terraform.io/providers/microsoft/power-platform/latest/docs",
-    "isArchived": false,
-    "language": "Go",
-    "license": {
-      "key": "mit",
-      "name": "MIT License",
-      "url": "https://api.github.com/licenses/mit"
-    },
-    "name": "terraform-provider-power-platform",
-    "openIssuesCount": 15,
-    "owner": {
-      "id": "MDEyOk9yZ2FuaXphdGlvbjYxNTQ3MjI=",
-      "is_bot": false,
-      "login": "microsoft",
-      "type": "Organization",
-      "url": "https://github.com/microsoft"
-    },
-    "updatedAt": "2024-12-16T18:09:26Z",
-    "url": "https://github.com/microsoft/terraform-provider-power-platform",
-    "codeOfConduct": {
-      "key": "other",
-      "name": "Other",
-      "url": "https://github.com/microsoft/terraform-provider-power-platform/blob/main/CODE_OF_CONDUCT.md"
-    },
-    "forkCount": 14,
-    "fundingLinks": [],
-    "isSecurityPolicyEnabled": true,
-    "isTemplate": false,
-    "latestRelease": {
-      "name": "v3.3.0",
-      "tagName": "v3.3.0",
-      "url": "https://github.com/microsoft/terraform-provider-power-platform/releases/tag/v3.3.0",
-      "publishedAt": "2024-11-28T17:10:12Z"
-    },
-    "primaryLanguage": {
-      "name": "Go"
-    },
-    "securityPolicyUrl": "https://github.com/microsoft/terraform-provider-power-platform/security/policy",
-    "stargazerCount": 36,
-    "watchers": {
-      "totalCount": 13
-    },
-    "topics": [
-      "power-platform",
-      "terraform",
-      "terraform-provider"
-    ],
-    "languages": [
-      "Go",
-      "Makefile",
-      "Shell"
-    ],
-    "openedGoodFirstIssues": 0,
-    "hasGoodFirstIssues": false,
-    "openedHelpWantedIssues": 0,
-    "hasHelpWantedIssues": false,
-    "openedToContributionsIssues": 0,
-    "popularityScore": 49
   },
   {
     "createdAt": "2020-12-18T04:10:17Z",
@@ -7672,7 +7672,7 @@
       "type": "User",
       "url": "https://github.com/rpothin"
     },
-    "updatedAt": "2024-12-23T11:23:29Z",
+    "updatedAt": "2024-12-24T11:22:44Z",
     "url": "https://github.com/rpothin/PowerPlatform-OpenSource-Hub",
     "codeOfConduct": {
       "key": "contributor_covenant",
@@ -8508,6 +8508,79 @@
     "popularityScore": 24
   },
   {
+    "createdAt": "2024-07-21T19:05:22Z",
+    "description": "My bag of tricks for the Power Platform",
+    "fullName": "PowerAppsDarren/PowerFxSnippets",
+    "hasIssues": true,
+    "homepage": "https://whop.com/learn-power-apps",
+    "isArchived": false,
+    "language": "TSQL",
+    "license": {
+      "key": "mit",
+      "name": "MIT License",
+      "url": "https://api.github.com/licenses/mit"
+    },
+    "name": "PowerFxSnippets",
+    "openIssuesCount": 0,
+    "owner": {
+      "id": "U_kgDOBdYY4g",
+      "is_bot": false,
+      "login": "PowerAppsDarren",
+      "type": "User",
+      "url": "https://github.com/PowerAppsDarren"
+    },
+    "updatedAt": "2024-12-24T17:38:28Z",
+    "url": "https://github.com/PowerAppsDarren/PowerFxSnippets",
+    "codeOfConduct": {
+      "key": "contributor_covenant",
+      "name": "Contributor Covenant",
+      "url": "https://github.com/PowerAppsDarren/PowerFxSnippets/blob/main/CODE_OF_CONDUCT.md"
+    },
+    "forkCount": 4,
+    "fundingLinks": [],
+    "isSecurityPolicyEnabled": false,
+    "isTemplate": false,
+    "latestRelease": null,
+    "primaryLanguage": {
+      "name": "TSQL"
+    },
+    "securityPolicyUrl": "",
+    "stargazerCount": 20,
+    "watchers": {
+      "totalCount": 3
+    },
+    "topics": [
+      "dataverse",
+      "powerapps",
+      "powerautomate",
+      "powerplatform",
+      "canvasapp",
+      "microsoft",
+      "powerfx",
+      "powerfx-lang",
+      "powerfx-language",
+      "low-code",
+      "lowcode",
+      "canvas",
+      "msapp",
+      "power-fx",
+      "power-platform",
+      "low-code-development",
+      "low-code-no-code",
+      "lowcodedevelopment",
+      "power-apps"
+    ],
+    "languages": [
+      "TSQL"
+    ],
+    "openedGoodFirstIssues": 0,
+    "hasGoodFirstIssues": false,
+    "openedHelpWantedIssues": 0,
+    "hasHelpWantedIssues": false,
+    "openedToContributionsIssues": 0,
+    "popularityScore": 23
+  },
+  {
     "createdAt": "2022-03-03T16:33:55Z",
     "description": "Hands-on lab for Power Platform Tools for Visual Studio Code",
     "fullName": "microsoft/powerplatform-vscode-lab",
@@ -8850,79 +8923,6 @@
     ],
     "languages": [
       "HTML"
-    ],
-    "openedGoodFirstIssues": 0,
-    "hasGoodFirstIssues": false,
-    "openedHelpWantedIssues": 0,
-    "hasHelpWantedIssues": false,
-    "openedToContributionsIssues": 0,
-    "popularityScore": 22
-  },
-  {
-    "createdAt": "2024-07-21T19:05:22Z",
-    "description": "My bag of tricks for the Power Platform",
-    "fullName": "PowerAppsDarren/PowerFxSnippets",
-    "hasIssues": true,
-    "homepage": "https://whop.com/learn-power-apps",
-    "isArchived": false,
-    "language": "TSQL",
-    "license": {
-      "key": "mit",
-      "name": "MIT License",
-      "url": "https://api.github.com/licenses/mit"
-    },
-    "name": "PowerFxSnippets",
-    "openIssuesCount": 0,
-    "owner": {
-      "id": "U_kgDOBdYY4g",
-      "is_bot": false,
-      "login": "PowerAppsDarren",
-      "type": "User",
-      "url": "https://github.com/PowerAppsDarren"
-    },
-    "updatedAt": "2024-12-23T19:15:05Z",
-    "url": "https://github.com/PowerAppsDarren/PowerFxSnippets",
-    "codeOfConduct": {
-      "key": "contributor_covenant",
-      "name": "Contributor Covenant",
-      "url": "https://github.com/PowerAppsDarren/PowerFxSnippets/blob/main/CODE_OF_CONDUCT.md"
-    },
-    "forkCount": 4,
-    "fundingLinks": [],
-    "isSecurityPolicyEnabled": false,
-    "isTemplate": false,
-    "latestRelease": null,
-    "primaryLanguage": {
-      "name": "TSQL"
-    },
-    "securityPolicyUrl": "",
-    "stargazerCount": 19,
-    "watchers": {
-      "totalCount": 3
-    },
-    "topics": [
-      "dataverse",
-      "powerapps",
-      "powerautomate",
-      "powerplatform",
-      "canvasapp",
-      "microsoft",
-      "powerfx",
-      "powerfx-lang",
-      "powerfx-language",
-      "low-code",
-      "lowcode",
-      "canvas",
-      "msapp",
-      "power-fx",
-      "power-platform",
-      "low-code-development",
-      "low-code-no-code",
-      "lowcodedevelopment",
-      "power-apps"
-    ],
-    "languages": [
-      "TSQL"
     ],
     "openedGoodFirstIssues": 0,
     "hasGoodFirstIssues": false,
