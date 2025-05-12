@@ -76,7 +76,7 @@
       "url": "https://api.github.com/licenses/mit"
     },
     "name": "Microsoft365DSC",
-    "openIssuesCount": 330,
+    "openIssuesCount": 328,
     "owner": {
       "id": "MDEyOk9yZ2FuaXphdGlvbjYxNTQ3MjI=",
       "is_bot": false,
@@ -84,7 +84,7 @@
       "type": "Organization",
       "url": "https://github.com/microsoft"
     },
-    "updatedAt": "2025-05-09T19:02:10Z",
+    "updatedAt": "2025-05-12T02:45:50Z",
     "url": "https://github.com/microsoft/Microsoft365DSC",
     "codeOfConduct": {
       "key": "contributor_covenant",
@@ -105,7 +105,7 @@
       "name": "PowerShell"
     },
     "securityPolicyUrl": "https://github.com/microsoft/Microsoft365DSC/security/policy",
-    "stargazerCount": 1813,
+    "stargazerCount": 1814,
     "watchers": {
       "totalCount": 82
     },
@@ -141,7 +141,7 @@
     "openedHelpWantedIssues": 2,
     "hasHelpWantedIssues": true,
     "openedToContributionsIssues": 2,
-    "popularityScore": 1895
+    "popularityScore": 1896
   },
   {
     "createdAt": "2018-03-26T22:41:09Z",
@@ -165,14 +165,14 @@
       "type": "Organization",
       "url": "https://github.com/microsoft"
     },
-    "updatedAt": "2025-05-11T09:19:37Z",
+    "updatedAt": "2025-05-12T04:25:41Z",
     "url": "https://github.com/microsoft/PowerApps-Samples",
     "codeOfConduct": {
       "key": "other",
       "name": "Other",
       "url": "https://github.com/microsoft/.github/blob/main/CODE_OF_CONDUCT.md"
     },
-    "forkCount": 1757,
+    "forkCount": 1758,
     "fundingLinks": [],
     "isSecurityPolicyEnabled": true,
     "isTemplate": false,
@@ -186,7 +186,7 @@
       "name": "C#"
     },
     "securityPolicyUrl": "https://github.com/microsoft/PowerApps-Samples/security/policy",
-    "stargazerCount": 1663,
+    "stargazerCount": 1665,
     "watchers": {
       "totalCount": 114
     },
@@ -221,7 +221,7 @@
     "openedHelpWantedIssues": 0,
     "hasHelpWantedIssues": false,
     "openedToContributionsIssues": 0,
-    "popularityScore": 1777
+    "popularityScore": 1779
   },
   {
     "createdAt": "2018-04-15T22:28:50Z",
@@ -383,7 +383,7 @@
     "updatedAt": "2025-05-10T16:06:29Z",
     "url": "https://github.com/mbrg/power-pwn",
     "codeOfConduct": null,
-    "forkCount": 98,
+    "forkCount": 99,
     "fundingLinks": [],
     "isSecurityPolicyEnabled": false,
     "isTemplate": false,
@@ -1015,7 +1015,7 @@
       "type": "Organization",
       "url": "https://github.com/microsoft"
     },
-    "updatedAt": "2025-05-02T17:54:32Z",
+    "updatedAt": "2025-05-12T10:43:30Z",
     "url": "https://github.com/microsoft/PowerApps-Tooling",
     "codeOfConduct": {
       "key": "other",
@@ -1326,7 +1326,7 @@
       "type": "User",
       "url": "https://github.com/AleksandrRogov"
     },
-    "updatedAt": "2025-05-10T16:49:47Z",
+    "updatedAt": "2025-05-12T00:46:26Z",
     "url": "https://github.com/AleksandrRogov/DynamicsWebApi",
     "codeOfConduct": null,
     "forkCount": 59,
@@ -1339,10 +1339,10 @@
     "isSecurityPolicyEnabled": false,
     "isTemplate": false,
     "latestRelease": {
-      "name": "v2.2.1",
-      "tagName": "v2.2.1",
-      "url": "https://github.com/AleksandrRogov/DynamicsWebApi/releases/tag/v2.2.1",
-      "publishedAt": "2025-02-20T21:31:41Z"
+      "name": "v2.3.0",
+      "tagName": "v2.3.0",
+      "url": "https://github.com/AleksandrRogov/DynamicsWebApi/releases/tag/v2.3.0",
+      "publishedAt": "2025-05-11T23:27:23Z"
     },
     "primaryLanguage": {
       "name": "TypeScript"
@@ -1499,6 +1499,70 @@
     "popularityScore": 298
   },
   {
+    "createdAt": "2020-08-06T19:28:51Z",
+    "description": "Power Platform GitHub Actions automate common build and deployment tasks related to Power Platform. This includes synchronization of solution metadata (a.k.a. solutions) between development environments and source control, generating build artifacts, deploying to downstream environments, provisioning/de-provisioning of environments, and the ability to perform static analysis checks against your solution using the PowerApps checker service.",
+    "fullName": "microsoft/powerplatform-actions",
+    "hasIssues": true,
+    "homepage": "",
+    "isArchived": false,
+    "language": "TypeScript",
+    "license": {
+      "key": "mit",
+      "name": "MIT License",
+      "url": "https://api.github.com/licenses/mit"
+    },
+    "name": "powerplatform-actions",
+    "openIssuesCount": 34,
+    "owner": {
+      "id": "MDEyOk9yZ2FuaXphdGlvbjYxNTQ3MjI=",
+      "is_bot": false,
+      "login": "microsoft",
+      "type": "Organization",
+      "url": "https://github.com/microsoft"
+    },
+    "updatedAt": "2025-05-12T10:04:32Z",
+    "url": "https://github.com/microsoft/powerplatform-actions",
+    "codeOfConduct": {
+      "key": "other",
+      "name": "Other",
+      "url": "https://github.com/microsoft/powerplatform-actions/blob/main/CODE_OF_CONDUCT.md"
+    },
+    "forkCount": 72,
+    "fundingLinks": [],
+    "isSecurityPolicyEnabled": true,
+    "isTemplate": false,
+    "latestRelease": {
+      "name": "v1.8.0",
+      "tagName": "v1.8.0",
+      "url": "https://github.com/microsoft/powerplatform-actions/releases/tag/v1.8.0",
+      "publishedAt": "2025-02-14T17:34:04Z"
+    },
+    "primaryLanguage": {
+      "name": "TypeScript"
+    },
+    "securityPolicyUrl": "https://github.com/microsoft/powerplatform-actions/security/policy",
+    "stargazerCount": 239,
+    "watchers": {
+      "totalCount": 30
+    },
+    "topics": [
+      "powerplatform",
+      "github-actions"
+    ],
+    "languages": [
+      "TypeScript",
+      "JavaScript",
+      "Shell",
+      "Batchfile"
+    ],
+    "openedGoodFirstIssues": 0,
+    "hasGoodFirstIssues": false,
+    "openedHelpWantedIssues": 0,
+    "hasHelpWantedIssues": false,
+    "openedToContributionsIssues": 0,
+    "popularityScore": 269
+  },
+  {
     "createdAt": "2020-04-20T17:58:04Z",
     "description": "Power Platform based solution that allows users to request teams and automates team creation. NO LONGER MAINTAINED. Please use 'Provision Assist' - https://github.com/pnp/provision-assist-m365/ instead.",
     "fullName": "OfficeDev/microsoft-teams-apps-requestateam",
@@ -1562,70 +1626,6 @@
     "hasHelpWantedIssues": true,
     "openedToContributionsIssues": 47,
     "popularityScore": 285
-  },
-  {
-    "createdAt": "2020-08-06T19:28:51Z",
-    "description": "Power Platform GitHub Actions automate common build and deployment tasks related to Power Platform. This includes synchronization of solution metadata (a.k.a. solutions) between development environments and source control, generating build artifacts, deploying to downstream environments, provisioning/de-provisioning of environments, and the ability to perform static analysis checks against your solution using the PowerApps checker service.",
-    "fullName": "microsoft/powerplatform-actions",
-    "hasIssues": true,
-    "homepage": "",
-    "isArchived": false,
-    "language": "TypeScript",
-    "license": {
-      "key": "mit",
-      "name": "MIT License",
-      "url": "https://api.github.com/licenses/mit"
-    },
-    "name": "powerplatform-actions",
-    "openIssuesCount": 34,
-    "owner": {
-      "id": "MDEyOk9yZ2FuaXphdGlvbjYxNTQ3MjI=",
-      "is_bot": false,
-      "login": "microsoft",
-      "type": "Organization",
-      "url": "https://github.com/microsoft"
-    },
-    "updatedAt": "2025-05-02T17:52:28Z",
-    "url": "https://github.com/microsoft/powerplatform-actions",
-    "codeOfConduct": {
-      "key": "other",
-      "name": "Other",
-      "url": "https://github.com/microsoft/powerplatform-actions/blob/main/CODE_OF_CONDUCT.md"
-    },
-    "forkCount": 71,
-    "fundingLinks": [],
-    "isSecurityPolicyEnabled": true,
-    "isTemplate": false,
-    "latestRelease": {
-      "name": "v1.8.0",
-      "tagName": "v1.8.0",
-      "url": "https://github.com/microsoft/powerplatform-actions/releases/tag/v1.8.0",
-      "publishedAt": "2025-02-14T17:34:04Z"
-    },
-    "primaryLanguage": {
-      "name": "TypeScript"
-    },
-    "securityPolicyUrl": "https://github.com/microsoft/powerplatform-actions/security/policy",
-    "stargazerCount": 238,
-    "watchers": {
-      "totalCount": 30
-    },
-    "topics": [
-      "powerplatform",
-      "github-actions"
-    ],
-    "languages": [
-      "TypeScript",
-      "JavaScript",
-      "Shell",
-      "Batchfile"
-    ],
-    "openedGoodFirstIssues": 0,
-    "hasGoodFirstIssues": false,
-    "openedHelpWantedIssues": 0,
-    "hasHelpWantedIssues": false,
-    "openedToContributionsIssues": 0,
-    "popularityScore": 268
   },
   {
     "createdAt": "2022-11-16T18:09:18Z",
@@ -1698,7 +1698,7 @@
       "url": "https://api.github.com/licenses/mit"
     },
     "name": "powerplatform-vscode",
-    "openIssuesCount": 91,
+    "openIssuesCount": 89,
     "owner": {
       "id": "MDEyOk9yZ2FuaXphdGlvbjYxNTQ3MjI=",
       "is_bot": false,
@@ -1706,7 +1706,7 @@
       "type": "Organization",
       "url": "https://github.com/microsoft"
     },
-    "updatedAt": "2025-05-08T07:25:28Z",
+    "updatedAt": "2025-05-12T07:25:44Z",
     "url": "https://github.com/microsoft/powerplatform-vscode",
     "codeOfConduct": {
       "key": "other",
@@ -1832,7 +1832,7 @@
       "url": "https://api.github.com/licenses/mit"
     },
     "name": "Levelup-for-Dynamics-CRM",
-    "openIssuesCount": 110,
+    "openIssuesCount": 111,
     "owner": {
       "id": "MDQ6VXNlcjUwMzUyNjY=",
       "is_bot": false,
@@ -4032,7 +4032,7 @@
       "url": ""
     },
     "name": "XrmMockup",
-    "openIssuesCount": 59,
+    "openIssuesCount": 58,
     "owner": {
       "id": "MDEyOk9yZ2FuaXphdGlvbjcwMTUzMDA=",
       "is_bot": false,
@@ -4040,7 +4040,7 @@
       "type": "Organization",
       "url": "https://github.com/delegateas"
     },
-    "updatedAt": "2025-05-08T06:51:13Z",
+    "updatedAt": "2025-05-12T07:43:42Z",
     "url": "https://github.com/delegateas/XrmMockup",
     "codeOfConduct": null,
     "forkCount": 28,
@@ -5428,7 +5428,7 @@
       "url": "https://api.github.com/licenses/mit"
     },
     "name": "terraform-provider-power-platform",
-    "openIssuesCount": 20,
+    "openIssuesCount": 19,
     "owner": {
       "id": "MDEyOk9yZ2FuaXphdGlvbjYxNTQ3MjI=",
       "is_bot": false,
@@ -5436,7 +5436,7 @@
       "type": "Organization",
       "url": "https://github.com/microsoft"
     },
-    "updatedAt": "2025-05-09T20:00:23Z",
+    "updatedAt": "2025-05-12T06:42:25Z",
     "url": "https://github.com/microsoft/terraform-provider-power-platform",
     "codeOfConduct": {
       "key": "other",
@@ -6517,7 +6517,7 @@
     "updatedAt": "2025-04-23T01:54:47Z",
     "url": "https://github.com/rajyraman/Power-Fx-.NET-Interactive",
     "codeOfConduct": null,
-    "forkCount": 4,
+    "forkCount": 5,
     "fundingLinks": [],
     "isSecurityPolicyEnabled": false,
     "isTemplate": false,
@@ -6774,7 +6774,7 @@
       "url": ""
     },
     "name": "fake-xrm-easy",
-    "openIssuesCount": 58,
+    "openIssuesCount": 59,
     "owner": {
       "id": "MDEyOk9yZ2FuaXphdGlvbjE1NzkxNjEx",
       "is_bot": false,
@@ -6911,7 +6911,7 @@
       "type": "User",
       "url": "https://github.com/wyattdave"
     },
-    "updatedAt": "2025-04-27T18:37:06Z",
+    "updatedAt": "2025-05-11T20:15:47Z",
     "url": "https://github.com/wyattdave/Power-Platform",
     "codeOfConduct": null,
     "forkCount": 3,
@@ -7140,6 +7140,86 @@
     "popularityScore": 37
   },
   {
+    "createdAt": "2025-01-27T11:49:55Z",
+    "description": "The open source, AI-powered app builder",
+    "fullName": "ondateta/teta",
+    "hasIssues": true,
+    "homepage": "https://teta.so",
+    "isArchived": false,
+    "language": "Dart",
+    "license": {
+      "key": "agpl-3.0",
+      "name": "GNU Affero General Public License v3.0",
+      "url": "https://api.github.com/licenses/agpl-3.0"
+    },
+    "name": "teta",
+    "openIssuesCount": 1,
+    "owner": {
+      "id": "O_kgDOCyYtUg",
+      "is_bot": false,
+      "login": "ondateta",
+      "type": "Organization",
+      "url": "https://github.com/ondateta"
+    },
+    "updatedAt": "2025-05-12T03:17:44Z",
+    "url": "https://github.com/ondateta/teta",
+    "codeOfConduct": null,
+    "forkCount": 2,
+    "fundingLinks": [],
+    "isSecurityPolicyEnabled": false,
+    "isTemplate": false,
+    "latestRelease": {
+      "name": "0.5.6",
+      "tagName": "0.5.6",
+      "url": "https://github.com/ondateta/teta/releases/tag/0.5.6",
+      "publishedAt": "2025-05-07T17:21:10Z"
+    },
+    "primaryLanguage": {
+      "name": "Dart"
+    },
+    "securityPolicyUrl": "",
+    "stargazerCount": 29,
+    "watchers": {
+      "totalCount": 1
+    },
+    "topics": [
+      "ai",
+      "ai-application-development",
+      "ai-builder",
+      "ai-chatbot",
+      "app-builder",
+      "flutter",
+      "flutter-app",
+      "flutter-ui",
+      "open-source",
+      "app",
+      "dart",
+      "editor",
+      "macos",
+      "oss",
+      "ui",
+      "ui-editor"
+    ],
+    "languages": [
+      "Dart",
+      "C++",
+      "CMake",
+      "Swift",
+      "Ruby",
+      "C",
+      "HTML",
+      "Dockerfile",
+      "Kotlin",
+      "Objective-C"
+    ],
+    "openedGoodFirstIssues": 0,
+    "hasGoodFirstIssues": false,
+    "openedHelpWantedIssues": 0,
+    "hasHelpWantedIssues": false,
+    "openedToContributionsIssues": 0,
+    "popularityScore": 30
+  },
+  {
     "createdAt": "2019-02-20T02:08:54Z",
     "description": "SVG chart components for Microsoft Power Apps.",
     "fullName": "OGcanviz/ChartComponents",
@@ -7191,86 +7271,6 @@
     "hasHelpWantedIssues": false,
     "openedToContributionsIssues": 1,
     "popularityScore": 38
-  },
-  {
-    "createdAt": "2025-01-27T11:49:55Z",
-    "description": "The open source, AI-powered app builder",
-    "fullName": "ondateta/teta",
-    "hasIssues": true,
-    "homepage": "https://teta.so",
-    "isArchived": false,
-    "language": "Dart",
-    "license": {
-      "key": "agpl-3.0",
-      "name": "GNU Affero General Public License v3.0",
-      "url": "https://api.github.com/licenses/agpl-3.0"
-    },
-    "name": "teta",
-    "openIssuesCount": 1,
-    "owner": {
-      "id": "O_kgDOCyYtUg",
-      "is_bot": false,
-      "login": "ondateta",
-      "type": "Organization",
-      "url": "https://github.com/ondateta"
-    },
-    "updatedAt": "2025-04-29T19:23:50Z",
-    "url": "https://github.com/ondateta/teta",
-    "codeOfConduct": null,
-    "forkCount": 2,
-    "fundingLinks": [],
-    "isSecurityPolicyEnabled": false,
-    "isTemplate": false,
-    "latestRelease": {
-      "name": "0.5.6",
-      "tagName": "0.5.6",
-      "url": "https://github.com/ondateta/teta/releases/tag/0.5.6",
-      "publishedAt": "2025-05-07T17:21:10Z"
-    },
-    "primaryLanguage": {
-      "name": "Dart"
-    },
-    "securityPolicyUrl": "",
-    "stargazerCount": 28,
-    "watchers": {
-      "totalCount": 1
-    },
-    "topics": [
-      "ai",
-      "ai-application-development",
-      "ai-builder",
-      "ai-chatbot",
-      "app-builder",
-      "flutter",
-      "flutter-app",
-      "flutter-ui",
-      "open-source",
-      "app",
-      "dart",
-      "editor",
-      "macos",
-      "oss",
-      "ui",
-      "ui-editor"
-    ],
-    "languages": [
-      "Dart",
-      "C++",
-      "CMake",
-      "Swift",
-      "Ruby",
-      "C",
-      "HTML",
-      "Dockerfile",
-      "Kotlin",
-      "Objective-C"
-    ],
-    "openedGoodFirstIssues": 0,
-    "hasGoodFirstIssues": false,
-    "openedHelpWantedIssues": 0,
-    "hasHelpWantedIssues": false,
-    "openedToContributionsIssues": 0,
-    "popularityScore": 29
   },
   {
     "createdAt": "2015-05-04T06:49:29Z",
@@ -7365,7 +7365,7 @@
       "type": "User",
       "url": "https://github.com/rpothin"
     },
-    "updatedAt": "2025-05-10T11:21:35Z",
+    "updatedAt": "2025-05-11T11:20:10Z",
     "url": "https://github.com/rpothin/PowerPlatform-OpenSource-Hub",
     "codeOfConduct": {
       "key": "contributor_covenant",
@@ -13242,7 +13242,7 @@
       "url": "https://api.github.com/licenses/apache-2.0"
     },
     "name": "embc-ess-mod",
-    "openIssuesCount": 49,
+    "openIssuesCount": 53,
     "owner": {
       "id": "MDEyOk9yZ2FuaXphdGlvbjkxNjI4MA==",
       "is_bot": false,
