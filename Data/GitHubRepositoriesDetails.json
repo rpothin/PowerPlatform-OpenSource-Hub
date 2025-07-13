@@ -169,7 +169,7 @@
       "name": "Contributor Covenant",
       "url": "https://github.com/microsoft/Microsoft365DSC/blob/Dev/CODE_OF_CONDUCT.md"
     },
-    "forkCount": 571,
+    "forkCount": 573,
     "fundingLinks": [],
     "isSecurityPolicyEnabled": true,
     "isTemplate": false,
@@ -250,7 +250,7 @@
       "name": "Other",
       "url": "https://github.com/microsoft/.github/blob/main/CODE_OF_CONDUCT.md"
     },
-    "forkCount": 1770,
+    "forkCount": 1771,
     "fundingLinks": [],
     "isSecurityPolicyEnabled": true,
     "isTemplate": false,
@@ -600,7 +600,7 @@
     "updatedAt": "2025-07-07T16:04:00Z",
     "url": "https://github.com/inoerp/inoERP",
     "codeOfConduct": null,
-    "forkCount": 680,
+    "forkCount": 679,
     "fundingLinks": [],
     "isSecurityPolicyEnabled": false,
     "isTemplate": false,
@@ -1396,7 +1396,7 @@
       "url": "https://api.github.com/licenses/mit"
     },
     "name": "powerplatform-samples",
-    "openIssuesCount": 37,
+    "openIssuesCount": 36,
     "owner": {
       "id": "MDEyOk9yZ2FuaXphdGlvbjMxNDQzOTI5",
       "is_bot": false,
@@ -1404,7 +1404,7 @@
       "type": "Organization",
       "url": "https://github.com/pnp"
     },
-    "updatedAt": "2025-07-10T18:11:38Z",
+    "updatedAt": "2025-07-12T20:54:31Z",
     "url": "https://github.com/pnp/powerplatform-samples",
     "codeOfConduct": null,
     "forkCount": 207,
@@ -1414,7 +1414,7 @@
     "latestRelease": null,
     "primaryLanguage": null,
     "securityPolicyUrl": "",
-    "stargazerCount": 297,
+    "stargazerCount": 298,
     "watchers": {
       "totalCount": 26
     },
@@ -1433,7 +1433,7 @@
     "openedHelpWantedIssues": 0,
     "hasHelpWantedIssues": false,
     "openedToContributionsIssues": 0,
-    "popularityScore": 323
+    "popularityScore": 324
   },
   {
     "createdAt": "2016-10-31T17:00:14Z",
@@ -2406,7 +2406,7 @@
     "updatedAt": "2025-07-11T18:41:09Z",
     "url": "https://github.com/pnp/powerplatform-snippets",
     "codeOfConduct": null,
-    "forkCount": 55,
+    "forkCount": 54,
     "fundingLinks": [],
     "isSecurityPolicyEnabled": false,
     "isTemplate": false,
@@ -3248,6 +3248,61 @@
     "popularityScore": 115
   },
   {
+    "createdAt": "2020-09-03T14:58:25Z",
+    "description": "A curated collection of learning resources to help deepen your understanding of the Microsoft Power Automate service. Updated regularly. Contributions encouraged via a pull request (see contributing.md).",
+    "fullName": "iamericfletcher/awesome-power-automate-learning-resources",
+    "hasIssues": true,
+    "homepage": "",
+    "isArchived": false,
+    "language": "",
+    "license": {
+      "key": "cc0-1.0",
+      "name": "Creative Commons Zero v1.0 Universal",
+      "url": "https://api.github.com/licenses/cc0-1.0"
+    },
+    "name": "awesome-power-automate-learning-resources",
+    "openIssuesCount": 0,
+    "owner": {
+      "id": "MDQ6VXNlcjY0MTY1MzI3",
+      "is_bot": false,
+      "login": "iamericfletcher",
+      "type": "User",
+      "url": "https://github.com/iamericfletcher"
+    },
+    "updatedAt": "2025-07-12T21:49:55Z",
+    "url": "https://github.com/iamericfletcher/awesome-power-automate-learning-resources",
+    "codeOfConduct": {
+      "key": "contributor_covenant",
+      "name": "Contributor Covenant",
+      "url": "https://github.com/iamericfletcher/awesome-power-automate-learning-resources/blob/master/code_of_conduct.md"
+    },
+    "forkCount": 6,
+    "fundingLinks": [],
+    "isSecurityPolicyEnabled": false,
+    "isTemplate": false,
+    "latestRelease": null,
+    "primaryLanguage": null,
+    "securityPolicyUrl": "",
+    "stargazerCount": 92,
+    "watchers": {
+      "totalCount": 10
+    },
+    "topics": [
+      "microsoft",
+      "awesome",
+      "awesome-list",
+      "microsoft-flow",
+      "power-automate"
+    ],
+    "languages": [],
+    "openedGoodFirstIssues": 0,
+    "hasGoodFirstIssues": false,
+    "openedHelpWantedIssues": 0,
+    "hasHelpWantedIssues": false,
+    "openedToContributionsIssues": 0,
+    "popularityScore": 102
+  },
+  {
     "createdAt": "2023-06-13T15:37:15Z",
     "description": "Event-in-a-box to get started with Power Platform and AI Copilot (aka LowCode)",
     "fullName": "microsoft/Power-Platform-For-Beginners",
@@ -3308,61 +3363,6 @@
     "hasHelpWantedIssues": false,
     "openedToContributionsIssues": 0,
     "popularityScore": 102
-  },
-  {
-    "createdAt": "2020-09-03T14:58:25Z",
-    "description": "A curated collection of learning resources to help deepen your understanding of the Microsoft Power Automate service. Updated regularly. Contributions encouraged via a pull request (see contributing.md).",
-    "fullName": "iamericfletcher/awesome-power-automate-learning-resources",
-    "hasIssues": true,
-    "homepage": "",
-    "isArchived": false,
-    "language": "",
-    "license": {
-      "key": "cc0-1.0",
-      "name": "Creative Commons Zero v1.0 Universal",
-      "url": "https://api.github.com/licenses/cc0-1.0"
-    },
-    "name": "awesome-power-automate-learning-resources",
-    "openIssuesCount": 0,
-    "owner": {
-      "id": "MDQ6VXNlcjY0MTY1MzI3",
-      "is_bot": false,
-      "login": "iamericfletcher",
-      "type": "User",
-      "url": "https://github.com/iamericfletcher"
-    },
-    "updatedAt": "2025-06-25T08:36:26Z",
-    "url": "https://github.com/iamericfletcher/awesome-power-automate-learning-resources",
-    "codeOfConduct": {
-      "key": "contributor_covenant",
-      "name": "Contributor Covenant",
-      "url": "https://github.com/iamericfletcher/awesome-power-automate-learning-resources/blob/master/code_of_conduct.md"
-    },
-    "forkCount": 6,
-    "fundingLinks": [],
-    "isSecurityPolicyEnabled": false,
-    "isTemplate": false,
-    "latestRelease": null,
-    "primaryLanguage": null,
-    "securityPolicyUrl": "",
-    "stargazerCount": 91,
-    "watchers": {
-      "totalCount": 10
-    },
-    "topics": [
-      "microsoft",
-      "awesome",
-      "awesome-list",
-      "microsoft-flow",
-      "power-automate"
-    ],
-    "languages": [],
-    "openedGoodFirstIssues": 0,
-    "hasGoodFirstIssues": false,
-    "openedHelpWantedIssues": 0,
-    "hasHelpWantedIssues": false,
-    "openedToContributionsIssues": 0,
-    "popularityScore": 101
   },
   {
     "createdAt": "2017-09-29T17:54:00Z",
@@ -3560,6 +3560,57 @@
     "popularityScore": 106
   },
   {
+    "createdAt": "2024-06-23T22:52:29Z",
+    "description": "The official repository for Power Platform tools and resources.",
+    "fullName": "microsoft/powerplatform",
+    "hasIssues": false,
+    "homepage": "",
+    "isArchived": false,
+    "language": "",
+    "license": {
+      "key": "mit",
+      "name": "MIT License",
+      "url": "https://api.github.com/licenses/mit"
+    },
+    "name": "powerplatform",
+    "openIssuesCount": 0,
+    "owner": {
+      "id": "MDEyOk9yZ2FuaXphdGlvbjYxNTQ3MjI=",
+      "is_bot": false,
+      "login": "microsoft",
+      "type": "Organization",
+      "url": "https://github.com/microsoft"
+    },
+    "updatedAt": "2025-07-12T11:49:53Z",
+    "url": "https://github.com/microsoft/powerplatform",
+    "codeOfConduct": {
+      "key": "other",
+      "name": "Other",
+      "url": "https://github.com/microsoft/.github/blob/main/CODE_OF_CONDUCT.md"
+    },
+    "forkCount": 9,
+    "fundingLinks": [],
+    "isSecurityPolicyEnabled": true,
+    "isTemplate": false,
+    "latestRelease": null,
+    "primaryLanguage": null,
+    "securityPolicyUrl": "https://github.com/microsoft/powerplatform/security/policy",
+    "stargazerCount": 85,
+    "watchers": {
+      "totalCount": 23
+    },
+    "topics": [
+      "powerplatform"
+    ],
+    "languages": [],
+    "openedGoodFirstIssues": 0,
+    "hasGoodFirstIssues": false,
+    "openedHelpWantedIssues": 0,
+    "hasHelpWantedIssues": false,
+    "openedToContributionsIssues": 0,
+    "popularityScore": 108
+  },
+  {
     "createdAt": "2019-12-05T17:07:15Z",
     "description": "Dynamics 365 for Finance and Operations AOT Browser",
     "fullName": "arganollc/aotbrowser",
@@ -3620,57 +3671,6 @@
     "hasHelpWantedIssues": false,
     "openedToContributionsIssues": 0,
     "popularityScore": 96
-  },
-  {
-    "createdAt": "2024-06-23T22:52:29Z",
-    "description": "The official repository for Power Platform tools and resources.",
-    "fullName": "microsoft/powerplatform",
-    "hasIssues": false,
-    "homepage": "",
-    "isArchived": false,
-    "language": "",
-    "license": {
-      "key": "mit",
-      "name": "MIT License",
-      "url": "https://api.github.com/licenses/mit"
-    },
-    "name": "powerplatform",
-    "openIssuesCount": 0,
-    "owner": {
-      "id": "MDEyOk9yZ2FuaXphdGlvbjYxNTQ3MjI=",
-      "is_bot": false,
-      "login": "microsoft",
-      "type": "Organization",
-      "url": "https://github.com/microsoft"
-    },
-    "updatedAt": "2025-07-02T14:35:03Z",
-    "url": "https://github.com/microsoft/powerplatform",
-    "codeOfConduct": {
-      "key": "other",
-      "name": "Other",
-      "url": "https://github.com/microsoft/.github/blob/main/CODE_OF_CONDUCT.md"
-    },
-    "forkCount": 9,
-    "fundingLinks": [],
-    "isSecurityPolicyEnabled": true,
-    "isTemplate": false,
-    "latestRelease": null,
-    "primaryLanguage": null,
-    "securityPolicyUrl": "https://github.com/microsoft/powerplatform/security/policy",
-    "stargazerCount": 84,
-    "watchers": {
-      "totalCount": 23
-    },
-    "topics": [
-      "powerplatform"
-    ],
-    "languages": [],
-    "openedGoodFirstIssues": 0,
-    "hasGoodFirstIssues": false,
-    "openedHelpWantedIssues": 0,
-    "hasHelpWantedIssues": false,
-    "openedToContributionsIssues": 0,
-    "popularityScore": 107
   },
   {
     "createdAt": "2017-05-30T14:31:45Z",
@@ -7307,7 +7307,7 @@
       "type": "User",
       "url": "https://github.com/rpothin"
     },
-    "updatedAt": "2025-07-11T11:26:25Z",
+    "updatedAt": "2025-07-12T11:27:16Z",
     "url": "https://github.com/rpothin/PowerPlatform-OpenSource-Hub",
     "codeOfConduct": {
       "key": "contributor_covenant",
@@ -8685,71 +8685,6 @@
     "popularityScore": 32
   },
   {
-    "createdAt": "2022-09-28T19:47:05Z",
-    "description": "D365 FSC DevOps setup&maintenance tools for GitHub",
-    "fullName": "fscpscollaborative/fscps",
-    "hasIssues": true,
-    "homepage": "",
-    "isArchived": false,
-    "language": "PowerShell",
-    "license": {
-      "key": "apache-2.0",
-      "name": "Apache License 2.0",
-      "url": "https://api.github.com/licenses/apache-2.0"
-    },
-    "name": "fscps",
-    "openIssuesCount": 2,
-    "owner": {
-      "id": "O_kgDOCg_ylA",
-      "is_bot": false,
-      "login": "fscpscollaborative",
-      "type": "Organization",
-      "url": "https://github.com/fscpscollaborative"
-    },
-    "updatedAt": "2025-06-24T23:34:59Z",
-    "url": "https://github.com/fscpscollaborative/fscps",
-    "codeOfConduct": null,
-    "forkCount": 6,
-    "fundingLinks": [],
-    "isSecurityPolicyEnabled": false,
-    "isTemplate": false,
-    "latestRelease": null,
-    "primaryLanguage": {
-      "name": "PowerShell"
-    },
-    "securityPolicyUrl": "",
-    "stargazerCount": 23,
-    "watchers": {
-      "totalCount": 3
-    },
-    "topics": [
-      "d365fo",
-      "dynamics-365",
-      "powershell",
-      "d365tools",
-      "d365",
-      "devops-tools",
-      "fsc",
-      "retail",
-      "d365actions",
-      "devops",
-      "365",
-      "dynamics",
-      "fscps",
-      "fscps-tools"
-    ],
-    "languages": [
-      "PowerShell",
-      "C#"
-    ],
-    "openedGoodFirstIssues": 0,
-    "hasGoodFirstIssues": false,
-    "openedHelpWantedIssues": 0,
-    "hasHelpWantedIssues": false,
-    "openedToContributionsIssues": 0,
-    "popularityScore": 26
-  },
-  {
     "createdAt": "2022-10-03T07:45:09Z",
     "description": "This control allows the transformation of the default Dynamics 365 grid to an editable grid with add new line functionality.",
     "fullName": "BeverCRM/PCF-EditableTable",
@@ -8874,6 +8809,71 @@
     "hasHelpWantedIssues": false,
     "openedToContributionsIssues": 0,
     "popularityScore": 34
+  },
+  {
+    "createdAt": "2022-09-28T19:47:05Z",
+    "description": "D365 FSC DevOps setup&maintenance tools for GitHub",
+    "fullName": "fscpscollaborative/fscps",
+    "hasIssues": true,
+    "homepage": "",
+    "isArchived": false,
+    "language": "PowerShell",
+    "license": {
+      "key": "apache-2.0",
+      "name": "Apache License 2.0",
+      "url": "https://api.github.com/licenses/apache-2.0"
+    },
+    "name": "fscps",
+    "openIssuesCount": 2,
+    "owner": {
+      "id": "O_kgDOCg_ylA",
+      "is_bot": false,
+      "login": "fscpscollaborative",
+      "type": "Organization",
+      "url": "https://github.com/fscpscollaborative"
+    },
+    "updatedAt": "2025-06-24T23:34:59Z",
+    "url": "https://github.com/fscpscollaborative/fscps",
+    "codeOfConduct": null,
+    "forkCount": 6,
+    "fundingLinks": [],
+    "isSecurityPolicyEnabled": false,
+    "isTemplate": false,
+    "latestRelease": null,
+    "primaryLanguage": {
+      "name": "PowerShell"
+    },
+    "securityPolicyUrl": "",
+    "stargazerCount": 23,
+    "watchers": {
+      "totalCount": 3
+    },
+    "topics": [
+      "d365fo",
+      "dynamics-365",
+      "powershell",
+      "d365tools",
+      "d365",
+      "devops-tools",
+      "fsc",
+      "retail",
+      "d365actions",
+      "devops",
+      "365",
+      "dynamics",
+      "fscps",
+      "fscps-tools"
+    ],
+    "languages": [
+      "PowerShell",
+      "C#"
+    ],
+    "openedGoodFirstIssues": 0,
+    "hasGoodFirstIssues": false,
+    "openedHelpWantedIssues": 0,
+    "hasHelpWantedIssues": false,
+    "openedToContributionsIssues": 0,
+    "popularityScore": 26
   },
   {
     "createdAt": "2023-05-28T23:09:28Z",
@@ -9395,6 +9395,55 @@
     "popularityScore": 21
   },
   {
+    "createdAt": "2021-06-12T00:09:08Z",
+    "description": "Contactless Business Card: This component adds a user profile page in your app. The data source used is Office 365 but you can change it to Microsoft 365 or Dynamics 365 if need be. The QR code is generated via web api and it doesn't requires a power automate flow. This can be really handy for your Sales Team or Field Service Team, to enable them with a no contact business card sharing at no cost and saving you dollars.",
+    "fullName": "Experience-Digital-MS/eBusinessCard",
+    "hasIssues": true,
+    "homepage": "https://www.linkedin.com/company/experiencedigitalms",
+    "isArchived": false,
+    "language": "",
+    "license": {
+      "key": "mit",
+      "name": "MIT License",
+      "url": "https://api.github.com/licenses/mit"
+    },
+    "name": "eBusinessCard",
+    "openIssuesCount": 1,
+    "owner": {
+      "id": "MDQ6VXNlcjg0NzAxMTQ3",
+      "is_bot": false,
+      "login": "Experience-Digital-MS",
+      "type": "User",
+      "url": "https://github.com/Experience-Digital-MS"
+    },
+    "updatedAt": "2025-03-30T21:48:50Z",
+    "url": "https://github.com/Experience-Digital-MS/eBusinessCard",
+    "codeOfConduct": null,
+    "forkCount": 4,
+    "fundingLinks": [],
+    "isSecurityPolicyEnabled": false,
+    "isTemplate": false,
+    "latestRelease": null,
+    "primaryLanguage": null,
+    "securityPolicyUrl": "",
+    "stargazerCount": 18,
+    "watchers": {
+      "totalCount": 2
+    },
+    "topics": [
+      "powerapps",
+      "business-card",
+      "components"
+    ],
+    "languages": [],
+    "openedGoodFirstIssues": 0,
+    "hasGoodFirstIssues": false,
+    "openedHelpWantedIssues": 0,
+    "hasHelpWantedIssues": false,
+    "openedToContributionsIssues": 0,
+    "popularityScore": 20
+  },
+  {
     "createdAt": "2021-11-01T18:00:42Z",
     "description": "GitHub Action to publish repository content on Dataverse",
     "fullName": "IQSS/dataverse-uploader",
@@ -9451,6 +9500,240 @@
     "hasHelpWantedIssues": false,
     "openedToContributionsIssues": 0,
     "popularityScore": 20
+  },
+  {
+    "createdAt": "2019-07-12T08:07:26Z",
+    "description": "This component displays BPFs with all process stages categories of entities from a grid/views",
+    "fullName": "allandecastro/BusinessProcessFlowViewer",
+    "hasIssues": true,
+    "homepage": "",
+    "isArchived": false,
+    "language": "TypeScript",
+    "license": {
+      "key": "mit",
+      "name": "MIT License",
+      "url": "https://api.github.com/licenses/mit"
+    },
+    "name": "BusinessProcessFlowViewer",
+    "openIssuesCount": 6,
+    "owner": {
+      "id": "MDQ6VXNlcjk3NDkwMDI=",
+      "is_bot": false,
+      "login": "allandecastro",
+      "type": "User",
+      "url": "https://github.com/allandecastro"
+    },
+    "updatedAt": "2025-02-28T10:24:34Z",
+    "url": "https://github.com/allandecastro/BusinessProcessFlowViewer",
+    "codeOfConduct": null,
+    "forkCount": 9,
+    "fundingLinks": [],
+    "isSecurityPolicyEnabled": false,
+    "isTemplate": false,
+    "latestRelease": {
+      "name": "1.0.28",
+      "tagName": "1.0.28",
+      "url": "https://github.com/allandecastro/BusinessProcessFlowViewer/releases/tag/1.0.28",
+      "publishedAt": "2020-10-25T15:11:51Z"
+    },
+    "primaryLanguage": {
+      "name": "TypeScript"
+    },
+    "securityPolicyUrl": "",
+    "stargazerCount": 18,
+    "watchers": {
+      "totalCount": 7
+    },
+    "topics": [
+      "powerappscomponentframework",
+      "powerapps",
+      "dynamics-365",
+      "pcf"
+    ],
+    "languages": [
+      "TypeScript",
+      "CSS"
+    ],
+    "openedGoodFirstIssues": 0,
+    "hasGoodFirstIssues": false,
+    "openedHelpWantedIssues": 0,
+    "hasHelpWantedIssues": false,
+    "openedToContributionsIssues": 0,
+    "popularityScore": 25
+  },
+  {
+    "createdAt": "2019-06-03T20:37:00Z",
+    "description": "PCF control that shows thumbnails of images from entity notes. Control is bound to Single Line of Text field.",
+    "fullName": "DynamicsNinja/PCF-Gallery-Control",
+    "hasIssues": true,
+    "homepage": "",
+    "isArchived": false,
+    "language": "TypeScript",
+    "license": {
+      "key": "mit",
+      "name": "MIT License",
+      "url": "https://api.github.com/licenses/mit"
+    },
+    "name": "PCF-Gallery-Control",
+    "openIssuesCount": 4,
+    "owner": {
+      "id": "MDQ6VXNlcjMxMjEyNDY1",
+      "is_bot": false,
+      "login": "DynamicsNinja",
+      "type": "User",
+      "url": "https://github.com/DynamicsNinja"
+    },
+    "updatedAt": "2025-02-28T11:45:44Z",
+    "url": "https://github.com/DynamicsNinja/PCF-Gallery-Control",
+    "codeOfConduct": null,
+    "forkCount": 8,
+    "fundingLinks": [],
+    "isSecurityPolicyEnabled": false,
+    "isTemplate": false,
+    "latestRelease": {
+      "name": "Fic.GalleryControl v1.3.3",
+      "tagName": "v1.3.3",
+      "url": "https://github.com/DynamicsNinja/PCF-Gallery-Control/releases/tag/v1.3.3",
+      "publishedAt": "2020-09-08T17:39:22Z"
+    },
+    "primaryLanguage": {
+      "name": "TypeScript"
+    },
+    "securityPolicyUrl": "",
+    "stargazerCount": 18,
+    "watchers": {
+      "totalCount": 4
+    },
+    "topics": [
+      "dynamics-365",
+      "dynamics-crm",
+      "powerapps",
+      "powerplatform"
+    ],
+    "languages": [
+      "TypeScript",
+      "CSS"
+    ],
+    "openedGoodFirstIssues": 0,
+    "hasGoodFirstIssues": false,
+    "openedHelpWantedIssues": 0,
+    "hasHelpWantedIssues": false,
+    "openedToContributionsIssues": 0,
+    "popularityScore": 22
+  },
+  {
+    "createdAt": "2023-05-13T13:46:12Z",
+    "description": "Materiais, tutoriais e dicas sobre Power Platform criados pela equipe de especialistas em Power Platform da Microsoft Brasil.",
+    "fullName": "microsoft/powerplatformconnect",
+    "hasIssues": false,
+    "homepage": "https://microsoft.github.io/powerplatformconnect/",
+    "isArchived": false,
+    "language": "SCSS",
+    "license": {
+      "key": "mit",
+      "name": "MIT License",
+      "url": "https://api.github.com/licenses/mit"
+    },
+    "name": "powerplatformconnect",
+    "openIssuesCount": 1,
+    "owner": {
+      "id": "MDEyOk9yZ2FuaXphdGlvbjYxNTQ3MjI=",
+      "is_bot": false,
+      "login": "microsoft",
+      "type": "Organization",
+      "url": "https://github.com/microsoft"
+    },
+    "updatedAt": "2025-04-22T06:48:52Z",
+    "url": "https://github.com/microsoft/powerplatformconnect",
+    "codeOfConduct": {
+      "key": "other",
+      "name": "Other",
+      "url": "https://github.com/microsoft/.github/blob/main/CODE_OF_CONDUCT.md"
+    },
+    "forkCount": 6,
+    "fundingLinks": [],
+    "isSecurityPolicyEnabled": true,
+    "isTemplate": false,
+    "latestRelease": null,
+    "primaryLanguage": {
+      "name": "SCSS"
+    },
+    "securityPolicyUrl": "https://github.com/microsoft/powerplatformconnect/security/policy",
+    "stargazerCount": 18,
+    "watchers": {
+      "totalCount": 4
+    },
+    "topics": [
+      "powerplatform",
+      "powerapps",
+      "powerautomate",
+      "powerpages",
+      "powervirtualagent"
+    ],
+    "languages": [
+      "SCSS",
+      "HTML",
+      "Ruby"
+    ],
+    "openedGoodFirstIssues": 0,
+    "hasGoodFirstIssues": false,
+    "openedHelpWantedIssues": 0,
+    "hasHelpWantedIssues": false,
+    "openedToContributionsIssues": 0,
+    "popularityScore": 22
+  },
+  {
+    "createdAt": "2017-01-30T15:44:19Z",
+    "description": "Examples and exercises from Sertan's Dev Blog",
+    "fullName": "sertanyaman/SertanDevAXExamples",
+    "hasIssues": true,
+    "homepage": "http://devblog.sertanyaman.com",
+    "isArchived": false,
+    "language": "",
+    "license": {
+      "key": "",
+      "name": "",
+      "url": ""
+    },
+    "name": "SertanDevAXExamples",
+    "openIssuesCount": 0,
+    "owner": {
+      "id": "MDQ6VXNlcjE0OTM4NTc5",
+      "is_bot": false,
+      "login": "sertanyaman",
+      "type": "User",
+      "url": "https://github.com/sertanyaman"
+    },
+    "updatedAt": "2025-07-09T22:21:57Z",
+    "url": "https://github.com/sertanyaman/SertanDevAXExamples",
+    "codeOfConduct": null,
+    "forkCount": 5,
+    "fundingLinks": [],
+    "isSecurityPolicyEnabled": false,
+    "isTemplate": false,
+    "latestRelease": null,
+    "primaryLanguage": null,
+    "securityPolicyUrl": "",
+    "stargazerCount": 18,
+    "watchers": {
+      "totalCount": 3
+    },
+    "topics": [
+      "dynamics",
+      "dynamics365",
+      "ax7",
+      "microsoft",
+      "ax2012",
+      "dynamicsax",
+      "dynamics-ax-2012"
+    ],
+    "languages": [],
+    "openedGoodFirstIssues": 0,
+    "hasGoodFirstIssues": false,
+    "openedHelpWantedIssues": 0,
+    "hasHelpWantedIssues": false,
+    "openedToContributionsIssues": 0,
+    "popularityScore": 21
   },
   {
     "createdAt": "2020-07-26T13:54:41Z",
@@ -9569,33 +9852,33 @@
     "popularityScore": 19
   },
   {
-    "createdAt": "2023-05-13T13:46:12Z",
-    "description": "Materiais, tutoriais e dicas sobre Power Platform criados pela equipe de especialistas em Power Platform da Microsoft Brasil.",
-    "fullName": "microsoft/powerplatformconnect",
-    "hasIssues": false,
-    "homepage": "https://microsoft.github.io/powerplatformconnect/",
+    "createdAt": "2022-12-19T16:46:09Z",
+    "description": "Microsoft Teams Call Queue Manager app template",
+    "fullName": "OfficeDev/microsoft-teams-apps-call-queue-scheduler",
+    "hasIssues": true,
+    "homepage": "https://github.com/OfficeDev/microsoft-teams-apps-call-queue-scheduler/wiki",
     "isArchived": false,
-    "language": "SCSS",
+    "language": "PowerShell",
     "license": {
       "key": "mit",
       "name": "MIT License",
       "url": "https://api.github.com/licenses/mit"
     },
-    "name": "powerplatformconnect",
-    "openIssuesCount": 1,
+    "name": "microsoft-teams-apps-call-queue-scheduler",
+    "openIssuesCount": 4,
     "owner": {
-      "id": "MDEyOk9yZ2FuaXphdGlvbjYxNTQ3MjI=",
+      "id": "MDEyOk9yZ2FuaXphdGlvbjY3ODkzNjI=",
       "is_bot": false,
-      "login": "microsoft",
+      "login": "OfficeDev",
       "type": "Organization",
-      "url": "https://github.com/microsoft"
+      "url": "https://github.com/OfficeDev"
     },
-    "updatedAt": "2025-04-22T06:48:52Z",
-    "url": "https://github.com/microsoft/powerplatformconnect",
+    "updatedAt": "2025-07-10T20:15:07Z",
+    "url": "https://github.com/OfficeDev/microsoft-teams-apps-call-queue-scheduler",
     "codeOfConduct": {
       "key": "other",
       "name": "Other",
-      "url": "https://github.com/microsoft/.github/blob/main/CODE_OF_CONDUCT.md"
+      "url": "https://github.com/OfficeDev/microsoft-teams-apps-call-queue-scheduler/blob/main/CODE_OF_CONDUCT.md"
     },
     "forkCount": 6,
     "fundingLinks": [],
@@ -9603,253 +9886,31 @@
     "isTemplate": false,
     "latestRelease": null,
     "primaryLanguage": {
-      "name": "SCSS"
+      "name": "PowerShell"
     },
-    "securityPolicyUrl": "https://github.com/microsoft/powerplatformconnect/security/policy",
-    "stargazerCount": 18,
+    "securityPolicyUrl": "https://github.com/OfficeDev/microsoft-teams-apps-call-queue-scheduler/security/policy",
+    "stargazerCount": 17,
     "watchers": {
       "totalCount": 4
     },
     "topics": [
-      "powerplatform",
-      "powerapps",
-      "powerautomate",
-      "powerpages",
-      "powervirtualagent"
-    ],
-    "languages": [
-      "SCSS",
-      "HTML",
-      "Ruby"
-    ],
-    "openedGoodFirstIssues": 0,
-    "hasGoodFirstIssues": false,
-    "openedHelpWantedIssues": 0,
-    "hasHelpWantedIssues": false,
-    "openedToContributionsIssues": 0,
-    "popularityScore": 22
-  },
-  {
-    "createdAt": "2019-06-03T20:37:00Z",
-    "description": "PCF control that shows thumbnails of images from entity notes. Control is bound to Single Line of Text field.",
-    "fullName": "DynamicsNinja/PCF-Gallery-Control",
-    "hasIssues": true,
-    "homepage": "",
-    "isArchived": false,
-    "language": "TypeScript",
-    "license": {
-      "key": "mit",
-      "name": "MIT License",
-      "url": "https://api.github.com/licenses/mit"
-    },
-    "name": "PCF-Gallery-Control",
-    "openIssuesCount": 4,
-    "owner": {
-      "id": "MDQ6VXNlcjMxMjEyNDY1",
-      "is_bot": false,
-      "login": "DynamicsNinja",
-      "type": "User",
-      "url": "https://github.com/DynamicsNinja"
-    },
-    "updatedAt": "2025-02-28T11:45:44Z",
-    "url": "https://github.com/DynamicsNinja/PCF-Gallery-Control",
-    "codeOfConduct": null,
-    "forkCount": 8,
-    "fundingLinks": [],
-    "isSecurityPolicyEnabled": false,
-    "isTemplate": false,
-    "latestRelease": {
-      "name": "Fic.GalleryControl v1.3.3",
-      "tagName": "v1.3.3",
-      "url": "https://github.com/DynamicsNinja/PCF-Gallery-Control/releases/tag/v1.3.3",
-      "publishedAt": "2020-09-08T17:39:22Z"
-    },
-    "primaryLanguage": {
-      "name": "TypeScript"
-    },
-    "securityPolicyUrl": "",
-    "stargazerCount": 18,
-    "watchers": {
-      "totalCount": 4
-    },
-    "topics": [
-      "dynamics-365",
-      "dynamics-crm",
-      "powerapps",
-      "powerplatform"
-    ],
-    "languages": [
-      "TypeScript",
-      "CSS"
-    ],
-    "openedGoodFirstIssues": 0,
-    "hasGoodFirstIssues": false,
-    "openedHelpWantedIssues": 0,
-    "hasHelpWantedIssues": false,
-    "openedToContributionsIssues": 0,
-    "popularityScore": 22
-  },
-  {
-    "createdAt": "2017-01-30T15:44:19Z",
-    "description": "Examples and exercises from Sertan's Dev Blog",
-    "fullName": "sertanyaman/SertanDevAXExamples",
-    "hasIssues": true,
-    "homepage": "http://devblog.sertanyaman.com",
-    "isArchived": false,
-    "language": "",
-    "license": {
-      "key": "",
-      "name": "",
-      "url": ""
-    },
-    "name": "SertanDevAXExamples",
-    "openIssuesCount": 0,
-    "owner": {
-      "id": "MDQ6VXNlcjE0OTM4NTc5",
-      "is_bot": false,
-      "login": "sertanyaman",
-      "type": "User",
-      "url": "https://github.com/sertanyaman"
-    },
-    "updatedAt": "2025-07-09T22:21:57Z",
-    "url": "https://github.com/sertanyaman/SertanDevAXExamples",
-    "codeOfConduct": null,
-    "forkCount": 5,
-    "fundingLinks": [],
-    "isSecurityPolicyEnabled": false,
-    "isTemplate": false,
-    "latestRelease": null,
-    "primaryLanguage": null,
-    "securityPolicyUrl": "",
-    "stargazerCount": 18,
-    "watchers": {
-      "totalCount": 3
-    },
-    "topics": [
-      "dynamics",
-      "dynamics365",
-      "ax7",
+      "automation",
+      "callqueue",
       "microsoft",
-      "ax2012",
-      "dynamicsax",
-      "dynamics-ax-2012"
+      "microsoftteams",
+      "powerapps",
+      "powershell",
+      "teams"
     ],
-    "languages": [],
+    "languages": [
+      "PowerShell"
+    ],
     "openedGoodFirstIssues": 0,
     "hasGoodFirstIssues": false,
     "openedHelpWantedIssues": 0,
     "hasHelpWantedIssues": false,
     "openedToContributionsIssues": 0,
     "popularityScore": 21
-  },
-  {
-    "createdAt": "2021-06-12T00:09:08Z",
-    "description": "Contactless Business Card: This component adds a user profile page in your app. The data source used is Office 365 but you can change it to Microsoft 365 or Dynamics 365 if need be. The QR code is generated via web api and it doesn't requires a power automate flow. This can be really handy for your Sales Team or Field Service Team, to enable them with a no contact business card sharing at no cost and saving you dollars.",
-    "fullName": "Experience-Digital-MS/eBusinessCard",
-    "hasIssues": true,
-    "homepage": "https://www.linkedin.com/company/experiencedigitalms",
-    "isArchived": false,
-    "language": "",
-    "license": {
-      "key": "mit",
-      "name": "MIT License",
-      "url": "https://api.github.com/licenses/mit"
-    },
-    "name": "eBusinessCard",
-    "openIssuesCount": 1,
-    "owner": {
-      "id": "MDQ6VXNlcjg0NzAxMTQ3",
-      "is_bot": false,
-      "login": "Experience-Digital-MS",
-      "type": "User",
-      "url": "https://github.com/Experience-Digital-MS"
-    },
-    "updatedAt": "2025-03-30T21:48:50Z",
-    "url": "https://github.com/Experience-Digital-MS/eBusinessCard",
-    "codeOfConduct": null,
-    "forkCount": 4,
-    "fundingLinks": [],
-    "isSecurityPolicyEnabled": false,
-    "isTemplate": false,
-    "latestRelease": null,
-    "primaryLanguage": null,
-    "securityPolicyUrl": "",
-    "stargazerCount": 18,
-    "watchers": {
-      "totalCount": 2
-    },
-    "topics": [
-      "powerapps",
-      "business-card",
-      "components"
-    ],
-    "languages": [],
-    "openedGoodFirstIssues": 0,
-    "hasGoodFirstIssues": false,
-    "openedHelpWantedIssues": 0,
-    "hasHelpWantedIssues": false,
-    "openedToContributionsIssues": 0,
-    "popularityScore": 20
-  },
-  {
-    "createdAt": "2019-07-12T08:07:26Z",
-    "description": "This component displays BPFs with all process stages categories of entities from a grid/views",
-    "fullName": "allandecastro/BusinessProcessFlowViewer",
-    "hasIssues": true,
-    "homepage": "",
-    "isArchived": false,
-    "language": "TypeScript",
-    "license": {
-      "key": "mit",
-      "name": "MIT License",
-      "url": "https://api.github.com/licenses/mit"
-    },
-    "name": "BusinessProcessFlowViewer",
-    "openIssuesCount": 6,
-    "owner": {
-      "id": "MDQ6VXNlcjk3NDkwMDI=",
-      "is_bot": false,
-      "login": "allandecastro",
-      "type": "User",
-      "url": "https://github.com/allandecastro"
-    },
-    "updatedAt": "2025-02-28T10:24:34Z",
-    "url": "https://github.com/allandecastro/BusinessProcessFlowViewer",
-    "codeOfConduct": null,
-    "forkCount": 9,
-    "fundingLinks": [],
-    "isSecurityPolicyEnabled": false,
-    "isTemplate": false,
-    "latestRelease": {
-      "name": "1.0.28",
-      "tagName": "1.0.28",
-      "url": "https://github.com/allandecastro/BusinessProcessFlowViewer/releases/tag/1.0.28",
-      "publishedAt": "2020-10-25T15:11:51Z"
-    },
-    "primaryLanguage": {
-      "name": "TypeScript"
-    },
-    "securityPolicyUrl": "",
-    "stargazerCount": 18,
-    "watchers": {
-      "totalCount": 7
-    },
-    "topics": [
-      "powerappscomponentframework",
-      "powerapps",
-      "dynamics-365",
-      "pcf"
-    ],
-    "languages": [
-      "TypeScript",
-      "CSS"
-    ],
-    "openedGoodFirstIssues": 0,
-    "hasGoodFirstIssues": false,
-    "openedHelpWantedIssues": 0,
-    "hasHelpWantedIssues": false,
-    "openedToContributionsIssues": 0,
-    "popularityScore": 25
   },
   {
     "createdAt": "2020-06-27T22:33:28Z",
@@ -9975,67 +10036,6 @@
     "popularityScore": 23
   },
   {
-    "createdAt": "2022-12-19T16:46:09Z",
-    "description": "Microsoft Teams Call Queue Manager app template",
-    "fullName": "OfficeDev/microsoft-teams-apps-call-queue-scheduler",
-    "hasIssues": true,
-    "homepage": "https://github.com/OfficeDev/microsoft-teams-apps-call-queue-scheduler/wiki",
-    "isArchived": false,
-    "language": "PowerShell",
-    "license": {
-      "key": "mit",
-      "name": "MIT License",
-      "url": "https://api.github.com/licenses/mit"
-    },
-    "name": "microsoft-teams-apps-call-queue-scheduler",
-    "openIssuesCount": 4,
-    "owner": {
-      "id": "MDEyOk9yZ2FuaXphdGlvbjY3ODkzNjI=",
-      "is_bot": false,
-      "login": "OfficeDev",
-      "type": "Organization",
-      "url": "https://github.com/OfficeDev"
-    },
-    "updatedAt": "2025-07-10T20:15:07Z",
-    "url": "https://github.com/OfficeDev/microsoft-teams-apps-call-queue-scheduler",
-    "codeOfConduct": {
-      "key": "other",
-      "name": "Other",
-      "url": "https://github.com/OfficeDev/microsoft-teams-apps-call-queue-scheduler/blob/main/CODE_OF_CONDUCT.md"
-    },
-    "forkCount": 6,
-    "fundingLinks": [],
-    "isSecurityPolicyEnabled": true,
-    "isTemplate": false,
-    "latestRelease": null,
-    "primaryLanguage": {
-      "name": "PowerShell"
-    },
-    "securityPolicyUrl": "https://github.com/OfficeDev/microsoft-teams-apps-call-queue-scheduler/security/policy",
-    "stargazerCount": 17,
-    "watchers": {
-      "totalCount": 4
-    },
-    "topics": [
-      "automation",
-      "callqueue",
-      "microsoft",
-      "microsoftteams",
-      "powerapps",
-      "powershell",
-      "teams"
-    ],
-    "languages": [
-      "PowerShell"
-    ],
-    "openedGoodFirstIssues": 0,
-    "hasGoodFirstIssues": false,
-    "openedHelpWantedIssues": 0,
-    "hasHelpWantedIssues": false,
-    "openedToContributionsIssues": 0,
-    "popularityScore": 21
-  },
-  {
     "createdAt": "2020-05-12T15:46:33Z",
     "description": "A Domain Specific Language for AL Extension Development",
     "fullName": "modal-dsl/modal",
@@ -10101,234 +10101,6 @@
     "hasHelpWantedIssues": false,
     "openedToContributionsIssues": 0,
     "popularityScore": 21
-  },
-  {
-    "createdAt": "2021-04-19T05:19:19Z",
-    "description": "Contains curated community samples for Microsoft Power Virtual Agents",
-    "fullName": "pnp/powerva-samples",
-    "hasIssues": true,
-    "homepage": "https://aka.ms/powerplatform-samples",
-    "isArchived": false,
-    "language": "",
-    "license": {
-      "key": "mit",
-      "name": "MIT License",
-      "url": "https://api.github.com/licenses/mit"
-    },
-    "name": "powerva-samples",
-    "openIssuesCount": 3,
-    "owner": {
-      "id": "MDEyOk9yZ2FuaXphdGlvbjMxNDQzOTI5",
-      "is_bot": false,
-      "login": "pnp",
-      "type": "Organization",
-      "url": "https://github.com/pnp"
-    },
-    "updatedAt": "2025-01-16T15:21:56Z",
-    "url": "https://github.com/pnp/powerva-samples",
-    "codeOfConduct": {
-      "key": "other",
-      "name": "Other",
-      "url": "https://github.com/pnp/powerva-samples/blob/main/CODE_OF_CONDUCT.md"
-    },
-    "forkCount": 14,
-    "fundingLinks": [],
-    "isSecurityPolicyEnabled": true,
-    "isTemplate": false,
-    "latestRelease": null,
-    "primaryLanguage": null,
-    "securityPolicyUrl": "https://github.com/pnp/powerva-samples/security/policy",
-    "stargazerCount": 17,
-    "watchers": {
-      "totalCount": 14
-    },
-    "topics": [
-      "powervirtualagent",
-      "powerplatform",
-      "hacktoberfest"
-    ],
-    "languages": [],
-    "openedGoodFirstIssues": 0,
-    "hasGoodFirstIssues": false,
-    "openedHelpWantedIssues": 0,
-    "hasHelpWantedIssues": false,
-    "openedToContributionsIssues": 0,
-    "popularityScore": 31
-  },
-  {
-    "createdAt": "2020-08-28T20:37:56Z",
-    "description": "A PowerShell module to synchronize and validate XLIFF translation files.",
-    "fullName": "rvanbekkum/ps-xliff-sync",
-    "hasIssues": true,
-    "homepage": "",
-    "isArchived": false,
-    "language": "PowerShell",
-    "license": {
-      "key": "mit",
-      "name": "MIT License",
-      "url": "https://api.github.com/licenses/mit"
-    },
-    "name": "ps-xliff-sync",
-    "openIssuesCount": 7,
-    "owner": {
-      "id": "MDQ6VXNlcjczODMyNDE=",
-      "is_bot": false,
-      "login": "rvanbekkum",
-      "type": "User",
-      "url": "https://github.com/rvanbekkum"
-    },
-    "updatedAt": "2025-03-24T15:45:26Z",
-    "url": "https://github.com/rvanbekkum/ps-xliff-sync",
-    "codeOfConduct": null,
-    "forkCount": 7,
-    "fundingLinks": [],
-    "isSecurityPolicyEnabled": false,
-    "isTemplate": false,
-    "latestRelease": {
-      "name": "",
-      "tagName": "1.10.0",
-      "url": "https://github.com/rvanbekkum/ps-xliff-sync/releases/tag/1.10.0",
-      "publishedAt": "2025-01-10T15:35:08Z"
-    },
-    "primaryLanguage": {
-      "name": "PowerShell"
-    },
-    "securityPolicyUrl": "",
-    "stargazerCount": 16,
-    "watchers": {
-      "totalCount": 5
-    },
-    "topics": [
-      "xliff",
-      "localization",
-      "translation",
-      "dynamics-365",
-      "synchronization"
-    ],
-    "languages": [
-      "PowerShell"
-    ],
-    "openedGoodFirstIssues": 0,
-    "hasGoodFirstIssues": false,
-    "openedHelpWantedIssues": 0,
-    "hasHelpWantedIssues": false,
-    "openedToContributionsIssues": 0,
-    "popularityScore": 21
-  },
-  {
-    "createdAt": "2020-12-05T05:05:01Z",
-    "description": "Dynamics 365 PCF control for displaying the status of Power Automate group approvals",
-    "fullName": "tcorcor1/group-approval-viewer-D365-pcf",
-    "hasIssues": true,
-    "homepage": "https://tldr-dynamics.com/blog/group-approval-viewer-pcf",
-    "isArchived": false,
-    "language": "TypeScript",
-    "license": {
-      "key": "mit",
-      "name": "MIT License",
-      "url": "https://api.github.com/licenses/mit"
-    },
-    "name": "group-approval-viewer-D365-pcf",
-    "openIssuesCount": 0,
-    "owner": {
-      "id": "MDQ6VXNlcjQ1NTY4MzA2",
-      "is_bot": false,
-      "login": "tcorcor1",
-      "type": "User",
-      "url": "https://github.com/tcorcor1"
-    },
-    "updatedAt": "2025-05-07T11:20:18Z",
-    "url": "https://github.com/tcorcor1/group-approval-viewer-D365-pcf",
-    "codeOfConduct": null,
-    "forkCount": 5,
-    "fundingLinks": [],
-    "isSecurityPolicyEnabled": false,
-    "isTemplate": false,
-    "latestRelease": {
-      "name": "Release v2.0.0",
-      "tagName": "2.0.0",
-      "url": "https://github.com/tcorcor1/group-approval-viewer-D365-pcf/releases/tag/2.0.0",
-      "publishedAt": "2021-01-26T16:48:12Z"
-    },
-    "primaryLanguage": {
-      "name": "TypeScript"
-    },
-    "securityPolicyUrl": "",
-    "stargazerCount": 16,
-    "watchers": {
-      "totalCount": 2
-    },
-    "topics": [
-      "powerapps-component-framework",
-      "react",
-      "dynamics365"
-    ],
-    "languages": [
-      "TypeScript",
-      "CSS"
-    ],
-    "openedGoodFirstIssues": 0,
-    "hasGoodFirstIssues": false,
-    "openedHelpWantedIssues": 0,
-    "hasHelpWantedIssues": false,
-    "openedToContributionsIssues": 0,
-    "popularityScore": 18
-  },
-  {
-    "createdAt": "2017-06-01T19:00:36Z",
-    "description": "Building a cumulative file (2006 - 2023) for the Cooperative Congressional Election Study",
-    "fullName": "kuriwaki/cces_cumulative",
-    "hasIssues": true,
-    "homepage": "https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/II2DB6",
-    "isArchived": false,
-    "language": "TeX",
-    "license": {
-      "key": "",
-      "name": "",
-      "url": ""
-    },
-    "name": "cces_cumulative",
-    "openIssuesCount": 5,
-    "owner": {
-      "id": "MDQ6VXNlcjgyOTA0MTc=",
-      "is_bot": false,
-      "login": "kuriwaki",
-      "type": "User",
-      "url": "https://github.com/kuriwaki"
-    },
-    "updatedAt": "2025-05-21T21:59:36Z",
-    "url": "https://github.com/kuriwaki/cces_cumulative",
-    "codeOfConduct": null,
-    "forkCount": 1,
-    "fundingLinks": [],
-    "isSecurityPolicyEnabled": false,
-    "isTemplate": false,
-    "latestRelease": null,
-    "primaryLanguage": {
-      "name": "TeX"
-    },
-    "securityPolicyUrl": "",
-    "stargazerCount": 16,
-    "watchers": {
-      "totalCount": 2
-    },
-    "topics": [
-      "dataverse",
-      "survey",
-      "harvard",
-      "elections"
-    ],
-    "languages": [
-      "TeX",
-      "R",
-      "Shell"
-    ],
-    "openedGoodFirstIssues": 0,
-    "hasGoodFirstIssues": false,
-    "openedHelpWantedIssues": 0,
-    "hasHelpWantedIssues": false,
-    "openedToContributionsIssues": 0,
-    "popularityScore": 18
   },
   {
     "createdAt": "2021-01-05T23:03:53Z",
@@ -10457,71 +10229,64 @@
     "popularityScore": 20
   },
   {
-    "createdAt": "2024-06-03T01:28:00Z",
-    "description": "A managed solution helps you build Microsoft Dataverse OOB dialogs, such as the Assign dialog, Close Opportunity dialog, ...",
-    "fullName": "phuocle/Dataverse-Dialog-Builder",
+    "createdAt": "2020-08-28T20:37:56Z",
+    "description": "A PowerShell module to synchronize and validate XLIFF translation files.",
+    "fullName": "rvanbekkum/ps-xliff-sync",
     "hasIssues": true,
     "homepage": "",
     "isArchived": false,
-    "language": "JavaScript",
+    "language": "PowerShell",
     "license": {
-      "key": "",
-      "name": "",
-      "url": ""
+      "key": "mit",
+      "name": "MIT License",
+      "url": "https://api.github.com/licenses/mit"
     },
-    "name": "Dataverse-Dialog-Builder",
-    "openIssuesCount": 2,
+    "name": "ps-xliff-sync",
+    "openIssuesCount": 7,
     "owner": {
-      "id": "MDQ6VXNlcjQ3OTcyOQ==",
+      "id": "MDQ6VXNlcjczODMyNDE=",
       "is_bot": false,
-      "login": "phuocle",
+      "login": "rvanbekkum",
       "type": "User",
-      "url": "https://github.com/phuocle"
+      "url": "https://github.com/rvanbekkum"
     },
-    "updatedAt": "2025-01-28T11:41:38Z",
-    "url": "https://github.com/phuocle/Dataverse-Dialog-Builder",
+    "updatedAt": "2025-03-24T15:45:26Z",
+    "url": "https://github.com/rvanbekkum/ps-xliff-sync",
     "codeOfConduct": null,
-    "forkCount": 5,
+    "forkCount": 7,
     "fundingLinks": [],
     "isSecurityPolicyEnabled": false,
     "isTemplate": false,
     "latestRelease": {
-      "name": "Dataverse Dialog Builder v.1.0.0.0",
-      "tagName": "v.1.0.0.0",
-      "url": "https://github.com/phuocle/Dataverse-Dialog-Builder/releases/tag/v.1.0.0.0",
-      "publishedAt": "2024-07-29T07:04:24Z"
+      "name": "",
+      "tagName": "1.10.0",
+      "url": "https://github.com/rvanbekkum/ps-xliff-sync/releases/tag/1.10.0",
+      "publishedAt": "2025-01-10T15:35:08Z"
     },
     "primaryLanguage": {
-      "name": "JavaScript"
+      "name": "PowerShell"
     },
     "securityPolicyUrl": "",
     "stargazerCount": 16,
     "watchers": {
-      "totalCount": 3
+      "totalCount": 5
     },
     "topics": [
-      "crm",
-      "dataverse",
-      "dialog",
-      "dynamics",
+      "xliff",
+      "localization",
+      "translation",
       "dynamics-365",
-      "dynamics365",
-      "tool",
-      "tools"
+      "synchronization"
     ],
     "languages": [
-      "JavaScript",
-      "C#",
-      "CSS",
-      "HTML",
-      "Batchfile"
+      "PowerShell"
     ],
     "openedGoodFirstIssues": 0,
     "hasGoodFirstIssues": false,
     "openedHelpWantedIssues": 0,
     "hasHelpWantedIssues": false,
     "openedToContributionsIssues": 0,
-    "popularityScore": 19
+    "popularityScore": 21
   },
   {
     "createdAt": "2022-03-10T09:47:17Z",
@@ -10589,115 +10354,175 @@
     "popularityScore": 21
   },
   {
-    "createdAt": "2024-03-19T22:01:25Z",
-    "description": "Power Apps Canvas PCF based on vis-timeline",
-    "fullName": "Belleye/CanvasTimelinePCF",
+    "createdAt": "2024-06-03T01:28:00Z",
+    "description": "A managed solution helps you build Microsoft Dataverse OOB dialogs, such as the Assign dialog, Close Opportunity dialog, ...",
+    "fullName": "phuocle/Dataverse-Dialog-Builder",
     "hasIssues": true,
     "homepage": "",
     "isArchived": false,
-    "language": "TypeScript",
+    "language": "JavaScript",
     "license": {
-      "key": "mit",
-      "name": "MIT License",
-      "url": "https://api.github.com/licenses/mit"
+      "key": "",
+      "name": "",
+      "url": ""
     },
-    "name": "CanvasTimelinePCF",
-    "openIssuesCount": 0,
+    "name": "Dataverse-Dialog-Builder",
+    "openIssuesCount": 2,
     "owner": {
-      "id": "MDQ6VXNlcjIyNzg0MjY0",
+      "id": "MDQ6VXNlcjQ3OTcyOQ==",
       "is_bot": false,
-      "login": "Belleye",
+      "login": "phuocle",
       "type": "User",
-      "url": "https://github.com/Belleye"
+      "url": "https://github.com/phuocle"
     },
-    "updatedAt": "2025-04-13T15:57:37Z",
-    "url": "https://github.com/Belleye/CanvasTimelinePCF",
-    "codeOfConduct": null,
-    "forkCount": 6,
-    "fundingLinks": [],
-    "isSecurityPolicyEnabled": false,
-    "isTemplate": false,
-    "latestRelease": {
-      "name": "Updated logic selectedItems and removedItems",
-      "tagName": "2",
-      "url": "https://github.com/Belleye/CanvasTimelinePCF/releases/tag/2",
-      "publishedAt": "2025-03-31T07:11:39Z"
-    },
-    "primaryLanguage": {
-      "name": "TypeScript"
-    },
-    "securityPolicyUrl": "",
-    "stargazerCount": 15,
-    "watchers": {
-      "totalCount": 1
-    },
-    "topics": [
-      "pcf",
-      "powerapps",
-      "vis-timeline",
-      "powerapps-component-framework",
-      "powerappscomponentframework"
-    ],
-    "languages": [
-      "TypeScript",
-      "CSS",
-      "JavaScript"
-    ],
-    "openedGoodFirstIssues": 0,
-    "hasGoodFirstIssues": false,
-    "openedHelpWantedIssues": 0,
-    "hasHelpWantedIssues": false,
-    "openedToContributionsIssues": 0,
-    "popularityScore": 16
-  },
-  {
-    "createdAt": "2019-06-06T21:59:59Z",
-    "description": "PCF Carousel Control made with Bootstrap 4 that shows images from entity notes/attachments. Control is bound to Single Line of Text field.",
-    "fullName": "DynamicsNinja/PCF-Carousel-Control",
-    "hasIssues": true,
-    "homepage": "",
-    "isArchived": false,
-    "language": "TypeScript",
-    "license": {
-      "key": "mit",
-      "name": "MIT License",
-      "url": "https://api.github.com/licenses/mit"
-    },
-    "name": "PCF-Carousel-Control",
-    "openIssuesCount": 3,
-    "owner": {
-      "id": "MDQ6VXNlcjMxMjEyNDY1",
-      "is_bot": false,
-      "login": "DynamicsNinja",
-      "type": "User",
-      "url": "https://github.com/DynamicsNinja"
-    },
-    "updatedAt": "2025-02-28T11:46:52Z",
-    "url": "https://github.com/DynamicsNinja/PCF-Carousel-Control",
+    "updatedAt": "2025-01-28T11:41:38Z",
+    "url": "https://github.com/phuocle/Dataverse-Dialog-Builder",
     "codeOfConduct": null,
     "forkCount": 5,
     "fundingLinks": [],
     "isSecurityPolicyEnabled": false,
     "isTemplate": false,
     "latestRelease": {
-      "name": "Fic.CarouselControl v1.1.3",
-      "tagName": "v1.1.3",
-      "url": "https://github.com/DynamicsNinja/PCF-Carousel-Control/releases/tag/v1.1.3",
-      "publishedAt": "2020-04-25T18:38:25Z"
+      "name": "Dataverse Dialog Builder v.1.0.0.0",
+      "tagName": "v.1.0.0.0",
+      "url": "https://github.com/phuocle/Dataverse-Dialog-Builder/releases/tag/v.1.0.0.0",
+      "publishedAt": "2024-07-29T07:04:24Z"
+    },
+    "primaryLanguage": {
+      "name": "JavaScript"
+    },
+    "securityPolicyUrl": "",
+    "stargazerCount": 16,
+    "watchers": {
+      "totalCount": 3
+    },
+    "topics": [
+      "crm",
+      "dataverse",
+      "dialog",
+      "dynamics",
+      "dynamics-365",
+      "dynamics365",
+      "tool",
+      "tools"
+    ],
+    "languages": [
+      "JavaScript",
+      "C#",
+      "CSS",
+      "HTML",
+      "Batchfile"
+    ],
+    "openedGoodFirstIssues": 0,
+    "hasGoodFirstIssues": false,
+    "openedHelpWantedIssues": 0,
+    "hasHelpWantedIssues": false,
+    "openedToContributionsIssues": 0,
+    "popularityScore": 19
+  },
+  {
+    "createdAt": "2017-06-01T19:00:36Z",
+    "description": "Building a cumulative file (2006 - 2023) for the Cooperative Congressional Election Study",
+    "fullName": "kuriwaki/cces_cumulative",
+    "hasIssues": true,
+    "homepage": "https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/II2DB6",
+    "isArchived": false,
+    "language": "TeX",
+    "license": {
+      "key": "",
+      "name": "",
+      "url": ""
+    },
+    "name": "cces_cumulative",
+    "openIssuesCount": 5,
+    "owner": {
+      "id": "MDQ6VXNlcjgyOTA0MTc=",
+      "is_bot": false,
+      "login": "kuriwaki",
+      "type": "User",
+      "url": "https://github.com/kuriwaki"
+    },
+    "updatedAt": "2025-05-21T21:59:36Z",
+    "url": "https://github.com/kuriwaki/cces_cumulative",
+    "codeOfConduct": null,
+    "forkCount": 1,
+    "fundingLinks": [],
+    "isSecurityPolicyEnabled": false,
+    "isTemplate": false,
+    "latestRelease": null,
+    "primaryLanguage": {
+      "name": "TeX"
+    },
+    "securityPolicyUrl": "",
+    "stargazerCount": 16,
+    "watchers": {
+      "totalCount": 2
+    },
+    "topics": [
+      "dataverse",
+      "survey",
+      "harvard",
+      "elections"
+    ],
+    "languages": [
+      "TeX",
+      "R",
+      "Shell"
+    ],
+    "openedGoodFirstIssues": 0,
+    "hasGoodFirstIssues": false,
+    "openedHelpWantedIssues": 0,
+    "hasHelpWantedIssues": false,
+    "openedToContributionsIssues": 0,
+    "popularityScore": 18
+  },
+  {
+    "createdAt": "2020-12-05T05:05:01Z",
+    "description": "Dynamics 365 PCF control for displaying the status of Power Automate group approvals",
+    "fullName": "tcorcor1/group-approval-viewer-D365-pcf",
+    "hasIssues": true,
+    "homepage": "https://tldr-dynamics.com/blog/group-approval-viewer-pcf",
+    "isArchived": false,
+    "language": "TypeScript",
+    "license": {
+      "key": "mit",
+      "name": "MIT License",
+      "url": "https://api.github.com/licenses/mit"
+    },
+    "name": "group-approval-viewer-D365-pcf",
+    "openIssuesCount": 0,
+    "owner": {
+      "id": "MDQ6VXNlcjQ1NTY4MzA2",
+      "is_bot": false,
+      "login": "tcorcor1",
+      "type": "User",
+      "url": "https://github.com/tcorcor1"
+    },
+    "updatedAt": "2025-05-07T11:20:18Z",
+    "url": "https://github.com/tcorcor1/group-approval-viewer-D365-pcf",
+    "codeOfConduct": null,
+    "forkCount": 5,
+    "fundingLinks": [],
+    "isSecurityPolicyEnabled": false,
+    "isTemplate": false,
+    "latestRelease": {
+      "name": "Release v2.0.0",
+      "tagName": "2.0.0",
+      "url": "https://github.com/tcorcor1/group-approval-viewer-D365-pcf/releases/tag/2.0.0",
+      "publishedAt": "2021-01-26T16:48:12Z"
     },
     "primaryLanguage": {
       "name": "TypeScript"
     },
     "securityPolicyUrl": "",
-    "stargazerCount": 15,
+    "stargazerCount": 16,
     "watchers": {
-      "totalCount": 3
+      "totalCount": 2
     },
     "topics": [
-      "dynamics-365",
-      "dynamics-crm",
-      "powerapps",
-      "powerplatform"
+      "powerapps-component-framework",
+      "react",
+      "dynamics365"
     ],
     "languages": [
       "TypeScript",
@@ -10709,6 +10534,178 @@
     "hasHelpWantedIssues": false,
     "openedToContributionsIssues": 0,
     "popularityScore": 18
+  },
+  {
+    "createdAt": "2020-03-03T14:31:07Z",
+    "description": "A PCF control to render a grid (built specifically for single record grids) as a traditional list of fields in a section",
+    "fullName": "jasonaalmeida/PCF_GridCard",
+    "hasIssues": true,
+    "homepage": "",
+    "isArchived": false,
+    "language": "TypeScript",
+    "license": {
+      "key": "mit",
+      "name": "MIT License",
+      "url": "https://api.github.com/licenses/mit"
+    },
+    "name": "PCF_GridCard",
+    "openIssuesCount": 17,
+    "owner": {
+      "id": "MDQ6VXNlcjIxMzY4Nzk1",
+      "is_bot": false,
+      "login": "jasonaalmeida",
+      "type": "User",
+      "url": "https://github.com/jasonaalmeida"
+    },
+    "updatedAt": "2025-02-26T08:53:04Z",
+    "url": "https://github.com/jasonaalmeida/PCF_GridCard",
+    "codeOfConduct": null,
+    "forkCount": 2,
+    "fundingLinks": [],
+    "isSecurityPolicyEnabled": false,
+    "isTemplate": false,
+    "latestRelease": null,
+    "primaryLanguage": {
+      "name": "TypeScript"
+    },
+    "securityPolicyUrl": "",
+    "stargazerCount": 15,
+    "watchers": {
+      "totalCount": 2
+    },
+    "topics": [
+      "pcf",
+      "pcf-control",
+      "powerappscomponentframework",
+      "powerapps-component-framework",
+      "cds",
+      "powerapps-solutions"
+    ],
+    "languages": [
+      "TypeScript",
+      "CSS"
+    ],
+    "openedGoodFirstIssues": 0,
+    "hasGoodFirstIssues": false,
+    "openedHelpWantedIssues": 0,
+    "hasHelpWantedIssues": false,
+    "openedToContributionsIssues": 0,
+    "popularityScore": 17
+  },
+  {
+    "createdAt": "2024-11-11T14:58:51Z",
+    "description": "Release Plans Visualized - Power BI report and website for browsing release items for Microsoft Power Platform and Dynamics 365 products",
+    "fullName": "jukkan/release-plans",
+    "hasIssues": true,
+    "homepage": "https://releaseplans.net/",
+    "isArchived": false,
+    "language": "HTML",
+    "license": {
+      "key": "",
+      "name": "",
+      "url": ""
+    },
+    "name": "release-plans",
+    "openIssuesCount": 0,
+    "owner": {
+      "id": "MDQ6VXNlcjEwMjU0MTU1",
+      "is_bot": false,
+      "login": "jukkan",
+      "type": "User",
+      "url": "https://github.com/jukkan"
+    },
+    "updatedAt": "2025-07-02T07:34:58Z",
+    "url": "https://github.com/jukkan/release-plans",
+    "codeOfConduct": null,
+    "forkCount": 4,
+    "fundingLinks": [],
+    "isSecurityPolicyEnabled": false,
+    "isTemplate": false,
+    "latestRelease": null,
+    "primaryLanguage": {
+      "name": "HTML"
+    },
+    "securityPolicyUrl": "",
+    "stargazerCount": 15,
+    "watchers": {
+      "totalCount": 1
+    },
+    "topics": [
+      "dynamics365",
+      "powerplatform"
+    ],
+    "languages": [
+      "HTML",
+      "CSS"
+    ],
+    "openedGoodFirstIssues": 0,
+    "hasGoodFirstIssues": false,
+    "openedHelpWantedIssues": 0,
+    "hasHelpWantedIssues": false,
+    "openedToContributionsIssues": 0,
+    "popularityScore": 16
+  },
+  {
+    "createdAt": "2019-12-02T14:43:43Z",
+    "description": "MSDyn365FO ISV license generator from USB eToken or Azure Key Vault HSM",
+    "fullName": "aariste/ISVLicenseGenerator",
+    "hasIssues": true,
+    "homepage": "https://ariste.info/en/2023/03/isv-license-generator-v0-6-released/",
+    "isArchived": false,
+    "language": "C#",
+    "license": {
+      "key": "mit",
+      "name": "MIT License",
+      "url": "https://api.github.com/licenses/mit"
+    },
+    "name": "ISVLicenseGenerator",
+    "openIssuesCount": 4,
+    "owner": {
+      "id": "MDQ6VXNlcjM2NDYxMTI=",
+      "is_bot": false,
+      "login": "aariste",
+      "type": "User",
+      "url": "https://github.com/aariste"
+    },
+    "updatedAt": "2025-05-23T08:46:35Z",
+    "url": "https://github.com/aariste/ISVLicenseGenerator",
+    "codeOfConduct": null,
+    "forkCount": 3,
+    "fundingLinks": [],
+    "isSecurityPolicyEnabled": false,
+    "isTemplate": false,
+    "latestRelease": {
+      "name": "ISVLicenseGenerator v0.9.1",
+      "tagName": "0.9.1",
+      "url": "https://github.com/aariste/ISVLicenseGenerator/releases/tag/0.9.1",
+      "publishedAt": "2025-03-05T06:23:37Z"
+    },
+    "primaryLanguage": {
+      "name": "C#"
+    },
+    "securityPolicyUrl": "",
+    "stargazerCount": 15,
+    "watchers": {
+      "totalCount": 1
+    },
+    "topics": [
+      "dynamics365",
+      "msdyn365fo",
+      "dynamics-365",
+      "erp",
+      "isv",
+      "license",
+      "sha-256"
+    ],
+    "languages": [
+      "C#"
+    ],
+    "openedGoodFirstIssues": 0,
+    "hasGoodFirstIssues": false,
+    "openedHelpWantedIssues": 0,
+    "hasHelpWantedIssues": false,
+    "openedToContributionsIssues": 0,
+    "popularityScore": 16
   },
   {
     "createdAt": "2023-05-19T18:54:08Z",
@@ -10781,62 +10778,9 @@
     "popularityScore": 16
   },
   {
-    "createdAt": "2024-11-11T14:58:51Z",
-    "description": "Release Plans Visualized - Power BI report and website for browsing release items for Microsoft Power Platform and Dynamics 365 products",
-    "fullName": "jukkan/release-plans",
-    "hasIssues": true,
-    "homepage": "https://releaseplans.net/",
-    "isArchived": false,
-    "language": "HTML",
-    "license": {
-      "key": "",
-      "name": "",
-      "url": ""
-    },
-    "name": "release-plans",
-    "openIssuesCount": 0,
-    "owner": {
-      "id": "MDQ6VXNlcjEwMjU0MTU1",
-      "is_bot": false,
-      "login": "jukkan",
-      "type": "User",
-      "url": "https://github.com/jukkan"
-    },
-    "updatedAt": "2025-07-02T07:34:58Z",
-    "url": "https://github.com/jukkan/release-plans",
-    "codeOfConduct": null,
-    "forkCount": 4,
-    "fundingLinks": [],
-    "isSecurityPolicyEnabled": false,
-    "isTemplate": false,
-    "latestRelease": null,
-    "primaryLanguage": {
-      "name": "HTML"
-    },
-    "securityPolicyUrl": "",
-    "stargazerCount": 15,
-    "watchers": {
-      "totalCount": 1
-    },
-    "topics": [
-      "dynamics365",
-      "powerplatform"
-    ],
-    "languages": [
-      "HTML",
-      "CSS"
-    ],
-    "openedGoodFirstIssues": 0,
-    "hasGoodFirstIssues": false,
-    "openedHelpWantedIssues": 0,
-    "hasHelpWantedIssues": false,
-    "openedToContributionsIssues": 0,
-    "popularityScore": 16
-  },
-  {
-    "createdAt": "2020-03-03T14:31:07Z",
-    "description": "A PCF control to render a grid (built specifically for single record grids) as a traditional list of fields in a section",
-    "fullName": "jasonaalmeida/PCF_GridCard",
+    "createdAt": "2019-06-06T21:59:59Z",
+    "description": "PCF Carousel Control made with Bootstrap 4 that shows images from entity notes/attachments. Control is bound to Single Line of Text field.",
+    "fullName": "DynamicsNinja/PCF-Carousel-Control",
     "hasIssues": true,
     "homepage": "",
     "isArchived": false,
@@ -10846,38 +10790,41 @@
       "name": "MIT License",
       "url": "https://api.github.com/licenses/mit"
     },
-    "name": "PCF_GridCard",
-    "openIssuesCount": 17,
+    "name": "PCF-Carousel-Control",
+    "openIssuesCount": 3,
     "owner": {
-      "id": "MDQ6VXNlcjIxMzY4Nzk1",
+      "id": "MDQ6VXNlcjMxMjEyNDY1",
       "is_bot": false,
-      "login": "jasonaalmeida",
+      "login": "DynamicsNinja",
       "type": "User",
-      "url": "https://github.com/jasonaalmeida"
+      "url": "https://github.com/DynamicsNinja"
     },
-    "updatedAt": "2025-02-26T08:53:04Z",
-    "url": "https://github.com/jasonaalmeida/PCF_GridCard",
+    "updatedAt": "2025-02-28T11:46:52Z",
+    "url": "https://github.com/DynamicsNinja/PCF-Carousel-Control",
     "codeOfConduct": null,
-    "forkCount": 2,
+    "forkCount": 5,
     "fundingLinks": [],
     "isSecurityPolicyEnabled": false,
     "isTemplate": false,
-    "latestRelease": null,
+    "latestRelease": {
+      "name": "Fic.CarouselControl v1.1.3",
+      "tagName": "v1.1.3",
+      "url": "https://github.com/DynamicsNinja/PCF-Carousel-Control/releases/tag/v1.1.3",
+      "publishedAt": "2020-04-25T18:38:25Z"
+    },
     "primaryLanguage": {
       "name": "TypeScript"
     },
     "securityPolicyUrl": "",
     "stargazerCount": 15,
     "watchers": {
-      "totalCount": 2
+      "totalCount": 3
     },
     "topics": [
-      "pcf",
-      "pcf-control",
-      "powerappscomponentframework",
-      "powerapps-component-framework",
-      "cds",
-      "powerapps-solutions"
+      "dynamics-365",
+      "dynamics-crm",
+      "powerapps",
+      "powerplatform"
     ],
     "languages": [
       "TypeScript",
@@ -10888,124 +10835,14 @@
     "openedHelpWantedIssues": 0,
     "hasHelpWantedIssues": false,
     "openedToContributionsIssues": 0,
-    "popularityScore": 17
+    "popularityScore": 18
   },
   {
-    "createdAt": "2019-12-02T14:43:43Z",
-    "description": "MSDyn365FO ISV license generator from USB eToken or Azure Key Vault HSM",
-    "fullName": "aariste/ISVLicenseGenerator",
+    "createdAt": "2024-03-19T22:01:25Z",
+    "description": "Power Apps Canvas PCF based on vis-timeline",
+    "fullName": "Belleye/CanvasTimelinePCF",
     "hasIssues": true,
-    "homepage": "https://ariste.info/en/2023/03/isv-license-generator-v0-6-released/",
-    "isArchived": false,
-    "language": "C#",
-    "license": {
-      "key": "mit",
-      "name": "MIT License",
-      "url": "https://api.github.com/licenses/mit"
-    },
-    "name": "ISVLicenseGenerator",
-    "openIssuesCount": 4,
-    "owner": {
-      "id": "MDQ6VXNlcjM2NDYxMTI=",
-      "is_bot": false,
-      "login": "aariste",
-      "type": "User",
-      "url": "https://github.com/aariste"
-    },
-    "updatedAt": "2025-05-23T08:46:35Z",
-    "url": "https://github.com/aariste/ISVLicenseGenerator",
-    "codeOfConduct": null,
-    "forkCount": 3,
-    "fundingLinks": [],
-    "isSecurityPolicyEnabled": false,
-    "isTemplate": false,
-    "latestRelease": {
-      "name": "ISVLicenseGenerator v0.9.1",
-      "tagName": "0.9.1",
-      "url": "https://github.com/aariste/ISVLicenseGenerator/releases/tag/0.9.1",
-      "publishedAt": "2025-03-05T06:23:37Z"
-    },
-    "primaryLanguage": {
-      "name": "C#"
-    },
-    "securityPolicyUrl": "",
-    "stargazerCount": 15,
-    "watchers": {
-      "totalCount": 1
-    },
-    "topics": [
-      "dynamics365",
-      "msdyn365fo",
-      "dynamics-365",
-      "erp",
-      "isv",
-      "license",
-      "sha-256"
-    ],
-    "languages": [
-      "C#"
-    ],
-    "openedGoodFirstIssues": 0,
-    "hasGoodFirstIssues": false,
-    "openedHelpWantedIssues": 0,
-    "hasHelpWantedIssues": false,
-    "openedToContributionsIssues": 0,
-    "popularityScore": 16
-  },
-  {
-    "createdAt": "2024-08-24T09:41:49Z",
-    "description": "PowerUX is a no-code UX extender for model-driven apps, designed to empower low-code enthusiasts. Seamlessly customize and enhance the user experience of Dynamics 365 CE and model-driven apps without needing to write a single line of code.",
-    "fullName": "amplifyit/powerux",
-    "hasIssues": true,
-    "homepage": "https://powerux.app",
-    "isArchived": false,
-    "language": "",
-    "license": {
-      "key": "mit",
-      "name": "MIT License",
-      "url": "https://api.github.com/licenses/mit"
-    },
-    "name": "powerux",
-    "openIssuesCount": 0,
-    "owner": {
-      "id": "U_kgDOBdI5LQ",
-      "is_bot": false,
-      "login": "amplifyit",
-      "type": "User",
-      "url": "https://github.com/amplifyit"
-    },
-    "updatedAt": "2025-05-19T21:48:40Z",
-    "url": "https://github.com/amplifyit/powerux",
-    "codeOfConduct": null,
-    "forkCount": 3,
-    "fundingLinks": [],
-    "isSecurityPolicyEnabled": false,
-    "isTemplate": false,
-    "latestRelease": null,
-    "primaryLanguage": null,
-    "securityPolicyUrl": "",
-    "stargazerCount": 14,
-    "watchers": {
-      "totalCount": 2
-    },
-    "topics": [
-      "powerapps",
-      "powerplatform"
-    ],
-    "languages": [],
-    "openedGoodFirstIssues": 0,
-    "hasGoodFirstIssues": false,
-    "openedHelpWantedIssues": 0,
-    "hasHelpWantedIssues": false,
-    "openedToContributionsIssues": 0,
-    "popularityScore": 16
-  },
-  {
-    "createdAt": "2024-05-19T23:03:42Z",
-    "description": "Modern Dropzone component for Dynamics365 that integrates with Notes and SharePoint OOTB",
-    "fullName": "GorgonUK/Modern-Dropzone-PCF",
-    "hasIssues": true,
-    "homepage": "https://pcf.gallery/modern-dropzone-pcf/",
+    "homepage": "",
     "isArchived": false,
     "language": "TypeScript",
     "license": {
@@ -11013,27 +10850,89 @@
       "name": "MIT License",
       "url": "https://api.github.com/licenses/mit"
     },
-    "name": "Modern-Dropzone-PCF",
-    "openIssuesCount": 1,
+    "name": "CanvasTimelinePCF",
+    "openIssuesCount": 0,
     "owner": {
-      "id": "MDQ6VXNlcjU5NjE4MDc5",
+      "id": "MDQ6VXNlcjIyNzg0MjY0",
       "is_bot": false,
-      "login": "GorgonUK",
+      "login": "Belleye",
       "type": "User",
-      "url": "https://github.com/GorgonUK"
+      "url": "https://github.com/Belleye"
     },
-    "updatedAt": "2025-06-28T01:30:05Z",
-    "url": "https://github.com/GorgonUK/Modern-Dropzone-PCF",
+    "updatedAt": "2025-04-13T15:57:37Z",
+    "url": "https://github.com/Belleye/CanvasTimelinePCF",
     "codeOfConduct": null,
-    "forkCount": 4,
+    "forkCount": 6,
     "fundingLinks": [],
     "isSecurityPolicyEnabled": false,
     "isTemplate": false,
     "latestRelease": {
-      "name": "Release 2.9.5",
-      "tagName": "2.9.5Release",
-      "url": "https://github.com/GorgonUK/Modern-Dropzone-PCF/releases/tag/2.9.5Release",
-      "publishedAt": "2025-05-24T23:56:08Z"
+      "name": "Updated logic selectedItems and removedItems",
+      "tagName": "2",
+      "url": "https://github.com/Belleye/CanvasTimelinePCF/releases/tag/2",
+      "publishedAt": "2025-03-31T07:11:39Z"
+    },
+    "primaryLanguage": {
+      "name": "TypeScript"
+    },
+    "securityPolicyUrl": "",
+    "stargazerCount": 15,
+    "watchers": {
+      "totalCount": 1
+    },
+    "topics": [
+      "pcf",
+      "powerapps",
+      "vis-timeline",
+      "powerapps-component-framework",
+      "powerappscomponentframework"
+    ],
+    "languages": [
+      "TypeScript",
+      "CSS",
+      "JavaScript"
+    ],
+    "openedGoodFirstIssues": 0,
+    "hasGoodFirstIssues": false,
+    "openedHelpWantedIssues": 0,
+    "hasHelpWantedIssues": false,
+    "openedToContributionsIssues": 0,
+    "popularityScore": 16
+  },
+  {
+    "createdAt": "2020-04-15T16:37:33Z",
+    "description": "Performs on-behalf-of auth against a Microsoft Dataverse environment using pure NodeJS.",
+    "fullName": "scottdurow/dataverse-auth",
+    "hasIssues": true,
+    "homepage": "",
+    "isArchived": false,
+    "language": "TypeScript",
+    "license": {
+      "key": "mit",
+      "name": "MIT License",
+      "url": "https://api.github.com/licenses/mit"
+    },
+    "name": "dataverse-auth",
+    "openIssuesCount": 4,
+    "owner": {
+      "id": "MDQ6VXNlcjI4NzExMjE=",
+      "is_bot": false,
+      "login": "scottdurow",
+      "type": "User",
+      "url": "https://github.com/scottdurow"
+    },
+    "updatedAt": "2025-04-18T01:16:33Z",
+    "url": "https://github.com/scottdurow/dataverse-auth",
+    "codeOfConduct": null,
+    "forkCount": 7,
+    "fundingLinks": [],
+    "isSecurityPolicyEnabled": false,
+    "isTemplate": false,
+    "latestRelease": {
+      "name": "v1.0.9",
+      "tagName": "v1.0.9",
+      "url": "https://github.com/scottdurow/dataverse-auth/releases/tag/v1.0.9",
+      "publishedAt": "2022-11-22T01:49:17Z"
     },
     "primaryLanguage": {
       "name": "TypeScript"
@@ -11044,15 +10943,11 @@
       "totalCount": 2
     },
     "topics": [
-      "dynamics365",
-      "pcf",
-      "react-dropzone",
-      "notes",
-      "sharepoint"
+      "microsoft-dataverse",
+      "dataverse"
     ],
     "languages": [
       "TypeScript",
-      "CSS",
       "JavaScript"
     ],
     "openedGoodFirstIssues": 0,
@@ -11176,64 +11071,6 @@
     "popularityScore": 16
   },
   {
-    "createdAt": "2020-04-15T16:37:33Z",
-    "description": "Performs on-behalf-of auth against a Microsoft Dataverse environment using pure NodeJS.",
-    "fullName": "scottdurow/dataverse-auth",
-    "hasIssues": true,
-    "homepage": "",
-    "isArchived": false,
-    "language": "TypeScript",
-    "license": {
-      "key": "mit",
-      "name": "MIT License",
-      "url": "https://api.github.com/licenses/mit"
-    },
-    "name": "dataverse-auth",
-    "openIssuesCount": 4,
-    "owner": {
-      "id": "MDQ6VXNlcjI4NzExMjE=",
-      "is_bot": false,
-      "login": "scottdurow",
-      "type": "User",
-      "url": "https://github.com/scottdurow"
-    },
-    "updatedAt": "2025-04-18T01:16:33Z",
-    "url": "https://github.com/scottdurow/dataverse-auth",
-    "codeOfConduct": null,
-    "forkCount": 7,
-    "fundingLinks": [],
-    "isSecurityPolicyEnabled": false,
-    "isTemplate": false,
-    "latestRelease": {
-      "name": "v1.0.9",
-      "tagName": "v1.0.9",
-      "url": "https://github.com/scottdurow/dataverse-auth/releases/tag/v1.0.9",
-      "publishedAt": "2022-11-22T01:49:17Z"
-    },
-    "primaryLanguage": {
-      "name": "TypeScript"
-    },
-    "securityPolicyUrl": "",
-    "stargazerCount": 14,
-    "watchers": {
-      "totalCount": 2
-    },
-    "topics": [
-      "microsoft-dataverse",
-      "dataverse"
-    ],
-    "languages": [
-      "TypeScript",
-      "JavaScript"
-    ],
-    "openedGoodFirstIssues": 0,
-    "hasGoodFirstIssues": false,
-    "openedHelpWantedIssues": 0,
-    "hasHelpWantedIssues": false,
-    "openedToContributionsIssues": 0,
-    "popularityScore": 16
-  },
-  {
     "createdAt": "2023-05-13T06:22:31Z",
     "description": "This is a demo repository to showcase scenarios how Professional Developers (AKA code-first developers) can make use of Power Platform to be more productive and/or innovative.",
     "fullName": "marcelbf/InventAPI",
@@ -11280,6 +11117,116 @@
       "HTML",
       "CSS",
       "C#"
+    ],
+    "openedGoodFirstIssues": 0,
+    "hasGoodFirstIssues": false,
+    "openedHelpWantedIssues": 0,
+    "hasHelpWantedIssues": false,
+    "openedToContributionsIssues": 0,
+    "popularityScore": 16
+  },
+  {
+    "createdAt": "2024-08-24T09:41:49Z",
+    "description": "PowerUX is a no-code UX extender for model-driven apps, designed to empower low-code enthusiasts. Seamlessly customize and enhance the user experience of Dynamics 365 CE and model-driven apps without needing to write a single line of code.",
+    "fullName": "amplifyit/powerux",
+    "hasIssues": true,
+    "homepage": "https://powerux.app",
+    "isArchived": false,
+    "language": "",
+    "license": {
+      "key": "mit",
+      "name": "MIT License",
+      "url": "https://api.github.com/licenses/mit"
+    },
+    "name": "powerux",
+    "openIssuesCount": 0,
+    "owner": {
+      "id": "U_kgDOBdI5LQ",
+      "is_bot": false,
+      "login": "amplifyit",
+      "type": "User",
+      "url": "https://github.com/amplifyit"
+    },
+    "updatedAt": "2025-05-19T21:48:40Z",
+    "url": "https://github.com/amplifyit/powerux",
+    "codeOfConduct": null,
+    "forkCount": 3,
+    "fundingLinks": [],
+    "isSecurityPolicyEnabled": false,
+    "isTemplate": false,
+    "latestRelease": null,
+    "primaryLanguage": null,
+    "securityPolicyUrl": "",
+    "stargazerCount": 14,
+    "watchers": {
+      "totalCount": 2
+    },
+    "topics": [
+      "powerapps",
+      "powerplatform"
+    ],
+    "languages": [],
+    "openedGoodFirstIssues": 0,
+    "hasGoodFirstIssues": false,
+    "openedHelpWantedIssues": 0,
+    "hasHelpWantedIssues": false,
+    "openedToContributionsIssues": 0,
+    "popularityScore": 16
+  },
+  {
+    "createdAt": "2024-05-19T23:03:42Z",
+    "description": "Modern Dropzone component for Dynamics365 that integrates with Notes and SharePoint OOTB",
+    "fullName": "GorgonUK/Modern-Dropzone-PCF",
+    "hasIssues": true,
+    "homepage": "https://pcf.gallery/modern-dropzone-pcf/",
+    "isArchived": false,
+    "language": "TypeScript",
+    "license": {
+      "key": "mit",
+      "name": "MIT License",
+      "url": "https://api.github.com/licenses/mit"
+    },
+    "name": "Modern-Dropzone-PCF",
+    "openIssuesCount": 1,
+    "owner": {
+      "id": "MDQ6VXNlcjU5NjE4MDc5",
+      "is_bot": false,
+      "login": "GorgonUK",
+      "type": "User",
+      "url": "https://github.com/GorgonUK"
+    },
+    "updatedAt": "2025-06-28T01:30:05Z",
+    "url": "https://github.com/GorgonUK/Modern-Dropzone-PCF",
+    "codeOfConduct": null,
+    "forkCount": 4,
+    "fundingLinks": [],
+    "isSecurityPolicyEnabled": false,
+    "isTemplate": false,
+    "latestRelease": {
+      "name": "Release 2.9.5",
+      "tagName": "2.9.5Release",
+      "url": "https://github.com/GorgonUK/Modern-Dropzone-PCF/releases/tag/2.9.5Release",
+      "publishedAt": "2025-05-24T23:56:08Z"
+    },
+    "primaryLanguage": {
+      "name": "TypeScript"
+    },
+    "securityPolicyUrl": "",
+    "stargazerCount": 14,
+    "watchers": {
+      "totalCount": 2
+    },
+    "topics": [
+      "dynamics365",
+      "pcf",
+      "react-dropzone",
+      "notes",
+      "sharepoint"
+    ],
+    "languages": [
+      "TypeScript",
+      "CSS",
+      "JavaScript"
     ],
     "openedGoodFirstIssues": 0,
     "hasGoodFirstIssues": false,
