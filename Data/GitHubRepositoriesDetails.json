@@ -154,7 +154,7 @@
       "url": "https://api.github.com/licenses/mit"
     },
     "name": "Microsoft365DSC",
-    "openIssuesCount": 261,
+    "openIssuesCount": 262,
     "owner": {
       "id": "MDEyOk9yZ2FuaXphdGlvbjYxNTQ3MjI=",
       "is_bot": false,
@@ -385,7 +385,7 @@
       "url": "https://api.github.com/licenses/mit"
     },
     "name": "PowerPlatformConnectors",
-    "openIssuesCount": 260,
+    "openIssuesCount": 261,
     "owner": {
       "id": "MDEyOk9yZ2FuaXphdGlvbjYxNTQ3MjI=",
       "is_bot": false,
@@ -400,7 +400,7 @@
       "name": "Other",
       "url": "https://github.com/microsoft/.github/blob/main/CODE_OF_CONDUCT.md"
     },
-    "forkCount": 1329,
+    "forkCount": 1328,
     "fundingLinks": [],
     "isSecurityPolicyEnabled": true,
     "isTemplate": false,
@@ -728,7 +728,7 @@
       "type": "User",
       "url": "https://github.com/modery"
     },
-    "updatedAt": "2025-07-17T05:29:47Z",
+    "updatedAt": "2025-07-20T07:15:01Z",
     "url": "https://github.com/modery/PowerDocu",
     "codeOfConduct": null,
     "forkCount": 95,
@@ -745,7 +745,7 @@
       "name": "C#"
     },
     "securityPolicyUrl": "",
-    "stargazerCount": 527,
+    "stargazerCount": 529,
     "watchers": {
       "totalCount": 31
     },
@@ -765,7 +765,7 @@
     "openedHelpWantedIssues": 0,
     "hasHelpWantedIssues": false,
     "openedToContributionsIssues": 0,
-    "popularityScore": 558
+    "popularityScore": 560
   },
   {
     "createdAt": "2017-12-06T03:33:42Z",
@@ -915,7 +915,7 @@
       "name": "Other",
       "url": "https://github.com/pnp/powerapps-samples/blob/main/CODE_OF_CONDUCT.md"
     },
-    "forkCount": 332,
+    "forkCount": 333,
     "fundingLinks": [],
     "isSecurityPolicyEnabled": true,
     "isTemplate": false,
@@ -1162,7 +1162,7 @@
       "name": "Other",
       "url": "https://github.com/microsoft/powercat-creator-kit/blob/main/CODE_OF_CONDUCT.md"
     },
-    "forkCount": 64,
+    "forkCount": 65,
     "fundingLinks": [],
     "isSecurityPolicyEnabled": true,
     "isTemplate": false,
@@ -1719,7 +1719,7 @@
       "type": "Organization",
       "url": "https://github.com/microsoft"
     },
-    "updatedAt": "2025-07-16T08:56:19Z",
+    "updatedAt": "2025-07-19T14:37:53Z",
     "url": "https://github.com/microsoft/powerplatform-vscode",
     "codeOfConduct": {
       "key": "other",
@@ -1740,7 +1740,7 @@
       "name": "TypeScript"
     },
     "securityPolicyUrl": "https://github.com/microsoft/powerplatform-vscode/security/policy",
-    "stargazerCount": 243,
+    "stargazerCount": 244,
     "watchers": {
       "totalCount": 22
     },
@@ -1761,7 +1761,7 @@
     "openedHelpWantedIssues": 0,
     "hasHelpWantedIssues": false,
     "openedToContributionsIssues": 0,
-    "popularityScore": 265
+    "popularityScore": 266
   },
   {
     "createdAt": "2020-04-20T17:58:04Z",
@@ -3331,7 +3331,7 @@
       "name": "Other",
       "url": "https://github.com/microsoft/Power-Platform-For-Beginners/blob/main/CODE_OF_CONDUCT.md"
     },
-    "forkCount": 35,
+    "forkCount": 36,
     "fundingLinks": [],
     "isSecurityPolicyEnabled": true,
     "isTemplate": false,
@@ -3429,6 +3429,128 @@
     "popularityScore": 124
   },
   {
+    "createdAt": "2019-12-05T17:07:15Z",
+    "description": "Dynamics 365 for Finance and Operations AOT Browser",
+    "fullName": "arganollc/aotbrowser",
+    "hasIssues": true,
+    "homepage": "",
+    "isArchived": false,
+    "language": "C#",
+    "license": {
+      "key": "mit",
+      "name": "MIT License",
+      "url": "https://api.github.com/licenses/mit"
+    },
+    "name": "aotbrowser",
+    "openIssuesCount": 1,
+    "owner": {
+      "id": "MDEyOk9yZ2FuaXphdGlvbjU4NTI5MDE5",
+      "is_bot": false,
+      "login": "arganollc",
+      "type": "Organization",
+      "url": "https://github.com/arganollc"
+    },
+    "updatedAt": "2025-07-13T19:59:27Z",
+    "url": "https://github.com/arganollc/aotbrowser",
+    "codeOfConduct": null,
+    "forkCount": 20,
+    "fundingLinks": [],
+    "isSecurityPolicyEnabled": false,
+    "isTemplate": false,
+    "latestRelease": {
+      "name": "AOTBrowser-863.0.5.15",
+      "tagName": "863.0.5.15",
+      "url": "https://github.com/arganollc/aotbrowser/releases/tag/863.0.5.15",
+      "publishedAt": "2025-04-24T17:35:05Z"
+    },
+    "primaryLanguage": {
+      "name": "C#"
+    },
+    "securityPolicyUrl": "",
+    "stargazerCount": 86,
+    "watchers": {
+      "totalCount": 11
+    },
+    "topics": [
+      "d365fo",
+      "xplusplus",
+      "aot-browser",
+      "dynamics",
+      "dynamics-365",
+      "morphx"
+    ],
+    "languages": [
+      "C#",
+      "PowerShell"
+    ],
+    "openedGoodFirstIssues": 0,
+    "hasGoodFirstIssues": false,
+    "openedHelpWantedIssues": 0,
+    "hasHelpWantedIssues": false,
+    "openedToContributionsIssues": 0,
+    "popularityScore": 97
+  },
+  {
+    "createdAt": "2024-04-15T07:00:43Z",
+    "description": "Framework for having standardized structure of Microsoft Power Automate Desktop (PAD) flows",
+    "fullName": "AgniusBartninkas/power-automate-desktop-framework",
+    "hasIssues": true,
+    "homepage": "",
+    "isArchived": false,
+    "language": "TSQL",
+    "license": {
+      "key": "mit",
+      "name": "MIT License",
+      "url": "https://api.github.com/licenses/mit"
+    },
+    "name": "power-automate-desktop-framework",
+    "openIssuesCount": 0,
+    "owner": {
+      "id": "MDQ6VXNlcjczMTYyOTMz",
+      "is_bot": false,
+      "login": "AgniusBartninkas",
+      "type": "User",
+      "url": "https://github.com/AgniusBartninkas"
+    },
+    "updatedAt": "2025-07-04T09:58:51Z",
+    "url": "https://github.com/AgniusBartninkas/power-automate-desktop-framework",
+    "codeOfConduct": null,
+    "forkCount": 18,
+    "fundingLinks": [],
+    "isSecurityPolicyEnabled": false,
+    "isTemplate": false,
+    "latestRelease": {
+      "name": "PADFramework",
+      "tagName": "v1.20.2506.161",
+      "url": "https://github.com/AgniusBartninkas/power-automate-desktop-framework/releases/tag/v1.20.2506.161",
+      "publishedAt": "2025-06-16T16:39:10Z"
+    },
+    "primaryLanguage": {
+      "name": "TSQL"
+    },
+    "securityPolicyUrl": "",
+    "stargazerCount": 86,
+    "watchers": {
+      "totalCount": 20
+    },
+    "topics": [
+      "powerautomate",
+      "powerautomatedesktop",
+      "powerplatform",
+      "rpa"
+    ],
+    "languages": [
+      "TSQL",
+      "HTML"
+    ],
+    "openedGoodFirstIssues": 0,
+    "hasGoodFirstIssues": false,
+    "openedHelpWantedIssues": 0,
+    "hasHelpWantedIssues": false,
+    "openedToContributionsIssues": 0,
+    "popularityScore": 106
+  },
+  {
     "createdAt": "2023-05-25T11:08:38Z",
     "description": "Provision Assist is a request and provisioning solution for Teams, Groups, SPO Sites and Viva Engage Communities in Microsoft 365. It can be used as part of a Copilot for Microsoft 365 deployment.",
     "fullName": "pnp/provision-assist-m365",
@@ -3498,128 +3620,6 @@
     "hasHelpWantedIssues": true,
     "openedToContributionsIssues": 2,
     "popularityScore": 102
-  },
-  {
-    "createdAt": "2024-04-15T07:00:43Z",
-    "description": "Framework for having standardized structure of Microsoft Power Automate Desktop (PAD) flows",
-    "fullName": "AgniusBartninkas/power-automate-desktop-framework",
-    "hasIssues": true,
-    "homepage": "",
-    "isArchived": false,
-    "language": "TSQL",
-    "license": {
-      "key": "mit",
-      "name": "MIT License",
-      "url": "https://api.github.com/licenses/mit"
-    },
-    "name": "power-automate-desktop-framework",
-    "openIssuesCount": 0,
-    "owner": {
-      "id": "MDQ6VXNlcjczMTYyOTMz",
-      "is_bot": false,
-      "login": "AgniusBartninkas",
-      "type": "User",
-      "url": "https://github.com/AgniusBartninkas"
-    },
-    "updatedAt": "2025-07-04T09:58:51Z",
-    "url": "https://github.com/AgniusBartninkas/power-automate-desktop-framework",
-    "codeOfConduct": null,
-    "forkCount": 18,
-    "fundingLinks": [],
-    "isSecurityPolicyEnabled": false,
-    "isTemplate": false,
-    "latestRelease": {
-      "name": "PADFramework",
-      "tagName": "v1.20.2506.161",
-      "url": "https://github.com/AgniusBartninkas/power-automate-desktop-framework/releases/tag/v1.20.2506.161",
-      "publishedAt": "2025-06-16T16:39:10Z"
-    },
-    "primaryLanguage": {
-      "name": "TSQL"
-    },
-    "securityPolicyUrl": "",
-    "stargazerCount": 86,
-    "watchers": {
-      "totalCount": 20
-    },
-    "topics": [
-      "powerautomate",
-      "powerautomatedesktop",
-      "powerplatform",
-      "rpa"
-    ],
-    "languages": [
-      "TSQL",
-      "HTML"
-    ],
-    "openedGoodFirstIssues": 0,
-    "hasGoodFirstIssues": false,
-    "openedHelpWantedIssues": 0,
-    "hasHelpWantedIssues": false,
-    "openedToContributionsIssues": 0,
-    "popularityScore": 106
-  },
-  {
-    "createdAt": "2019-12-05T17:07:15Z",
-    "description": "Dynamics 365 for Finance and Operations AOT Browser",
-    "fullName": "arganollc/aotbrowser",
-    "hasIssues": true,
-    "homepage": "",
-    "isArchived": false,
-    "language": "C#",
-    "license": {
-      "key": "mit",
-      "name": "MIT License",
-      "url": "https://api.github.com/licenses/mit"
-    },
-    "name": "aotbrowser",
-    "openIssuesCount": 1,
-    "owner": {
-      "id": "MDEyOk9yZ2FuaXphdGlvbjU4NTI5MDE5",
-      "is_bot": false,
-      "login": "arganollc",
-      "type": "Organization",
-      "url": "https://github.com/arganollc"
-    },
-    "updatedAt": "2025-07-13T19:59:27Z",
-    "url": "https://github.com/arganollc/aotbrowser",
-    "codeOfConduct": null,
-    "forkCount": 20,
-    "fundingLinks": [],
-    "isSecurityPolicyEnabled": false,
-    "isTemplate": false,
-    "latestRelease": {
-      "name": "AOTBrowser-863.0.5.15",
-      "tagName": "863.0.5.15",
-      "url": "https://github.com/arganollc/aotbrowser/releases/tag/863.0.5.15",
-      "publishedAt": "2025-04-24T17:35:05Z"
-    },
-    "primaryLanguage": {
-      "name": "C#"
-    },
-    "securityPolicyUrl": "",
-    "stargazerCount": 86,
-    "watchers": {
-      "totalCount": 11
-    },
-    "topics": [
-      "d365fo",
-      "xplusplus",
-      "aot-browser",
-      "dynamics",
-      "dynamics-365",
-      "morphx"
-    ],
-    "languages": [
-      "C#",
-      "PowerShell"
-    ],
-    "openedGoodFirstIssues": 0,
-    "hasGoodFirstIssues": false,
-    "openedHelpWantedIssues": 0,
-    "hasHelpWantedIssues": false,
-    "openedToContributionsIssues": 0,
-    "popularityScore": 97
   },
   {
     "createdAt": "2024-06-23T22:52:29Z",
@@ -3802,61 +3802,6 @@
     "popularityScore": 114
   },
   {
-    "createdAt": "2021-10-01T08:06:29Z",
-    "description": "Contains a PowerAutomate file that takes data from Planner, writes it to Excel, which is then visualised in Power BI",
-    "fullName": "ben-howard/Planner-PowerBI-with-PowerAutomate",
-    "hasIssues": true,
-    "homepage": "",
-    "isArchived": false,
-    "language": "",
-    "license": {
-      "key": "gpl-3.0",
-      "name": "GNU General Public License v3.0",
-      "url": "https://api.github.com/licenses/gpl-3.0"
-    },
-    "name": "Planner-PowerBI-with-PowerAutomate",
-    "openIssuesCount": 14,
-    "owner": {
-      "id": "MDQ6VXNlcjM3MDg1MjM0",
-      "is_bot": false,
-      "login": "ben-howard",
-      "type": "User",
-      "url": "https://github.com/ben-howard"
-    },
-    "updatedAt": "2025-05-26T01:33:03Z",
-    "url": "https://github.com/ben-howard/Planner-PowerBI-with-PowerAutomate",
-    "codeOfConduct": null,
-    "forkCount": 13,
-    "fundingLinks": [],
-    "isSecurityPolicyEnabled": false,
-    "isTemplate": false,
-    "latestRelease": {
-      "name": "Fixed Null row issue in Users table",
-      "tagName": "v1.6",
-      "url": "https://github.com/ben-howard/Planner-PowerBI-with-PowerAutomate/releases/tag/v1.6",
-      "publishedAt": "2023-03-09T17:34:37Z"
-    },
-    "primaryLanguage": null,
-    "securityPolicyUrl": "",
-    "stargazerCount": 79,
-    "watchers": {
-      "totalCount": 11
-    },
-    "topics": [
-      "microsoft-planner",
-      "power-bi",
-      "power-automate",
-      "microsoft-flow"
-    ],
-    "languages": [],
-    "openedGoodFirstIssues": 0,
-    "hasGoodFirstIssues": false,
-    "openedHelpWantedIssues": 0,
-    "hasHelpWantedIssues": false,
-    "openedToContributionsIssues": 0,
-    "popularityScore": 90
-  },
-  {
     "createdAt": "2018-04-23T11:14:20Z",
     "description": "Dynamics 365 Web API Toolkit for PHP",
     "fullName": "AlexaCRM/dynamics-webapi-toolkit",
@@ -3912,6 +3857,119 @@
     "hasHelpWantedIssues": false,
     "openedToContributionsIssues": 0,
     "popularityScore": 86
+  },
+  {
+    "createdAt": "2021-10-01T08:06:29Z",
+    "description": "Contains a PowerAutomate file that takes data from Planner, writes it to Excel, which is then visualised in Power BI",
+    "fullName": "ben-howard/Planner-PowerBI-with-PowerAutomate",
+    "hasIssues": true,
+    "homepage": "",
+    "isArchived": false,
+    "language": "",
+    "license": {
+      "key": "gpl-3.0",
+      "name": "GNU General Public License v3.0",
+      "url": "https://api.github.com/licenses/gpl-3.0"
+    },
+    "name": "Planner-PowerBI-with-PowerAutomate",
+    "openIssuesCount": 14,
+    "owner": {
+      "id": "MDQ6VXNlcjM3MDg1MjM0",
+      "is_bot": false,
+      "login": "ben-howard",
+      "type": "User",
+      "url": "https://github.com/ben-howard"
+    },
+    "updatedAt": "2025-05-26T01:33:03Z",
+    "url": "https://github.com/ben-howard/Planner-PowerBI-with-PowerAutomate",
+    "codeOfConduct": null,
+    "forkCount": 13,
+    "fundingLinks": [],
+    "isSecurityPolicyEnabled": false,
+    "isTemplate": false,
+    "latestRelease": {
+      "name": "Fixed Null row issue in Users table",
+      "tagName": "v1.6",
+      "url": "https://github.com/ben-howard/Planner-PowerBI-with-PowerAutomate/releases/tag/v1.6",
+      "publishedAt": "2023-03-09T17:34:37Z"
+    },
+    "primaryLanguage": null,
+    "securityPolicyUrl": "",
+    "stargazerCount": 79,
+    "watchers": {
+      "totalCount": 11
+    },
+    "topics": [
+      "microsoft-planner",
+      "power-bi",
+      "power-automate",
+      "microsoft-flow"
+    ],
+    "languages": [],
+    "openedGoodFirstIssues": 0,
+    "hasGoodFirstIssues": false,
+    "openedHelpWantedIssues": 0,
+    "hasHelpWantedIssues": false,
+    "openedToContributionsIssues": 0,
+    "popularityScore": 90
+  },
+  {
+    "createdAt": "2018-10-31T15:56:06Z",
+    "description": "PowerApps samples",
+    "fullName": "Eickhel/PowerApps-samples",
+    "hasIssues": true,
+    "homepage": "https://powernimbus.com",
+    "isArchived": false,
+    "language": "TypeScript",
+    "license": {
+      "key": "mit",
+      "name": "MIT License",
+      "url": "https://api.github.com/licenses/mit"
+    },
+    "name": "PowerApps-samples",
+    "openIssuesCount": 4,
+    "owner": {
+      "id": "MDQ6VXNlcjE3MDA4NjIy",
+      "is_bot": false,
+      "login": "Eickhel",
+      "type": "User",
+      "url": "https://github.com/Eickhel"
+    },
+    "updatedAt": "2025-04-17T17:14:41Z",
+    "url": "https://github.com/Eickhel/PowerApps-samples",
+    "codeOfConduct": null,
+    "forkCount": 23,
+    "fundingLinks": [],
+    "isSecurityPolicyEnabled": false,
+    "isTemplate": false,
+    "latestRelease": {
+      "name": "PowerFont PCF",
+      "tagName": "1.0.0",
+      "url": "https://github.com/Eickhel/PowerApps-samples/releases/tag/1.0.0",
+      "publishedAt": "2019-09-18T07:47:18Z"
+    },
+    "primaryLanguage": {
+      "name": "TypeScript"
+    },
+    "securityPolicyUrl": "",
+    "stargazerCount": 75,
+    "watchers": {
+      "totalCount": 9
+    },
+    "topics": [
+      "powerapps",
+      "business-app"
+    ],
+    "languages": [
+      "TypeScript",
+      "Batchfile"
+    ],
+    "openedGoodFirstIssues": 0,
+    "hasGoodFirstIssues": false,
+    "openedHelpWantedIssues": 0,
+    "hasHelpWantedIssues": false,
+    "openedToContributionsIssues": 0,
+    "popularityScore": 84
   },
   {
     "createdAt": "2017-05-24T08:56:02Z",
@@ -3977,64 +4035,6 @@
     "hasHelpWantedIssues": false,
     "openedToContributionsIssues": 0,
     "popularityScore": 98
-  },
-  {
-    "createdAt": "2018-10-31T15:56:06Z",
-    "description": "PowerApps samples",
-    "fullName": "Eickhel/PowerApps-samples",
-    "hasIssues": true,
-    "homepage": "https://powernimbus.com",
-    "isArchived": false,
-    "language": "TypeScript",
-    "license": {
-      "key": "mit",
-      "name": "MIT License",
-      "url": "https://api.github.com/licenses/mit"
-    },
-    "name": "PowerApps-samples",
-    "openIssuesCount": 4,
-    "owner": {
-      "id": "MDQ6VXNlcjE3MDA4NjIy",
-      "is_bot": false,
-      "login": "Eickhel",
-      "type": "User",
-      "url": "https://github.com/Eickhel"
-    },
-    "updatedAt": "2025-04-17T17:14:41Z",
-    "url": "https://github.com/Eickhel/PowerApps-samples",
-    "codeOfConduct": null,
-    "forkCount": 23,
-    "fundingLinks": [],
-    "isSecurityPolicyEnabled": false,
-    "isTemplate": false,
-    "latestRelease": {
-      "name": "PowerFont PCF",
-      "tagName": "1.0.0",
-      "url": "https://github.com/Eickhel/PowerApps-samples/releases/tag/1.0.0",
-      "publishedAt": "2019-09-18T07:47:18Z"
-    },
-    "primaryLanguage": {
-      "name": "TypeScript"
-    },
-    "securityPolicyUrl": "",
-    "stargazerCount": 75,
-    "watchers": {
-      "totalCount": 9
-    },
-    "topics": [
-      "powerapps",
-      "business-app"
-    ],
-    "languages": [
-      "TypeScript",
-      "Batchfile"
-    ],
-    "openedGoodFirstIssues": 0,
-    "hasGoodFirstIssues": false,
-    "openedHelpWantedIssues": 0,
-    "hasHelpWantedIssues": false,
-    "openedToContributionsIssues": 0,
-    "popularityScore": 84
   },
   {
     "createdAt": "2022-08-03T14:35:12Z",
@@ -4493,70 +4493,6 @@
     "popularityScore": 83
   },
   {
-    "createdAt": "2024-10-15T10:18:48Z",
-    "description": "The Power CAT Tools is your ultimate companion for enhancing the development experience within the Power Platform. This powerful suite of features is designed to streamline your development workflow by automating essential tasks and providing insightful guidance based on real-world best practices.",
-    "fullName": "microsoft/Power-CAT-Tools",
-    "hasIssues": true,
-    "homepage": "https://appsource.microsoft.com/en-us/product/dynamics-365/microsoftpowercatarch.powercattools",
-    "isArchived": false,
-    "language": "C#",
-    "license": {
-      "key": "mit",
-      "name": "MIT License",
-      "url": "https://api.github.com/licenses/mit"
-    },
-    "name": "Power-CAT-Tools",
-    "openIssuesCount": 52,
-    "owner": {
-      "id": "MDEyOk9yZ2FuaXphdGlvbjYxNTQ3MjI=",
-      "is_bot": false,
-      "login": "microsoft",
-      "type": "Organization",
-      "url": "https://github.com/microsoft"
-    },
-    "updatedAt": "2025-06-30T19:35:50Z",
-    "url": "https://github.com/microsoft/Power-CAT-Tools",
-    "codeOfConduct": {
-      "key": "other",
-      "name": "Other",
-      "url": "https://github.com/microsoft/.github/blob/main/CODE_OF_CONDUCT.md"
-    },
-    "forkCount": 11,
-    "fundingLinks": [],
-    "isSecurityPolicyEnabled": true,
-    "isTemplate": false,
-    "latestRelease": {
-      "name": "PowerCATToolkit April 2025 - Risk Assessment Update",
-      "tagName": "PowerCATToolkit-24April2025",
-      "url": "https://github.com/microsoft/Power-CAT-Tools/releases/tag/PowerCATToolkit-24April2025",
-      "publishedAt": "2025-04-24T20:14:12Z"
-    },
-    "primaryLanguage": {
-      "name": "C#"
-    },
-    "securityPolicyUrl": "https://github.com/microsoft/Power-CAT-Tools/security/policy",
-    "stargazerCount": 69,
-    "watchers": {
-      "totalCount": 6
-    },
-    "topics": [
-      "powerplatform",
-      "powercat",
-      "powerapps"
-    ],
-    "languages": [
-      "C#",
-      "CSS",
-      "HTML"
-    ],
-    "openedGoodFirstIssues": 0,
-    "hasGoodFirstIssues": false,
-    "openedHelpWantedIssues": 0,
-    "hasHelpWantedIssues": false,
-    "openedToContributionsIssues": 0,
-    "popularityScore": 75
-  },
-  {
     "createdAt": "2018-03-02T09:47:37Z",
     "description": "A collection of projects/items template for develop Dynamics 365 CRM/CDS/Dataverse",
     "fullName": "phuocle/Dynamics-Crm-DevKit",
@@ -4621,6 +4557,70 @@
     "hasHelpWantedIssues": false,
     "openedToContributionsIssues": 0,
     "popularityScore": 82
+  },
+  {
+    "createdAt": "2024-10-15T10:18:48Z",
+    "description": "The Power CAT Tools is your ultimate companion for enhancing the development experience within the Power Platform. This powerful suite of features is designed to streamline your development workflow by automating essential tasks and providing insightful guidance based on real-world best practices.",
+    "fullName": "microsoft/Power-CAT-Tools",
+    "hasIssues": true,
+    "homepage": "https://appsource.microsoft.com/en-us/product/dynamics-365/microsoftpowercatarch.powercattools",
+    "isArchived": false,
+    "language": "C#",
+    "license": {
+      "key": "mit",
+      "name": "MIT License",
+      "url": "https://api.github.com/licenses/mit"
+    },
+    "name": "Power-CAT-Tools",
+    "openIssuesCount": 52,
+    "owner": {
+      "id": "MDEyOk9yZ2FuaXphdGlvbjYxNTQ3MjI=",
+      "is_bot": false,
+      "login": "microsoft",
+      "type": "Organization",
+      "url": "https://github.com/microsoft"
+    },
+    "updatedAt": "2025-07-19T20:23:29Z",
+    "url": "https://github.com/microsoft/Power-CAT-Tools",
+    "codeOfConduct": {
+      "key": "other",
+      "name": "Other",
+      "url": "https://github.com/microsoft/.github/blob/main/CODE_OF_CONDUCT.md"
+    },
+    "forkCount": 10,
+    "fundingLinks": [],
+    "isSecurityPolicyEnabled": true,
+    "isTemplate": false,
+    "latestRelease": {
+      "name": "PowerCATToolkit April 2025 - Risk Assessment Update",
+      "tagName": "PowerCATToolkit-24April2025",
+      "url": "https://github.com/microsoft/Power-CAT-Tools/releases/tag/PowerCATToolkit-24April2025",
+      "publishedAt": "2025-04-24T20:14:12Z"
+    },
+    "primaryLanguage": {
+      "name": "C#"
+    },
+    "securityPolicyUrl": "https://github.com/microsoft/Power-CAT-Tools/security/policy",
+    "stargazerCount": 68,
+    "watchers": {
+      "totalCount": 6
+    },
+    "topics": [
+      "powerplatform",
+      "powercat",
+      "powerapps"
+    ],
+    "languages": [
+      "C#",
+      "CSS",
+      "HTML"
+    ],
+    "openedGoodFirstIssues": 0,
+    "hasGoodFirstIssues": false,
+    "openedHelpWantedIssues": 0,
+    "hasHelpWantedIssues": false,
+    "openedToContributionsIssues": 0,
+    "popularityScore": 74
   },
   {
     "createdAt": "2023-05-05T17:58:32Z",
@@ -7245,7 +7245,7 @@
       "type": "User",
       "url": "https://github.com/rpothin"
     },
-    "updatedAt": "2025-07-18T11:30:45Z",
+    "updatedAt": "2025-07-19T11:29:55Z",
     "url": "https://github.com/rpothin/PowerPlatform-OpenSource-Hub",
     "codeOfConduct": {
       "key": "contributor_covenant",
