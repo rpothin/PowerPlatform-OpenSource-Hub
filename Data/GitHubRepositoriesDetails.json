@@ -13,7 +13,7 @@
       "url": "https://api.github.com/licenses/mit"
     },
     "name": "Power-Fx",
-    "openIssuesCount": 334,
+    "openIssuesCount": 335,
     "owner": {
       "id": "MDEyOk9yZ2FuaXphdGlvbjYxNTQ3MjI=",
       "is_bot": false,
@@ -154,7 +154,7 @@
       "url": "https://api.github.com/licenses/mit"
     },
     "name": "Microsoft365DSC",
-    "openIssuesCount": 250,
+    "openIssuesCount": 251,
     "owner": {
       "id": "MDEyOk9yZ2FuaXphdGlvbjYxNTQ3MjI=",
       "is_bot": false,
@@ -162,7 +162,7 @@
       "type": "Organization",
       "url": "https://github.com/microsoft"
     },
-    "updatedAt": "2025-08-09T07:11:32Z",
+    "updatedAt": "2025-08-11T07:06:53Z",
     "url": "https://github.com/microsoft/Microsoft365DSC",
     "codeOfConduct": {
       "key": "contributor_covenant",
@@ -183,7 +183,7 @@
       "name": "PowerShell"
     },
     "securityPolicyUrl": "https://github.com/microsoft/Microsoft365DSC/security/policy",
-    "stargazerCount": 1923,
+    "stargazerCount": 1926,
     "watchers": {
       "totalCount": 83
     },
@@ -219,7 +219,7 @@
     "openedHelpWantedIssues": 2,
     "hasHelpWantedIssues": true,
     "openedToContributionsIssues": 2,
-    "popularityScore": 2006
+    "popularityScore": 2009
   },
   {
     "createdAt": "2018-03-26T22:41:09Z",
@@ -385,7 +385,7 @@
       "url": "https://api.github.com/licenses/mit"
     },
     "name": "PowerPlatformConnectors",
-    "openIssuesCount": 269,
+    "openIssuesCount": 271,
     "owner": {
       "id": "MDEyOk9yZ2FuaXphdGlvbjYxNTQ3MjI=",
       "is_bot": false,
@@ -458,7 +458,7 @@
       "type": "User",
       "url": "https://github.com/mbrg"
     },
-    "updatedAt": "2025-08-10T08:27:36Z",
+    "updatedAt": "2025-08-11T10:59:42Z",
     "url": "https://github.com/mbrg/power-pwn",
     "codeOfConduct": null,
     "forkCount": 111,
@@ -475,7 +475,7 @@
       "name": "Python"
     },
     "securityPolicyUrl": "",
-    "stargazerCount": 1004,
+    "stargazerCount": 1011,
     "watchers": {
       "totalCount": 20
     },
@@ -513,7 +513,7 @@
     "openedHelpWantedIssues": 0,
     "hasHelpWantedIssues": false,
     "openedToContributionsIssues": 0,
-    "popularityScore": 1024
+    "popularityScore": 1031
   },
   {
     "createdAt": "2016-11-25T15:23:10Z",
@@ -838,7 +838,7 @@
       "type": "Organization",
       "url": "https://github.com/pnp"
     },
-    "updatedAt": "2025-08-08T14:01:57Z",
+    "updatedAt": "2025-08-10T13:57:05Z",
     "url": "https://github.com/pnp/powerapps-samples",
     "codeOfConduct": {
       "key": "other",
@@ -852,7 +852,7 @@
     "latestRelease": null,
     "primaryLanguage": null,
     "securityPolicyUrl": "https://github.com/pnp/powerapps-samples/security/policy",
-    "stargazerCount": 491,
+    "stargazerCount": 492,
     "watchers": {
       "totalCount": 38
     },
@@ -867,7 +867,7 @@
     "openedHelpWantedIssues": 0,
     "hasHelpWantedIssues": false,
     "openedToContributionsIssues": 0,
-    "popularityScore": 529
+    "popularityScore": 530
   },
   {
     "createdAt": "2017-04-01T23:36:13Z",
@@ -1072,6 +1072,69 @@
     "popularityScore": 443
   },
   {
+    "createdAt": "2022-02-03T00:22:40Z",
+    "description": "This toolkit helps create well-designed Power App experiences on the web & mobile. It contains a component library; PCF controls and other utilities that increase developer productivity.",
+    "fullName": "microsoft/powercat-creator-kit",
+    "hasIssues": true,
+    "homepage": "",
+    "isArchived": false,
+    "language": "CSS",
+    "license": {
+      "key": "mit",
+      "name": "MIT License",
+      "url": "https://api.github.com/licenses/mit"
+    },
+    "name": "powercat-creator-kit",
+    "openIssuesCount": 120,
+    "owner": {
+      "id": "MDEyOk9yZ2FuaXphdGlvbjYxNTQ3MjI=",
+      "is_bot": false,
+      "login": "microsoft",
+      "type": "Organization",
+      "url": "https://github.com/microsoft"
+    },
+    "updatedAt": "2025-08-10T16:49:26Z",
+    "url": "https://github.com/microsoft/powercat-creator-kit",
+    "codeOfConduct": {
+      "key": "other",
+      "name": "Other",
+      "url": "https://github.com/microsoft/powercat-creator-kit/blob/main/CODE_OF_CONDUCT.md"
+    },
+    "forkCount": 65,
+    "fundingLinks": [],
+    "isSecurityPolicyEnabled": true,
+    "isTemplate": false,
+    "latestRelease": {
+      "name": "Creator Kit March 2025",
+      "tagName": "CreatorKit-March2025",
+      "url": "https://github.com/microsoft/powercat-creator-kit/releases/tag/CreatorKit-March2025",
+      "publishedAt": "2025-03-10T20:02:14Z"
+    },
+    "primaryLanguage": {
+      "name": "CSS"
+    },
+    "securityPolicyUrl": "https://github.com/microsoft/powercat-creator-kit/security/policy",
+    "stargazerCount": 383,
+    "watchers": {
+      "totalCount": 34
+    },
+    "topics": [
+      "pcf",
+      "powerapps"
+    ],
+    "languages": [
+      "CSS",
+      "C#",
+      "HTML"
+    ],
+    "openedGoodFirstIssues": 2,
+    "hasGoodFirstIssues": true,
+    "openedHelpWantedIssues": 0,
+    "hasHelpWantedIssues": false,
+    "openedToContributionsIssues": 2,
+    "popularityScore": 417
+  },
+  {
     "createdAt": "2020-06-30T21:48:13Z",
     "description": "Tooling support for PowerApps language and .msapp files ",
     "fullName": "microsoft/PowerApps-Tooling",
@@ -1132,69 +1195,6 @@
     "hasHelpWantedIssues": false,
     "openedToContributionsIssues": 0,
     "popularityScore": 433
-  },
-  {
-    "createdAt": "2022-02-03T00:22:40Z",
-    "description": "This toolkit helps create well-designed Power App experiences on the web & mobile. It contains a component library; PCF controls and other utilities that increase developer productivity.",
-    "fullName": "microsoft/powercat-creator-kit",
-    "hasIssues": true,
-    "homepage": "",
-    "isArchived": false,
-    "language": "CSS",
-    "license": {
-      "key": "mit",
-      "name": "MIT License",
-      "url": "https://api.github.com/licenses/mit"
-    },
-    "name": "powercat-creator-kit",
-    "openIssuesCount": 120,
-    "owner": {
-      "id": "MDEyOk9yZ2FuaXphdGlvbjYxNTQ3MjI=",
-      "is_bot": false,
-      "login": "microsoft",
-      "type": "Organization",
-      "url": "https://github.com/microsoft"
-    },
-    "updatedAt": "2025-08-05T21:17:23Z",
-    "url": "https://github.com/microsoft/powercat-creator-kit",
-    "codeOfConduct": {
-      "key": "other",
-      "name": "Other",
-      "url": "https://github.com/microsoft/powercat-creator-kit/blob/main/CODE_OF_CONDUCT.md"
-    },
-    "forkCount": 65,
-    "fundingLinks": [],
-    "isSecurityPolicyEnabled": true,
-    "isTemplate": false,
-    "latestRelease": {
-      "name": "Creator Kit March 2025",
-      "tagName": "CreatorKit-March2025",
-      "url": "https://github.com/microsoft/powercat-creator-kit/releases/tag/CreatorKit-March2025",
-      "publishedAt": "2025-03-10T20:02:14Z"
-    },
-    "primaryLanguage": {
-      "name": "CSS"
-    },
-    "securityPolicyUrl": "https://github.com/microsoft/powercat-creator-kit/security/policy",
-    "stargazerCount": 382,
-    "watchers": {
-      "totalCount": 34
-    },
-    "topics": [
-      "pcf",
-      "powerapps"
-    ],
-    "languages": [
-      "CSS",
-      "C#",
-      "HTML"
-    ],
-    "openedGoodFirstIssues": 2,
-    "hasGoodFirstIssues": true,
-    "openedHelpWantedIssues": 0,
-    "hasHelpWantedIssues": false,
-    "openedToContributionsIssues": 2,
-    "popularityScore": 416
   },
   {
     "createdAt": "2020-05-09T12:49:51Z",
@@ -2293,7 +2293,7 @@
       "name": "Other",
       "url": "https://github.com/microsoft/powerplatform-actions-lab/blob/main/CODE_OF_CONDUCT.md"
     },
-    "forkCount": 184,
+    "forkCount": 185,
     "fundingLinks": [],
     "isSecurityPolicyEnabled": true,
     "isTemplate": false,
@@ -4973,7 +4973,7 @@
       "type": "User",
       "url": "https://github.com/mscottsewell"
     },
-    "updatedAt": "2025-05-06T16:13:15Z",
+    "updatedAt": "2025-08-10T15:11:57Z",
     "url": "https://github.com/mscottsewell/Power-BI-D365-Sales",
     "codeOfConduct": {
       "key": "other",
@@ -4989,7 +4989,7 @@
       "name": "TSQL"
     },
     "securityPolicyUrl": "",
-    "stargazerCount": 56,
+    "stargazerCount": 57,
     "watchers": {
       "totalCount": 4
     },
@@ -5006,7 +5006,7 @@
     "openedHelpWantedIssues": 0,
     "hasHelpWantedIssues": false,
     "openedToContributionsIssues": 0,
-    "popularityScore": 60
+    "popularityScore": 61
   },
   {
     "createdAt": "2022-11-30T02:44:47Z",
@@ -6679,6 +6679,59 @@
     "popularityScore": 34
   },
   {
+    "createdAt": "2019-02-20T02:08:54Z",
+    "description": "SVG chart components for Microsoft Power Apps.",
+    "fullName": "OGcanviz/ChartComponents",
+    "hasIssues": true,
+    "homepage": "https://www.canviz.com",
+    "isArchived": false,
+    "language": "",
+    "license": {
+      "key": "",
+      "name": "",
+      "url": ""
+    },
+    "name": "ChartComponents",
+    "openIssuesCount": 11,
+    "owner": {
+      "id": "MDQ6VXNlcjMxNDc5ODMy",
+      "is_bot": false,
+      "login": "OGcanviz",
+      "type": "User",
+      "url": "https://github.com/OGcanviz"
+    },
+    "updatedAt": "2025-08-10T20:33:11Z",
+    "url": "https://github.com/OGcanviz/ChartComponents",
+    "codeOfConduct": null,
+    "forkCount": 5,
+    "fundingLinks": [],
+    "isSecurityPolicyEnabled": false,
+    "isTemplate": false,
+    "latestRelease": null,
+    "primaryLanguage": null,
+    "securityPolicyUrl": "",
+    "stargazerCount": 31,
+    "watchers": {
+      "totalCount": 9
+    },
+    "topics": [
+      "powerapps",
+      "office365",
+      "powerplatform",
+      "charts",
+      "graphs",
+      "svg",
+      "components"
+    ],
+    "languages": [],
+    "openedGoodFirstIssues": 1,
+    "hasGoodFirstIssues": true,
+    "openedHelpWantedIssues": 0,
+    "hasHelpWantedIssues": false,
+    "openedToContributionsIssues": 1,
+    "popularityScore": 40
+  },
+  {
     "createdAt": "2022-06-17T15:28:25Z",
     "description": "A way to dynamically render controls in Power Apps",
     "fullName": "microsoft/shapeshifter",
@@ -6736,59 +6789,6 @@
     "hasHelpWantedIssues": false,
     "openedToContributionsIssues": 0,
     "popularityScore": 34
-  },
-  {
-    "createdAt": "2019-02-20T02:08:54Z",
-    "description": "SVG chart components for Microsoft Power Apps.",
-    "fullName": "OGcanviz/ChartComponents",
-    "hasIssues": true,
-    "homepage": "https://www.canviz.com",
-    "isArchived": false,
-    "language": "",
-    "license": {
-      "key": "",
-      "name": "",
-      "url": ""
-    },
-    "name": "ChartComponents",
-    "openIssuesCount": 11,
-    "owner": {
-      "id": "MDQ6VXNlcjMxNDc5ODMy",
-      "is_bot": false,
-      "login": "OGcanviz",
-      "type": "User",
-      "url": "https://github.com/OGcanviz"
-    },
-    "updatedAt": "2025-05-30T18:28:50Z",
-    "url": "https://github.com/OGcanviz/ChartComponents",
-    "codeOfConduct": null,
-    "forkCount": 5,
-    "fundingLinks": [],
-    "isSecurityPolicyEnabled": false,
-    "isTemplate": false,
-    "latestRelease": null,
-    "primaryLanguage": null,
-    "securityPolicyUrl": "",
-    "stargazerCount": 30,
-    "watchers": {
-      "totalCount": 9
-    },
-    "topics": [
-      "powerapps",
-      "office365",
-      "powerplatform",
-      "charts",
-      "graphs",
-      "svg",
-      "components"
-    ],
-    "languages": [],
-    "openedGoodFirstIssues": 1,
-    "hasGoodFirstIssues": true,
-    "openedHelpWantedIssues": 0,
-    "hasHelpWantedIssues": false,
-    "openedToContributionsIssues": 1,
-    "popularityScore": 39
   },
   {
     "createdAt": "2023-02-19T01:19:03Z",
@@ -7301,7 +7301,7 @@
       "type": "User",
       "url": "https://github.com/rpothin"
     },
-    "updatedAt": "2025-08-09T11:24:41Z",
+    "updatedAt": "2025-08-10T11:28:09Z",
     "url": "https://github.com/rpothin/PowerPlatform-OpenSource-Hub",
     "codeOfConduct": {
       "key": "contributor_covenant",
@@ -13282,7 +13282,7 @@
       "url": "https://api.github.com/licenses/apache-2.0"
     },
     "name": "emcr-ess-mod",
-    "openIssuesCount": 118,
+    "openIssuesCount": 122,
     "owner": {
       "id": "MDEyOk9yZ2FuaXphdGlvbjkxNjI4MA==",
       "is_bot": false,
