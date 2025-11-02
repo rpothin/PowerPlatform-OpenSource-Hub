@@ -131,6 +131,7 @@ const FilterPane = ({ items, onGoodFirstIssueChange, onHelpWanteIssueChange, onC
         <AccordionPanel>
           <div style={{ display: 'flex', flexDirection: 'column' }}>
             <Checkbox 
+              id="checkbox-r-good-first-issue"
               label={"Has good first issue (" + goodFirstIssueCount +  ")"}
               checked={checkboxStates['goodFirstIssue'] || false} 
               onChange={(e, data) => {
@@ -139,21 +140,23 @@ const FilterPane = ({ items, onGoodFirstIssueChange, onHelpWanteIssueChange, onC
               }}
             />
             <Checkbox 
-            label={"Has help wanted issue (" + helpWantedIssueCount + ")"} 
-            checked={checkboxStates['helpWantedIssue'] || false}
-            onChange={(e, data) => {
-              handleHelpWantedIssueChange(data.checked);
-              setCheckboxStates(prevState => ({...prevState, 'helpWantedIssue': data.checked}));
-            }}
-          />
-          <Checkbox 
-            label={"Has code of conduct (" + codeOfConductCount +  ")"} 
-            checked={checkboxStates['codeOfConduct'] || false}
-            onChange={(e, data) => {
-              handleCodeOfConductChange(data.checked);
-              setCheckboxStates(prevState => ({...prevState, 'codeOfConduct': data.checked}));
-            }}
-          />
+              id="checkbox-r-help-wanted-issue"
+              label={"Has help wanted issue (" + helpWantedIssueCount + ")"} 
+              checked={checkboxStates['helpWantedIssue'] || false}
+              onChange={(e, data) => {
+                handleHelpWantedIssueChange(data.checked);
+                setCheckboxStates(prevState => ({...prevState, 'helpWantedIssue': data.checked}));
+              }}
+            />
+            <Checkbox 
+              id="checkbox-r-code-of-conduct"
+              label={"Has code of conduct (" + codeOfConductCount +  ")"} 
+              checked={checkboxStates['codeOfConduct'] || false}
+              onChange={(e, data) => {
+                handleCodeOfConductChange(data.checked);
+                setCheckboxStates(prevState => ({...prevState, 'codeOfConduct': data.checked}));
+              }}
+            />
           </div>
         </AccordionPanel>
       </AccordionItem>
@@ -165,7 +168,8 @@ const FilterPane = ({ items, onGoodFirstIssueChange, onHelpWanteIssueChange, onC
                 <Stack>
                   {displayedTopics.map((topic, index) => (
                     <Checkbox 
-                      key={index} 
+                      key={index}
+                      id={`checkbox-r-topic-${topic.toLowerCase().replace(/[^a-z0-9]/g, '-')}`}
                       label={topic + " (" + countItemsByProperty(items, 'topics', topic) + ")"}
                       checked={checkboxStates[topic] || false}
                       onChange={(e, data) => {
@@ -192,7 +196,8 @@ const FilterPane = ({ items, onGoodFirstIssueChange, onHelpWanteIssueChange, onC
               <Stack>
                 {displayedLanguages.map((language, index) => (
                   <Checkbox 
-                    key={index} 
+                    key={index}
+                    id={`checkbox-r-language-${language.toLowerCase().replace(/[^a-z0-9]/g, '-')}`}
                     label={language + " (" + countItemsByProperty(items, 'languages', language) + ")"} 
                     checked={checkboxStates[language] || false}
                     onChange={(e, data) => {
@@ -219,7 +224,8 @@ const FilterPane = ({ items, onGoodFirstIssueChange, onHelpWanteIssueChange, onC
               <Stack>
                 {displayedLicenses.map((license, index) => (
                   <Checkbox 
-                    key={index} 
+                    key={index}
+                    id={`checkbox-r-license-${license.toLowerCase().replace(/[^a-z0-9]/g, '-')}`}
                     label={license + " (" + countItemsByProperty(items, 'license.name', license) + ")"} 
                     checked={checkboxStates[license] || false}
                     onChange={(e, data) => {
@@ -246,7 +252,8 @@ const FilterPane = ({ items, onGoodFirstIssueChange, onHelpWanteIssueChange, onC
               <Stack>
                 {displayedOwners.map((owner, index) => (
                   <Checkbox 
-                    key={index} 
+                    key={index}
+                    id={`checkbox-r-owner-${owner.toLowerCase().replace(/[^a-z0-9]/g, '-')}`}
                     label={owner + " (" + countItemsByProperty(items, 'owner.login', owner) + ")"} 
                     checked={checkboxStates[owner] || false}
                     onChange={(e, data) => {
