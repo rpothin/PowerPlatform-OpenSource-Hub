@@ -140,23 +140,23 @@ const FilterPane = ({ items, onGoodFirstIssueChange, onHelpWanteIssueChange, onC
               }}
             />
             <Checkbox 
-            id="checkbox-r-help-wanted-issue"
-            label={"Has help wanted issue (" + helpWantedIssueCount + ")"} 
-            checked={checkboxStates['helpWantedIssue'] || false}
-            onChange={(e, data) => {
-              handleHelpWantedIssueChange(data.checked);
-              setCheckboxStates(prevState => ({...prevState, 'helpWantedIssue': data.checked}));
-            }}
-          />
-          <Checkbox 
-            id="checkbox-r-code-of-conduct"
-            label={"Has code of conduct (" + codeOfConductCount +  ")"} 
-            checked={checkboxStates['codeOfConduct'] || false}
-            onChange={(e, data) => {
-              handleCodeOfConductChange(data.checked);
-              setCheckboxStates(prevState => ({...prevState, 'codeOfConduct': data.checked}));
-            }}
-          />
+              id="checkbox-r-help-wanted-issue"
+              label={"Has help wanted issue (" + helpWantedIssueCount + ")"} 
+              checked={checkboxStates['helpWantedIssue'] || false}
+              onChange={(e, data) => {
+                handleHelpWantedIssueChange(data.checked);
+                setCheckboxStates(prevState => ({...prevState, 'helpWantedIssue': data.checked}));
+              }}
+            />
+            <Checkbox 
+              id="checkbox-r-code-of-conduct"
+              label={"Has code of conduct (" + codeOfConductCount +  ")"} 
+              checked={checkboxStates['codeOfConduct'] || false}
+              onChange={(e, data) => {
+                handleCodeOfConductChange(data.checked);
+                setCheckboxStates(prevState => ({...prevState, 'codeOfConduct': data.checked}));
+              }}
+            />
           </div>
         </AccordionPanel>
       </AccordionItem>
