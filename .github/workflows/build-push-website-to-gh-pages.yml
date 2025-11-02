@@ -64,18 +64,22 @@ jobs:
         run: |
           npm run test:unit
 
+      # Install Playwright test dependencies
+      - name: Install Playwright test dependencies
+        working-directory: Website/tests/user_interface
+        run: |
+          npm ci
+
       # Install Playwright Browsers
       - name: Install Playwright Browsers
         working-directory: Website/tests/user_interface
         run: |
           npx playwright install --with-deps
-          npm install @playwright/test
 
       # Run user interface tests (Playwright)
       - name: Run user interface tests
         working-directory: Website/tests/user_interface
         run: |
-          npm ci
           npx playwright test
 
       # Upload Playwright test results to workflow run artifacts
