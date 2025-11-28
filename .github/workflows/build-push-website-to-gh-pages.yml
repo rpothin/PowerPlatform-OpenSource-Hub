@@ -36,7 +36,7 @@ jobs:
     steps:
       # Checkout the repository content
       #   Action: https://github.com/actions/checkout
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
       
       # Setup Node.js
       #  Action: https://github.com/actions/setup-node
@@ -117,7 +117,7 @@ jobs:
       # Checkout the repository content
       #   Action: https://github.com/actions/checkout
       - name: Checkout repository
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
         
       # Initializes the CodeQL tools for scanning.
       #   Action: https://github.com/github/codeql-action
