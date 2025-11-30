@@ -13,7 +13,7 @@
       "url": "https://api.github.com/licenses/agpl-3.0"
     },
     "name": "skyvern",
-    "openIssuesCount": 201,
+    "openIssuesCount": 203,
     "owner": {
       "id": "O_kgDOCG56QQ",
       "is_bot": false,
@@ -21,14 +21,14 @@
       "type": "Organization",
       "url": "https://github.com/Skyvern-AI"
     },
-    "updatedAt": "2025-11-29T11:03:58Z",
+    "updatedAt": "2025-11-30T10:42:10Z",
     "url": "https://github.com/Skyvern-AI/skyvern",
     "codeOfConduct": {
       "key": "contributor_covenant",
       "name": "Contributor Covenant",
       "url": "https://github.com/Skyvern-AI/skyvern/blob/main/CODE_OF_CONDUCT.md"
     },
-    "forkCount": 1650,
+    "forkCount": 1652,
     "fundingLinks": [],
     "isSecurityPolicyEnabled": true,
     "isTemplate": false,
@@ -42,7 +42,7 @@
       "name": "Python"
     },
     "securityPolicyUrl": "https://github.com/Skyvern-AI/skyvern/security/policy",
-    "stargazerCount": 19123,
+    "stargazerCount": 19167,
     "watchers": {
       "totalCount": 100
     },
@@ -81,7 +81,7 @@
     "openedHelpWantedIssues": 6,
     "hasHelpWantedIssues": true,
     "openedToContributionsIssues": 6,
-    "popularityScore": 19223
+    "popularityScore": 19267
   },
   {
     "createdAt": "2021-02-23T22:09:05Z",
@@ -246,7 +246,7 @@
       "type": "Organization",
       "url": "https://github.com/microsoft"
     },
-    "updatedAt": "2025-11-29T08:32:01Z",
+    "updatedAt": "2025-11-29T17:34:40Z",
     "url": "https://github.com/microsoft/Microsoft365DSC",
     "codeOfConduct": {
       "key": "contributor_covenant",
@@ -267,7 +267,7 @@
       "name": "PowerShell"
     },
     "securityPolicyUrl": "https://github.com/microsoft/Microsoft365DSC/security/policy",
-    "stargazerCount": 2095,
+    "stargazerCount": 2096,
     "watchers": {
       "totalCount": 82
     },
@@ -303,7 +303,7 @@
     "openedHelpWantedIssues": 2,
     "hasHelpWantedIssues": true,
     "openedToContributionsIssues": 2,
-    "popularityScore": 2177
+    "popularityScore": 2178
   },
   {
     "createdAt": "2018-03-26T22:41:09Z",
@@ -327,7 +327,7 @@
       "type": "Organization",
       "url": "https://github.com/microsoft"
     },
-    "updatedAt": "2025-11-29T07:43:56Z",
+    "updatedAt": "2025-11-30T09:29:07Z",
     "url": "https://github.com/microsoft/PowerApps-Samples",
     "codeOfConduct": {
       "key": "other",
@@ -348,7 +348,7 @@
       "name": "C#"
     },
     "securityPolicyUrl": "https://github.com/microsoft/PowerApps-Samples/security/policy",
-    "stargazerCount": 1825,
+    "stargazerCount": 1827,
     "watchers": {
       "totalCount": 118
     },
@@ -381,7 +381,7 @@
     "openedHelpWantedIssues": 0,
     "hasHelpWantedIssues": false,
     "openedToContributionsIssues": 0,
-    "popularityScore": 1943
+    "popularityScore": 1945
   },
   {
     "createdAt": "2018-04-15T22:28:50Z",
@@ -851,6 +851,67 @@
     "popularityScore": 694
   },
   {
+    "createdAt": "2025-02-28T11:21:28Z",
+    "description": "A modern starter kit for 3D browser games powered by r3f and threejs - ",
+    "fullName": "instructa/viber3d",
+    "hasIssues": true,
+    "homepage": "https://viber3d.instructa.ai",
+    "isArchived": false,
+    "language": "TypeScript",
+    "license": {
+      "key": "mit",
+      "name": "MIT License",
+      "url": "https://api.github.com/licenses/mit"
+    },
+    "name": "viber3d",
+    "openIssuesCount": 2,
+    "owner": {
+      "id": "O_kgDOC1b3nQ",
+      "is_bot": false,
+      "login": "instructa",
+      "type": "Organization",
+      "url": "https://github.com/instructa"
+    },
+    "updatedAt": "2025-11-30T10:13:10Z",
+    "url": "https://github.com/instructa/viber3d",
+    "codeOfConduct": null,
+    "forkCount": 56,
+    "fundingLinks": [],
+    "isSecurityPolicyEnabled": false,
+    "isTemplate": false,
+    "latestRelease": null,
+    "primaryLanguage": {
+      "name": "TypeScript"
+    },
+    "securityPolicyUrl": "",
+    "stargazerCount": 578,
+    "watchers": {
+      "totalCount": 5
+    },
+    "topics": [
+      "3d-browser",
+      "3d-games",
+      "ai-builder",
+      "r3f",
+      "react-three-fiber",
+      "three",
+      "threejs",
+      "viber3d"
+    ],
+    "languages": [
+      "TypeScript",
+      "JavaScript",
+      "HTML",
+      "CSS"
+    ],
+    "openedGoodFirstIssues": 0,
+    "hasGoodFirstIssues": false,
+    "openedHelpWantedIssues": 0,
+    "hasHelpWantedIssues": false,
+    "openedToContributionsIssues": 0,
+    "popularityScore": 583
+  },
+  {
     "createdAt": "2021-10-21T07:12:03Z",
     "description": "Generate technical documentation from your existing Power Automate Flows and Power Apps canvas apps",
     "fullName": "modery/PowerDocu",
@@ -910,67 +971,6 @@
     "hasHelpWantedIssues": false,
     "openedToContributionsIssues": 0,
     "popularityScore": 604
-  },
-  {
-    "createdAt": "2025-02-28T11:21:28Z",
-    "description": "A modern starter kit for 3D browser games powered by r3f and threejs - ",
-    "fullName": "instructa/viber3d",
-    "hasIssues": true,
-    "homepage": "https://viber3d.instructa.ai",
-    "isArchived": false,
-    "language": "TypeScript",
-    "license": {
-      "key": "mit",
-      "name": "MIT License",
-      "url": "https://api.github.com/licenses/mit"
-    },
-    "name": "viber3d",
-    "openIssuesCount": 2,
-    "owner": {
-      "id": "O_kgDOC1b3nQ",
-      "is_bot": false,
-      "login": "instructa",
-      "type": "Organization",
-      "url": "https://github.com/instructa"
-    },
-    "updatedAt": "2025-11-29T11:01:01Z",
-    "url": "https://github.com/instructa/viber3d",
-    "codeOfConduct": null,
-    "forkCount": 53,
-    "fundingLinks": [],
-    "isSecurityPolicyEnabled": false,
-    "isTemplate": false,
-    "latestRelease": null,
-    "primaryLanguage": {
-      "name": "TypeScript"
-    },
-    "securityPolicyUrl": "",
-    "stargazerCount": 539,
-    "watchers": {
-      "totalCount": 4
-    },
-    "topics": [
-      "3d-browser",
-      "3d-games",
-      "ai-builder",
-      "r3f",
-      "react-three-fiber",
-      "three",
-      "threejs",
-      "viber3d"
-    ],
-    "languages": [
-      "TypeScript",
-      "JavaScript",
-      "HTML",
-      "CSS"
-    ],
-    "openedGoodFirstIssues": 0,
-    "hasGoodFirstIssues": false,
-    "openedHelpWantedIssues": 0,
-    "hasHelpWantedIssues": false,
-    "openedToContributionsIssues": 0,
-    "popularityScore": 543
   },
   {
     "createdAt": "2017-12-06T03:33:42Z",
@@ -1488,7 +1488,7 @@
       "name": "Other",
       "url": "https://github.com/pnp/powerautomate-samples/blob/main/CODE_OF_CONDUCT.md"
     },
-    "forkCount": 134,
+    "forkCount": 135,
     "fundingLinks": [],
     "isSecurityPolicyEnabled": true,
     "isTemplate": false,
@@ -1863,7 +1863,7 @@
       "type": "Organization",
       "url": "https://github.com/microsoft"
     },
-    "updatedAt": "2025-11-26T13:22:46Z",
+    "updatedAt": "2025-11-29T22:14:35Z",
     "url": "https://github.com/microsoft/powerplatform-vscode",
     "codeOfConduct": {
       "key": "other",
@@ -1884,7 +1884,7 @@
       "name": "TypeScript"
     },
     "securityPolicyUrl": "https://github.com/microsoft/powerplatform-vscode/security/policy",
-    "stargazerCount": 253,
+    "stargazerCount": 252,
     "watchers": {
       "totalCount": 20
     },
@@ -1905,7 +1905,7 @@
     "openedHelpWantedIssues": 0,
     "hasHelpWantedIssues": false,
     "openedToContributionsIssues": 0,
-    "popularityScore": 273
+    "popularityScore": 272
   },
   {
     "createdAt": "2016-05-20T12:32:41Z",
@@ -2307,7 +2307,7 @@
       "type": "Organization",
       "url": "https://github.com/pnp"
     },
-    "updatedAt": "2025-11-29T06:18:02Z",
+    "updatedAt": "2025-11-29T15:45:28Z",
     "url": "https://github.com/pnp/powerplatform-snippets",
     "codeOfConduct": null,
     "forkCount": 66,
@@ -3155,7 +3155,7 @@
       "url": ""
     },
     "name": "MicrosoftCloudLogos",
-    "openIssuesCount": 2,
+    "openIssuesCount": 1,
     "owner": {
       "id": "MDQ6VXNlcjUxNDczNDk0",
       "is_bot": false,
@@ -3163,10 +3163,10 @@
       "type": "User",
       "url": "https://github.com/loryanstrant"
     },
-    "updatedAt": "2025-11-29T02:29:33Z",
+    "updatedAt": "2025-11-29T20:09:22Z",
     "url": "https://github.com/loryanstrant/MicrosoftCloudLogos",
     "codeOfConduct": null,
-    "forkCount": 18,
+    "forkCount": 20,
     "fundingLinks": [],
     "isSecurityPolicyEnabled": false,
     "isTemplate": false,
@@ -4975,7 +4975,7 @@
       "type": "Organization",
       "url": "https://github.com/microsoft"
     },
-    "updatedAt": "2025-11-25T19:21:41Z",
+    "updatedAt": "2025-11-30T03:43:25Z",
     "url": "https://github.com/microsoft/developerkorea",
     "codeOfConduct": {
       "key": "other",
@@ -4991,7 +4991,7 @@
       "name": "C#"
     },
     "securityPolicyUrl": "https://github.com/microsoft/developerkorea/security/policy",
-    "stargazerCount": 69,
+    "stargazerCount": 68,
     "watchers": {
       "totalCount": 4
     },
@@ -5013,7 +5013,7 @@
     "openedHelpWantedIssues": 0,
     "hasHelpWantedIssues": false,
     "openedToContributionsIssues": 0,
-    "popularityScore": 73
+    "popularityScore": 72
   },
   {
     "createdAt": "2019-09-17T00:42:05Z",
@@ -7524,7 +7524,7 @@
       "type": "User",
       "url": "https://github.com/rpothin"
     },
-    "updatedAt": "2025-11-28T15:08:38Z",
+    "updatedAt": "2025-11-29T11:26:31Z",
     "url": "https://github.com/rpothin/PowerPlatform-OpenSource-Hub",
     "codeOfConduct": {
       "key": "contributor_covenant",
@@ -8475,7 +8475,7 @@
       "type": "Organization",
       "url": "https://github.com/fscpscollaborative"
     },
-    "updatedAt": "2025-11-28T23:41:58Z",
+    "updatedAt": "2025-11-29T23:42:12Z",
     "url": "https://github.com/fscpscollaborative/fscps",
     "codeOfConduct": null,
     "forkCount": 6,
@@ -9194,7 +9194,7 @@
   },
   {
     "createdAt": "2025-09-21T08:10:43Z",
-    "description": "Free Local-first Full-Stack AI App Builder & Automation — Build, Test & Deploy with LLMs - v0 / lovable / Bolt opensource Alternative ✨ 🌟 Star if you like it!",
+    "description": "Free Local-first Full-Stack AI App Builder & Automation — Build, Test & Deploy with LLMs - Antigravity, Lovable, Bolt opensource Alternative ✨ 🌟 Star if you like it!",
     "fullName": "SFARPak/AliFullStack",
     "hasIssues": true,
     "homepage": "",
@@ -9214,7 +9214,7 @@
       "type": "User",
       "url": "https://github.com/SFARPak"
     },
-    "updatedAt": "2025-11-27T19:32:33Z",
+    "updatedAt": "2025-11-29T16:29:48Z",
     "url": "https://github.com/SFARPak/AliFullStack",
     "codeOfConduct": null,
     "forkCount": 8,
@@ -9225,7 +9225,7 @@
       "name": "v0.0.6",
       "tagName": "v0.0.6",
       "url": "https://github.com/SFARPak/AliFullStack/releases/tag/v0.0.6",
-      "publishedAt": "2025-11-03T19:43:53Z"
+      "publishedAt": "2025-11-29T15:56:00Z"
     },
     "primaryLanguage": {
       "name": "TypeScript"
@@ -9243,7 +9243,6 @@
       "dyad",
       "llm",
       "react",
-      "v0",
       "code-generation",
       "django",
       "nextjs",
@@ -9255,7 +9254,8 @@
       "automation",
       "alifullstack",
       "claude-code",
-      "diffusers"
+      "diffusers",
+      "antigravity"
     ],
     "languages": [
       "TypeScript",
@@ -11269,7 +11269,7 @@
       "url": ""
     },
     "name": "Rnwood.Dataverse.Data.PowerShell",
-    "openIssuesCount": 17,
+    "openIssuesCount": 18,
     "owner": {
       "id": "MDQ6VXNlcjEzMjc4OTU=",
       "is_bot": false,
