@@ -13,7 +13,7 @@
       "url": "https://api.github.com/licenses/agpl-3.0"
     },
     "name": "skyvern",
-    "openIssuesCount": 147,
+    "openIssuesCount": 140,
     "owner": {
       "id": "O_kgDOCG56QQ",
       "is_bot": false,
@@ -21,14 +21,14 @@
       "type": "Organization",
       "url": "https://github.com/Skyvern-AI"
     },
-    "updatedAt": "2025-12-14T11:00:06Z",
+    "updatedAt": "2025-12-15T10:16:58Z",
     "url": "https://github.com/Skyvern-AI/skyvern",
     "codeOfConduct": {
       "key": "contributor_covenant",
       "name": "Contributor Covenant",
       "url": "https://github.com/Skyvern-AI/skyvern/blob/main/CODE_OF_CONDUCT.md"
     },
-    "forkCount": 1717,
+    "forkCount": 1720,
     "fundingLinks": [],
     "isSecurityPolicyEnabled": true,
     "isTemplate": false,
@@ -42,7 +42,7 @@
       "name": "Python"
     },
     "securityPolicyUrl": "https://github.com/Skyvern-AI/skyvern/security/policy",
-    "stargazerCount": 19716,
+    "stargazerCount": 19736,
     "watchers": {
       "totalCount": 101
     },
@@ -81,7 +81,7 @@
     "openedHelpWantedIssues": 0,
     "hasHelpWantedIssues": false,
     "openedToContributionsIssues": 0,
-    "popularityScore": 19817
+    "popularityScore": 19837
   },
   {
     "createdAt": "2021-02-23T22:09:05Z",
@@ -112,7 +112,7 @@
       "name": "Other",
       "url": "https://github.com/microsoft/Power-Fx/blob/main/CODE_OF_CONDUCT.md"
     },
-    "forkCount": 353,
+    "forkCount": 354,
     "fundingLinks": [],
     "isSecurityPolicyEnabled": true,
     "isTemplate": false,
@@ -238,7 +238,7 @@
       "url": "https://api.github.com/licenses/mit"
     },
     "name": "Microsoft365DSC",
-    "openIssuesCount": 187,
+    "openIssuesCount": 186,
     "owner": {
       "id": "MDEyOk9yZ2FuaXphdGlvbjYxNTQ3MjI=",
       "is_bot": false,
@@ -246,14 +246,14 @@
       "type": "Organization",
       "url": "https://github.com/microsoft"
     },
-    "updatedAt": "2025-12-13T21:51:49Z",
+    "updatedAt": "2025-12-15T10:28:24Z",
     "url": "https://github.com/microsoft/Microsoft365DSC",
     "codeOfConduct": {
       "key": "contributor_covenant",
       "name": "Contributor Covenant",
       "url": "https://github.com/microsoft/Microsoft365DSC/blob/Dev/CODE_OF_CONDUCT.md"
     },
-    "forkCount": 621,
+    "forkCount": 620,
     "fundingLinks": [],
     "isSecurityPolicyEnabled": true,
     "isTemplate": false,
@@ -267,7 +267,7 @@
       "name": "PowerShell"
     },
     "securityPolicyUrl": "https://github.com/microsoft/Microsoft365DSC/security/policy",
-    "stargazerCount": 2105,
+    "stargazerCount": 2106,
     "watchers": {
       "totalCount": 86
     },
@@ -303,7 +303,7 @@
     "openedHelpWantedIssues": 2,
     "hasHelpWantedIssues": true,
     "openedToContributionsIssues": 2,
-    "popularityScore": 2191
+    "popularityScore": 2192
   },
   {
     "createdAt": "2018-03-26T22:41:09Z",
@@ -520,10 +520,10 @@
   },
   {
     "createdAt": "2022-06-14T11:40:21Z",
-    "description": "An offensive security toolset for Microsoft 365 focused on Microsoft Copilot, Copilot Studio and Power Platform",
+    "description": "An offensive/defense security toolset for discovery, recon and ethical assessment of AI Agents",
     "fullName": "mbrg/power-pwn",
     "hasIssues": true,
-    "homepage": "",
+    "homepage": "https://zenity.io/zenity-security-assessment-hub",
     "isArchived": false,
     "language": "Python",
     "license": {
@@ -540,7 +540,7 @@
       "type": "User",
       "url": "https://github.com/mbrg"
     },
-    "updatedAt": "2025-12-13T08:59:36Z",
+    "updatedAt": "2025-12-14T12:25:52Z",
     "url": "https://github.com/mbrg/power-pwn",
     "codeOfConduct": null,
     "forkCount": 122,
@@ -562,26 +562,26 @@
       "totalCount": 19
     },
     "topics": [
-      "defcon30",
       "pentesting",
       "redteam",
       "hacking",
-      "powerautomate",
-      "roboticprocessautomation",
-      "rpa",
       "lowcode",
       "nocode",
       "m365",
       "microsoft365",
       "powerapps",
-      "blackhat2023",
       "hacking-tool",
-      "redteamer",
       "redteaming",
-      "blackhat2024",
       "ai-red-team",
       "copilotstudio",
-      "copilot-for-microsoft-365"
+      "agentforce",
+      "agentspace",
+      "chatgpt",
+      "agentkit",
+      "gpts",
+      "powerplatform",
+      "blackhat",
+      "defcon"
     ],
     "languages": [
       "Python",
@@ -680,7 +680,7 @@
       "type": "User",
       "url": "https://github.com/inoerp"
     },
-    "updatedAt": "2025-12-04T08:11:15Z",
+    "updatedAt": "2025-12-14T17:55:03Z",
     "url": "https://github.com/inoerp/inoERP",
     "codeOfConduct": null,
     "forkCount": 684,
@@ -697,7 +697,7 @@
       "name": "JavaScript"
     },
     "securityPolicyUrl": "",
-    "stargazerCount": 819,
+    "stargazerCount": 820,
     "watchers": {
       "totalCount": 128
     },
@@ -717,7 +717,7 @@
     "openedHelpWantedIssues": 0,
     "hasHelpWantedIssues": false,
     "openedToContributionsIssues": 0,
-    "popularityScore": 947
+    "popularityScore": 948
   },
   {
     "createdAt": "2018-11-15T09:56:08Z",
@@ -748,7 +748,7 @@
       "name": "Other",
       "url": "https://github.com/microsoft/.github/blob/main/CODE_OF_CONDUCT.md"
     },
-    "forkCount": 357,
+    "forkCount": 358,
     "fundingLinks": [],
     "isSecurityPolicyEnabled": true,
     "isTemplate": false,
@@ -1863,7 +1863,7 @@
       "type": "Organization",
       "url": "https://github.com/microsoft"
     },
-    "updatedAt": "2025-12-12T17:43:55Z",
+    "updatedAt": "2025-12-15T08:31:55Z",
     "url": "https://github.com/microsoft/powerplatform-vscode",
     "codeOfConduct": {
       "key": "other",
@@ -1921,7 +1921,7 @@
       "url": "https://api.github.com/licenses/mit"
     },
     "name": "Levelup-for-Dynamics-CRM",
-    "openIssuesCount": 11,
+    "openIssuesCount": 12,
     "owner": {
       "id": "MDQ6VXNlcjUwMzUyNjY=",
       "is_bot": false,
@@ -2357,7 +2357,7 @@
       "url": ""
     },
     "name": "raaghu-react",
-    "openIssuesCount": 1169,
+    "openIssuesCount": 1172,
     "owner": {
       "id": "MDEyOk9yZ2FuaXphdGlvbjczMDQ4ODY2",
       "is_bot": false,
@@ -3015,14 +3015,14 @@
     "hasIssues": true,
     "homepage": "http://www.mscloudlogos.com/",
     "isArchived": false,
-    "language": "",
+    "language": "Python",
     "license": {
       "key": "",
       "name": "",
       "url": ""
     },
     "name": "MicrosoftCloudLogos",
-    "openIssuesCount": 2,
+    "openIssuesCount": 0,
     "owner": {
       "id": "MDQ6VXNlcjUxNDczNDk0",
       "is_bot": false,
@@ -3030,7 +3030,7 @@
       "type": "User",
       "url": "https://github.com/loryanstrant"
     },
-    "updatedAt": "2025-12-13T20:48:36Z",
+    "updatedAt": "2025-12-15T10:36:53Z",
     "url": "https://github.com/loryanstrant/MicrosoftCloudLogos",
     "codeOfConduct": null,
     "forkCount": 23,
@@ -3038,9 +3038,11 @@
     "isSecurityPolicyEnabled": false,
     "isTemplate": false,
     "latestRelease": null,
-    "primaryLanguage": null,
+    "primaryLanguage": {
+      "name": "Python"
+    },
     "securityPolicyUrl": "",
-    "stargazerCount": 131,
+    "stargazerCount": 132,
     "watchers": {
       "totalCount": 11
     },
@@ -3065,13 +3067,15 @@
       "powerplatform",
       "viva"
     ],
-    "languages": [],
+    "languages": [
+      "Python"
+    ],
     "openedGoodFirstIssues": 0,
     "hasGoodFirstIssues": false,
     "openedHelpWantedIssues": 0,
     "hasHelpWantedIssues": false,
     "openedToContributionsIssues": 0,
-    "popularityScore": 142
+    "popularityScore": 143
   },
   {
     "createdAt": "2018-03-04T17:10:30Z",
@@ -3465,7 +3469,7 @@
       "type": "User",
       "url": "https://github.com/AgniusBartninkas"
     },
-    "updatedAt": "2025-12-06T10:55:37Z",
+    "updatedAt": "2025-12-15T03:37:27Z",
     "url": "https://github.com/AgniusBartninkas/power-automate-desktop-framework",
     "codeOfConduct": null,
     "forkCount": 23,
@@ -3482,7 +3486,7 @@
       "name": "TSQL"
     },
     "securityPolicyUrl": "",
-    "stargazerCount": 104,
+    "stargazerCount": 105,
     "watchers": {
       "totalCount": 19
     },
@@ -3501,7 +3505,7 @@
     "openedHelpWantedIssues": 0,
     "hasHelpWantedIssues": false,
     "openedToContributionsIssues": 0,
-    "popularityScore": 123
+    "popularityScore": 124
   },
   {
     "createdAt": "2016-10-14T17:43:27Z",
@@ -3712,7 +3716,7 @@
       "type": "Organization",
       "url": "https://github.com/pnp"
     },
-    "updatedAt": "2025-12-01T09:34:18Z",
+    "updatedAt": "2025-12-15T06:49:45Z",
     "url": "https://github.com/pnp/provision-assist-m365",
     "codeOfConduct": {
       "key": "other",
@@ -3733,7 +3737,7 @@
       "name": "PowerShell"
     },
     "securityPolicyUrl": "",
-    "stargazerCount": 98,
+    "stargazerCount": 99,
     "watchers": {
       "totalCount": 16
     },
@@ -3759,7 +3763,7 @@
     "openedHelpWantedIssues": 1,
     "hasHelpWantedIssues": true,
     "openedToContributionsIssues": 2,
-    "popularityScore": 114
+    "popularityScore": 115
   },
   {
     "createdAt": "2024-06-23T22:52:29Z",
@@ -4901,7 +4905,7 @@
       "url": "https://api.github.com/licenses/mit"
     },
     "name": "Dynamics-Crm-DevKit",
-    "openIssuesCount": 4,
+    "openIssuesCount": 1,
     "owner": {
       "id": "MDQ6VXNlcjQ3OTcyOQ==",
       "is_bot": false,
@@ -5854,7 +5858,7 @@
       "url": "https://api.github.com/licenses/mit"
     },
     "name": "terraform-provider-power-platform",
-    "openIssuesCount": 23,
+    "openIssuesCount": 24,
     "owner": {
       "id": "MDEyOk9yZ2FuaXphdGlvbjYxNTQ3MjI=",
       "is_bot": false,
@@ -6698,7 +6702,7 @@
       "type": "User",
       "url": "https://github.com/srenders"
     },
-    "updatedAt": "2025-11-23T15:36:04Z",
+    "updatedAt": "2025-12-15T11:06:09Z",
     "url": "https://github.com/srenders/blog",
     "codeOfConduct": {
       "key": "contributor_covenant",
@@ -7270,7 +7274,7 @@
       "type": "User",
       "url": "https://github.com/rpothin"
     },
-    "updatedAt": "2025-12-13T11:24:06Z",
+    "updatedAt": "2025-12-14T11:22:26Z",
     "url": "https://github.com/rpothin/PowerPlatform-OpenSource-Hub",
     "codeOfConduct": {
       "key": "contributor_covenant",
@@ -8448,7 +8452,7 @@
       "type": "Organization",
       "url": "https://github.com/fscpscollaborative"
     },
-    "updatedAt": "2025-12-12T23:36:51Z",
+    "updatedAt": "2025-12-14T23:38:36Z",
     "url": "https://github.com/fscpscollaborative/fscps",
     "codeOfConduct": null,
     "forkCount": 6,
@@ -8811,7 +8815,7 @@
       "name": "Other",
       "url": "https://github.com/OfficeDev/microsoft-teams-apps-request-a-guest/blob/main/CODE_OF_CONDUCT.md"
     },
-    "forkCount": 4,
+    "forkCount": 5,
     "fundingLinks": [],
     "isSecurityPolicyEnabled": true,
     "isTemplate": false,
@@ -9218,7 +9222,7 @@
       "url": "https://api.github.com/licenses/apache-2.0"
     },
     "name": "xrmtools",
-    "openIssuesCount": 14,
+    "openIssuesCount": 15,
     "owner": {
       "id": "MDQ6VXNlcjE0MDYwMjA4",
       "is_bot": false,
@@ -10600,12 +10604,12 @@
     "isArchived": false,
     "language": "C#",
     "license": {
-      "key": "",
-      "name": "",
-      "url": ""
+      "key": "mit",
+      "name": "MIT License",
+      "url": "https://api.github.com/licenses/mit"
     },
     "name": "Rnwood.Dataverse.Data.PowerShell",
-    "openIssuesCount": 16,
+    "openIssuesCount": 17,
     "owner": {
       "id": "MDQ6VXNlcjEzMjc4OTU=",
       "is_bot": false,
@@ -10613,7 +10617,7 @@
       "type": "User",
       "url": "https://github.com/rnwood"
     },
-    "updatedAt": "2025-12-14T09:54:11Z",
+    "updatedAt": "2025-12-15T06:28:09Z",
     "url": "https://github.com/rnwood/Rnwood.Dataverse.Data.PowerShell",
     "codeOfConduct": null,
     "forkCount": 2,
@@ -10621,10 +10625,10 @@
     "isSecurityPolicyEnabled": false,
     "isTemplate": false,
     "latestRelease": {
-      "name": "2.7.4",
-      "tagName": "2.7.4",
-      "url": "https://github.com/rnwood/Rnwood.Dataverse.Data.PowerShell/releases/tag/2.7.4",
-      "publishedAt": "2025-12-14T09:55:06Z"
+      "name": "2.8.0",
+      "tagName": "2.8.0",
+      "url": "https://github.com/rnwood/Rnwood.Dataverse.Data.PowerShell/releases/tag/2.8.0",
+      "publishedAt": "2025-12-15T06:26:49Z"
     },
     "primaryLanguage": {
       "name": "C#"
@@ -13225,7 +13229,7 @@
       "type": "User",
       "url": "https://github.com/nunosubtil"
     },
-    "updatedAt": "2025-12-13T21:50:33Z",
+    "updatedAt": "2025-12-14T11:24:22Z",
     "url": "https://github.com/nunosubtil/paca-modern-web-app-sample",
     "codeOfConduct": null,
     "forkCount": 6,
@@ -13443,7 +13447,7 @@
       "url": "https://api.github.com/licenses/apache-2.0"
     },
     "name": "emcr-ess-mod",
-    "openIssuesCount": 196,
+    "openIssuesCount": 199,
     "owner": {
       "id": "MDEyOk9yZ2FuaXphdGlvbjkxNjI4MA==",
       "is_bot": false,
