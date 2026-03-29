@@ -36,7 +36,7 @@ structured, searchable documentation.
 
 | Metric | Value |
 |--------|-------|
-| **Tracked Repositories** | _auto-populated by sync script_ |
+| **Tracked Repositories** | See the [Registry](registry/index.md) for the live count |
 | **Topics Covered** | `powerplatform` · `powerapps` · `powerautomate` · `dataverse` · `dynamics365` · `pcf-controls` · `ai-builder` |
 | **Data Pipeline** | Python + PyGithub → Markdown → MkDocs |
 | **Hosting** | GitHub Pages via `mkdocs gh-deploy` |
