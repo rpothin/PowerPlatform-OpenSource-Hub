@@ -1,0 +1,53 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import ThemeSwitcher from '../components/ThemeSwitcher.astro';
+import HeroSection from '../components/HeroSection.astro';
+import SearchBar from '../components/SearchBar.astro';
+import RepoCard from '../components/RepoCard.astro';
+import type { Repository } from '../types/repository';
+
+import repositoriesData from '../data/repositories.json';
+const repos = repositoriesData as Repository[];
+---
+
+<BaseLayout title="Power Platform Open Source Hub">
+  <Header slot="header">
+    <ThemeSwitcher slot="theme-switcher" />
+  </Header>
+
+  <HeroSection
+    title="Power Platform Open Source Hub"
+    subtitle="Discover, contribute to, and build with the Power Platform open-source community."
+  >
+    <SearchBar />
+  </HeroSection>
+
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="flex items-center justify-between mb-8">
+      <div>
+        <h2 class="text-2xl font-bold text-on-surface">Discovery</h2>
+        <p class="text-sm text-on-surface-muted mt-1">
+          {repos.length} open-source repositories sorted by popularity
+        </p>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+      {repos.map((repo) => (
+        <div data-repo-card={`${repo.fullName} ${repo.description} ${repo.topics?.join(' ')}`?.toLowerCase()}>
+          <RepoCard repo={repo} />
+        </div>
+      ))}
+    </div>
+
+    {repos.length === 0 && (
+      <div class="text-center py-12 text-on-surface-muted">
+        <p class="text-lg">No repositories found.</p>
+      </div>
+    )}
+  </section>
+
+  <Footer slot="footer" />
+</BaseLayout>

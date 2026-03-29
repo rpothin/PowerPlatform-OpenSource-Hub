@@ -1,0 +1,43 @@
+---
+import type { Repository } from '../types/repository';
+import Badge from './Badge.astro';
+import StatBadge from './StatBadge.astro';
+
+export interface Props {
+  repo: Repository;
+}
+
+const { repo } = Astro.props;
+const displayTopics = repo.topics?.slice(0, 4) ?? [];
+---
+
+<article class="group rounded-xl border border-border bg-surface p-5 hover:border-primary hover:shadow-md transition-all duration-200">
+  <div class="flex items-start justify-between mb-3">
+    <div class="flex-1 min-w-0">
+      <a href={repo.url} target="_blank" rel="noopener noreferrer" class="text-base font-semibold text-on-surface hover:text-primary no-underline truncate block">
+        {repo.fullName}
+      </a>
+      {repo.primaryLanguage && (
+        <span class="text-xs text-on-surface-muted">{repo.primaryLanguage.name}</span>
+      )}
+    </div>
+  </div>
+
+  <p class="text-sm text-on-surface-muted mb-4 line-clamp-2">
+    {repo.description || 'No description available.'}
+  </p>
+
+  <div class="flex flex-wrap gap-1.5 mb-4">
+    {displayTopics.map((topic) => (
+      <Badge text={topic} />
+    ))}
+  </div>
+
+  <div class="flex items-center gap-4 pt-3 border-t border-border">
+    <StatBadge icon="⭐" value={repo.stargazerCount.toLocaleString()} label="Stars" />
+    <StatBadge icon="🍴" value={repo.forkCount.toLocaleString()} label="Forks" />
+    {repo.openedToContributionsIssues > 0 && (
+      <StatBadge icon="🤝" value={repo.openedToContributionsIssues} label="Open to contributions" />
+    )}
+  </div>
+</article>

@@ -1,0 +1,23 @@
+---
+import type { Repository } from '../types/repository';
+import RepoCard from './RepoCard.astro';
+
+export interface Props {
+  repos: Repository[];
+}
+
+const { repos } = Astro.props;
+---
+
+<section>
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+    {repos.map((repo) => (
+      <RepoCard repo={repo} />
+    ))}
+  </div>
+  {repos.length === 0 && (
+    <div class="text-center py-12 text-on-surface-muted">
+      <p class="text-lg">No repositories found.</p>
+    </div>
+  )}
+</section>

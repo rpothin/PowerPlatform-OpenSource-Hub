@@ -1,0 +1,30 @@
+---
+const navItems = [
+  { label: 'Home', href: `${import.meta.env.BASE_URL}` },
+  { label: 'Guidance', href: `${import.meta.env.BASE_URL}guidance/getting-started/` },
+  { label: 'Maintainers', href: `${import.meta.env.BASE_URL}maintainers/` },
+];
+---
+
+<header class="border-b border-border bg-surface sticky top-0 z-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16">
+      <a href={import.meta.env.BASE_URL} class="flex items-center gap-2 font-bold text-lg text-primary no-underline">
+        <svg class="w-8 h-8" viewBox="0 0 32 32" fill="currentColor">
+          <path d="M16 2L4 8v8l12 6 12-6V8L16 2zm0 3l8.5 4.25L16 13.5 7.5 9.25 16 5z" />
+        </svg>
+        <span>PP OSS Hub</span>
+      </a>
+      <nav class="hidden md:flex items-center gap-6">
+        {navItems.map((item) => (
+          <a href={item.href} class="text-on-surface-muted hover:text-primary text-sm font-medium no-underline">
+            {item.label}
+          </a>
+        ))}
+      </nav>
+      <div class="flex items-center gap-3">
+        <slot name="theme-switcher" />
+      </div>
+    </div>
+  </div>
+</header>

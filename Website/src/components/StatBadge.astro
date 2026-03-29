@@ -1,0 +1,14 @@
+---
+export interface Props {
+  icon: string;
+  value: number | string;
+  label: string;
+}
+
+const { icon, value, label } = Astro.props;
+---
+
+<div class="flex items-center gap-1.5 text-sm text-on-surface-muted" title={label}>
+  <span aria-hidden="true">{icon}</span>
+  <span class="font-medium">{value}</span>
+</div>

@@ -1,0 +1,21 @@
+---
+export interface Props {
+  text: string;
+  variant?: 'primary' | 'secondary' | 'outline';
+  size?: 'sm' | 'md';
+}
+
+const { text, variant = 'secondary', size = 'sm' } = Astro.props;
+
+const baseClasses = 'inline-flex items-center rounded-full font-medium';
+const sizeClasses = size === 'sm' ? 'px-2.5 py-0.5 text-xs' : 'px-3 py-1 text-sm';
+const variantClasses = {
+  primary: 'bg-primary text-white',
+  secondary: 'bg-surface-alt text-on-surface-muted border border-border',
+  outline: 'border border-primary text-primary',
+};
+---
+
+<span class:list={[baseClasses, sizeClasses, variantClasses[variant]]}>
+  {text}
+</span>

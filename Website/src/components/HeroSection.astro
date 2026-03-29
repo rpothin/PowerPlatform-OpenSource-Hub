@@ -1,0 +1,18 @@
+---
+export interface Props {
+  title: string;
+  subtitle?: string;
+}
+
+const { title, subtitle } = Astro.props;
+---
+
+<section class="bg-primary text-white py-16 md:py-24">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <h1 class="text-3xl md:text-5xl font-bold mb-4">{title}</h1>
+    {subtitle && <p class="text-lg md:text-xl opacity-90 max-w-2xl mx-auto">{subtitle}</p>}
+    <div class="mt-8">
+      <slot />
+    </div>
+  </div>
+</section>

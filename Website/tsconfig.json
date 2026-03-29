@@ -1,10 +1,13 @@
 {
-  // This file is not used in compilation. It is here just for a nice editor experience.
-  "extends": "@docusaurus/tsconfig",
+  "extends": "astro/tsconfigs/strict",
   "compilerOptions": {
-    "resolveJsonModule": true,
-    "jsx": "react",
     "baseUrl": ".",
-    "types": ["jest"]
+    "paths": {
+      "@components/*": ["src/components/*"],
+      "@layouts/*": ["src/layouts/*"],
+      "@data/*": ["src/data/*"],
+      "@styles/*": ["src/styles/*"],
+      "@types/*": ["src/types/*"]
+    }
   }
 }

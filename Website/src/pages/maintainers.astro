@@ -1,0 +1,74 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import ThemeSwitcher from '../components/ThemeSwitcher.astro';
+import MaintainerCard from '../components/MaintainerCard.astro';
+
+const resources = [
+  {
+    title: 'Getting Started',
+    description: 'New to the Power Platform OSS ecosystem? Learn the basics and find your first project.',
+    href: `${import.meta.env.BASE_URL}guidance/getting-started/`,
+    icon: '🚀',
+  },
+  {
+    title: 'Contributing Guide',
+    description: 'Best practices, coding standards, and workflows for contributing to projects.',
+    href: `${import.meta.env.BASE_URL}guidance/contributing/`,
+    icon: '📝',
+  },
+  {
+    title: 'GitHub Repository',
+    description: 'Visit the source code, report issues, and help improve this hub.',
+    href: 'https://github.com/rpothin/PowerPlatform-OpenSource-Hub',
+    icon: '💻',
+  },
+  {
+    title: 'Power Platform Docs',
+    description: 'Official Microsoft documentation for Power Platform technologies.',
+    href: 'https://learn.microsoft.com/power-platform/',
+    icon: '📚',
+  },
+  {
+    title: 'Community Forum',
+    description: 'Connect with other Power Platform developers and maintainers.',
+    href: 'https://powerusers.microsoft.com/',
+    icon: '💬',
+  },
+  {
+    title: 'Code of Conduct',
+    description: 'Our community guidelines to ensure a welcoming environment for everyone.',
+    href: 'https://github.com/rpothin/PowerPlatform-OpenSource-Hub/blob/main/CODE_OF_CONDUCT.md',
+    icon: '🤝',
+  },
+];
+---
+
+<BaseLayout title="Maintainer Home — PP OSS Hub">
+  <Header slot="header">
+    <ThemeSwitcher slot="theme-switcher" />
+  </Header>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="text-center mb-12">
+      <h1 class="text-3xl md:text-4xl font-bold text-on-surface mb-4">Maintainer Home</h1>
+      <p class="text-lg text-on-surface-muted max-w-2xl mx-auto">
+        Resources, guides, and tools for Power Platform open-source maintainers and contributors.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      {resources.map((resource) => (
+        <MaintainerCard
+          title={resource.title}
+          description={resource.description}
+          href={resource.href}
+          icon={resource.icon}
+        />
+      ))}
+    </div>
+  </div>
+
+  <Footer slot="footer" />
+</BaseLayout>

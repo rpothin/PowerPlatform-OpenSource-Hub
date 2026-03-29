@@ -1,0 +1,33 @@
+---
+const year = new Date().getFullYear();
+---
+
+<footer class="border-t border-border bg-surface-alt mt-auto">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div>
+        <h3 class="text-sm font-semibold text-on-surface mb-3">Power Platform OSS Hub</h3>
+        <p class="text-sm text-on-surface-muted">
+          A curated hub for discovering and contributing to Power Platform open-source projects.
+        </p>
+      </div>
+      <div>
+        <h3 class="text-sm font-semibold text-on-surface mb-3">Links</h3>
+        <ul class="space-y-2 text-sm">
+          <li><a href="https://github.com/rpothin/PowerPlatform-OpenSource-Hub" class="text-on-surface-muted hover:text-primary">GitHub Repository</a></li>
+          <li><a href="https://learn.microsoft.com/power-platform/" class="text-on-surface-muted hover:text-primary">Power Platform Docs</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="text-sm font-semibold text-on-surface mb-3">Community</h3>
+        <ul class="space-y-2 text-sm">
+          <li><a href="https://github.com/rpothin/PowerPlatform-OpenSource-Hub/blob/main/CODE_OF_CONDUCT.md" class="text-on-surface-muted hover:text-primary">Code of Conduct</a></li>
+          <li><a href="https://github.com/rpothin/PowerPlatform-OpenSource-Hub/blob/main/LICENSE" class="text-on-surface-muted hover:text-primary">License (MIT)</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="mt-8 pt-4 border-t border-border text-center text-sm text-on-surface-muted">
+      &copy; {year} Power Platform Open Source Hub. Built with Astro.
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Theme A: Power Platform (Default) */
+:root,
+[data-theme="power-platform"] {
+  --color-primary: #00A248;
+  --color-primary-light: #33b56d;
+  --color-primary-dark: #007a36;
+  --color-surface: #ffffff;
+  --color-surface-alt: #f3f4f6;
+  --color-on-surface: #1f2937;
+  --color-on-surface-muted: #6b7280;
+  --color-accent: #0078d4;
+  --color-border: #e5e7eb;
+}
+
+/* Theme B: Copilot Studio */
+[data-theme="copilot-studio"] {
+  --color-primary: #4B32C3;
+  --color-primary-light: #6d57d2;
+  --color-primary-dark: #3a2799;
+  --color-surface: #0f172a;
+  --color-surface-alt: #1e293b;
+  --color-on-surface: #f1f5f9;
+  --color-on-surface-muted: #94a3b8;
+  --color-accent: #a78bfa;
+  --color-border: #334155;
+}
+
+@layer base {
+  body {
+    @apply bg-surface text-on-surface transition-colors duration-200;
+  }
+
+  a {
+    @apply text-primary hover:text-primary-dark transition-colors;
+  }
+}

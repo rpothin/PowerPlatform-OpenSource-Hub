@@ -1,0 +1,35 @@
+---
+export interface Props {
+  placeholder?: string;
+}
+
+const { placeholder = 'Search repositories...' } = Astro.props;
+---
+
+<div class="relative w-full max-w-md">
+  <svg class="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-on-surface-muted pointer-events-none" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+    <circle cx="11" cy="11" r="8" />
+    <path d="m21 21-4.35-4.35" />
+  </svg>
+  <input
+    id="repo-search"
+    type="search"
+    placeholder={placeholder}
+    class="w-full rounded-lg border border-border bg-surface pl-10 pr-4 py-2.5 text-sm text-on-surface placeholder:text-on-surface-muted focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+  />
+</div>
+
+<script is:inline>
+  (function () {
+    const input = document.getElementById('repo-search');
+    if (!input) return;
+    input.addEventListener('input', function (e) {
+      const query = e.target.value.toLowerCase().trim();
+      const cards = document.querySelectorAll('[data-repo-card]');
+      cards.forEach(function (card) {
+        const text = card.getAttribute('data-repo-card') || '';
+        card.style.display = text.includes(query) ? '' : 'none';
+      });
+    });
+  })();
+</script>

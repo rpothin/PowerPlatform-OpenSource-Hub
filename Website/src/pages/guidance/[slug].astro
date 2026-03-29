@@ -1,0 +1,69 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import ThemeSwitcher from '../../components/ThemeSwitcher.astro';
+
+const guidancePages = [
+  {
+    slug: 'getting-started',
+    title: 'Getting Started',
+    description: 'Learn how to explore and contribute to Power Platform open-source projects.',
+  },
+  {
+    slug: 'contributing',
+    title: 'Contributing Guide',
+    description: 'Best practices and guidelines for contributing to open-source projects.',
+  },
+];
+
+export function getStaticPaths() {
+  return [
+    { params: { slug: 'getting-started' } },
+    { params: { slug: 'contributing' } },
+  ];
+}
+
+const { slug } = Astro.params;
+const page = guidancePages.find((p) => p.slug === slug);
+
+if (!page) {
+  return Astro.redirect(import.meta.env.BASE_URL);
+}
+
+const contentModules = import.meta.glob('../../content/guidance/*.md', { eager: true });
+const key = Object.keys(contentModules).find((k) => k.includes(slug!));
+const mod = key ? (contentModules[key] as { compiledContent: () => string; frontmatter: Record<string, string> }) : null;
+---
+
+<BaseLayout title={`${page.title} — PP OSS Hub`}>
+  <Header slot="header">
+    <ThemeSwitcher slot="theme-switcher" />
+  </Header>
+
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <nav class="mb-8">
+      <a href={import.meta.env.BASE_URL} class="text-sm text-on-surface-muted hover:text-primary">&larr; Back to Home</a>
+    </nav>
+
+    <article class="prose prose-lg max-w-none">
+      <h1 class="text-3xl font-bold text-on-surface mb-2">{mod?.frontmatter?.title || page.title}</h1>
+      {mod ? <Fragment set:html={mod.compiledContent()} /> : <p class="text-on-surface-muted">Content coming soon.</p>}
+    </article>
+
+    <aside class="mt-12 pt-8 border-t border-border">
+      <h2 class="text-lg font-semibold text-on-surface mb-4">Other Guides</h2>
+      <ul class="space-y-2">
+        {guidancePages.filter((p) => p.slug !== slug).map((p) => (
+          <li>
+            <a href={`${import.meta.env.BASE_URL}guidance/${p.slug}/`} class="text-primary hover:text-primary-dark">
+              {p.title}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </aside>
+  </div>
+
+  <Footer slot="footer" />
+</BaseLayout>
