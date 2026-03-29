@@ -1,0 +1,97 @@
+# :material-hand-heart: How to Contribute
+
+Thank you for your interest in contributing to the **Power Platform Open-Source
+Hub**! This guide explains the different ways you can help.
+
+---
+
+## Ways to Contribute
+
+!!! success "Everyone can contribute"
+    You don't need to be a developer to help. Documentation improvements,
+    bug reports, and community engagement all make a difference.
+
+### 1. Add a Repository to the Registry
+
+If you maintain or know of a Power Platform open-source project:
+
+1. Ensure the repository has at least one of the
+   [tracked topics](../registry/index.md) (e.g., `powerplatform`, `powerapps`,
+   `dataverse`).
+2. Open an issue or pull request on the
+   [Hub repository](https://github.com/rpothin/PowerPlatform-OpenSource-Hub).
+
+!!! note "Automatic Discovery"
+    Repositories tagged with tracked topics are discovered automatically by the
+    sync pipeline. Adding the correct topic to your GitHub repository is the
+    easiest way to get listed.
+
+### 2. Improve Documentation
+
+- Fix typos, improve clarity, or add missing information.
+- Propose new guide pages by opening an issue.
+
+### 3. Enhance the Sync Pipeline
+
+The `scripts/sync_repos.py` script is the backbone of the Hub. Contributions
+that improve data accuracy, add new metadata, or optimize API usage are always
+welcome.
+
+---
+
+## Development Setup
+
+### Prerequisites
+
+- **Python 3.10+**
+- **pip** (Python package manager)
+- A **GitHub Personal Access Token** (optional, for higher API rate limits)
+
+### Quick Start
+
+```bash
+# Clone the repository
+git clone https://github.com/rpothin/PowerPlatform-OpenSource-Hub.git
+cd PowerPlatform-OpenSource-Hub
+
+# Install dependencies
+pip install -r requirements.txt
+
+# Run the sync script (uses existing data if no token provided)
+python scripts/sync_repos.py
+
+# Serve the documentation locally
+mkdocs serve
+```
+
+!!! warning "API Rate Limits"
+    Without a GitHub token, you are limited to **60 requests per hour**.
+    Set the `GITHUB_TOKEN` environment variable for authenticated access
+    (5,000 requests/hour).
+
+    ```bash
+    export GITHUB_TOKEN=ghp_your_token_here
+    python scripts/sync_repos.py
+    ```
+
+---
+
+## Pull Request Guidelines
+
+!!! abstract "PR Checklist"
+    - [ ] Changes are focused and minimal
+    - [ ] New features include documentation updates
+    - [ ] Python code follows existing conventions
+    - [ ] `mkdocs build --strict` passes without warnings
+
+---
+
+## Code of Conduct
+
+All contributors are expected to follow the project's
+[Code of Conduct](https://github.com/rpothin/PowerPlatform-OpenSource-Hub/blob/main/CODE_OF_CONDUCT.md).
+
+!!! danger "Be Kind"
+    Harassment, discrimination, and disrespectful behaviour will not be
+    tolerated. We are committed to providing a welcoming and inclusive
+    experience for everyone.

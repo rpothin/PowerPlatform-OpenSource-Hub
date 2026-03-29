@@ -1,0 +1,43 @@
+/* Power Platform Open-Source Hub — custom stylesheet */
+
+/* ===== Palette-aware accent underlines on nav tabs ===== */
+[data-md-color-scheme="default"] .md-tabs__link--active {
+  border-bottom: 2px solid var(--md-accent-fg-color, #4ec86c);
+}
+[data-md-color-scheme="slate"] .md-tabs__link--active {
+  border-bottom: 2px solid var(--md-accent-fg-color, #A855F7);
+}
+
+/* ===== Registry cards ===== */
+.repo-card {
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-radius: 8px;
+  padding: 1rem 1.2rem;
+  margin-bottom: 1rem;
+  transition: box-shadow 0.2s;
+}
+.repo-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+.repo-card h3 {
+  margin-top: 0;
+}
+
+/* ===== Badge styling ===== */
+.badge {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  margin-right: 0.3rem;
+  margin-bottom: 0.3rem;
+}
+.badge--topic {
+  background-color: var(--md-accent-fg-color);
+  color: #fff;
+}
+.badge--lang {
+  background-color: var(--md-primary-fg-color);
+  color: #fff;
+}

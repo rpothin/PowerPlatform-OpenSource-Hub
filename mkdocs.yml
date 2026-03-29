@@ -1,0 +1,102 @@
+site_name: Power Platform Open-Source Hub
+site_description: >-
+  A central intelligence hub for the Power Platform and Copilot Studio
+  open-source ecosystem. Discover repositories, learn best practices,
+  and find your next contribution.
+site_url: https://rpothin.github.io/PowerPlatform-OpenSource-Hub/
+repo_url: https://github.com/rpothin/PowerPlatform-OpenSource-Hub
+repo_name: rpothin/PowerPlatform-OpenSource-Hub
+edit_uri: edit/main/docs/
+
+copyright: >-
+  Copyright &copy; 2024-2026 Power Platform Open-Source Hub Contributors
+
+theme:
+  name: material
+  custom_dir: overrides
+  favicon: assets/favicon.svg
+  logo: assets/logo-green.svg
+  font:
+    text: Segoe UI
+    code: Cascadia Code
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: teal
+      accent: green
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to Copilot Purple
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: deep purple
+      accent: purple
+      toggle:
+        icon: material/weather-night
+        name: Switch to Power Green
+  icon:
+    repo: fontawesome/brands/github
+  features:
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - navigation.footer
+    - navigation.indexes
+    - search.suggest
+    - search.highlight
+    - search.share
+    - content.code.copy
+    - content.code.annotate
+    - content.tabs.link
+    - toc.follow
+
+plugins:
+  - search
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.mark
+  - attr_list
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/rpothin/PowerPlatform-OpenSource-Hub
+  generator: false
+
+extra_css:
+  - stylesheets/extra.css
+
+nav:
+  - Home: index.md
+  - Registry:
+    - registry/index.md
+  - Guide:
+    - guide/index.md
+    - Contributing: guide/contributing.md
+    - Naming Conventions: guide/naming-conventions.md
+    - Repository Onboarding: guide/repository-onboarding.md
