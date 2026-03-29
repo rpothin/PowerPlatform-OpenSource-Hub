@@ -7,8 +7,10 @@
 		%sveltekit.head%
 		<script>
 			(function () {
-				const saved = localStorage.getItem('theme');
-				if (saved) document.documentElement.setAttribute('data-theme', saved);
+				var saved = localStorage.getItem('theme');
+				if (saved === 'power' || saved === 'copilot') {
+					document.documentElement.setAttribute('data-theme', saved);
+				}
 			})();
 		</script>
 	</head>

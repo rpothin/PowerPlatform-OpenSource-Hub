@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { onMount } from 'svelte';
+
 	let theme = $state('power');
 
 	function toggle() {
@@ -7,7 +9,7 @@
 		localStorage.setItem('theme', theme);
 	}
 
-	$effect(() => {
+	onMount(() => {
 		const saved = localStorage.getItem('theme');
 		if (saved === 'power' || saved === 'copilot') {
 			theme = saved;

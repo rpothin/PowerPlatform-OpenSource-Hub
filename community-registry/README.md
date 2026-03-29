@@ -1,42 +1,40 @@
-# sv
+# Community Registry
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+An interactive, SvelteKit-based registry for the Power Platform Open-Source Hub. Browse, search, and explore open-source Power Platform repositories with real-time filtering and a dual-theme experience.
 
-## Creating a project
+## Features
 
-If you're seeing this, you've probably already done this step. Congrats!
+- **Interactive Card View** — Browse 216+ Power Platform repositories in a responsive card grid
+- **Client-Side Search** — Fuzzy search powered by [Fuse.js](https://www.fusejs.io/) across names, descriptions, topics, and languages
+- **Filter by Focus Area** — Copilot Studio, Power Apps, Power Automate, or Dataverse
+- **Dual Themes** — "Power" (green, light) and "Copilot" (blue/purple, dark) with persistent toggle
+- **Guidance Pages** — Markdown-rendered documentation via [mdsvex](https://mdsvex.pngwn.io/)
+- **Static Deployment** — Zero-cost hosting on GitHub Pages via `@sveltejs/adapter-static`
+
+## Tech Stack
+
+- [SvelteKit](https://svelte.dev/docs/kit) — Full-stack framework
+- [Tailwind CSS v4](https://tailwindcss.com/) — Utility-first CSS
+- [DaisyUI v5](https://daisyui.com/) — Component library and theme engine
+- [Fuse.js](https://www.fusejs.io/) — Client-side fuzzy search
+- [mdsvex](https://mdsvex.pngwn.io/) — Markdown preprocessing for Svelte
+
+## Development
 
 ```sh
-# create a new project
-npx sv create my-app
-```
-
-To recreate this project with the same configuration:
-
-```sh
-# recreate this project
-npx sv@0.13.0 create --template minimal --types ts --no-install community-registry
-```
-
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
-```sh
+npm install
 npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
 ```
 
-## Building
-
-To create a production version of your app:
+## Build
 
 ```sh
 npm run build
+npm run preview   # preview the production build locally
 ```
 
-You can preview the production build with `npm run preview`.
+## Type Checking
 
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+```sh
+npm run check
+```
