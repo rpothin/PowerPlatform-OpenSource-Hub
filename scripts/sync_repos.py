@@ -32,6 +32,7 @@ ROOT_DIR = Path(__file__).resolve().parent.parent
 CONFIG_PATH = ROOT_DIR / "Configuration" / "GitHubRepositoriesSearchCriteria.json"
 CACHE_PATH = ROOT_DIR / "Data" / "GitHubRepositoriesDetails.json"
 REGISTRY_DIR = ROOT_DIR / "docs" / "registry"
+OVERRIDES_DIR = ROOT_DIR / "overrides"
 
 # ---------------------------------------------------------------------------
 # Logging
@@ -269,7 +270,7 @@ def generate_repo_page(repo: dict[str, Any]) -> str:
 
 
 def generate_registry_index(repos: list[dict[str, Any]]) -> str:
-    """Generate the ``docs/registry/index.md`` overview page."""
+    """Generate the ``docs/registry/index.md`` overview page with card-based layout."""
     total = len(repos)
     languages: dict[str, int] = {}
     total_stars = 0
@@ -285,9 +286,36 @@ def generate_registry_index(repos: list[dict[str, Any]]) -> str:
     top_langs = sorted(languages.items(), key=lambda x: x[1], reverse=True)[:10]
     lang_rows = [f"| {lang} | {count} |" for lang, count in top_langs]
 
-    # Build repo listing table
-    repo_rows: list[str] = []
-    for r in repos:
+    now = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
+
+    # Build card grid for top 50 repos
+    top_repos = repos[:50]
+    card_items: list[str] = []
+    for r in top_repos:
+        name = r.get("name", "")
+        full = r.get("fullName", "")
+        slug = _sanitise_filename(full)
+        stars = r.get("stargazerCount", 0)
+        lang = r.get("language") or "Unknown"
+        desc = (r.get("description") or "No description")[:100]
+        if len(r.get("description") or "") > 100:
+            desc += "…"
+        card_items.append(
+            f"-   :star: **{name}** · {_format_number(stars)} stars · `{lang}`\n"
+            f"\n"
+            f"    ---\n"
+            f"\n"
+            f"    {desc}\n"
+            f"\n"
+            f"    [:octicons-arrow-right-24: View details]({slug}.md)"
+        )
+
+    cards_block = "\n\n".join(card_items)
+
+    # Build table for remaining repos
+    remaining = repos[50:]
+    remaining_rows: list[str] = []
+    for r in remaining:
         name = r.get("name", "")
         full = r.get("fullName", "")
         slug = _sanitise_filename(full)
@@ -296,11 +324,22 @@ def generate_registry_index(repos: list[dict[str, Any]]) -> str:
         desc = (r.get("description") or "")[:80]
         if len(r.get("description") or "") > 80:
             desc += "…"
-        repo_rows.append(
+        remaining_rows.append(
             f"| [{name}]({slug}.md) | {lang} | :star: {_format_number(stars)} | {desc} |"
         )
 
-    now = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
+    remaining_table = "\n".join(remaining_rows)
+
+    remaining_section = ""
+    if remaining_rows:
+        remaining_section = (
+            "\n---\n\n"
+            "## All Repositories\n\n"
+            '??? note "View all remaining repositories"\n\n'
+            "    | Repository | Language | Stars | Description |\n"
+            "    |------------|----------|-------|-------------|\n"
+            + "\n".join(f"    {row}" for row in remaining_rows)
+        )
 
     lines: list[str] = [
         "---",
@@ -334,11 +373,14 @@ def generate_registry_index(repos: list[dict[str, Any]]) -> str:
         "",
         "---",
         "",
-        "## All Repositories",
+        "## Featured Repositories",
         "",
-        "| Repository | Language | Stars | Description |",
-        "|------------|----------|-------|-------------|",
-        *repo_rows,
+        '<div class="grid cards" markdown>',
+        "",
+        cards_block,
+        "",
+        "</div>",
+        remaining_section,
         "",
         "---",
         "",
@@ -375,6 +417,105 @@ def write_registry(repos: list[dict[str, Any]]) -> None:
     log.info("Wrote %d repository pages + index to %s", written, REGISTRY_DIR)
 
 
+def _format_number_short(n: int) -> str:
+    """Format a number for display: 54143 -> '54,000+'."""
+    if n >= 1000:
+        rounded = (n // 1000) * 1000
+        return f"{rounded:,}+"
+    return str(n)
+
+
+def write_home_data(repos: list[dict[str, Any]]) -> None:
+    """Generate ``overrides/partials/home_hero.html`` with homepage stats and featured repos.
+
+    This partial is included by ``overrides/home.html`` via Jinja2 ``{% include %}``.
+    """
+    total = len(repos)
+    total_stars = sum(r.get("stargazerCount", 0) for r in repos)
+    contrib_repos = sum(
+        1 for r in repos
+        if r.get("openedGoodFirstIssues", 0) or r.get("openedHelpWantedIssues", 0)
+    )
+
+    # Count tracked search topics (from configuration), not all repo topics
+    topics_count = 17  # default
+    if CONFIG_PATH.exists():
+        try:
+            with open(CONFIG_PATH, encoding="utf-8") as fh:
+                criteria = json.load(fh)
+            topics_count = len(criteria)
+        except (json.JSONDecodeError, OSError):
+            pass
+
+    featured = repos[:6]
+
+    # Build featured cards HTML
+    featured_cards: list[str] = []
+    for r in featured:
+        name = r.get("name", "")
+        full_name = r.get("fullName", "")
+        desc = (r.get("description") or "No description")[:100]
+        if len(r.get("description") or "") > 100:
+            desc += "…"
+        stars = _format_number(r.get("stargazerCount", 0))
+        lang = r.get("language") or "Unknown"
+        slug = _sanitise_filename(full_name)
+
+        featured_cards.append(
+            f'      <a class="mdx-repo-card" href="registry/{slug}/">\n'
+            f'        <div class="mdx-repo-card__header">\n'
+            f'          <span class="mdx-repo-card__name">{name}</span>\n'
+            f'          <span class="mdx-repo-card__stars">⭐ {stars}</span>\n'
+            f'        </div>\n'
+            f'        <p class="mdx-repo-card__desc">{desc}</p>\n'
+            f'        <span class="mdx-repo-card__lang">{lang}</span>\n'
+            f'      </a>'
+        )
+
+    featured_html = "\n".join(featured_cards)
+
+    partial = f"""\
+<!-- Auto-generated by sync_repos.py — do not edit manually -->
+<section class="mdx-stats">
+  <div class="md-grid">
+    <div class="mdx-stats__grid">
+      <div class="mdx-stats__card">
+        <div class="mdx-stats__number">📦 {_format_number_short(total)}</div>
+        <div class="mdx-stats__label">Repositories</div>
+      </div>
+      <div class="mdx-stats__card">
+        <div class="mdx-stats__number">⭐ {_format_number_short(total_stars)}</div>
+        <div class="mdx-stats__label">Total Stars</div>
+      </div>
+      <div class="mdx-stats__card">
+        <div class="mdx-stats__number">🤝 {contrib_repos}</div>
+        <div class="mdx-stats__label">Open to Contributions</div>
+      </div>
+      <div class="mdx-stats__card">
+        <div class="mdx-stats__number">🏷️ {topics_count}</div>
+        <div class="mdx-stats__label">Topics Tracked</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="mdx-featured">
+  <div class="md-grid">
+    <h2 class="mdx-featured__title">Featured Repositories</h2>
+    <div class="mdx-featured__grid">
+{featured_html}
+    </div>
+  </div>
+</section>
+"""
+
+    partials_dir = OVERRIDES_DIR / "partials"
+    partials_dir.mkdir(parents=True, exist_ok=True)
+    out_path = partials_dir / "home_hero.html"
+    out_path.write_text(partial, encoding="utf-8")
+    log.info("Wrote homepage data partial to %s", out_path)
+
+
 # ===================================================================
 # CLI entry-point
 # ===================================================================
@@ -396,6 +537,7 @@ def main() -> None:
         repos = fetch_repos_live(criteria)
 
     write_registry(repos)
+    write_home_data(repos)
     log.info("Done ✓")
 
 

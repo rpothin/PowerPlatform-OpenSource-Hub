@@ -20,19 +20,23 @@ theme:
     text: Segoe UI
     code: Cascadia Code
   palette:
+    - media: "(prefers-color-scheme)"
+      toggle:
+        icon: material/link
+        name: Switch to light mode
     - media: "(prefers-color-scheme: light)"
       scheme: default
       primary: teal
       accent: green
       toggle:
-        icon: material/weather-sunny
+        icon: material/toggle-switch
         name: Switch to Copilot Purple
     - media: "(prefers-color-scheme: dark)"
       scheme: slate
       primary: deep purple
       accent: purple
       toggle:
-        icon: material/weather-night
+        icon: material/toggle-switch-off
         name: Switch to Power Green
   icon:
     repo: fontawesome/brands/github
@@ -44,16 +48,24 @@ theme:
     - navigation.top
     - navigation.footer
     - navigation.indexes
+    - navigation.instant
+    - navigation.instant.prefetch
+    - navigation.instant.progress
+    - navigation.tracking
     - search.suggest
     - search.highlight
     - search.share
     - content.code.copy
     - content.code.annotate
     - content.tabs.link
+    - content.tooltips
     - toc.follow
 
 plugins:
-  - search
+  - search:
+      separator: '[\s\u200b\-_,:!=\[\]()"`/]+|\.(?!\d)|&[lg]t;|(?!\b)(?=[A-Z][a-z])'
+  - minify:
+      minify_html: true
 
 markdown_extensions:
   - admonition

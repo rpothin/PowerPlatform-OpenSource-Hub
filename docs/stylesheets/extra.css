@@ -1,6 +1,36 @@
-/* Power Platform Open-Source Hub — custom stylesheet */
+/* ============================================================
+   Power Platform Open-Source Hub — Master Stylesheet
+   ============================================================ */
 
-/* ===== Palette-aware accent underlines on nav tabs ===== */
+/* ----- a) Palette colour overrides ----------------------- */
+[data-md-color-scheme="default"] {
+  --md-primary-fg-color:  #0d6e6e;
+  --md-primary-fg-color--light: #1a9e8f;
+  --md-primary-fg-color--dark: #095555;
+  --md-primary-bg-color:  #ffffff;
+  --md-accent-fg-color:   #4ec86c;
+}
+
+[data-md-color-scheme="slate"] {
+  --md-primary-fg-color:  #5B2D8E;
+  --md-primary-fg-color--light: #7B3FA0;
+  --md-primary-fg-color--dark: #421F6B;
+  --md-primary-bg-color:  #1e1e2e;
+  --md-accent-fg-color:   #A855F7;
+}
+
+/* ----- b) Logo swap (CSS-only, no JS) -------------------- */
+[data-md-color-scheme="default"] .md-header__button.md-logo img,
+[data-md-color-scheme="default"] .md-header__button.md-logo svg {
+  content: url("../assets/logo-green.svg");
+}
+
+[data-md-color-scheme="slate"] .md-header__button.md-logo img,
+[data-md-color-scheme="slate"] .md-header__button.md-logo svg {
+  content: url("../assets/logo-purple.svg");
+}
+
+/* ----- Nav tab active accent ----------------------------- */
 [data-md-color-scheme="default"] .md-tabs__link--active {
   border-bottom: 2px solid var(--md-accent-fg-color, #4ec86c);
 }
@@ -8,7 +38,374 @@
   border-bottom: 2px solid var(--md-accent-fg-color, #A855F7);
 }
 
-/* ===== Registry cards ===== */
+/* ============================================================
+   c) HERO / LANDING PAGE — Follows squidfunk pattern
+   ============================================================ */
+
+/* --- Container with gradient + SVG wave separator --- */
+.mdx-container {
+  background:
+    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 64'><path d='M0,0 C480,64 960,64 1440,0 L1440,64 L0,64 Z' fill='%23ffffff'/></svg>")
+    no-repeat bottom / 100% auto,
+    linear-gradient(135deg, var(--md-primary-fg-color) 0%, var(--md-primary-fg-color--light, #1a9e8f) 50%, var(--md-accent-fg-color) 100%);
+  padding: 4rem 0 6rem;
+  overflow: hidden;
+}
+
+[data-md-color-scheme="slate"] .mdx-container {
+  background:
+    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 64'><path d='M0,0 C480,64 960,64 1440,0 L1440,64 L0,64 Z' fill='%231e1e2e'/></svg>")
+    no-repeat bottom / 100% auto,
+    linear-gradient(135deg, var(--md-primary-fg-color) 0%, var(--md-primary-fg-color--light, #7B3FA0) 50%, var(--md-accent-fg-color) 100%);
+}
+
+/* --- Hero two-column flex layout --- */
+.mdx-hero {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  color: #fff;
+}
+
+.mdx-hero__content {
+  flex: 1 1 50%;
+  max-width: 520px;
+}
+
+.mdx-hero__content h1 {
+  color: #fff;
+  font-weight: 700;
+  font-size: 2.2rem;
+  line-height: 1.2;
+  margin: 0 0 1rem;
+}
+
+.mdx-hero__content p {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+/* CTA buttons inside hero */
+.mdx-hero .md-button {
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.7);
+  margin-right: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+.mdx-hero .md-button:hover {
+  color: #fff;
+  border-color: #fff;
+  background-color: rgba(255, 255, 255, 0.12);
+}
+.mdx-hero .md-button--primary {
+  color: var(--md-primary-fg-color);
+  background-color: #fff;
+  border-color: #fff;
+}
+.mdx-hero .md-button--primary:hover {
+  color: var(--md-primary-fg-color--dark, var(--md-primary-fg-color));
+  background-color: rgba(255, 255, 255, 0.92);
+}
+
+/* Hero illustration */
+.mdx-hero__image {
+  flex: 1 1 40%;
+  display: flex;
+  justify-content: center;
+  order: 1;
+}
+.mdx-hero__image svg {
+  width: 100%;
+  max-width: 420px;
+  height: auto;
+  transform: translateY(8px);
+}
+
+/* Responsive: stack on smaller screens */
+@media screen and (max-width: 960px) {
+  .mdx-hero {
+    flex-direction: column;
+    text-align: center;
+  }
+  .mdx-hero__content {
+    max-width: 100%;
+  }
+  .mdx-hero__content h1 {
+    font-size: 1.7rem;
+  }
+  .mdx-hero__image {
+    order: -1;
+  }
+  .mdx-hero__image svg {
+    max-width: 280px;
+  }
+}
+
+/* ============================================================
+   d) STATS BAR
+   ============================================================ */
+.mdx-stats {
+  padding: 2.5rem 0 1rem;
+}
+
+.mdx-stats__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+
+.mdx-stats__card {
+  text-align: center;
+  padding: 1.5rem 1rem;
+  border-radius: 12px;
+  border: 1px solid var(--md-default-fg-color--lightest);
+  background: var(--md-default-bg-color);
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+.mdx-stats__card:hover {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  transform: translateY(-2px);
+}
+
+[data-md-color-scheme="slate"] .mdx-stats__card {
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+.mdx-stats__number {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--md-primary-fg-color);
+  margin-bottom: 0.25rem;
+}
+
+.mdx-stats__label {
+  font-size: 0.85rem;
+  color: var(--md-default-fg-color--light);
+  font-weight: 500;
+}
+
+@media screen and (max-width: 960px) {
+  .mdx-stats__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media screen and (max-width: 480px) {
+  .mdx-stats__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ============================================================
+   e) FEATURED REPOS GRID
+   ============================================================ */
+.mdx-featured {
+  padding: 1rem 0 2.5rem;
+}
+
+.mdx-featured__title {
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: var(--md-default-fg-color);
+}
+
+.mdx-featured__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+}
+
+.mdx-repo-card {
+  display: flex;
+  flex-direction: column;
+  padding: 1.25rem 1.5rem;
+  border-radius: 12px;
+  border: 1px solid var(--md-default-fg-color--lightest);
+  background: var(--md-default-bg-color);
+  text-decoration: none;
+  color: var(--md-default-fg-color);
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+.mdx-repo-card:hover {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  transform: translateY(-3px);
+  text-decoration: none;
+  color: var(--md-default-fg-color);
+}
+
+[data-md-color-scheme="slate"] .mdx-repo-card {
+  border-color: rgba(255, 255, 255, 0.08);
+}
+[data-md-color-scheme="slate"] .mdx-repo-card:hover {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+.mdx-repo-card__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.mdx-repo-card__name {
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--md-primary-fg-color);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 70%;
+}
+
+.mdx-repo-card__stars {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--md-default-fg-color--light);
+  flex-shrink: 0;
+}
+
+.mdx-repo-card__desc {
+  font-size: 0.85rem;
+  color: var(--md-default-fg-color--light);
+  line-height: 1.5;
+  flex: 1;
+  margin: 0 0 0.75rem;
+}
+
+.mdx-repo-card__lang {
+  display: inline-block;
+  padding: 0.15rem 0.6rem;
+  border-radius: 12px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  background: var(--md-primary-fg-color);
+  color: #fff;
+  align-self: flex-start;
+}
+
+@media screen and (max-width: 960px) {
+  .mdx-featured__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media screen and (max-width: 580px) {
+  .mdx-featured__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ============================================================
+   f) FOCUS AREA GRID
+   ============================================================ */
+.mdx-focus {
+  padding: 2rem 0 2.5rem;
+  background: var(--md-default-bg-color--light, var(--md-default-bg-color));
+}
+
+.mdx-focus__title {
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: var(--md-default-fg-color);
+}
+
+.mdx-focus__grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.mdx-focus__card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 140px;
+  height: 120px;
+  border-radius: 12px;
+  border: 1px solid var(--md-default-fg-color--lightest);
+  background: var(--md-default-bg-color);
+  text-decoration: none;
+  color: var(--md-default-fg-color);
+  transition: box-shadow 0.2s, transform 0.2s, border-color 0.2s;
+}
+.mdx-focus__card:hover {
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  transform: translateY(-3px);
+  border-color: var(--md-accent-fg-color);
+  text-decoration: none;
+  color: var(--md-default-fg-color);
+}
+
+[data-md-color-scheme="slate"] .mdx-focus__card {
+  border-color: rgba(255, 255, 255, 0.08);
+}
+[data-md-color-scheme="slate"] .mdx-focus__card:hover {
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+  border-color: var(--md-accent-fg-color);
+}
+
+.mdx-focus__icon {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.mdx-focus__label {
+  font-size: 0.82rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+@media screen and (max-width: 580px) {
+  .mdx-focus__card {
+    width: 110px;
+    height: 100px;
+  }
+}
+
+/* ============================================================
+   g) FOOTER CTA
+   ============================================================ */
+.mdx-cta {
+  padding: 3rem 0 3.5rem;
+  text-align: center;
+  background:
+    linear-gradient(135deg, var(--md-primary-fg-color) 0%, var(--md-primary-fg-color--light, #1a9e8f) 100%);
+  color: #fff;
+}
+
+.mdx-cta h2 {
+  color: #fff;
+  font-weight: 700;
+  font-size: 1.7rem;
+  margin-bottom: 0.75rem;
+}
+
+.mdx-cta p {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 1.05rem;
+  max-width: 520px;
+  margin: 0 auto 1.5rem;
+  line-height: 1.6;
+}
+
+.mdx-cta .md-button--primary {
+  color: var(--md-primary-fg-color);
+  background-color: #fff;
+  border-color: #fff;
+}
+.mdx-cta .md-button--primary:hover {
+  background-color: rgba(255, 255, 255, 0.92);
+}
+
+/* ============================================================
+   h) REGISTRY PAGE — Card grid (generated Markdown)
+   ============================================================ */
 .repo-card {
   border: 1px solid var(--md-default-fg-color--lightest);
   border-radius: 8px;
@@ -23,7 +420,7 @@
   margin-top: 0;
 }
 
-/* ===== Badge styling ===== */
+/* Badge styling */
 .badge {
   display: inline-block;
   padding: 0.15rem 0.5rem;

@@ -1,27 +1,8 @@
 {% extends "base.html" %}
 
-{% block announce %}
-  <style>
-    /* ===== Power Green Palette (default / light) ===== */
-    [data-md-color-scheme="default"] {
-      --md-primary-fg-color: #0d6e6e;
-      --md-primary-bg-color: #ffffff;
-      --md-accent-fg-color: #4ec86c;
-    }
-    [data-md-color-scheme="default"] .md-header__button.md-logo img,
-    [data-md-color-scheme="default"] .md-header__button.md-logo svg {
-      content: url("{{ 'assets/logo-green.svg' | url }}");
-    }
+{% block extrahead %}
+  <link rel="stylesheet" href="{{ 'stylesheets/extra.css' | url }}">
+{% endblock %}
 
-    /* ===== Copilot Purple Palette (dark / slate) ===== */
-    [data-md-color-scheme="slate"] {
-      --md-primary-fg-color: #5B2D8E;
-      --md-primary-bg-color: #1e1e2e;
-      --md-accent-fg-color: #A855F7;
-    }
-    [data-md-color-scheme="slate"] .md-header__button.md-logo img,
-    [data-md-color-scheme="slate"] .md-header__button.md-logo svg {
-      content: url("{{ 'assets/logo-purple.svg' | url }}");
-    }
-  </style>
+{% block announce %}
 {% endblock %}
