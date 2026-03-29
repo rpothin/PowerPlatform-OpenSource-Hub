@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="en" data-theme="power">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="icon" href="%sveltekit.assets%/favicon.svg" />
+		%sveltekit.head%
+		<script>
+			(function () {
+				const saved = localStorage.getItem('theme');
+				if (saved) document.documentElement.setAttribute('data-theme', saved);
+			})();
+		</script>
+	</head>
+	<body data-sveltekit-preload-data="hover">
+		<div style="display: contents">%sveltekit.body%</div>
+	</body>
+</html>
