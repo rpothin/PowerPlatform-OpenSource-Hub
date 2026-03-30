@@ -20,10 +20,6 @@ theme:
     text: Segoe UI
     code: Cascadia Code
   palette:
-    - media: "(prefers-color-scheme)"
-      toggle:
-        icon: material/brightness-auto
-        name: Switch to Power Platform theme
     - media: "(prefers-color-scheme: light)"
       scheme: default
       primary: teal
@@ -37,7 +33,7 @@ theme:
       accent: purple
       toggle:
         icon: material/weather-night
-        name: Follow system preference
+        name: Switch to Power Platform theme
   icon:
     repo: fontawesome/brands/github
   features:
