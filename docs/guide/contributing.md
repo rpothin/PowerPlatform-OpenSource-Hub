@@ -74,6 +74,17 @@ mkdocs serve
     python scripts/sync_repos.py
     ```
 
+!!! info "GitHub Token Permissions"
+    The sync script only reads **public repository data** (search, topics, and
+    latest releases). **No scopes or permissions are required** on the token —
+    its sole purpose is to authenticate and raise the API rate limit.
+
+    - **Classic PAT**: create one with **no scopes checked**.
+    - **Fine-grained PAT**: create one with **no extra permissions** (public
+      repository access is granted by default).
+
+    Never grant write permissions to a token used only for this script.
+
 ---
 
 ## Pull Request Guidelines
