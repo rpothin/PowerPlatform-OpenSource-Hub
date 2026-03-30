@@ -39,7 +39,7 @@ The **Power Platform Open-Source Hub** is a community initiative that aggregates
 
 ### How It Works
 
-1. **Discovery** — A Python pipeline ([`scripts/sync_repos.py`](scripts/sync_repos.py)) searches GitHub for repositories tagged with [tracked topics](Configuration/GitHubRepositoriesSearchCriteria.json) like `powerplatform`, `powerapps`, `dataverse`, `dynamics365`, and more.
+1. **Discovery** — A Python pipeline ([`scripts/sync_repos.py`](scripts/sync_repos.py)) searches GitHub for repositories tagged with [tracked topics](configuration/GitHubRepositoriesSearchCriteria.json) like `powerplatform`, `powerapps`, `dataverse`, `dynamics365`, and more.
 2. **Generation** — Individual documentation pages are generated for each repository with metadata, statistics, and contribution opportunities.
 3. **Publication** — The site is built with [MkDocs Material](https://squidfunk.github.io/mkdocs-material/) and deployed to GitHub Pages automatically.
 

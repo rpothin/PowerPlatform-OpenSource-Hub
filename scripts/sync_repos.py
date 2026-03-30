@@ -10,7 +10,7 @@ Usage:
     export GITHUB_TOKEN=ghp_…
     python scripts/sync_repos.py
 
-    # Offline / CI fallback — reads cached JSON from Data/
+    # Offline / CI fallback — reads cached JSON from data/
     python scripts/sync_repos.py --offline
 """
 
@@ -29,8 +29,8 @@ from typing import Any
 # Paths
 # ---------------------------------------------------------------------------
 ROOT_DIR = Path(__file__).resolve().parent.parent
-CONFIG_PATH = ROOT_DIR / "Configuration" / "GitHubRepositoriesSearchCriteria.json"
-CACHE_PATH = ROOT_DIR / "Data" / "GitHubRepositoriesDetails.json"
+CONFIG_PATH = ROOT_DIR / "configuration" / "GitHubRepositoriesSearchCriteria.json"
+CACHE_PATH = ROOT_DIR / "data" / "GitHubRepositoriesDetails.json"
 REGISTRY_DIR = ROOT_DIR / "docs" / "registry"
 OVERRIDES_DIR = ROOT_DIR / "overrides"
 
@@ -49,7 +49,7 @@ log = logging.getLogger("sync_repos")
 # Data acquisition
 # ===================================================================
 def load_search_criteria() -> list[dict[str, Any]]:
-    """Load the topic search criteria from Configuration/."""
+    """Load the topic search criteria from configuration/."""
     with open(CONFIG_PATH, encoding="utf-8") as fh:
         criteria: list[dict[str, Any]] = json.load(fh)
     log.info("Loaded %d search criteria from %s", len(criteria), CONFIG_PATH.name)
@@ -101,7 +101,7 @@ def fetch_repos_live(criteria: list[dict[str, Any]]) -> list[dict[str, Any]]:
 
 def _normalise_repo(repo: Any) -> dict[str, Any]:
     """Convert a PyGithub *Repository* object into a plain dict matching
-    the schema already used by the existing ``Data/`` JSON cache."""
+    the schema already used by the existing ``data/`` JSON cache."""
     license_info = repo.license
     latest_release = None
     try:
@@ -140,7 +140,7 @@ def _normalise_repo(repo: Any) -> dict[str, Any]:
 
 
 def load_repos_offline() -> list[dict[str, Any]]:
-    """Load cached repository data from ``Data/GitHubRepositoriesDetails.json``."""
+    """Load cached repository data from ``data/GitHubRepositoriesDetails.json``."""
     if not CACHE_PATH.exists():
         log.error("Cache file not found: %s", CACHE_PATH)
         sys.exit(1)
@@ -526,7 +526,7 @@ def main() -> None:
     parser.add_argument(
         "--offline",
         action="store_true",
-        help="Use cached Data/GitHubRepositoriesDetails.json instead of calling the GitHub API.",
+        help="Use cached data/GitHubRepositoriesDetails.json instead of calling the GitHub API.",
     )
     args = parser.parse_args()
 
