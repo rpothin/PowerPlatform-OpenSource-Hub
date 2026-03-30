@@ -19,15 +19,21 @@
   --md-accent-fg-color:   #A855F7;
 }
 
-/* ----- b) Logo swap (CSS-only, no JS) -------------------- */
-[data-md-color-scheme="default"] .md-header__button.md-logo img,
-[data-md-color-scheme="default"] .md-header__button.md-logo svg {
-  content: url("../assets/logo-green.svg");
+/* ----- b) Logo swap (theme-aware) -------------------- */
+.md-logo__image--dark {
+  display: none;
+}
+[data-md-color-scheme="slate"] .md-logo__image--default {
+  display: none;
+}
+[data-md-color-scheme="slate"] .md-logo__image--dark {
+  display: inline-block;
 }
 
-[data-md-color-scheme="slate"] .md-header__button.md-logo img,
-[data-md-color-scheme="slate"] .md-header__button.md-logo svg {
-  content: url("../assets/logo-purple.svg");
+/* Ensure logo sizing */
+.md-header__button.md-logo img {
+  height: 1.6rem;
+  width: auto;
 }
 
 /* ----- Nav tab active accent ----------------------------- */
@@ -369,72 +375,384 @@
 }
 
 /* ============================================================
-   g) FOOTER CTA
+   h) REGISTRY PAGES — Polished modern styling
    ============================================================ */
-.mdx-cta {
-  padding: 3rem 0 3.5rem;
+
+/* --- Registry summary stat cards (index page) ------------- */
+.registry-summary table {
+  border: none;
+  background: transparent;
+  border-collapse: separate;
+  border-spacing: 1rem 0;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+}
+.registry-summary table thead {
+  display: none;
+}
+.registry-summary table tbody {
+  display: contents;
+}
+.registry-summary table tr {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   text-align: center;
-  background:
-    linear-gradient(135deg, var(--md-primary-fg-color) 0%, var(--md-primary-fg-color--light, #1a9e8f) 100%);
-  color: #fff;
+  padding: 1.5rem 1rem;
+  border-radius: 12px;
+  border: 1px solid var(--md-default-fg-color--lightest);
+  background: var(--md-default-bg-color);
+  transition: box-shadow 0.2s, transform 0.2s;
 }
-
-.mdx-cta h2 {
-  color: #fff;
+.registry-summary table tr:hover {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  transform: translateY(-2px);
+}
+.registry-summary table td,
+.registry-summary table th {
+  border: none;
+  padding: 0.15rem 0;
+}
+.registry-summary table td:first-child {
+  font-size: 0.85rem;
+  color: var(--md-default-fg-color--light);
+  font-weight: 500;
+  order: 2;
+}
+.registry-summary table td:last-child {
+  font-size: 1.6rem;
   font-weight: 700;
-  font-size: 1.7rem;
-  margin-bottom: 0.75rem;
-}
-
-.mdx-cta p {
-  color: rgba(255, 255, 255, 0.85);
-  font-size: 1.05rem;
-  max-width: 520px;
-  margin: 0 auto 1.5rem;
-  line-height: 1.6;
-}
-
-.mdx-cta .md-button--primary {
   color: var(--md-primary-fg-color);
-  background-color: #fff;
-  border-color: #fff;
+  order: 1;
 }
-.mdx-cta .md-button--primary:hover {
-  background-color: rgba(255, 255, 255, 0.92);
+
+[data-md-color-scheme="slate"] .registry-summary table tr {
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+@media screen and (max-width: 600px) {
+  .registry-summary table {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* --- Top Languages table (index page) --------------------- */
+.registry-summary h3 + table,
+.registry-summary table + h3 + table,
+.md-content .registry-summary table ~ table {
+  /* fallback: style any second table inside summary */
+}
+.registry-summary .md-typeset table:nth-of-type(2),
+.registry-summary table ~ table {
+  border-collapse: separate;
+  border-spacing: 0;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--md-default-fg-color--lightest);
+  display: table;
+  grid-template-columns: unset;
+}
+.registry-summary table ~ table thead {
+  display: table-header-group;
+}
+.registry-summary table ~ table tbody {
+  display: table-row-group;
+}
+.registry-summary table ~ table tr {
+  display: table-row;
+  flex-direction: unset;
+  align-items: unset;
+  text-align: left;
+  padding: 0;
+  border-radius: 0;
+  border: none;
+  background: transparent;
+  transition: none;
+}
+.registry-summary table ~ table tr:hover {
+  box-shadow: none;
+  transform: none;
+}
+.registry-summary table ~ table td,
+.registry-summary table ~ table th {
+  border: none;
+  padding: 0.6rem 1rem;
+  font-size: 0.85rem;
+}
+.registry-summary table ~ table td:first-child,
+.registry-summary table ~ table td:last-child {
+  font-size: 0.85rem;
+  font-weight: normal;
+  color: var(--md-default-fg-color);
+  order: unset;
+}
+.registry-summary table ~ table thead th {
+  background: var(--md-primary-fg-color);
+  color: #fff;
+  font-weight: 600;
+  font-size: 0.85rem;
+}
+.registry-summary table ~ table tbody tr:nth-child(odd) {
+  background: rgba(0, 0, 0, 0.02);
+}
+[data-md-color-scheme="slate"] .registry-summary table ~ table {
+  border-color: rgba(255, 255, 255, 0.08);
+}
+[data-md-color-scheme="slate"] .registry-summary table ~ table tbody tr:nth-child(odd) {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+/* --- Featured repo cards (grid cards) — enhanced hover ---- */
+.md-content .grid.cards > ol > li,
+.md-content .grid.cards > ul > li {
+  border-radius: 12px;
+  border: 1px solid var(--md-default-fg-color--lightest);
+  transition: box-shadow 0.2s, transform 0.2s, border-color 0.2s;
+}
+.md-content .grid.cards > ol > li:hover,
+.md-content .grid.cards > ul > li:hover {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  transform: translateY(-3px);
+  border-color: var(--md-accent-fg-color);
+}
+[data-md-color-scheme="slate"] .md-content .grid.cards > ol > li,
+[data-md-color-scheme="slate"] .md-content .grid.cards > ul > li {
+  border-color: rgba(255, 255, 255, 0.08);
+}
+[data-md-color-scheme="slate"] .md-content .grid.cards > ol > li:hover,
+[data-md-color-scheme="slate"] .md-content .grid.cards > ul > li:hover {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  border-color: var(--md-accent-fg-color);
+}
+
+/* --- All Repositories expandable section ------------------ */
+.md-content details.note {
+  border-radius: 12px;
+  border: 1px solid var(--md-default-fg-color--lightest);
+}
+.md-content details.note table {
+  border-collapse: separate;
+  border-spacing: 0;
+  border-radius: 8px;
+  overflow: hidden;
+  width: 100%;
+}
+.md-content details.note table thead th {
+  background: var(--md-primary-fg-color);
+  color: #fff;
+  font-weight: 600;
+  font-size: 0.82rem;
+  padding: 0.6rem 0.8rem;
+}
+.md-content details.note table tbody tr:nth-child(even) {
+  background: rgba(0, 0, 0, 0.02);
+}
+.md-content details.note table tbody td {
+  padding: 0.5rem 0.8rem;
+  font-size: 0.82rem;
+}
+[data-md-color-scheme="slate"] .md-content details.note table tbody tr:nth-child(even) {
+  background: rgba(255, 255, 255, 0.03);
 }
 
 /* ============================================================
-   h) REGISTRY PAGE — Card grid (generated Markdown)
+   i) REGISTRY DETAIL PAGE
    ============================================================ */
-.repo-card {
-  border: 1px solid var(--md-default-fg-color--lightest);
-  border-radius: 8px;
-  padding: 1rem 1.2rem;
-  margin-bottom: 1rem;
-  transition: box-shadow 0.2s;
+
+/* --- Hero-like header with accent border ------------------ */
+.registry-detail > h1:first-child,
+.registry-detail > h1:first-of-type {
+  position: relative;
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 1.5rem;
+  border-radius: 12px;
+  background: linear-gradient(135deg,
+    color-mix(in srgb, var(--md-primary-fg-color) 8%, transparent),
+    color-mix(in srgb, var(--md-accent-fg-color) 6%, transparent));
+  border-left: 4px solid var(--md-primary-fg-color);
 }
-.repo-card:hover {
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-}
-.repo-card h3 {
-  margin-top: 0;
+[data-md-color-scheme="slate"] .registry-detail > h1:first-child,
+[data-md-color-scheme="slate"] .registry-detail > h1:first-of-type {
+  background: linear-gradient(135deg,
+    color-mix(in srgb, var(--md-primary-fg-color) 12%, transparent),
+    color-mix(in srgb, var(--md-accent-fg-color) 8%, transparent));
 }
 
-/* Badge styling */
-.badge {
+/* --- GitHub button — more prominent ----------------------- */
+.registry-detail .md-button--primary {
+  font-size: 0.95rem;
+  padding: 0.65rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+.registry-detail .md-button--primary:hover {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+  transform: translateY(-1px);
+}
+
+/* --- Overview table — styled card look -------------------- */
+.registry-overview {
+  margin: 1.5rem 0;
+}
+.registry-overview table {
+  border-collapse: separate;
+  border-spacing: 0;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--md-default-fg-color--lightest);
+  width: 100%;
+}
+.registry-overview table td,
+.registry-overview table th {
+  border: none;
+  padding: 0.65rem 1rem;
+  font-size: 0.85rem;
+}
+.registry-overview table td:first-child {
+  font-weight: 600;
+  white-space: nowrap;
+  width: 160px;
+  color: var(--md-default-fg-color);
+}
+.registry-overview table tbody tr:nth-child(odd) {
+  background: rgba(0, 0, 0, 0.02);
+}
+.registry-overview table tbody tr:nth-child(even) {
+  background: var(--md-default-bg-color);
+}
+[data-md-color-scheme="slate"] .registry-overview table {
+  border-color: rgba(255, 255, 255, 0.08);
+}
+[data-md-color-scheme="slate"] .registry-overview table tbody tr:nth-child(odd) {
+  background: rgba(255, 255, 255, 0.03);
+}
+[data-md-color-scheme="slate"] .registry-overview table tbody tr:nth-child(even) {
+  background: transparent;
+}
+
+/* --- Topic badges — coloured pills ----------------------- */
+.registry-badge {
   display: inline-block;
-  padding: 0.15rem 0.5rem;
+  padding: 0.2rem 0.65rem;
   border-radius: 12px;
   font-size: 0.75rem;
   font-weight: 600;
-  margin-right: 0.3rem;
-  margin-bottom: 0.3rem;
+  margin-right: 0.35rem;
+  margin-bottom: 0.35rem;
+  background: var(--md-accent-fg-color);
+  color: #fff;
+  line-height: 1.5;
 }
-.badge--topic {
-  background-color: var(--md-accent-fg-color);
+[data-md-color-scheme="slate"] .registry-badge {
+  background: var(--md-accent-fg-color);
   color: #fff;
 }
-.badge--lang {
-  background-color: var(--md-primary-fg-color);
+
+/* --- Admonitions on detail page — card aesthetic ---------- */
+.registry-detail .admonition,
+.registry-detail details {
+  border-radius: 12px;
+  border: 1px solid var(--md-default-fg-color--lightest);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  overflow: hidden;
+}
+.registry-detail .admonition .admonition-title,
+.registry-detail details summary {
+  border-radius: 12px 12px 0 0;
+  font-weight: 600;
+}
+[data-md-color-scheme="slate"] .registry-detail .admonition,
+[data-md-color-scheme="slate"] .registry-detail details {
+  border-color: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* ============================================================
+   g) HOMEPAGE FOOTER
+   ============================================================ */
+.mdx-footer {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+  color: rgba(255, 255, 255, 0.85);
+  padding: 3rem 0 0;
+}
+
+[data-md-color-scheme="slate"] .mdx-footer {
+  background: linear-gradient(135deg, #0d0d1a 0%, #1a1a2e 50%, #12122a 100%);
+}
+
+.mdx-footer__inner {
+  max-width: 1200px;
+}
+
+.mdx-footer__grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 2rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.mdx-footer__heading {
   color: #fff;
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin: 0 0 1rem;
+  letter-spacing: 0.02em;
+}
+
+.mdx-footer__desc {
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.65);
+  margin: 0;
+  max-width: 300px;
+}
+
+.mdx-footer__links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.mdx-footer__links li {
+  margin-bottom: 0.5rem;
+}
+
+.mdx-footer__links a {
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  font-size: 0.85rem;
+  transition: color 0.2s;
+}
+
+.mdx-footer__links a:hover {
+  color: #fff;
+  text-decoration: none;
+}
+
+.mdx-footer__bottom {
+  padding: 1.25rem 0;
+  text-align: center;
+}
+
+.mdx-footer__bottom p {
+  margin: 0;
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.45);
+}
+
+@media screen and (max-width: 960px) {
+  .mdx-footer__grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media screen and (max-width: 580px) {
+  .mdx-footer__grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
 }

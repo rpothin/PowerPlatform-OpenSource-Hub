@@ -22,22 +22,22 @@ theme:
   palette:
     - media: "(prefers-color-scheme)"
       toggle:
-        icon: material/link
-        name: Switch to light mode
+        icon: material/brightness-auto
+        name: Switch to Power Platform theme
     - media: "(prefers-color-scheme: light)"
       scheme: default
       primary: teal
       accent: green
       toggle:
-        icon: material/toggle-switch
-        name: Switch to Copilot Purple
+        icon: material/weather-sunny
+        name: Switch to Copilot Studio theme
     - media: "(prefers-color-scheme: dark)"
       scheme: slate
       primary: deep purple
       accent: purple
       toggle:
-        icon: material/toggle-switch-off
-        name: Switch to Power Green
+        icon: material/weather-night
+        name: Follow system preference
   icon:
     repo: fontawesome/brands/github
   features:

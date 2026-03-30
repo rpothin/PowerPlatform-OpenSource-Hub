@@ -4,7 +4,14 @@
   {{ super() }}
 
   <style>
-    .md-header { position: initial; }
+    .md-header {
+      position: initial;
+      background: transparent !important;
+      box-shadow: none !important;
+    }
+    .md-header--shadow, .md-header--lifted {
+      box-shadow: none !important;
+    }
     .md-main__inner { margin: 0; }
     .md-content { display: none; }
     @media screen and (min-width: 60em) {
@@ -107,22 +114,46 @@
     </div>
   </section>
 
-  <!-- ===== Footer CTA ===== -->
-  <section class="mdx-cta">
-    <div class="md-grid md-typeset">
-      <h2>Get Involved</h2>
-      <p>
-        Whether you maintain a Power Platform tool or just want to help curate
-        the ecosystem, your contributions make a difference.
-      </p>
-      <a href="{{ 'guide/contributing/' | url }}" class="md-button md-button--primary">
-        Start Contributing
-      </a>
-    </div>
-  </section>
-
 {% endblock %}
 
 {% block content %}{% endblock %}
 
-{% block footer %}{% endblock %}
+{% block footer %}
+<footer class="mdx-footer">
+  <div class="mdx-footer__inner md-grid">
+    <div class="mdx-footer__grid">
+      <div class="mdx-footer__col">
+        <h4 class="mdx-footer__heading">Power Platform Open-Source Hub</h4>
+        <p class="mdx-footer__desc">
+          A central hub for discovering and exploring the Power Platform &amp; Copilot Studio open-source ecosystem.
+        </p>
+      </div>
+      <div class="mdx-footer__col">
+        <h4 class="mdx-footer__heading">Quick Links</h4>
+        <ul class="mdx-footer__links">
+          <li><a href="{{ 'registry/' | url }}">Registry</a></li>
+          <li><a href="{{ 'guide/' | url }}">Guide</a></li>
+          <li><a href="{{ 'guide/contributing/' | url }}">Contributing</a></li>
+        </ul>
+      </div>
+      <div class="mdx-footer__col">
+        <h4 class="mdx-footer__heading">Resources</h4>
+        <ul class="mdx-footer__links">
+          <li><a href="https://github.com/rpothin/PowerPlatform-OpenSource-Hub" target="_blank" rel="noopener">GitHub Repository</a></li>
+          <li><a href="https://github.com/rpothin/PowerPlatform-OpenSource-Hub/issues" target="_blank" rel="noopener">Report an Issue</a></li>
+        </ul>
+      </div>
+      <div class="mdx-footer__col">
+        <h4 class="mdx-footer__heading">Connect</h4>
+        <ul class="mdx-footer__links">
+          <li><a href="https://github.com/rpothin" target="_blank" rel="noopener">GitHub (@rpothin)</a></li>
+          <li><a href="https://www.linkedin.com/in/yourprofile" target="_blank" rel="noopener">LinkedIn</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="mdx-footer__bottom">
+      <p>&copy; 2024–2026 Power Platform Open-Source Hub Contributors</p>
+    </div>
+  </div>
+</footer>
+{% endblock %}
