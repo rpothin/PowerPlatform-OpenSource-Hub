@@ -1,0 +1,128 @@
+{% extends "main.html" %}
+
+{% block tabs %}
+  {{ super() }}
+
+  <style>
+    .md-header { position: initial; }
+    .md-main__inner { margin: 0; }
+    .md-content { display: none; }
+    @media screen and (min-width: 60em) {
+      .md-sidebar--secondary { display: none; }
+    }
+    @media screen and (min-width: 76.25em) {
+      .md-sidebar--primary { display: none; }
+    }
+  </style>
+
+  <!-- ===== Hero Section ===== -->
+  <section class="mdx-container">
+    <div class="md-grid md-typeset">
+      <div class="mdx-hero">
+        <div class="mdx-hero__content">
+          <h1>Your open-source journey in<br> Power Platform starts here</h1>
+          <p>{{ config.site_description }}</p>
+          <a href="{{ 'registry/' | url }}" class="md-button md-button--primary">
+            Browse Registry
+          </a>
+          <a href="{{ 'guide/' | url }}" class="md-button">
+            Contributing Guide
+          </a>
+        </div>
+        <div class="mdx-hero__image">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 400" role="img" aria-label="Open-source hub illustration">
+            <!-- Interconnected nodes / repos illustration -->
+            <defs>
+              <linearGradient id="heroGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" style="stop-color:rgba(255,255,255,0.25)"/>
+                <stop offset="100%" style="stop-color:rgba(255,255,255,0.05)"/>
+              </linearGradient>
+            </defs>
+            <!-- Connection lines -->
+            <line x1="240" y1="140" x2="120" y2="80" stroke="rgba(255,255,255,0.2)" stroke-width="2"/>
+            <line x1="240" y1="140" x2="360" y2="80" stroke="rgba(255,255,255,0.2)" stroke-width="2"/>
+            <line x1="240" y1="140" x2="100" y2="220" stroke="rgba(255,255,255,0.2)" stroke-width="2"/>
+            <line x1="240" y1="140" x2="380" y2="220" stroke="rgba(255,255,255,0.2)" stroke-width="2"/>
+            <line x1="240" y1="140" x2="180" y2="300" stroke="rgba(255,255,255,0.2)" stroke-width="2"/>
+            <line x1="240" y1="140" x2="300" y2="300" stroke="rgba(255,255,255,0.2)" stroke-width="2"/>
+            <line x1="120" y1="80" x2="100" y2="220" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+            <line x1="360" y1="80" x2="380" y2="220" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+            <line x1="100" y1="220" x2="180" y2="300" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+            <line x1="380" y1="220" x2="300" y2="300" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+            <!-- Central hub node -->
+            <circle cx="240" cy="140" r="40" fill="url(#heroGrad)" stroke="rgba(255,255,255,0.4)" stroke-width="2"/>
+            <text x="240" y="148" text-anchor="middle" fill="white" font-size="28" font-family="sans-serif">⚡</text>
+            <!-- Satellite nodes -->
+            <circle cx="120" cy="80" r="28" fill="url(#heroGrad)" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"/>
+            <text x="120" y="88" text-anchor="middle" fill="white" font-size="20" font-family="sans-serif">🔌</text>
+            <circle cx="360" cy="80" r="28" fill="url(#heroGrad)" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"/>
+            <text x="360" y="88" text-anchor="middle" fill="white" font-size="20" font-family="sans-serif">🤖</text>
+            <circle cx="100" cy="220" r="28" fill="url(#heroGrad)" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"/>
+            <text x="100" y="228" text-anchor="middle" fill="white" font-size="20" font-family="sans-serif">📊</text>
+            <circle cx="380" cy="220" r="28" fill="url(#heroGrad)" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"/>
+            <text x="380" y="228" text-anchor="middle" fill="white" font-size="20" font-family="sans-serif">🧩</text>
+            <circle cx="180" cy="300" r="28" fill="url(#heroGrad)" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"/>
+            <text x="180" y="308" text-anchor="middle" fill="white" font-size="20" font-family="sans-serif">🏢</text>
+            <circle cx="300" cy="300" r="28" fill="url(#heroGrad)" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"/>
+            <text x="300" y="308" text-anchor="middle" fill="white" font-size="20" font-family="sans-serif">🔧</text>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Stats + Featured + Focus + CTA — from generated partial ===== -->
+  {% include "partials/home_hero.html" %}
+
+  <!-- ===== Focus Areas ===== -->
+  <section class="mdx-focus">
+    <div class="md-grid">
+      <h2 class="mdx-focus__title">Explore by Focus Area</h2>
+      <div class="mdx-focus__grid">
+        <a class="mdx-focus__card" href="{{ 'registry/' | url }}">
+          <span class="mdx-focus__icon">🔌</span>
+          <span class="mdx-focus__label">Power Apps</span>
+        </a>
+        <a class="mdx-focus__card" href="{{ 'registry/' | url }}">
+          <span class="mdx-focus__icon">⚡</span>
+          <span class="mdx-focus__label">Power Automate</span>
+        </a>
+        <a class="mdx-focus__card" href="{{ 'registry/' | url }}">
+          <span class="mdx-focus__icon">📊</span>
+          <span class="mdx-focus__label">Dataverse</span>
+        </a>
+        <a class="mdx-focus__card" href="{{ 'registry/' | url }}">
+          <span class="mdx-focus__icon">🤖</span>
+          <span class="mdx-focus__label">Copilot Studio</span>
+        </a>
+        <a class="mdx-focus__card" href="{{ 'registry/' | url }}">
+          <span class="mdx-focus__icon">🧩</span>
+          <span class="mdx-focus__label">PCF Controls</span>
+        </a>
+        <a class="mdx-focus__card" href="{{ 'registry/' | url }}">
+          <span class="mdx-focus__icon">🏢</span>
+          <span class="mdx-focus__label">Dynamics 365</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Footer CTA ===== -->
+  <section class="mdx-cta">
+    <div class="md-grid md-typeset">
+      <h2>Get Involved</h2>
+      <p>
+        Whether you maintain a Power Platform tool or just want to help curate
+        the ecosystem, your contributions make a difference.
+      </p>
+      <a href="{{ 'guide/contributing/' | url }}" class="md-button md-button--primary">
+        Start Contributing
+      </a>
+    </div>
+  </section>
+
+{% endblock %}
+
+{% block content %}{% endblock %}
+
+{% block footer %}{% endblock %}
