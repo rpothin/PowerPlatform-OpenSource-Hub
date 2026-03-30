@@ -3,6 +3,23 @@
 {% block extrahead %}
   <link rel="stylesheet" href="{{ 'stylesheets/extra.css' | url }}">
   <link rel="apple-touch-icon" sizes="180x180" href="{{ 'assets/apple-touch-icon.png' | url }}">
+  <script>
+    /* Swap favicon to match the active colour scheme */
+    (function() {
+      var green = "{{ 'assets/favicon.png' | url }}";
+      var purple = "{{ 'assets/favicon-purple.png' | url }}";
+      function updateFavicon() {
+        var scheme = document.body.getAttribute("data-md-color-scheme");
+        var link = document.querySelector("link[rel='icon']");
+        if (link) link.href = scheme === "slate" ? purple : green;
+      }
+      var obs = new MutationObserver(updateFavicon);
+      document.addEventListener("DOMContentLoaded", function() {
+        obs.observe(document.body, { attributes: true, attributeFilter: ["data-md-color-scheme"] });
+        updateFavicon();
+      });
+    })();
+  </script>
 {% endblock %}
 
 {% block announce %}
