@@ -20,14 +20,14 @@
 }
 
 /* ----- b) Logo swap (theme-aware) -------------------- */
-.md-logo__image--dark {
-  display: none;
+.md-header__button.md-logo .md-logo__image--dark {
+  display: none !important;
 }
-[data-md-color-scheme="slate"] .md-logo__image--default {
-  display: none;
+[data-md-color-scheme="slate"] .md-header__button.md-logo .md-logo__image--default {
+  display: none !important;
 }
-[data-md-color-scheme="slate"] .md-logo__image--dark {
-  display: inline-block;
+[data-md-color-scheme="slate"] .md-header__button.md-logo .md-logo__image--dark {
+  display: inline-block !important;
 }
 
 /* Ensure logo sizing */
