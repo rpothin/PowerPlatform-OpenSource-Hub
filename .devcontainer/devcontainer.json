@@ -1,20 +1,33 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/python
 {
-	"image": "mcr.microsoft.com/devcontainers/universal:2",
+	"name": "Python 3",
+	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
+	"image": "mcr.microsoft.com/devcontainers/python:3-3.14-trixie",
 	"features": {
-		"ghcr.io/devcontainers/features/powershell:1": {},
-		"ghcr.io/devcontainers-contrib/features/powershell:1": {}
+		"ghcr.io/devcontainers/features/copilot-cli:1": {},
+		"ghcr.io/devcontainers/features/github-cli:1": {}
 	},
 	"customizations": {
 		"vscode": {
 			"extensions": [
-				"GitHub.copilot-chat",
-				"github.vscode-github-actions",
-				"pspester.pester-test",
-				"ritwickdey.LiveServer",
-				"ms-vscode.powershell",
-				"ms-playwright.playwright"
+				"yzhang.markdown-all-in-one"
 			]
 		}
 	},
-	"postCreateCommand": "npm install -g depcheck && cd Website/tests/user_interface && npm install @playwright/test && npx playwright install --with-deps --force && npx playwright install msedge --force && npx playwright install chrome --force"
+
+	// Features to add to the dev container. More info: https://containers.dev/features.
+	// "features": {},
+
+	// Use 'forwardPorts' to make a list of ports inside the container available locally.
+	// "forwardPorts": [],
+
+	// Use 'postCreateCommand' to run commands after the container is created.
+	"postCreateCommand": "pip install -r requirements.txt"
+
+	// Configure tool-specific properties.
+	// "customizations": {},
+
+	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
+	// "remoteUser": "root"
 }
