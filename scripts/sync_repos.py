@@ -35,6 +35,48 @@ REGISTRY_DIR = ROOT_DIR / "docs" / "registry"
 OVERRIDES_DIR = ROOT_DIR / "overrides"
 
 # ---------------------------------------------------------------------------
+# Focus-area categories (topic → category mapping)
+# ---------------------------------------------------------------------------
+CATEGORIES: dict[str, dict[str, Any]] = {
+    "power-apps": {
+        "label": "Power Apps",
+        "icon": "🔌",
+        "description": "Repositories related to Power Apps, canvas apps, and model-driven apps.",
+        "topics": {"powerapps", "power-apps"},
+    },
+    "power-automate": {
+        "label": "Power Automate",
+        "icon": "⚡",
+        "description": "Repositories related to Power Automate, cloud flows, and desktop flows.",
+        "topics": {"powerautomate", "power-automate"},
+    },
+    "dataverse": {
+        "label": "Dataverse",
+        "icon": "📊",
+        "description": "Repositories related to Microsoft Dataverse and the Common Data Service.",
+        "topics": {"dataverse", "microsoft-dataverse", "cds"},
+    },
+    "copilot-studio": {
+        "label": "Copilot Studio",
+        "icon": "🤖",
+        "description": "Repositories related to Microsoft Copilot Studio and Power Virtual Agents.",
+        "topics": {"powervirtualagent", "power-virtual-agent", "power-virtual-agents", "copilot-studio"},
+    },
+    "pcf-controls": {
+        "label": "PCF Controls",
+        "icon": "🧩",
+        "description": "Repositories related to the Power Apps Component Framework and custom controls.",
+        "topics": {"pcf-controls", "pcf", "powerappscomponentframework"},
+    },
+    "dynamics-365": {
+        "label": "Dynamics 365",
+        "icon": "🏢",
+        "description": "Repositories related to Dynamics 365, Dynamics CRM, and Business Central.",
+        "topics": {"dynamics365", "dynamics-365", "dynamics-crm", "dynamics", "d365", "d365fo", "d365ce"},
+    },
+}
+
+# ---------------------------------------------------------------------------
 # Logging
 # ---------------------------------------------------------------------------
 logging.basicConfig(
@@ -186,6 +228,12 @@ def _topics_badges(topics: list[str] | None) -> str:
     if not topics:
         return "_none_"
     return " ".join(f'<span class="registry-badge">{t}</span>' for t in sorted(topics))
+
+
+def _categorize_repo(repo: dict[str, Any]) -> list[str]:
+    """Return the list of category slugs a repository belongs to."""
+    repo_topics = {t.lower() for t in (repo.get("topics") or [])}
+    return [slug for slug, cat in CATEGORIES.items() if repo_topics & cat["topics"]]
 
 
 def generate_repo_page(repo: dict[str, Any]) -> str:
@@ -401,6 +449,124 @@ def generate_registry_index(repos: list[dict[str, Any]]) -> str:
     return "\n".join(lines)
 
 
+def generate_category_page(slug: str, cat: dict[str, Any], repos: list[dict[str, Any]]) -> str:
+    """Generate a Markdown page for a single focus-area category."""
+    label = cat["label"]
+    icon = cat["icon"]
+    description = cat["description"]
+    total = len(repos)
+    total_stars = sum(r.get("stargazerCount", 0) for r in repos)
+    now = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
+
+    # Language breakdown
+    languages: dict[str, int] = {}
+    for r in repos:
+        lang = r.get("language") or "Unknown"
+        languages[lang] = languages.get(lang, 0) + 1
+    top_langs = sorted(languages.items(), key=lambda x: x[1], reverse=True)[:10]
+    lang_rows = [f"| {lang} | {count} |" for lang, count in top_langs]
+
+    # Build card grid for top 30 repos (or all if fewer)
+    top_repos = repos[:30]
+    card_items: list[str] = []
+    for r in top_repos:
+        name = r.get("name", "")
+        full = r.get("fullName", "")
+        repo_slug = _sanitise_filename(full)
+        stars = r.get("stargazerCount", 0)
+        lang = r.get("language") or "Unknown"
+        desc = (r.get("description") or "No description")[:100]
+        if len(r.get("description") or "") > 100:
+            desc += "…"
+        card_items.append(
+            f"-   :star: **{name}** · {_format_number(stars)} stars · `{lang}`\n"
+            f"\n"
+            f"    ---\n"
+            f"\n"
+            f"    {desc}\n"
+            f"\n"
+            f"    [:octicons-arrow-right-24: View details]({repo_slug}.md)"
+        )
+    cards_block = "\n\n".join(card_items)
+
+    # Build table for remaining repos
+    remaining = repos[30:]
+    remaining_section = ""
+    if remaining:
+        remaining_rows = []
+        for r in remaining:
+            name = r.get("name", "")
+            full = r.get("fullName", "")
+            repo_slug = _sanitise_filename(full)
+            stars = r.get("stargazerCount", 0)
+            lang = r.get("language") or "—"
+            desc = (r.get("description") or "")[:80]
+            if len(r.get("description") or "") > 80:
+                desc += "…"
+            remaining_rows.append(
+                f"    | [{name}]({repo_slug}.md) | {lang} | :star: {_format_number(stars)} | {desc} |"
+            )
+        remaining_section = (
+            "\n---\n\n"
+            "## All Repositories\n\n"
+            f'??? note "View all {len(remaining)} remaining repositories"\n\n'
+            "    | Repository | Language | Stars | Description |\n"
+            "    |------------|----------|-------|-------------|\n"
+            + "\n".join(remaining_rows)
+        )
+
+    lines = [
+        "---",
+        "hide:",
+        "  - toc",
+        "---",
+        "",
+        f"# {icon} {label}",
+        "",
+        description,
+        "",
+        f'!!! info "Last synced: {now}"',
+        f"    Showing **{total}** repositories matching this focus area.",
+        "",
+        "---",
+        "",
+        '<div class="registry-summary" markdown>',
+        "",
+        "## Overview",
+        "",
+        "| Metric | Value |",
+        "|--------|-------|",
+        f"| **Repositories** | {total} |",
+        f"| **Total Stars** | :star: {_format_number(total_stars)} |",
+        "",
+        "### Top Languages",
+        "",
+        "| Language | Repositories |",
+        "|----------|-------------|",
+        *lang_rows,
+        "",
+        "</div>",
+        "",
+        "---",
+        "",
+        "## Featured Repositories",
+        "",
+        '<div class="grid cards" markdown>',
+        "",
+        cards_block,
+        "",
+        "</div>",
+        remaining_section,
+        "",
+        "---",
+        "",
+        f"_Auto-generated by [`sync_repos.py`](https://github.com/rpothin/PowerPlatform-OpenSource-Hub/blob/main/scripts/sync_repos.py) on {now}._",
+        "",
+    ]
+
+    return "\n".join(lines)
+
+
 def write_registry(repos: list[dict[str, Any]]) -> None:
     """Write Markdown files for every repository and the registry index."""
     # Ensure target directory exists and is clean
@@ -425,6 +591,15 @@ def write_registry(repos: list[dict[str, Any]]) -> None:
     index_path = REGISTRY_DIR / "index.md"
     index_path.write_text(generate_registry_index(repos), encoding="utf-8")
     log.info("Wrote %d repository pages + index to %s", written, REGISTRY_DIR)
+
+    # Write category pages
+    for slug, cat in CATEGORIES.items():
+        cat_repos = [r for r in repos if slug in _categorize_repo(r)]
+        cat_repos.sort(key=lambda r: r.get("stargazerCount", 0), reverse=True)
+        if cat_repos:
+            cat_path = REGISTRY_DIR / f"{slug}.md"
+            cat_path.write_text(generate_category_page(slug, cat, cat_repos), encoding="utf-8")
+    log.info("Wrote %d category pages", len(CATEGORIES))
 
 
 def _format_number_short(n: int) -> str:
