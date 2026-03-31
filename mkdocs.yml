@@ -25,14 +25,14 @@ theme:
       primary: teal
       accent: green
       toggle:
-        icon: material/weather-sunny
+        icon: custom/copilot-studio
         name: Switch to Copilot Studio theme
     - media: "(prefers-color-scheme: dark)"
       scheme: slate
-      primary: deep purple
-      accent: purple
+      primary: pink
+      accent: cyan
       toggle:
-        icon: material/weather-night
+        icon: custom/power-platform
         name: Switch to Power Platform theme
   icon:
     repo: fontawesome/brands/github

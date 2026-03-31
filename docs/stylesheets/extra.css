@@ -4,19 +4,19 @@
 
 /* ----- a) Palette colour overrides ----------------------- */
 [data-md-color-scheme="default"] {
-  --md-primary-fg-color:  #0d6e6e;
-  --md-primary-fg-color--light: #1a9e8f;
-  --md-primary-fg-color--dark: #095555;
+  --md-primary-fg-color:  #0d7d7d;
+  --md-primary-fg-color--light: #1a9c7d;
+  --md-primary-fg-color--dark: #005a5a;
   --md-primary-bg-color:  #ffffff;
   --md-accent-fg-color:   #4ec86c;
 }
 
 [data-md-color-scheme="slate"] {
-  --md-primary-fg-color:  #5B2D8E;
-  --md-primary-fg-color--light: #7B3FA0;
-  --md-primary-fg-color--dark: #421F6B;
-  --md-primary-bg-color:  #1e1e2e;
-  --md-accent-fg-color:   #A855F7;
+  --md-primary-fg-color:  #D946A8;
+  --md-primary-fg-color--light: #E86CC0;
+  --md-primary-fg-color--dark: #B03090;
+  --md-primary-bg-color:  #1a1025;
+  --md-accent-fg-color:   #38BDF8;
 }
 
 /* ----- b) Logo swap (theme-aware) -------------------- */
@@ -53,16 +53,16 @@
   background:
     url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 64'><path d='M0,0 C480,64 960,64 1440,0 L1440,64 L0,64 Z' fill='%23ffffff'/></svg>")
     no-repeat bottom / 100% auto,
-    linear-gradient(135deg, var(--md-primary-fg-color) 0%, var(--md-primary-fg-color--light, #1a9e8f) 50%, var(--md-accent-fg-color) 100%);
+    linear-gradient(135deg, #005a5a 0%, #1a9c7d 50%, #4ec86c 100%);
   padding: 4rem 0 6rem;
   overflow: hidden;
 }
 
 [data-md-color-scheme="slate"] .mdx-container {
   background:
-    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 64'><path d='M0,0 C480,64 960,64 1440,0 L1440,64 L0,64 Z' fill='%231e1e2e'/></svg>")
+    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 64'><path d='M0,0 C480,64 960,64 1440,0 L1440,64 L0,64 Z' fill='%231a1025'/></svg>")
     no-repeat bottom / 100% auto,
-    linear-gradient(135deg, var(--md-primary-fg-color) 0%, var(--md-primary-fg-color--light, #7B3FA0) 50%, var(--md-accent-fg-color) 100%);
+    linear-gradient(135deg, #B03090 0%, #D946A8 35%, #38BDF8 70%, #2DD4BF 100%);
 }
 
 /* --- Hero two-column flex layout --- */
@@ -674,13 +674,13 @@
    g) HOMEPAGE FOOTER
    ============================================================ */
 .mdx-footer {
-  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+  background: linear-gradient(135deg, #003d3d 0%, #005050 50%, #006040 100%);
   color: rgba(255, 255, 255, 0.85);
   padding: 3rem 0 0;
 }
 
 [data-md-color-scheme="slate"] .mdx-footer {
-  background: linear-gradient(135deg, #0d0d1a 0%, #1a1a2e 50%, #12122a 100%);
+  background: linear-gradient(135deg, #1a0520 0%, #0d0d1a 50%, #0a1025 100%);
 }
 
 .mdx-footer__inner {
