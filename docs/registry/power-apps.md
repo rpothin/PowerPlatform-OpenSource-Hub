@@ -7,8 +7,8 @@ hide:
 
 Repositories related to Power Apps, canvas apps, and model-driven apps.
 
-!!! info "Last synced: 2026-03-31 01:39 UTC"
-    Showing **502** repositories matching this focus area.
+!!! info "Last synced: 2026-04-04 01:53 UTC"
+    Showing **503** repositories matching this focus area.
 
 ---
 
@@ -18,19 +18,19 @@ Repositories related to Power Apps, canvas apps, and model-driven apps.
 
 | Metric | Value |
 |--------|-------|
-| **Repositories** | 502 |
-| **Total Stars** | :star: 15,382 |
+| **Repositories** | 503 |
+| **Total Stars** | :star: 15,447 |
 
 ### Top Languages
 
 | Language | Repositories |
 |----------|-------------|
-| Unknown | 222 |
-| TypeScript | 97 |
+| Unknown | 223 |
+| TypeScript | 96 |
 | C# | 52 |
 | JavaScript | 33 |
 | HTML | 24 |
-| Python | 17 |
+| Python | 18 |
 | PowerShell | 16 |
 | Jupyter Notebook | 6 |
 | TSQL | 5 |
@@ -44,7 +44,7 @@ Repositories related to Power Apps, canvas apps, and model-driven apps.
 
 <div class="grid cards" markdown>
 
--   :star: **PowerApps-Samples** · 1,900 stars · `C#`
+-   :star: **PowerApps-Samples** · 1,903 stars · `C#`
 
     ---
 
@@ -52,7 +52,7 @@ Repositories related to Power Apps, canvas apps, and model-driven apps.
 
     [:octicons-arrow-right-24: View details](microsoft_powerapps-samples.md)
 
--   :star: **PowerPlatformConnectors** · 1,230 stars · `C#`
+-   :star: **PowerPlatformConnectors** · 1,231 stars · `C#`
 
     ---
 
@@ -60,7 +60,7 @@ Repositories related to Power Apps, canvas apps, and model-driven apps.
 
     [:octicons-arrow-right-24: View details](microsoft_powerplatformconnectors.md)
 
--   :star: **power-pwn** · 1,138 stars · `Python`
+-   :star: **power-pwn** · 1,139 stars · `Python`
 
     ---
 
@@ -76,7 +76,7 @@ Repositories related to Power Apps, canvas apps, and model-driven apps.
 
     [:octicons-arrow-right-24: View details](mscrmtools_xrmtoolbox.md)
 
--   :star: **PowerDocu** · 603 stars · `C#`
+-   :star: **PowerDocu** · 604 stars · `C#`
 
     ---
 
@@ -84,7 +84,7 @@ Repositories related to Power Apps, canvas apps, and model-driven apps.
 
     [:octicons-arrow-right-24: View details](modery_powerdocu.md)
 
--   :star: **PowerApps** · 539 stars · `Unknown`
+-   :star: **PowerApps** · 540 stars · `Unknown`
 
     ---
 
@@ -100,7 +100,7 @@ Repositories related to Power Apps, canvas apps, and model-driven apps.
 
     [:octicons-arrow-right-24: View details](pnp_powerapps-samples.md)
 
--   :star: **alan-sdk-pcf** · 429 stars · `Unknown`
+-   :star: **alan-sdk-pcf** · 430 stars · `Unknown`
 
     ---
 
@@ -108,7 +108,7 @@ Repositories related to Power Apps, canvas apps, and model-driven apps.
 
     [:octicons-arrow-right-24: View details](alan-ai_alan-sdk-pcf.md)
 
--   :star: **PowerApps-Tooling** · 413 stars · `C#`
+-   :star: **PowerApps-Tooling** · 414 stars · `C#`
 
     ---
 
@@ -116,7 +116,7 @@ Repositories related to Power Apps, canvas apps, and model-driven apps.
 
     [:octicons-arrow-right-24: View details](microsoft_powerapps-tooling.md)
 
--   :star: **powerplatform-samples** · 402 stars · `Unknown`
+-   :star: **powerplatform-samples** · 403 stars · `Unknown`
 
     ---
 
@@ -124,7 +124,7 @@ Repositories related to Power Apps, canvas apps, and model-driven apps.
 
     [:octicons-arrow-right-24: View details](pnp_powerplatform-samples.md)
 
--   :star: **powercat-creator-kit** · 399 stars · `CSS`
+-   :star: **powercat-creator-kit** · 398 stars · `CSS`
 
     ---
 
@@ -140,7 +140,7 @@ Repositories related to Power Apps, canvas apps, and model-driven apps.
 
     [:octicons-arrow-right-24: View details](steedos_awesome-low-code.md)
 
--   :star: **teams-powerapps-app-templates** · 297 stars · `Unknown`
+-   :star: **teams-powerapps-app-templates** · 298 stars · `Unknown`
 
     ---
 
@@ -148,7 +148,7 @@ Repositories related to Power Apps, canvas apps, and model-driven apps.
 
     [:octicons-arrow-right-24: View details](microsoft_teams-powerapps-app-templates.md)
 
--   :star: **office365dev** · 286 stars · `JavaScript`
+-   :star: **office365dev** · 288 stars · `JavaScript`
 
     ---
 
@@ -172,7 +172,7 @@ Repositories related to Power Apps, canvas apps, and model-driven apps.
 
     [:octicons-arrow-right-24: View details](officedev_microsoft-teams-apps-requestateam.md)
 
--   :star: **powerapps-designtoolkit** · 219 stars · `Unknown`
+-   :star: **powerapps-designtoolkit** · 220 stars · `Unknown`
 
     ---
 
@@ -188,7 +188,7 @@ Repositories related to Power Apps, canvas apps, and model-driven apps.
 
     [:octicons-arrow-right-24: View details](microsoft_federal-business-applications.md)
 
--   :star: **powerplatform-snippets** · 209 stars · `HLSL`
+-   :star: **powerplatform-snippets** · 210 stars · `HLSL`
 
     ---
 
@@ -196,7 +196,7 @@ Repositories related to Power Apps, canvas apps, and model-driven apps.
 
     [:octicons-arrow-right-24: View details](pnp_powerplatform-snippets.md)
 
--   :star: **MicrosoftCloudLogos** · 198 stars · `Python`
+-   :star: **MicrosoftCloudLogos** · 201 stars · `Python`
 
     ---
 
@@ -212,7 +212,7 @@ Repositories related to Power Apps, canvas apps, and model-driven apps.
 
     [:octicons-arrow-right-24: View details](wai-technologies_raaghu-react.md)
 
--   :star: **PowerPlatformAdvocates** · 185 stars · `Unknown`
+-   :star: **PowerPlatformAdvocates** · 186 stars · `Unknown`
 
     ---
 
@@ -244,7 +244,7 @@ Repositories related to Power Apps, canvas apps, and model-driven apps.
 
     [:octicons-arrow-right-24: View details](zerg00s_flowpowerappsmigrator.md)
 
--   :star: **Project-Accelerator** · 145 stars · `Unknown`
+-   :star: **Project-Accelerator** · 146 stars · `Unknown`
 
     ---
 
@@ -290,25 +290,25 @@ Repositories related to Power Apps, canvas apps, and model-driven apps.
 
 ## All Repositories
 
-??? note "View all 472 remaining repositories"
+??? note "View all 473 remaining repositories"
 
     | Repository | Language | Stars | Description |
     |------------|----------|-------|-------------|
     | [OrgDbOrgSettings](seanmcne_orgdborgsettings.md) | HTML | :star: 110 | This is a utility allowing admins of Dynamics CRM Online & onPrem to edit organi… |
+    | [power-platform-skills](microsoft_power-platform-skills.md) | JavaScript | :star: 109 | A plugin marketplace for Claude Code/GitHub Copilot that provides Power Platform… |
     | [provision-assist-m365](pnp_provision-assist-m365.md) | PowerShell | :star: 107 | Provision Assist is a request and provisioning solution for Teams, Groups, SPO S… |
     | [Power-Platform-For-Beginners](microsoft_power-platform-for-beginners.md) | HTML | :star: 101 | Event-in-a-box to get started with Power Platform and AI Copilot (aka LowCode) |
-    | [Power-CAT-Tools](microsoft_power-cat-tools.md) | C# | :star: 96 | The Power CAT Tools is your ultimate companion for enhancing the development exp… |
-    | [power-platform-skills](microsoft_power-platform-skills.md) | JavaScript | :star: 90 | A plugin marketplace for Claude Code/GitHub Copilot that provides Power Platform… |
+    | [Power-CAT-Tools](microsoft_power-cat-tools.md) | C# | :star: 97 | The Power CAT Tools is your ultimate companion for enhancing the development exp… |
     | [apim-lab](azure_apim-lab.md) | HTML | :star: 85 | API Management - Hands-on Lab Workshop |
     | [PowerApps-samples](eickhel_powerapps-samples.md) | TypeScript | :star: 84 | PowerApps samples |
     | [dynamics-webapi-toolkit](alexacrm_dynamics-webapi-toolkit.md) | PHP | :star: 81 | Dynamics 365 Web API Toolkit for PHP |
+    | [canvas-apps-tools](toluvictor_canvas-apps-tools.md) | Unknown | :star: 78 | AI skills for Power Apps Canvas Apps - Generate paste-ready Power Apps Canvas Ap… |
     | [Templates-for-Power-Platform](microsoft_templates-for-power-platform.md) | C# | :star: 77 | Solutions designed to expedite the implementation of Power Platform within large… |
     | [PowerApps-Branding-Template](iammancat_powerapps-branding-template.md) | PowerShell | :star: 75 | A template to empower developers and reduce time wasted on control changes |
     | [PCF-Controls](power-maverick_pcf-controls.md) | TypeScript | :star: 67 | Repos of Powerapps Component Framework (PCF) Controls |
     | [power-platform-deprecation-tracker](tcorcor1_power-platform-deprecation-tracker.md) | Unknown | :star: 62 | Repo used for tracking changes on various Power Platform deprecation pages |
     | [PowerFxSnippets](powerappsdarren_powerfxsnippets.md) | Python | :star: 60 | My bag of tricks for the Power Platform, mostly canvas Power Apps (PowerFx & YAM… |
     | [TrulyResponsive](feincraft_trulyresponsive.md) | Unknown | :star: 54 | TrulyResponsive is the framework to build PowerApps that show the right UX on an… |
-    | [canvas-apps-tools](toluvictor_canvas-apps-tools.md) | Unknown | :star: 53 | AI skills for Power Apps Canvas Apps - Generate paste-ready Power Apps Canvas Ap… |
     | [PowerApps-Azure-Lab](microsoft_powerapps-azure-lab.md) | C# | :star: 53 | Repository to host the PowerApps Azure Lab |
     | [development-hub](ewingjm_development-hub.md) | C# | :star: 45 | A continuous integration solution for Power Apps. |
     | [powerapps-docstring](sebastian-muthwill_powerapps-docstring.md) | Python | :star: 45 | PowerApps-docstring is a console based, pipeline ready application that automati… |
@@ -387,8 +387,8 @@ Repositories related to Power Apps, canvas apps, and model-driven apps.
     | [PCF-SamplePopup](oolashyn_pcf-samplepopup.md) | TypeScript | :star: 9 | Sample PowerApps Framework Component to show you how to use Popup |
     | [CollectAllLogs](russrimm_collectalllogs.md) | PowerShell | :star: 9 | Welcome the the script repository of Customer Engineer (PFE) Russ Rimmerman.   |
     | [report-pcf](martinlaukkanen_report-pcf.md) | TypeScript | :star: 9 | Easy Reports is a PowerApps component to add chart components to your Dashboards… |
-    | [PCF-FetchToSubgrid](bevercrm_pcf-fetchtosubgrid.md) | TypeScript | :star: 9 | This control converts a FetchXml string into a subgrid. |
     | [PCF-DragAndDropArea](bevercrm_pcf-draganddroparea.md) | TypeScript | :star: 9 | This control allows uploading files by doing drag and drop to the sub-grid line |
+    | [PCF-FetchToSubgrid](bevercrm_pcf-fetchtosubgrid.md) | TypeScript | :star: 9 | This control converts a FetchXml string into a subgrid. |
     | [hub](power-tools_hub.md) | TypeScript | :star: 9 | A hub for the latest PowerTools Solution and it's source code |
     | [NNDropdown](nielsminnee_nndropdown.md) | TypeScript | :star: 8 | Control which converts Many-to-Many relationship into a multiselect dropdown. Vi… |
     | [ComponentFramework-Mock](shko-online_componentframework-mock.md) | TypeScript | :star: 8 | Mocking library to help with testing PowerApps Component Framework Components |
@@ -400,9 +400,9 @@ Repositories related to Power Apps, canvas apps, and model-driven apps.
     | [azd-logicapps-dataverse](rajyraman_azd-logicapps-dataverse.md) | Bicep | :star: 8 | Sample repository that shows how to use azd with Logic Apps and Dataverse API |
     | [power-platform-cli-completion](rajyraman_power-platform-cli-completion.md) | PowerShell | :star: 7 | Add auto completions for Power Platform CLI when using PowerShell |
     | [shazam](roshangautam_shazam.md) | C# | :star: 7 | Boilerplate to get started with power apps development |
+    | [PCF-TimePicker](bevercrm_pcf-timepicker.md) | TypeScript | :star: 7 | This control allows to modify default DateTime fields to show time portion only |
     | [power-notify](tdashworth_power-notify.md) | CSS | :star: 7 | A Power Apps solutions to decouple system events and notifying system users. |
     | [powerapps-modals](ahmadnsam_powerapps-modals.md) | CSS | :star: 7 | build simple Model-driven apps modals very quick, turn json into modals without … |
-    | [PCF-TimePicker](bevercrm_pcf-timepicker.md) | TypeScript | :star: 7 | This control allows to modify default DateTime fields to show time portion only |
     | [Office-Power-Tools](louicha_office-power-tools.md) | Unknown | :star: 7 | Some of my PowerApps and Components. |
     | [ApplicationInsightsManager](power-maverick_applicationinsightsmanager.md) | C# | :star: 7 | ApplicationInsightsManager plugin for XrmToolBox and Microsoft Dynamics 365 / CR… |
     | [LCP-List-Copy-and-Paste](power-nerd-insights_lcp-list-copy-and-paste.md) | Unknown | :star: 7 | This solution enables you to copy and paste SharePoint lists between sites witho… |
@@ -411,25 +411,25 @@ Repositories related to Power Apps, canvas apps, and model-driven apps.
     | [PowerCIDPortal](appliedtechnologies_powercidportal.md) | CSS | :star: 6 | a ALM tool for Microsoft Power Platform solutions 🚚 easy deploy Power Apps or Po… |
     | [more-xrm](scalable-dynamics_more-xrm.md) | JavaScript | :star: 6 | more-xrm is a TypeScript library that enables you to connect, query and manage D… |
     | [Reactions](mehmetseckin_reactions.md) | TypeScript | :star: 6 | A set of PCF controls that add emoji reaction capabilities to Model-Driven Apps … |
-    | [TimeZoneDisplay](mehmetseckin_timezonedisplay.md) | TypeScript | :star: 6 | A PCF control that displays a date or date and time field in a different timezon… |
     | [more-365](scalable-dynamics_more-365.md) | C# | :star: 6 |  |
-    | [sharepoint-events-powerapp](alexc-msft_sharepoint-events-powerapp.md) | Unknown | :star: 6 | Proof of Concept Power App providing Event Registration functionality. Designed … |
+    | [TimeZoneDisplay](mehmetseckin_timezonedisplay.md) | TypeScript | :star: 6 | A PCF control that displays a date or date and time field in a different timezon… |
     | [pyscript_power_load_balance](dominig_pyscript_power_load_balance.md) | Python | :star: 6 | Pyscript for Home Automation enabling a power dispatch via power balancing |
+    | [sharepoint-events-powerapp](alexc-msft_sharepoint-events-powerapp.md) | Unknown | :star: 6 | Proof of Concept Power App providing Event Registration functionality. Designed … |
     | [powerapps-deploy-solution](rajyraman_powerapps-deploy-solution.md) | Unknown | :star: 6 | GitHub Action to deploy Power Apps Solutions |
     | [power-playwright](garrytrinder_power-playwright.md) | JavaScript | :star: 6 | PoC to see how Microsoft Playwright Node.js automation tool can be used to test … |
     | [awesome-power-platform](cno-it-gs_awesome-power-platform.md) | Unknown | :star: 6 | A curated list of awesome Power Platform resources. |
     | [PowerAppsUI](santaradovan_powerappsui.md) | Unknown | :star: 5 | 🧩 A collection of reusable and customizable UI components for Power Apps Canvas … |
     | [recruitment-app](jakbor32_recruitment-app.md) | Unknown | :star: 5 | User-friendly recruitment platform designed to streamline the hiring process, bu… |
     | [sp_delegation_solution](adedaporh_sp_delegation_solution.md) | Unknown | :star: 5 | A solution for resolving PowerApps to SharePoint delegation issues. |
-    | [DemosScenarios-TechTalks](microsoftcloudessentials-learninghub_demosscenarios-techtalks.md) | Jupyter Notebook | :star: 5 | This repository showcases demonstrations and scenarios using Microsoft Cloud tec… |
+    | [DemosScenarios-TechTalks](cloud2br-msftlearninghub_demosscenarios-techtalks.md) | Jupyter Notebook | :star: 5 | This repository showcases demonstrations and scenarios using Microsoft Cloud tec… |
     | [my-learning-powerapp](maxknu_my-learning-powerapp.md) | Unknown | :star: 5 | PowerApp to showcase how you can create a simple learning portal for employees. … |
     | [PCF_GoogleMapsGrid](jasonaalmeida_pcf_googlemapsgrid.md) | TypeScript | :star: 5 | A PCF control to render a view of records on Google Maps |
     | [power-platform-solution-packager-demo](rajyraman_power-platform-solution-packager-demo.md) | TypeScript | :star: 5 | Sample repo that shows how to use Solution Packager with cdsproj |
     | [AshV.WebApiTester.XTB](ashv_ashv.webapitester.xtb.md) | C# | :star: 5 | Microsoft Dataverse/Dynamics 365 Web API Tester Plugin for XrmToolBox |
-    | [Niam.Xrm.Client](temmyraharjo_niam.xrm.client.md) | TypeScript | :star: 5 | Niam.Xrm.Client is a wrapping framework for Xrm object. The goal of this project… |
     | [pcf-signalr](ghurlman_pcf-signalr.md) | HTML | :star: 5 |  |
-    | [Kiwi-Power-App-For-Students](thisisashwinraj_kiwi-power-app-for-students.md) | C# | :star: 5 | A power application for college student to manage over a dozen different tasks s… |
+    | [Niam.Xrm.Client](temmyraharjo_niam.xrm.client.md) | TypeScript | :star: 5 | Niam.Xrm.Client is a wrapping framework for Xrm object. The goal of this project… |
     | [pcf-action-button](novalogica_pcf-action-button.md) | TypeScript | :star: 5 | PowerApps Component framework (PCF) control that allows you to create customizab… |
+    | [Kiwi-Power-App-For-Students](thisisashwinraj_kiwi-power-app-for-students.md) | C# | :star: 5 | A power application for college student to manage over a dozen different tasks s… |
     | [sample-pcf-msal](networg_sample-pcf-msal.md) | TypeScript | :star: 5 | Sample showing Entra ID authentication in Power Apps component framework. |
     | [D365-UI-Mocha-Test](paulbreuler_d365-ui-mocha-test.md) | TypeScript | :star: 4 | Example setup of D365-UI-Test TypeScript setup using Mocha test framework |
     | [PCF-PasswordField](bevercrm_pcf-passwordfield.md) | TypeScript | :star: 4 | This control converts the string field into a password field. |
@@ -438,17 +438,17 @@ Repositories related to Power Apps, canvas apps, and model-driven apps.
     | [5SAssessment](teamruegg_5sassessment.md) | HTML | :star: 4 | 5S is a workplace organization method that uses a list of five Japanese words Se… |
     | [cdsR](jarekkupisz_cdsr.md) | R | :star: 4 | cdsR - R Interface to Microsoft's Dataverse (formerly Common Data Service - CDS)… |
     | [PCF-Prefix-Suffix-Control](dynamicsninja_pcf-prefix-suffix-control.md) | TypeScript | :star: 4 | Prefix Suffix Control allows show the prefix and suffix on the numeric input fie… |
-    | [smart-home-demo](timhanewich_smart-home-demo.md) | C# | :star: 4 | Monitoring temperature and humidity with Raspberry Pi, Azure Functions, and Powe… |
     | [servicecatalogue](m-odonovan_servicecatalogue.md) | Unknown | :star: 4 | Working concept assembled using Canvas and Model Driven Microsoft Power Apps. Al… |
+    | [smart-home-demo](timhanewich_smart-home-demo.md) | C# | :star: 4 | Monitoring temperature and humidity with Raspberry Pi, Azure Functions, and Powe… |
     | [home_inventory](magdapalka_home_inventory.md) | Unknown | :star: 4 | Home inventory app in MS Power Apps |
-    | [ExpenseManagement_PowerApp](rathogwainnocent_expensemanagement_powerapp.md) | Unknown | :star: 4 | Expense Managment is a Canvas APP designed and developed within Power APPS with … |
     | [SAP](amitlals_sap.md) | Unknown | :star: 4 | SAP on Azure | Logic Apps | Power Apps | Power Automate Tools | Data & AI |
+    | [ExpenseManagement_PowerApp](rathogwainnocent_expensemanagement_powerapp.md) | Unknown | :star: 4 | Expense Managment is a Canvas APP designed and developed within Power APPS with … |
     | [HelpDesk](jemish-169_helpdesk.md) | Unknown | :star: 4 | HelpDesk app is built using Microsoft's Power app Tech. It solves ticketing mana… |
     | [BarCode](allandecastro_barcode.md) | TypeScript | :star: 4 | BarCode is a barcode generator written in JavaScript (based on JsBarcode). It su… |
     | [vite-powerapps-templates](ahmadnsam_vite-powerapps-templates.md) | TypeScript | :star: 4 | A collection of starter templates for model-driven apps scripting with ViteJs. I… |
     | [genaiscript-pac-az-mcp](rajyraman_genaiscript-pac-az-mcp.md) | TypeScript | :star: 4 | MCP for Azure CLI and Power Platform CLI |
-    | [Feincraft-PureWord](feincraft_feincraft-pureword.md) | Unknown | :star: 3 | Advanced text control for PowerApps with shadows, bevels and other effects |
     | [pcf-info-callout](nunosubtil_pcf-info-callout.md) | TypeScript | :star: 3 | Info Callout PCF Component |
+    | [Feincraft-PureWord](feincraft_feincraft-pureword.md) | Unknown | :star: 3 | Advanced text control for PowerApps with shadows, bevels and other effects |
     | [PCF-Controls](paulbreuler_pcf-controls.md) | TypeScript | :star: 3 | Power Apps Component Framework (PCF) custom controls collection |
     | [digpacks-translator-pro](digpacks_digpacks-translator-pro.md) | Unknown | :star: 3 | Instructions and overview of the Translator Pro service, provided by DigPacks Lt… |
     | [pcf-docker](rajyraman_pcf-docker.md) | Dockerfile | :star: 3 | Build PCF controls inside a Docker container |
@@ -461,20 +461,19 @@ Repositories related to Power Apps, canvas apps, and model-driven apps.
     | [AccountManagement.ps1](chymaera3301_accountmanagement.ps1.md) | Unknown | :star: 3 | Powershell scripts and JSON Schemas for account management utilizing Power Apps |
     | [harvest-api-powerplatform-custom-connector](garrytrinder_harvest-api-powerplatform-custom-connector.md) | Unknown | :star: 3 | PowerPlatform Custom Connector for the Harvest API |
     | [PowerAutomateCustomConnectors](maksii_powerautomatecustomconnectors.md) | C# | :star: 3 | Power Automate Custom Connectors for daily use. Feel free to download and instal… |
-    | [Power-Apps-MS-ServiceDesk-Template](powerappsdarren_power-apps-ms-servicedesk-template.md) | Shell | :star: 3 | Power-Apps-MS-ServiceDesk-Template |
     | [power-apps-dependency-visualizer](demodorigatsuo_power-apps-dependency-visualizer.md) | JavaScript | :star: 3 | Visualize and analyze control dependencies in Power Apps with this interactive b… |
-    | [powerapps-solution-extract](rajyraman_powerapps-solution-extract.md) | Unknown | :star: 3 | GitHub Action to extract, commit and release Power Apps Solutions. |
+    | [Power-Apps-MS-ServiceDesk-Template](powerappsdarren_power-apps-ms-servicedesk-template.md) | Shell | :star: 3 | Power-Apps-MS-ServiceDesk-Template |
     | [azureml-moe-powerapps](onno101_azureml-moe-powerapps.md) | Unknown | :star: 3 | A repository supporting the a Medium blog on integrating Azure Machine Learning … |
-    | [morfosis-app](juanjo-bltrn_morfosis-app.md) | Python | :star: 3 | Morfosis es una plataforma para la gestión segura de documentos de la organizaci… |
+    | [powerapps-solution-extract](rajyraman_powerapps-solution-extract.md) | Unknown | :star: 3 | GitHub Action to extract, commit and release Power Apps Solutions. |
     | [tailwindui-kit](ahmadnsam_tailwindui-kit.md) | Unknown | :star: 3 | PCF components UI Kit, sourced from Tailwind UI components, built with Reactjs a… |
     | [pa-chrome-extension-sample](nunosubtil_pa-chrome-extension-sample.md) | HTML | :star: 3 | Chrome Extension Sample for Power Apps |
+    | [morfosis-app](juanjo-bltrn_morfosis-app.md) | Python | :star: 3 | Morfosis es una plataforma para la gestión segura de documentos de la organizaci… |
     | [pp-eleave](m-odonovan_pp-eleave.md) | HTML | :star: 3 | Power Platform leave management solution, designed for South Africa public secto… |
     | [Azure-Maps-Custom-Connector](powerplatformnerd_azure-maps-custom-connector.md) | Unknown | :star: 3 | Azure Maps Custom Connector is a Power Platform custom connector that integrates… |
     | [codebug-sendgrid-emailer](imrancodebug_codebug-sendgrid-emailer.md) | TypeScript | :star: 3 | Send Sendgrid's template-based email from Dynamics 365/Model-driven app in this … |
+    | [ShellControl](mbrg_shellcontrol.md) | TypeScript | :star: 2 | A JavaScript Shell PowerApps PCF component for education and research |
     | [Power-Platform](mateusbtlopes_power-platform.md) | Unknown | :star: 2 | Repositório de arquivos do curso de Power Platform da Microsoft que envolve Powe… |
     | [Business-Process-Flow-With-Custom-Buttons](kkazala_business-process-flow-with-custom-buttons.md) | TypeScript | :star: 2 | eusable script for model-driven apps that allows you to use custom buttons to mo… |
-    | [ShellControl](mbrg_shellcontrol.md) | TypeScript | :star: 2 | A JavaScript Shell PowerApps PCF component for education and research |
-    | [Powerautomate](jixiexiaoge_powerautomate.md) | Unknown | :star: 2 | Power Automate 入门到精通 108讲 |
     | [Microsoft-Training-Certification-Licensing-and-Much-More](madcloudskills_microsoft-training-certification-licensing-and-much-more.md) | Unknown | :star: 2 | Microsoft Cloud readiness & learning resources. Training & certification materia… |
     | [pcf-hover-option-set](nunosubtil_pcf-hover-option-set.md) | TypeScript | :star: 2 | Hover Option Set PCF Component |
     | [compta365](dominiquedelaire_compta365.md) | Unknown | :star: 2 | Comptabilité générale Open source créée avec Microsoft PowerApps et les outils d… |
@@ -486,32 +485,34 @@ Repositories related to Power Apps, canvas apps, and model-driven apps.
     | [pbMenu](lopperman_pbmenu.md) | Unknown | :star: 2 | Flexible custom menu component for canvas power apps |
     | [BirthdayPowerApp](mrautomate33_birthdaypowerapp.md) | Unknown | :star: 2 | Celebrate the birthday of your colleague! Use it as an app, in teams or embed it… |
     | [NetCoreConf-MR_App](imari91_netcoreconf-mr_app.md) | Unknown | :star: 2 | NetCoreConf Virtual 2 - Recursos necesarios para desarrollar la APP de Realidad … |
+    | [zx-powerapps-cli](bsorrentino_zx-powerapps-cli.md) | JavaScript | :star: 2 | zx scripts for interactive use of powerapps cli (PAC). |
+    | [powerapps-offlinemode](jthin_powerapps-offlinemode.md) | Unknown | :star: 2 | PowerApps - Mode offline |
     | [PowerAppsFlow](tertiarycourses_powerappsflow.md) | Unknown | :star: 2 | Exercise files for Creating Business Applications with PowerApps & Power Flow |
     | [powerapps-vnet-integration](epomatti_powerapps-vnet-integration.md) | HCL | :star: 2 | Power Apps private connectivity with Azure SQL Database |
     | [Microsoft-Power-Apps](zhisonghuo_microsoft-power-apps.md) | Unknown | :star: 2 | A collection of my custom solutions using Power Apps. |
     | [face_mask_detection](easonlai_face_mask_detection.md) | Unknown | :star: 2 | Power App sample for Face Mask Detection. This app is an infused AI model traine… |
-    | [powerapps-offlinemode](jthin_powerapps-offlinemode.md) | Unknown | :star: 2 | PowerApps - Mode offline |
-    | [zx-powerapps-cli](bsorrentino_zx-powerapps-cli.md) | JavaScript | :star: 2 | zx scripts for interactive use of powerapps cli (PAC). |
     | [Powerapps_ConnecteurCustom_OpenAI](dominiquedelaire_powerapps_connecteurcustom_openai.md) | Unknown | :star: 2 | Connecteur personnalisé OpenAI pour applications PowerApps |
-    | [serverless-api-sample](ssrikantan_serverless-api-sample.md) | C# | :star: 2 | Contains artefacts used in the Blog article that explains how Azure Functions, C… |
+    | [referral-management-system](adhamkhouly_referral-management-system.md) | Unknown | :star: 2 | Adaptive employee referral management system built with Microsoft Power Apps, Sh… |
     | [PowerTab](josverl_powertab.md) | HTML | :star: 2 | Teams App with a configurable PowerApp tab with Teams context  |
+    | [serverless-api-sample](ssrikantan_serverless-api-sample.md) | C# | :star: 2 | Contains artefacts used in the Blog article that explains how Azure Functions, C… |
     | [Organ-Procurement-Transplantation-Portal](devj07_organ-procurement-transplantation-portal.md) | TSQL | :star: 2 | A portal made of SQL,Azure data Studio and power applications for organ donation… |
-    | [Procurement-Flow-Tool](lakshaybaijal_procurement-flow-tool.md) | Unknown | :star: 2 | Live Project (PowerApps) |
     | [Inventory-App](aleem2001_inventory-app.md) | Unknown | :star: 2 | Streamline inventory requests with an Inventory App on Power Apps. Automated pro… |
     | [URL-Retrieval-for-Microsoft-Teams](santhoshkumard11_url-retrieval-for-microsoft-teams.md) | Python | :star: 2 |  |
+    | [Procurement-Flow-Tool](lakshaybaijal_procurement-flow-tool.md) | Unknown | :star: 2 | Live Project (PowerApps) |
     | [Codex](uwlsimulationcentre_codex.md) | Unknown | :star: 2 | Staff Launchpad created using PowerApps |
     | [ReshapeJsonDemo](jianxu42_reshapejsondemo.md) | Rust | :star: 2 | Demo with Power Apps & Azure Functions. |
     | [App4Hack](melyassir_app4hack.md) | Unknown | :star: 1 | App4Hack the Power Platform App to manage your Hackathons |
-    | [powerplatform-connector](dime-scheduler_powerplatform-connector.md) | Unknown | :star: 1 | 🔗 Connect to the Dime.Scheduler through the certified Power Platform connector. |
     | [pcf-star-rating](nunosubtil_pcf-star-rating.md) | TypeScript | :star: 1 | Star Rating PCF Component |
+    | [powerplatform-connector](dime-scheduler_powerplatform-connector.md) | Unknown | :star: 1 | 🔗 Connect to the Dime.Scheduler through the certified Power Platform connector. |
     | [PCF-MessageBar](jacobtonder_pcf-messagebar.md) | TypeScript | :star: 1 |  |
     | [Back2Work](sycor-group_back2work.md) | Unknown | :star: 1 | A sample PowerPlatform solution that shows how employees may be complient to des… |
-    | [riata](paradiseisfound_riata.md) | Unknown | :star: 1 | The finance app that lets you own your data and customize your experience |
+    | [ppf-gui-to-power-apps-code-apps](kimtth_ppf-gui-to-power-apps-code-apps.md) | Python | :star: 1 | 🔄 Migrate the GUI application to Power Apps Code Apps⚡ |
     | [house-price-predicition-aml-powerapp](john0isaac_house-price-predicition-aml-powerapp.md) | Jupyter Notebook | :star: 1 | Azure ML + Power App Solution sample and walkthrough to complement the Azure Arc… |
-    | [PowerPlatform](idx3_powerplatform.md) | Unknown | :star: 1 | Example of PowerPlatform solutions such as Flows and Apps. |
+    | [riata](paradiseisfound_riata.md) | Unknown | :star: 1 | The finance app that lets you own your data and customize your experience |
     | [cds-schema-file-generator](davidjenkins_cds-schema-file-generator.md) | C# | :star: 1 | Common Data Service Schema File Generator |
     | [automate-business-email-management-aibuilder-powerapps](john0isaac_automate-business-email-management-aibuilder-powerapps.md) | Unknown | :star: 1 | AI Builder + Power App Solution sample and walkthrough to complement the Azure A… |
     | [my-power-platform](wyattdave_my-power-platform.md) | JavaScript | :star: 1 | Dashboard that shows all of your Power Platform development |
+    | [PowerPlatform](idx3_powerplatform.md) | Unknown | :star: 1 | Example of PowerPlatform solutions such as Flows and Apps. |
     | [MicrosoftPowerPlatform](samurai-ka_microsoftpowerplatform.md) | Unknown | :star: 1 | This is a repository for Microsoft Power Automate, Power Apps, and Azure Logic A… |
     | [playwright-power-platform-toolkit](deepakkamboj_playwright-power-platform-toolkit.md) | TypeScript | :star: 1 | Enterprise Test Automation Framework for Microsoft Power Platform |
     | [PetTracker](luisolcay20_pettracker.md) | TSQL | :star: 1 | App de seguimiento para mascotas, la cual fue construida utilizando Power Platfo… |
@@ -526,15 +527,15 @@ Repositories related to Power Apps, canvas apps, and model-driven apps.
     | [xrmtoolbox-plugin-catalog](jukkan_xrmtoolbox-plugin-catalog.md) | TypeScript | :star: 1 | Discover tools for Microsoft Power Platform development and administration via t… |
     | [DataverseOptionSetHelper](matteo-campana_dataverseoptionsethelper.md) | Python | :star: 1 | Helper for Microsoft Dataverse Option Sets (Choices), built to handle large valu… |
     | [ai-complaint-component-identification-system](mieterskiai_ai-complaint-component-identification-system.md) | Python | :star: 1 | Decision-routing workflow for complaint triage: identifies likely components, ro… |
-    | [ai-decision-support-system](mieterskiai_ai-decision-support-system.md) | Shell | :star: 1 | Documentation-led human-in-the-loop workflow case study for decision support and… |
     | [HttpFlowFinder](tihanajk_httpflowfinder.md) | C# | :star: 1 | XrmToolBox tool for listing power automate flows that are triggered by http requ… |
+    | [ai-decision-support-system](mieterskiai_ai-decision-support-system.md) | Shell | :star: 1 | Documentation-led human-in-the-loop workflow case study for decision support and… |
     | [Employee-Recognition-App](kcoderva_employee-recognition-app.md) | PowerShell | :star: 1 | A comprehensive Power Platform solution for managing employee recognition and aw… |
     | [PAuConsumptionApp](davyderoeck_pauconsumptionapp.md) | TypeScript | :star: 1 | Power Automate Request Consumption Analyzer — a Power Apps Code Component to ana… |
     | [powerapps-hr-template](rahmanufal89-seo_powerapps-hr-template.md) | Unknown | :star: 1 | Microsoft Power Apps HR Template for employee management, Leave requests and int… |
     | [flowdesk](marco-giuseppe-starace_flowdesk.md) | TypeScript | :star: 1 | Desktop productivity tracker for Power Platform professionals — Kanban, Timer, A… |
     | [ai-mailops-agent](mieterskiai_ai-mailops-agent.md) | Shell | :star: 1 | Decision-routing workflow for email triage: classifies intent, routes edge cases… |
-    | [pac-crescendo](rajyraman_pac-crescendo.md) | PowerShell | :star: 1 | Crescendo module that wraps Power Platform CLI |
     | [powerapp-ingest](kimtth_powerapp-ingest.md) | Python | :star: 1 | 🗂️ A git-ingest–inspired tool that generates Power Apps context (UI hierarchies … |
+    | [pac-crescendo](rajyraman_pac-crescendo.md) | PowerShell | :star: 1 | Crescendo module that wraps Power Platform CLI |
     | [PowerApps-purchase-management](kevin538_powerapps-purchase-management.md) | Unknown | :star: 1 | The purchase management and validation application, along with stock management … |
     | [m365-project-hiring](jenneyra_m365-project-hiring.md) | Unknown | :star: 1 | Oferta: Jefe/a de Proyecto Microsoft 365 — proyecto de migración y modernización… |
     | [HR-Analytics-Dashboard-](nuwanjithg_hr-analytics-dashboard-.md) | Unknown | :star: 1 | This repository contains a comprehensive HR Analytics Dashboard designed to prov… |
@@ -554,45 +555,45 @@ Repositories related to Power Apps, canvas apps, and model-driven apps.
     | [CustomTimelineControl](matteo-campana_customtimelinecontrol.md) | TypeScript | :star: 1 | The Custom Timeline Control is a PowerApps Component Framework (PCF) control des… |
     | [AutomatorsAnonymous](depressioncenter_automatorsanonymous.md) | JavaScript | :star: 1 | Tidbits of code for Power Automate, Power Query, Power BI, Power Apps, SharePoin… |
     | [pobvolOpenChecklists](pobvolcom_pobvolopenchecklists.md) | VBA | :star: 1 | Quickly and easily define checklists with checkpoints and fields | Collect data … |
-    | [PowerApps-Coffee-Machine-Order-App](suresh-rsa_powerapps-coffee-machine-order-app.md) | Unknown | :star: 1 | A low-code Coffee Machine Ordering App built with Power Apps, Dataverse, and Pow… |
-    | [dtcanvas](digikris_dtcanvas.md) | Unknown | :star: 1 | Microsoft PowerApps canvas application |
-    | [referral-management-system](adhamkhouly_referral-management-system.md) | Unknown | :star: 1 | Adaptive employee referral management system built with Microsoft Power Apps, Sh… |
-    | [BachelorProef](moutpessemier_bachelorproef.md) | TeX | :star: 1 | Bachelorproef rond het automatiseren van systemen en processen binnen een organi… |
-    | [datapyrse](blakeztl_datapyrse.md) | Python | :star: 1 | A python package to mimic functionality of Microsoft Dataverse SDK |
-    | [EnvVarChecker](tihanajk_envvarchecker.md) | C# | :star: 1 | XrmToolBox tool for checking environment variables in up to 3 environments |
-    | [Insight--Hub-Social-Media-Analysis-](saarthakj_insight--hub-social-media-analysis-.md) | Unknown | :star: 1 | This project aims to provide comprehensive social media analysis, specifically f… |
     | [Editable-Reports-with-Power-Apps-Databricks](jcbendernh_editable-reports-with-power-apps-databricks.md) | Unknown | :star: 1 | This repo is an implementation guide for “write-back” style analytics: view in P… |
+    | [Insight--Hub-Social-Media-Analysis-](saarthakj_insight--hub-social-media-analysis-.md) | Unknown | :star: 1 | This project aims to provide comprehensive social media analysis, specifically f… |
+    | [Asset-Checkout-app](dhruvarawal_asset-checkout-app.md) | Unknown | :star: 1 | Application is made using Power Apps. |
+    | [PowerApps.CLI](glosrob_powerapps.cli.md) | C# | :star: 1 |  |
     | [Microsoft-PowerApps-Canvas](sunilshetty07_microsoft-powerapps-canvas.md) | Unknown | :star: 1 | This repository contains a Canvas Power Apps application (.msapp) that can be do… |
     | [power-platform-cli-container](rajyraman_power-platform-cli-container.md) | Dockerfile | :star: 1 | Run Power Platform CLI inside a Docker container |
     | [Discipulus-Hub](uwlsimulationcentre_discipulus-hub.md) | Unknown | :star: 1 | Student Hub created using PowerApps |
-    | [Asset-Checkout-app](dhruvarawal_asset-checkout-app.md) | Unknown | :star: 1 | Application is made using Power Apps. |
-    | [PowerApps.CLI](glosrob_powerapps.cli.md) | C# | :star: 1 |  |
-    | [PCF-QuillCustomRichTextField](ydgs_pcf-quillcustomrichtextfield.md) | TypeScript | :star: 1 | A custom PowerApps PCF Component that integrates the Quill Rich Text Editor into… |
+    | [BachelorProef](moutpessemier_bachelorproef.md) | TeX | :star: 1 | Bachelorproef rond het automatiseren van systemen en processen binnen een organi… |
+    | [datapyrse](blakeztl_datapyrse.md) | Python | :star: 1 | A python package to mimic functionality of Microsoft Dataverse SDK |
+    | [EnvVarChecker](tihanajk_envvarchecker.md) | C# | :star: 1 | XrmToolBox tool for checking environment variables in up to 3 environments |
     | [APIReferenceFinder](tihanajk_apireferencefinder.md) | C# | :star: 1 | XrmToolBox tool for finding apis in power automate flows and web resources |
-    | [arganoArbelaCare](arganollc_arganoarbelacare.md) | Unknown | :star: 1 | Power Platform based Solution to Check-in on your employees and provide the supp… |
-    | [power-up-animal-shelter](janet-dev_power-up-animal-shelter.md) | Unknown | :star: 1 | Animal Shelter Solution Demo (Power Apps - Canvas/Model-Driven), Power Automate,… |
-    | [PCF-CustomisableHTMLTooltipSolution](ydgs_pcf-customisablehtmltooltipsolution.md) | Unknown | :star: 1 | A highly customizable PowerApps Component Framework (PCF) control that provides … |
-    | [Portfolio](ricardo-ugarte_portfolio.md) | Unknown | :star: 1 | Portfolio profesional de análisis de datos. Proyectos en Power BI, Power Apps y … |
-    | [PCF-QuillCustomRichTextFieldSolution](ydgs_pcf-quillcustomrichtextfieldsolution.md) | Unknown | :star: 1 | A custom PowerApps PCF Component that integrates the Quill Rich Text Editor into… |
+    | [PowerApps-Coffee-Machine-Order-App](suresh-rsa_powerapps-coffee-machine-order-app.md) | Unknown | :star: 1 | A low-code Coffee Machine Ordering App built with Power Apps, Dataverse, and Pow… |
+    | [dtcanvas](digikris_dtcanvas.md) | Unknown | :star: 1 | Microsoft PowerApps canvas application |
+    | [PCF-QuillCustomRichTextField](ydgs_pcf-quillcustomrichtextfield.md) | TypeScript | :star: 1 | A custom PowerApps PCF Component that integrates the Quill Rich Text Editor into… |
     | [LowCodeDocumentationGuidelines](clarissagillin2_lowcodedocumentationguidelines.md) | Unknown | :star: 1 | Space for #PowerAddicts to collaborate on Documentation Guidelines for Low Code … |
     | [Power_Automate_Solution_For_LMS_With_Forms](rathogwainnocent_power_automate_solution_for_lms_with_forms.md) | Unknown | :star: 1 | This is a Power Automate Solution for LMS Notification and Certificate generatio… |
     | [HNOPraxis](quirinziessler_hnopraxis.md) | Unknown | :star: 1 | The Applications goal is to offer a booking Platform for an ambulant hospital co… |
-    | [tiffanydanin](rajnshydv_tiffanydanin.md) | Unknown | :star: 1 | Personal GitHub profile for Tiffany Danin — digital operations specialist, marke… |
-    | [Power-Apps-Shortcuts](tihanajk_power-apps-shortcuts.md) | JavaScript | :star: 1 | Edge browser add-on that allows setting key shortcuts for common Dynamics 365 Po… |
-    | [On_Board--PowerApp](jshy-dev_on_board--powerapp.md) | Unknown | :star: 1 | Application built in PowerApps for an O365 tenant that leverages Planner, Outloo… |
+    | [Portfolio](ricardo-ugarte_portfolio.md) | Unknown | :star: 1 | Portfolio profesional de análisis de datos. Proyectos en Power BI, Power Apps y … |
+    | [PCF-QuillCustomRichTextFieldSolution](ydgs_pcf-quillcustomrichtextfieldsolution.md) | Unknown | :star: 1 | A custom PowerApps PCF Component that integrates the Quill Rich Text Editor into… |
+    | [hr-inventory-manager](adhamkhouly_hr-inventory-manager.md) | Unknown | :star: 1 | A Power Apps, Power Automate, and SharePoint solution for digitizing HR inventor… |
+    | [arganoArbelaCare](arganollc_arganoarbelacare.md) | Unknown | :star: 1 | Power Platform based Solution to Check-in on your employees and provide the supp… |
+    | [power-up-animal-shelter](janet-dev_power-up-animal-shelter.md) | Unknown | :star: 1 | Animal Shelter Solution Demo (Power Apps - Canvas/Model-Driven), Power Automate,… |
+    | [PCF-CustomisableHTMLTooltipSolution](ydgs_pcf-customisablehtmltooltipsolution.md) | Unknown | :star: 1 | A highly customizable PowerApps Component Framework (PCF) control that provides … |
     | [Service-Desk](anuragvisioner_service-desk.md) | Unknown | :star: 1 | A service management app built with Power Apps, enabling users to generate servi… |
     | [pcf-addressvalidator](atturra-cbs_pcf-addressvalidator.md) | TypeScript | :star: 1 | An address validation control for D365 CE/PowerApps that utilises the Experian (… |
+    | [Power-Apps-Shortcuts](tihanajk_power-apps-shortcuts.md) | JavaScript | :star: 1 | Edge browser add-on that allows setting key shortcuts for common Dynamics 365 Po… |
+    | [On_Board--PowerApp](jshy-dev_on_board--powerapp.md) | Unknown | :star: 1 | Application built in PowerApps for an O365 tenant that leverages Planner, Outloo… |
+    | [tiffanydanin](rajnshydv_tiffanydanin.md) | Unknown | :star: 1 | Personal GitHub profile for Tiffany Danin — digital operations specialist, marke… |
     | [azureenablement](livehands_azureenablement.md) | PowerShell | :star: 1 | Power App and Azure Functions with PowerShell to enable the creation of resource… |
     | [Send_Weekly_Report_As_HTML_Table_Via_Table_PowerAutomate](rathogwainnocent_send_weekly_report_as_html_table_via_table_powerautomate.md) | Unknown | :star: 1 | This is a Power Automate solution that automates the sales process of whose paym… |
     | [power-apps-rename-tool](demodorigatsuo_power-apps-rename-tool.md) | JavaScript | :star: 1 | Power Apps Control Converter |
     | [Power-Platform](franciscogoroscer_power-platform.md) | Unknown | :star: 1 | Microsoft Power Platform solutions and others |
     | [desk-reservation-attendance-system](adhamkhouly_desk-reservation-attendance-system.md) | Unknown | :star: 1 | Scalable desk reservation system built with Power Apps, SharePoint, and Power Au… |
-    | [team-collaboration-day-planner](cupo365_team-collaboration-day-planner.md) | Unknown | :star: 1 | Dynamically plan your team collaboration day for the next week. |
     | [fem-challenge-character-counter](jx2ior_fem-challenge-character-counter.md) | Unknown | :star: 1 | Power Apps Canvas application for text analysis that counts characters, words, a… |
+    | [team-collaboration-day-planner](cupo365_team-collaboration-day-planner.md) | Unknown | :star: 1 | Dynamically plan your team collaboration day for the next week. |
     | [fem-challenge-mortgage-repayment-calculator](jx2ior_fem-challenge-mortgage-repayment-calculator.md) | Unknown | :star: 1 | Power Apps Canvas mortgage calculator that lets users input loan details and cal… |
     | [fem-challenge-time-tracking-dashboard](jx2ior_fem-challenge-time-tracking-dashboard.md) | Unknown | :star: 1 | Power Apps Canvas application for a time tracking dashboard that allows users to… |
-    | [level-up-community-commands](rajyraman_level-up-community-commands.md) | JavaScript | :star: 1 | Community Commands for Level Up extension |
     | [enhanced-power-apps-embed](cupo365_enhanced-power-apps-embed.md) | TypeScript | :star: 1 | Pass SharePoint page context to your embedded Power App. |
+    | [level-up-community-commands](rajyraman_level-up-community-commands.md) | JavaScript | :star: 1 | Community Commands for Level Up extension |
     | [fem-challenge-password-generator](jx2ior_fem-challenge-password-generator.md) | Unknown | :star: 1 | Power Apps Canvas application that generates passwords based on selected criteri… |
     | [material-you-adapter](az-21_material-you-adapter.md) | Python | :star: 1 | 🎨 Adapt Material You (M3) theme files to various languages and technologies |
     | [fem-challenge-faq-accordion](jx2ior_fem-challenge-faq-accordion.md) | Unknown | :star: 1 | Power Apps Canvas application implementing an FAQ accordion that allows users to… |
@@ -606,15 +607,14 @@ Repositories related to Power Apps, canvas apps, and model-driven apps.
     | [The-Power-Platform-Global-AI-Hack](ashwanidv100_the-power-platform-global-ai-hack.md) | Unknown | :star: 0 | "GPT-Summarize" - A PowerApps-driven solution empowered by ChatGPT. |
     | [Entrenamientos](fradurgo19_entrenamientos.md) | Unknown | :star: 0 | Revoluciona tu Experiencia de Aprendizaje con Nuestra App Académica Descubre nue… |
     | [IT-Ticketing_PowerAutomate-PowerApps-SharepointList](mellive42_it-ticketing_powerautomate-powerapps-sharepointlist.md) | Unknown | :star: 0 | This repository contains an IT Ticketing solution built with SharePoint Lists, P… |
+    | [Aspire-AI-hack-](kamogelompoko_aspire-ai-hack-.md) | Unknown | :star: 0 | My entry project(solution) for the Power Platform AI hack. This has a link to a … |
     | [Differences-Between-Power-BI-Desktop-and-Power-BI-for-the-Web](eccentrix-ca_differences-between-power-bi-desktop-and-power-bi-for-the-web.md) | Unknown | :star: 0 | In this article, we explore the key differences between Power BI Desktop and Pow… |
     | [dataverse-extensions-data](emerbrito_dataverse-extensions-data.md) | C# | :star: 0 | A convention-based entity to object mapper (table to object) plus additional dat… |
     | [nathalie-leenders.github.io](nathalie-leenders_nathalie-leenders.github.io.md) | JavaScript | :star: 0 | This is the sourcecode to my website nathalieleenders.com |
     | [Excel-Virtually-Global](taliacao_excel-virtually-global.md) | Unknown | :star: 0 | 📑 Download materials for my Excel Virtually Global sessions |
     | [Canvas-Power-Apps](uchemena_canvas-power-apps.md) | Unknown | :star: 0 |  |
     | [PowerPlatformDocumentationTool](saravananvp17_powerplatformdocumentationtool.md) | TypeScript | :star: 0 | Generate detailed maintenance documentation from local Power Platform export fil… |
-    | [Aspire-AI-hack-](kamogelompoko_aspire-ai-hack-.md) | Unknown | :star: 0 | My entry project(solution) for the Power Platform AI hack. This has a link to a … |
-    | [Gestion-Herramientas](fradurgo19_gestion-herramientas.md) | Unknown | :star: 0 | ¡Descubre Nuestra Revolucionaria Aplicación en Power Apps para la Gestión de Her… |
-    | [extension-dynamics365](jessicacosta07_extension-dynamics365.md) | Unknown | :star: 0 | Programação C# com CRM Dynamics - Digital Innovation One (DIO) |
+    | [PowerPlatform-Introduction](jianxu42_powerplatform-introduction.md) | Unknown | :star: 0 | for people who wants to learn Power Platform |
     | [Trimble-Maps-PCF-Component](powerplatformnerd_trimble-maps-pcf-component.md) | TypeScript | :star: 0 | This repository contains a Power Apps Component Framework (PCF) custom component… |
     | [Singapore-Identity-Number-Validator-PCFControl](pavanmanideep_singapore-identity-number-validator-pcfcontrol.md) | TypeScript | :star: 0 | A PowerApps Component Framework (PCF) control for validating Singapore NRIC/FIN … |
     | [ui-canvas-app](aliaformo_ui-canvas-app.md) | Unknown | :star: 0 | First time with UI on Power apps |
@@ -622,12 +622,12 @@ Repositories related to Power Apps, canvas apps, and model-driven apps.
     | [Michelin-Guide-Restaurant-Finder-Application](paulaordonez10_michelin-guide-restaurant-finder-application.md) | Unknown | :star: 0 | Created a Power Apps application integrated with a Michelin Guide restaurant dat… |
     | [Sushinoke-App](paulaordonez10_sushinoke-app.md) | Unknown | :star: 0 | Sushi ordering app with real-time insights. |
     | [Resource-Management-System-for-Tender-Projects](matteo-campana_resource-management-system-for-tender-projects.md) | Unknown | :star: 0 | Optimize tender resource management with this system. Enhance efficiency, track … |
-    | [RecordOverview](ramarao9_recordoverview.md) | TypeScript | :star: 0 | A  code component built using the Power Apps Component Framework with React to d… |
-    | [Greg.FetchXmlDom](neronotte_greg.fetchxmldom.md) | C# | :star: 0 | A simple library that provides an object-oriented way to create FetchXml express… |
-    | [PowerApps-EasyPlan](carloshm_powerapps-easyplan.md) | C# | :star: 0 | Generate Test Engine test plans from Power Apps monitor session logs file. |
     | [cellflow-manager](dutraa45_cellflow-manager.md) | HTML | :star: 0 | Automação inteligente para gestão de assistência técnica, integrando planilhas e… |
     | [filter-expression](dipushrestha_filter-expression.md) | JavaScript | :star: 0 | PowerApps Web Resource utility for generating Fetch XML of the filter. |
     | [Smart-Data-Manager](dev-api-org_smart-data-manager.md) | Python | :star: 0 | Python ETL pipeline for Smart Data Manager: extracts, cleans, transforms, and lo… |
+    | [RecordOverview](ramarao9_recordoverview.md) | TypeScript | :star: 0 | A  code component built using the Power Apps Component Framework with React to d… |
+    | [Greg.FetchXmlDom](neronotte_greg.fetchxmldom.md) | C# | :star: 0 | A simple library that provides an object-oriented way to create FetchXml express… |
+    | [PowerApps-EasyPlan](carloshm_powerapps-easyplan.md) | C# | :star: 0 | Generate Test Engine test plans from Power Apps monitor session logs file. |
     | [staff-appraisal-app](richardogoma_staff-appraisal-app.md) | Unknown | :star: 0 | Contains workflows, unmanaged solution files, app snapshots and data reporting f… |
     | [SPColumnName](afahru_spcolumnname.md) | Unknown | :star: 0 | SharePoint type of choice column name with very-long (long) character will causi… |
     | [MscrmTools.EmailAnonymizer](mscrmtools_mscrmtools.emailanonymizer.md) | C# | :star: 0 | An XrmToolBox tool to help replacing emails attributes with fake data |
@@ -649,7 +649,6 @@ Repositories related to Power Apps, canvas apps, and model-driven apps.
     | [PowerPlatform-PCF](soulsoftware_powerplatform-pcf.md) | TypeScript | :star: 0 | PowerPlatform PCF - Proof Of the Concept |
     | [SharePointUtilityToolkit](rooobeert_sharepointutilitytoolkit.md) | Unknown | :star: 0 |  |
     | [legal-contract-register](jakbor32_legal-contract-register.md) | Unknown | :star: 0 | Contract registration & review with automated approval workflows. |
-    | [PowerPlatform-Introduction](jianxu42_powerplatform-introduction.md) | Unknown | :star: 0 | for people who wants to learn Power Platform |
     | [Power-Apps](powerplatform-partner_power-apps.md) | Unknown | :star: 0 | Resources on Power Apps (Canvas Apps, Model driven apps) |
     | [Data-Analysis-Project](03173207141ahsan_data-analysis-project.md) | Jupyter Notebook | :star: 0 | A Data Analysis Repository is an organized collection of code, datasets, documen… |
     | [customer-research-management-app](calebnwokocha_customer-research-management-app.md) | Unknown | :star: 0 | https://github.com/microsoft/Powerful-Devs-Hack-Together/issues/16 |
@@ -664,27 +663,36 @@ Repositories related to Power Apps, canvas apps, and model-driven apps.
     | [Robotic-Process-Automation](drumil23_robotic-process-automation.md) | Unknown | :star: 0 | A comprehensive collection of Robotic Process Automation projects and learning m… |
     | [Plucky-Phoenix](matteoparlato_plucky-phoenix.md) | Unknown | :star: 0 | Welcome to Plucky Phoenix, your go-to resource for coding guidelines, tips, and … |
     | [powerapps-task-app](haidydev_powerapps-task-app.md) | Unknown | :star: 0 | Power Apps task management app using SharePoint as backend (work in progress) |
-    | [Sistema_Vistoria_Veiculos](geovannamlima_sistema_vistoria_veiculos.md) | HLSL | :star: 0 | Solução digital para vistoria e cautela de viaturas, substituindo formulários em… |
-    | [CRUD-Operations-from-dataverse-table](sandhijain_crud-operations-from-dataverse-table.md) | JavaScript | :star: 0 | This is the repository for the pop-up form created for record addition, updation… |
-    | [Component_Toast](sirbate_component_toast.md) | Unknown | :star: 0 | Componente visual de Power Apps para mostrar toasts personalizables (Success, Er… |
-    | [consulting_project_finance_2022](tylerjsimpson_consulting_project_finance_2022.md) | Unknown | :star: 0 | Consulting project for a finance LLC |
-    | [online-library](jakbor32_online-library.md) | Unknown | :star: 0 | canvas app in powerapps simple library based on dataverse |
-    | [B-Convert](boukamass_b-convert.md) | TypeScript | :star: 0 | Conversions instantanées entre bouteilles, casiers et hectolitres avec précision… |
     | [MyQApp-QRGenerator](digviwagh2502_myqapp-qrgenerator.md) | JavaScript | :star: 0 | Project Demo URL : https://youtu.be/K8w8J0xYhg8 |
     | [treasure-hunt](netmedianer-gmbh_treasure-hunt.md) | Unknown | :star: 0 |  |
     | [Artech-PowerApps](andywclav_artech-powerapps.md) | Unknown | :star: 0 | This project is a training program designed to manage information with access co… |
     | [NHS-Case-Management-System](nixhantb_nhs-case-management-system.md) | C# | :star: 0 | End-to-end case management solution for NHS-style healthcare operations built us… |
     | [Teams-Call-Queue-Requests](mawebb81_teams-call-queue-requests.md) | PowerShell | :star: 0 | Power App Solution to automate the request and fulfilment of Teams Call Queues |
+    | [PowerApps-Ceretficate-Calculator](ibrahimahmed1998_powerapps-ceretficate-calculator.md) | Unknown | :star: 0 | Certificate Calculator - PowerApps |
+    | [3d](chzfabian_3d.md) | Unknown | :star: 0 | 🦇ProyectoBalcadurPowerApps3D🦋 |
+    | [WEB-DE-PROTOCOLOS-HSJD](sebigithub_web-de-protocolos-hsjd.md) | VBScript | :star: 0 | Es una aplicación desarrollada con Microsoft Power Apps que se conecta a listas … |
+    | [canvas-calendar](addison-bain-je_canvas-calendar.md) | Unknown | :star: 0 | Calendar View for Canvas App |
     | [serverless](ssrikantan_serverless.md) | C# | :star: 0 | Solution accompanying the article on Serverless architectures |
     | [MyCertifications](shubham-1809_mycertifications.md) | Unknown | :star: 0 | This repository contains all of my certifications. |
     | [ArcGIS-Map-PCF](flashz_arcgis-map-pcf.md) | TypeScript | :star: 0 | An ArcGIS Map PCF Control built for PowerApps |
     | [Code-Samples](drocksvold_code-samples.md) | Unknown | :star: 0 | A collection of sample code from Power Apps |
     | [pcf-hello-world](powerappsdarren_pcf-hello-world.md) | TypeScript | :star: 0 | The most basic PCF component you'll ever see |
     | [field-audit-history](vp365ai_field-audit-history.md) | TypeScript | :star: 0 | Inline audit trail for Dynamics 365 — see who changed what, right on the form. F… |
-    | [PowerApps-Ceretficate-Calculator](ibrahimahmed1998_powerapps-ceretficate-calculator.md) | Unknown | :star: 0 | Certificate Calculator - PowerApps |
-    | [3d](chzfabian_3d.md) | Unknown | :star: 0 | 🦇ProyectoBalcadurPowerApps3D🦋 |
-    | [WEB-DE-PROTOCOLOS-HSJD](sebigithub_web-de-protocolos-hsjd.md) | VBScript | :star: 0 | Es una aplicación desarrollada con Microsoft Power Apps que se conecta a listas … |
-    | [canvas-calendar](addison-bain-je_canvas-calendar.md) | Unknown | :star: 0 | Calendar View for Canvas App |
+    | [Component_Toast](sirbate_component_toast.md) | Unknown | :star: 0 | Componente visual de Power Apps para mostrar toasts personalizables (Success, Er… |
+    | [consulting_project_finance_2022](tylerjsimpson_consulting_project_finance_2022.md) | Unknown | :star: 0 | Consulting project for a finance LLC |
+    | [online-library](jakbor32_online-library.md) | Unknown | :star: 0 | canvas app in powerapps simple library based on dataverse |
+    | [B-Convert](boukamass_b-convert.md) | TypeScript | :star: 0 | Conversions instantanées entre bouteilles, casiers et hectolitres avec précision… |
+    | [AshV.PortalTranslator.XTB](ashv_ashv.portaltranslator.xtb.md) | C# | :star: 0 | XrmToolBox Tool to easily transalte PowerApps Portal using Google Translate API. |
+    | [InventoryManagement](shaheerahmadch_inventorymanagement.md) | TypeScript | :star: 0 | A professional, high-end inventory management system built for the Power Apps ec… |
+    | [Digital-Express-Card](symbiotyk_digital-express-card.md) | Unknown | :star: 0 | An application based on the Microsoft Power Apps low-code environment to manage … |
+    | [Dental-Clinic-Management-System-DCMS-](tanyagarg25_dental-clinic-management-system-dcms-.md) | Unknown | :star: 0 | The Dental Clinic Management System (DCMS) is a cloud-based solution that automa… |
+    | [CustomConnectorSample](freshchris01_customconnectorsample.md) | TypeScript | :star: 0 | Repository to showcase custom connectors written in Node.js for the PowerPlatfor… |
+    | [Sistema_Vistoria_Veiculos](geovannamlima_sistema_vistoria_veiculos.md) | HLSL | :star: 0 | Solução digital para vistoria e cautela de viaturas, substituindo formulários em… |
+    | [CRUD-Operations-from-dataverse-table](sandhijain_crud-operations-from-dataverse-table.md) | JavaScript | :star: 0 | This is the repository for the pop-up form created for record addition, updation… |
+    | [HR-Service-Management-Platform-Power-Apps](scottgard_hr-service-management-platform-power-apps.md) | Unknown | :star: 0 | Enterprise HR Service Management Platform built with Power Apps, SharePoint, and… |
+    | [leiApiPcf](schafsam_leiapipcf.md) | TypeScript | :star: 0 | Power Apps component (PCF) that uses the autocomplete api from gleif. |
+    | [Office365EmailSearch](laicure_office365emailsearch.md) | Unknown | :star: 0 | for PowerApps |
+    | [.github](profilixa_.github.md) | Unknown | :star: 0 |  |
     | [PowerApps.PCF.MapsEmbed](learn365ma_powerapps.pcf.mapsembed.md) | Unknown | :star: 0 | PCF |
     | [DigitallValidators](digitallnature_digitallvalidators.md) | C# | :star: 0 | Collection of generic reusable validators built using Custom APIs |
     | [SequentialBlobIntegrator](andre-maree_sequentialblobintegrator.md) | C# | :star: 0 | Integrate sequentially by saving payloads to blobs |
@@ -692,18 +700,13 @@ Repositories related to Power Apps, canvas apps, and model-driven apps.
     | [Purchase-Request](northstarcodebase_purchase-request.md) | Unknown | :star: 0 | This for Store Code of NorthStar Precision Vietnam |
     | [EmployeeDirectory](tarickarnold_employeedirectory.md) | Unknown | :star: 0 | This is an Employee Directory applications built entirely as a Power App. |
     | [EmployeeListMobileApp](darshna213_employeelistmobileapp.md) | Unknown | :star: 0 | Display data in mobile view and perform crud operation using Power Plateform |
-    | [leiApiPcf](schafsam_leiapipcf.md) | TypeScript | :star: 0 | Power Apps component (PCF) that uses the autocomplete api from gleif. |
-    | [Office365EmailSearch](laicure_office365emailsearch.md) | Unknown | :star: 0 | for PowerApps |
-    | [.github](profilixa_.github.md) | Unknown | :star: 0 |  |
-    | [AshV.PortalTranslator.XTB](ashv_ashv.portaltranslator.xtb.md) | C# | :star: 0 | XrmToolBox Tool to easily transalte PowerApps Portal using Google Translate API. |
-    | [InventoryManagement](shaheerahmadch_inventorymanagement.md) | TypeScript | :star: 0 | A professional, high-end inventory management system built for the Power Apps ec… |
-    | [Digital-Express-Card](symbiotyk_digital-express-card.md) | Unknown | :star: 0 | An application based on the Microsoft Power Apps low-code environment to manage … |
-    | [Dental-Clinic-Management-System-DCMS-](tanyagarg25_dental-clinic-management-system-dcms-.md) | Unknown | :star: 0 | The Dental Clinic Management System (DCMS) is a cloud-based solution that automa… |
-    | [CustomConnectorSample](freshchris01_customconnectorsample.md) | TypeScript | :star: 0 | Repository to showcase custom connectors written in Node.js for the PowerPlatfor… |
-    | [XrmHero.Extensions](xrmherotools_xrmhero.extensions.md) | C# | :star: 0 | Base classes for implementing well-designed plugins and workflow activities for … |
-    | [University-Leave-Request-System](aungkhantmyat_university-leave-request-system.md) | Unknown | :star: 0 | Effortless Leave Request System using Power Automate, Power App and SharePoint. |
-    | [powerautomate-flows](isamu7pad-alt_powerautomate-flows.md) | Unknown | :star: 0 | Powerautomate-flow |
-    | [Graph_Visual_Component](muzain187_graph_visual_component.md) | TypeScript | :star: 0 | Graph_Visual_Component is a PowerApps PCF control for interactive graph visualiz… |
+    | [ActividadesInsumos](fradurgo19_actividadesinsumos.md) | Unknown | :star: 0 | Descubre nuestra nueva aplicación de Power Apps para la gestión del mantenimient… |
+    | [simulado-AI](marthabea_simulado-ai.md) | Unknown | :star: 0 | O objetivo deste projeto é o desenvolvimento de uma aplicação para gerar questõe… |
+    | [customer-registration-app](murshid38_customer-registration-app.md) | AL | :star: 0 | Connector for Customer Registration App which was created in Power Apps for inte… |
+    | [fradurgo19](fradurgo19_fradurgo19.md) | Unknown | :star: 0 | Industrial Engineer Specializing in Power Platform & Data Analytics  | Python | … |
+    | [Nicknow.DataverseOps](nicknow_nicknow.dataverseops.md) | C# | :star: 0 | A .NET class library that simplifies parallel and batch operations using the Mic… |
+    | [powerapps-javascript-examples](suresh-rsa_powerapps-javascript-examples.md) | JavaScript | :star: 0 | Power Apps Model-Driven App field logic using JavaScript |
+    | [Members-Management-App](minwannn_members-management-app.md) | JavaScript | :star: 0 | 👥 Manage organization members, subscriptions, and payments efficiently with this… |
     | [MAP](shiver3d_map.md) | Unknown | :star: 0 | Sistema feito em powerapps |
     | [MR-in-Power-Apps](satokora_mr-in-power-apps.md) | Unknown | :star: 0 | test description |
     | [dataverse_ci](stevesaemmang_dataverse_ci.md) | Go | :star: 0 | Handy small go app/docker image for export/import solutions from and to ms datav… |
@@ -712,61 +715,59 @@ Repositories related to Power Apps, canvas apps, and model-driven apps.
     | [awesome-power-platform](warwickbuilds_awesome-power-platform.md) | Unknown | :star: 0 | An Awesome List of Microsoft Power Platform links to resources and information |
     | [BeyondBarcodesPowerApp](byndit_beyondbarcodespowerapp.md) | Unknown | :star: 0 | The smartest way to manage your barcodes Embedded in Dynamics 365 Business Centr… |
     | [DataverseRowCounter](ashv_dataverserowcounter.md) | JavaScript | :star: 0 | Quick browser-based alternative for XrmToolBox based record counters. |
-    | [ActividadesInsumos](fradurgo19_actividadesinsumos.md) | Unknown | :star: 0 | Descubre nuestra nueva aplicación de Power Apps para la gestión del mantenimient… |
-    | [simulado-AI](marthabea_simulado-ai.md) | Unknown | :star: 0 | O objetivo deste projeto é o desenvolvimento de uma aplicação para gerar questõe… |
-    | [customer-registration-app](murshid38_customer-registration-app.md) | AL | :star: 0 | Connector for Customer Registration App which was created in Power Apps for inte… |
-    | [fradurgo19](fradurgo19_fradurgo19.md) | Unknown | :star: 0 | Industrial Engineer Specializing in Power Platform & Data Analytics  | Python | … |
     | [Canvas-App-with-Fabric-Database](almasmahfooz_canvas-app-with-fabric-database.md) | Unknown | :star: 0 | Using Patch function and calling stored procedure with canvas app gallery |
-    | [whydataverse](timhanewich_whydataverse.md) | HTML | :star: 0 | https://aka.ms/WhyDataverse |
-    | [powerbi-portfolio](gabrielpielka_powerbi-portfolio.md) | Unknown | :star: 0 | Power BI business intelligence portfolio showcasing dashboards, data modeling, D… |
     | [famark-cloud-api-js-example](famarkcloud_famark-cloud-api-js-example.md) | JavaScript | :star: 0 | This is a sample code showing how to call Famark Cloud API to store and retrieve… |
     | [Inventory-Management-System-Syracuse-University-Campus-Store](gauravyadav-git_inventory-management-system-syracuse-university-campus-store.md) | TSQL | :star: 0 | An end-to-end Inventory Management System designed for the Syracuse University C… |
     | [power-platform-business-apps](claudux_power-platform-business-apps.md) | Unknown | :star: 0 | Aplicaciones en Power Platform para digitalizar procesos internos y mejorar la g… |
-    | [famark-cloud-api-dotnet-example](famarkcloud_famark-cloud-api-dotnet-example.md) | C# | :star: 0 | This is a sample code showing how to call Famark Cloud API to store and retrieve… |
-    | [agentrails-powerplatform-demo](kmatthewsio_agentrails-powerplatform-demo.md) | Unknown | :star: 0 | Power Platform custom connector and security configuration for AgentRails x402 i… |
-    | [microsoft-fabric-inventory-analytics](carlosglezs_microsoft-fabric-inventory-analytics.md) | Jupyter Notebook | :star: 0 | End-to-end inventory management and demand analytics platform built with Power A… |
-    | [famark-cloud-api-nodejs-example](famarkcloud_famark-cloud-api-nodejs-example.md) | JavaScript | :star: 0 | This is a sample code showing how to call Famark Cloud API to store and retrieve… |
+    | [powerbi-portfolio](gabrielpielka_powerbi-portfolio.md) | Unknown | :star: 0 | Power BI business intelligence portfolio showcasing dashboards, data modeling, D… |
+    | [whydataverse](timhanewich_whydataverse.md) | HTML | :star: 0 | https://aka.ms/WhyDataverse |
     | [power-platform-code-apps-skill](fizamusthafa_power-platform-code-apps-skill.md) | Unknown | :star: 0 | Skill.md for building Code Apps on the Microsoft Power Platform |
+    | [famark-cloud-api-dotnet-example](famarkcloud_famark-cloud-api-dotnet-example.md) | C# | :star: 0 | This is a sample code showing how to call Famark Cloud API to store and retrieve… |
     | [scanner-powerapp-poc](ryanpfalz_scanner-powerapp-poc.md) | Python | :star: 0 | Sample barcode scanner built for simple warehouse use case. Uses Power Apps fron… |
     | [xrm-generate-ts-overloads](gncnpk_xrm-generate-ts-overloads.md) | JavaScript | :star: 0 | Automatically creates TypeScript type definitions compatible with @types/xrm by … |
     | [knowledge-advisor](reeceharsley88_knowledge-advisor.md) | JavaScript | :star: 0 | A knowledge advisor application built for the Power Platform |
+    | [agentrails-powerplatform-demo](kmatthewsio_agentrails-powerplatform-demo.md) | Unknown | :star: 0 | Power Platform custom connector and security configuration for AgentRails x402 i… |
+    | [microsoft-fabric-inventory-analytics](carlosglezs_microsoft-fabric-inventory-analytics.md) | Jupyter Notebook | :star: 0 | End-to-end inventory management and demand analytics platform built with Power A… |
+    | [famark-cloud-api-nodejs-example](famarkcloud_famark-cloud-api-nodejs-example.md) | JavaScript | :star: 0 | This is a sample code showing how to call Famark Cloud API to store and retrieve… |
     | [powerplatform-governance-sentinel](rkneela0912_powerplatform-governance-sentinel.md) | Unknown | :star: 0 | A comprehensive, open-source solution for governing and securing your Microsoft … |
     | [strategic-monitoring-digital-assistant](ronan-deshays_strategic-monitoring-digital-assistant.md) | Unknown | :star: 0 | An assistant for strategic monitoring based on Power Platform and Google Alerts,… |
     | [PCFs](reeceharsley88_pcfs.md) | Unknown | :star: 0 | Power Apps Component Framework (PCF) controls for Power Platform customization |
-    | [power-apps-code-apps-skills](rahulm-28_power-apps-code-apps-skills.md) | TypeScript | :star: 0 | Claude Code & GitHub Copilot CLI plugin for Power Apps Code Apps — scaffold, con… |
-    | [sample-pcf-dependent-libraries](networg_sample-pcf-dependent-libraries.md) | TypeScript | :star: 0 | Sample for using Dependent Libraries in Power Apps component framework. |
+    | [aateefuddin](aateefuddin_aateefuddin.md) | Unknown | :star: 0 | Hello! I'm Aateefuddin, a Engineer based in Hyderabad, India. I work for Key Man… |
     | [blog](networg_blog.md) | HTML | :star: 0 | Company Blog |
     | [RetroTracks-PowerApp](renzofernando_retrotracks-powerapp.md) | Unknown | :star: 0 | RetroTracks es una aplicación que ofrece una compilación de canciones cuidadosam… |
-    | [aateefuddin](aateefuddin_aateefuddin.md) | Unknown | :star: 0 | Hello! I'm Aateefuddin, a Engineer based in Hyderabad, India. I work for Key Man… |
+    | [power-apps-code-apps-skills](rahulm-28_power-apps-code-apps-skills.md) | TypeScript | :star: 0 | Claude Code & GitHub Copilot CLI plugin for Power Apps Code Apps — scaffold, con… |
+    | [sample-pcf-dependent-libraries](networg_sample-pcf-dependent-libraries.md) | TypeScript | :star: 0 | Sample for using Dependent Libraries in Power Apps component framework. |
     | [famark-cloud-api-java-example](famarkcloud_famark-cloud-api-java-example.md) | Java | :star: 0 | This is a sample code showing how to call Famark Cloud API to store and retrieve… |
     | [PowerPlatform-Demos](jianxu42_powerplatform-demos.md) | Unknown | :star: 0 | A group of Power Platform capabilities. |
     | [Power-Platform-Lead-Management-System](javierzavaleta94_power-platform-lead-management-system.md) | Unknown | :star: 0 | Dataverse-backed Power Platform solution for marketing lead capture, automation,… |
+    | [D365-Portfolio](paty-iox_d365-portfolio.md) | C# | :star: 0 | Demo D365 & Power Platform portfolio featuring customisations, Power Apps, Power… |
     | [Examination-System](nouraalgohary_examination-system.md) | TSQL | :star: 0 | ITI Graduation Project |
     | [solid-performers](solid-performers_solid-performers.md) | Unknown | :star: 0 | 프로 일잘러 샘플 앱 리포지토리 |
-    | [D365-Portfolio](paty-iox_d365-portfolio.md) | C# | :star: 0 | Demo D365 & Power Platform portfolio featuring customisations, Power Apps, Power… |
     | [podman-pac](rajyraman_podman-pac.md) | Dockerfile | :star: 0 | Demo repository to show how to use DevContainers with Power Platform CLI and Pod… |
     | [Azure_E-Commerce_Platform](p-georgiadis_azure_e-commerce_platform.md) | TypeScript | :star: 0 | Enterprise-grade microservices e-commerce platform on Azure with AKS, DevOps aut… |
     | [Power-Apps-Code-Apps-Development-Guide](sahilatech_power-apps-code-apps-development-guide.md) | Unknown | :star: 0 | This repository contains a complete implementation of a Power Apps Code App (Pre… |
+    | [PACHI](timhanewich_pachi.md) | C# | :star: 0 | Power Apps x Copilot Headless Integration, allowing Copilot (LLM) to interact wi… |
+    | [App-BlueJeans-Clothing-Store](lucasmarcuzo_app-bluejeans-clothing-store.md) | Unknown | :star: 0 | Criando um app com Power Apps: "BlueJeans Clothing Store" |
     | [dataverse-loadtest](christian-vorhemus_dataverse-loadtest.md) | Python | :star: 0 |  |
     | [Google-Maps-Geocoding-Custom-Connector](powerplatformnerd_google-maps-geocoding-custom-connector.md) | Unknown | :star: 0 | The Google Maps Geocoding API converts addresses into geographic coordinates (la… |
     | [TerritoryManager](sahilatech_territorymanager.md) | TypeScript | :star: 0 | Custom territory management solution built with Power Apps Code Apps. Fetches Da… |
-    | [PACHI](timhanewich_pachi.md) | C# | :star: 0 | Power Apps x Copilot Headless Integration, allowing Copilot (LLM) to interact wi… |
-    | [App-BlueJeans-Clothing-Store](lucasmarcuzo_app-bluejeans-clothing-store.md) | Unknown | :star: 0 | Criando um app com Power Apps: "BlueJeans Clothing Store" |
     | [Power-Platform](sionjlewis_power-platform.md) | Unknown | :star: 0 | The Power Platform repository is intended to accompany the content of my blog. |
     | [Power_Apps](kevinfgr_power_apps.md) | Unknown | :star: 0 | A Power apps  application to schedule photographers visits to places to update g… |
     | [uMatter](unix-junction-asia-2022_umatter.md) | Unknown | :star: 0 | Source code of uMatter |
     | [HR-System](mahmoud2abdallah_hr-system.md) | Unknown | :star: 0 | Demo For internal HR system for An Organization in PowerApps Platform. |
+    | [University-Leave-Request-System](aungkhantmyat_university-leave-request-system.md) | Unknown | :star: 0 | Effortless Leave Request System using Power Automate, Power App and SharePoint. |
+    | [Gestion-Herramientas](fradurgo19_gestion-herramientas.md) | Unknown | :star: 0 | ¡Descubre Nuestra Revolucionaria Aplicación en Power Apps para la Gestión de Her… |
+    | [extension-dynamics365](jessicacosta07_extension-dynamics365.md) | Unknown | :star: 0 | Programação C# com CRM Dynamics - Digital Innovation One (DIO) |
     | [Spotlighting-Employees](kajones21_spotlighting-employees.md) | Unknown | :star: 0 | Power App Showcasing Spotlighted Employees |
     | [help-me-write-aml-powerapp](john0isaac_help-me-write-aml-powerapp.md) | Unknown | :star: 0 | Azure ML + Power App Solution sample and walkthrough to complement the Azure Arc… |
-    | [Members-Management-App](minwannn_members-management-app.md) | JavaScript | :star: 0 | 👥 Manage organization members, subscriptions, and payments efficiently with this… |
-    | [Nicknow.DataverseOps](nicknow_nicknow.dataverseops.md) | C# | :star: 0 | A .NET class library that simplifies parallel and batch operations using the Mic… |
-    | [powerapps-javascript-examples](suresh-rsa_powerapps-javascript-examples.md) | JavaScript | :star: 0 | Power Apps Model-Driven App field logic using JavaScript |
+    | [powerautomate-flows](isamu7pad-alt_powerautomate-flows.md) | Unknown | :star: 0 | Powerautomate-flow |
     | [PowerAppsPortal-WrapperAjaxTemplate](nydi23_powerappsportal-wrapperajaxtemplate.md) | HTML | :star: 0 | PowerApps Template to use save ajax |
     | [codebug-documentviewer-pcf](imrancodebug_codebug-documentviewer-pcf.md) | TypeScript | :star: 0 | PCF control to list and download Note (annotation) attachments from Dataverse fo… |
+    | [XrmHero.Extensions](xrmherotools_xrmhero.extensions.md) | C# | :star: 0 | Base classes for implementing well-designed plugins and workflow activities for … |
     | [PCFSnackbar](masataka-yonei_pcfsnackbar.md) | TypeScript | :star: 0 |  |
-    | [PowerPro-Academy](satyam4229_powerpro-academy.md) | HTML | :star: 0 | PowerPro Academy is your go-to platform for learning Microsoft Power Platform wi… |
     | [IndexDBCanvas](belleye_indexdbcanvas.md) | TypeScript | :star: 0 | IndexDB implementation for Power Apps Canvas |
+    | [PowerPro-Academy](satyam4229_powerpro-academy.md) | HTML | :star: 0 | PowerPro Academy is your go-to platform for learning Microsoft Power Platform wi… |
 
 ---
 
-_Auto-generated by [`sync_repos.py`](https://github.com/rpothin/PowerPlatform-OpenSource-Hub/blob/main/scripts/sync_repos.py) on 2026-03-31 01:39 UTC._
+_Auto-generated by [`sync_repos.py`](https://github.com/rpothin/PowerPlatform-OpenSource-Hub/blob/main/scripts/sync_repos.py) on 2026-04-04 01:53 UTC._

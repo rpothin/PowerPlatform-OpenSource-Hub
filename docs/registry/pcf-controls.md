@@ -7,8 +7,8 @@ hide:
 
 Repositories related to the Power Apps Component Framework and custom controls.
 
-!!! info "Last synced: 2026-03-31 01:39 UTC"
-    Showing **100** repositories matching this focus area.
+!!! info "Last synced: 2026-04-04 01:53 UTC"
+    Showing **99** repositories matching this focus area.
 
 ---
 
@@ -18,14 +18,14 @@ Repositories related to the Power Apps Component Framework and custom controls.
 
 | Metric | Value |
 |--------|-------|
-| **Repositories** | 100 |
-| **Total Stars** | :star: 3,721 |
+| **Repositories** | 99 |
+| **Total Stars** | :star: 3,724 |
 
 ### Top Languages
 
 | Language | Repositories |
 |----------|-------------|
-| TypeScript | 79 |
+| TypeScript | 78 |
 | Unknown | 9 |
 | C# | 5 |
 | CSS | 2 |
@@ -42,7 +42,7 @@ Repositories related to the Power Apps Component Framework and custom controls.
 
 <div class="grid cards" markdown>
 
--   :star: **PowerApps-Samples** · 1,900 stars · `C#`
+-   :star: **PowerApps-Samples** · 1,903 stars · `C#`
 
     ---
 
@@ -50,7 +50,7 @@ Repositories related to the Power Apps Component Framework and custom controls.
 
     [:octicons-arrow-right-24: View details](microsoft_powerapps-samples.md)
 
--   :star: **alan-sdk-pcf** · 429 stars · `Unknown`
+-   :star: **alan-sdk-pcf** · 430 stars · `Unknown`
 
     ---
 
@@ -58,7 +58,7 @@ Repositories related to the Power Apps Component Framework and custom controls.
 
     [:octicons-arrow-right-24: View details](alan-ai_alan-sdk-pcf.md)
 
--   :star: **powercat-creator-kit** · 399 stars · `CSS`
+-   :star: **powercat-creator-kit** · 398 stars · `CSS`
 
     ---
 
@@ -288,14 +288,14 @@ Repositories related to the Power Apps Component Framework and custom controls.
 
 ## All Repositories
 
-??? note "View all 70 remaining repositories"
+??? note "View all 69 remaining repositories"
 
     | Repository | Language | Stars | Description |
     |------------|----------|-------|-------------|
     | [PCF-SamplePopup](oolashyn_pcf-samplepopup.md) | TypeScript | :star: 9 | Sample PowerApps Framework Component to show you how to use Popup |
     | [report-pcf](martinlaukkanen_report-pcf.md) | TypeScript | :star: 9 | Easy Reports is a PowerApps component to add chart components to your Dashboards… |
-    | [PCF-FetchToSubgrid](bevercrm_pcf-fetchtosubgrid.md) | TypeScript | :star: 9 | This control converts a FetchXml string into a subgrid. |
     | [PCF-DragAndDropArea](bevercrm_pcf-draganddroparea.md) | TypeScript | :star: 9 | This control allows uploading files by doing drag and drop to the sub-grid line |
+    | [PCF-FetchToSubgrid](bevercrm_pcf-fetchtosubgrid.md) | TypeScript | :star: 9 | This control converts a FetchXml string into a subgrid. |
     | [NNDropdown](nielsminnee_nndropdown.md) | TypeScript | :star: 8 | Control which converts Many-to-Many relationship into a multiselect dropdown. Vi… |
     | [ComponentFramework-Mock](shko-online_componentframework-mock.md) | TypeScript | :star: 8 | Mocking library to help with testing PowerApps Component Framework Components |
     | [Power-Platform-Snippets](jan-chlebek_power-platform-snippets.md) | HLSL | :star: 8 | Public repo with my reusable components for Power Platform |
@@ -332,8 +332,8 @@ Repositories related to the Power Apps Component Framework and custom controls.
     | [PCFSwotMatrixControl](chrismayor_pcfswotmatrixcontrol.md) | TypeScript | :star: 1 | PCF SWOT matrix control for Power Platform virtual React control |
     | [CustomTimelineControl](matteo-campana_customtimelinecontrol.md) | TypeScript | :star: 1 | The Custom Timeline Control is a PowerApps Component Framework (PCF) control des… |
     | [PCF-QuillCustomRichTextField](ydgs_pcf-quillcustomrichtextfield.md) | TypeScript | :star: 1 | A custom PowerApps PCF Component that integrates the Quill Rich Text Editor into… |
-    | [PCF-CustomisableHTMLTooltipSolution](ydgs_pcf-customisablehtmltooltipsolution.md) | Unknown | :star: 1 | A highly customizable PowerApps Component Framework (PCF) control that provides … |
     | [PCF-QuillCustomRichTextFieldSolution](ydgs_pcf-quillcustomrichtextfieldsolution.md) | Unknown | :star: 1 | A custom PowerApps PCF Component that integrates the Quill Rich Text Editor into… |
+    | [PCF-CustomisableHTMLTooltipSolution](ydgs_pcf-customisablehtmltooltipsolution.md) | Unknown | :star: 1 | A highly customizable PowerApps Component Framework (PCF) control that provides … |
     | [PCF.StyledSwitch](albanian-xrm_pcf.styledswitch.md) | TypeScript | :star: 1 | AlbanianXrm's Styled Switch PCF Component |
     | [pcf-authentication](ugreg_pcf-authentication.md) | C# | :star: 1 | 💪🏽 Power Apps Component Framework Authentication |
     | [power-apps-position-org-chart](geeksdam_power-apps-position-org-chart.md) | TypeScript | :star: 0 | A PCF org chart control for the Position table in Microsoft Dataverse, for use i… |
@@ -343,10 +343,9 @@ Repositories related to the Power Apps Component Framework and custom controls.
     | [PowerPlatform-PCF](soulsoftware_powerplatform-pcf.md) | TypeScript | :star: 0 | PowerPlatform PCF - Proof Of the Concept |
     | [pcf-hello-world](powerappsdarren_pcf-hello-world.md) | TypeScript | :star: 0 | The most basic PCF component you'll ever see |
     | [field-audit-history](vp365ai_field-audit-history.md) | TypeScript | :star: 0 | Inline audit trail for Dynamics 365 — see who changed what, right on the form. F… |
+    | [leiApiPcf](schafsam_leiapipcf.md) | TypeScript | :star: 0 | Power Apps component (PCF) that uses the autocomplete api from gleif. |
     | [PowerApps.PCF.MapsEmbed](learn365ma_powerapps.pcf.mapsembed.md) | Unknown | :star: 0 | PCF |
     | [netcoreconf-2025-bcn-lowcode-procode](emimontesdeoca_netcoreconf-2025-bcn-lowcode-procode.md) | TypeScript | :star: 0 | This repository contains source code and presentation slides for the NetCoreConf… |
-    | [leiApiPcf](schafsam_leiapipcf.md) | TypeScript | :star: 0 | Power Apps component (PCF) that uses the autocomplete api from gleif. |
-    | [Graph_Visual_Component](muzain187_graph_visual_component.md) | TypeScript | :star: 0 | Graph_Visual_Component is a PowerApps PCF control for interactive graph visualiz… |
     | [Language-Based-Notification-MSCRM](paramvarunreddy_language-based-notification-mscrm.md) | C# | :star: 0 | The objective is to enhance user experience by displaying error messages in Dyna… |
     | [PCFs](reeceharsley88_pcfs.md) | Unknown | :star: 0 | Power Apps Component Framework (PCF) controls for Power Platform customization |
     | [sample-pcf-dependent-libraries](networg_sample-pcf-dependent-libraries.md) | TypeScript | :star: 0 | Sample for using Dependent Libraries in Power Apps component framework. |
@@ -354,15 +353,15 @@ Repositories related to the Power Apps Component Framework and custom controls.
     | [codebug-sendgrid-template-viewer-pcf](imrancodebug_codebug-sendgrid-template-viewer-pcf.md) | TypeScript | :star: 0 | A very lightweight PCF for previewing the active template in Sendgrid within Dyn… |
     | [PCF-CPRValidator](jacobtonder_pcf-cprvalidator.md) | TypeScript | :star: 0 |  |
     | [pcf-addressfinder-widget](ryanmichaeljames_pcf-addressfinder-widget.md) | JavaScript | :star: 0 | A PowerApps Component Framework (PCF) control the uses the AddressFinder JavaScr… |
-    | [codebug-documentviewer-pcf](imrancodebug_codebug-documentviewer-pcf.md) | TypeScript | :star: 0 | PCF control to list and download Note (annotation) attachments from Dataverse fo… |
     | [PowerappsFrameworkControl](temmyraharjo_powerappsframeworkcontrol.md) | TypeScript | :star: 0 | Sample Powerapps Framework Control made by me. |
+    | [codebug-documentviewer-pcf](imrancodebug_codebug-documentviewer-pcf.md) | TypeScript | :star: 0 | PCF control to list and download Note (annotation) attachments from Dataverse fo… |
     | [pcf-controls](ajajansari_pcf-controls.md) | Unknown | :star: 0 | PCF Controls |
     | [UKPostcodeValidation](chayenovak_ukpostcodevalidation.md) | TypeScript | :star: 0 | PCF Component for Power Apps (Model-Driven + Canvas) which checks a postcode (si… |
     | [PCFSnackbar](masataka-yonei_pcfsnackbar.md) | TypeScript | :star: 0 |  |
     | [PCF_ColourSlider](jasonaalmeida_pcf_colourslider.md) | TypeScript | :star: 0 | A simple PCF control to render a two option field as a colourful slider |
-    | [PowerPro-Academy](satyam4229_powerpro-academy.md) | HTML | :star: 0 | PowerPro Academy is your go-to platform for learning Microsoft Power Platform wi… |
     | [IndexDBCanvas](belleye_indexdbcanvas.md) | TypeScript | :star: 0 | IndexDB implementation for Power Apps Canvas |
+    | [PowerPro-Academy](satyam4229_powerpro-academy.md) | HTML | :star: 0 | PowerPro Academy is your go-to platform for learning Microsoft Power Platform wi… |
 
 ---
 
-_Auto-generated by [`sync_repos.py`](https://github.com/rpothin/PowerPlatform-OpenSource-Hub/blob/main/scripts/sync_repos.py) on 2026-03-31 01:39 UTC._
+_Auto-generated by [`sync_repos.py`](https://github.com/rpothin/PowerPlatform-OpenSource-Hub/blob/main/scripts/sync_repos.py) on 2026-04-04 01:53 UTC._

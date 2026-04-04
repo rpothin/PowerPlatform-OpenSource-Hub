@@ -98,11 +98,14 @@ def load_search_criteria() -> list[dict[str, Any]]:
     return criteria
 
 
-def fetch_repos_live(criteria: list[dict[str, Any]]) -> list[dict[str, Any]]:
+def fetch_repos_live(
+    criteria: list[dict[str, Any]],
+) -> tuple[list[dict[str, Any]], list[dict[str, int | str]]]:
     """Fetch repository metadata from GitHub using *PyGithub*.
 
     Searches for each topic defined in the configuration, de-duplicates by
-    full repository name, and returns a flat list of normalised dicts.
+    full repository name, and returns a flat list of normalised dicts along
+    with the topics that reached their configured search limit.
     """
     try:
         from github import Github  # type: ignore[import-untyped]
@@ -117,6 +120,7 @@ def fetch_repos_live(criteria: list[dict[str, Any]]) -> list[dict[str, Any]]:
 
     seen: set[str] = set()
     repos: list[dict[str, Any]] = []
+    limit_hits: list[dict[str, int | str]] = []
 
     for entry in criteria:
         topic = entry["topic"]
@@ -136,9 +140,12 @@ def fetch_repos_live(criteria: list[dict[str, Any]]) -> list[dict[str, Any]]:
             repos.append(_normalise_repo(repo))
             count += 1
 
+        if count == limit:
+            limit_hits.append({"topic": topic, "count": count, "limit": limit})
+
     repos.sort(key=lambda r: r.get("stargazerCount", 0), reverse=True)
     log.info("Fetched %d unique repositories from GitHub API.", len(repos))
-    return repos
+    return repos, limit_hits
 
 
 def _normalise_repo(repo: Any) -> dict[str, Any]:
@@ -195,6 +202,26 @@ def load_repos_offline() -> list[dict[str, Any]]:
     repos = [r for r in repos if not r.get("isArchived", False)]
     repos.sort(key=lambda r: r.get("stargazerCount", 0), reverse=True)
     return repos
+
+
+def log_search_limit_summary(limit_hits: list[dict[str, int | str]] | None) -> None:
+    """Log a concise summary of topics that reached their configured search limit."""
+    if limit_hits is None:
+        log.info("Topics reaching their configured search limit: unavailable in offline mode.")
+        return
+
+    if not limit_hits:
+        log.info("Topics reaching their configured search limit: none.")
+        return
+
+    summary = ", ".join(
+        f"{hit['topic']} ({hit['count']}/{hit['limit']})" for hit in limit_hits
+    )
+    log.info(
+        "Topics reaching their configured search limit (%d): %s",
+        len(limit_hits),
+        summary,
+    )
 
 
 # ===================================================================
@@ -717,12 +744,14 @@ def main() -> None:
 
     if args.offline:
         repos = load_repos_offline()
+        limit_hits = None
     else:
         criteria = load_search_criteria()
-        repos = fetch_repos_live(criteria)
+        repos, limit_hits = fetch_repos_live(criteria)
 
     write_registry(repos)
     write_home_data(repos)
+    log_search_limit_summary(limit_hits)
     log.info("Done ✓")
 
 
