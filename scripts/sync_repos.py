@@ -35,6 +35,11 @@ REGISTRY_DIR = ROOT_DIR / "docs" / "registry"
 OVERRIDES_DIR = ROOT_DIR / "overrides"
 
 # ---------------------------------------------------------------------------
+# Repository selection thresholds
+# ---------------------------------------------------------------------------
+MIN_STARS = 10
+
+# ---------------------------------------------------------------------------
 # Focus-area categories (topic → category mapping)
 # ---------------------------------------------------------------------------
 CATEGORIES: dict[str, dict[str, Any]] = {
@@ -103,9 +108,10 @@ def fetch_repos_live(
 ) -> tuple[list[dict[str, Any]], list[dict[str, int | str]]]:
     """Fetch repository metadata from GitHub using *PyGithub*.
 
-    Searches for each topic defined in the configuration, de-duplicates by
-    full repository name, and returns a flat list of normalised dicts along
-    with the topics that reached their configured search limit.
+    Searches for each topic defined in the configuration, applies the minimum
+    star threshold, de-duplicates by full repository name, and returns a flat
+    list of normalised dicts along with the topics that reached their
+    configured search limit.
     """
     try:
         from github import Github  # type: ignore[import-untyped]
@@ -125,15 +131,22 @@ def fetch_repos_live(
     for entry in criteria:
         topic = entry["topic"]
         limit = entry.get("searchLimit", 100)
-        log.info("Searching topic=%s (limit=%d) …", topic, limit)
+        log.info(
+            "Searching topic=%s (limit=%d, min_stars=%d) …",
+            topic,
+            limit,
+            MIN_STARS,
+        )
 
-        query = f"topic:{topic}"
+        query = f"topic:{topic} stars:>={MIN_STARS}"
         results = gh.search_repositories(query=query, sort="stars", order="desc")
 
         count = 0
         for repo in results:
             if count >= limit:
                 break
+            if repo.stargazers_count < MIN_STARS:
+                continue
             if repo.full_name in seen:
                 continue
             seen.add(repo.full_name)
@@ -144,7 +157,11 @@ def fetch_repos_live(
             limit_hits.append({"topic": topic, "count": count, "limit": limit})
 
     repos.sort(key=lambda r: r.get("stargazerCount", 0), reverse=True)
-    log.info("Fetched %d unique repositories from GitHub API.", len(repos))
+    log.info(
+        "Fetched %d unique repositories from GitHub API after applying min_stars=%d.",
+        len(repos),
+        MIN_STARS,
+    )
     return repos, limit_hits
 
 
@@ -172,6 +189,7 @@ def _normalise_repo(repo: Any) -> dict[str, Any]:
         "homepage": repo.homepage or "",
         "language": repo.language or "Unknown",
         "stargazerCount": repo.stargazers_count,
+        "watchersCount": repo.subscribers_count,
         "forkCount": repo.forks_count,
         "openIssuesCount": repo.open_issues_count,
         "isArchived": repo.archived,
@@ -198,9 +216,19 @@ def load_repos_offline() -> list[dict[str, Any]]:
         repos: list[dict[str, Any]] = json.load(fh)
     log.info("Loaded %d repositories from offline cache.", len(repos))
 
-    # Filter out archived repos
-    repos = [r for r in repos if not r.get("isArchived", False)]
+    # Filter out archived repos and low-star repositories
+    repos = [
+        r
+        for r in repos
+        if not r.get("isArchived", False)
+        and r.get("stargazerCount", 0) >= MIN_STARS
+    ]
     repos.sort(key=lambda r: r.get("stargazerCount", 0), reverse=True)
+    log.info(
+        "Offline cache retained %d repositories after archived and min_stars=%d filtering.",
+        len(repos),
+        MIN_STARS,
+    )
     return repos
 
 
@@ -272,6 +300,8 @@ def generate_repo_page(repo: dict[str, Any]) -> str:
     homepage = repo.get("homepage", "")
     language = repo.get("language") or "Unknown"
     stars = _format_number(repo.get("stargazerCount"))
+    watchers = repo.get("watchersCount")
+    watchers_display = _format_number(watchers) if watchers is not None else "—"
     forks = _format_number(repo.get("forkCount"))
     issues = _format_number(repo.get("openIssuesCount"))
     created = _format_date(repo.get("createdAt"))
@@ -302,6 +332,7 @@ def generate_repo_page(repo: dict[str, Any]) -> str:
         f"| **Language** | {language} |",
         f"| **License** | {license_name} |",
         f"| **Stars** | :star: {stars} |",
+        f"| **Watchers** | :material-eye: {watchers_display} |",
         f"| **Forks** | :material-source-fork: {forks} |",
         f"| **Open Issues** | :material-alert-circle-outline: {issues} |",
         f"| **Created** | {created} |",
