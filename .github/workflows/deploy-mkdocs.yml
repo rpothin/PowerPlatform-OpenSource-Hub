@@ -32,8 +32,10 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
-      - name: Sync repository data (offline from cache)
-        run: python scripts/sync_repos.py --offline
+      - name: Sync repository data from GitHub
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python scripts/sync_repos.py
 
       - name: Build & deploy to GitHub Pages
         run: mkdocs gh-deploy --force --clean --verbose

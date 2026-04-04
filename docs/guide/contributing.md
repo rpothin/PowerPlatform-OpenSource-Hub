@@ -57,7 +57,7 @@ cd PowerPlatform-OpenSource-Hub
 # Install dependencies
 pip install -r requirements.txt
 
-# Run the sync script (uses existing data if no token provided)
+# Run the sync script (fetches live data from GitHub)
 python scripts/sync_repos.py
 
 # Serve the documentation locally

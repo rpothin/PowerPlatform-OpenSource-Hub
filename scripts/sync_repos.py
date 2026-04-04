@@ -6,17 +6,13 @@ then generates structured Markdown files in ``docs/registry/`` that are consumed
 by MkDocs to build the public documentation site.
 
 Usage:
-    # Live fetch (requires GITHUB_TOKEN for higher rate-limits)
+    # Live fetch (GITHUB_TOKEN recommended for higher rate-limits)
     export GITHUB_TOKEN=ghp_…
     python scripts/sync_repos.py
-
-    # Offline / CI fallback — reads cached JSON from data/
-    python scripts/sync_repos.py --offline
 """
 
 from __future__ import annotations
 
-import argparse
 import json
 import logging
 import os
@@ -30,7 +26,6 @@ from typing import Any
 # ---------------------------------------------------------------------------
 ROOT_DIR = Path(__file__).resolve().parent.parent
 CONFIG_PATH = ROOT_DIR / "configuration" / "GitHubRepositoriesSearchCriteria.json"
-CACHE_PATH = ROOT_DIR / "data" / "GitHubRepositoriesDetails.json"
 REGISTRY_DIR = ROOT_DIR / "docs" / "registry"
 OVERRIDES_DIR = ROOT_DIR / "overrides"
 
@@ -167,7 +162,7 @@ def fetch_repos_live(
 
 def _normalise_repo(repo: Any) -> dict[str, Any]:
     """Convert a PyGithub *Repository* object into a plain dict matching
-    the schema already used by the existing ``data/`` JSON cache."""
+    the schema used by the generated registry pages."""
     license_info = repo.license
     latest_release = None
     try:
@@ -205,39 +200,8 @@ def _normalise_repo(repo: Any) -> dict[str, Any]:
         "latestRelease": latest_release,
     }
 
-
-def load_repos_offline() -> list[dict[str, Any]]:
-    """Load cached repository data from ``data/GitHubRepositoriesDetails.json``."""
-    if not CACHE_PATH.exists():
-        log.error("Cache file not found: %s", CACHE_PATH)
-        sys.exit(1)
-
-    with open(CACHE_PATH, encoding="utf-8") as fh:
-        repos: list[dict[str, Any]] = json.load(fh)
-    log.info("Loaded %d repositories from offline cache.", len(repos))
-
-    # Filter out archived repos and low-star repositories
-    repos = [
-        r
-        for r in repos
-        if not r.get("isArchived", False)
-        and r.get("stargazerCount", 0) >= MIN_STARS
-    ]
-    repos.sort(key=lambda r: r.get("stargazerCount", 0), reverse=True)
-    log.info(
-        "Offline cache retained %d repositories after archived and min_stars=%d filtering.",
-        len(repos),
-        MIN_STARS,
-    )
-    return repos
-
-
-def log_search_limit_summary(limit_hits: list[dict[str, int | str]] | None) -> None:
+def log_search_limit_summary(limit_hits: list[dict[str, int | str]]) -> None:
     """Log a concise summary of topics that reached their configured search limit."""
-    if limit_hits is None:
-        log.info("Topics reaching their configured search limit: unavailable in offline mode.")
-        return
-
     if not limit_hits:
         log.info("Topics reaching their configured search limit: none.")
         return
@@ -788,22 +752,8 @@ def write_home_data(repos: list[dict[str, Any]]) -> None:
 # CLI entry-point
 # ===================================================================
 def main() -> None:
-    parser = argparse.ArgumentParser(
-        description="Sync Power Platform repository data and generate MkDocs registry pages.",
-    )
-    parser.add_argument(
-        "--offline",
-        action="store_true",
-        help="Use cached data/GitHubRepositoriesDetails.json instead of calling the GitHub API.",
-    )
-    args = parser.parse_args()
-
-    if args.offline:
-        repos = load_repos_offline()
-        limit_hits = None
-    else:
-        criteria = load_search_criteria()
-        repos, limit_hits = fetch_repos_live(criteria)
+    criteria = load_search_criteria()
+    repos, limit_hits = fetch_repos_live(criteria)
 
     write_registry(repos)
     write_home_data(repos)
