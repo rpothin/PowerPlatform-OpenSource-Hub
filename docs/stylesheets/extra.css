@@ -251,7 +251,7 @@
 
 .mdx-repo-card__header {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
   margin-bottom: 0.5rem;
 }
@@ -263,14 +263,21 @@
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  max-width: 70%;
+  max-width: 100%;
 }
 
-.mdx-repo-card__stars {
+.mdx-repo-card__metrics {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+  margin: 0 0 0.75rem;
+}
+
+.mdx-repo-card__metric {
   font-size: 0.8rem;
   font-weight: 600;
   color: var(--md-default-fg-color--light);
-  flex-shrink: 0;
 }
 
 .mdx-repo-card__desc {

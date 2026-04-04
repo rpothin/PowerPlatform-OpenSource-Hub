@@ -302,6 +302,9 @@ def generate_repo_page(repo: dict[str, Any]) -> str:
     stars = _format_number(repo.get("stargazerCount"))
     watchers = repo.get("watchersCount")
     watchers_display = _format_number(watchers) if watchers is not None else "—"
+    community_metrics = f":star: {stars}"
+    if watchers is not None:
+        community_metrics += f" · :material-eye: {watchers_display}"
     forks = _format_number(repo.get("forkCount"))
     issues = _format_number(repo.get("openIssuesCount"))
     created = _format_date(repo.get("createdAt"))
@@ -331,8 +334,7 @@ def generate_repo_page(repo: dict[str, Any]) -> str:
         f"| **Full Name** | `{full_name}` |",
         f"| **Language** | {language} |",
         f"| **License** | {license_name} |",
-        f"| **Stars** | :star: {stars} |",
-        f"| **Watchers** | :material-eye: {watchers_display} |",
+        f"| **Community** | {community_metrics} |",
         f"| **Forks** | :material-source-fork: {forks} |",
         f"| **Open Issues** | :material-alert-circle-outline: {issues} |",
         f"| **Created** | {created} |",
@@ -408,12 +410,18 @@ def generate_registry_index(repos: list[dict[str, Any]]) -> str:
         full = r.get("fullName", "")
         slug = _sanitise_filename(full)
         stars = r.get("stargazerCount", 0)
+        watchers = r.get("watchersCount")
+        watcher_text = (
+            f" · :material-eye: {_format_number(watchers)} watchers"
+            if watchers is not None
+            else ""
+        )
         lang = r.get("language") or "Unknown"
         desc = (r.get("description") or "No description")[:100]
         if len(r.get("description") or "") > 100:
             desc += "…"
         card_items.append(
-            f"-   :star: **{name}** · {_format_number(stars)} stars · `{lang}`\n"
+            f"-   :star: **{name}** · {_format_number(stars)} stars{watcher_text} · `{lang}`\n"
             f"\n"
             f"    ---\n"
             f"\n"
@@ -532,12 +540,18 @@ def generate_category_page(slug: str, cat: dict[str, Any], repos: list[dict[str,
         full = r.get("fullName", "")
         repo_slug = _sanitise_filename(full)
         stars = r.get("stargazerCount", 0)
+        watchers = r.get("watchersCount")
+        watcher_text = (
+            f" · :material-eye: {_format_number(watchers)} watchers"
+            if watchers is not None
+            else ""
+        )
         lang = r.get("language") or "Unknown"
         desc = (r.get("description") or "No description")[:100]
         if len(r.get("description") or "") > 100:
             desc += "…"
         card_items.append(
-            f"-   :star: **{name}** · {_format_number(stars)} stars · `{lang}`\n"
+            f"-   :star: **{name}** · {_format_number(stars)} stars{watcher_text} · `{lang}`\n"
             f"\n"
             f"    ---\n"
             f"\n"
@@ -701,6 +715,17 @@ def write_home_data(repos: list[dict[str, Any]]) -> None:
         if len(r.get("description") or "") > 100:
             desc += "…"
         stars = _format_number(r.get("stargazerCount", 0))
+        watchers = r.get("watchersCount")
+        watchers_html = (
+            f'        <div class="mdx-repo-card__metrics">\n'
+            f'          <span class="mdx-repo-card__metric">⭐ {stars}</span>\n'
+            f'          <span class="mdx-repo-card__metric">👁️ {_format_number(watchers)}</span>\n'
+            f'        </div>\n'
+            if watchers is not None
+            else f'        <div class="mdx-repo-card__metrics">\n'
+                 f'          <span class="mdx-repo-card__metric">⭐ {stars}</span>\n'
+                 f'        </div>\n'
+        )
         lang = r.get("language") or "Unknown"
         slug = _sanitise_filename(full_name)
 
@@ -708,9 +733,9 @@ def write_home_data(repos: list[dict[str, Any]]) -> None:
             f'      <a class="mdx-repo-card" href="registry/{slug}/">\n'
             f'        <div class="mdx-repo-card__header">\n'
             f'          <span class="mdx-repo-card__name">{name}</span>\n'
-            f'          <span class="mdx-repo-card__stars">⭐ {stars}</span>\n'
             f'        </div>\n'
             f'        <p class="mdx-repo-card__desc">{desc}</p>\n'
+            f'{watchers_html}'
             f'        <span class="mdx-repo-card__lang">{lang}</span>\n'
             f'      </a>'
         )
