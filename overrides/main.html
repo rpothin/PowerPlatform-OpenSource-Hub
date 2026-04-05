@@ -4,6 +4,29 @@
   <link rel="stylesheet" href="{{ 'stylesheets/extra.css' | url }}">
   <link rel="apple-touch-icon" sizes="180x180" href="{{ 'assets/apple-touch-icon.png' | url }}">
   <script>
+    /* Fix: MkDocs Material instant navigation crashes on SVG <image>
+       elements because element.href is a read-only SVGAnimatedString.
+       Adding a setter that delegates to setAttribute prevents the
+       TypeError and lets instant navigation work correctly. */
+    (function() {
+      var desc = Object.getOwnPropertyDescriptor(SVGImageElement.prototype, "href");
+      if (desc && desc.get && !desc.set) {
+        Object.defineProperty(SVGImageElement.prototype, "href", {
+          get: desc.get,
+          set: function(v) {
+            if (v && typeof v === "object" && typeof v.baseVal === "string") {
+              this.setAttribute("href", v.baseVal);
+            } else {
+              this.setAttribute("href", typeof v === "string" ? v : String(v));
+            }
+          },
+          configurable: true,
+          enumerable: desc.enumerable
+        });
+      }
+    })();
+  </script>
+  <script>
     /* Swap favicon to match the active colour scheme */
     (function() {
       var green = "{{ 'assets/favicon.png' | url }}";
