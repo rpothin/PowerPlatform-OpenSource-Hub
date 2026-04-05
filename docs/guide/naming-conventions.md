@@ -50,48 +50,23 @@ ecosystem.
 
 !!! note "Required for Discovery"
     To be automatically discovered by the Hub, repositories **must** include at
-    least one of the following GitHub topics:
+    least one of the following GitHub topics. The Hub groups these topics into
+    service pages for browsing, but discovery still depends on the topics
+    themselves.
 
-=== "Power Platform"
+| Service page | Tracked GitHub topics | Typical fit |
+|--------------|------------------------|-------------|
+| Power Platform | `powerplatform`, `power-platform`, `ai-builder` | Platform-wide resources, cross-service samples, ALM, governance content, and AI Builder work |
+| Power Apps | `powerapps`, `power-apps` | Canvas apps, model-driven apps, and app-focused samples |
+| Power Automate | `powerautomate`, `power-automate` | Cloud flows, desktop flows, and automation scenarios |
+| Copilot Studio | `powervirtualagent`, `power-virtual-agent`, `copilot-studio` | Copilot Studio and Power Virtual Agents projects |
+| Dataverse | `dataverse`, `microsoft-dataverse` | Dataverse SDKs, tooling, schema, and data work |
+| Pro Development | `pcf-controls`, `powerappscomponentframework`, `powerfx`, `power-fx` | Developer tooling, PCF, Power Fx, and code-first extension work |
+| Dynamics 365 | `dynamics365`, `dynamics-365` | Dynamics 365 applications, tooling, and extensions |
 
-    - `powerplatform`
-    - `power-platform`
-
-=== "Power Apps"
-
-    - `powerapps`
-    - `power-apps`
-    - `pcf-controls`
-    - `powerappscomponentframework`
-
-=== "Power Automate"
-
-    - `powerautomate`
-    - `power-automate`
-
-=== "Dataverse"
-
-    - `dataverse`
-    - `microsoft-dataverse`
-
-=== "Power Fx"
-
-    - `powerfx`
-    - `power-fx`
-
-=== "Dynamics 365"
-
-    - `dynamics365`
-    - `dynamics-365`
-
-=== "AI Builder"
-
-    - `ai-builder`
-
-=== "Copilot Studio"
-
-    - `powervirtualagent`
-    - `power-virtual-agent`
+Use the most relevant tracked topic or topics for the repository. If a project
+genuinely spans multiple service areas, it can include multiple tracked topics
+and appear on multiple service pages.
 
 ---
 
