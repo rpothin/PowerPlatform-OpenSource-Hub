@@ -1470,7 +1470,6 @@
   background: var(--md-default-bg-color);
   margin-bottom: 0.75rem;
   transition: box-shadow 0.2s, transform 0.2s, border-color 0.2s;
-  text-decoration: none;
   color: inherit;
 }
 .mdx-issue-card:hover {
@@ -1487,10 +1486,15 @@
 
 /* --- Issue title ------------------------------------------ */
 .mdx-issue-card__title {
+  display: block;
   font-size: 0.9rem;
   font-weight: 600;
   color: var(--md-default-fg-color);
   margin-bottom: 0.35rem;
+  text-decoration: none;
+}
+.mdx-issue-card__title:hover {
+  text-decoration: underline;
 }
 
 /* --- Issue metadata --------------------------------------- */
