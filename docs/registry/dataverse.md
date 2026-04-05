@@ -3,40 +3,29 @@ hide:
   - toc
 ---
 
-# 📊 Dataverse
-
-Repositories related to Microsoft Dataverse and the Common Data Service.
-
-!!! info "Last synced: 2026-04-05 02:17 UTC"
-    Showing **65** repositories matching this focus area.
-
----
-
-<div class="registry-summary" markdown>
-
-## Overview
-
-| Metric | Value |
-|--------|-------|
-| **Repositories** | 65 |
-| **Total Stars** | :star: 8,083 |
-
-### Top Languages
-
-| Language | Repositories |
-|----------|-------------|
-| TypeScript | 22 |
-| C# | 17 |
-| Unknown | 5 |
-| JavaScript | 5 |
-| Python | 5 |
-| R | 4 |
-| HTML | 2 |
-| PHP | 1 |
-| TSQL | 1 |
-| PowerShell | 1 |
-
-</div>
+<section class="mdx-registry-hero">
+  <div class="md-grid">
+    <h1>📊 Dataverse</h1>
+    <p class="mdx-registry-hero__description">Repositories related to Microsoft Dataverse and the Common Data Service.</p>
+    <div class="mdx-registry-hero__stats">
+      <span class="mdx-registry-hero__stat"><span class="mdx-registry-hero__stat-icon">📦</span> 65 repositories</span>
+      <span class="mdx-registry-hero__stat"><span class="mdx-registry-hero__stat-icon">⭐</span> 8,084 stars</span>
+    </div>
+    <div class="mdx-lang-pills">
+      <span class="mdx-lang-pill">TypeScript (22)</span>
+      <span class="mdx-lang-pill">C# (17)</span>
+      <span class="mdx-lang-pill">Unknown (5)</span>
+      <span class="mdx-lang-pill">JavaScript (5)</span>
+      <span class="mdx-lang-pill">Python (5)</span>
+      <span class="mdx-lang-pill">R (4)</span>
+      <span class="mdx-lang-pill">HTML (2)</span>
+      <span class="mdx-lang-pill">PHP (1)</span>
+      <span class="mdx-lang-pill">TSQL (1)</span>
+      <span class="mdx-lang-pill">PowerShell (1)</span>
+    </div>
+    <p class="mdx-registry-hero__sync">Last synced: 2026-04-05 12:26 UTC · Showing <strong>65</strong> repositories matching this focus area.</p>
+  </div>
+</section>
 
 ---
 
@@ -52,7 +41,7 @@ Repositories related to Microsoft Dataverse and the Common Data Service.
 
     [:octicons-arrow-right-24: View details](datopian_portaljs.md)
 
--   :star: **PowerApps-Samples** · 1,903 stars · :material-eye: 117 watchers · `C#`
+-   :star: **PowerApps-Samples** · 1,904 stars · :material-eye: 117 watchers · `C#`
 
     ---
 
@@ -140,160 +129,34 @@ Repositories related to Microsoft Dataverse and the Common Data Service.
 
     [:octicons-arrow-right-24: View details](power-maverick_dataversedevtools-vscode.md)
 
--   :star: **dynamics-webapi-toolkit** · 81 stars · :material-eye: 6 watchers · `PHP`
-
-    ---
-
-    Dynamics 365 Web API Toolkit for PHP
-
-    [:octicons-arrow-right-24: View details](alexacrm_dynamics-webapi-toolkit.md)
-
--   :star: **pyDataverse** · 80 stars · :material-eye: 13 watchers · `Python`
-
-    ---
-
-    Python module for Dataverse Software (dataverse.org).
-
-    [:octicons-arrow-right-24: View details](gdcc_pydataverse.md)
-
--   :star: **Dynamics-Crm-DevKit** · 75 stars · :material-eye: 12 watchers · `C#`
-
-    ---
-
-    A collection of projects/items template for develop Dynamics 365 CRM/CDS/Dataverse
-
-    [:octicons-arrow-right-24: View details](phuocle_dynamics-crm-devkit.md)
-
--   :star: **dataverse-ify** · 73 stars · :material-eye: 11 watchers · `TypeScript`
-
-    ---
-
-    Easily call the Dataverse WebApi from TypeScript using SDK style types, with a NodeJS implementation…
-
-    [:octicons-arrow-right-24: View details](scottdurow_dataverse-ify.md)
-
--   :star: **dataverse-client-r** · 65 stars · :material-eye: 11 watchers · `R`
-
-    ---
-
-    R Client for Dataverse Repositories
-
-    [:octicons-arrow-right-24: View details](iqss_dataverse-client-r.md)
-
--   :star: **Power-BI-D365-Sales** · 65 stars · :material-eye: 4 watchers · `TSQL`
-
-    ---
-
-    Power BI ❤️ Dynamics 365 - Sales Report and ALM Solution Examples for Power BI and Dataverse.
-
-    [:octicons-arrow-right-24: View details](mscottsewell_power-bi-d365-sales.md)
-
--   :star: **PowerFxSnippets** · 60 stars · :material-eye: 5 watchers · `Python`
-
-    ---
-
-    My bag of tricks for the Power Platform, mostly canvas Power Apps (PowerFx & YAML)
-
-    [:octicons-arrow-right-24: View details](powerappsdarren_powerfxsnippets.md)
-
--   :star: **geoflow** · 54 stars · :material-eye: 6 watchers · `R`
-
-    ---
-
-    Orchestrate Geospatial (Meta)Data Management Workflows and Manage FAIR Services
-
-    [:octicons-arrow-right-24: View details](r-geoflow_geoflow.md)
-
--   :star: **dataverse-erd-visualizer** · 52 stars · :material-eye: 2 watchers · `TypeScript`
-
-    ---
-
-    No description
-
-    [:octicons-arrow-right-24: View details](allandecastro_dataverse-erd-visualizer.md)
-
--   :star: **development-hub** · 45 stars · :material-eye: 5 watchers · `C#`
-
-    ---
-
-    A continuous integration solution for Power Apps.
-
-    [:octicons-arrow-right-24: View details](ewingjm_development-hub.md)
-
--   :star: **PCF-CustomControlBuilder** · 44 stars · :material-eye: 3 watchers · `C#`
-
-    ---
-
-    XrmToolBox Plugin for building and deploying custom control using PCF
-
-    [:octicons-arrow-right-24: View details](power-maverick_pcf-customcontrolbuilder.md)
-
--   :star: **Power-Platform** · 43 stars · :material-eye: 6 watchers · `HTML`
-
-    ---
-
-    Collection of examples and demos from my Power Platform Blog
-
-    [:octicons-arrow-right-24: View details](wyattdave_power-platform.md)
-
--   :star: **powerapps-specflow-bindings** · 43 stars · :material-eye: 22 watchers · `C#`
-
-    ---
-
-    A SpecFlow bindings library for model-driven Power Apps.
-
-    [:octicons-arrow-right-24: View details](capgemini_powerapps-specflow-bindings.md)
-
--   :star: **PowerDataOps** · 37 stars · :material-eye: 4 watchers · `PowerShell`
-
-    ---
-
-    PowerShell module for Microsoft Dataverse and Power Platform automation (Data Management, administra…
-
-    [:octicons-arrow-right-24: View details](aymericm78_powerdataops.md)
-
--   :star: **fake-xrm-easy** · 35 stars · :material-eye: 3 watchers · `C#`
-
-    ---
-
-    FakeXrmEasy: The Test Automation Framework for the Power Platform / Dataverse
-
-    [:octicons-arrow-right-24: View details](dynamicsvalue_fake-xrm-easy.md)
-
--   :star: **SmartBrief** · 35 stars · :material-eye: 16 watchers · `Unknown`
-
-    ---
-
-    A low-code open source solution for document summarization using Microsoft Power Platform and Azure …
-
-    [:octicons-arrow-right-24: View details](rkneela0912_smartbrief.md)
-
--   :star: **SLG-Business-Applications** · 31 stars · :material-eye: 8 watchers · `Unknown`
-
-    ---
-
-    A collection of Power Platform and Dynamics 365 resources, open-sourced to the State & Local Governm…
-
-    [:octicons-arrow-right-24: View details](microsoft_slg-business-applications.md)
-
--   :star: **icews** · 30 stars · :material-eye: 2 watchers · `R`
-
-    ---
-
-    Get the ICEWS event data
-
-    [:octicons-arrow-right-24: View details](andybega_icews.md)
-
 </div>
 
 ---
 
 ## All Repositories
 
-??? note "View all 35 remaining repositories"
+??? note "View all 53 remaining repositories"
 
     | Repository | Language | Stars | Description |
     |------------|----------|-------|-------------|
+    | [dynamics-webapi-toolkit](alexacrm_dynamics-webapi-toolkit.md) | PHP | :star: 81 | Dynamics 365 Web API Toolkit for PHP |
+    | [pyDataverse](gdcc_pydataverse.md) | Python | :star: 80 | Python module for Dataverse Software (dataverse.org). |
+    | [Dynamics-Crm-DevKit](phuocle_dynamics-crm-devkit.md) | C# | :star: 75 | A collection of projects/items template for develop Dynamics 365 CRM/CDS/Dataver… |
+    | [dataverse-ify](scottdurow_dataverse-ify.md) | TypeScript | :star: 73 | Easily call the Dataverse WebApi from TypeScript using SDK style types, with a N… |
+    | [dataverse-client-r](iqss_dataverse-client-r.md) | R | :star: 65 | R Client for Dataverse Repositories |
+    | [Power-BI-D365-Sales](mscottsewell_power-bi-d365-sales.md) | TSQL | :star: 65 | Power BI ❤️ Dynamics 365 - Sales Report and ALM Solution Examples for Power BI a… |
+    | [PowerFxSnippets](powerappsdarren_powerfxsnippets.md) | Python | :star: 60 | My bag of tricks for the Power Platform, mostly canvas Power Apps (PowerFx & YAM… |
+    | [geoflow](r-geoflow_geoflow.md) | R | :star: 54 | Orchestrate Geospatial (Meta)Data Management Workflows and Manage FAIR Services |
+    | [dataverse-erd-visualizer](allandecastro_dataverse-erd-visualizer.md) | TypeScript | :star: 52 |  |
+    | [development-hub](ewingjm_development-hub.md) | C# | :star: 45 | A continuous integration solution for Power Apps. |
+    | [PCF-CustomControlBuilder](power-maverick_pcf-customcontrolbuilder.md) | C# | :star: 44 | XrmToolBox Plugin for building and deploying custom control using PCF |
+    | [Power-Platform](wyattdave_power-platform.md) | HTML | :star: 43 | Collection of examples and demos from my Power Platform Blog |
+    | [powerapps-specflow-bindings](capgemini_powerapps-specflow-bindings.md) | C# | :star: 43 | A SpecFlow bindings library for model-driven Power Apps. |
+    | [PowerDataOps](aymericm78_powerdataops.md) | PowerShell | :star: 37 | PowerShell module for Microsoft Dataverse and Power Platform automation (Data Ma… |
+    | [fake-xrm-easy](dynamicsvalue_fake-xrm-easy.md) | C# | :star: 35 | FakeXrmEasy: The Test Automation Framework for the Power Platform / Dataverse |
+    | [SmartBrief](rkneela0912_smartbrief.md) | Unknown | :star: 35 | A low-code open source solution for document summarization using Microsoft Power… |
+    | [SLG-Business-Applications](microsoft_slg-business-applications.md) | Unknown | :star: 31 | A collection of Power Platform and Dynamics 365 resources, open-sourced to the S… |
+    | [icews](andybega_icews.md) | R | :star: 30 | Get the ICEWS event data |
     | [dataverse-kubernetes](gdcc_dataverse-kubernetes.md) | Shell | :star: 30 | Simple to use Dataverse container images and Kubernetes objects |
     | [JM-Dataverse-Toolbelt](josephmcmac_jm-dataverse-toolbelt.md) | C# | :star: 29 | App and Visual Studio Extension for Microsoft Dynamics for CE and PowerApps Comm… |
     | [easyDataverse](gdcc_easydataverse.md) | Python | :star: 28 | 🪐 - Lightweight Dataverse interface in Python to upload, download and update dat… |
@@ -332,4 +195,4 @@ Repositories related to Microsoft Dataverse and the Common Data Service.
 
 ---
 
-_Auto-generated by [`sync_repos.py`](https://github.com/rpothin/PowerPlatform-OpenSource-Hub/blob/main/scripts/sync_repos.py) on 2026-04-05 02:17 UTC._
+_Auto-generated by [`sync_repos.py`](https://github.com/rpothin/PowerPlatform-OpenSource-Hub/blob/main/scripts/sync_repos.py) on 2026-04-05 12:26 UTC._

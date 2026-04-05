@@ -1,40 +1,46 @@
-<div class="registry-detail" markdown>
+<p class="mdx-detail-hero__back"><a href="../">← Back to Repositories</a></p>
 
-# adaptive-cards-mcp
+<section class="mdx-detail-hero">
+  <h1>adaptive-cards-mcp</h1>
+  <p class="mdx-detail-hero__description">AI-powered Adaptive Card MCP server — 9 tools for generating, validating, optimizing cards for Teams, Outlook, Copilot, ChatGPT. npm: adaptive-cards-mcp</p>
+  <div class="mdx-detail-hero__actions">
+    <a href="https://github.com/VikrantSingh01/adaptive-cards-mcp" class="md-button md-button--primary" target="_blank" rel="noopener">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" style="vertical-align: middle; margin-right: 0.4em; fill: currentColor;"><path d="M12 .3a12 12 0 0 0-3.8 23.38c.6.12.83-.26.83-.57L9 21.07c-3.34.72-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.08-.74.09-.73.09-.73 1.2.09 1.84 1.24 1.84 1.24 1.07 1.83 2.8 1.3 3.49 1 .1-.78.42-1.3.76-1.6-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.14-.3-.54-1.52.1-3.18 0 0 1-.32 3.3 1.23a11.5 11.5 0 0 1 6.02 0c2.28-1.55 3.29-1.23 3.29-1.23.64 1.66.24 2.88.12 3.18a4.65 4.65 0 0 1 1.23 3.22c0 4.61-2.8 5.63-5.48 5.92.42.36.81 1.1.81 2.22l-.01 3.29c0 .31.21.69.82.57A12 12 0 0 0 12 .3"/></svg>View on GitHub
+    </a>
+    <span class="registry-badge">adaptive-card</span> <span class="registry-badge">adaptive-cards</span> <span class="registry-badge">ai</span> <span class="registry-badge">bot-framework</span> <span class="registry-badge">card-generator</span> <span class="registry-badge">chatgpt</span> <span class="registry-badge">claude</span> <span class="registry-badge">copilot</span> <span class="registry-badge">copilot-studio</span> <span class="registry-badge">cursor</span> <span class="registry-badge">github-copilot</span> <span class="registry-badge">mcp</span> <span class="registry-badge">mcp-server</span> <span class="registry-badge">microsoft-teams</span> <span class="registry-badge">model-context-protocol</span> <span class="registry-badge">openai</span> <span class="registry-badge">outlook</span> <span class="registry-badge">typescript</span> <span class="registry-badge">vscode</span> <span class="registry-badge">windsurf</span>
+  </div>
+  <div class="mdx-detail-hero__meta">
+    <span>TypeScript</span>
+    <span>MIT License</span>
+    <span>Created 2026-03-15</span>
+    <span>Updated 2026-04-02</span>
+    <span><a href="https://www.npmjs.com/package/adaptive-cards-mcp" target="_blank" rel="noopener">https://www.npmjs.com/package/adaptive-cards-mcp</a></span>
+  </div>
+</section>
 
-> AI-powered Adaptive Card MCP server — 9 tools for generating, validating, optimizing cards for Teams, Outlook, Copilot, ChatGPT. npm: adaptive-cards-mcp
-
-[:material-github: View on GitHub](https://github.com/VikrantSingh01/adaptive-cards-mcp){ .md-button .md-button--primary }
-
----
-
-<div class="registry-overview" markdown>
-
-## Overview
-
-| | |
-|---|---|
-| **Full Name** | `VikrantSingh01/adaptive-cards-mcp` |
-| **Language** | TypeScript |
-| **License** | MIT License |
-| **Community** | :star: 22 · :material-eye: 1 |
-| **Forks** | :material-source-fork: 4 |
-| **Open Issues** | :material-alert-circle-outline: 13 |
-| **Created** | 2026-03-15 |
-| **Last Updated** | 2026-04-02 |
-| **Homepage** | [https://www.npmjs.com/package/adaptive-cards-mcp](https://www.npmjs.com/package/adaptive-cards-mcp) |
-
+<div class="mdx-detail-stats">
+  <div class="mdx-detail-stats__card">
+    <div class="mdx-detail-stats__number">⭐ 22</div>
+    <div class="mdx-detail-stats__label">Stars</div>
+  </div>
+  <div class="mdx-detail-stats__card">
+    <div class="mdx-detail-stats__number">👁️ 1</div>
+    <div class="mdx-detail-stats__label">Watchers</div>
+  </div>
+  <div class="mdx-detail-stats__card">
+    <div class="mdx-detail-stats__number">🔱 4</div>
+    <div class="mdx-detail-stats__label">Forks</div>
+  </div>
+  <div class="mdx-detail-stats__card">
+    <div class="mdx-detail-stats__number">⚠️ 13</div>
+    <div class="mdx-detail-stats__label">Open Issues</div>
+  </div>
 </div>
 
-## Topics
-
-<span class="registry-badge">adaptive-card</span> <span class="registry-badge">adaptive-cards</span> <span class="registry-badge">ai</span> <span class="registry-badge">bot-framework</span> <span class="registry-badge">card-generator</span> <span class="registry-badge">chatgpt</span> <span class="registry-badge">claude</span> <span class="registry-badge">copilot</span> <span class="registry-badge">copilot-studio</span> <span class="registry-badge">cursor</span> <span class="registry-badge">github-copilot</span> <span class="registry-badge">mcp</span> <span class="registry-badge">mcp-server</span> <span class="registry-badge">microsoft-teams</span> <span class="registry-badge">model-context-protocol</span> <span class="registry-badge">openai</span> <span class="registry-badge">outlook</span> <span class="registry-badge">typescript</span> <span class="registry-badge">vscode</span> <span class="registry-badge">windsurf</span>
 
 !!! success "Latest Release"
     **[v2.2.1 - Clean Card Output & Spec Compliance](https://github.com/VikrantSingh01/adaptive-cards-mcp/releases/tag/v2.2.1)** — published 2026-03-16
 
 ---
 
-_Auto-generated by [`sync_repos.py`](https://github.com/rpothin/PowerPlatform-OpenSource-Hub/blob/main/scripts/sync_repos.py) on 2026-04-05 02:17 UTC._
-
-</div>
+_Auto-generated by [`sync_repos.py`](https://github.com/rpothin/PowerPlatform-OpenSource-Hub/blob/main/scripts/sync_repos.py) on 2026-04-05 12:26 UTC._

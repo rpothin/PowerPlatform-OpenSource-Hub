@@ -3,40 +3,29 @@ hide:
   - toc
 ---
 
-# ⚡ Power Automate
-
-Repositories related to Power Automate, cloud flows, and desktop flows.
-
-!!! info "Last synced: 2026-04-05 02:17 UTC"
-    Showing **46** repositories matching this focus area.
-
----
-
-<div class="registry-summary" markdown>
-
-## Overview
-
-| Metric | Value |
-|--------|-------|
-| **Repositories** | 46 |
-| **Total Stars** | :star: 26,235 |
-
-### Top Languages
-
-| Language | Repositories |
-|----------|-------------|
-| Unknown | 16 |
-| Python | 6 |
-| C# | 5 |
-| PowerShell | 5 |
-| HTML | 5 |
-| JavaScript | 2 |
-| CSS | 2 |
-| HLSL | 1 |
-| TSQL | 1 |
-| TypeScript | 1 |
-
-</div>
+<section class="mdx-registry-hero">
+  <div class="md-grid">
+    <h1>⚡ Power Automate</h1>
+    <p class="mdx-registry-hero__description">Repositories related to Power Automate, cloud flows, and desktop flows.</p>
+    <div class="mdx-registry-hero__stats">
+      <span class="mdx-registry-hero__stat"><span class="mdx-registry-hero__stat-icon">📦</span> 46 repositories</span>
+      <span class="mdx-registry-hero__stat"><span class="mdx-registry-hero__stat-icon">⭐</span> 26,242 stars</span>
+    </div>
+    <div class="mdx-lang-pills">
+      <span class="mdx-lang-pill">Unknown (16)</span>
+      <span class="mdx-lang-pill">Python (6)</span>
+      <span class="mdx-lang-pill">C# (5)</span>
+      <span class="mdx-lang-pill">PowerShell (5)</span>
+      <span class="mdx-lang-pill">HTML (5)</span>
+      <span class="mdx-lang-pill">JavaScript (2)</span>
+      <span class="mdx-lang-pill">CSS (2)</span>
+      <span class="mdx-lang-pill">HLSL (1)</span>
+      <span class="mdx-lang-pill">TSQL (1)</span>
+      <span class="mdx-lang-pill">TypeScript (1)</span>
+    </div>
+    <p class="mdx-registry-hero__sync">Last synced: 2026-04-05 12:26 UTC · Showing <strong>46</strong> repositories matching this focus area.</p>
+  </div>
+</section>
 
 ---
 
@@ -44,7 +33,7 @@ Repositories related to Power Automate, cloud flows, and desktop flows.
 
 <div class="grid cards" markdown>
 
--   :star: **skyvern** · 21,046 stars · :material-eye: 102 watchers · `Python`
+-   :star: **skyvern** · 21,053 stars · :material-eye: 102 watchers · `Python`
 
     ---
 
@@ -140,160 +129,34 @@ Repositories related to Power Automate, cloud flows, and desktop flows.
 
     [:octicons-arrow-right-24: View details](powerplatformaf_powerplatformaf.md)
 
--   :star: **PowerAutomate** · 117 stars · :material-eye: 5 watchers · `Unknown`
-
-    ---
-
-    Power Automate demos & proof of concepts
-
-    [:octicons-arrow-right-24: View details](damobird365_powerautomate.md)
-
--   :star: **awesome-power-automate-learning-resources** · 111 stars · :material-eye: 10 watchers · `Unknown`
-
-    ---
-
-    A curated collection of learning resources to help deepen your understanding of the Microsoft Power …
-
-    [:octicons-arrow-right-24: View details](iamericfletcher_awesome-power-automate-learning-resources.md)
-
--   :star: **power-automate-desktop-framework** · 109 stars · :material-eye: 20 watchers · `TSQL`
-
-    ---
-
-    Framework for having standardized structure of Microsoft Power Automate Desktop (PAD) flows
-
-    [:octicons-arrow-right-24: View details](agniusbartninkas_power-automate-desktop-framework.md)
-
--   :star: **provision-assist-m365** · 107 stars · :material-eye: 16 watchers · `PowerShell`
-
-    ---
-
-    Provision Assist is a request and provisioning solution for Teams, Groups, SPO Sites and Viva Engage…
-
-    [:octicons-arrow-right-24: View details](pnp_provision-assist-m365.md)
-
--   :star: **Power-Platform-For-Beginners** · 101 stars · :material-eye: 9 watchers · `HTML`
-
-    ---
-
-    Event-in-a-box to get started with Power Platform and AI Copilot (aka LowCode)
-
-    [:octicons-arrow-right-24: View details](microsoft_power-platform-for-beginners.md)
-
--   :star: **Planner-PowerBI-with-PowerAutomate** · 83 stars · :material-eye: 11 watchers · `Unknown`
-
-    ---
-
-    Contains a PowerAutomate file that takes data from Planner, writes it to Excel, which is then visual…
-
-    [:octicons-arrow-right-24: View details](ben-howard_planner-powerbi-with-powerautomate.md)
-
--   :star: **power-platform-deprecation-tracker** · 62 stars · :material-eye: 55 watchers · `Unknown`
-
-    ---
-
-    Repo used for tracking changes on various Power Platform deprecation pages
-
-    [:octicons-arrow-right-24: View details](tcorcor1_power-platform-deprecation-tracker.md)
-
--   :star: **PowerFxSnippets** · 60 stars · :material-eye: 5 watchers · `Python`
-
-    ---
-
-    My bag of tricks for the Power Platform, mostly canvas Power Apps (PowerFx & YAML)
-
-    [:octicons-arrow-right-24: View details](powerappsdarren_powerfxsnippets.md)
-
--   :star: **FlowToVisio** · 50 stars · :material-eye: 5 watchers · `C#`
-
-    ---
-
-    XrmToolBox tool to allow you to document your cloud flows within Microsoft Power Automate
-
-    [:octicons-arrow-right-24: View details](linked365_flowtovisio.md)
-
--   :star: **Power-Platform** · 43 stars · :material-eye: 6 watchers · `HTML`
-
-    ---
-
-    Collection of examples and demos from my Power Platform Blog
-
-    [:octicons-arrow-right-24: View details](wyattdave_power-platform.md)
-
--   :star: **pac2** · 36 stars · :material-eye: 0 watchers · `Python`
-
-    ---
-
-    Power Automate C2 (PAC2) :  Stealth living-off-the-cloud C2 framework.
-
-    [:octicons-arrow-right-24: View details](ntt-security-japan_pac2.md)
-
--   :star: **SmartBrief** · 35 stars · :material-eye: 16 watchers · `Unknown`
-
-    ---
-
-    A low-code open source solution for document summarization using Microsoft Power Platform and Azure …
-
-    [:octicons-arrow-right-24: View details](rkneela0912_smartbrief.md)
-
--   :star: **hack-workshop-power-apps** · 32 stars · :material-eye: 28 watchers · `HTML`
-
-    ---
-
-    Workshop for student hackathons focused on Power Apps
-
-    [:octicons-arrow-right-24: View details](microsoft_hack-workshop-power-apps.md)
-
--   :star: **open-ai-teams-chat-bot** · 32 stars · :material-eye: 3 watchers · `Unknown`
-
-    ---
-
-    This Github repository contains two Power Automate flows that use OpenAI to answer questions in Team…
-
-    [:octicons-arrow-right-24: View details](zerg00s_open-ai-teams-chat-bot.md)
-
--   :star: **prompt-pulse** · 24 stars · :material-eye: 6 watchers · `Unknown`
-
-    ---
-
-    Prompt Pulse is a free Microsoft Teams Power App enabling users to schedule and share Microsoft 365 …
-
-    [:octicons-arrow-right-24: View details](pnp_prompt-pulse.md)
-
--   :star: **powerplatformconnect** · 21 stars · :material-eye: 3 watchers · `HTML`
-
-    ---
-
-    Materiais, tutoriais e dicas sobre Power Platform criados pela equipe de especialistas em Power Plat…
-
-    [:octicons-arrow-right-24: View details](microsoft_powerplatformconnect.md)
-
--   :star: **Power-BI-Read-Only-REST-API** · 19 stars · :material-eye: 2 watchers · `PowerShell`
-
-    ---
-
-    Solution based on either Powershell or Power Automate (Flow) to consume the recently released Power …
-
-    [:octicons-arrow-right-24: View details](ferrybouwman_power-bi-read-only-rest-api.md)
-
--   :star: **agents-pro** · 18 stars · :material-eye: 3 watchers · `Python`
-
-    ---
-
-    Teaching/learning resources for O'Reilly Live 'How to Create AI Agents Like a Pro': Microsoft Copilo…
-
-    [:octicons-arrow-right-24: View details](timothywarner-org_agents-pro.md)
-
 </div>
 
 ---
 
 ## All Repositories
 
-??? note "View all 16 remaining repositories"
+??? note "View all 34 remaining repositories"
 
     | Repository | Language | Stars | Description |
     |------------|----------|-------|-------------|
+    | [PowerAutomate](damobird365_powerautomate.md) | Unknown | :star: 117 | Power Automate demos & proof of concepts |
+    | [awesome-power-automate-learning-resources](iamericfletcher_awesome-power-automate-learning-resources.md) | Unknown | :star: 111 | A curated collection of learning resources to help deepen your understanding of … |
+    | [power-automate-desktop-framework](agniusbartninkas_power-automate-desktop-framework.md) | TSQL | :star: 109 | Framework for having standardized structure of Microsoft Power Automate Desktop … |
+    | [provision-assist-m365](pnp_provision-assist-m365.md) | PowerShell | :star: 107 | Provision Assist is a request and provisioning solution for Teams, Groups, SPO S… |
+    | [Power-Platform-For-Beginners](microsoft_power-platform-for-beginners.md) | HTML | :star: 101 | Event-in-a-box to get started with Power Platform and AI Copilot (aka LowCode) |
+    | [Planner-PowerBI-with-PowerAutomate](ben-howard_planner-powerbi-with-powerautomate.md) | Unknown | :star: 83 | Contains a PowerAutomate file that takes data from Planner, writes it to Excel, … |
+    | [power-platform-deprecation-tracker](tcorcor1_power-platform-deprecation-tracker.md) | Unknown | :star: 62 | Repo used for tracking changes on various Power Platform deprecation pages |
+    | [PowerFxSnippets](powerappsdarren_powerfxsnippets.md) | Python | :star: 60 | My bag of tricks for the Power Platform, mostly canvas Power Apps (PowerFx & YAM… |
+    | [FlowToVisio](linked365_flowtovisio.md) | C# | :star: 50 | XrmToolBox tool to allow you to document your cloud flows within Microsoft Power… |
+    | [Power-Platform](wyattdave_power-platform.md) | HTML | :star: 43 | Collection of examples and demos from my Power Platform Blog |
+    | [pac2](ntt-security-japan_pac2.md) | Python | :star: 36 | Power Automate C2 (PAC2) :  Stealth living-off-the-cloud C2 framework. |
+    | [SmartBrief](rkneela0912_smartbrief.md) | Unknown | :star: 35 | A low-code open source solution for document summarization using Microsoft Power… |
+    | [hack-workshop-power-apps](microsoft_hack-workshop-power-apps.md) | HTML | :star: 32 | Workshop for student hackathons focused on Power Apps |
+    | [open-ai-teams-chat-bot](zerg00s_open-ai-teams-chat-bot.md) | Unknown | :star: 32 | This Github repository contains two Power Automate flows that use OpenAI to answ… |
+    | [prompt-pulse](pnp_prompt-pulse.md) | Unknown | :star: 24 | Prompt Pulse is a free Microsoft Teams Power App enabling users to schedule and … |
+    | [powerplatformconnect](microsoft_powerplatformconnect.md) | HTML | :star: 21 | Materiais, tutoriais e dicas sobre Power Platform criados pela equipe de especia… |
+    | [Power-BI-Read-Only-REST-API](ferrybouwman_power-bi-read-only-rest-api.md) | PowerShell | :star: 19 | Solution based on either Powershell or Power Automate (Flow) to consume the rece… |
+    | [agents-pro](timothywarner-org_agents-pro.md) | Python | :star: 18 | Teaching/learning resources for O'Reilly Live 'How to Create AI Agents Like a Pr… |
     | [power-bookmarklets](jukkan_power-bookmarklets.md) | JavaScript | :star: 17 | Power Platform development and administration scripts to be run as browser bookm… |
     | [enhanced-flow-command-set](cupo365_enhanced-flow-command-set.md) | TypeScript | :star: 17 | Trigger a Power Automate or Azure Logic App flow from SharePoint while selecting… |
     | [prompt-master](pnp_prompt-master.md) | Unknown | :star: 16 | Prompt Master and Prompt Master Pro are free Power Apps for gamifying Microsoft … |
@@ -313,4 +176,4 @@ Repositories related to Power Automate, cloud flows, and desktop flows.
 
 ---
 
-_Auto-generated by [`sync_repos.py`](https://github.com/rpothin/PowerPlatform-OpenSource-Hub/blob/main/scripts/sync_repos.py) on 2026-04-05 02:17 UTC._
+_Auto-generated by [`sync_repos.py`](https://github.com/rpothin/PowerPlatform-OpenSource-Hub/blob/main/scripts/sync_repos.py) on 2026-04-05 12:26 UTC._

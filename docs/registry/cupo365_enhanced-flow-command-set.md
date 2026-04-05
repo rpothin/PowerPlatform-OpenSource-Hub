@@ -1,40 +1,46 @@
-<div class="registry-detail" markdown>
+<p class="mdx-detail-hero__back"><a href="../">← Back to Repositories</a></p>
 
-# enhanced-flow-command-set
+<section class="mdx-detail-hero">
+  <h1>enhanced-flow-command-set</h1>
+  <p class="mdx-detail-hero__description">Trigger a Power Automate or Azure Logic App flow from SharePoint while selecting one or more files or list items.</p>
+  <div class="mdx-detail-hero__actions">
+    <a href="https://github.com/cupo365/enhanced-flow-command-set" class="md-button md-button--primary" target="_blank" rel="noopener">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" style="vertical-align: middle; margin-right: 0.4em; fill: currentColor;"><path d="M12 .3a12 12 0 0 0-3.8 23.38c.6.12.83-.26.83-.57L9 21.07c-3.34.72-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.08-.74.09-.73.09-.73 1.2.09 1.84 1.24 1.84 1.24 1.07 1.83 2.8 1.3 3.49 1 .1-.78.42-1.3.76-1.6-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.14-.3-.54-1.52.1-3.18 0 0 1-.32 3.3 1.23a11.5 11.5 0 0 1 6.02 0c2.28-1.55 3.29-1.23 3.29-1.23.64 1.66.24 2.88.12 3.18a4.65 4.65 0 0 1 1.23 3.22c0 4.61-2.8 5.63-5.48 5.92.42.36.81 1.1.81 2.22l-.01 3.29c0 .31.21.69.82.57A12 12 0 0 0 12 .3"/></svg>View on GitHub
+    </a>
+    <span class="registry-badge">azure-logic-apps</span> <span class="registry-badge">fluent-ui</span> <span class="registry-badge">javascript</span> <span class="registry-badge">logic-app</span> <span class="registry-badge">logic-apps</span> <span class="registry-badge">microsoft</span> <span class="registry-badge">pnp</span> <span class="registry-badge">power-automate</span> <span class="registry-badge">powershell</span> <span class="registry-badge">react</span> <span class="registry-badge">scss</span> <span class="registry-badge">sharepoint</span> <span class="registry-badge">sharepoint-lists</span> <span class="registry-badge">sharepoint-online</span> <span class="registry-badge">spfx</span> <span class="registry-badge">spfx-command-set</span> <span class="registry-badge">typescript</span> <span class="registry-badge">yaml</span>
+  </div>
+  <div class="mdx-detail-hero__meta">
+    <span>TypeScript</span>
+    <span>MIT License</span>
+    <span>Created 2022-04-03</span>
+    <span>Updated 2026-02-25</span>
+    <span><a href="https://github.com/cupo365/enhanced-flow-command-set" target="_blank" rel="noopener">https://github.com/cupo365/enhanced-flow-command-set</a></span>
+  </div>
+</section>
 
-> Trigger a Power Automate or Azure Logic App flow from SharePoint while selecting one or more files or list items.
-
-[:material-github: View on GitHub](https://github.com/cupo365/enhanced-flow-command-set){ .md-button .md-button--primary }
-
----
-
-<div class="registry-overview" markdown>
-
-## Overview
-
-| | |
-|---|---|
-| **Full Name** | `cupo365/enhanced-flow-command-set` |
-| **Language** | TypeScript |
-| **License** | MIT License |
-| **Community** | :star: 17 · :material-eye: 3 |
-| **Forks** | :material-source-fork: 2 |
-| **Open Issues** | :material-alert-circle-outline: 1 |
-| **Created** | 2022-04-03 |
-| **Last Updated** | 2026-02-25 |
-| **Homepage** | [https://github.com/cupo365/enhanced-flow-command-set](https://github.com/cupo365/enhanced-flow-command-set) |
-
+<div class="mdx-detail-stats">
+  <div class="mdx-detail-stats__card">
+    <div class="mdx-detail-stats__number">⭐ 17</div>
+    <div class="mdx-detail-stats__label">Stars</div>
+  </div>
+  <div class="mdx-detail-stats__card">
+    <div class="mdx-detail-stats__number">👁️ 3</div>
+    <div class="mdx-detail-stats__label">Watchers</div>
+  </div>
+  <div class="mdx-detail-stats__card">
+    <div class="mdx-detail-stats__number">🔱 2</div>
+    <div class="mdx-detail-stats__label">Forks</div>
+  </div>
+  <div class="mdx-detail-stats__card">
+    <div class="mdx-detail-stats__number">⚠️ 1</div>
+    <div class="mdx-detail-stats__label">Open Issues</div>
+  </div>
 </div>
 
-## Topics
-
-<span class="registry-badge">azure-logic-apps</span> <span class="registry-badge">fluent-ui</span> <span class="registry-badge">javascript</span> <span class="registry-badge">logic-app</span> <span class="registry-badge">logic-apps</span> <span class="registry-badge">microsoft</span> <span class="registry-badge">pnp</span> <span class="registry-badge">power-automate</span> <span class="registry-badge">powershell</span> <span class="registry-badge">react</span> <span class="registry-badge">scss</span> <span class="registry-badge">sharepoint</span> <span class="registry-badge">sharepoint-lists</span> <span class="registry-badge">sharepoint-online</span> <span class="registry-badge">spfx</span> <span class="registry-badge">spfx-command-set</span> <span class="registry-badge">typescript</span> <span class="registry-badge">yaml</span>
 
 !!! success "Latest Release"
     **[Rebranding and UI and dynamic input form optimalizations](https://github.com/cupo365/enhanced-flow-command-set/releases/tag/v2.0.0)** — published 2022-10-05
 
 ---
 
-_Auto-generated by [`sync_repos.py`](https://github.com/rpothin/PowerPlatform-OpenSource-Hub/blob/main/scripts/sync_repos.py) on 2026-04-05 02:17 UTC._
-
-</div>
+_Auto-generated by [`sync_repos.py`](https://github.com/rpothin/PowerPlatform-OpenSource-Hub/blob/main/scripts/sync_repos.py) on 2026-04-05 12:26 UTC._

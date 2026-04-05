@@ -3,40 +3,29 @@ hide:
   - toc
 ---
 
-# 🌐 Power Platform
-
-Repositories related to the overall Power Platform, shared platform capabilities, and AI Builder.
-
-!!! info "Last synced: 2026-04-05 02:17 UTC"
-    Showing **107** repositories matching this focus area.
-
----
-
-<div class="registry-summary" markdown>
-
-## Overview
-
-| Metric | Value |
-|--------|-------|
-| **Repositories** | 107 |
-| **Total Stars** | :star: 16,772 |
-
-### Top Languages
-
-| Language | Repositories |
-|----------|-------------|
-| Unknown | 26 |
-| TypeScript | 24 |
-| C# | 23 |
-| PowerShell | 5 |
-| Python | 5 |
-| JavaScript | 5 |
-| HTML | 5 |
-| Bicep | 4 |
-| AL | 2 |
-| Shell | 2 |
-
-</div>
+<section class="mdx-registry-hero">
+  <div class="md-grid">
+    <h1>🌐 Power Platform</h1>
+    <p class="mdx-registry-hero__description">Repositories related to the overall Power Platform, shared platform capabilities, and AI Builder.</p>
+    <div class="mdx-registry-hero__stats">
+      <span class="mdx-registry-hero__stat"><span class="mdx-registry-hero__stat-icon">📦</span> 107 repositories</span>
+      <span class="mdx-registry-hero__stat"><span class="mdx-registry-hero__stat-icon">⭐</span> 16,779 stars</span>
+    </div>
+    <div class="mdx-lang-pills">
+      <span class="mdx-lang-pill">Unknown (26)</span>
+      <span class="mdx-lang-pill">TypeScript (24)</span>
+      <span class="mdx-lang-pill">C# (23)</span>
+      <span class="mdx-lang-pill">PowerShell (5)</span>
+      <span class="mdx-lang-pill">Python (5)</span>
+      <span class="mdx-lang-pill">JavaScript (5)</span>
+      <span class="mdx-lang-pill">HTML (5)</span>
+      <span class="mdx-lang-pill">Bicep (4)</span>
+      <span class="mdx-lang-pill">AL (2)</span>
+      <span class="mdx-lang-pill">Shell (2)</span>
+    </div>
+    <p class="mdx-registry-hero__sync">Last synced: 2026-04-05 12:26 UTC · Showing <strong>107</strong> repositories matching this focus area.</p>
+  </div>
+</section>
 
 ---
 
@@ -52,7 +41,7 @@ Repositories related to the overall Power Platform, shared platform capabilities
 
     [:octicons-arrow-right-24: View details](microsoft_microsoft365dsc.md)
 
--   :star: **PowerApps-Samples** · 1,903 stars · :material-eye: 117 watchers · `C#`
+-   :star: **PowerApps-Samples** · 1,904 stars · :material-eye: 117 watchers · `C#`
 
     ---
 
@@ -84,7 +73,7 @@ Repositories related to the overall Power Platform, shared platform capabilities
 
     [:octicons-arrow-right-24: View details](mbrg_power-pwn.md)
 
--   :star: **viber3d** · 612 stars · :material-eye: 5 watchers · `TypeScript`
+-   :star: **viber3d** · 613 stars · :material-eye: 5 watchers · `TypeScript`
 
     ---
 
@@ -140,160 +129,34 @@ Repositories related to the overall Power Platform, shared platform capabilities
 
     [:octicons-arrow-right-24: View details](pnp_powerautomate-samples.md)
 
--   :star: **PowerPlatform-DataverseServiceClient** · 308 stars · :material-eye: 53 watchers · `C#`
-
-    ---
-
-    Code Replica for Microsoft.PowerPlatform.Dataverse.Client and supporting nuget packages. 
-
-    [:octicons-arrow-right-24: View details](microsoft_powerplatform-dataverseserviceclient.md)
-
--   :star: **powerplatform-actions** · 281 stars · :material-eye: 30 watchers · `TypeScript`
-
-    ---
-
-    Power Platform GitHub Actions automate common build and deployment tasks related to Power Platform. …
-
-    [:octicons-arrow-right-24: View details](microsoft_powerplatform-actions.md)
-
--   :star: **powerplatform-vscode** · 258 stars · :material-eye: 21 watchers · `TypeScript`
-
-    ---
-
-    The Power Platform VSCode extension makes it easy to manage Power Platform environments and allows t…
-
-    [:octicons-arrow-right-24: View details](microsoft_powerplatform-vscode.md)
-
--   :star: **Federal-Business-Applications** · 215 stars · :material-eye: 40 watchers · `PowerShell`
-
-    ---
-
-    US Government Business Applications Demo Repository
-
-    [:octicons-arrow-right-24: View details](microsoft_federal-business-applications.md)
-
--   :star: **powerplatform-snippets** · 210 stars · :material-eye: 20 watchers · `HLSL`
-
-    ---
-
-    Repository with snippets that can easily be used in some of the Power Platform products
-
-    [:octicons-arrow-right-24: View details](pnp_powerplatform-snippets.md)
-
--   :star: **MicrosoftCloudLogos** · 201 stars · :material-eye: 16 watchers · `Python`
-
-    ---
-
-    A collection of Microsoft cloud product logos
-
-    [:octicons-arrow-right-24: View details](loryanstrant_microsoftcloudlogos.md)
-
--   :star: **PowerPlatformAdvocates** · 186 stars · :material-eye: 12 watchers · `Unknown`
-
-    ---
-
-    This repository contains presentations and workshops created by the Microsoft Power Platform Advocat…
-
-    [:octicons-arrow-right-24: View details](microsoft_powerplatformadvocates.md)
-
--   :star: **Low-Code** · 183 stars · :material-eye: 7 watchers · `JavaScript`
-
-    ---
-
-    Website to showcase Low-Code content and community initiatives to help developers explore low code a…
-
-    [:octicons-arrow-right-24: View details](microsoft_low-code.md)
-
--   :star: **hub** · 174 stars · :material-eye: 8 watchers · `MDX`
-
-    ---
-
-    Everything you need to navigate the certification world.
-
-    [:octicons-arrow-right-24: View details](mscerts_hub.md)
-
--   :star: **powerplatform-actions-lab** · 174 stars · :material-eye: 25 watchers · `Unknown`
-
-    ---
-
-    This repo contains sample workflow definitions for GitHub Actions for Microsoft Power Platform.
-
-    [:octicons-arrow-right-24: View details](microsoft_powerplatform-actions-lab.md)
-
--   :star: **PowerPlatformAF** · 136 stars · :material-eye: 40 watchers · `Unknown`
-
-    ---
-
-    Power Platform Adoption Framework
-
-    [:octicons-arrow-right-24: View details](powerplatformaf_powerplatformaf.md)
-
--   :star: **evoke** · 130 stars · :material-eye: 1 watchers · `TypeScript`
-
-    ---
-
-    AI-powered web app generator — turn natural language ideas into full code with live preview and code…
-
-    [:octicons-arrow-right-24: View details](cheeseburgertony_evoke.md)
-
--   :star: **PowerAutomate** · 117 stars · :material-eye: 5 watchers · `Unknown`
-
-    ---
-
-    Power Automate demos & proof of concepts
-
-    [:octicons-arrow-right-24: View details](damobird365_powerautomate.md)
-
--   :star: **power-platform-skills** · 116 stars · :material-eye: 2 watchers · `JavaScript`
-
-    ---
-
-    A plugin marketplace for Claude Code/GitHub Copilot that provides Power Platform development plugins…
-
-    [:octicons-arrow-right-24: View details](microsoft_power-platform-skills.md)
-
--   :star: **awesome-power-platform** · 111 stars · :material-eye: 6 watchers · `Unknown`
-
-    ---
-
-    A collection of awesome things regarding the Power Platform ecosystem.
-
-    [:octicons-arrow-right-24: View details](power-maverick_awesome-power-platform.md)
-
--   :star: **power-automate-desktop-framework** · 109 stars · :material-eye: 20 watchers · `TSQL`
-
-    ---
-
-    Framework for having standardized structure of Microsoft Power Automate Desktop (PAD) flows
-
-    [:octicons-arrow-right-24: View details](agniusbartninkas_power-automate-desktop-framework.md)
-
--   :star: **powerplatform** · 104 stars · :material-eye: 22 watchers · `Unknown`
-
-    ---
-
-    The official repository for Power Platform tools and resources.
-
-    [:octicons-arrow-right-24: View details](microsoft_powerplatform.md)
-
--   :star: **ProvisionGenie** · 103 stars · :material-eye: 5 watchers · `Bicep`
-
-    ---
-
-    ProvisionGenie 🧞 is an open-source project by Luise Freese & Carmen Ysewijn. We provision Microsoft …
-
-    [:octicons-arrow-right-24: View details](provisiongenie_provisiongenie.md)
-
 </div>
 
 ---
 
 ## All Repositories
 
-??? note "View all 77 remaining repositories"
+??? note "View all 95 remaining repositories"
 
     | Repository | Language | Stars | Description |
     |------------|----------|-------|-------------|
+    | [PowerPlatform-DataverseServiceClient](microsoft_powerplatform-dataverseserviceclient.md) | C# | :star: 308 | Code Replica for Microsoft.PowerPlatform.Dataverse.Client and supporting nuget p… |
+    | [powerplatform-actions](microsoft_powerplatform-actions.md) | TypeScript | :star: 281 | Power Platform GitHub Actions automate common build and deployment tasks related… |
+    | [powerplatform-vscode](microsoft_powerplatform-vscode.md) | TypeScript | :star: 258 | The Power Platform VSCode extension makes it easy to manage Power Platform envir… |
+    | [Federal-Business-Applications](microsoft_federal-business-applications.md) | PowerShell | :star: 215 | US Government Business Applications Demo Repository |
+    | [powerplatform-snippets](pnp_powerplatform-snippets.md) | HLSL | :star: 210 | Repository with snippets that can easily be used in some of the Power Platform p… |
+    | [MicrosoftCloudLogos](loryanstrant_microsoftcloudlogos.md) | Python | :star: 201 | A collection of Microsoft cloud product logos |
+    | [PowerPlatformAdvocates](microsoft_powerplatformadvocates.md) | Unknown | :star: 186 | This repository contains presentations and workshops created by the Microsoft Po… |
+    | [Low-Code](microsoft_low-code.md) | JavaScript | :star: 183 | Website to showcase Low-Code content and community initiatives to help developer… |
+    | [hub](mscerts_hub.md) | MDX | :star: 175 | Everything you need to navigate the certification world. |
+    | [powerplatform-actions-lab](microsoft_powerplatform-actions-lab.md) | Unknown | :star: 174 | This repo contains sample workflow definitions for GitHub Actions for Microsoft … |
+    | [PowerPlatformAF](powerplatformaf_powerplatformaf.md) | Unknown | :star: 136 | Power Platform Adoption Framework |
+    | [evoke](cheeseburgertony_evoke.md) | TypeScript | :star: 131 | AI-powered web app generator — turn natural language ideas into full code with l… |
+    | [power-platform-skills](microsoft_power-platform-skills.md) | JavaScript | :star: 118 | A plugin marketplace for Claude Code/GitHub Copilot that provides Power Platform… |
+    | [PowerAutomate](damobird365_powerautomate.md) | Unknown | :star: 117 | Power Automate demos & proof of concepts |
+    | [awesome-power-platform](power-maverick_awesome-power-platform.md) | Unknown | :star: 111 | A collection of awesome things regarding the Power Platform ecosystem. |
+    | [power-automate-desktop-framework](agniusbartninkas_power-automate-desktop-framework.md) | TSQL | :star: 109 | Framework for having standardized structure of Microsoft Power Automate Desktop … |
+    | [powerplatform](microsoft_powerplatform.md) | Unknown | :star: 104 | The official repository for Power Platform tools and resources. |
+    | [ProvisionGenie](provisiongenie_provisiongenie.md) | Bicep | :star: 103 | ProvisionGenie 🧞 is an open-source project by Luise Freese & Carmen Ysewijn. We … |
     | [Power-Platform-For-Beginners](microsoft_power-platform-for-beginners.md) | HTML | :star: 101 | Event-in-a-box to get started with Power Platform and AI Copilot (aka LowCode) |
     | [Power-CAT-Tools](microsoft_power-cat-tools.md) | C# | :star: 97 | The Power CAT Tools is your ultimate companion for enhancing the development exp… |
     | [DataverseDevTools-VSCode](power-maverick_dataversedevtools-vscode.md) | TypeScript | :star: 81 | The all-in-one tool to develop code for Dataverse/Dynamics 365. Helps you connec… |
@@ -329,8 +192,8 @@ Repositories related to the overall Power Platform, shared platform capabilities
     | [xrmtools](rezanid_xrmtools.md) | C# | :star: 25 | Xrm Tools brings all the missing features for Power Platform to Visual Studio, o… |
     | [powerplatform-vscode-lab](microsoft_powerplatform-vscode-lab.md) | TypeScript | :star: 23 | Hands-on lab for Power Platform Tools for Visual Studio Code |
     | [powerplatform-cli-wrapper](microsoft_powerplatform-cli-wrapper.md) | TypeScript | :star: 22 | Power Platform CLI Wrapper |
+    | [Copilot-Studio-with-Azure-AI-Search](azure-samples_copilot-studio-with-azure-ai-search.md) | HCL | :star: 22 | AZD template for deploying Azure Copilot Studio with Azure AI search |
     | [powerplatformconnect](microsoft_powerplatformconnect.md) | HTML | :star: 21 | Materiais, tutoriais e dicas sobre Power Platform criados pela equipe de especia… |
-    | [Copilot-Studio-with-Azure-AI-Search](azure-samples_copilot-studio-with-azure-ai-search.md) | HCL | :star: 21 | AZD template for deploying Azure Copilot Studio with Azure AI search |
     | [AttachmentUploader](ramarao9_attachmentuploader.md) | TypeScript | :star: 20 | A Power App code component to easily upload one or more attachments on Dynamics3… |
     | [PowerPlatform-DataverseModelBuilder](microsoft_powerplatform-dataversemodelbuilder.md) | C# | :star: 20 | Code Replica for the Microsoft Power Platform Dataverse Model Builder and suppor… |
     | [CognitiveRocket](arafattehsin_cognitiverocket.md) | C# | :star: 20 | This repository is mainly used for the R&D of the Azure AI, .NET & Power Platfor… |
@@ -350,8 +213,8 @@ Repositories related to the overall Power Platform, shared platform capabilities
     | [powerux](amplifyit_powerux.md) | Unknown | :star: 15 | PowerUX is a no-code UX extender for model-driven apps, designed to empower low-… |
     | [PCF-Components](benlbartle_pcf-components.md) | TypeScript | :star: 15 | PowerApp Component Framework, erm, Components |
     | [ej2-powerapps-components](syncfusion_ej2-powerapps-components.md) | TypeScript | :star: 14 | This repository features Syncfusion PowerApps components built using the PowerAp… |
-    | [InventAPI](marcelbf_inventapi.md) | HTML | :star: 14 | This is a demo repository to showcase scenarios how Professional Developers (AKA… |
     | [powerful](mbrg_powerful.md) | Python | :star: 14 | A demo showing how to maintain persistency on Power Platform by installing an au… |
+    | [InventAPI](marcelbf_inventapi.md) | HTML | :star: 14 | This is a demo repository to showcase scenarios how Professional Developers (AKA… |
     | [superez-gpt-builder](g023_superez-gpt-builder.md) | JavaScript | :star: 14 | SuperEZ-GPT Builder: jQuery/GPT AI Content Building Assistant |
     | [Microsoft-Power-Platform-In-a-Day-Workshop](rramoscabral_microsoft-power-platform-in-a-day-workshop.md) | Unknown | :star: 13 | Microsoft Power Platform In a Day Workshop |
     | [playwright-m365-helpers](estruyf_playwright-m365-helpers.md) | TypeScript | :star: 13 | A set of helpers for creating E2E tests for your Microsoft 365 projects using Pl… |
@@ -374,4 +237,4 @@ Repositories related to the overall Power Platform, shared platform capabilities
 
 ---
 
-_Auto-generated by [`sync_repos.py`](https://github.com/rpothin/PowerPlatform-OpenSource-Hub/blob/main/scripts/sync_repos.py) on 2026-04-05 02:17 UTC._
+_Auto-generated by [`sync_repos.py`](https://github.com/rpothin/PowerPlatform-OpenSource-Hub/blob/main/scripts/sync_repos.py) on 2026-04-05 12:26 UTC._

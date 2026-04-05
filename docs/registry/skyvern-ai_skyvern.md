@@ -1,34 +1,42 @@
-<div class="registry-detail" markdown>
+<p class="mdx-detail-hero__back"><a href="../">← Back to Repositories</a></p>
 
-# skyvern
+<section class="mdx-detail-hero">
+  <h1>skyvern</h1>
+  <p class="mdx-detail-hero__description">Automate browser based workflows with AI</p>
+  <div class="mdx-detail-hero__actions">
+    <a href="https://github.com/Skyvern-AI/skyvern" class="md-button md-button--primary" target="_blank" rel="noopener">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" style="vertical-align: middle; margin-right: 0.4em; fill: currentColor;"><path d="M12 .3a12 12 0 0 0-3.8 23.38c.6.12.83-.26.83-.57L9 21.07c-3.34.72-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.08-.74.09-.73.09-.73 1.2.09 1.84 1.24 1.84 1.24 1.07 1.83 2.8 1.3 3.49 1 .1-.78.42-1.3.76-1.6-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.14-.3-.54-1.52.1-3.18 0 0 1-.32 3.3 1.23a11.5 11.5 0 0 1 6.02 0c2.28-1.55 3.29-1.23 3.29-1.23.64 1.66.24 2.88.12 3.18a4.65 4.65 0 0 1 1.23 3.22c0 4.61-2.8 5.63-5.48 5.92.42.36.81 1.1.81 2.22l-.01 3.29c0 .31.21.69.82.57A12 12 0 0 0 12 .3"/></svg>View on GitHub
+    </a>
+    <span class="registry-badge">ai</span> <span class="registry-badge">api</span> <span class="registry-badge">automation</span> <span class="registry-badge">browser</span> <span class="registry-badge">browser-automation</span> <span class="registry-badge">computer</span> <span class="registry-badge">gpt</span> <span class="registry-badge">llm</span> <span class="registry-badge">playwright</span> <span class="registry-badge">powerautomate</span> <span class="registry-badge">puppeteer</span> <span class="registry-badge">python</span> <span class="registry-badge">rpa</span> <span class="registry-badge">selenium</span> <span class="registry-badge">vision</span> <span class="registry-badge">workflow</span>
+  </div>
+  <div class="mdx-detail-hero__meta">
+    <span>Python</span>
+    <span>GNU Affero General Public License v3.0</span>
+    <span>Created 2024-02-28</span>
+    <span>Updated 2026-04-05</span>
+    <span><a href="https://www.skyvern.com" target="_blank" rel="noopener">https://www.skyvern.com</a></span>
+  </div>
+</section>
 
-> Automate browser based workflows with AI
-
-[:material-github: View on GitHub](https://github.com/Skyvern-AI/skyvern){ .md-button .md-button--primary }
-
----
-
-<div class="registry-overview" markdown>
-
-## Overview
-
-| | |
-|---|---|
-| **Full Name** | `Skyvern-AI/skyvern` |
-| **Language** | Python |
-| **License** | GNU Affero General Public License v3.0 |
-| **Community** | :star: 21,046 · :material-eye: 102 |
-| **Forks** | :material-source-fork: 1,894 |
-| **Open Issues** | :material-alert-circle-outline: 148 |
-| **Created** | 2024-02-28 |
-| **Last Updated** | 2026-04-04 |
-| **Homepage** | [https://www.skyvern.com](https://www.skyvern.com) |
-
+<div class="mdx-detail-stats">
+  <div class="mdx-detail-stats__card">
+    <div class="mdx-detail-stats__number">⭐ 21,053</div>
+    <div class="mdx-detail-stats__label">Stars</div>
+  </div>
+  <div class="mdx-detail-stats__card">
+    <div class="mdx-detail-stats__number">👁️ 102</div>
+    <div class="mdx-detail-stats__label">Watchers</div>
+  </div>
+  <div class="mdx-detail-stats__card">
+    <div class="mdx-detail-stats__number">🔱 1,897</div>
+    <div class="mdx-detail-stats__label">Forks</div>
+  </div>
+  <div class="mdx-detail-stats__card">
+    <div class="mdx-detail-stats__number">⚠️ 148</div>
+    <div class="mdx-detail-stats__label">Open Issues</div>
+  </div>
 </div>
 
-## Topics
-
-<span class="registry-badge">ai</span> <span class="registry-badge">api</span> <span class="registry-badge">automation</span> <span class="registry-badge">browser</span> <span class="registry-badge">browser-automation</span> <span class="registry-badge">computer</span> <span class="registry-badge">gpt</span> <span class="registry-badge">llm</span> <span class="registry-badge">playwright</span> <span class="registry-badge">powerautomate</span> <span class="registry-badge">puppeteer</span> <span class="registry-badge">python</span> <span class="registry-badge">rpa</span> <span class="registry-badge">selenium</span> <span class="registry-badge">vision</span> <span class="registry-badge">workflow</span>
 
 !!! success "Latest Release"
     **[Release v1.0.29](https://github.com/Skyvern-AI/skyvern/releases/tag/v1.0.29)** — published 2026-04-02
@@ -41,11 +49,15 @@
 
 ### Active Good First Issues
 
-- [#4019 Send proxy parameters along with the session](https://github.com/Skyvern-AI/skyvern/issues/4019) — updated 2026-01-09 (opened 2025-11-18) by [@fillipe-revido](https://github.com/fillipe-revido)
+<div class="mdx-issue-card">
+  <a class="mdx-issue-card__title" href="https://github.com/Skyvern-AI/skyvern/issues/4019" target="_blank" rel="noopener">
+    <span class="mdx-issue-card__number">#4019</span>
+    Send proxy parameters along with the session
+  </a>
+  <div class="mdx-issue-card__meta">updated 2026-01-09 · opened 2025-11-18 · by <a href="https://github.com/fillipe-revido">@fillipe-revido</a></div>
+</div>
 
 
 ---
 
-_Auto-generated by [`sync_repos.py`](https://github.com/rpothin/PowerPlatform-OpenSource-Hub/blob/main/scripts/sync_repos.py) on 2026-04-05 02:17 UTC._
-
-</div>
+_Auto-generated by [`sync_repos.py`](https://github.com/rpothin/PowerPlatform-OpenSource-Hub/blob/main/scripts/sync_repos.py) on 2026-04-05 12:26 UTC._

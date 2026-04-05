@@ -1,40 +1,46 @@
-<div class="registry-detail" markdown>
+<p class="mdx-detail-hero__back"><a href="../">← Back to Repositories</a></p>
 
-# superez-gpt-builder
+<section class="mdx-detail-hero">
+  <h1>superez-gpt-builder</h1>
+  <p class="mdx-detail-hero__description">SuperEZ-GPT Builder: jQuery/GPT AI Content Building Assistant</p>
+  <div class="mdx-detail-hero__actions">
+    <a href="https://github.com/g023/superez-gpt-builder" class="md-button md-button--primary" target="_blank" rel="noopener">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" style="vertical-align: middle; margin-right: 0.4em; fill: currentColor;"><path d="M12 .3a12 12 0 0 0-3.8 23.38c.6.12.83-.26.83-.57L9 21.07c-3.34.72-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.08-.74.09-.73.09-.73 1.2.09 1.84 1.24 1.84 1.24 1.07 1.83 2.8 1.3 3.49 1 .1-.78.42-1.3.76-1.6-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.14-.3-.54-1.52.1-3.18 0 0 1-.32 3.3 1.23a11.5 11.5 0 0 1 6.02 0c2.28-1.55 3.29-1.23 3.29-1.23.64 1.66.24 2.88.12 3.18a4.65 4.65 0 0 1 1.23 3.22c0 4.61-2.8 5.63-5.48 5.92.42.36.81 1.1.81 2.22l-.01 3.29c0 .31.21.69.82.57A12 12 0 0 0 12 .3"/></svg>View on GitHub
+    </a>
+    <span class="registry-badge">ai</span> <span class="registry-badge">ai-assist</span> <span class="registry-badge">ai-assistant</span> <span class="registry-badge">ai-builder</span> <span class="registry-badge">ai-prompts</span> <span class="registry-badge">chatgpt</span> <span class="registry-badge">content-builder</span> <span class="registry-badge">content-creation</span> <span class="registry-badge">content-management</span> <span class="registry-badge">gpt</span> <span class="registry-badge">gpt-api</span> <span class="registry-badge">jquery</span> <span class="registry-badge">openai-api</span> <span class="registry-badge">prompt-engineering</span> <span class="registry-badge">seo</span> <span class="registry-badge">seo-optimization</span> <span class="registry-badge">seo-tools</span> <span class="registry-badge">web-development</span> <span class="registry-badge">website-creator</span>
+  </div>
+  <div class="mdx-detail-hero__meta">
+    <span>JavaScript</span>
+    <span>BSD 3-Clause "New" or "Revised" License</span>
+    <span>Created 2023-10-14</span>
+    <span>Updated 2026-01-30</span>
+    <span><a href="https://github.com/g023/superez-gpt-builder" target="_blank" rel="noopener">https://github.com/g023/superez-gpt-builder</a></span>
+  </div>
+</section>
 
-> SuperEZ-GPT Builder: jQuery/GPT AI Content Building Assistant
-
-[:material-github: View on GitHub](https://github.com/g023/superez-gpt-builder){ .md-button .md-button--primary }
-
----
-
-<div class="registry-overview" markdown>
-
-## Overview
-
-| | |
-|---|---|
-| **Full Name** | `g023/superez-gpt-builder` |
-| **Language** | JavaScript |
-| **License** | BSD 3-Clause "New" or "Revised" License |
-| **Community** | :star: 14 · :material-eye: 2 |
-| **Forks** | :material-source-fork: 3 |
-| **Open Issues** | :material-alert-circle-outline: 0 |
-| **Created** | 2023-10-14 |
-| **Last Updated** | 2026-01-30 |
-| **Homepage** | [https://github.com/g023/superez-gpt-builder](https://github.com/g023/superez-gpt-builder) |
-
+<div class="mdx-detail-stats">
+  <div class="mdx-detail-stats__card">
+    <div class="mdx-detail-stats__number">⭐ 14</div>
+    <div class="mdx-detail-stats__label">Stars</div>
+  </div>
+  <div class="mdx-detail-stats__card">
+    <div class="mdx-detail-stats__number">👁️ 2</div>
+    <div class="mdx-detail-stats__label">Watchers</div>
+  </div>
+  <div class="mdx-detail-stats__card">
+    <div class="mdx-detail-stats__number">🔱 3</div>
+    <div class="mdx-detail-stats__label">Forks</div>
+  </div>
+  <div class="mdx-detail-stats__card">
+    <div class="mdx-detail-stats__number">⚠️ 0</div>
+    <div class="mdx-detail-stats__label">Open Issues</div>
+  </div>
 </div>
 
-## Topics
-
-<span class="registry-badge">ai</span> <span class="registry-badge">ai-assist</span> <span class="registry-badge">ai-assistant</span> <span class="registry-badge">ai-builder</span> <span class="registry-badge">ai-prompts</span> <span class="registry-badge">chatgpt</span> <span class="registry-badge">content-builder</span> <span class="registry-badge">content-creation</span> <span class="registry-badge">content-management</span> <span class="registry-badge">gpt</span> <span class="registry-badge">gpt-api</span> <span class="registry-badge">jquery</span> <span class="registry-badge">openai-api</span> <span class="registry-badge">prompt-engineering</span> <span class="registry-badge">seo</span> <span class="registry-badge">seo-optimization</span> <span class="registry-badge">seo-tools</span> <span class="registry-badge">web-development</span> <span class="registry-badge">website-creator</span>
 
 !!! success "Latest Release"
     **[First Release](https://github.com/g023/superez-gpt-builder/releases/tag/v1.0)** — published 2023-10-17
 
 ---
 
-_Auto-generated by [`sync_repos.py`](https://github.com/rpothin/PowerPlatform-OpenSource-Hub/blob/main/scripts/sync_repos.py) on 2026-04-05 02:17 UTC._
-
-</div>
+_Auto-generated by [`sync_repos.py`](https://github.com/rpothin/PowerPlatform-OpenSource-Hub/blob/main/scripts/sync_repos.py) on 2026-04-05 12:26 UTC._

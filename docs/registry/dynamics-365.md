@@ -3,40 +3,29 @@ hide:
   - toc
 ---
 
-# 🏢 Dynamics 365
-
-Repositories related to Dynamics 365, Dynamics CRM, and connected business applications.
-
-!!! info "Last synced: 2026-04-05 02:17 UTC"
-    Showing **156** repositories matching this focus area.
-
----
-
-<div class="registry-summary" markdown>
-
-## Overview
-
-| Metric | Value |
-|--------|-------|
-| **Repositories** | 156 |
-| **Total Stars** | :star: 12,038 |
-
-### Top Languages
-
-| Language | Repositories |
-|----------|-------------|
-| C# | 50 |
-| TypeScript | 34 |
-| JavaScript | 20 |
-| Unknown | 13 |
-| PowerShell | 10 |
-| AL | 6 |
-| Python | 5 |
-| Perl | 5 |
-| PHP | 4 |
-| HTML | 2 |
-
-</div>
+<section class="mdx-registry-hero">
+  <div class="md-grid">
+    <h1>🏢 Dynamics 365</h1>
+    <p class="mdx-registry-hero__description">Repositories related to Dynamics 365, Dynamics CRM, and connected business applications.</p>
+    <div class="mdx-registry-hero__stats">
+      <span class="mdx-registry-hero__stat"><span class="mdx-registry-hero__stat-icon">📦</span> 156 repositories</span>
+      <span class="mdx-registry-hero__stat"><span class="mdx-registry-hero__stat-icon">⭐</span> 12,039 stars</span>
+    </div>
+    <div class="mdx-lang-pills">
+      <span class="mdx-lang-pill">C# (50)</span>
+      <span class="mdx-lang-pill">TypeScript (34)</span>
+      <span class="mdx-lang-pill">JavaScript (20)</span>
+      <span class="mdx-lang-pill">Unknown (13)</span>
+      <span class="mdx-lang-pill">PowerShell (10)</span>
+      <span class="mdx-lang-pill">AL (6)</span>
+      <span class="mdx-lang-pill">Python (5)</span>
+      <span class="mdx-lang-pill">Perl (5)</span>
+      <span class="mdx-lang-pill">PHP (4)</span>
+      <span class="mdx-lang-pill">HTML (2)</span>
+    </div>
+    <p class="mdx-registry-hero__sync">Last synced: 2026-04-05 12:26 UTC · Showing <strong>156</strong> repositories matching this focus area.</p>
+  </div>
+</section>
 
 ---
 
@@ -44,7 +33,7 @@ Repositories related to Dynamics 365, Dynamics CRM, and connected business appli
 
 <div class="grid cards" markdown>
 
--   :star: **PowerApps-Samples** · 1,903 stars · :material-eye: 117 watchers · `C#`
+-   :star: **PowerApps-Samples** · 1,904 stars · :material-eye: 117 watchers · `C#`
 
     ---
 
@@ -140,160 +129,34 @@ Repositories related to Dynamics 365, Dynamics CRM, and connected business appli
 
     [:octicons-arrow-right-24: View details](loryanstrant_microsoftcloudlogos.md)
 
--   :star: **xrm-ci-framework** · 194 stars · :material-eye: 50 watchers · `C#`
-
-    ---
-
-    xRM CI Framework provides you with the tools automate the build and deployment of your CRM Solution.…
-
-    [:octicons-arrow-right-24: View details](waelhamze_xrm-ci-framework.md)
-
--   :star: **Project-Accelerator** · 146 stars · :material-eye: 46 watchers · `Unknown`
-
-    ---
-
-    An Accelerator solution for Project for the web
-
-    [:octicons-arrow-right-24: View details](officedev_project-accelerator.md)
-
--   :star: **XrmDefinitelyTyped** · 143 stars · :material-eye: 32 watchers · `TypeScript`
-
-    ---
-
-    Tool to generate TypeScript declaration files for Dynamics 365/CDS client-side coding.
-
-    [:octicons-arrow-right-24: View details](delegateas_xrmdefinitelytyped.md)
-
--   :star: **PowerPlatformAF** · 136 stars · :material-eye: 40 watchers · `Unknown`
-
-    ---
-
-    Power Platform Adoption Framework
-
-    [:octicons-arrow-right-24: View details](powerplatformaf_powerplatformaf.md)
-
--   :star: **DRB** · 122 stars · :material-eye: 7 watchers · `JavaScript`
-
-    ---
-
-    Dataverse REST Builder
-
-    [:octicons-arrow-right-24: View details](guidopreite_drb.md)
-
--   :star: **dyn365-ce-vsts-tasks** · 121 stars · :material-eye: 31 watchers · `PowerShell`
-
-    ---
-
-    VSTS Extension for Dynamics 365 Customer Engagement
-
-    [:octicons-arrow-right-24: View details](waelhamze_dyn365-ce-vsts-tasks.md)
-
--   :star: **xRM-Portals-Community-Edition** · 118 stars · :material-eye: 46 watchers · `C#`
-
-    ---
-
-    The definitive edition of Microsoft Open Source Portals, supported by the experts in portals.
-
-    [:octicons-arrow-right-24: View details](adoxio_xrm-portals-community-edition.md)
-
--   :star: **OrgDbOrgSettings** · 110 stars · :material-eye: 25 watchers · `HTML`
-
-    ---
-
-    This is a utility allowing admins of Dynamics CRM Online & onPrem to edit organization database sett…
-
-    [:octicons-arrow-right-24: View details](seanmcne_orgdborgsettings.md)
-
--   :star: **php-crm-toolkit** · 107 stars · :material-eye: 10 watchers · `PHP`
-
-    ---
-
-    Dynamics CRM Toolkit for PHP
-
-    [:octicons-arrow-right-24: View details](alexacrm_php-crm-toolkit.md)
-
--   :star: **Xrm-WebApi-Client** · 104 stars · :material-eye: 22 watchers · `JavaScript`
-
-    ---
-
-    A promise-based JavaScript library for the Microsoft Dynamics CRM WebApi - TypeScript type definitio…
-
-    [:octicons-arrow-right-24: View details](xrm-oss_xrm-webapi-client.md)
-
--   :star: **alertjs** · 97 stars · :material-eye: 17 watchers · `JavaScript`
-
-    ---
-
-    Dialog Builder allows you to create fully customisable dialogs and popups in Dynamics 365.
-
-    [:octicons-arrow-right-24: View details](paulnieuwelaar_alertjs.md)
-
--   :star: **aotbrowser** · 97 stars · :material-eye: 14 watchers · `C#`
-
-    ---
-
-    Dynamics 365 for Finance and Operations AOT Browser
-
-    [:octicons-arrow-right-24: View details](arganollc_aotbrowser.md)
-
--   :star: **dyn365-ce-devops** · 94 stars · :material-eye: 34 watchers · `Unknown`
-
-    ---
-
-    DevOps for Dynamics 365 Customer Engagement (CE) is becoming a popular topic.  The goal of this proj…
-
-    [:octicons-arrow-right-24: View details](devkeydet_dyn365-ce-devops.md)
-
--   :star: **D365FONinjaDevTools** · 87 stars · :material-eye: 34 watchers · `C#`
-
-    ---
-
-    To make of you a Ninja Developer in Dynamics 365 For Finance and Operations
-
-    [:octicons-arrow-right-24: View details](hichemdax_d365foninjadevtools.md)
-
--   :star: **xrm-mock** · 82 stars · :material-eye: 12 watchers · `TypeScript`
-
-    ---
-
-    :books: A fake implementation of the Xrm object model. Written in TypeScript against @types/xrm defi…
-
-    [:octicons-arrow-right-24: View details](davidjbclark_xrm-mock.md)
-
--   :star: **XrmMockup** · 82 stars · :material-eye: 20 watchers · `C#`
-
-    ---
-
-    Engine which simulates your exact Dynamics 365/CRM instance locally including all of it's logic!
-
-    [:octicons-arrow-right-24: View details](delegateas_xrmmockup.md)
-
--   :star: **DataverseDevTools-VSCode** · 81 stars · :material-eye: 5 watchers · `TypeScript`
-
-    ---
-
-    The all-in-one tool to develop code for Dataverse/Dynamics 365. Helps you connect to a Dataverse env…
-
-    [:octicons-arrow-right-24: View details](power-maverick_dataversedevtools-vscode.md)
-
--   :star: **dynamics-webapi-toolkit** · 81 stars · :material-eye: 6 watchers · `PHP`
-
-    ---
-
-    Dynamics 365 Web API Toolkit for PHP
-
-    [:octicons-arrow-right-24: View details](alexacrm_dynamics-webapi-toolkit.md)
-
 </div>
 
 ---
 
 ## All Repositories
 
-??? note "View all 126 remaining repositories"
+??? note "View all 144 remaining repositories"
 
     | Repository | Language | Stars | Description |
     |------------|----------|-------|-------------|
+    | [xrm-ci-framework](waelhamze_xrm-ci-framework.md) | C# | :star: 194 | xRM CI Framework provides you with the tools automate the build and deployment o… |
+    | [Project-Accelerator](officedev_project-accelerator.md) | Unknown | :star: 146 | An Accelerator solution for Project for the web |
+    | [XrmDefinitelyTyped](delegateas_xrmdefinitelytyped.md) | TypeScript | :star: 143 | Tool to generate TypeScript declaration files for Dynamics 365/CDS client-side c… |
+    | [PowerPlatformAF](powerplatformaf_powerplatformaf.md) | Unknown | :star: 136 | Power Platform Adoption Framework |
+    | [DRB](guidopreite_drb.md) | JavaScript | :star: 122 | Dataverse REST Builder |
+    | [dyn365-ce-vsts-tasks](waelhamze_dyn365-ce-vsts-tasks.md) | PowerShell | :star: 121 | VSTS Extension for Dynamics 365 Customer Engagement |
+    | [xRM-Portals-Community-Edition](adoxio_xrm-portals-community-edition.md) | C# | :star: 118 | The definitive edition of Microsoft Open Source Portals, supported by the expert… |
+    | [OrgDbOrgSettings](seanmcne_orgdborgsettings.md) | HTML | :star: 110 | This is a utility allowing admins of Dynamics CRM Online & onPrem to edit organi… |
+    | [php-crm-toolkit](alexacrm_php-crm-toolkit.md) | PHP | :star: 107 | Dynamics CRM Toolkit for PHP |
+    | [Xrm-WebApi-Client](xrm-oss_xrm-webapi-client.md) | JavaScript | :star: 104 | A promise-based JavaScript library for the Microsoft Dynamics CRM WebApi - TypeS… |
+    | [alertjs](paulnieuwelaar_alertjs.md) | JavaScript | :star: 97 | Dialog Builder allows you to create fully customisable dialogs and popups in Dyn… |
+    | [aotbrowser](arganollc_aotbrowser.md) | C# | :star: 97 | Dynamics 365 for Finance and Operations AOT Browser |
+    | [dyn365-ce-devops](devkeydet_dyn365-ce-devops.md) | Unknown | :star: 94 | DevOps for Dynamics 365 Customer Engagement (CE) is becoming a popular topic.  T… |
+    | [D365FONinjaDevTools](hichemdax_d365foninjadevtools.md) | C# | :star: 87 | To make of you a Ninja Developer in Dynamics 365 For Finance and Operations |
+    | [xrm-mock](davidjbclark_xrm-mock.md) | TypeScript | :star: 82 | :books: A fake implementation of the Xrm object model. Written in TypeScript aga… |
+    | [XrmMockup](delegateas_xrmmockup.md) | C# | :star: 82 | Engine which simulates your exact Dynamics 365/CRM instance locally including al… |
+    | [DataverseDevTools-VSCode](power-maverick_dataversedevtools-vscode.md) | TypeScript | :star: 81 | The all-in-one tool to develop code for Dataverse/Dynamics 365. Helps you connec… |
+    | [dynamics-webapi-toolkit](alexacrm_dynamics-webapi-toolkit.md) | PHP | :star: 81 | Dynamics 365 Web API Toolkit for PHP |
     | [RibbonWorkbench](scottdurow_ribbonworkbench.md) | JavaScript | :star: 77 | Ribbon Workbench 2016 for Dynamics 365 |
     | [crm-power-pane](onurmenal_crm-power-pane.md) | JavaScript | :star: 76 | The CRM Power Pane is a helper tool designed to integrate with Microsoft Dynamic… |
     | [Dynamics-Crm-DevKit](phuocle_dynamics-crm-devkit.md) | C# | :star: 75 | A collection of projects/items template for develop Dynamics 365 CRM/CDS/Dataver… |
@@ -423,4 +286,4 @@ Repositories related to Dynamics 365, Dynamics CRM, and connected business appli
 
 ---
 
-_Auto-generated by [`sync_repos.py`](https://github.com/rpothin/PowerPlatform-OpenSource-Hub/blob/main/scripts/sync_repos.py) on 2026-04-05 02:17 UTC._
+_Auto-generated by [`sync_repos.py`](https://github.com/rpothin/PowerPlatform-OpenSource-Hub/blob/main/scripts/sync_repos.py) on 2026-04-05 12:26 UTC._

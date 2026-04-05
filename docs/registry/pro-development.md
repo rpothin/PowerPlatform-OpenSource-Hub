@@ -3,38 +3,27 @@ hide:
   - toc
 ---
 
-# 🧩 Pro Development
-
-Repositories related to pro-development extensibility across PCF, Power Fx, and maker tooling.
-
-!!! info "Last synced: 2026-04-05 02:17 UTC"
-    Showing **38** repositories matching this focus area.
-
----
-
-<div class="registry-summary" markdown>
-
-## Overview
-
-| Metric | Value |
-|--------|-------|
-| **Repositories** | 38 |
-| **Total Stars** | :star: 7,972 |
-
-### Top Languages
-
-| Language | Repositories |
-|----------|-------------|
-| TypeScript | 23 |
-| C# | 5 |
-| Unknown | 4 |
-| CSS | 2 |
-| Python | 1 |
-| Jupyter Notebook | 1 |
-| Dockerfile | 1 |
-| JavaScript | 1 |
-
-</div>
+<section class="mdx-registry-hero">
+  <div class="md-grid">
+    <h1>🧩 Pro Development</h1>
+    <p class="mdx-registry-hero__description">Repositories related to pro-development extensibility across PCF, Power Fx, and maker tooling.</p>
+    <div class="mdx-registry-hero__stats">
+      <span class="mdx-registry-hero__stat"><span class="mdx-registry-hero__stat-icon">📦</span> 38 repositories</span>
+      <span class="mdx-registry-hero__stat"><span class="mdx-registry-hero__stat-icon">⭐</span> 7,973 stars</span>
+    </div>
+    <div class="mdx-lang-pills">
+      <span class="mdx-lang-pill">TypeScript (23)</span>
+      <span class="mdx-lang-pill">C# (5)</span>
+      <span class="mdx-lang-pill">Unknown (4)</span>
+      <span class="mdx-lang-pill">CSS (2)</span>
+      <span class="mdx-lang-pill">Python (1)</span>
+      <span class="mdx-lang-pill">Jupyter Notebook (1)</span>
+      <span class="mdx-lang-pill">Dockerfile (1)</span>
+      <span class="mdx-lang-pill">JavaScript (1)</span>
+    </div>
+    <p class="mdx-registry-hero__sync">Last synced: 2026-04-05 12:26 UTC · Showing <strong>38</strong> repositories matching this focus area.</p>
+  </div>
+</section>
 
 ---
 
@@ -50,7 +39,7 @@ Repositories related to pro-development extensibility across PCF, Power Fx, and 
 
     [:octicons-arrow-right-24: View details](microsoft_power-fx.md)
 
--   :star: **PowerApps-Samples** · 1,903 stars · :material-eye: 117 watchers · `C#`
+-   :star: **PowerApps-Samples** · 1,904 stars · :material-eye: 117 watchers · `C#`
 
     ---
 
@@ -138,160 +127,34 @@ Repositories related to pro-development extensibility across PCF, Power Fx, and 
 
     [:octicons-arrow-right-24: View details](powerappsdarren_powerfxsnippets.md)
 
--   :star: **PCF-CustomControlBuilder** · 44 stars · :material-eye: 3 watchers · `C#`
-
-    ---
-
-    XrmToolBox Plugin for building and deploying custom control using PCF
-
-    [:octicons-arrow-right-24: View details](power-maverick_pcf-customcontrolbuilder.md)
-
--   :star: **Power-Fx-.NET-Interactive** · 32 stars · :material-eye: 2 watchers · `Jupyter Notebook`
-
-    ---
-
-    Power Fx kernel for .NET Interactive
-
-    [:octicons-arrow-right-24: View details](rajyraman_power-fx-.net-interactive.md)
-
--   :star: **PCF-Controls** · 27 stars · :material-eye: 4 watchers · `TypeScript`
-
-    ---
-
-    Controls using the PowerApps Component Framework
-
-    [:octicons-arrow-right-24: View details](benediktbergmann_pcf-controls.md)
-
--   :star: **PCF-EditableTable** · 23 stars · :material-eye: 1 watchers · `TypeScript`
-
-    ---
-
-    This control allows the transformation of the default Dynamics 365 grid to an editable grid with add…
-
-    [:octicons-arrow-right-24: View details](bevercrm_pcf-editabletable.md)
-
--   :star: **pcf-dev-container** · 21 stars · :material-eye: 2 watchers · `Dockerfile`
-
-    ---
-
-    Codespaces Template for Power Apps Component Framework development
-
-    [:octicons-arrow-right-24: View details](rajyraman_pcf-dev-container.md)
-
--   :star: **PCFIntro** · 21 stars · :material-eye: 1 watchers · `TypeScript`
-
-    ---
-
-    No description
-
-    [:octicons-arrow-right-24: View details](benediktbergmann_pcfintro.md)
-
--   :star: **AttachmentUploader** · 20 stars · :material-eye: 3 watchers · `TypeScript`
-
-    ---
-
-    A Power App code component to easily upload one or more attachments on Dynamics365 records.
-
-    [:octicons-arrow-right-24: View details](ramarao9_attachmentuploader.md)
-
--   :star: **BusinessProcessFlowViewer** · 20 stars · :material-eye: 7 watchers · `TypeScript`
-
-    ---
-
-    This component displays BPFs with all process stages categories of entities from a grid/views
-
-    [:octicons-arrow-right-24: View details](allandecastro_businessprocessflowviewer.md)
-
--   :star: **power-fx-wasm-demo** · 19 stars · :material-eye: 2 watchers · `JavaScript`
-
-    ---
-
-    Execute Power FX in your client (React) via .NET (WASM) and JS interop.
-
-    [:octicons-arrow-right-24: View details](networg_power-fx-wasm-demo.md)
-
--   :star: **ORBIS.PCF.ColorfulOptionset** · 18 stars · :material-eye: 3 watchers · `TypeScript`
-
-    ---
-
-    No description
-
-    [:octicons-arrow-right-24: View details](orbisag_orbis.pcf.colorfuloptionset.md)
-
--   :star: **PCF-WebFormStepVisualizer** · 18 stars · :material-eye: 2 watchers · `TypeScript`
-
-    ---
-
-    Web Form Steps Visualizer Component using Powerapps Component Framework
-
-    [:octicons-arrow-right-24: View details](oolashyn_pcf-webformstepvisualizer.md)
-
--   :star: **CanvasTimelinePCF** · 18 stars · :material-eye: 1 watchers · `TypeScript`
-
-    ---
-
-    Power Apps Canvas PCF based on vis-timeline
-
-    [:octicons-arrow-right-24: View details](belleye_canvastimelinepcf.md)
-
--   :star: **PCF_GridCard** · 15 stars · :material-eye: 2 watchers · `TypeScript`
-
-    ---
-
-    A PCF control to render a grid (built specifically for single record grids) as a traditional list of…
-
-    [:octicons-arrow-right-24: View details](jasonaalmeida_pcf_gridcard.md)
-
--   :star: **Modern-Dropzone-PCF** · 15 stars · :material-eye: 2 watchers · `TypeScript`
-
-    ---
-
-    Modern Dropzone component for Dynamics365 that integrates with Notes and SharePoint OOTB
-
-    [:octicons-arrow-right-24: View details](gorgonuk_modern-dropzone-pcf.md)
-
--   :star: **ej2-powerapps-components** · 14 stars · :material-eye: 5 watchers · `TypeScript`
-
-    ---
-
-    This repository features Syncfusion PowerApps components built using the PowerApps Component Framewo…
-
-    [:octicons-arrow-right-24: View details](syncfusion_ej2-powerapps-components.md)
-
--   :star: **PowerNote** · 14 stars · :material-eye: 0 watchers · `C#`
-
-    ---
-
-    Power Fx editor and file viewer
-
-    [:octicons-arrow-right-24: View details](scalable-dynamics_powernote.md)
-
--   :star: **PCFControls** · 14 stars · :material-eye: 2 watchers · `TypeScript`
-
-    ---
-
-    PCF controls for Model Driven Apps
-
-    [:octicons-arrow-right-24: View details](bidsl_pcfcontrols.md)
-
--   :star: **pcf-fluentui-grid** · 12 stars · :material-eye: 2 watchers · `TypeScript`
-
-    ---
-
-    Fluent UI DataList Component for D365/PowerApps
-
-    [:octicons-arrow-right-24: View details](michal-turzynski_pcf-fluentui-grid.md)
-
 </div>
 
 ---
 
 ## All Repositories
 
-??? note "View all 8 remaining repositories"
+??? note "View all 26 remaining repositories"
 
     | Repository | Language | Stars | Description |
     |------------|----------|-------|-------------|
+    | [PCF-CustomControlBuilder](power-maverick_pcf-customcontrolbuilder.md) | C# | :star: 44 | XrmToolBox Plugin for building and deploying custom control using PCF |
+    | [Power-Fx-.NET-Interactive](rajyraman_power-fx-.net-interactive.md) | Jupyter Notebook | :star: 32 | Power Fx kernel for .NET Interactive |
+    | [PCF-Controls](benediktbergmann_pcf-controls.md) | TypeScript | :star: 27 | Controls using the PowerApps Component Framework |
+    | [PCF-EditableTable](bevercrm_pcf-editabletable.md) | TypeScript | :star: 23 | This control allows the transformation of the default Dynamics 365 grid to an ed… |
+    | [pcf-dev-container](rajyraman_pcf-dev-container.md) | Dockerfile | :star: 21 | Codespaces Template for Power Apps Component Framework development |
+    | [PCFIntro](benediktbergmann_pcfintro.md) | TypeScript | :star: 21 |  |
+    | [AttachmentUploader](ramarao9_attachmentuploader.md) | TypeScript | :star: 20 | A Power App code component to easily upload one or more attachments on Dynamics3… |
+    | [BusinessProcessFlowViewer](allandecastro_businessprocessflowviewer.md) | TypeScript | :star: 20 | This component displays BPFs with all process stages categories of entities from… |
+    | [power-fx-wasm-demo](networg_power-fx-wasm-demo.md) | JavaScript | :star: 19 | Execute Power FX in your client (React) via .NET (WASM) and JS interop. |
+    | [ORBIS.PCF.ColorfulOptionset](orbisag_orbis.pcf.colorfuloptionset.md) | TypeScript | :star: 18 |  |
+    | [PCF-WebFormStepVisualizer](oolashyn_pcf-webformstepvisualizer.md) | TypeScript | :star: 18 | Web Form Steps Visualizer Component using Powerapps Component Framework |
+    | [CanvasTimelinePCF](belleye_canvastimelinepcf.md) | TypeScript | :star: 18 | Power Apps Canvas PCF based on vis-timeline |
+    | [PCF_GridCard](jasonaalmeida_pcf_gridcard.md) | TypeScript | :star: 15 | A PCF control to render a grid (built specifically for single record grids) as a… |
+    | [Modern-Dropzone-PCF](gorgonuk_modern-dropzone-pcf.md) | TypeScript | :star: 15 | Modern Dropzone component for Dynamics365 that integrates with Notes and SharePo… |
+    | [ej2-powerapps-components](syncfusion_ej2-powerapps-components.md) | TypeScript | :star: 14 | This repository features Syncfusion PowerApps components built using the PowerAp… |
+    | [PowerNote](scalable-dynamics_powernote.md) | C# | :star: 14 | Power Fx editor and file viewer |
+    | [PCFControls](bidsl_pcfcontrols.md) | TypeScript | :star: 14 | PCF controls for Model Driven Apps |
+    | [pcf-fluentui-grid](michal-turzynski_pcf-fluentui-grid.md) | TypeScript | :star: 12 | Fluent UI DataList Component for D365/PowerApps |
     | [ChartJsCanvasPCF](belleye_chartjscanvaspcf.md) | TypeScript | :star: 12 | Chart JS in PowerApps |
     | [PCFGrapesJSEditor](irah2008_pcfgrapesjseditor.md) | CSS | :star: 12 | PCF Control for GrapesJS Editor |
     | [PCF-ScheduleBoardView](bevercrm_pcf-scheduleboardview.md) | TypeScript | :star: 11 | This control converts any dataset that has start date and end date in its record… |
@@ -303,4 +166,4 @@ Repositories related to pro-development extensibility across PCF, Power Fx, and 
 
 ---
 
-_Auto-generated by [`sync_repos.py`](https://github.com/rpothin/PowerPlatform-OpenSource-Hub/blob/main/scripts/sync_repos.py) on 2026-04-05 02:17 UTC._
+_Auto-generated by [`sync_repos.py`](https://github.com/rpothin/PowerPlatform-OpenSource-Hub/blob/main/scripts/sync_repos.py) on 2026-04-05 12:26 UTC._

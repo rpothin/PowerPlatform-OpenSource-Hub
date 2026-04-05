@@ -3,40 +3,29 @@ hide:
   - toc
 ---
 
-# 🔌 Power Apps
-
-Repositories related to Power Apps, canvas apps, and model-driven apps.
-
-!!! info "Last synced: 2026-04-05 02:17 UTC"
-    Showing **117** repositories matching this focus area.
-
----
-
-<div class="registry-summary" markdown>
-
-## Overview
-
-| Metric | Value |
-|--------|-------|
-| **Repositories** | 117 |
-| **Total Stars** | :star: 14,828 |
-
-### Top Languages
-
-| Language | Repositories |
-|----------|-------------|
-| Unknown | 29 |
-| TypeScript | 25 |
-| C# | 18 |
-| JavaScript | 10 |
-| HTML | 10 |
-| PowerShell | 9 |
-| Python | 5 |
-| HLSL | 2 |
-| Jupyter Notebook | 2 |
-| Bicep | 2 |
-
-</div>
+<section class="mdx-registry-hero">
+  <div class="md-grid">
+    <h1>🔌 Power Apps</h1>
+    <p class="mdx-registry-hero__description">Repositories related to Power Apps, canvas apps, and model-driven apps.</p>
+    <div class="mdx-registry-hero__stats">
+      <span class="mdx-registry-hero__stat"><span class="mdx-registry-hero__stat-icon">📦</span> 117 repositories</span>
+      <span class="mdx-registry-hero__stat"><span class="mdx-registry-hero__stat-icon">⭐</span> 14,832 stars</span>
+    </div>
+    <div class="mdx-lang-pills">
+      <span class="mdx-lang-pill">Unknown (29)</span>
+      <span class="mdx-lang-pill">TypeScript (25)</span>
+      <span class="mdx-lang-pill">C# (18)</span>
+      <span class="mdx-lang-pill">JavaScript (10)</span>
+      <span class="mdx-lang-pill">HTML (10)</span>
+      <span class="mdx-lang-pill">PowerShell (9)</span>
+      <span class="mdx-lang-pill">Python (5)</span>
+      <span class="mdx-lang-pill">HLSL (2)</span>
+      <span class="mdx-lang-pill">Jupyter Notebook (2)</span>
+      <span class="mdx-lang-pill">Bicep (2)</span>
+    </div>
+    <p class="mdx-registry-hero__sync">Last synced: 2026-04-05 12:26 UTC · Showing <strong>117</strong> repositories matching this focus area.</p>
+  </div>
+</section>
 
 ---
 
@@ -44,7 +33,7 @@ Repositories related to Power Apps, canvas apps, and model-driven apps.
 
 <div class="grid cards" markdown>
 
--   :star: **PowerApps-Samples** · 1,903 stars · :material-eye: 117 watchers · `C#`
+-   :star: **PowerApps-Samples** · 1,904 stars · :material-eye: 117 watchers · `C#`
 
     ---
 
@@ -132,7 +121,7 @@ Repositories related to Power Apps, canvas apps, and model-driven apps.
 
     [:octicons-arrow-right-24: View details](microsoft_powercat-creator-kit.md)
 
--   :star: **awesome-low-code** · 358 stars · :material-eye: 21 watchers · `Unknown`
+-   :star: **awesome-low-code** · 359 stars · :material-eye: 21 watchers · `Unknown`
 
     ---
 
@@ -140,160 +129,34 @@ Repositories related to Power Apps, canvas apps, and model-driven apps.
 
     [:octicons-arrow-right-24: View details](steedos_awesome-low-code.md)
 
--   :star: **teams-powerapps-app-templates** · 298 stars · :material-eye: 17 watchers · `Unknown`
-
-    ---
-
-    Sample Teams app built by Power Apps
-
-    [:octicons-arrow-right-24: View details](microsoft_teams-powerapps-app-templates.md)
-
--   :star: **office365dev** · 288 stars · :material-eye: 25 watchers · `JavaScript`
-
-    ---
-
-    《Office 365 开发入门指南》，本书已经于2018年9月份由北京大学出版社上市发行，可以通过 http://product.dangdang.com/25347066.html 进行购买。配套…
-
-    [:octicons-arrow-right-24: View details](chenxizhang_office365dev.md)
-
--   :star: **Levelup-for-Dynamics-CRM** · 257 stars · :material-eye: 23 watchers · `TypeScript`
-
-    ---
-
-    Chrome, Edge Chromium and Firefox Extension for Dynamics CRM/365/Power Apps Power users
-
-    [:octicons-arrow-right-24: View details](rajyraman_levelup-for-dynamics-crm.md)
-
--   :star: **microsoft-teams-apps-requestateam** · 239 stars · :material-eye: 44 watchers · `PowerShell`
-
-    ---
-
-    Power Platform based solution that allows users to request teams and automates team creation. NO LON…
-
-    [:octicons-arrow-right-24: View details](officedev_microsoft-teams-apps-requestateam.md)
-
--   :star: **powerapps-designtoolkit** · 220 stars · :material-eye: 20 watchers · `Unknown`
-
-    ---
-
-    This toolkit is a curated repo of Power Apps UI Guidance and Components that you can plug and play i…
-
-    [:octicons-arrow-right-24: View details](pnp_powerapps-designtoolkit.md)
-
--   :star: **Federal-Business-Applications** · 215 stars · :material-eye: 40 watchers · `PowerShell`
-
-    ---
-
-    US Government Business Applications Demo Repository
-
-    [:octicons-arrow-right-24: View details](microsoft_federal-business-applications.md)
-
--   :star: **powerplatform-snippets** · 210 stars · :material-eye: 20 watchers · `HLSL`
-
-    ---
-
-    Repository with snippets that can easily be used in some of the Power Platform products
-
-    [:octicons-arrow-right-24: View details](pnp_powerplatform-snippets.md)
-
--   :star: **MicrosoftCloudLogos** · 201 stars · :material-eye: 16 watchers · `Python`
-
-    ---
-
-    A collection of Microsoft cloud product logos
-
-    [:octicons-arrow-right-24: View details](loryanstrant_microsoftcloudlogos.md)
-
--   :star: **raaghu-react** · 187 stars · :material-eye: 2 watchers · `TypeScript`
-
-    ---
-
-    Raaghu Design System – React is an open-source design system for modern Web and Power Apps applicati…
-
-    [:octicons-arrow-right-24: View details](wai-technologies_raaghu-react.md)
-
--   :star: **PowerPlatformAdvocates** · 186 stars · :material-eye: 12 watchers · `Unknown`
-
-    ---
-
-    This repository contains presentations and workshops created by the Microsoft Power Platform Advocat…
-
-    [:octicons-arrow-right-24: View details](microsoft_powerplatformadvocates.md)
-
--   :star: **Low-Code** · 183 stars · :material-eye: 7 watchers · `JavaScript`
-
-    ---
-
-    Website to showcase Low-Code content and community initiatives to help developers explore low code a…
-
-    [:octicons-arrow-right-24: View details](microsoft_low-code.md)
-
--   :star: **30daysof** · 182 stars · :material-eye: 26 watchers · `JavaScript`
-
-    ---
-
-    30 Day of Learning Resources, Samples and Curricula
-
-    [:octicons-arrow-right-24: View details](microsoft_30daysof.md)
-
--   :star: **FlowPowerAppsMigrator** · 156 stars · :material-eye: 14 watchers · `PowerShell`
-
-    ---
-
-    Converts SharePoint Data sources for the MS Flow and PowerApps to a new tenant of your choice.
-
-    [:octicons-arrow-right-24: View details](zerg00s_flowpowerappsmigrator.md)
-
--   :star: **Project-Accelerator** · 146 stars · :material-eye: 46 watchers · `Unknown`
-
-    ---
-
-    An Accelerator solution for Project for the web
-
-    [:octicons-arrow-right-24: View details](officedev_project-accelerator.md)
-
--   :star: **powerfx-samples** · 137 stars · :material-eye: 25 watchers · `Unknown`
-
-    ---
-
-    This repository contains samples for Power Fx low-code programming language https://github.com/micro…
-
-    [:octicons-arrow-right-24: View details](pnp_powerfx-samples.md)
-
--   :star: **PowerPlatformAF** · 136 stars · :material-eye: 40 watchers · `Unknown`
-
-    ---
-
-    Power Platform Adoption Framework
-
-    [:octicons-arrow-right-24: View details](powerplatformaf_powerplatformaf.md)
-
--   :star: **DRB** · 122 stars · :material-eye: 7 watchers · `JavaScript`
-
-    ---
-
-    Dataverse REST Builder
-
-    [:octicons-arrow-right-24: View details](guidopreite_drb.md)
-
--   :star: **power-platform-skills** · 116 stars · :material-eye: 2 watchers · `JavaScript`
-
-    ---
-
-    A plugin marketplace for Claude Code/GitHub Copilot that provides Power Platform development plugins…
-
-    [:octicons-arrow-right-24: View details](microsoft_power-platform-skills.md)
-
 </div>
 
 ---
 
 ## All Repositories
 
-??? note "View all 87 remaining repositories"
+??? note "View all 105 remaining repositories"
 
     | Repository | Language | Stars | Description |
     |------------|----------|-------|-------------|
+    | [teams-powerapps-app-templates](microsoft_teams-powerapps-app-templates.md) | Unknown | :star: 298 | Sample Teams app built by Power Apps |
+    | [office365dev](chenxizhang_office365dev.md) | JavaScript | :star: 288 | 《Office 365 开发入门指南》，本书已经于2018年9月份由北京大学出版社上市发行，可以通过 http://product.dangdang.com/2… |
+    | [Levelup-for-Dynamics-CRM](rajyraman_levelup-for-dynamics-crm.md) | TypeScript | :star: 257 | Chrome, Edge Chromium and Firefox Extension for Dynamics CRM/365/Power Apps Powe… |
+    | [microsoft-teams-apps-requestateam](officedev_microsoft-teams-apps-requestateam.md) | PowerShell | :star: 239 | Power Platform based solution that allows users to request teams and automates t… |
+    | [powerapps-designtoolkit](pnp_powerapps-designtoolkit.md) | Unknown | :star: 220 | This toolkit is a curated repo of Power Apps UI Guidance and Components that you… |
+    | [Federal-Business-Applications](microsoft_federal-business-applications.md) | PowerShell | :star: 215 | US Government Business Applications Demo Repository |
+    | [powerplatform-snippets](pnp_powerplatform-snippets.md) | HLSL | :star: 210 | Repository with snippets that can easily be used in some of the Power Platform p… |
+    | [MicrosoftCloudLogos](loryanstrant_microsoftcloudlogos.md) | Python | :star: 201 | A collection of Microsoft cloud product logos |
+    | [raaghu-react](wai-technologies_raaghu-react.md) | TypeScript | :star: 187 | Raaghu Design System – React is an open-source design system for modern Web and … |
+    | [PowerPlatformAdvocates](microsoft_powerplatformadvocates.md) | Unknown | :star: 186 | This repository contains presentations and workshops created by the Microsoft Po… |
+    | [Low-Code](microsoft_low-code.md) | JavaScript | :star: 183 | Website to showcase Low-Code content and community initiatives to help developer… |
+    | [30daysof](microsoft_30daysof.md) | JavaScript | :star: 182 | 30 Day of Learning Resources, Samples and Curricula |
+    | [FlowPowerAppsMigrator](zerg00s_flowpowerappsmigrator.md) | PowerShell | :star: 156 | Converts SharePoint Data sources for the MS Flow and PowerApps to a new tenant o… |
+    | [Project-Accelerator](officedev_project-accelerator.md) | Unknown | :star: 146 | An Accelerator solution for Project for the web |
+    | [powerfx-samples](pnp_powerfx-samples.md) | Unknown | :star: 137 | This repository contains samples for Power Fx low-code programming language http… |
+    | [PowerPlatformAF](powerplatformaf_powerplatformaf.md) | Unknown | :star: 136 | Power Platform Adoption Framework |
+    | [DRB](guidopreite_drb.md) | JavaScript | :star: 122 | Dataverse REST Builder |
+    | [power-platform-skills](microsoft_power-platform-skills.md) | JavaScript | :star: 118 | A plugin marketplace for Claude Code/GitHub Copilot that provides Power Platform… |
     | [awesome-power-platform](power-maverick_awesome-power-platform.md) | Unknown | :star: 111 | A collection of awesome things regarding the Power Platform ecosystem. |
     | [OrgDbOrgSettings](seanmcne_orgdborgsettings.md) | HTML | :star: 110 | This is a utility allowing admins of Dynamics CRM Online & onPrem to edit organi… |
     | [provision-assist-m365](pnp_provision-assist-m365.md) | PowerShell | :star: 107 | Provision Assist is a request and provisioning solution for Teams, Groups, SPO S… |
@@ -331,8 +194,8 @@ Repositories related to Power Apps, canvas apps, and model-driven apps.
     | [FetchXmlTester](ashv_fetchxmltester.md) | JavaScript | :star: 26 | Test FetchXml Online without providing credentials using WebAPI GET Call |
     | [PCF-Builder-VSCode](power-maverick_pcf-builder-vscode.md) | JavaScript | :star: 25 | Build your Power Apps Component Framework custom controls faster. No need to rem… |
     | [TACO](officedev_taco.md) | PowerShell | :star: 25 | Microsoft Teams AA/CQ Orchestrator (TACO) App |
-    | [power-platform-snippets](mathyousee_power-platform-snippets.md) | HTML | :star: 24 | A collection of snippets and samples related to the Power Platform. |
     | [prompt-pulse](pnp_prompt-pulse.md) | Unknown | :star: 24 | Prompt Pulse is a free Microsoft Teams Power App enabling users to schedule and … |
+    | [power-platform-snippets](mathyousee_power-platform-snippets.md) | HTML | :star: 24 | A collection of snippets and samples related to the Power Platform. |
     | [microsoft-teams-apps-request-a-guest](officedev_microsoft-teams-apps-request-a-guest.md) | PowerShell | :star: 24 | Power Apps solution that automates the guest approval and invite process |
     | [PCF-EditableTable](bevercrm_pcf-editabletable.md) | TypeScript | :star: 23 | This control allows the transformation of the default Dynamics 365 grid to an ed… |
     | [powerplatformconnect](microsoft_powerplatformconnect.md) | HTML | :star: 21 | Materiais, tutoriais e dicas sobre Power Platform criados pela equipe de especia… |
@@ -384,4 +247,4 @@ Repositories related to Power Apps, canvas apps, and model-driven apps.
 
 ---
 
-_Auto-generated by [`sync_repos.py`](https://github.com/rpothin/PowerPlatform-OpenSource-Hub/blob/main/scripts/sync_repos.py) on 2026-04-05 02:17 UTC._
+_Auto-generated by [`sync_repos.py`](https://github.com/rpothin/PowerPlatform-OpenSource-Hub/blob/main/scripts/sync_repos.py) on 2026-04-05 12:26 UTC._
