@@ -692,6 +692,347 @@
 }
 
 /* ============================================================
+   g-1) CONTRIBUTE PAGE HERO & CARDS
+   ============================================================ */
+
+/* --- Hero section ------------------------------------------ */
+.mdx-contribute-hero {
+  border-radius: 16px;
+  background: linear-gradient(
+    135deg,
+    color-mix(in srgb, var(--md-primary-fg-color) 8%, var(--md-default-bg-color)),
+    color-mix(in srgb, var(--md-accent-fg-color) 5%, var(--md-default-bg-color))
+  );
+  border: 1px solid color-mix(in srgb, var(--md-primary-fg-color) 15%, transparent);
+  padding: 2.5rem 2rem;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+[data-md-color-scheme="slate"] .mdx-contribute-hero {
+  border-color: rgba(255, 255, 255, 0.08);
+  background: linear-gradient(
+    135deg,
+    color-mix(in srgb, var(--md-primary-fg-color) 14%, rgba(13, 13, 26, 0.92)),
+    color-mix(in srgb, var(--md-accent-fg-color) 10%, rgba(10, 16, 37, 0.95))
+  );
+}
+
+.mdx-contribute-hero__eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--md-primary-fg-color);
+  margin-bottom: 0.5rem;
+}
+
+.mdx-contribute-hero h2 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  color: var(--md-default-fg-color);
+}
+
+.mdx-contribute-hero__description {
+  font-size: 0.95rem;
+  color: var(--md-default-fg-color--light);
+  max-width: 600px;
+  margin: 0 auto 1.5rem;
+}
+
+.mdx-contribute-hero__stats {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.mdx-contribute-hero__stat {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.35rem 0.85rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  background: color-mix(in srgb, var(--md-primary-fg-color) 10%, transparent);
+  color: var(--md-primary-fg-color);
+  transition: background 0.2s, transform 0.15s;
+}
+
+.mdx-contribute-hero__stat:hover {
+  background: color-mix(in srgb, var(--md-primary-fg-color) 18%, transparent);
+  transform: translateY(-1px);
+}
+
+[data-md-color-scheme="slate"] .mdx-contribute-hero__stat {
+  background: color-mix(in srgb, var(--md-primary-fg-color) 16%, transparent);
+}
+
+[data-md-color-scheme="slate"] .mdx-contribute-hero__stat:hover {
+  background: color-mix(in srgb, var(--md-primary-fg-color) 24%, transparent);
+}
+
+.mdx-contribute-hero__sync {
+  font-size: 0.8rem;
+  color: var(--md-default-fg-color--lighter);
+  margin-top: 1rem;
+}
+
+/* --- Card-based repo listing ------------------------------- */
+.mdx-contribute-repos {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+.mdx-contribute-repo-card {
+  display: flex;
+  flex-direction: column;
+  padding: 1.25rem;
+  border-radius: 12px;
+  border: 1px solid var(--md-default-fg-color--lightest);
+  background: var(--md-default-bg-color);
+  text-decoration: none;
+  color: inherit;
+  transition: box-shadow 0.2s, transform 0.2s, border-color 0.2s;
+}
+
+.mdx-contribute-repo-card:hover {
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  transform: translateY(-3px);
+  border-color: var(--md-accent-fg-color);
+}
+
+[data-md-color-scheme="slate"] .mdx-contribute-repo-card {
+  border-color: rgba(255, 255, 255, 0.08);
+  background: color-mix(in srgb, var(--md-default-bg-color) 96%, var(--md-primary-fg-color));
+}
+
+[data-md-color-scheme="slate"] .mdx-contribute-repo-card:hover {
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.22);
+}
+
+.mdx-contribute-repo-card__name {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--md-primary-fg-color);
+  margin-bottom: 0.5rem;
+  word-break: break-word;
+}
+
+.mdx-contribute-repo-card__badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 0.5rem;
+}
+
+.mdx-contribute-repo-card__badge {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  border-radius: 8px;
+  font-size: 0.72rem;
+  font-weight: 600;
+}
+
+.mdx-contribute-repo-card__badge--gfi {
+  background: color-mix(in srgb, #22c55e 15%, transparent);
+  color: #16a34a;
+}
+
+[data-md-color-scheme="slate"] .mdx-contribute-repo-card__badge--gfi {
+  color: #4ade80;
+}
+
+.mdx-contribute-repo-card__badge--hw {
+  background: color-mix(in srgb, #f59e0b 15%, transparent);
+  color: #d97706;
+}
+
+[data-md-color-scheme="slate"] .mdx-contribute-repo-card__badge--hw {
+  color: #fbbf24;
+}
+
+.mdx-contribute-repo-card__meta {
+  font-size: 0.8rem;
+  color: var(--md-default-fg-color--light);
+  margin-top: auto;
+}
+
+/* --- Sections with alternating backgrounds ----------------- */
+.mdx-contribute-section {
+  padding: 2rem 0;
+}
+
+.mdx-contribute-section:nth-child(even) {
+  background: color-mix(in srgb, var(--md-primary-fg-color) 3%, var(--md-default-bg-color));
+}
+
+[data-md-color-scheme="slate"] .mdx-contribute-section:nth-child(even) {
+  background: color-mix(in srgb, var(--md-primary-fg-color) 5%, var(--md-default-bg-color));
+}
+
+.mdx-contribute-section__header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding-bottom: 1rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 2px solid var(--md-primary-fg-color);
+}
+
+.mdx-contribute-section__header--gfi {
+  border-bottom-color: #22c55e;
+}
+
+.mdx-contribute-section__header--hw {
+  border-bottom-color: #f59e0b;
+}
+
+/* --- Responsive -------------------------------------------- */
+@media screen and (max-width: 600px) {
+  .mdx-contribute-hero {
+    padding: 1.5rem 1rem;
+  }
+
+  .mdx-contribute-hero h2 {
+    font-size: 1.3rem;
+  }
+
+  .mdx-contribute-repos {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ============================================================
+   h-1) REGISTRY / CATEGORY PAGE HERO
+   ============================================================ */
+
+/* --- Page header hero section ------------------------------ */
+.mdx-registry-hero {
+  width: 100%;
+  background: color-mix(in srgb, var(--md-primary-fg-color) 8%, var(--md-default-bg-color));
+  padding: 3rem 0 2.5rem;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+[data-md-color-scheme="slate"] .mdx-registry-hero {
+  background: color-mix(in srgb, var(--md-primary-fg-color) 12%, var(--md-default-bg-color));
+}
+
+/* --- Hero title -------------------------------------------- */
+.mdx-registry-hero h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  color: var(--md-default-fg-color);
+}
+
+/* --- Subtitle text ----------------------------------------- */
+.mdx-registry-hero__description {
+  font-size: 1.05rem;
+  color: var(--md-default-fg-color--light);
+  max-width: 600px;
+  margin: 0 auto 1.5rem;
+}
+
+/* --- Stat pills container ---------------------------------- */
+.mdx-registry-hero__stats {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+/* --- Individual stat pill ---------------------------------- */
+.mdx-registry-hero__stat {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.5rem 1.25rem;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--md-primary-fg-color) 12%, transparent);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--md-primary-fg-color);
+  border: 1px solid color-mix(in srgb, var(--md-primary-fg-color) 20%, transparent);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.mdx-registry-hero__stat:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+[data-md-color-scheme="slate"] .mdx-registry-hero__stat {
+  color: var(--md-primary-fg-color);
+  border-color: color-mix(in srgb, var(--md-primary-fg-color) 30%, transparent);
+}
+
+/* --- Emoji/icon in stat pill ------------------------------- */
+.mdx-registry-hero__stat-icon {
+  font-size: 1.1rem;
+}
+
+/* --- Language tag pills container -------------------------- */
+.mdx-lang-pills {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+/* --- Individual language pill ------------------------------- */
+.mdx-lang-pill {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  background: color-mix(in srgb, var(--md-accent-fg-color) 15%, transparent);
+  color: var(--md-accent-fg-color);
+  border: 1px solid color-mix(in srgb, var(--md-accent-fg-color) 25%, transparent);
+}
+
+/* --- Sync info line ---------------------------------------- */
+.mdx-registry-hero__sync {
+  font-size: 0.8rem;
+  color: var(--md-default-fg-color--lighter);
+  margin-top: 1rem;
+}
+
+.mdx-registry-hero__sync a {
+  color: var(--md-primary-fg-color);
+}
+
+/* --- Responsive breakpoints -------------------------------- */
+@media (max-width: 600px) {
+  .mdx-registry-hero {
+    padding: 2rem 1rem 1.5rem;
+  }
+  .mdx-registry-hero h1 {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .mdx-registry-hero__stats {
+    gap: 0.5rem;
+  }
+  .mdx-registry-hero__stat {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.8rem;
+  }
+}
+
+/* ============================================================
    h) REGISTRY PAGES — Polished modern styling
    ============================================================ */
 
@@ -898,14 +1239,16 @@
 }
 
 /* --- GitHub button — more prominent ----------------------- */
-.registry-detail .md-button--primary {
+.registry-detail .md-button--primary,
+.mdx-detail-hero .md-button--primary {
   font-size: 0.95rem;
   padding: 0.65rem 1.5rem;
   border-radius: 8px;
   font-weight: 600;
   transition: box-shadow 0.2s, transform 0.2s;
 }
-.registry-detail .md-button--primary:hover {
+.registry-detail .md-button--primary:hover,
+.mdx-detail-hero .md-button--primary:hover {
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
   transform: translateY(-1px);
 }
@@ -970,21 +1313,198 @@
 
 /* --- Admonitions on detail page — card aesthetic ---------- */
 .registry-detail .admonition,
-.registry-detail details {
+.registry-detail details,
+.mdx-detail-hero ~ .admonition,
+.mdx-detail-stats ~ .admonition,
+.mdx-detail-hero ~ details,
+.mdx-detail-stats ~ details {
   border-radius: 12px;
   border: 1px solid var(--md-default-fg-color--lightest);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
   overflow: hidden;
 }
 .registry-detail .admonition .admonition-title,
-.registry-detail details summary {
+.registry-detail details summary,
+.mdx-detail-hero ~ .admonition .admonition-title,
+.mdx-detail-stats ~ .admonition .admonition-title,
+.mdx-detail-hero ~ details summary,
+.mdx-detail-stats ~ details summary {
   border-radius: 12px 12px 0 0;
   font-weight: 600;
 }
 [data-md-color-scheme="slate"] .registry-detail .admonition,
-[data-md-color-scheme="slate"] .registry-detail details {
+[data-md-color-scheme="slate"] .registry-detail details,
+[data-md-color-scheme="slate"] .mdx-detail-hero ~ .admonition,
+[data-md-color-scheme="slate"] .mdx-detail-stats ~ .admonition,
+[data-md-color-scheme="slate"] .mdx-detail-hero ~ details,
+[data-md-color-scheme="slate"] .mdx-detail-stats ~ details {
   border-color: rgba(255, 255, 255, 0.08);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* ============================================================
+   i-1) DETAIL PAGE HERO & STAT TILES
+   ============================================================ */
+
+/* --- Hero section ------------------------------------------ */
+.mdx-detail-hero {
+  background: color-mix(in srgb, var(--md-primary-fg-color) 8%, var(--md-default-bg-color));
+  padding: 2.5rem 2rem 2rem;
+  margin-bottom: 1.5rem;
+  border-radius: 16px;
+}
+[data-md-color-scheme="slate"] .mdx-detail-hero {
+  background: color-mix(in srgb, var(--md-primary-fg-color) 12%, var(--md-default-bg-color));
+}
+
+/* --- Repo name -------------------------------------------- */
+.mdx-detail-hero h1 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: var(--md-default-fg-color);
+}
+
+/* --- Repo description ------------------------------------- */
+.mdx-detail-hero__description {
+  font-size: 1rem;
+  color: var(--md-default-fg-color--light);
+  margin-bottom: 1.5rem;
+  max-width: 700px;
+}
+
+/* --- CTA buttons + topic badges row ----------------------- */
+.mdx-detail-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+/* --- Metadata line (language, license, dates) ------------- */
+.mdx-detail-hero__meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  color: var(--md-default-fg-color--light);
+}
+.mdx-detail-hero__meta > *:not(:first-child)::before {
+  content: "·";
+  margin-right: 0.5rem;
+  opacity: 0.5;
+}
+
+/* --- Back navigation link --------------------------------- */
+.mdx-detail-hero__back {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.85rem;
+  color: var(--md-primary-fg-color);
+  margin-bottom: 1rem;
+  text-decoration: none;
+}
+.mdx-detail-hero__back:hover {
+  text-decoration: underline;
+}
+
+/* --- 4-column stat grid ----------------------------------- */
+.mdx-detail-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  margin: 2rem 0;
+}
+@media screen and (max-width: 600px) {
+  .mdx-detail-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media screen and (max-width: 480px) {
+  .mdx-detail-stats {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* --- Individual stat tile --------------------------------- */
+.mdx-detail-stats__card {
+  text-align: center;
+  padding: 1.25rem 1rem;
+  border-radius: 12px;
+  border: 1px solid var(--md-default-fg-color--lightest);
+  background: var(--md-default-bg-color);
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+.mdx-detail-stats__card:hover {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  transform: translateY(-2px);
+}
+[data-md-color-scheme="slate"] .mdx-detail-stats__card {
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+/* --- Stat number ------------------------------------------ */
+.mdx-detail-stats__number {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--md-primary-fg-color);
+}
+
+/* --- Stat label ------------------------------------------- */
+.mdx-detail-stats__label {
+  font-size: 0.8rem;
+  color: var(--md-default-fg-color--light);
+  font-weight: 500;
+  margin-top: 0.25rem;
+}
+
+/* --- Issue card ------------------------------------------- */
+.mdx-issue-card {
+  display: block;
+  padding: 1rem 1.25rem;
+  border-radius: 12px;
+  border: 1px solid var(--md-default-fg-color--lightest);
+  background: var(--md-default-bg-color);
+  margin-bottom: 0.75rem;
+  transition: box-shadow 0.2s, transform 0.2s, border-color 0.2s;
+  text-decoration: none;
+  color: inherit;
+}
+.mdx-issue-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transform: translateY(-2px);
+  border-color: var(--md-accent-fg-color);
+}
+[data-md-color-scheme="slate"] .mdx-issue-card {
+  border-color: rgba(255, 255, 255, 0.08);
+}
+[data-md-color-scheme="slate"] .mdx-issue-card:hover {
+  border-color: var(--md-accent-fg-color);
+}
+
+/* --- Issue title ------------------------------------------ */
+.mdx-issue-card__title {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--md-default-fg-color);
+  margin-bottom: 0.35rem;
+}
+
+/* --- Issue metadata --------------------------------------- */
+.mdx-issue-card__meta {
+  font-size: 0.8rem;
+  color: var(--md-default-fg-color--light);
+}
+
+/* --- Issue number badge ----------------------------------- */
+.mdx-issue-card__number {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--md-primary-fg-color);
+  margin-right: 0.5rem;
 }
 
 /* ============================================================

@@ -13,6 +13,7 @@ Usage:
 
 from __future__ import annotations
 
+import html as html_mod
 import json
 import logging
 import os
@@ -751,6 +752,43 @@ def _render_issue_list(issues: list[dict[str, Any]], indent: str = "") -> list[s
     return lines
 
 
+def _render_issue_cards(issues: list[dict[str, Any]], indent: str = "") -> list[str]:
+    """Render issue dictionaries as styled HTML cards."""
+    if not issues:
+        return [f'{indent}<p class="mdx-issue-card__empty">No recent issues found.</p>']
+
+    esc = html_mod.escape
+    lines: list[str] = []
+    for issue in issues:
+        author = issue.get("author") or {}
+        author_login = esc(author.get("login") or "unknown")
+        author_url = esc(author.get("url") or "", quote=True)
+        created = _format_date(issue.get("createdAt"))
+        updated = _format_date(issue.get("updatedAt") or issue.get("createdAt"))
+        recency = f"updated {updated}"
+        if created != updated:
+            recency += f" · opened {created}"
+        issue_url = esc(issue.get("url", "#"), quote=True)
+        issue_number = issue.get("number", "")
+        issue_title = esc(issue.get("title", "Untitled issue"))
+        author_display = (
+            f'<a href="{author_url}">@{author_login}</a>'
+            if author_url
+            else f"@{author_login}"
+        )
+
+        lines += [
+            f'{indent}<a class="mdx-issue-card" href="{issue_url}" target="_blank" rel="noopener">',
+            f'{indent}  <div class="mdx-issue-card__title">',
+            f'{indent}    <span class="mdx-issue-card__number">#{issue_number}</span>',
+            f"{indent}    {issue_title}",
+            f'{indent}  </div>',
+            f'{indent}  <div class="mdx-issue-card__meta">{recency} · by {author_display}</div>',
+            f"{indent}</a>",
+        ]
+    return lines
+
+
 def _topics_badges(topics: list[str] | None) -> str:
     """Render topic tags as styled span badges."""
     if not topics:
@@ -788,9 +826,6 @@ def generate_repo_page(repo: dict[str, Any]) -> str:
     stars = _format_number(repo.get("stargazerCount"))
     watchers = repo.get("watchersCount")
     watchers_display = _format_number(watchers) if watchers is not None else "—"
-    community_metrics = f":star: {stars}"
-    if watchers is not None:
-        community_metrics += f" · :material-eye: {watchers_display}"
     forks = _format_number(repo.get("forkCount"))
     issues = _format_number(repo.get("openIssuesCount"))
     created = _format_date(repo.get("createdAt"))
@@ -801,36 +836,54 @@ def generate_repo_page(repo: dict[str, Any]) -> str:
         license_name = repo["license"].get("name") or repo["license"].get("key") or "None"
 
     lines: list[str] = [
-        '<div class="registry-detail" markdown>',
+        # Back navigation
+        '<p class="mdx-detail-hero__back"><a href="../">← Back to Repositories</a></p>',
         "",
-        f"# {name}",
-        "",
-        f"> {desc}",
-        "",
-        f"[:material-github: View on GitHub]({url}){{ .md-button .md-button--primary }}",
-        "",
-        "---",
-        "",
-        '<div class="registry-overview" markdown>',
-        "",
-        "## Overview",
-        "",
-        "| | |",
-        "|---|---|",
-        f"| **Full Name** | `{full_name}` |",
-        f"| **Language** | {language} |",
-        f"| **License** | {license_name} |",
-        f"| **Community** | {community_metrics} |",
-        f"| **Forks** | :material-source-fork: {forks} |",
-        f"| **Open Issues** | :material-alert-circle-outline: {issues} |",
-        f"| **Created** | {created} |",
-        f"| **Last Updated** | {updated} |",
+        # Hero section
+        '<section class="mdx-detail-hero">',
+        f"  <h1>{name}</h1>",
+        f'  <p class="mdx-detail-hero__description">{desc}</p>',
+        '  <div class="mdx-detail-hero__actions">',
+        f'    <a href="{url}" class="md-button md-button--primary" target="_blank" rel="noopener">',
+        "      :material-github: View on GitHub",
+        "    </a>",
+        f"    {topics}",
+        "  </div>",
+        '  <div class="mdx-detail-hero__meta">',
+        f"    <span>{language}</span>",
+        f"    <span>{license_name}</span>",
+        f"    <span>Created {created}</span>",
+        f"    <span>Updated {updated}</span>",
     ]
-
     if homepage:
-        lines.append(f"| **Homepage** | [{homepage}]({homepage}) |")
-
-    lines += ["", "</div>", "", "## Topics", "", topics]
+        lines += [
+            f'    <span><a href="{homepage}" target="_blank" rel="noopener">{homepage}</a></span>',
+        ]
+    lines += [
+        "  </div>",
+        "</section>",
+        "",
+        # Stat tiles
+        '<div class="mdx-detail-stats">',
+        '  <div class="mdx-detail-stats__card">',
+        f'    <div class="mdx-detail-stats__number">⭐ {stars}</div>',
+        '    <div class="mdx-detail-stats__label">Stars</div>',
+        "  </div>",
+        '  <div class="mdx-detail-stats__card">',
+        f'    <div class="mdx-detail-stats__number">👁️ {watchers_display}</div>',
+        '    <div class="mdx-detail-stats__label">Watchers</div>',
+        "  </div>",
+        '  <div class="mdx-detail-stats__card">',
+        f'    <div class="mdx-detail-stats__number">🔱 {forks}</div>',
+        '    <div class="mdx-detail-stats__label">Forks</div>',
+        "  </div>",
+        '  <div class="mdx-detail-stats__card">',
+        f'    <div class="mdx-detail-stats__number">⚠️ {issues}</div>',
+        '    <div class="mdx-detail-stats__label">Open Issues</div>',
+        "  </div>",
+        "</div>",
+        "",
+    ]
 
     # Latest release admonition
     rel = repo.get("latestRelease")
@@ -879,14 +932,14 @@ def generate_repo_page(repo: dict[str, Any]) -> str:
         lines += [
             "### Active Good First Issues",
             "",
-            *_render_issue_list(recent_good_first),
+            *_render_issue_cards(recent_good_first),
             "",
         ]
     if recent_help_wanted:
         lines += [
             "### Active Help Wanted Issues",
             "",
-            *_render_issue_list(recent_help_wanted),
+            *_render_issue_cards(recent_help_wanted),
             "",
         ]
     if older_good_first_list or older_help_wanted_list:
@@ -916,8 +969,6 @@ def generate_repo_page(repo: dict[str, Any]) -> str:
         "---",
         "",
         f"_Auto-generated by [`sync_repos.py`](https://github.com/rpothin/PowerPlatform-OpenSource-Hub/blob/main/scripts/sync_repos.py) on {now}._",
-        "",
-        "</div>",
         "",
     ]
 
@@ -978,55 +1029,10 @@ def generate_contribution_page(
     total_help_wanted = sum(repo.get("openedHelpWantedIssues", 0) for repo in repos)
     total_older_good_first = sum(repo.get("olderGoodFirstIssues", 0) for repo in repos)
     total_older_help_wanted = sum(repo.get("olderHelpWantedIssues", 0) for repo in repos)
-    overview_rows = [
-        "| Metric | Value |",
-        "|--------|-------|",
-        f"| **Tracked repositories** | {len(repos)} |",
-        f"| **Repositories with active opportunities** | {len(repos_with_active_opportunities)} |",
-        f"| **Active Good First Issues (<= {CONTRIBUTION_ACTIVE_MAX_AGE_DAYS} days)** | {total_good_first} |",
-        f"| **Active Help Wanted Issues (<= {CONTRIBUTION_ACTIVE_MAX_AGE_DAYS} days)** | {total_help_wanted} |",
-        f"| **Repositories with older / backlog opportunities** | {len(repos_with_older_opportunities)} |",
-        f"| **Older Good First Issues ({CONTRIBUTION_ACTIVE_MAX_AGE_DAYS + 1}-{CONTRIBUTION_OLDER_MAX_AGE_DAYS} days)** | {total_older_good_first} |",
-        f"| **Older Help Wanted Issues ({CONTRIBUTION_ACTIVE_MAX_AGE_DAYS + 1}-{CONTRIBUTION_OLDER_MAX_AGE_DAYS} days)** | {total_older_help_wanted} |",
-    ]
 
-    repo_rows = [
-        "| Repository | Good First Issues | Help Wanted Issues | Latest Activity |",
-        "|------------|-------------------|--------------------|-----------------|",
-    ]
-    repo_rows.extend(
-        [
-            f"| [{repo.get('fullName', repo.get('name', 'unknown'))}]"
-            f"(../registry/{_sanitise_filename(repo.get('fullName', 'unknown/unknown'))}.md) | "
-            f"{repo.get('openedGoodFirstIssues', 0)} | {repo.get('openedHelpWantedIssues', 0)} | "
-            f"{_latest_issue_date(repo)} |"
-            for repo in repos_with_active_opportunities
-        ]
-        or [
-            f"| _No tracked repositories currently expose active contribution opportunities (<= {CONTRIBUTION_ACTIVE_MAX_AGE_DAYS} days)._ | 0 | 0 | — |"
-        ]
-    )
-
-    status_block: list[str] = []
-    state = contribution_status.get("state")
-    if state == "skipped":
-        status_block = [
-            '!!! warning "Contribution sync skipped"',
-            f"    {contribution_status.get('message')}",
-            "",
-        ]
-    elif state in {"partial", "failed"}:
-        status_block = [
-            '!!! warning "Contribution sync incomplete"',
-            f"    {contribution_status.get('message')}",
-            "",
-        ]
-    else:
-        status_block = [
-            '!!! info "Contribution issue data"',
-            f"    {contribution_status.get('message')}",
-            "",
-        ]
+    # Build status message
+    status_msg = contribution_status.get('message', '')
+    status_state = contribution_status.get('state', 'complete')
 
     lines: list[str] = [
         "---",
@@ -1034,40 +1040,65 @@ def generate_contribution_page(
         "  - toc",
         "---",
         "",
-        "# :material-hand-heart: Contribution Opportunities",
-        "",
-        "Discover tracked repositories with active contribution opportunities "
-        "updated in the last six months. Older labeled issues updated within the "
-        "last year are grouped separately as backlog.",
-        "",
-        f'!!! info "Last synced: {now}"',
-        "    Repository metadata and issue details are generated by "
-        "[`sync_repos.py`](https://github.com/rpothin/PowerPlatform-OpenSource-Hub/blob/main/scripts/sync_repos.py).",
-        "",
-        *status_block,
-        '!!! info "Freshness windows"',
-        f"    Active opportunities use issue `updatedAt` within the last {CONTRIBUTION_ACTIVE_MAX_AGE_DAYS} days.",
-        f"    Older / backlog opportunities use issue `updatedAt` between {CONTRIBUTION_ACTIVE_MAX_AGE_DAYS + 1} and {CONTRIBUTION_OLDER_MAX_AGE_DAYS} days.",
-        f"    Contribution-specific counts and lists hide issues older than {CONTRIBUTION_OLDER_MAX_AGE_DAYS} days.",
-        "",
-        "---",
-        "",
-        '<div class="registry-summary" markdown>',
-        "",
-        "## Summary",
-        "",
-        *overview_rows,
-        "",
-        "</div>",
-        "",
-        "---",
-        "",
-        f"## Active Repositories (updated <= {CONTRIBUTION_ACTIVE_MAX_AGE_DAYS} days)",
-        "",
-        *repo_rows,
+        '<section class="mdx-contribute-hero">',
+        '  <div class="md-grid">',
+        '    <p class="mdx-contribute-hero__eyebrow">Contribution Opportunities</p>',
+        '    <h2>Find active contribution opportunities worth acting on now</h2>',
+        '    <p class="mdx-contribute-hero__description">Discover tracked repositories with active contribution opportunities updated in the last six months. Older labeled issues updated within the last year are grouped separately as backlog.</p>',
+        '    <div class="mdx-contribute-hero__stats">',
+        f'      <span class="mdx-contribute-hero__stat">📦 {len(repos_with_active_opportunities)} active repos</span>',
+        f'      <span class="mdx-contribute-hero__stat">🌱 {total_good_first} good first issues</span>',
+        f'      <span class="mdx-contribute-hero__stat">🛠️ {total_help_wanted} help wanted</span>',
+    ]
+    if total_older_good_first + total_older_help_wanted > 0:
+        lines.append(f'      <span class="mdx-contribute-hero__stat">📋 {total_older_good_first + total_older_help_wanted} older backlog</span>')
+    lines += [
+        '    </div>',
+        f'    <p class="mdx-contribute-hero__sync">Last synced: {now}</p>',
+        '  </div>',
+        '</section>',
         "",
     ]
 
+    if status_state in {"skipped", "partial", "failed"}:
+        lines += [
+            f'!!! warning "Contribution sync: {status_state}"',
+            f"    {status_msg}",
+            "",
+        ]
+
+    # -- Active Repositories (card-based) ----------------------------------
+    lines += [
+        "---",
+        "",
+        "## Active Repositories",
+        "",
+        '<div class="mdx-contribute-repos">',
+    ]
+    for repo in repos_with_active_opportunities:
+        full_name = repo.get('fullName', repo.get('name', 'unknown'))
+        repo_link = f"../registry/{_sanitise_filename(repo.get('fullName', 'unknown/unknown'))}.md"
+        gfi = repo.get('openedGoodFirstIssues', 0)
+        hw = repo.get('openedHelpWantedIssues', 0)
+        latest = _latest_issue_date(repo)
+        lines += [
+            f'  <a class="mdx-contribute-repo-card" href="{repo_link}">',
+            f'    <div class="mdx-contribute-repo-card__name">{full_name}</div>',
+            f'    <div class="mdx-contribute-repo-card__badges">',
+            f'      <span class="mdx-contribute-repo-card__badge mdx-contribute-repo-card__badge--gfi">🌱 {gfi} Good First</span>',
+            f'      <span class="mdx-contribute-repo-card__badge mdx-contribute-repo-card__badge--hw">🛠️ {hw} Help Wanted</span>',
+            f'    </div>',
+            f'    <div class="mdx-contribute-repo-card__meta">Latest activity: {latest}</div>',
+            f'  </a>',
+        ]
+    if not repos_with_active_opportunities:
+        lines.append(f'  <p>No tracked repositories currently expose active contribution opportunities (&lt;= {CONTRIBUTION_ACTIVE_MAX_AGE_DAYS} days).</p>')
+    lines += [
+        '</div>',
+        "",
+    ]
+
+    # -- Issue sections (Good First / Help Wanted) -------------------------
     sections = [
         (
             f"Active Good First Issues (updated <= {CONTRIBUTION_ACTIVE_MAX_AGE_DAYS} days)",
@@ -1084,10 +1115,21 @@ def generate_contribution_page(
     ]
 
     for title, count_key, issues_key, section_repos in sections:
-        lines += ["---", "", f"## {title}", ""]
+        lines += [
+            "---",
+            "",
+            '<div class="mdx-contribute-section" markdown>',
+            "",
+            f"## {title}",
+            "",
+        ]
         if not section_repos:
             lines.append("_No matching open issues were returned for this sync._")
-            lines += ["", ""]
+            lines += [
+                "",
+                '</div>',
+                "",
+            ]
             continue
 
         for repo in section_repos:
@@ -1110,9 +1152,18 @@ def generate_contribution_page(
                 "",
             ]
 
+        lines += [
+            "",
+            '</div>',
+            "",
+        ]
+
+    # -- Older Labeled Opportunities ---------------------------------------
     if repos_with_older_opportunities:
         lines += [
             "---",
+            "",
+            '<div class="mdx-contribute-section" markdown>',
             "",
             f"## Older Labeled Opportunities ({CONTRIBUTION_ACTIVE_MAX_AGE_DAYS + 1}-{CONTRIBUTION_OLDER_MAX_AGE_DAYS} days)",
             "",
@@ -1142,6 +1193,22 @@ def generate_contribution_page(
                 ]
             lines += [""]
 
+        lines += [
+            "",
+            '</div>',
+            "",
+        ]
+
+    # -- Freshness info (collapsible at bottom) ----------------------------
+    lines += [
+        "",
+        '??? info "How freshness is calculated"',
+        f"    Active opportunities use issue `updatedAt` within the last {CONTRIBUTION_ACTIVE_MAX_AGE_DAYS} days.",
+        f"    Older / backlog opportunities use issue `updatedAt` between {CONTRIBUTION_ACTIVE_MAX_AGE_DAYS + 1} and {CONTRIBUTION_OLDER_MAX_AGE_DAYS} days.",
+        f"    Contribution-specific counts and lists hide issues older than {CONTRIBUTION_OLDER_MAX_AGE_DAYS} days.",
+        "",
+    ]
+
     lines += [
         "---",
         "",
@@ -1166,12 +1233,11 @@ def generate_registry_index(repos: list[dict[str, Any]]) -> str:
             contrib_repos += 1
 
     top_langs = sorted(languages.items(), key=lambda x: x[1], reverse=True)[:10]
-    lang_rows = [f"| {lang} | {count} |" for lang, count in top_langs]
 
     now = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
 
-    # Build card grid for top 50 repos
-    top_repos = repos[:50]
+    # Build card grid for top 12 repos
+    top_repos = repos[:12]
     card_items: list[str] = []
     for r in top_repos:
         name = r.get("name", "")
@@ -1201,7 +1267,7 @@ def generate_registry_index(repos: list[dict[str, Any]]) -> str:
     cards_block = "\n\n".join(card_items)
 
     # Build table for remaining repos
-    remaining = repos[50:]
+    remaining = repos[12:]
     remaining_rows: list[str] = []
     for r in remaining:
         name = r.get("name", "")
@@ -1235,35 +1301,31 @@ def generate_registry_index(repos: list[dict[str, Any]]) -> str:
         "  - toc",
         "---",
         "",
-        "# :material-format-list-bulleted: Repository Registry",
-        "",
-        f"Browse the catalogue of **{total}** Power Platform & Copilot Studio",
-        "open-source repositories tracked by the Hub.",
-        "",
-        f'!!! info "Last synced: {now}"',
-        f"    Data is refreshed by [`sync_repos.py`](https://github.com/rpothin/PowerPlatform-OpenSource-Hub/blob/main/scripts/sync_repos.py).",
-        "",
-        "---",
-        "",
-        '<div class="registry-summary" markdown>',
-        "",
-        "## Summary",
-        "",
-        "| Metric | Value |",
-        "|--------|-------|",
-        f"| **Total Repositories** | {total} |",
-        f"| **Total Stars** | :star: {_format_number(total_stars)} |",
-        f"| **Open to Contributions** | {contrib_repos} |",
-        "",
-        "### Top Languages",
-        "",
-        "| Language | Repositories |",
-        "|----------|-------------|",
-        *lang_rows,
-        "",
-        "</div>",
-        "",
-        "---",
+        '<section class="mdx-registry-hero">',
+        '  <div class="md-grid">',
+        f'    <h1>📦 Repository Registry</h1>',
+        f'    <p class="mdx-registry-hero__description">Browse the catalogue of <strong>{total}</strong> Power Platform &amp; Copilot Studio open-source repositories tracked by the Hub.</p>',
+        '    <div class="mdx-registry-hero__stats">',
+        f'      <span class="mdx-registry-hero__stat"><span class="mdx-registry-hero__stat-icon">📦</span> {total} repositories</span>',
+        f'      <span class="mdx-registry-hero__stat"><span class="mdx-registry-hero__stat-icon">⭐</span> {_format_number(total_stars)} stars</span>',
+        f'      <span class="mdx-registry-hero__stat"><span class="mdx-registry-hero__stat-icon">🤝</span> {contrib_repos} open to contributions</span>',
+        '    </div>',
+    ]
+
+    if top_langs:
+        lines += [
+            '    <div class="mdx-lang-pills">',
+        ]
+        for lang, count in top_langs:
+            lines.append(f'      <span class="mdx-lang-pill">{lang} ({count})</span>')
+        lines += [
+            '    </div>',
+        ]
+
+    lines += [
+        f'    <p class="mdx-registry-hero__sync">Last synced: {now} · Data refreshed by <a href="https://github.com/rpothin/PowerPlatform-OpenSource-Hub/blob/main/scripts/sync_repos.py">sync_repos.py</a></p>',
+        '  </div>',
+        '</section>',
         "",
         "## Featured Repositories",
         "",
@@ -1298,10 +1360,9 @@ def generate_category_page(service: dict[str, Any], repos: list[dict[str, Any]])
         lang = r.get("language") or "Unknown"
         languages[lang] = languages.get(lang, 0) + 1
     top_langs = sorted(languages.items(), key=lambda x: x[1], reverse=True)[:10]
-    lang_rows = [f"| {lang} | {count} |" for lang, count in top_langs] or ["| — | 0 |"]
 
-    # Build card grid for top 30 repos (or all if fewer)
-    top_repos = repos[:30]
+    # Build card grid for top 12 repos (or all if fewer)
+    top_repos = repos[:12]
     card_items: list[str] = []
     for r in top_repos:
         name = r.get("name", "")
@@ -1347,7 +1408,7 @@ def generate_category_page(service: dict[str, Any], repos: list[dict[str, Any]])
         featured_section.append("_No repositories matched this service in the current sync._")
 
     # Build table for remaining repos
-    remaining = repos[30:]
+    remaining = repos[12:]
     remaining_section = ""
     if remaining:
         remaining_rows = []
@@ -1378,31 +1439,28 @@ def generate_category_page(service: dict[str, Any], repos: list[dict[str, Any]])
         "  - toc",
         "---",
         "",
-        f"# {icon} {label}",
-        "",
-        description,
-        "",
-        f'!!! info "Last synced: {now}"',
-        f"    Showing **{total}** repositories matching this focus area.",
-        "",
-        "---",
-        "",
-        '<div class="registry-summary" markdown>',
-        "",
-        "## Overview",
-        "",
-        "| Metric | Value |",
-        "|--------|-------|",
-        f"| **Repositories** | {total} |",
-        f"| **Total Stars** | :star: {_format_number(total_stars)} |",
-        "",
-        "### Top Languages",
-        "",
-        "| Language | Repositories |",
-        "|----------|-------------|",
-        *lang_rows,
-        "",
-        "</div>",
+        '<section class="mdx-registry-hero">',
+        '  <div class="md-grid">',
+        f'    <h1>{icon} {label}</h1>',
+        f'    <p class="mdx-registry-hero__description">{description}</p>',
+        '    <div class="mdx-registry-hero__stats">',
+        f'      <span class="mdx-registry-hero__stat"><span class="mdx-registry-hero__stat-icon">📦</span> {total} repositories</span>',
+        f'      <span class="mdx-registry-hero__stat"><span class="mdx-registry-hero__stat-icon">⭐</span> {_format_number(total_stars)} stars</span>',
+        '    </div>',
+    ]
+    if top_langs:
+        lines += [
+            '    <div class="mdx-lang-pills">',
+        ]
+        for lang, count in top_langs:
+            lines.append(f'      <span class="mdx-lang-pill">{lang} ({count})</span>')
+        lines += [
+            '    </div>',
+        ]
+    lines += [
+        f'    <p class="mdx-registry-hero__sync">Last synced: {now} · Showing <strong>{total}</strong> repositories matching this focus area.</p>',
+        '  </div>',
+        '</section>',
         "",
         *featured_section,
         remaining_section,
