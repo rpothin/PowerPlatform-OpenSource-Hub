@@ -35,17 +35,29 @@ Browse the full registry of Power Platform open-source repositories, discover pr
 
 ## 📖 About
 
-The **Power Platform Open-Source Hub** is a community initiative that aggregates and showcases open-source repositories related to the Power Platform ecosystem. The hub automatically discovers repositories tagged with Power Platform topics on GitHub and presents them in a searchable, browsable documentation site.
+The **Power Platform Open-Source Hub** is a community initiative that aggregates and showcases open-source repositories related to the Power Platform ecosystem. The hub automatically discovers repositories tagged with tracked GitHub topics, groups those topics by service area, and presents the results in a searchable, browsable documentation site.
 
 ### How It Works
 
-1. **Discovery** — A Python pipeline ([`scripts/sync_repos.py`](scripts/sync_repos.py)) searches GitHub for repositories tagged with [tracked topics](configuration/GitHubRepositoriesSearchCriteria.json) like `powerplatform`, `powerapps`, `dataverse`, `dynamics365`, and more.
-2. **Generation** — Individual documentation pages are generated for each repository with metadata, statistics, and contribution opportunities.
-3. **Publication** — The deployment workflow refreshes repository metadata live from GitHub, then builds the site with [MkDocs Material](https://squidfunk.github.io/mkdocs-material/) and deploys it to GitHub Pages automatically.
+1. **Discovery** — A Python pipeline ([`scripts/sync_repos.py`](scripts/sync_repos.py)) searches GitHub for repositories tagged with [tracked topics](configuration/GitHubRepositoriesSearchCriteria.json).
+2. **Service Grouping** — Those tracked topics are grouped into service areas such as **Power Platform**, **Power Apps**, **Power Automate**, **Copilot Studio**, **Dataverse**, **Pro Development**, and **Dynamics 365**.
+3. **Generation** — The service grouping drives the category metadata and generated service pages, while individual repository pages are created with metadata, statistics, and contribution opportunities.
+4. **Publication** — The deployment workflow refreshes repository metadata live from GitHub, then builds the site with [MkDocs Material](https://squidfunk.github.io/mkdocs-material/) and deploys it to GitHub Pages automatically.
 
 ### Tracked Topics
 
-`powerplatform` · `power-platform` · `powerapps` · `power-apps` · `powerautomate` · `power-automate` · `powervirtualagent` · `power-virtual-agent` · `dataverse` · `microsoft-dataverse` · `powerfx` · `power-fx` · `dynamics365` · `dynamics-365` · `pcf-controls` · `powerappscomponentframework` · `ai-builder`
+Tracked GitHub topics remain the discovery mechanism. The Hub groups them into
+service pages that drive category metadata and browsing:
+
+| Service | Tracked GitHub topics |
+|---------|------------------------|
+| Power Platform | `powerplatform`, `power-platform`, `ai-builder` |
+| Power Apps | `powerapps`, `power-apps` |
+| Power Automate | `powerautomate`, `power-automate` |
+| Copilot Studio | `powervirtualagent`, `power-virtual-agent`, `copilot-studio` |
+| Dataverse | `dataverse`, `microsoft-dataverse` |
+| Pro Development | `pcf-controls`, `powerappscomponentframework`, `powerfx`, `power-fx` |
+| Dynamics 365 | `dynamics365`, `dynamics-365` |
 
 ---
 

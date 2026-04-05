@@ -35,46 +35,17 @@ OVERRIDES_DIR = ROOT_DIR / "overrides"
 MIN_STARS = 10
 
 # ---------------------------------------------------------------------------
-# Focus-area categories (topic → category mapping)
+# Required service coverage
 # ---------------------------------------------------------------------------
-CATEGORIES: dict[str, dict[str, Any]] = {
-    "power-apps": {
-        "label": "Power Apps",
-        "icon": "🔌",
-        "description": "Repositories related to Power Apps, canvas apps, and model-driven apps.",
-        "topics": {"powerapps", "power-apps"},
-    },
-    "power-automate": {
-        "label": "Power Automate",
-        "icon": "⚡",
-        "description": "Repositories related to Power Automate, cloud flows, and desktop flows.",
-        "topics": {"powerautomate", "power-automate"},
-    },
-    "dataverse": {
-        "label": "Dataverse",
-        "icon": "📊",
-        "description": "Repositories related to Microsoft Dataverse and the Common Data Service.",
-        "topics": {"dataverse", "microsoft-dataverse", "cds"},
-    },
-    "copilot-studio": {
-        "label": "Copilot Studio",
-        "icon": "🤖",
-        "description": "Repositories related to Microsoft Copilot Studio and Power Virtual Agents.",
-        "topics": {"powervirtualagent", "power-virtual-agent", "power-virtual-agents", "copilot-studio"},
-    },
-    "pcf-controls": {
-        "label": "PCF Controls",
-        "icon": "🧩",
-        "description": "Repositories related to the Power Apps Component Framework and custom controls.",
-        "topics": {"pcf-controls", "pcf", "powerappscomponentframework"},
-    },
-    "dynamics-365": {
-        "label": "Dynamics 365",
-        "icon": "🏢",
-        "description": "Repositories related to Dynamics 365, Dynamics CRM, and Business Central.",
-        "topics": {"dynamics365", "dynamics-365", "dynamics-crm", "dynamics", "d365", "d365fo", "d365ce"},
-    },
-}
+REQUIRED_SERVICE_SLUGS = (
+    "power-platform",
+    "power-apps",
+    "power-automate",
+    "copilot-studio",
+    "dataverse",
+    "pro-development",
+    "dynamics-365",
+)
 
 # ---------------------------------------------------------------------------
 # Logging
@@ -90,16 +61,122 @@ log = logging.getLogger("sync_repos")
 # ===================================================================
 # Data acquisition
 # ===================================================================
-def load_search_criteria() -> list[dict[str, Any]]:
-    """Load the topic search criteria from configuration/."""
-    with open(CONFIG_PATH, encoding="utf-8") as fh:
-        criteria: list[dict[str, Any]] = json.load(fh)
-    log.info("Loaded %d search criteria from %s", len(criteria), CONFIG_PATH.name)
+def _invalid_config(message: str) -> None:
+    """Abort execution with a clear configuration validation error."""
+    raise SystemExit(f"Invalid search criteria in {CONFIG_PATH.name}: {message}")
+
+
+def _validate_non_empty_string(value: Any, field_name: str) -> str:
+    """Return a stripped string value or fail fast when invalid."""
+    if not isinstance(value, str) or not value.strip():
+        _invalid_config(f"{field_name} must be a non-empty string")
+    return value.strip()
+
+
+def _validate_positive_int(value: Any, field_name: str) -> int:
+    """Return a positive integer value or fail fast when invalid."""
+    if not isinstance(value, int) or isinstance(value, bool) or value < 1:
+        _invalid_config(f"{field_name} must be a positive integer")
+    return value
+
+
+def load_search_criteria() -> dict[str, dict[str, Any]]:
+    """Load and validate the service-centric search criteria configuration."""
+    try:
+        with open(CONFIG_PATH, encoding="utf-8") as fh:
+            raw_criteria = json.load(fh)
+    except json.JSONDecodeError as exc:
+        _invalid_config(f"invalid JSON ({exc})")
+    except OSError as exc:
+        _invalid_config(str(exc))
+
+    if not isinstance(raw_criteria, dict) or not raw_criteria:
+        _invalid_config("top-level JSON object keyed by service slug is required")
+
+    missing_services = [slug for slug in REQUIRED_SERVICE_SLUGS if slug not in raw_criteria]
+    if missing_services:
+        _invalid_config(
+            "missing required services: " + ", ".join(sorted(missing_services))
+        )
+
+    criteria: dict[str, dict[str, Any]] = {}
+    total_topics = 0
+
+    for slug, raw_service in raw_criteria.items():
+        if not isinstance(slug, str) or slug != slug.strip().lower():
+            _invalid_config("service keys must be lowercase slug strings")
+        if not isinstance(raw_service, dict):
+            _invalid_config(f"{slug} must map to an object")
+
+        raw_topics = raw_service.get("topics")
+        raw_aliases = raw_service.get("aliases", [])
+        if not isinstance(raw_topics, list) or not raw_topics:
+            _invalid_config(f"{slug}.topics must be a non-empty array")
+        if not isinstance(raw_aliases, list):
+            _invalid_config(f"{slug}.aliases must be an array when provided")
+
+        topics: list[dict[str, Any]] = []
+        tracked_topic_names: set[str] = set()
+        for index, raw_topic in enumerate(raw_topics):
+            if not isinstance(raw_topic, dict):
+                _invalid_config(f"{slug}.topics[{index}] must be an object")
+
+            topic_name = _validate_non_empty_string(
+                raw_topic.get("name"),
+                f"{slug}.topics[{index}].name",
+            ).lower()
+            if topic_name in tracked_topic_names:
+                _invalid_config(f"{slug}.topics contains duplicate topic '{topic_name}'")
+
+            topics.append(
+                {
+                    "name": topic_name,
+                    "searchLimit": _validate_positive_int(
+                        raw_topic.get("searchLimit"),
+                        f"{slug}.topics[{index}].searchLimit",
+                    ),
+                }
+            )
+            tracked_topic_names.add(topic_name)
+
+        aliases: list[str] = []
+        seen_aliases: set[str] = set()
+        for index, raw_alias in enumerate(raw_aliases):
+            alias = _validate_non_empty_string(
+                raw_alias,
+                f"{slug}.aliases[{index}]",
+            ).lower()
+            if alias in tracked_topic_names or alias in seen_aliases:
+                _invalid_config(f"{slug}.aliases contains duplicate topic '{alias}'")
+            aliases.append(alias)
+            seen_aliases.add(alias)
+
+        criteria[slug] = {
+            "categoryDisplayName": _validate_non_empty_string(
+                raw_service.get("categoryDisplayName"),
+                f"{slug}.categoryDisplayName",
+            ),
+            "icon": _validate_non_empty_string(raw_service.get("icon"), f"{slug}.icon"),
+            "description": _validate_non_empty_string(
+                raw_service.get("description"),
+                f"{slug}.description",
+            ),
+            "topics": topics,
+            "aliases": aliases,
+        }
+        total_topics += len(topics)
+
+    log.info(
+        "Loaded %d services / %d tracked topics from %s",
+        len(criteria),
+        total_topics,
+        CONFIG_PATH.name,
+    )
     return criteria
 
 
 def fetch_repos_live(
-    criteria: list[dict[str, Any]],
+    criteria: dict[str, dict[str, Any]],
 ) -> tuple[list[dict[str, Any]], list[dict[str, int | str]]]:
     """Fetch repository metadata from GitHub using *PyGithub*.
 
@@ -123,33 +200,42 @@ def fetch_repos_live(
     repos: list[dict[str, Any]] = []
     limit_hits: list[dict[str, int | str]] = []
 
-    for entry in criteria:
-        topic = entry["topic"]
-        limit = entry.get("searchLimit", 100)
-        log.info(
-            "Searching topic=%s (limit=%d, min_stars=%d) …",
-            topic,
-            limit,
-            MIN_STARS,
-        )
+    for service_slug, service in criteria.items():
+        for topic in service["topics"]:
+            topic_name = topic["name"]
+            limit = topic["searchLimit"]
+            log.info(
+                "Searching service=%s topic=%s (limit=%d, min_stars=%d) …",
+                service_slug,
+                topic_name,
+                limit,
+                MIN_STARS,
+            )
 
-        query = f"topic:{topic} stars:>={MIN_STARS}"
-        results = gh.search_repositories(query=query, sort="stars", order="desc")
+            query = f"topic:{topic_name} stars:>={MIN_STARS}"
+            results = gh.search_repositories(query=query, sort="stars", order="desc")
 
-        count = 0
-        for repo in results:
-            if count >= limit:
-                break
-            if repo.stargazers_count < MIN_STARS:
-                continue
-            if repo.full_name in seen:
-                continue
-            seen.add(repo.full_name)
-            repos.append(_normalise_repo(repo))
-            count += 1
+            count = 0
+            for repo in results:
+                if count >= limit:
+                    break
+                if repo.stargazers_count < MIN_STARS:
+                    continue
+                if repo.full_name in seen:
+                    continue
+                seen.add(repo.full_name)
+                repos.append(_normalise_repo(repo))
+                count += 1
 
-        if count == limit:
-            limit_hits.append({"topic": topic, "count": count, "limit": limit})
+            if count == limit:
+                limit_hits.append(
+                    {
+                        "service": service_slug,
+                        "topic": topic_name,
+                        "count": count,
+                        "limit": limit,
+                    }
+                )
 
     repos.sort(key=lambda r: r.get("stargazerCount", 0), reverse=True)
     log.info(
@@ -207,7 +293,8 @@ def log_search_limit_summary(limit_hits: list[dict[str, int | str]]) -> None:
         return
 
     summary = ", ".join(
-        f"{hit['topic']} ({hit['count']}/{hit['limit']})" for hit in limit_hits
+        f"{hit['topic']} [{hit['service']}] ({hit['count']}/{hit['limit']})"
+        for hit in limit_hits
     )
     log.info(
         "Topics reaching their configured search limit (%d): %s",
@@ -249,10 +336,23 @@ def _topics_badges(topics: list[str] | None) -> str:
     return " ".join(f'<span class="registry-badge">{t}</span>' for t in sorted(topics))
 
 
-def _categorize_repo(repo: dict[str, Any]) -> list[str]:
-    """Return the list of category slugs a repository belongs to."""
+def _service_category_topics(service: dict[str, Any]) -> set[str]:
+    """Return the tracked and alias topics used for service categorisation."""
+    tracked_topics = {topic["name"] for topic in service.get("topics", [])}
+    return tracked_topics | set(service.get("aliases", []))
+
+
+def _categorize_repo(
+    repo: dict[str, Any],
+    criteria: dict[str, dict[str, Any]],
+) -> list[str]:
+    """Return the list of service slugs a repository belongs to."""
     repo_topics = {t.lower() for t in (repo.get("topics") or [])}
-    return [slug for slug, cat in CATEGORIES.items() if repo_topics & cat["topics"]]
+    return [
+        slug
+        for slug, service in criteria.items()
+        if repo_topics & _service_category_topics(service)
+    ]
 
 
 def generate_repo_page(repo: dict[str, Any]) -> str:
@@ -479,11 +579,11 @@ def generate_registry_index(repos: list[dict[str, Any]]) -> str:
     return "\n".join(lines)
 
 
-def generate_category_page(slug: str, cat: dict[str, Any], repos: list[dict[str, Any]]) -> str:
-    """Generate a Markdown page for a single focus-area category."""
-    label = cat["label"]
-    icon = cat["icon"]
-    description = cat["description"]
+def generate_category_page(service: dict[str, Any], repos: list[dict[str, Any]]) -> str:
+    """Generate a Markdown page for a single service category."""
+    label = service["categoryDisplayName"]
+    icon = service["icon"]
+    description = service["description"]
     total = len(repos)
     total_stars = sum(r.get("stargazerCount", 0) for r in repos)
     now = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
@@ -494,7 +594,7 @@ def generate_category_page(slug: str, cat: dict[str, Any], repos: list[dict[str,
         lang = r.get("language") or "Unknown"
         languages[lang] = languages.get(lang, 0) + 1
     top_langs = sorted(languages.items(), key=lambda x: x[1], reverse=True)[:10]
-    lang_rows = [f"| {lang} | {count} |" for lang, count in top_langs]
+    lang_rows = [f"| {lang} | {count} |" for lang, count in top_langs] or ["| — | 0 |"]
 
     # Build card grid for top 30 repos (or all if fewer)
     top_repos = repos[:30]
@@ -524,6 +624,23 @@ def generate_category_page(slug: str, cat: dict[str, Any], repos: list[dict[str,
             f"    [:octicons-arrow-right-24: View details]({repo_slug}.md)"
         )
     cards_block = "\n\n".join(card_items)
+
+    featured_section = [
+        "---",
+        "",
+        "## Featured Repositories",
+        "",
+    ]
+    if card_items:
+        featured_section += [
+            '<div class="grid cards" markdown>',
+            "",
+            cards_block,
+            "",
+            "</div>",
+        ]
+    else:
+        featured_section.append("_No repositories matched this service in the current sync._")
 
     # Build table for remaining repos
     remaining = repos[30:]
@@ -583,15 +700,7 @@ def generate_category_page(slug: str, cat: dict[str, Any], repos: list[dict[str,
         "",
         "</div>",
         "",
-        "---",
-        "",
-        "## Featured Repositories",
-        "",
-        '<div class="grid cards" markdown>',
-        "",
-        cards_block,
-        "",
-        "</div>",
+        *featured_section,
         remaining_section,
         "",
         "---",
@@ -603,7 +712,10 @@ def generate_category_page(slug: str, cat: dict[str, Any], repos: list[dict[str,
     return "\n".join(lines)
 
 
-def write_registry(repos: list[dict[str, Any]]) -> None:
+def write_registry(
+    repos: list[dict[str, Any]],
+    criteria: dict[str, dict[str, Any]],
+) -> None:
     """Write Markdown files for every repository and the registry index."""
     # Ensure target directory exists and is clean
     REGISTRY_DIR.mkdir(parents=True, exist_ok=True)
@@ -628,14 +740,24 @@ def write_registry(repos: list[dict[str, Any]]) -> None:
     index_path.write_text(generate_registry_index(repos), encoding="utf-8")
     log.info("Wrote %d repository pages + index to %s", written, REGISTRY_DIR)
 
+    service_repos: dict[str, list[dict[str, Any]]] = {slug: [] for slug in criteria}
+    for repo in repos:
+        for slug in _categorize_repo(repo, criteria):
+            service_repos[slug].append(repo)
+
     # Write category pages
-    for slug, cat in CATEGORIES.items():
-        cat_repos = [r for r in repos if slug in _categorize_repo(r)]
-        cat_repos.sort(key=lambda r: r.get("stargazerCount", 0), reverse=True)
-        if cat_repos:
-            cat_path = REGISTRY_DIR / f"{slug}.md"
-            cat_path.write_text(generate_category_page(slug, cat, cat_repos), encoding="utf-8")
-    log.info("Wrote %d category pages", len(CATEGORIES))
+    for slug, service in criteria.items():
+        cat_repos = sorted(
+            service_repos[slug],
+            key=lambda r: r.get("stargazerCount", 0),
+            reverse=True,
+        )
+        cat_path = REGISTRY_DIR / f"{slug}.md"
+        cat_path.write_text(
+            generate_category_page(service, cat_repos),
+            encoding="utf-8",
+        )
+    log.info("Wrote %d category pages", len(criteria))
 
 
 def _format_number_short(n: int) -> str:
@@ -646,7 +768,10 @@ def _format_number_short(n: int) -> str:
     return str(n)
 
 
-def write_home_data(repos: list[dict[str, Any]]) -> None:
+def write_home_data(
+    repos: list[dict[str, Any]],
+    criteria: dict[str, dict[str, Any]],
+) -> None:
     """Generate ``overrides/partials/home_hero.html`` with homepage stats and featured repos.
 
     This partial is included by ``overrides/home.html`` via Jinja2 ``{% include %}``.
@@ -658,15 +783,7 @@ def write_home_data(repos: list[dict[str, Any]]) -> None:
         if r.get("openedGoodFirstIssues", 0) or r.get("openedHelpWantedIssues", 0)
     )
 
-    # Count tracked search topics (from configuration), not all repo topics
-    topics_count = 17  # default
-    if CONFIG_PATH.exists():
-        try:
-            with open(CONFIG_PATH, encoding="utf-8") as fh:
-                criteria = json.load(fh)
-            topics_count = len(criteria)
-        except (json.JSONDecodeError, OSError):
-            pass
+    topics_count = sum(len(service["topics"]) for service in criteria.values())
 
     featured = repos[:6]
 
@@ -755,8 +872,8 @@ def main() -> None:
     criteria = load_search_criteria()
     repos, limit_hits = fetch_repos_live(criteria)
 
-    write_registry(repos)
-    write_home_data(repos)
+    write_registry(repos, criteria)
+    write_home_data(repos, criteria)
     log_search_limit_summary(limit_hits)
     log.info("Done ✓")
 

@@ -103,11 +103,12 @@ nav:
   - Home: index.md
   - Registry:
     - registry/index.md
+    - Power Platform: registry/power-platform.md
     - Power Apps: registry/power-apps.md
     - Power Automate: registry/power-automate.md
-    - Dataverse: registry/dataverse.md
     - Copilot Studio: registry/copilot-studio.md
-    - PCF Controls: registry/pcf-controls.md
+    - Dataverse: registry/dataverse.md
+    - Pro Development: registry/pro-development.md
     - Dynamics 365: registry/dynamics-365.md
   - Guide:
     - guide/index.md

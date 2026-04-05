@@ -1,70 +1,143 @@
-[
-    {
-        "topic": "powerplatform",
+{
+  "power-platform": {
+    "categoryDisplayName": "Power Platform",
+    "icon": "🌐",
+    "description": "Repositories related to the overall Power Platform, shared platform capabilities, and AI Builder.",
+    "topics": [
+      {
+        "name": "powerplatform",
         "searchLimit": 200
-    },
-    {
-        "topic": "power-platform",
+      },
+      {
+        "name": "power-platform",
         "searchLimit": 100
-    },
-    {
-        "topic": "powerapps",
+      },
+      {
+        "name": "ai-builder",
+        "searchLimit": 50
+      }
+    ],
+    "aliases": []
+  },
+  "power-apps": {
+    "categoryDisplayName": "Power Apps",
+    "icon": "🔌",
+    "description": "Repositories related to Power Apps, canvas apps, and model-driven apps.",
+    "topics": [
+      {
+        "name": "powerapps",
         "searchLimit": 300
-    },
-    {
-        "topic": "power-apps",
+      },
+      {
+        "name": "power-apps",
         "searchLimit": 100
-    },
-    {
-        "topic": "powerautomate",
+      }
+    ],
+    "aliases": []
+  },
+  "power-automate": {
+    "categoryDisplayName": "Power Automate",
+    "icon": "⚡",
+    "description": "Repositories related to Power Automate, cloud flows, and desktop flows.",
+    "topics": [
+      {
+        "name": "powerautomate",
         "searchLimit": 200
-    },
-    {
-        "topic": "power-automate",
+      },
+      {
+        "name": "power-automate",
         "searchLimit": 100
-    },
-    {
-        "topic": "powervirtualagent",
+      }
+    ],
+    "aliases": []
+  },
+  "copilot-studio": {
+    "categoryDisplayName": "Copilot Studio",
+    "icon": "🤖",
+    "description": "Repositories related to Copilot Studio and the Power Virtual Agents transition.",
+    "topics": [
+      {
+        "name": "powervirtualagent",
         "searchLimit": 50
-    },
-    {
-        "topic": "power-virtual-agent",
+      },
+      {
+        "name": "power-virtual-agent",
         "searchLimit": 50
-    },
-    {
-        "topic": "dataverse",
+      },
+      {
+        "name": "copilot-studio",
+        "searchLimit": 50
+      }
+    ],
+    "aliases": [
+      "power-virtual-agents",
+      "pva"
+    ]
+  },
+  "dataverse": {
+    "categoryDisplayName": "Dataverse",
+    "icon": "📊",
+    "description": "Repositories related to Microsoft Dataverse and the Common Data Service.",
+    "topics": [
+      {
+        "name": "dataverse",
         "searchLimit": 200
-    },
-    {
-        "topic": "microsoft-dataverse",
+      },
+      {
+        "name": "microsoft-dataverse",
         "searchLimit": 50
-    },
-    {
-        "topic": "powerfx",
+      }
+    ],
+    "aliases": [
+      "cds"
+    ]
+  },
+  "pro-development": {
+    "categoryDisplayName": "Pro Development",
+    "icon": "🧩",
+    "description": "Repositories related to pro-development extensibility across PCF, Power Fx, and maker tooling.",
+    "topics": [
+      {
+        "name": "pcf-controls",
         "searchLimit": 50
-    },
-    {
-        "topic": "power-fx",
+      },
+      {
+        "name": "powerappscomponentframework",
+        "searchLimit": 100
+      },
+      {
+        "name": "powerfx",
         "searchLimit": 50
-    },
-    {
-        "topic": "dynamics365",
+      },
+      {
+        "name": "power-fx",
+        "searchLimit": 50
+      }
+    ],
+    "aliases": [
+      "pcf"
+    ]
+  },
+  "dynamics-365": {
+    "categoryDisplayName": "Dynamics 365",
+    "icon": "🏢",
+    "description": "Repositories related to Dynamics 365, Dynamics CRM, and connected business applications.",
+    "topics": [
+      {
+        "name": "dynamics365",
         "searchLimit": 200
-    },
-    {
-        "topic": "dynamics-365",
+      },
+      {
+        "name": "dynamics-365",
         "searchLimit": 500
-    },
-    {
-        "topic": "pcf-controls",
-        "searchLimit": 50
-    },
-    {
-        "topic": "powerappscomponentframework",
-        "searchLimit": 100
-    },
-    {
-        "topic": "ai-builder",
-        "searchLimit": 50
-    }
-]
+      }
+    ],
+    "aliases": [
+      "dynamics-crm",
+      "dynamics",
+      "d365",
+      "d365fo",
+      "d365ce"
+    ]
+  }
+}
