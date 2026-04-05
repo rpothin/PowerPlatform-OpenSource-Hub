@@ -7,7 +7,7 @@ hide:
 
 Repositories related to Power Automate, cloud flows, and desktop flows.
 
-!!! info "Last synced: 2026-04-04 02:26 UTC"
+!!! info "Last synced: 2026-04-05 01:12 UTC"
     Showing **46** repositories matching this focus area.
 
 ---
@@ -19,7 +19,7 @@ Repositories related to Power Automate, cloud flows, and desktop flows.
 | Metric | Value |
 |--------|-------|
 | **Repositories** | 46 |
-| **Total Stars** | :star: 26,224 |
+| **Total Stars** | :star: 26,235 |
 
 ### Top Languages
 
@@ -44,7 +44,7 @@ Repositories related to Power Automate, cloud flows, and desktop flows.
 
 <div class="grid cards" markdown>
 
--   :star: **skyvern** · 21,035 stars · `Python`
+-   :star: **skyvern** · 21,046 stars · :material-eye: 102 watchers · `Python`
 
     ---
 
@@ -52,7 +52,7 @@ Repositories related to Power Automate, cloud flows, and desktop flows.
 
     [:octicons-arrow-right-24: View details](skyvern-ai_skyvern.md)
 
--   :star: **PowerPlatformConnectors** · 1,231 stars · `C#`
+-   :star: **PowerPlatformConnectors** · 1,231 stars · :material-eye: 56 watchers · `C#`
 
     ---
 
@@ -60,7 +60,7 @@ Repositories related to Power Automate, cloud flows, and desktop flows.
 
     [:octicons-arrow-right-24: View details](microsoft_powerplatformconnectors.md)
 
--   :star: **PowerDocu** · 604 stars · `C#`
+-   :star: **PowerDocu** · 604 stars · :material-eye: 34 watchers · `C#`
 
     ---
 
@@ -68,7 +68,7 @@ Repositories related to Power Automate, cloud flows, and desktop flows.
 
     [:octicons-arrow-right-24: View details](modery_powerdocu.md)
 
--   :star: **powerplatform-samples** · 403 stars · `Unknown`
+-   :star: **powerplatform-samples** · 403 stars · :material-eye: 24 watchers · `Unknown`
 
     ---
 
@@ -76,7 +76,7 @@ Repositories related to Power Automate, cloud flows, and desktop flows.
 
     [:octicons-arrow-right-24: View details](pnp_powerplatform-samples.md)
 
--   :star: **powerautomate-samples** · 341 stars · `Unknown`
+-   :star: **powerautomate-samples** · 341 stars · :material-eye: 20 watchers · `Unknown`
 
     ---
 
@@ -84,7 +84,7 @@ Repositories related to Power Automate, cloud flows, and desktop flows.
 
     [:octicons-arrow-right-24: View details](pnp_powerautomate-samples.md)
 
--   :star: **microsoft-teams-apps-requestateam** · 239 stars · `PowerShell`
+-   :star: **microsoft-teams-apps-requestateam** · 239 stars · :material-eye: 44 watchers · `PowerShell`
 
     ---
 
@@ -92,7 +92,7 @@ Repositories related to Power Automate, cloud flows, and desktop flows.
 
     [:octicons-arrow-right-24: View details](officedev_microsoft-teams-apps-requestateam.md)
 
--   :star: **Federal-Business-Applications** · 215 stars · `PowerShell`
+-   :star: **Federal-Business-Applications** · 215 stars · :material-eye: 40 watchers · `PowerShell`
 
     ---
 
@@ -100,7 +100,7 @@ Repositories related to Power Automate, cloud flows, and desktop flows.
 
     [:octicons-arrow-right-24: View details](microsoft_federal-business-applications.md)
 
--   :star: **powerplatform-snippets** · 210 stars · `HLSL`
+-   :star: **powerplatform-snippets** · 210 stars · :material-eye: 20 watchers · `HLSL`
 
     ---
 
@@ -108,7 +108,7 @@ Repositories related to Power Automate, cloud flows, and desktop flows.
 
     [:octicons-arrow-right-24: View details](pnp_powerplatform-snippets.md)
 
--   :star: **MicrosoftCloudLogos** · 201 stars · `Python`
+-   :star: **MicrosoftCloudLogos** · 201 stars · :material-eye: 16 watchers · `Python`
 
     ---
 
@@ -116,7 +116,7 @@ Repositories related to Power Automate, cloud flows, and desktop flows.
 
     [:octicons-arrow-right-24: View details](loryanstrant_microsoftcloudlogos.md)
 
--   :star: **Low-Code** · 183 stars · `JavaScript`
+-   :star: **Low-Code** · 183 stars · :material-eye: 7 watchers · `JavaScript`
 
     ---
 
@@ -124,7 +124,7 @@ Repositories related to Power Automate, cloud flows, and desktop flows.
 
     [:octicons-arrow-right-24: View details](microsoft_low-code.md)
 
--   :star: **FlowPowerAppsMigrator** · 156 stars · `PowerShell`
+-   :star: **FlowPowerAppsMigrator** · 156 stars · :material-eye: 14 watchers · `PowerShell`
 
     ---
 
@@ -132,7 +132,7 @@ Repositories related to Power Automate, cloud flows, and desktop flows.
 
     [:octicons-arrow-right-24: View details](zerg00s_flowpowerappsmigrator.md)
 
--   :star: **PowerPlatformAF** · 136 stars · `Unknown`
+-   :star: **PowerPlatformAF** · 136 stars · :material-eye: 40 watchers · `Unknown`
 
     ---
 
@@ -140,7 +140,7 @@ Repositories related to Power Automate, cloud flows, and desktop flows.
 
     [:octicons-arrow-right-24: View details](powerplatformaf_powerplatformaf.md)
 
--   :star: **PowerAutomate** · 117 stars · `Unknown`
+-   :star: **PowerAutomate** · 117 stars · :material-eye: 5 watchers · `Unknown`
 
     ---
 
@@ -148,7 +148,7 @@ Repositories related to Power Automate, cloud flows, and desktop flows.
 
     [:octicons-arrow-right-24: View details](damobird365_powerautomate.md)
 
--   :star: **awesome-power-automate-learning-resources** · 111 stars · `Unknown`
+-   :star: **awesome-power-automate-learning-resources** · 111 stars · :material-eye: 10 watchers · `Unknown`
 
     ---
 
@@ -156,7 +156,7 @@ Repositories related to Power Automate, cloud flows, and desktop flows.
 
     [:octicons-arrow-right-24: View details](iamericfletcher_awesome-power-automate-learning-resources.md)
 
--   :star: **power-automate-desktop-framework** · 109 stars · `TSQL`
+-   :star: **power-automate-desktop-framework** · 109 stars · :material-eye: 20 watchers · `TSQL`
 
     ---
 
@@ -164,7 +164,7 @@ Repositories related to Power Automate, cloud flows, and desktop flows.
 
     [:octicons-arrow-right-24: View details](agniusbartninkas_power-automate-desktop-framework.md)
 
--   :star: **provision-assist-m365** · 107 stars · `PowerShell`
+-   :star: **provision-assist-m365** · 107 stars · :material-eye: 16 watchers · `PowerShell`
 
     ---
 
@@ -172,7 +172,7 @@ Repositories related to Power Automate, cloud flows, and desktop flows.
 
     [:octicons-arrow-right-24: View details](pnp_provision-assist-m365.md)
 
--   :star: **Power-Platform-For-Beginners** · 101 stars · `HTML`
+-   :star: **Power-Platform-For-Beginners** · 101 stars · :material-eye: 9 watchers · `HTML`
 
     ---
 
@@ -180,7 +180,7 @@ Repositories related to Power Automate, cloud flows, and desktop flows.
 
     [:octicons-arrow-right-24: View details](microsoft_power-platform-for-beginners.md)
 
--   :star: **Planner-PowerBI-with-PowerAutomate** · 83 stars · `Unknown`
+-   :star: **Planner-PowerBI-with-PowerAutomate** · 83 stars · :material-eye: 11 watchers · `Unknown`
 
     ---
 
@@ -188,7 +188,7 @@ Repositories related to Power Automate, cloud flows, and desktop flows.
 
     [:octicons-arrow-right-24: View details](ben-howard_planner-powerbi-with-powerautomate.md)
 
--   :star: **power-platform-deprecation-tracker** · 62 stars · `Unknown`
+-   :star: **power-platform-deprecation-tracker** · 62 stars · :material-eye: 55 watchers · `Unknown`
 
     ---
 
@@ -196,7 +196,7 @@ Repositories related to Power Automate, cloud flows, and desktop flows.
 
     [:octicons-arrow-right-24: View details](tcorcor1_power-platform-deprecation-tracker.md)
 
--   :star: **PowerFxSnippets** · 60 stars · `Python`
+-   :star: **PowerFxSnippets** · 60 stars · :material-eye: 5 watchers · `Python`
 
     ---
 
@@ -204,7 +204,7 @@ Repositories related to Power Automate, cloud flows, and desktop flows.
 
     [:octicons-arrow-right-24: View details](powerappsdarren_powerfxsnippets.md)
 
--   :star: **FlowToVisio** · 50 stars · `C#`
+-   :star: **FlowToVisio** · 50 stars · :material-eye: 5 watchers · `C#`
 
     ---
 
@@ -212,7 +212,7 @@ Repositories related to Power Automate, cloud flows, and desktop flows.
 
     [:octicons-arrow-right-24: View details](linked365_flowtovisio.md)
 
--   :star: **Power-Platform** · 43 stars · `HTML`
+-   :star: **Power-Platform** · 43 stars · :material-eye: 6 watchers · `HTML`
 
     ---
 
@@ -220,7 +220,7 @@ Repositories related to Power Automate, cloud flows, and desktop flows.
 
     [:octicons-arrow-right-24: View details](wyattdave_power-platform.md)
 
--   :star: **pac2** · 36 stars · `Python`
+-   :star: **pac2** · 36 stars · :material-eye: 0 watchers · `Python`
 
     ---
 
@@ -228,7 +228,7 @@ Repositories related to Power Automate, cloud flows, and desktop flows.
 
     [:octicons-arrow-right-24: View details](ntt-security-japan_pac2.md)
 
--   :star: **SmartBrief** · 35 stars · `Unknown`
+-   :star: **SmartBrief** · 35 stars · :material-eye: 16 watchers · `Unknown`
 
     ---
 
@@ -236,7 +236,7 @@ Repositories related to Power Automate, cloud flows, and desktop flows.
 
     [:octicons-arrow-right-24: View details](rkneela0912_smartbrief.md)
 
--   :star: **hack-workshop-power-apps** · 32 stars · `HTML`
+-   :star: **hack-workshop-power-apps** · 32 stars · :material-eye: 28 watchers · `HTML`
 
     ---
 
@@ -244,7 +244,7 @@ Repositories related to Power Automate, cloud flows, and desktop flows.
 
     [:octicons-arrow-right-24: View details](microsoft_hack-workshop-power-apps.md)
 
--   :star: **open-ai-teams-chat-bot** · 32 stars · `Unknown`
+-   :star: **open-ai-teams-chat-bot** · 32 stars · :material-eye: 3 watchers · `Unknown`
 
     ---
 
@@ -252,7 +252,7 @@ Repositories related to Power Automate, cloud flows, and desktop flows.
 
     [:octicons-arrow-right-24: View details](zerg00s_open-ai-teams-chat-bot.md)
 
--   :star: **prompt-pulse** · 24 stars · `Unknown`
+-   :star: **prompt-pulse** · 24 stars · :material-eye: 6 watchers · `Unknown`
 
     ---
 
@@ -260,7 +260,7 @@ Repositories related to Power Automate, cloud flows, and desktop flows.
 
     [:octicons-arrow-right-24: View details](pnp_prompt-pulse.md)
 
--   :star: **powerplatformconnect** · 21 stars · `HTML`
+-   :star: **powerplatformconnect** · 21 stars · :material-eye: 3 watchers · `HTML`
 
     ---
 
@@ -268,7 +268,7 @@ Repositories related to Power Automate, cloud flows, and desktop flows.
 
     [:octicons-arrow-right-24: View details](microsoft_powerplatformconnect.md)
 
--   :star: **Power-BI-Read-Only-REST-API** · 19 stars · `PowerShell`
+-   :star: **Power-BI-Read-Only-REST-API** · 19 stars · :material-eye: 2 watchers · `PowerShell`
 
     ---
 
@@ -276,7 +276,7 @@ Repositories related to Power Automate, cloud flows, and desktop flows.
 
     [:octicons-arrow-right-24: View details](ferrybouwman_power-bi-read-only-rest-api.md)
 
--   :star: **agents-pro** · 18 stars · `Python`
+-   :star: **agents-pro** · 18 stars · :material-eye: 3 watchers · `Python`
 
     ---
 
@@ -313,4 +313,4 @@ Repositories related to Power Automate, cloud flows, and desktop flows.
 
 ---
 
-_Auto-generated by [`sync_repos.py`](https://github.com/rpothin/PowerPlatform-OpenSource-Hub/blob/main/scripts/sync_repos.py) on 2026-04-04 02:26 UTC._
+_Auto-generated by [`sync_repos.py`](https://github.com/rpothin/PowerPlatform-OpenSource-Hub/blob/main/scripts/sync_repos.py) on 2026-04-05 01:12 UTC._

@@ -5,9 +5,9 @@ hide:
 
 # 🏢 Dynamics 365
 
-Repositories related to Dynamics 365, Dynamics CRM, and Business Central.
+Repositories related to Dynamics 365, Dynamics CRM, and connected business applications.
 
-!!! info "Last synced: 2026-04-04 02:26 UTC"
+!!! info "Last synced: 2026-04-05 01:12 UTC"
     Showing **156** repositories matching this focus area.
 
 ---
@@ -19,7 +19,7 @@ Repositories related to Dynamics 365, Dynamics CRM, and Business Central.
 | Metric | Value |
 |--------|-------|
 | **Repositories** | 156 |
-| **Total Stars** | :star: 12,037 |
+| **Total Stars** | :star: 12,038 |
 
 ### Top Languages
 
@@ -44,7 +44,7 @@ Repositories related to Dynamics 365, Dynamics CRM, and Business Central.
 
 <div class="grid cards" markdown>
 
--   :star: **PowerApps-Samples** · 1,903 stars · `C#`
+-   :star: **PowerApps-Samples** · 1,903 stars · :material-eye: 117 watchers · `C#`
 
     ---
 
@@ -52,7 +52,7 @@ Repositories related to Dynamics 365, Dynamics CRM, and Business Central.
 
     [:octicons-arrow-right-24: View details](microsoft_powerapps-samples.md)
 
--   :star: **AL** · 851 stars · `PowerShell`
+-   :star: **AL** · 851 stars · :material-eye: 157 watchers · `PowerShell`
 
     ---
 
@@ -60,7 +60,7 @@ Repositories related to Dynamics 365, Dynamics CRM, and Business Central.
 
     [:octicons-arrow-right-24: View details](microsoft_al.md)
 
--   :star: **inoERP** · 830 stars · `JavaScript`
+-   :star: **inoERP** · 830 stars · :material-eye: 128 watchers · `JavaScript`
 
     ---
 
@@ -68,7 +68,7 @@ Repositories related to Dynamics 365, Dynamics CRM, and Business Central.
 
     [:octicons-arrow-right-24: View details](inoerp_inoerp.md)
 
--   :star: **BCTech** · 716 stars · `AL`
+-   :star: **BCTech** · 717 stars · :material-eye: 119 watchers · `AL`
 
     ---
 
@@ -76,7 +76,7 @@ Repositories related to Dynamics 365, Dynamics CRM, and Business Central.
 
     [:octicons-arrow-right-24: View details](microsoft_bctech.md)
 
--   :star: **Dynamics-365-Workflow-Tools** · 500 stars · `C#`
+-   :star: **Dynamics-365-Workflow-Tools** · 500 stars · :material-eye: 71 watchers · `C#`
 
     ---
 
@@ -84,7 +84,7 @@ Repositories related to Dynamics 365, Dynamics CRM, and Business Central.
 
     [:octicons-arrow-right-24: View details](demianrasko_dynamics-365-workflow-tools.md)
 
--   :star: **supaglue** · 423 stars · `TypeScript`
+-   :star: **supaglue** · 423 stars · :material-eye: 5 watchers · `TypeScript`
 
     ---
 
@@ -92,7 +92,7 @@ Repositories related to Dynamics 365, Dynamics CRM, and Business Central.
 
     [:octicons-arrow-right-24: View details](supaglue-labs_supaglue.md)
 
--   :star: **PowerPlatform-DataverseServiceClient** · 308 stars · `C#`
+-   :star: **PowerPlatform-DataverseServiceClient** · 308 stars · :material-eye: 53 watchers · `C#`
 
     ---
 
@@ -100,7 +100,7 @@ Repositories related to Dynamics 365, Dynamics CRM, and Business Central.
 
     [:octicons-arrow-right-24: View details](microsoft_powerplatform-dataverseserviceclient.md)
 
--   :star: **DynamicsWebApi** · 307 stars · `TypeScript`
+-   :star: **DynamicsWebApi** · 307 stars · :material-eye: 28 watchers · `TypeScript`
 
     ---
 
@@ -108,7 +108,7 @@ Repositories related to Dynamics 365, Dynamics CRM, and Business Central.
 
     [:octicons-arrow-right-24: View details](aleksandrrogov_dynamicswebapi.md)
 
--   :star: **fake-xrm-easy** · 266 stars · `C#`
+-   :star: **fake-xrm-easy** · 266 stars · :material-eye: 33 watchers · `C#`
 
     ---
 
@@ -116,7 +116,7 @@ Repositories related to Dynamics 365, Dynamics CRM, and Business Central.
 
     [:octicons-arrow-right-24: View details](jordimontana82_fake-xrm-easy.md)
 
--   :star: **Levelup-for-Dynamics-CRM** · 257 stars · `TypeScript`
+-   :star: **Levelup-for-Dynamics-CRM** · 257 stars · :material-eye: 23 watchers · `TypeScript`
 
     ---
 
@@ -124,7 +124,7 @@ Repositories related to Dynamics 365, Dynamics CRM, and Business Central.
 
     [:octicons-arrow-right-24: View details](rajyraman_levelup-for-dynamics-crm.md)
 
--   :star: **Federal-Business-Applications** · 215 stars · `PowerShell`
+-   :star: **Federal-Business-Applications** · 215 stars · :material-eye: 40 watchers · `PowerShell`
 
     ---
 
@@ -132,7 +132,7 @@ Repositories related to Dynamics 365, Dynamics CRM, and Business Central.
 
     [:octicons-arrow-right-24: View details](microsoft_federal-business-applications.md)
 
--   :star: **MicrosoftCloudLogos** · 201 stars · `Python`
+-   :star: **MicrosoftCloudLogos** · 201 stars · :material-eye: 16 watchers · `Python`
 
     ---
 
@@ -140,7 +140,7 @@ Repositories related to Dynamics 365, Dynamics CRM, and Business Central.
 
     [:octicons-arrow-right-24: View details](loryanstrant_microsoftcloudlogos.md)
 
--   :star: **xrm-ci-framework** · 194 stars · `C#`
+-   :star: **xrm-ci-framework** · 194 stars · :material-eye: 50 watchers · `C#`
 
     ---
 
@@ -148,7 +148,7 @@ Repositories related to Dynamics 365, Dynamics CRM, and Business Central.
 
     [:octicons-arrow-right-24: View details](waelhamze_xrm-ci-framework.md)
 
--   :star: **Project-Accelerator** · 146 stars · `Unknown`
+-   :star: **Project-Accelerator** · 146 stars · :material-eye: 46 watchers · `Unknown`
 
     ---
 
@@ -156,7 +156,7 @@ Repositories related to Dynamics 365, Dynamics CRM, and Business Central.
 
     [:octicons-arrow-right-24: View details](officedev_project-accelerator.md)
 
--   :star: **XrmDefinitelyTyped** · 143 stars · `TypeScript`
+-   :star: **XrmDefinitelyTyped** · 143 stars · :material-eye: 32 watchers · `TypeScript`
 
     ---
 
@@ -164,7 +164,7 @@ Repositories related to Dynamics 365, Dynamics CRM, and Business Central.
 
     [:octicons-arrow-right-24: View details](delegateas_xrmdefinitelytyped.md)
 
--   :star: **PowerPlatformAF** · 136 stars · `Unknown`
+-   :star: **PowerPlatformAF** · 136 stars · :material-eye: 40 watchers · `Unknown`
 
     ---
 
@@ -172,7 +172,7 @@ Repositories related to Dynamics 365, Dynamics CRM, and Business Central.
 
     [:octicons-arrow-right-24: View details](powerplatformaf_powerplatformaf.md)
 
--   :star: **DRB** · 122 stars · `JavaScript`
+-   :star: **DRB** · 122 stars · :material-eye: 7 watchers · `JavaScript`
 
     ---
 
@@ -180,7 +180,7 @@ Repositories related to Dynamics 365, Dynamics CRM, and Business Central.
 
     [:octicons-arrow-right-24: View details](guidopreite_drb.md)
 
--   :star: **dyn365-ce-vsts-tasks** · 121 stars · `PowerShell`
+-   :star: **dyn365-ce-vsts-tasks** · 121 stars · :material-eye: 31 watchers · `PowerShell`
 
     ---
 
@@ -188,7 +188,7 @@ Repositories related to Dynamics 365, Dynamics CRM, and Business Central.
 
     [:octicons-arrow-right-24: View details](waelhamze_dyn365-ce-vsts-tasks.md)
 
--   :star: **xRM-Portals-Community-Edition** · 118 stars · `C#`
+-   :star: **xRM-Portals-Community-Edition** · 118 stars · :material-eye: 46 watchers · `C#`
 
     ---
 
@@ -196,7 +196,7 @@ Repositories related to Dynamics 365, Dynamics CRM, and Business Central.
 
     [:octicons-arrow-right-24: View details](adoxio_xrm-portals-community-edition.md)
 
--   :star: **OrgDbOrgSettings** · 110 stars · `HTML`
+-   :star: **OrgDbOrgSettings** · 110 stars · :material-eye: 25 watchers · `HTML`
 
     ---
 
@@ -204,7 +204,7 @@ Repositories related to Dynamics 365, Dynamics CRM, and Business Central.
 
     [:octicons-arrow-right-24: View details](seanmcne_orgdborgsettings.md)
 
--   :star: **php-crm-toolkit** · 107 stars · `PHP`
+-   :star: **php-crm-toolkit** · 107 stars · :material-eye: 10 watchers · `PHP`
 
     ---
 
@@ -212,7 +212,7 @@ Repositories related to Dynamics 365, Dynamics CRM, and Business Central.
 
     [:octicons-arrow-right-24: View details](alexacrm_php-crm-toolkit.md)
 
--   :star: **Xrm-WebApi-Client** · 104 stars · `JavaScript`
+-   :star: **Xrm-WebApi-Client** · 104 stars · :material-eye: 22 watchers · `JavaScript`
 
     ---
 
@@ -220,7 +220,7 @@ Repositories related to Dynamics 365, Dynamics CRM, and Business Central.
 
     [:octicons-arrow-right-24: View details](xrm-oss_xrm-webapi-client.md)
 
--   :star: **alertjs** · 97 stars · `JavaScript`
+-   :star: **alertjs** · 97 stars · :material-eye: 17 watchers · `JavaScript`
 
     ---
 
@@ -228,7 +228,7 @@ Repositories related to Dynamics 365, Dynamics CRM, and Business Central.
 
     [:octicons-arrow-right-24: View details](paulnieuwelaar_alertjs.md)
 
--   :star: **aotbrowser** · 97 stars · `C#`
+-   :star: **aotbrowser** · 97 stars · :material-eye: 14 watchers · `C#`
 
     ---
 
@@ -236,7 +236,7 @@ Repositories related to Dynamics 365, Dynamics CRM, and Business Central.
 
     [:octicons-arrow-right-24: View details](arganollc_aotbrowser.md)
 
--   :star: **dyn365-ce-devops** · 94 stars · `Unknown`
+-   :star: **dyn365-ce-devops** · 94 stars · :material-eye: 34 watchers · `Unknown`
 
     ---
 
@@ -244,7 +244,7 @@ Repositories related to Dynamics 365, Dynamics CRM, and Business Central.
 
     [:octicons-arrow-right-24: View details](devkeydet_dyn365-ce-devops.md)
 
--   :star: **D365FONinjaDevTools** · 87 stars · `C#`
+-   :star: **D365FONinjaDevTools** · 87 stars · :material-eye: 34 watchers · `C#`
 
     ---
 
@@ -252,7 +252,7 @@ Repositories related to Dynamics 365, Dynamics CRM, and Business Central.
 
     [:octicons-arrow-right-24: View details](hichemdax_d365foninjadevtools.md)
 
--   :star: **xrm-mock** · 82 stars · `TypeScript`
+-   :star: **xrm-mock** · 82 stars · :material-eye: 12 watchers · `TypeScript`
 
     ---
 
@@ -260,7 +260,7 @@ Repositories related to Dynamics 365, Dynamics CRM, and Business Central.
 
     [:octicons-arrow-right-24: View details](davidjbclark_xrm-mock.md)
 
--   :star: **XrmMockup** · 82 stars · `C#`
+-   :star: **XrmMockup** · 82 stars · :material-eye: 20 watchers · `C#`
 
     ---
 
@@ -268,7 +268,7 @@ Repositories related to Dynamics 365, Dynamics CRM, and Business Central.
 
     [:octicons-arrow-right-24: View details](delegateas_xrmmockup.md)
 
--   :star: **DataverseDevTools-VSCode** · 81 stars · `TypeScript`
+-   :star: **DataverseDevTools-VSCode** · 81 stars · :material-eye: 5 watchers · `TypeScript`
 
     ---
 
@@ -276,7 +276,7 @@ Repositories related to Dynamics 365, Dynamics CRM, and Business Central.
 
     [:octicons-arrow-right-24: View details](power-maverick_dataversedevtools-vscode.md)
 
--   :star: **dynamics-webapi-toolkit** · 81 stars · `PHP`
+-   :star: **dynamics-webapi-toolkit** · 81 stars · :material-eye: 6 watchers · `PHP`
 
     ---
 
@@ -343,9 +343,9 @@ Repositories related to Dynamics 365, Dynamics CRM, and Business Central.
     | [xrm-datamigration](capgemini_xrm-datamigration.md) | C# | :star: 27 | Export and import data for Microsoft Dataverse. Supports JSON and CSV. |
     | [powerapps-packagedeployer-template](capgemini_powerapps-packagedeployer-template.md) | C# | :star: 27 | Enhanced deployment capabilities when deploying with the Power Apps Package Depl… |
     | [PyConnectDataverse](yeswecandrew_pyconnectdataverse.md) | Python | :star: 27 | Connect to the Dynamics 365 / Dataverse Web API using interactive login |
-    | [ALWebServiceExamples](ajkauffmann_alwebserviceexamples.md) | AL | :star: 27 | AL code examples to call web services with Dynamics 365 for Financials and Opera… |
     | [EDMXTrimmer](shashisadasivan_edmxtrimmer.md) | C# | :star: 27 | D365 Finance and operations EDMX trimmer |
     | [erpl-web](datazoode_erpl-web.md) | C++ | :star: 27 | ERPL is a DuckDB extension to connect to API based ecosystems via standard inter… |
+    | [ALWebServiceExamples](ajkauffmann_alwebserviceexamples.md) | AL | :star: 27 | AL code examples to call web services with Dynamics 365 for Financials and Opera… |
     | [FetchXmlTester](ashv_fetchxmltester.md) | JavaScript | :star: 26 | Test FetchXml Online without providing credentials using WebAPI GET Call |
     | [PCF-Builder-VSCode](power-maverick_pcf-builder-vscode.md) | JavaScript | :star: 25 | Build your Power Apps Component Framework custom controls faster. No need to rem… |
     | [Innofactor.Crm.CI](biznamics_innofactor.crm.ci.md) | C# | :star: 25 | DevOps tools for Microsoft Dynamics 365 |
@@ -388,31 +388,31 @@ Repositories related to Dynamics 365, Dynamics CRM, and Business Central.
     | [OneMoreActionQueueFramework](sminozhenko_onemoreactionqueueframework.md) | Unknown | :star: 14 | Dynamics 365 For Finance and Operations action queue framework |
     | [PowerApps-Guidelines](automatevalue_powerapps-guidelines.md) | JavaScript | :star: 13 | Coding standards and Guidelines for Customizing and Extending PowerApps & Dynami… |
     | [Dynamics365-MetaDataExplorer](axbusiness_dynamics365-metadataexplorer.md) | C# | :star: 13 | Explore, validate and visualize Metadata of a "Microsoft Dynamics 365 for Operat… |
-    | [Imposter.Fiddler](gotdibbs_imposter.fiddler.md) | C# | :star: 13 | Fiddler Extension Version of Imposter |
     | [Personal-View-to-System-View](rajyraman_personal-view-to-system-view.md) | JavaScript | :star: 13 | Convert Personal View to System View from Advanced Find. |
     | [dynamics-portal-companion-app](adoxio_dynamics-portal-companion-app.md) | C# | :star: 13 | A starter template for a Dynamics 365 portal companion web application with Azur… |
+    | [Imposter.Fiddler](gotdibbs_imposter.fiddler.md) | C# | :star: 13 | Fiddler Extension Version of Imposter |
     | [Xrm-Entity-Serializer](albanian-xrm_xrm-entity-serializer.md) | C# | :star: 12 | This library can serialize an Microsoft.Xrm.Sdk.Entity to Json and back using Ne… |
+    | [PCFGrapesJSEditor](irah2008_pcfgrapesjseditor.md) | CSS | :star: 12 | PCF Control for GrapesJS Editor |
     | [BlockchainWithDynamics365](mannygrewal_blockchainwithdynamics365.md) | JavaScript | :star: 12 | To demonstrate how modern technologies like ReactJs and Blockchain can be integr… |
     | [VoiceToText](takayakawano_voicetotext.md) | JavaScript | :star: 12 | This solution is the voice to text by using Bing Speech API with Dynamics 365. |
     | [BCDevApps](picazin_bcdevapps.md) | AL | :star: 12 | Tools to improve and make BC developers easy |
     | [EasyPlugins](akouddane_easyplugins.md) | Unknown | :star: 12 | Dynamics CRM EasyPlugins 365 |
-    | [PCFGrapesJSEditor](irah2008_pcfgrapesjseditor.md) | CSS | :star: 12 | PCF Control for GrapesJS Editor |
     | [PortalRecordsMoverConsole](jamesnovak_portalrecordsmoverconsole.md) | C# | :star: 12 | Port of the Portal Records Mover XrmToolbox plugin by Tanguy Touzard |
     | [PowerPoints](mitchmilam_powerpoints.md) | Unknown | :star: 12 | Here are all of the PowerPoint presentations that I have ever created and presen… |
     | [D365-CE-Pipelines](microsoft-d365-ce-pfe-devops_d365-ce-pipelines.md) | Unknown | :star: 12 | Collection of YAML files for building Azure DevOps pipelines for Dynamics 365 fo… |
     | [dynamics-client](mrthearman_dynamics-client.md) | Python | :star: 12 | Client for making Web API request from a Microsoft Dynamics 365 Database |
     | [AL-Demos](srenders_al-demos.md) | AL | :star: 12 | AL Demos and Labs |
-    | [AutomationALM](aurelienclere-365_automationalm.md) | Unknown | :star: 11 | Enhance Power Platform ALM Accelerator (from CoE Starter Kit) to improve automat… |
     | [crmpowershell](amsoftwarenl_crmpowershell.md) | C# | :star: 11 | Manage Power Platform Dataverse metadata and content, and administer the environ… |
+    | [AutomationALM](aurelienclere-365_automationalm.md) | Unknown | :star: 11 | Enhance Power Platform ALM Accelerator (from CoE Starter Kit) to improve automat… |
     | [dataverse-powertools](pete-mc_dataverse-powertools.md) | TypeScript | :star: 11 | Dataverse Powertools contains tools and templates to help with the development o… |
     | [PCF-ScheduleBoardView](bevercrm_pcf-scheduleboardview.md) | TypeScript | :star: 11 | This control converts any dataset that has start date and end date in its record… |
     | [multipage-modal-D365-vue](tcorcor1_multipage-modal-d365-vue.md) | Vue | :star: 11 | Vue.js web resource sample for creating a multi-page modal dialog in Dynamics 36… |
-    | [fscps.tools](fscpscollaborative_fscps.tools.md) | PowerShell | :star: 11 | A set of tools for maintaining D365FSC CI/CD pipelines. |
     | [Niam.XRM.Framework](khairuddinniam_niam.xrm.framework.md) | C# | :star: 11 | A dynamics CRM 365 plugin framework that easy to use and simplify server side cu… |
+    | [fscps.tools](fscpscollaborative_fscps.tools.md) | PowerShell | :star: 11 | A set of tools for maintaining D365FSC CI/CD pipelines. |
     | [OneDrive-Integration](msnraju_onedrive-integration.md) | Perl | :star: 11 | How to use Microsoft Graph API in Business Central |
+    | [msbuild-xrm-sourcecontrol](capgemini_msbuild-xrm-sourcecontrol.md) | PowerShell | :star: 11 | MSBuild Visual Studio Extensions to provide easy source control for Dynamics 365 |
     | [DynamicsCrm-CodeGenerator](yagasoft_dynamicscrm-codegenerator.md) | C# | :star: 11 | A Visual Studio extension that allows generating early bound classes for Microso… |
     | [Simple-Text-Control-PCF](kokulan365_simple-text-control-pcf.md) | TypeScript | :star: 11 | A simple yet very flexible PCF control to display text with custom style using H… |
-    | [msbuild-xrm-sourcecontrol](capgemini_msbuild-xrm-sourcecontrol.md) | PowerShell | :star: 11 | MSBuild Visual Studio Extensions to provide easy source control for Dynamics 365 |
     | [Minimal-React-PCF](paulbreuler_minimal-react-pcf.md) | TypeScript | :star: 10 | A minimal React based PowerApps Control Framework (PCF) template  |
     | [Dataverse-Web-Devtools](nickmeron_dataverse-web-devtools.md) | TypeScript | :star: 10 | A modern, browser-based developer toolkit for Microsoft Dataverse — replaces the… |
     | [toast-notification-framework-D365](tcorcor1_toast-notification-framework-d365.md) | C# | :star: 10 | Creating a framework around the in-app/toast notification feature provided by th… |
@@ -423,4 +423,4 @@ Repositories related to Dynamics 365, Dynamics CRM, and Business Central.
 
 ---
 
-_Auto-generated by [`sync_repos.py`](https://github.com/rpothin/PowerPlatform-OpenSource-Hub/blob/main/scripts/sync_repos.py) on 2026-04-04 02:26 UTC._
+_Auto-generated by [`sync_repos.py`](https://github.com/rpothin/PowerPlatform-OpenSource-Hub/blob/main/scripts/sync_repos.py) on 2026-04-05 01:12 UTC._

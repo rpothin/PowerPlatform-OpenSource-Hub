@@ -5,10 +5,10 @@ hide:
 
 # :material-format-list-bulleted: Repository Registry
 
-Browse the catalogue of **320** Power Platform & Copilot Studio
+Browse the catalogue of **323** Power Platform & Copilot Studio
 open-source repositories tracked by the Hub.
 
-!!! info "Last synced: 2026-04-04 02:26 UTC"
+!!! info "Last synced: 2026-04-05 01:12 UTC"
     Data is refreshed by [`sync_repos.py`](https://github.com/rpothin/PowerPlatform-OpenSource-Hub/blob/main/scripts/sync_repos.py).
 
 ---
@@ -19,17 +19,17 @@ open-source repositories tracked by the Hub.
 
 | Metric | Value |
 |--------|-------|
-| **Total Repositories** | 320 |
-| **Total Stars** | :star: 58,337 |
+| **Total Repositories** | 323 |
+| **Total Stars** | :star: 58,829 |
 | **Open to Contributions** | 0 |
 
 ### Top Languages
 
 | Language | Repositories |
 |----------|-------------|
-| TypeScript | 70 |
+| TypeScript | 71 |
 | C# | 69 |
-| Unknown | 53 |
+| Unknown | 55 |
 | JavaScript | 26 |
 | PowerShell | 23 |
 | Python | 16 |
@@ -46,7 +46,7 @@ open-source repositories tracked by the Hub.
 
 <div class="grid cards" markdown>
 
--   :star: **skyvern** · 21,035 stars · `Python`
+-   :star: **skyvern** · 21,046 stars · :material-eye: 102 watchers · `Python`
 
     ---
 
@@ -54,7 +54,7 @@ open-source repositories tracked by the Hub.
 
     [:octicons-arrow-right-24: View details](skyvern-ai_skyvern.md)
 
--   :star: **Power-Fx** · 3,348 stars · `C#`
+-   :star: **Power-Fx** · 3,348 stars · :material-eye: 115 watchers · `C#`
 
     ---
 
@@ -62,7 +62,7 @@ open-source repositories tracked by the Hub.
 
     [:octicons-arrow-right-24: View details](microsoft_power-fx.md)
 
--   :star: **portaljs** · 2,271 stars · `TypeScript`
+-   :star: **portaljs** · 2,271 stars · :material-eye: 95 watchers · `TypeScript`
 
     ---
 
@@ -70,7 +70,7 @@ open-source repositories tracked by the Hub.
 
     [:octicons-arrow-right-24: View details](datopian_portaljs.md)
 
--   :star: **Microsoft365DSC** · 2,240 stars · `PowerShell`
+-   :star: **Microsoft365DSC** · 2,245 stars · :material-eye: 95 watchers · `PowerShell`
 
     ---
 
@@ -78,7 +78,7 @@ open-source repositories tracked by the Hub.
 
     [:octicons-arrow-right-24: View details](microsoft_microsoft365dsc.md)
 
--   :star: **PowerApps-Samples** · 1,903 stars · `C#`
+-   :star: **PowerApps-Samples** · 1,903 stars · :material-eye: 117 watchers · `C#`
 
     ---
 
@@ -86,7 +86,7 @@ open-source repositories tracked by the Hub.
 
     [:octicons-arrow-right-24: View details](microsoft_powerapps-samples.md)
 
--   :star: **Microsoft-Integration-and-Azure-Stencils-Pack-for-Visio** · 1,522 stars · `PowerShell`
+-   :star: **Microsoft-Integration-and-Azure-Stencils-Pack-for-Visio** · 1,522 stars · :material-eye: 122 watchers · `PowerShell`
 
     ---
 
@@ -94,7 +94,7 @@ open-source repositories tracked by the Hub.
 
     [:octicons-arrow-right-24: View details](sandroasp_microsoft-integration-and-azure-stencils-pack-for-visio.md)
 
--   :star: **PowerPlatformConnectors** · 1,231 stars · `C#`
+-   :star: **PowerPlatformConnectors** · 1,231 stars · :material-eye: 56 watchers · `C#`
 
     ---
 
@@ -102,7 +102,7 @@ open-source repositories tracked by the Hub.
 
     [:octicons-arrow-right-24: View details](microsoft_powerplatformconnectors.md)
 
--   :star: **power-pwn** · 1,139 stars · `Python`
+-   :star: **power-pwn** · 1,139 stars · :material-eye: 19 watchers · `Python`
 
     ---
 
@@ -110,7 +110,7 @@ open-source repositories tracked by the Hub.
 
     [:octicons-arrow-right-24: View details](mbrg_power-pwn.md)
 
--   :star: **AL** · 851 stars · `PowerShell`
+-   :star: **AL** · 851 stars · :material-eye: 157 watchers · `PowerShell`
 
     ---
 
@@ -118,7 +118,7 @@ open-source repositories tracked by the Hub.
 
     [:octicons-arrow-right-24: View details](microsoft_al.md)
 
--   :star: **inoERP** · 830 stars · `JavaScript`
+-   :star: **inoERP** · 830 stars · :material-eye: 128 watchers · `JavaScript`
 
     ---
 
@@ -126,7 +126,7 @@ open-source repositories tracked by the Hub.
 
     [:octicons-arrow-right-24: View details](inoerp_inoerp.md)
 
--   :star: **BCTech** · 716 stars · `AL`
+-   :star: **BCTech** · 717 stars · :material-eye: 119 watchers · `AL`
 
     ---
 
@@ -134,7 +134,7 @@ open-source repositories tracked by the Hub.
 
     [:octicons-arrow-right-24: View details](microsoft_bctech.md)
 
--   :star: **XrmToolBox** · 629 stars · `C#`
+-   :star: **XrmToolBox** · 629 stars · :material-eye: 77 watchers · `C#`
 
     ---
 
@@ -142,7 +142,7 @@ open-source repositories tracked by the Hub.
 
     [:octicons-arrow-right-24: View details](mscrmtools_xrmtoolbox.md)
 
--   :star: **viber3d** · 612 stars · `TypeScript`
+-   :star: **viber3d** · 612 stars · :material-eye: 5 watchers · `TypeScript`
 
     ---
 
@@ -150,7 +150,7 @@ open-source repositories tracked by the Hub.
 
     [:octicons-arrow-right-24: View details](instructa_viber3d.md)
 
--   :star: **PowerDocu** · 604 stars · `C#`
+-   :star: **PowerDocu** · 604 stars · :material-eye: 34 watchers · `C#`
 
     ---
 
@@ -158,7 +158,7 @@ open-source repositories tracked by the Hub.
 
     [:octicons-arrow-right-24: View details](modery_powerdocu.md)
 
--   :star: **PowerApps** · 540 stars · `Unknown`
+-   :star: **PowerApps** · 541 stars · :material-eye: 54 watchers · `Unknown`
 
     ---
 
@@ -166,7 +166,7 @@ open-source repositories tracked by the Hub.
 
     [:octicons-arrow-right-24: View details](aprildunnam_powerapps.md)
 
--   :star: **powerapps-samples** · 523 stars · `Unknown`
+-   :star: **powerapps-samples** · 523 stars · :material-eye: 37 watchers · `Unknown`
 
     ---
 
@@ -174,7 +174,7 @@ open-source repositories tracked by the Hub.
 
     [:octicons-arrow-right-24: View details](pnp_powerapps-samples.md)
 
--   :star: **Dynamics-365-Workflow-Tools** · 500 stars · `C#`
+-   :star: **Dynamics-365-Workflow-Tools** · 500 stars · :material-eye: 71 watchers · `C#`
 
     ---
 
@@ -182,7 +182,7 @@ open-source repositories tracked by the Hub.
 
     [:octicons-arrow-right-24: View details](demianrasko_dynamics-365-workflow-tools.md)
 
--   :star: **alan-sdk-pcf** · 430 stars · `Unknown`
+-   :star: **alan-sdk-pcf** · 430 stars · :material-eye: 6 watchers · `Unknown`
 
     ---
 
@@ -190,7 +190,7 @@ open-source repositories tracked by the Hub.
 
     [:octicons-arrow-right-24: View details](alan-ai_alan-sdk-pcf.md)
 
--   :star: **supaglue** · 423 stars · `TypeScript`
+-   :star: **supaglue** · 423 stars · :material-eye: 5 watchers · `TypeScript`
 
     ---
 
@@ -198,7 +198,7 @@ open-source repositories tracked by the Hub.
 
     [:octicons-arrow-right-24: View details](supaglue-labs_supaglue.md)
 
--   :star: **PowerApps-Tooling** · 414 stars · `C#`
+-   :star: **PowerApps-Tooling** · 415 stars · :material-eye: 48 watchers · `C#`
 
     ---
 
@@ -206,7 +206,7 @@ open-source repositories tracked by the Hub.
 
     [:octicons-arrow-right-24: View details](microsoft_powerapps-tooling.md)
 
--   :star: **powerplatform-samples** · 403 stars · `Unknown`
+-   :star: **powerplatform-samples** · 403 stars · :material-eye: 24 watchers · `Unknown`
 
     ---
 
@@ -214,7 +214,7 @@ open-source repositories tracked by the Hub.
 
     [:octicons-arrow-right-24: View details](pnp_powerplatform-samples.md)
 
--   :star: **powercat-creator-kit** · 398 stars · `CSS`
+-   :star: **powercat-creator-kit** · 398 stars · :material-eye: 35 watchers · `CSS`
 
     ---
 
@@ -222,7 +222,7 @@ open-source repositories tracked by the Hub.
 
     [:octicons-arrow-right-24: View details](microsoft_powercat-creator-kit.md)
 
--   :star: **azure-functions-openapi-extension** · 389 stars · `C#`
+-   :star: **azure-functions-openapi-extension** · 389 stars · :material-eye: 35 watchers · `C#`
 
     ---
 
@@ -230,7 +230,7 @@ open-source repositories tracked by the Hub.
 
     [:octicons-arrow-right-24: View details](azure_azure-functions-openapi-extension.md)
 
--   :star: **awesome-low-code** · 358 stars · `Unknown`
+-   :star: **awesome-low-code** · 358 stars · :material-eye: 21 watchers · `Unknown`
 
     ---
 
@@ -238,7 +238,7 @@ open-source repositories tracked by the Hub.
 
     [:octicons-arrow-right-24: View details](steedos_awesome-low-code.md)
 
--   :star: **powerautomate-samples** · 341 stars · `Unknown`
+-   :star: **powerautomate-samples** · 341 stars · :material-eye: 20 watchers · `Unknown`
 
     ---
 
@@ -246,7 +246,7 @@ open-source repositories tracked by the Hub.
 
     [:octicons-arrow-right-24: View details](pnp_powerautomate-samples.md)
 
--   :star: **PowerPlatform-DataverseServiceClient** · 308 stars · `C#`
+-   :star: **PowerPlatform-DataverseServiceClient** · 308 stars · :material-eye: 53 watchers · `C#`
 
     ---
 
@@ -254,7 +254,7 @@ open-source repositories tracked by the Hub.
 
     [:octicons-arrow-right-24: View details](microsoft_powerplatform-dataverseserviceclient.md)
 
--   :star: **DynamicsWebApi** · 307 stars · `TypeScript`
+-   :star: **DynamicsWebApi** · 307 stars · :material-eye: 28 watchers · `TypeScript`
 
     ---
 
@@ -262,7 +262,7 @@ open-source repositories tracked by the Hub.
 
     [:octicons-arrow-right-24: View details](aleksandrrogov_dynamicswebapi.md)
 
--   :star: **teams-powerapps-app-templates** · 298 stars · `Unknown`
+-   :star: **teams-powerapps-app-templates** · 298 stars · :material-eye: 17 watchers · `Unknown`
 
     ---
 
@@ -270,7 +270,7 @@ open-source repositories tracked by the Hub.
 
     [:octicons-arrow-right-24: View details](microsoft_teams-powerapps-app-templates.md)
 
--   :star: **office365dev** · 288 stars · `JavaScript`
+-   :star: **office365dev** · 288 stars · :material-eye: 25 watchers · `JavaScript`
 
     ---
 
@@ -278,7 +278,7 @@ open-source repositories tracked by the Hub.
 
     [:octicons-arrow-right-24: View details](chenxizhang_office365dev.md)
 
--   :star: **powerplatform-actions** · 281 stars · `TypeScript`
+-   :star: **powerplatform-actions** · 281 stars · :material-eye: 30 watchers · `TypeScript`
 
     ---
 
@@ -286,7 +286,7 @@ open-source repositories tracked by the Hub.
 
     [:octicons-arrow-right-24: View details](microsoft_powerplatform-actions.md)
 
--   :star: **powerplatform-build-tools** · 268 stars · `TypeScript`
+-   :star: **powerplatform-build-tools** · 268 stars · :material-eye: 33 watchers · `TypeScript`
 
     ---
 
@@ -294,7 +294,7 @@ open-source repositories tracked by the Hub.
 
     [:octicons-arrow-right-24: View details](microsoft_powerplatform-build-tools.md)
 
--   :star: **fake-xrm-easy** · 266 stars · `C#`
+-   :star: **fake-xrm-easy** · 266 stars · :material-eye: 33 watchers · `C#`
 
     ---
 
@@ -302,7 +302,7 @@ open-source repositories tracked by the Hub.
 
     [:octicons-arrow-right-24: View details](jordimontana82_fake-xrm-easy.md)
 
--   :star: **powerplatform-vscode** · 258 stars · `TypeScript`
+-   :star: **powerplatform-vscode** · 258 stars · :material-eye: 21 watchers · `TypeScript`
 
     ---
 
@@ -310,7 +310,7 @@ open-source repositories tracked by the Hub.
 
     [:octicons-arrow-right-24: View details](microsoft_powerplatform-vscode.md)
 
--   :star: **Levelup-for-Dynamics-CRM** · 257 stars · `TypeScript`
+-   :star: **Levelup-for-Dynamics-CRM** · 257 stars · :material-eye: 23 watchers · `TypeScript`
 
     ---
 
@@ -318,7 +318,7 @@ open-source repositories tracked by the Hub.
 
     [:octicons-arrow-right-24: View details](rajyraman_levelup-for-dynamics-crm.md)
 
--   :star: **microsoft-teams-apps-requestateam** · 239 stars · `PowerShell`
+-   :star: **microsoft-teams-apps-requestateam** · 239 stars · :material-eye: 44 watchers · `PowerShell`
 
     ---
 
@@ -326,7 +326,23 @@ open-source repositories tracked by the Hub.
 
     [:octicons-arrow-right-24: View details](officedev_microsoft-teams-apps-requestateam.md)
 
--   :star: **powerapps-designtoolkit** · 220 stars · `Unknown`
+-   :star: **awesome-copilot-studio-agents** · 222 stars · :material-eye: 6 watchers · `Unknown`
+
+    ---
+
+    73 paste-ready declarative agents for Microsoft 365 Copilot. No coding. No Azure. Deploy in minutes.
+
+    [:octicons-arrow-right-24: View details](kesslernity_awesome-copilot-studio-agents.md)
+
+-   :star: **awesome-microsoft-copilot-prompts** · 222 stars · :material-eye: 5 watchers · `Unknown`
+
+    ---
+
+    The definitive Microsoft 365 Copilot prompt library for business teams. 300+ prompts for Office apps…
+
+    [:octicons-arrow-right-24: View details](kesslernity_awesome-microsoft-copilot-prompts.md)
+
+-   :star: **powerapps-designtoolkit** · 220 stars · :material-eye: 20 watchers · `Unknown`
 
     ---
 
@@ -334,7 +350,7 @@ open-source repositories tracked by the Hub.
 
     [:octicons-arrow-right-24: View details](pnp_powerapps-designtoolkit.md)
 
--   :star: **Federal-Business-Applications** · 215 stars · `PowerShell`
+-   :star: **Federal-Business-Applications** · 215 stars · :material-eye: 40 watchers · `PowerShell`
 
     ---
 
@@ -342,7 +358,7 @@ open-source repositories tracked by the Hub.
 
     [:octicons-arrow-right-24: View details](microsoft_federal-business-applications.md)
 
--   :star: **powerplatform-snippets** · 210 stars · `HLSL`
+-   :star: **powerplatform-snippets** · 210 stars · :material-eye: 20 watchers · `HLSL`
 
     ---
 
@@ -350,7 +366,7 @@ open-source repositories tracked by the Hub.
 
     [:octicons-arrow-right-24: View details](pnp_powerplatform-snippets.md)
 
--   :star: **MicrosoftCloudLogos** · 201 stars · `Python`
+-   :star: **MicrosoftCloudLogos** · 201 stars · :material-eye: 16 watchers · `Python`
 
     ---
 
@@ -358,7 +374,7 @@ open-source repositories tracked by the Hub.
 
     [:octicons-arrow-right-24: View details](loryanstrant_microsoftcloudlogos.md)
 
--   :star: **xrm-ci-framework** · 194 stars · `C#`
+-   :star: **xrm-ci-framework** · 194 stars · :material-eye: 50 watchers · `C#`
 
     ---
 
@@ -366,7 +382,7 @@ open-source repositories tracked by the Hub.
 
     [:octicons-arrow-right-24: View details](waelhamze_xrm-ci-framework.md)
 
--   :star: **raaghu-react** · 187 stars · `TypeScript`
+-   :star: **raaghu-react** · 187 stars · :material-eye: 2 watchers · `TypeScript`
 
     ---
 
@@ -374,7 +390,7 @@ open-source repositories tracked by the Hub.
 
     [:octicons-arrow-right-24: View details](wai-technologies_raaghu-react.md)
 
--   :star: **PowerPlatformAdvocates** · 186 stars · `Unknown`
+-   :star: **PowerPlatformAdvocates** · 186 stars · :material-eye: 12 watchers · `Unknown`
 
     ---
 
@@ -382,7 +398,7 @@ open-source repositories tracked by the Hub.
 
     [:octicons-arrow-right-24: View details](microsoft_powerplatformadvocates.md)
 
--   :star: **Low-Code** · 183 stars · `JavaScript`
+-   :star: **Low-Code** · 183 stars · :material-eye: 7 watchers · `JavaScript`
 
     ---
 
@@ -390,7 +406,7 @@ open-source repositories tracked by the Hub.
 
     [:octicons-arrow-right-24: View details](microsoft_low-code.md)
 
--   :star: **30daysof** · 182 stars · `JavaScript`
+-   :star: **30daysof** · 182 stars · :material-eye: 26 watchers · `JavaScript`
 
     ---
 
@@ -398,7 +414,7 @@ open-source repositories tracked by the Hub.
 
     [:octicons-arrow-right-24: View details](microsoft_30daysof.md)
 
--   :star: **hub** · 174 stars · `MDX`
+-   :star: **hub** · 174 stars · :material-eye: 8 watchers · `MDX`
 
     ---
 
@@ -406,7 +422,7 @@ open-source repositories tracked by the Hub.
 
     [:octicons-arrow-right-24: View details](mscerts_hub.md)
 
--   :star: **powerplatform-actions-lab** · 174 stars · `Unknown`
+-   :star: **powerplatform-actions-lab** · 174 stars · :material-eye: 25 watchers · `Unknown`
 
     ---
 
@@ -414,7 +430,7 @@ open-source repositories tracked by the Hub.
 
     [:octicons-arrow-right-24: View details](microsoft_powerplatform-actions-lab.md)
 
--   :star: **FlowPowerAppsMigrator** · 156 stars · `PowerShell`
+-   :star: **FlowPowerAppsMigrator** · 156 stars · :material-eye: 14 watchers · `PowerShell`
 
     ---
 
@@ -422,29 +438,13 @@ open-source repositories tracked by the Hub.
 
     [:octicons-arrow-right-24: View details](zerg00s_flowpowerappsmigrator.md)
 
--   :star: **Project-Accelerator** · 146 stars · `Unknown`
+-   :star: **Project-Accelerator** · 146 stars · :material-eye: 46 watchers · `Unknown`
 
     ---
 
     An Accelerator solution for Project for the web
 
     [:octicons-arrow-right-24: View details](officedev_project-accelerator.md)
-
--   :star: **XrmDefinitelyTyped** · 143 stars · `TypeScript`
-
-    ---
-
-    Tool to generate TypeScript declaration files for Dynamics 365/CDS client-side coding.
-
-    [:octicons-arrow-right-24: View details](delegateas_xrmdefinitelytyped.md)
-
--   :star: **powerfx-samples** · 137 stars · `Unknown`
-
-    ---
-
-    This repository contains samples for Power Fx low-code programming language https://github.com/micro…
-
-    [:octicons-arrow-right-24: View details](pnp_powerfx-samples.md)
 
 </div>
 
@@ -456,17 +456,19 @@ open-source repositories tracked by the Hub.
 
     | Repository | Language | Stars | Description |
     |------------|----------|-------|-------------|
+    | [XrmDefinitelyTyped](delegateas_xrmdefinitelytyped.md) | TypeScript | :star: 143 | Tool to generate TypeScript declaration files for Dynamics 365/CDS client-side c… |
+    | [powerfx-samples](pnp_powerfx-samples.md) | Unknown | :star: 137 | This repository contains samples for Power Fx low-code programming language http… |
     | [PowerPlatformAF](powerplatformaf_powerplatformaf.md) | Unknown | :star: 136 | Power Platform Adoption Framework |
     | [evoke](cheeseburgertony_evoke.md) | TypeScript | :star: 130 | AI-powered web app generator — turn natural language ideas into full code with l… |
     | [DRB](guidopreite_drb.md) | JavaScript | :star: 122 | Dataverse REST Builder |
     | [dyn365-ce-vsts-tasks](waelhamze_dyn365-ce-vsts-tasks.md) | PowerShell | :star: 121 | VSTS Extension for Dynamics 365 Customer Engagement |
     | [xRM-Portals-Community-Edition](adoxio_xrm-portals-community-edition.md) | C# | :star: 118 | The definitive edition of Microsoft Open Source Portals, supported by the expert… |
     | [PowerAutomate](damobird365_powerautomate.md) | Unknown | :star: 117 | Power Automate demos & proof of concepts |
+    | [power-platform-skills](microsoft_power-platform-skills.md) | JavaScript | :star: 115 | A plugin marketplace for Claude Code/GitHub Copilot that provides Power Platform… |
     | [awesome-power-platform](power-maverick_awesome-power-platform.md) | Unknown | :star: 111 | A collection of awesome things regarding the Power Platform ecosystem. |
     | [awesome-power-automate-learning-resources](iamericfletcher_awesome-power-automate-learning-resources.md) | Unknown | :star: 111 | A curated collection of learning resources to help deepen your understanding of … |
     | [OrgDbOrgSettings](seanmcne_orgdborgsettings.md) | HTML | :star: 110 | This is a utility allowing admins of Dynamics CRM Online & onPrem to edit organi… |
     | [power-automate-desktop-framework](agniusbartninkas_power-automate-desktop-framework.md) | TSQL | :star: 109 | Framework for having standardized structure of Microsoft Power Automate Desktop … |
-    | [power-platform-skills](microsoft_power-platform-skills.md) | JavaScript | :star: 109 | A plugin marketplace for Claude Code/GitHub Copilot that provides Power Platform… |
     | [provision-assist-m365](pnp_provision-assist-m365.md) | PowerShell | :star: 107 | Provision Assist is a request and provisioning solution for Teams, Groups, SPO S… |
     | [php-crm-toolkit](alexacrm_php-crm-toolkit.md) | PHP | :star: 107 | Dynamics CRM Toolkit for PHP |
     | [powerplatform](microsoft_powerplatform.md) | Unknown | :star: 104 | The official repository for Power Platform tools and resources. |
@@ -486,8 +488,8 @@ open-source repositories tracked by the Hub.
     | [XrmMockup](delegateas_xrmmockup.md) | C# | :star: 82 | Engine which simulates your exact Dynamics 365/CRM instance locally including al… |
     | [DataverseDevTools-VSCode](power-maverick_dataversedevtools-vscode.md) | TypeScript | :star: 81 | The all-in-one tool to develop code for Dataverse/Dynamics 365. Helps you connec… |
     | [dynamics-webapi-toolkit](alexacrm_dynamics-webapi-toolkit.md) | PHP | :star: 81 | Dynamics 365 Web API Toolkit for PHP |
+    | [canvas-apps-tools](toluvictor_canvas-apps-tools.md) | Unknown | :star: 80 | AI skills for Power Apps Canvas Apps - Generate paste-ready Power Apps Canvas Ap… |
     | [pyDataverse](gdcc_pydataverse.md) | Python | :star: 80 | Python module for Dataverse Software (dataverse.org). |
-    | [canvas-apps-tools](toluvictor_canvas-apps-tools.md) | Unknown | :star: 79 | AI skills for Power Apps Canvas Apps - Generate paste-ready Power Apps Canvas Ap… |
     | [Templates-for-Power-Platform](microsoft_templates-for-power-platform.md) | C# | :star: 77 | Solutions designed to expedite the implementation of Power Platform within large… |
     | [RibbonWorkbench](scottdurow_ribbonworkbench.md) | JavaScript | :star: 77 | Ribbon Workbench 2016 for Dynamics 365 |
     | [crm-power-pane](onurmenal_crm-power-pane.md) | JavaScript | :star: 76 | The CRM Power Pane is a helper tool designed to integrate with Microsoft Dynamic… |
@@ -510,8 +512,8 @@ open-source repositories tracked by the Hub.
     | [dataverse-erd-visualizer](allandecastro_dataverse-erd-visualizer.md) | TypeScript | :star: 52 |  |
     | [terraform-provider-power-platform](microsoft_terraform-provider-power-platform.md) | Go | :star: 52 | Power Platform Terraform Provider |
     | [processjs](paulnieuwelaar_processjs.md) | JavaScript | :star: 51 |  |
-    | [FlowToVisio](linked365_flowtovisio.md) | C# | :star: 50 | XrmToolBox tool to allow you to document your cloud flows within Microsoft Power… |
     | [AliFullStack](sfarpak_alifullstack.md) | TypeScript | :star: 50 | Free Local-first Full-Stack AI App Builder & Automation — Build, Test & Deploy w… |
+    | [FlowToVisio](linked365_flowtovisio.md) | C# | :star: 50 | XrmToolBox tool to allow you to document your cloud flows within Microsoft Power… |
     | [SSD365VSAddIn](shashisadasivan_ssd365vsaddin.md) | C# | :star: 48 | Visual studio addin for D365 Finance and operations |
     | [development-hub](ewingjm_development-hub.md) | C# | :star: 45 | A continuous integration solution for Power Apps. |
     | [powerapps-docstring](sebastian-muthwill_powerapps-docstring.md) | Python | :star: 45 | PowerApps-docstring is a console based, pipeline ready application that automati… |
@@ -520,8 +522,8 @@ open-source repositories tracked by the Hub.
     | [Power-Platform](wyattdave_power-platform.md) | HTML | :star: 43 | Collection of examples and demos from my Power Platform Blog |
     | [powerapps-specflow-bindings](capgemini_powerapps-specflow-bindings.md) | C# | :star: 43 | A SpecFlow bindings library for model-driven Power Apps. |
     | [Daxif](delegateas_daxif.md) | F# | :star: 43 | A framework for automating a lot of xRM development processses. By using simple … |
-    | [D365FFO-PowerShell-scripts](valerymoskalenko_d365ffo-powershell-scripts.md) | PowerShell | :star: 42 | Set of PowerShell scripts to maintain D365FFO (Dynamics 365 for Finance and Oper… |
     | [teta](ondateta_teta.md) | Dart | :star: 42 | The open source, AI-powered app builder |
+    | [D365FFO-PowerShell-scripts](valerymoskalenko_d365ffo-powershell-scripts.md) | PowerShell | :star: 42 | Set of PowerShell scripts to maintain D365FFO (Dynamics 365 for Finance and Oper… |
     | [FetchXmlFormatter](ashv_fetchxmlformatter.md) | HTML | :star: 41 | Online tool for quick formatting of fetchXML in Dynamics CRM before using into C… |
     | [PowerPlatformCICD](dylanhaskins_powerplatformcicd.md) | C# | :star: 39 | A Template and Provisioning process to create a fully automated Build and Deploy… |
     | [bcsamples-takeorder](microsoft_bcsamples-takeorder.md) | AL | :star: 38 | The Take Order sample demonstrates how you can build a customized user experienc… |
@@ -572,10 +574,10 @@ open-source repositories tracked by the Hub.
     | [powerapps-packagedeployer-template](capgemini_powerapps-packagedeployer-template.md) | C# | :star: 27 | Enhanced deployment capabilities when deploying with the Power Apps Package Depl… |
     | [PyConnectDataverse](yeswecandrew_pyconnectdataverse.md) | Python | :star: 27 | Connect to the Dynamics 365 / Dataverse Web API using interactive login |
     | [Dataverse-Data-Explorer](scholarsportal_dataverse-data-explorer.md) | TypeScript | :star: 27 | A tool for exploring and curating data by adding labels, groups, weights and oth… |
-    | [ALWebServiceExamples](ajkauffmann_alwebserviceexamples.md) | AL | :star: 27 | AL code examples to call web services with Dynamics 365 for Financials and Opera… |
+    | [PCF-Controls](benediktbergmann_pcf-controls.md) | TypeScript | :star: 27 | Controls using the PowerApps Component Framework |
     | [EDMXTrimmer](shashisadasivan_edmxtrimmer.md) | C# | :star: 27 | D365 Finance and operations EDMX trimmer |
     | [erpl-web](datazoode_erpl-web.md) | C++ | :star: 27 | ERPL is a DuckDB extension to connect to API based ecosystems via standard inter… |
-    | [PCF-Controls](benediktbergmann_pcf-controls.md) | TypeScript | :star: 27 | Controls using the PowerApps Component Framework |
+    | [ALWebServiceExamples](ajkauffmann_alwebserviceexamples.md) | AL | :star: 27 | AL code examples to call web services with Dynamics 365 for Financials and Opera… |
     | [FetchXmlTester](ashv_fetchxmltester.md) | JavaScript | :star: 26 | Test FetchXml Online without providing credentials using WebAPI GET Call |
     | [dataverse-gen](scottdurow_dataverse-gen.md) | TypeScript | :star: 26 | Early-bound types generator for CDS/Dataverse |
     | [xrmtools](rezanid_xrmtools.md) | C# | :star: 25 | Xrm Tools brings all the missing features for Power Platform to Visual Studio, o… |
@@ -593,6 +595,7 @@ open-source repositories tracked by the Hub.
     | [cds-for-code](cloudsmithconsulting_cds-for-code.md) | TypeScript | :star: 23 | VSCode extension for working with Microsoft Common Data Service (CDS) |
     | [D365-CE-DevOps-Tutorial](microsoft-d365-ce-pfe-devops_d365-ce-devops-tutorial.md) | JavaScript | :star: 23 | Dynamics 365 Customer Engagement DevOps tutorial material repository |
     | [powerplatform-cli-wrapper](microsoft_powerplatform-cli-wrapper.md) | TypeScript | :star: 22 | Power Platform CLI Wrapper |
+    | [adaptive-cards-mcp](vikrantsingh01_adaptive-cards-mcp.md) | TypeScript | :star: 22 | AI-powered Adaptive Card MCP server — 9 tools for generating, validating, optimi… |
     | [UNF](leeper_unf.md) | R | :star: 22 | Tools for Creating Universal Numeric Fingerprints for Data |
     | [ps-xliff-sync](rvanbekkum_ps-xliff-sync.md) | PowerShell | :star: 22 | A PowerShell module to synchronize and validate XLIFF translation files. |
     | [integration-dynamics](alexacrm_integration-dynamics.md) | PHP | :star: 22 | The easiest way to connect Dynamics 365 with WordPress. |
@@ -619,10 +622,10 @@ open-source repositories tracked by the Hub.
     | [dataverse-uploader](iqss_dataverse-uploader.md) | Python | :star: 19 | GitHub Action to publish repository content on Dataverse |
     | [ORBIS.PCF.ColorfulOptionset](orbisag_orbis.pcf.colorfuloptionset.md) | TypeScript | :star: 18 |  |
     | [paca-modern-web-app-sample](nunosubtil_paca-modern-web-app-sample.md) | TypeScript | :star: 18 | Modern Web App Sample for Power Apps Code Apps |
+    | [agents-pro](timothywarner-org_agents-pro.md) | Python | :star: 18 | Teaching/learning resources for O'Reilly Live 'How to Create AI Agents Like a Pr… |
     | [PCF-WebFormStepVisualizer](oolashyn_pcf-webformstepvisualizer.md) | TypeScript | :star: 18 | Web Form Steps Visualizer Component using Powerapps Component Framework |
     | [CanvasTimelinePCF](belleye_canvastimelinepcf.md) | TypeScript | :star: 18 | Power Apps Canvas PCF based on vis-timeline |
     | [microsoft-teams-apps-call-queue-scheduler](officedev_microsoft-teams-apps-call-queue-scheduler.md) | PowerShell | :star: 18 | Microsoft Teams Call Queue Manager app template |
-    | [agents-pro](timothywarner-org_agents-pro.md) | Python | :star: 18 | Teaching/learning resources for O'Reilly Live 'How to Create AI Agents Like a Pr… |
     | [cces_cumulative](kuriwaki_cces_cumulative.md) | TeX | :star: 18 | Building a cumulative file (2006 - 2024) for the Cooperative Congressional Elect… |
     | [SertanDevAXExamples](sertanyaman_sertandevaxexamples.md) | Unknown | :star: 18 | Examples and exercises from Sertan's Dev Blog |
     | [group-approval-viewer-D365-pcf](tcorcor1_group-approval-viewer-d365-pcf.md) | TypeScript | :star: 18 | Dynamics 365 PCF control for displaying the status of Power Automate group appro… |
@@ -652,19 +655,19 @@ open-source repositories tracked by the Hub.
     | [primno](primno_primno.md) | TypeScript | :star: 15 | Front-end framework for Model-Driven Apps of Power Apps and Dynamics 365 |
     | [global-copilot-summit](microsoft_global-copilot-summit.md) | Unknown | :star: 15 | The theme of the summit is Adopt, Extend, and Build Copilot, and is attended by … |
     | [dataverse-auth](scottdurow_dataverse-auth.md) | TypeScript | :star: 15 | Performs on-behalf-of auth against a Microsoft Dataverse environment using pure … |
+    | [PCF_GridCard](jasonaalmeida_pcf_gridcard.md) | TypeScript | :star: 15 | A PCF control to render a grid (built specifically for single record grids) as a… |
     | [Modern-Dropzone-PCF](gorgonuk_modern-dropzone-pcf.md) | TypeScript | :star: 15 | Modern Dropzone component for Dynamics365 that integrates with Notes and SharePo… |
     | [ISVLicenseGenerator](aariste_isvlicensegenerator.md) | C# | :star: 15 | MSDyn365FO ISV license generator from USB eToken or Azure Key Vault HSM |
     | [modal-vscode](modal-dsl_modal-vscode.md) | TypeScript | :star: 15 | VS Code Language Extension adding support for modAL |
     | [sp-document-explorer](msnraju_sp-document-explorer.md) | Perl | :star: 15 | Handling SharePoint Documents in Business Central |
-    | [PCF_GridCard](jasonaalmeida_pcf_gridcard.md) | TypeScript | :star: 15 | A PCF control to render a grid (built specifically for single record grids) as a… |
     | [ej2-powerapps-components](syncfusion_ej2-powerapps-components.md) | TypeScript | :star: 14 | This repository features Syncfusion PowerApps components built using the PowerAp… |
-    | [InventAPI](marcelbf_inventapi.md) | HTML | :star: 14 | This is a demo repository to showcase scenarios how Professional Developers (AKA… |
     | [powerful](mbrg_powerful.md) | Python | :star: 14 | A demo showing how to maintain persistency on Power Platform by installing an au… |
+    | [InventAPI](marcelbf_inventapi.md) | HTML | :star: 14 | This is a demo repository to showcase scenarios how Professional Developers (AKA… |
+    | [superez-gpt-builder](g023_superez-gpt-builder.md) | JavaScript | :star: 14 | SuperEZ-GPT Builder: jQuery/GPT AI Content Building Assistant |
     | [PowerNote](scalable-dynamics_powernote.md) | C# | :star: 14 | Power Fx editor and file viewer |
     | [copilot-sap-sales-order-verification](azure-samples_copilot-sap-sales-order-verification.md) | Roff | :star: 14 |  |
     | [PCFControls](bidsl_pcfcontrols.md) | TypeScript | :star: 14 | PCF controls for Model Driven Apps |
     | [OneMoreActionQueueFramework](sminozhenko_onemoreactionqueueframework.md) | Unknown | :star: 14 | Dynamics 365 For Finance and Operations action queue framework |
-    | [superez-gpt-builder](g023_superez-gpt-builder.md) | JavaScript | :star: 14 | SuperEZ-GPT Builder: jQuery/GPT AI Content Building Assistant |
     | [Microsoft-Power-Platform-In-a-Day-Workshop](rramoscabral_microsoft-power-platform-in-a-day-workshop.md) | Unknown | :star: 13 | Microsoft Power Platform In a Day Workshop |
     | [playwright-m365-helpers](estruyf_playwright-m365-helpers.md) | TypeScript | :star: 13 | A set of helpers for creating E2E tests for your Microsoft 365 projects using Pl… |
     | [azure-openai-connector](devrel-kr_azure-openai-connector.md) | Bicep | :star: 13 | This is a Power Platform custom connector project for OpenAI API and Azure OpenA… |
@@ -672,9 +675,9 @@ open-source repositories tracked by the Hub.
     | [teams-health-feature-monitoring](tobiheim_teams-health-feature-monitoring.md) | Unknown | :star: 13 | Microsoft Teams service issues and Message Center notifications as Teams posts a… |
     | [DataverseODataClient](larsbauer_dataverseodataclient.md) | C# | :star: 13 | Ready-to-use OData client for communication with Microsoft Dataverse Web API |
     | [Dynamics365-MetaDataExplorer](axbusiness_dynamics365-metadataexplorer.md) | C# | :star: 13 | Explore, validate and visualize Metadata of a "Microsoft Dynamics 365 for Operat… |
-    | [Imposter.Fiddler](gotdibbs_imposter.fiddler.md) | C# | :star: 13 | Fiddler Extension Version of Imposter |
     | [Personal-View-to-System-View](rajyraman_personal-view-to-system-view.md) | JavaScript | :star: 13 | Convert Personal View to System View from Advanced Find. |
     | [dynamics-portal-companion-app](adoxio_dynamics-portal-companion-app.md) | C# | :star: 13 | A starter template for a Dynamics 365 portal companion web application with Azur… |
+    | [Imposter.Fiddler](gotdibbs_imposter.fiddler.md) | C# | :star: 13 | Fiddler Extension Version of Imposter |
     | [PowerGrid](topness-msft_powergrid.md) | Unknown | :star: 12 |  |
     | [pcf-fluentui-grid](michal-turzynski_pcf-fluentui-grid.md) | TypeScript | :star: 12 | Fluent UI DataList Component for D365/PowerApps |
     | [ChartJsCanvasPCF](belleye_chartjscanvaspcf.md) | TypeScript | :star: 12 | Chart JS in PowerApps |
@@ -682,31 +685,31 @@ open-source repositories tracked by the Hub.
     | [MSFTCloudSvcsFavs](timdarius_msftcloudsvcsfavs.md) | HTML | :star: 12 | This repo contains a collection of useful links to Microsoft Cloud Services that… |
     | [mssecuritynews](vladjoh_mssecuritynews.md) | Unknown | :star: 12 | A set of Power Automate flows that fetch the latest Microsoft Security News from… |
     | [Xrm-Entity-Serializer](albanian-xrm_xrm-entity-serializer.md) | C# | :star: 12 | This library can serialize an Microsoft.Xrm.Sdk.Entity to Json and back using Ne… |
+    | [PCFGrapesJSEditor](irah2008_pcfgrapesjseditor.md) | CSS | :star: 12 | PCF Control for GrapesJS Editor |
     | [BlockchainWithDynamics365](mannygrewal_blockchainwithdynamics365.md) | JavaScript | :star: 12 | To demonstrate how modern technologies like ReactJs and Blockchain can be integr… |
     | [VoiceToText](takayakawano_voicetotext.md) | JavaScript | :star: 12 | This solution is the voice to text by using Bing Speech API with Dynamics 365. |
     | [BCDevApps](picazin_bcdevapps.md) | AL | :star: 12 | Tools to improve and make BC developers easy |
     | [EasyPlugins](akouddane_easyplugins.md) | Unknown | :star: 12 | Dynamics CRM EasyPlugins 365 |
-    | [PCFGrapesJSEditor](irah2008_pcfgrapesjseditor.md) | CSS | :star: 12 | PCF Control for GrapesJS Editor |
     | [PortalRecordsMoverConsole](jamesnovak_portalrecordsmoverconsole.md) | C# | :star: 12 | Port of the Portal Records Mover XrmToolbox plugin by Tanguy Touzard |
     | [PowerPoints](mitchmilam_powerpoints.md) | Unknown | :star: 12 | Here are all of the PowerPoint presentations that I have ever created and presen… |
     | [D365-CE-Pipelines](microsoft-d365-ce-pfe-devops_d365-ce-pipelines.md) | Unknown | :star: 12 | Collection of YAML files for building Azure DevOps pipelines for Dynamics 365 fo… |
     | [dynamics-client](mrthearman_dynamics-client.md) | Python | :star: 12 | Client for making Web API request from a Microsoft Dynamics 365 Database |
     | [AL-Demos](srenders_al-demos.md) | AL | :star: 12 | AL Demos and Labs |
     | [Power-Apps-Toast-Notification-Component](erfernandes_power-apps-toast-notification-component.md) | Unknown | :star: 11 | Component created for toast style notifications to be used in Power Apps Canvas … |
-    | [AutomationALM](aurelienclere-365_automationalm.md) | Unknown | :star: 11 | Enhance Power Platform ALM Accelerator (from CoE Starter Kit) to improve automat… |
     | [crmpowershell](amsoftwarenl_crmpowershell.md) | C# | :star: 11 | Manage Power Platform Dataverse metadata and content, and administer the environ… |
+    | [AutomationALM](aurelienclere-365_automationalm.md) | Unknown | :star: 11 | Enhance Power Platform ALM Accelerator (from CoE Starter Kit) to improve automat… |
     | [dataverse-powertools](pete-mc_dataverse-powertools.md) | TypeScript | :star: 11 | Dataverse Powertools contains tools and templates to help with the development o… |
     | [Power-Automate-Desktop](jfevia_power-automate-desktop.md) | Unknown | :star: 11 | Publicly released versions of Power Automate for desktop |
     | [booking-powerapp](ans-group_booking-powerapp.md) | TSQL | :star: 11 | Booking Application built with Microsoft PowerApps |
     | [PCF-ScheduleBoardView](bevercrm_pcf-scheduleboardview.md) | TypeScript | :star: 11 | This control converts any dataset that has start date and end date in its record… |
     | [power-automate-bim360-projects-to-onedrive](nseirs_power-automate-bim360-projects-to-onedrive.md) | Unknown | :star: 11 | A Power Automate Flow to export BIM 360 Project data from a selected BIM 360 Acc… |
     | [multipage-modal-D365-vue](tcorcor1_multipage-modal-d365-vue.md) | Vue | :star: 11 | Vue.js web resource sample for creating a multi-page modal dialog in Dynamics 36… |
-    | [fscps.tools](fscpscollaborative_fscps.tools.md) | PowerShell | :star: 11 | A set of tools for maintaining D365FSC CI/CD pipelines. |
     | [Niam.XRM.Framework](khairuddinniam_niam.xrm.framework.md) | C# | :star: 11 | A dynamics CRM 365 plugin framework that easy to use and simplify server side cu… |
+    | [fscps.tools](fscpscollaborative_fscps.tools.md) | PowerShell | :star: 11 | A set of tools for maintaining D365FSC CI/CD pipelines. |
     | [OneDrive-Integration](msnraju_onedrive-integration.md) | Perl | :star: 11 | How to use Microsoft Graph API in Business Central |
+    | [msbuild-xrm-sourcecontrol](capgemini_msbuild-xrm-sourcecontrol.md) | PowerShell | :star: 11 | MSBuild Visual Studio Extensions to provide easy source control for Dynamics 365 |
     | [DynamicsCrm-CodeGenerator](yagasoft_dynamicscrm-codegenerator.md) | C# | :star: 11 | A Visual Studio extension that allows generating early bound classes for Microso… |
     | [Simple-Text-Control-PCF](kokulan365_simple-text-control-pcf.md) | TypeScript | :star: 11 | A simple yet very flexible PCF control to display text with custom style using H… |
-    | [msbuild-xrm-sourcecontrol](capgemini_msbuild-xrm-sourcecontrol.md) | PowerShell | :star: 11 | MSBuild Visual Studio Extensions to provide easy source control for Dynamics 365 |
     | [Minimal-React-PCF](paulbreuler_minimal-react-pcf.md) | TypeScript | :star: 10 | A minimal React based PowerApps Control Framework (PCF) template  |
     | [Chat_with_your_SAP_Data](mimergel_chat_with_your_sap_data.md) | Unknown | :star: 10 | Ask any questions about SAP data in Microsoft Teams. |
     | [Stock-Templates-Remastered](powerappsdarren_stock-templates-remastered.md) | Shell | :star: 10 | Microsoft Power Apps has several stock templates. We'll dust them off and make s… |
@@ -729,4 +732,4 @@ open-source repositories tracked by the Hub.
 
 ---
 
-_Auto-generated by [`sync_repos.py`](https://github.com/rpothin/PowerPlatform-OpenSource-Hub/blob/main/scripts/sync_repos.py) on 2026-04-04 02:26 UTC._
+_Auto-generated by [`sync_repos.py`](https://github.com/rpothin/PowerPlatform-OpenSource-Hub/blob/main/scripts/sync_repos.py) on 2026-04-05 01:12 UTC._

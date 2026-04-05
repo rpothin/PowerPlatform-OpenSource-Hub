@@ -7,7 +7,7 @@ hide:
 
 Repositories related to Power Apps, canvas apps, and model-driven apps.
 
-!!! info "Last synced: 2026-04-04 02:26 UTC"
+!!! info "Last synced: 2026-04-05 01:12 UTC"
     Showing **117** repositories matching this focus area.
 
 ---
@@ -19,7 +19,7 @@ Repositories related to Power Apps, canvas apps, and model-driven apps.
 | Metric | Value |
 |--------|-------|
 | **Repositories** | 117 |
-| **Total Stars** | :star: 14,818 |
+| **Total Stars** | :star: 14,827 |
 
 ### Top Languages
 
@@ -44,7 +44,7 @@ Repositories related to Power Apps, canvas apps, and model-driven apps.
 
 <div class="grid cards" markdown>
 
--   :star: **PowerApps-Samples** · 1,903 stars · `C#`
+-   :star: **PowerApps-Samples** · 1,903 stars · :material-eye: 117 watchers · `C#`
 
     ---
 
@@ -52,7 +52,7 @@ Repositories related to Power Apps, canvas apps, and model-driven apps.
 
     [:octicons-arrow-right-24: View details](microsoft_powerapps-samples.md)
 
--   :star: **PowerPlatformConnectors** · 1,231 stars · `C#`
+-   :star: **PowerPlatformConnectors** · 1,231 stars · :material-eye: 56 watchers · `C#`
 
     ---
 
@@ -60,7 +60,7 @@ Repositories related to Power Apps, canvas apps, and model-driven apps.
 
     [:octicons-arrow-right-24: View details](microsoft_powerplatformconnectors.md)
 
--   :star: **power-pwn** · 1,139 stars · `Python`
+-   :star: **power-pwn** · 1,139 stars · :material-eye: 19 watchers · `Python`
 
     ---
 
@@ -68,7 +68,7 @@ Repositories related to Power Apps, canvas apps, and model-driven apps.
 
     [:octicons-arrow-right-24: View details](mbrg_power-pwn.md)
 
--   :star: **XrmToolBox** · 629 stars · `C#`
+-   :star: **XrmToolBox** · 629 stars · :material-eye: 77 watchers · `C#`
 
     ---
 
@@ -76,7 +76,7 @@ Repositories related to Power Apps, canvas apps, and model-driven apps.
 
     [:octicons-arrow-right-24: View details](mscrmtools_xrmtoolbox.md)
 
--   :star: **PowerDocu** · 604 stars · `C#`
+-   :star: **PowerDocu** · 604 stars · :material-eye: 34 watchers · `C#`
 
     ---
 
@@ -84,7 +84,7 @@ Repositories related to Power Apps, canvas apps, and model-driven apps.
 
     [:octicons-arrow-right-24: View details](modery_powerdocu.md)
 
--   :star: **PowerApps** · 540 stars · `Unknown`
+-   :star: **PowerApps** · 541 stars · :material-eye: 54 watchers · `Unknown`
 
     ---
 
@@ -92,7 +92,7 @@ Repositories related to Power Apps, canvas apps, and model-driven apps.
 
     [:octicons-arrow-right-24: View details](aprildunnam_powerapps.md)
 
--   :star: **powerapps-samples** · 523 stars · `Unknown`
+-   :star: **powerapps-samples** · 523 stars · :material-eye: 37 watchers · `Unknown`
 
     ---
 
@@ -100,7 +100,7 @@ Repositories related to Power Apps, canvas apps, and model-driven apps.
 
     [:octicons-arrow-right-24: View details](pnp_powerapps-samples.md)
 
--   :star: **alan-sdk-pcf** · 430 stars · `Unknown`
+-   :star: **alan-sdk-pcf** · 430 stars · :material-eye: 6 watchers · `Unknown`
 
     ---
 
@@ -108,7 +108,7 @@ Repositories related to Power Apps, canvas apps, and model-driven apps.
 
     [:octicons-arrow-right-24: View details](alan-ai_alan-sdk-pcf.md)
 
--   :star: **PowerApps-Tooling** · 414 stars · `C#`
+-   :star: **PowerApps-Tooling** · 415 stars · :material-eye: 48 watchers · `C#`
 
     ---
 
@@ -116,7 +116,7 @@ Repositories related to Power Apps, canvas apps, and model-driven apps.
 
     [:octicons-arrow-right-24: View details](microsoft_powerapps-tooling.md)
 
--   :star: **powerplatform-samples** · 403 stars · `Unknown`
+-   :star: **powerplatform-samples** · 403 stars · :material-eye: 24 watchers · `Unknown`
 
     ---
 
@@ -124,7 +124,7 @@ Repositories related to Power Apps, canvas apps, and model-driven apps.
 
     [:octicons-arrow-right-24: View details](pnp_powerplatform-samples.md)
 
--   :star: **powercat-creator-kit** · 398 stars · `CSS`
+-   :star: **powercat-creator-kit** · 398 stars · :material-eye: 35 watchers · `CSS`
 
     ---
 
@@ -132,7 +132,7 @@ Repositories related to Power Apps, canvas apps, and model-driven apps.
 
     [:octicons-arrow-right-24: View details](microsoft_powercat-creator-kit.md)
 
--   :star: **awesome-low-code** · 358 stars · `Unknown`
+-   :star: **awesome-low-code** · 358 stars · :material-eye: 21 watchers · `Unknown`
 
     ---
 
@@ -140,7 +140,7 @@ Repositories related to Power Apps, canvas apps, and model-driven apps.
 
     [:octicons-arrow-right-24: View details](steedos_awesome-low-code.md)
 
--   :star: **teams-powerapps-app-templates** · 298 stars · `Unknown`
+-   :star: **teams-powerapps-app-templates** · 298 stars · :material-eye: 17 watchers · `Unknown`
 
     ---
 
@@ -148,7 +148,7 @@ Repositories related to Power Apps, canvas apps, and model-driven apps.
 
     [:octicons-arrow-right-24: View details](microsoft_teams-powerapps-app-templates.md)
 
--   :star: **office365dev** · 288 stars · `JavaScript`
+-   :star: **office365dev** · 288 stars · :material-eye: 25 watchers · `JavaScript`
 
     ---
 
@@ -156,7 +156,7 @@ Repositories related to Power Apps, canvas apps, and model-driven apps.
 
     [:octicons-arrow-right-24: View details](chenxizhang_office365dev.md)
 
--   :star: **Levelup-for-Dynamics-CRM** · 257 stars · `TypeScript`
+-   :star: **Levelup-for-Dynamics-CRM** · 257 stars · :material-eye: 23 watchers · `TypeScript`
 
     ---
 
@@ -164,7 +164,7 @@ Repositories related to Power Apps, canvas apps, and model-driven apps.
 
     [:octicons-arrow-right-24: View details](rajyraman_levelup-for-dynamics-crm.md)
 
--   :star: **microsoft-teams-apps-requestateam** · 239 stars · `PowerShell`
+-   :star: **microsoft-teams-apps-requestateam** · 239 stars · :material-eye: 44 watchers · `PowerShell`
 
     ---
 
@@ -172,7 +172,7 @@ Repositories related to Power Apps, canvas apps, and model-driven apps.
 
     [:octicons-arrow-right-24: View details](officedev_microsoft-teams-apps-requestateam.md)
 
--   :star: **powerapps-designtoolkit** · 220 stars · `Unknown`
+-   :star: **powerapps-designtoolkit** · 220 stars · :material-eye: 20 watchers · `Unknown`
 
     ---
 
@@ -180,7 +180,7 @@ Repositories related to Power Apps, canvas apps, and model-driven apps.
 
     [:octicons-arrow-right-24: View details](pnp_powerapps-designtoolkit.md)
 
--   :star: **Federal-Business-Applications** · 215 stars · `PowerShell`
+-   :star: **Federal-Business-Applications** · 215 stars · :material-eye: 40 watchers · `PowerShell`
 
     ---
 
@@ -188,7 +188,7 @@ Repositories related to Power Apps, canvas apps, and model-driven apps.
 
     [:octicons-arrow-right-24: View details](microsoft_federal-business-applications.md)
 
--   :star: **powerplatform-snippets** · 210 stars · `HLSL`
+-   :star: **powerplatform-snippets** · 210 stars · :material-eye: 20 watchers · `HLSL`
 
     ---
 
@@ -196,7 +196,7 @@ Repositories related to Power Apps, canvas apps, and model-driven apps.
 
     [:octicons-arrow-right-24: View details](pnp_powerplatform-snippets.md)
 
--   :star: **MicrosoftCloudLogos** · 201 stars · `Python`
+-   :star: **MicrosoftCloudLogos** · 201 stars · :material-eye: 16 watchers · `Python`
 
     ---
 
@@ -204,7 +204,7 @@ Repositories related to Power Apps, canvas apps, and model-driven apps.
 
     [:octicons-arrow-right-24: View details](loryanstrant_microsoftcloudlogos.md)
 
--   :star: **raaghu-react** · 187 stars · `TypeScript`
+-   :star: **raaghu-react** · 187 stars · :material-eye: 2 watchers · `TypeScript`
 
     ---
 
@@ -212,7 +212,7 @@ Repositories related to Power Apps, canvas apps, and model-driven apps.
 
     [:octicons-arrow-right-24: View details](wai-technologies_raaghu-react.md)
 
--   :star: **PowerPlatformAdvocates** · 186 stars · `Unknown`
+-   :star: **PowerPlatformAdvocates** · 186 stars · :material-eye: 12 watchers · `Unknown`
 
     ---
 
@@ -220,7 +220,7 @@ Repositories related to Power Apps, canvas apps, and model-driven apps.
 
     [:octicons-arrow-right-24: View details](microsoft_powerplatformadvocates.md)
 
--   :star: **Low-Code** · 183 stars · `JavaScript`
+-   :star: **Low-Code** · 183 stars · :material-eye: 7 watchers · `JavaScript`
 
     ---
 
@@ -228,7 +228,7 @@ Repositories related to Power Apps, canvas apps, and model-driven apps.
 
     [:octicons-arrow-right-24: View details](microsoft_low-code.md)
 
--   :star: **30daysof** · 182 stars · `JavaScript`
+-   :star: **30daysof** · 182 stars · :material-eye: 26 watchers · `JavaScript`
 
     ---
 
@@ -236,7 +236,7 @@ Repositories related to Power Apps, canvas apps, and model-driven apps.
 
     [:octicons-arrow-right-24: View details](microsoft_30daysof.md)
 
--   :star: **FlowPowerAppsMigrator** · 156 stars · `PowerShell`
+-   :star: **FlowPowerAppsMigrator** · 156 stars · :material-eye: 14 watchers · `PowerShell`
 
     ---
 
@@ -244,7 +244,7 @@ Repositories related to Power Apps, canvas apps, and model-driven apps.
 
     [:octicons-arrow-right-24: View details](zerg00s_flowpowerappsmigrator.md)
 
--   :star: **Project-Accelerator** · 146 stars · `Unknown`
+-   :star: **Project-Accelerator** · 146 stars · :material-eye: 46 watchers · `Unknown`
 
     ---
 
@@ -252,7 +252,7 @@ Repositories related to Power Apps, canvas apps, and model-driven apps.
 
     [:octicons-arrow-right-24: View details](officedev_project-accelerator.md)
 
--   :star: **powerfx-samples** · 137 stars · `Unknown`
+-   :star: **powerfx-samples** · 137 stars · :material-eye: 25 watchers · `Unknown`
 
     ---
 
@@ -260,7 +260,7 @@ Repositories related to Power Apps, canvas apps, and model-driven apps.
 
     [:octicons-arrow-right-24: View details](pnp_powerfx-samples.md)
 
--   :star: **PowerPlatformAF** · 136 stars · `Unknown`
+-   :star: **PowerPlatformAF** · 136 stars · :material-eye: 40 watchers · `Unknown`
 
     ---
 
@@ -268,7 +268,7 @@ Repositories related to Power Apps, canvas apps, and model-driven apps.
 
     [:octicons-arrow-right-24: View details](powerplatformaf_powerplatformaf.md)
 
--   :star: **DRB** · 122 stars · `JavaScript`
+-   :star: **DRB** · 122 stars · :material-eye: 7 watchers · `JavaScript`
 
     ---
 
@@ -276,13 +276,13 @@ Repositories related to Power Apps, canvas apps, and model-driven apps.
 
     [:octicons-arrow-right-24: View details](guidopreite_drb.md)
 
--   :star: **awesome-power-platform** · 111 stars · `Unknown`
+-   :star: **power-platform-skills** · 115 stars · :material-eye: 2 watchers · `JavaScript`
 
     ---
 
-    A collection of awesome things regarding the Power Platform ecosystem.
+    A plugin marketplace for Claude Code/GitHub Copilot that provides Power Platform development plugins…
 
-    [:octicons-arrow-right-24: View details](power-maverick_awesome-power-platform.md)
+    [:octicons-arrow-right-24: View details](microsoft_power-platform-skills.md)
 
 </div>
 
@@ -294,15 +294,15 @@ Repositories related to Power Apps, canvas apps, and model-driven apps.
 
     | Repository | Language | Stars | Description |
     |------------|----------|-------|-------------|
+    | [awesome-power-platform](power-maverick_awesome-power-platform.md) | Unknown | :star: 111 | A collection of awesome things regarding the Power Platform ecosystem. |
     | [OrgDbOrgSettings](seanmcne_orgdborgsettings.md) | HTML | :star: 110 | This is a utility allowing admins of Dynamics CRM Online & onPrem to edit organi… |
-    | [power-platform-skills](microsoft_power-platform-skills.md) | JavaScript | :star: 109 | A plugin marketplace for Claude Code/GitHub Copilot that provides Power Platform… |
     | [provision-assist-m365](pnp_provision-assist-m365.md) | PowerShell | :star: 107 | Provision Assist is a request and provisioning solution for Teams, Groups, SPO S… |
     | [Power-Platform-For-Beginners](microsoft_power-platform-for-beginners.md) | HTML | :star: 101 | Event-in-a-box to get started with Power Platform and AI Copilot (aka LowCode) |
     | [Power-CAT-Tools](microsoft_power-cat-tools.md) | C# | :star: 97 | The Power CAT Tools is your ultimate companion for enhancing the development exp… |
     | [apim-lab](azure_apim-lab.md) | HTML | :star: 85 | API Management - Hands-on Lab Workshop |
     | [PowerApps-samples](eickhel_powerapps-samples.md) | TypeScript | :star: 84 | PowerApps samples |
     | [dynamics-webapi-toolkit](alexacrm_dynamics-webapi-toolkit.md) | PHP | :star: 81 | Dynamics 365 Web API Toolkit for PHP |
-    | [canvas-apps-tools](toluvictor_canvas-apps-tools.md) | Unknown | :star: 79 | AI skills for Power Apps Canvas Apps - Generate paste-ready Power Apps Canvas Ap… |
+    | [canvas-apps-tools](toluvictor_canvas-apps-tools.md) | Unknown | :star: 80 | AI skills for Power Apps Canvas Apps - Generate paste-ready Power Apps Canvas Ap… |
     | [Templates-for-Power-Platform](microsoft_templates-for-power-platform.md) | C# | :star: 77 | Solutions designed to expedite the implementation of Power Platform within large… |
     | [PowerApps-Branding-Template](iammancat_powerapps-branding-template.md) | PowerShell | :star: 75 | A template to empower developers and reduce time wasted on control changes |
     | [PCF-Controls](power-maverick_pcf-controls.md) | TypeScript | :star: 67 | Repos of Powerapps Component Framework (PCF) Controls |
@@ -368,8 +368,8 @@ Repositories related to Power Apps, canvas apps, and model-driven apps.
     | [playwright-azure-ad-mfa](rajyraman_playwright-azure-ad-mfa.md) | TypeScript | :star: 12 | Sample repo to demonstrate how to use MFA with Azure AD auth |
     | [MSFTCloudSvcsFavs](timdarius_msftcloudsvcsfavs.md) | HTML | :star: 12 | This repo contains a collection of useful links to Microsoft Cloud Services that… |
     | [Power-Apps-Toast-Notification-Component](erfernandes_power-apps-toast-notification-component.md) | Unknown | :star: 11 | Component created for toast style notifications to be used in Power Apps Canvas … |
-    | [AutomationALM](aurelienclere-365_automationalm.md) | Unknown | :star: 11 | Enhance Power Platform ALM Accelerator (from CoE Starter Kit) to improve automat… |
     | [crmpowershell](amsoftwarenl_crmpowershell.md) | C# | :star: 11 | Manage Power Platform Dataverse metadata and content, and administer the environ… |
+    | [AutomationALM](aurelienclere-365_automationalm.md) | Unknown | :star: 11 | Enhance Power Platform ALM Accelerator (from CoE Starter Kit) to improve automat… |
     | [booking-powerapp](ans-group_booking-powerapp.md) | TSQL | :star: 11 | Booking Application built with Microsoft PowerApps |
     | [PCF-ScheduleBoardView](bevercrm_pcf-scheduleboardview.md) | TypeScript | :star: 11 | This control converts any dataset that has start date and end date in its record… |
     | [Minimal-React-PCF](paulbreuler_minimal-react-pcf.md) | TypeScript | :star: 10 | A minimal React based PowerApps Control Framework (PCF) template  |
@@ -384,4 +384,4 @@ Repositories related to Power Apps, canvas apps, and model-driven apps.
 
 ---
 
-_Auto-generated by [`sync_repos.py`](https://github.com/rpothin/PowerPlatform-OpenSource-Hub/blob/main/scripts/sync_repos.py) on 2026-04-04 02:26 UTC._
+_Auto-generated by [`sync_repos.py`](https://github.com/rpothin/PowerPlatform-OpenSource-Hub/blob/main/scripts/sync_repos.py) on 2026-04-05 01:12 UTC._

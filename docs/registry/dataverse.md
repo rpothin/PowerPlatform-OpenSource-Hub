@@ -7,7 +7,7 @@ hide:
 
 Repositories related to Microsoft Dataverse and the Common Data Service.
 
-!!! info "Last synced: 2026-04-04 02:26 UTC"
+!!! info "Last synced: 2026-04-05 01:12 UTC"
     Showing **65** repositories matching this focus area.
 
 ---
@@ -44,7 +44,7 @@ Repositories related to Microsoft Dataverse and the Common Data Service.
 
 <div class="grid cards" markdown>
 
--   :star: **portaljs** · 2,271 stars · `TypeScript`
+-   :star: **portaljs** · 2,271 stars · :material-eye: 95 watchers · `TypeScript`
 
     ---
 
@@ -52,7 +52,7 @@ Repositories related to Microsoft Dataverse and the Common Data Service.
 
     [:octicons-arrow-right-24: View details](datopian_portaljs.md)
 
--   :star: **PowerApps-Samples** · 1,903 stars · `C#`
+-   :star: **PowerApps-Samples** · 1,903 stars · :material-eye: 117 watchers · `C#`
 
     ---
 
@@ -60,7 +60,7 @@ Repositories related to Microsoft Dataverse and the Common Data Service.
 
     [:octicons-arrow-right-24: View details](microsoft_powerapps-samples.md)
 
--   :star: **XrmToolBox** · 629 stars · `C#`
+-   :star: **XrmToolBox** · 629 stars · :material-eye: 77 watchers · `C#`
 
     ---
 
@@ -68,7 +68,7 @@ Repositories related to Microsoft Dataverse and the Common Data Service.
 
     [:octicons-arrow-right-24: View details](mscrmtools_xrmtoolbox.md)
 
--   :star: **PowerPlatform-DataverseServiceClient** · 308 stars · `C#`
+-   :star: **PowerPlatform-DataverseServiceClient** · 308 stars · :material-eye: 53 watchers · `C#`
 
     ---
 
@@ -76,7 +76,7 @@ Repositories related to Microsoft Dataverse and the Common Data Service.
 
     [:octicons-arrow-right-24: View details](microsoft_powerplatform-dataverseserviceclient.md)
 
--   :star: **DynamicsWebApi** · 307 stars · `TypeScript`
+-   :star: **DynamicsWebApi** · 307 stars · :material-eye: 28 watchers · `TypeScript`
 
     ---
 
@@ -84,7 +84,7 @@ Repositories related to Microsoft Dataverse and the Common Data Service.
 
     [:octicons-arrow-right-24: View details](aleksandrrogov_dynamicswebapi.md)
 
--   :star: **powerplatform-build-tools** · 268 stars · `TypeScript`
+-   :star: **powerplatform-build-tools** · 268 stars · :material-eye: 33 watchers · `TypeScript`
 
     ---
 
@@ -92,7 +92,7 @@ Repositories related to Microsoft Dataverse and the Common Data Service.
 
     [:octicons-arrow-right-24: View details](microsoft_powerplatform-build-tools.md)
 
--   :star: **Levelup-for-Dynamics-CRM** · 257 stars · `TypeScript`
+-   :star: **Levelup-for-Dynamics-CRM** · 257 stars · :material-eye: 23 watchers · `TypeScript`
 
     ---
 
@@ -100,7 +100,7 @@ Repositories related to Microsoft Dataverse and the Common Data Service.
 
     [:octicons-arrow-right-24: View details](rajyraman_levelup-for-dynamics-crm.md)
 
--   :star: **Project-Accelerator** · 146 stars · `Unknown`
+-   :star: **Project-Accelerator** · 146 stars · :material-eye: 46 watchers · `Unknown`
 
     ---
 
@@ -108,7 +108,7 @@ Repositories related to Microsoft Dataverse and the Common Data Service.
 
     [:octicons-arrow-right-24: View details](officedev_project-accelerator.md)
 
--   :star: **DRB** · 122 stars · `JavaScript`
+-   :star: **DRB** · 122 stars · :material-eye: 7 watchers · `JavaScript`
 
     ---
 
@@ -116,7 +116,7 @@ Repositories related to Microsoft Dataverse and the Common Data Service.
 
     [:octicons-arrow-right-24: View details](guidopreite_drb.md)
 
--   :star: **OrgDbOrgSettings** · 110 stars · `HTML`
+-   :star: **OrgDbOrgSettings** · 110 stars · :material-eye: 25 watchers · `HTML`
 
     ---
 
@@ -124,7 +124,7 @@ Repositories related to Microsoft Dataverse and the Common Data Service.
 
     [:octicons-arrow-right-24: View details](seanmcne_orgdborgsettings.md)
 
--   :star: **datahugger** · 85 stars · `Python`
+-   :star: **datahugger** · 85 stars · :material-eye: 3 watchers · `Python`
 
     ---
 
@@ -132,7 +132,7 @@ Repositories related to Microsoft Dataverse and the Common Data Service.
 
     [:octicons-arrow-right-24: View details](j535d165_datahugger.md)
 
--   :star: **DataverseDevTools-VSCode** · 81 stars · `TypeScript`
+-   :star: **DataverseDevTools-VSCode** · 81 stars · :material-eye: 5 watchers · `TypeScript`
 
     ---
 
@@ -140,7 +140,7 @@ Repositories related to Microsoft Dataverse and the Common Data Service.
 
     [:octicons-arrow-right-24: View details](power-maverick_dataversedevtools-vscode.md)
 
--   :star: **dynamics-webapi-toolkit** · 81 stars · `PHP`
+-   :star: **dynamics-webapi-toolkit** · 81 stars · :material-eye: 6 watchers · `PHP`
 
     ---
 
@@ -148,7 +148,7 @@ Repositories related to Microsoft Dataverse and the Common Data Service.
 
     [:octicons-arrow-right-24: View details](alexacrm_dynamics-webapi-toolkit.md)
 
--   :star: **pyDataverse** · 80 stars · `Python`
+-   :star: **pyDataverse** · 80 stars · :material-eye: 13 watchers · `Python`
 
     ---
 
@@ -156,7 +156,7 @@ Repositories related to Microsoft Dataverse and the Common Data Service.
 
     [:octicons-arrow-right-24: View details](gdcc_pydataverse.md)
 
--   :star: **Dynamics-Crm-DevKit** · 75 stars · `C#`
+-   :star: **Dynamics-Crm-DevKit** · 75 stars · :material-eye: 12 watchers · `C#`
 
     ---
 
@@ -164,7 +164,7 @@ Repositories related to Microsoft Dataverse and the Common Data Service.
 
     [:octicons-arrow-right-24: View details](phuocle_dynamics-crm-devkit.md)
 
--   :star: **dataverse-ify** · 73 stars · `TypeScript`
+-   :star: **dataverse-ify** · 73 stars · :material-eye: 11 watchers · `TypeScript`
 
     ---
 
@@ -172,7 +172,7 @@ Repositories related to Microsoft Dataverse and the Common Data Service.
 
     [:octicons-arrow-right-24: View details](scottdurow_dataverse-ify.md)
 
--   :star: **dataverse-client-r** · 65 stars · `R`
+-   :star: **dataverse-client-r** · 65 stars · :material-eye: 11 watchers · `R`
 
     ---
 
@@ -180,7 +180,7 @@ Repositories related to Microsoft Dataverse and the Common Data Service.
 
     [:octicons-arrow-right-24: View details](iqss_dataverse-client-r.md)
 
--   :star: **Power-BI-D365-Sales** · 65 stars · `TSQL`
+-   :star: **Power-BI-D365-Sales** · 65 stars · :material-eye: 4 watchers · `TSQL`
 
     ---
 
@@ -188,7 +188,7 @@ Repositories related to Microsoft Dataverse and the Common Data Service.
 
     [:octicons-arrow-right-24: View details](mscottsewell_power-bi-d365-sales.md)
 
--   :star: **PowerFxSnippets** · 60 stars · `Python`
+-   :star: **PowerFxSnippets** · 60 stars · :material-eye: 5 watchers · `Python`
 
     ---
 
@@ -196,7 +196,7 @@ Repositories related to Microsoft Dataverse and the Common Data Service.
 
     [:octicons-arrow-right-24: View details](powerappsdarren_powerfxsnippets.md)
 
--   :star: **geoflow** · 54 stars · `R`
+-   :star: **geoflow** · 54 stars · :material-eye: 6 watchers · `R`
 
     ---
 
@@ -204,7 +204,7 @@ Repositories related to Microsoft Dataverse and the Common Data Service.
 
     [:octicons-arrow-right-24: View details](r-geoflow_geoflow.md)
 
--   :star: **dataverse-erd-visualizer** · 52 stars · `TypeScript`
+-   :star: **dataverse-erd-visualizer** · 52 stars · :material-eye: 2 watchers · `TypeScript`
 
     ---
 
@@ -212,7 +212,7 @@ Repositories related to Microsoft Dataverse and the Common Data Service.
 
     [:octicons-arrow-right-24: View details](allandecastro_dataverse-erd-visualizer.md)
 
--   :star: **development-hub** · 45 stars · `C#`
+-   :star: **development-hub** · 45 stars · :material-eye: 5 watchers · `C#`
 
     ---
 
@@ -220,7 +220,7 @@ Repositories related to Microsoft Dataverse and the Common Data Service.
 
     [:octicons-arrow-right-24: View details](ewingjm_development-hub.md)
 
--   :star: **PCF-CustomControlBuilder** · 44 stars · `C#`
+-   :star: **PCF-CustomControlBuilder** · 44 stars · :material-eye: 3 watchers · `C#`
 
     ---
 
@@ -228,7 +228,7 @@ Repositories related to Microsoft Dataverse and the Common Data Service.
 
     [:octicons-arrow-right-24: View details](power-maverick_pcf-customcontrolbuilder.md)
 
--   :star: **Power-Platform** · 43 stars · `HTML`
+-   :star: **Power-Platform** · 43 stars · :material-eye: 6 watchers · `HTML`
 
     ---
 
@@ -236,7 +236,7 @@ Repositories related to Microsoft Dataverse and the Common Data Service.
 
     [:octicons-arrow-right-24: View details](wyattdave_power-platform.md)
 
--   :star: **powerapps-specflow-bindings** · 43 stars · `C#`
+-   :star: **powerapps-specflow-bindings** · 43 stars · :material-eye: 22 watchers · `C#`
 
     ---
 
@@ -244,7 +244,7 @@ Repositories related to Microsoft Dataverse and the Common Data Service.
 
     [:octicons-arrow-right-24: View details](capgemini_powerapps-specflow-bindings.md)
 
--   :star: **PowerDataOps** · 37 stars · `PowerShell`
+-   :star: **PowerDataOps** · 37 stars · :material-eye: 4 watchers · `PowerShell`
 
     ---
 
@@ -252,7 +252,7 @@ Repositories related to Microsoft Dataverse and the Common Data Service.
 
     [:octicons-arrow-right-24: View details](aymericm78_powerdataops.md)
 
--   :star: **fake-xrm-easy** · 35 stars · `C#`
+-   :star: **fake-xrm-easy** · 35 stars · :material-eye: 3 watchers · `C#`
 
     ---
 
@@ -260,7 +260,7 @@ Repositories related to Microsoft Dataverse and the Common Data Service.
 
     [:octicons-arrow-right-24: View details](dynamicsvalue_fake-xrm-easy.md)
 
--   :star: **SmartBrief** · 35 stars · `Unknown`
+-   :star: **SmartBrief** · 35 stars · :material-eye: 16 watchers · `Unknown`
 
     ---
 
@@ -268,7 +268,7 @@ Repositories related to Microsoft Dataverse and the Common Data Service.
 
     [:octicons-arrow-right-24: View details](rkneela0912_smartbrief.md)
 
--   :star: **SLG-Business-Applications** · 31 stars · `Unknown`
+-   :star: **SLG-Business-Applications** · 31 stars · :material-eye: 8 watchers · `Unknown`
 
     ---
 
@@ -276,7 +276,7 @@ Repositories related to Microsoft Dataverse and the Common Data Service.
 
     [:octicons-arrow-right-24: View details](microsoft_slg-business-applications.md)
 
--   :star: **icews** · 30 stars · `R`
+-   :star: **icews** · 30 stars · :material-eye: 2 watchers · `R`
 
     ---
 
@@ -323,8 +323,8 @@ Repositories related to Microsoft Dataverse and the Common Data Service.
     | [PCFControls](bidsl_pcfcontrols.md) | TypeScript | :star: 14 | PCF controls for Model Driven Apps |
     | [DataverseODataClient](larsbauer_dataverseodataclient.md) | C# | :star: 13 | Ready-to-use OData client for communication with Microsoft Dataverse Web API |
     | [Xrm-Entity-Serializer](albanian-xrm_xrm-entity-serializer.md) | C# | :star: 12 | This library can serialize an Microsoft.Xrm.Sdk.Entity to Json and back using Ne… |
-    | [AutomationALM](aurelienclere-365_automationalm.md) | Unknown | :star: 11 | Enhance Power Platform ALM Accelerator (from CoE Starter Kit) to improve automat… |
     | [crmpowershell](amsoftwarenl_crmpowershell.md) | C# | :star: 11 | Manage Power Platform Dataverse metadata and content, and administer the environ… |
+    | [AutomationALM](aurelienclere-365_automationalm.md) | Unknown | :star: 11 | Enhance Power Platform ALM Accelerator (from CoE Starter Kit) to improve automat… |
     | [dataverse-powertools](pete-mc_dataverse-powertools.md) | TypeScript | :star: 11 | Dataverse Powertools contains tools and templates to help with the development o… |
     | [Simple-Text-Control-PCF](kokulan365_simple-text-control-pcf.md) | TypeScript | :star: 11 | A simple yet very flexible PCF control to display text with custom style using H… |
     | [Dataverse-Web-Devtools](nickmeron_dataverse-web-devtools.md) | TypeScript | :star: 10 | A modern, browser-based developer toolkit for Microsoft Dataverse — replaces the… |
@@ -332,4 +332,4 @@ Repositories related to Microsoft Dataverse and the Common Data Service.
 
 ---
 
-_Auto-generated by [`sync_repos.py`](https://github.com/rpothin/PowerPlatform-OpenSource-Hub/blob/main/scripts/sync_repos.py) on 2026-04-04 02:26 UTC._
+_Auto-generated by [`sync_repos.py`](https://github.com/rpothin/PowerPlatform-OpenSource-Hub/blob/main/scripts/sync_repos.py) on 2026-04-05 01:12 UTC._
