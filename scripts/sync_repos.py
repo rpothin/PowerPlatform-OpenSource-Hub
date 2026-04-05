@@ -17,6 +17,8 @@ import json
 import logging
 import os
 import sys
+import urllib.error
+import urllib.request
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
@@ -27,12 +29,16 @@ from typing import Any
 ROOT_DIR = Path(__file__).resolve().parent.parent
 CONFIG_PATH = ROOT_DIR / "configuration" / "GitHubRepositoriesSearchCriteria.json"
 REGISTRY_DIR = ROOT_DIR / "docs" / "registry"
+CONTRIBUTE_DIR = ROOT_DIR / "docs" / "contribute"
 OVERRIDES_DIR = ROOT_DIR / "overrides"
 
 # ---------------------------------------------------------------------------
 # Repository selection thresholds
 # ---------------------------------------------------------------------------
 MIN_STARS = 10
+CONTRIBUTION_ISSUE_LIMIT = 5
+CONTRIBUTION_GRAPHQL_BATCH_SIZE = 20
+GITHUB_GRAPHQL_URL = "https://api.github.com/graphql"
 
 # ---------------------------------------------------------------------------
 # Required service coverage
@@ -246,6 +252,219 @@ def fetch_repos_live(
     return repos, limit_hits
 
 
+def _build_contribution_query(repos: list[dict[str, Any]]) -> tuple[str, dict[str, dict[str, Any]]]:
+    """Build a batched GraphQL query for contribution-opportunity issues."""
+    aliases: dict[str, dict[str, Any]] = {}
+    query_parts = [
+        "query ContributionOpportunities {",
+        "  rateLimit { cost remaining resetAt }",
+    ]
+
+    for index, repo in enumerate(repos):
+        full_name = repo.get("fullName", "")
+        if "/" not in full_name:
+            continue
+
+        owner, name = full_name.split("/", 1)
+        alias = f"repo_{index}"
+        aliases[alias] = repo
+        query_parts += [
+            f"  {alias}: repository(owner: {json.dumps(owner)}, name: {json.dumps(name)}) {{",
+            "    nameWithOwner",
+            "    goodFirst: issues(",
+            '      states: OPEN, labels: ["good first issue"],',
+            f"      first: {CONTRIBUTION_ISSUE_LIMIT},",
+            "      orderBy: {field: CREATED_AT, direction: DESC}",
+            "    ) {",
+            "      totalCount",
+            "      nodes {",
+            "        number",
+            "        title",
+            "        url",
+            "        createdAt",
+            "        author {",
+            "          login",
+            "          url",
+            "        }",
+            "      }",
+            "    }",
+            "    helpWanted: issues(",
+            '      states: OPEN, labels: ["help wanted"],',
+            f"      first: {CONTRIBUTION_ISSUE_LIMIT},",
+            "      orderBy: {field: CREATED_AT, direction: DESC}",
+            "    ) {",
+            "      totalCount",
+            "      nodes {",
+            "        number",
+            "        title",
+            "        url",
+            "        createdAt",
+            "        author {",
+            "          login",
+            "          url",
+            "        }",
+            "      }",
+            "    }",
+            "  }",
+        ]
+
+    query_parts.append("}")
+    return "\n".join(query_parts), aliases
+
+
+def _run_graphql_query(query: str, token: str) -> dict[str, Any]:
+    """Execute a GitHub GraphQL query and return the decoded JSON payload."""
+    request = urllib.request.Request(
+        GITHUB_GRAPHQL_URL,
+        data=json.dumps({"query": query}).encode("utf-8"),
+        headers={
+            "Authorization": f"bearer {token}",
+            "Content-Type": "application/json",
+            "User-Agent": "PowerPlatform-OpenSource-Hub-sync",
+        },
+        method="POST",
+    )
+
+    try:
+        with urllib.request.urlopen(request, timeout=60) as response:
+            return json.loads(response.read().decode("utf-8"))
+    except urllib.error.HTTPError as exc:
+        details = exc.read().decode("utf-8", errors="replace")
+        raise RuntimeError(f"GitHub GraphQL HTTP {exc.code}: {details}") from exc
+    except urllib.error.URLError as exc:
+        raise RuntimeError(f"GitHub GraphQL request failed: {exc.reason}") from exc
+
+
+def _normalise_issue(issue: dict[str, Any]) -> dict[str, Any]:
+    """Convert a GraphQL issue node into a serialisable dict."""
+    author = issue.get("author") or {}
+    return {
+        "number": issue.get("number"),
+        "title": issue.get("title") or "Untitled issue",
+        "url": issue.get("url") or "#",
+        "createdAt": issue.get("createdAt"),
+        "author": {
+            "login": author.get("login") or "unknown",
+            "url": author.get("url") or "",
+        },
+    }
+
+
+def fetch_contribution_opportunities(
+    repos: list[dict[str, Any]],
+) -> dict[str, Any]:
+    """Enrich repositories with open contribution-opportunity issue data."""
+    token = os.environ.get("GITHUB_TOKEN", "").strip()
+    status = {
+        "state": "complete",
+        "message": "Contribution-opportunity data refreshed from GitHub GraphQL.",
+        "reposRequested": len(repos),
+        "reposLoaded": 0,
+    }
+
+    if not repos:
+        return status
+
+    if not token:
+        status.update(
+            {
+                "state": "skipped",
+                "message": (
+                    "Contribution-opportunity sync skipped because GITHUB_TOKEN was "
+                    "not available."
+                ),
+            }
+        )
+        log.warning(status["message"])
+        return status
+
+    failed_batches = 0
+    for start in range(0, len(repos), CONTRIBUTION_GRAPHQL_BATCH_SIZE):
+        batch = repos[start : start + CONTRIBUTION_GRAPHQL_BATCH_SIZE]
+        query, aliases = _build_contribution_query(batch)
+        if not aliases:
+            continue
+
+        try:
+            payload = _run_graphql_query(query, token)
+        except RuntimeError as exc:
+            failed_batches += 1
+            log.warning(
+                "Failed to fetch contribution opportunities for batch %d-%d: %s",
+                start + 1,
+                start + len(batch),
+                exc,
+            )
+            continue
+
+        errors = payload.get("errors") or []
+        if errors:
+            failed_batches += 1
+            log.warning(
+                "GitHub GraphQL returned %d error(s) for batch %d-%d; leaving "
+                "contribution data unchanged for that batch.",
+                len(errors),
+                start + 1,
+                start + len(batch),
+            )
+            for error in errors[:3]:
+                log.warning("GraphQL error: %s", error.get("message", error))
+            continue
+
+        data = payload.get("data") or {}
+        rate_limit = data.get("rateLimit") or {}
+        if rate_limit:
+            log.info(
+                "Contribution GraphQL batch %d-%d cost=%s remaining=%s reset=%s",
+                start + 1,
+                start + len(batch),
+                rate_limit.get("cost", "?"),
+                rate_limit.get("remaining", "?"),
+                rate_limit.get("resetAt", "?"),
+            )
+
+        for alias, repo in aliases.items():
+            repo_data = data.get(alias)
+            if not repo_data:
+                continue
+
+            good_first = repo_data.get("goodFirst") or {}
+            help_wanted = repo_data.get("helpWanted") or {}
+            repo["openedGoodFirstIssues"] = good_first.get("totalCount", 0) or 0
+            repo["openedHelpWantedIssues"] = help_wanted.get("totalCount", 0) or 0
+            repo["recentGoodFirstIssues"] = [
+                _normalise_issue(issue) for issue in good_first.get("nodes") or []
+            ]
+            repo["recentHelpWantedIssues"] = [
+                _normalise_issue(issue) for issue in help_wanted.get("nodes") or []
+            ]
+            status["reposLoaded"] += 1
+
+    if failed_batches:
+        if status["reposLoaded"]:
+            status["state"] = "partial"
+            status["message"] = (
+                "Contribution-opportunity data was only partially refreshed; some "
+                "repositories may show stale or unavailable counts."
+            )
+        else:
+            status["state"] = "failed"
+            status["message"] = (
+                "Contribution-opportunity sync failed; repository metadata was left "
+                "without issue counts."
+            )
+
+    log.info(
+        "Contribution opportunities synced for %d/%d repositories (state=%s).",
+        status["reposLoaded"],
+        status["reposRequested"],
+        status["state"],
+    )
+    if status["state"] != "complete":
+        log.warning(status["message"])
+    return status
+
+
 def _normalise_repo(repo: Any) -> dict[str, Any]:
     """Convert a PyGithub *Repository* object into a plain dict matching
     the schema used by the generated registry pages."""
@@ -284,6 +503,10 @@ def _normalise_repo(repo: Any) -> dict[str, Any]:
         else None,
         "topics": repo.get_topics(),
         "latestRelease": latest_release,
+        "openedGoodFirstIssues": 0,
+        "openedHelpWantedIssues": 0,
+        "recentGoodFirstIssues": [],
+        "recentHelpWantedIssues": [],
     }
 
 def log_search_limit_summary(limit_hits: list[dict[str, int | str]]) -> None:
@@ -327,6 +550,40 @@ def _format_number(n: int | None) -> str:
     if n is None:
         return "0"
     return f"{n:,}"
+
+
+def _latest_issue_date(repo: dict[str, Any]) -> str:
+    """Return the most recent contribution-issue date for a repository."""
+    dates = [
+        issue.get("createdAt")
+        for issue in (repo.get("recentGoodFirstIssues") or [])
+        + (repo.get("recentHelpWantedIssues") or [])
+        if issue.get("createdAt")
+    ]
+    if not dates:
+        return "—"
+    return _format_date(max(dates))
+
+
+def _render_issue_list(issues: list[dict[str, Any]], indent: str = "") -> list[str]:
+    """Render issue dictionaries as Markdown bullet items."""
+    if not issues:
+        return [f"{indent}- _No recent issues found._"]
+
+    lines: list[str] = []
+    for issue in issues:
+        author = issue.get("author") or {}
+        author_login = author.get("login") or "unknown"
+        author_url = author.get("url") or ""
+        author_link = (
+            f"[@{author_login}]({author_url})" if author_url else f"@{author_login}"
+        )
+        lines.append(
+            f"{indent}- [#{issue.get('number')} {issue.get('title', 'Untitled issue')}]"
+            f"({issue.get('url', '#')}) — opened {_format_date(issue.get('createdAt'))}"
+            f" by {author_link}"
+        )
+    return lines
 
 
 def _topics_badges(topics: list[str] | None) -> str:
@@ -425,6 +682,8 @@ def generate_repo_page(repo: dict[str, Any]) -> str:
     # Contribution admonition
     good_first = repo.get("openedGoodFirstIssues", 0)
     help_wanted = repo.get("openedHelpWantedIssues", 0)
+    recent_good_first = repo.get("recentGoodFirstIssues") or []
+    recent_help_wanted = repo.get("recentHelpWantedIssues") or []
     if good_first or help_wanted:
         lines += [
             "",
@@ -432,6 +691,22 @@ def generate_repo_page(repo: dict[str, Any]) -> str:
             f"    - **Good First Issues:** {good_first}",
             f"    - **Help Wanted Issues:** {help_wanted}",
         ]
+        if recent_good_first or recent_help_wanted:
+            lines += ["", "## Contribution Opportunities", ""]
+        if recent_good_first:
+            lines += [
+                "### Recent Good First Issues",
+                "",
+                *_render_issue_list(recent_good_first),
+                "",
+            ]
+        if recent_help_wanted:
+            lines += [
+                "### Recent Help Wanted Issues",
+                "",
+                *_render_issue_list(recent_help_wanted),
+                "",
+            ]
 
     now = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
     lines += [
@@ -444,6 +719,176 @@ def generate_repo_page(repo: dict[str, Any]) -> str:
         "",
     ]
 
+    return "\n".join(lines)
+
+
+def generate_contribution_page(
+    repos: list[dict[str, Any]],
+    contribution_status: dict[str, Any],
+) -> str:
+    """Generate the contribution opportunities landing page."""
+    now = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
+    repos_with_good_first = sorted(
+        [repo for repo in repos if repo.get("openedGoodFirstIssues", 0)],
+        key=lambda repo: (
+            repo.get("openedGoodFirstIssues", 0),
+            repo.get("openedHelpWantedIssues", 0),
+            repo.get("stargazerCount", 0),
+        ),
+        reverse=True,
+    )
+    repos_with_help_wanted = sorted(
+        [repo for repo in repos if repo.get("openedHelpWantedIssues", 0)],
+        key=lambda repo: (
+            repo.get("openedHelpWantedIssues", 0),
+            repo.get("openedGoodFirstIssues", 0),
+            repo.get("stargazerCount", 0),
+        ),
+        reverse=True,
+    )
+
+    total_good_first = sum(repo.get("openedGoodFirstIssues", 0) for repo in repos)
+    total_help_wanted = sum(repo.get("openedHelpWantedIssues", 0) for repo in repos)
+    overview_rows = [
+        "| Metric | Value |",
+        "|--------|-------|",
+        f"| **Tracked repositories** | {len(repos)} |",
+        f"| **Repositories with Good First Issues** | {len(repos_with_good_first)} |",
+        f"| **Open Good First Issues** | {total_good_first} |",
+        f"| **Repositories with Help Wanted Issues** | {len(repos_with_help_wanted)} |",
+        f"| **Open Help Wanted Issues** | {total_help_wanted} |",
+    ]
+
+    repo_rows = [
+        "| Repository | Good First Issues | Help Wanted Issues | Latest Issue |",
+        "|------------|-------------------|--------------------|--------------|",
+    ]
+    active_repos = sorted(
+        [
+            repo
+            for repo in repos
+            if repo.get("openedGoodFirstIssues", 0) or repo.get("openedHelpWantedIssues", 0)
+        ],
+        key=lambda repo: (
+            repo.get("openedGoodFirstIssues", 0) + repo.get("openedHelpWantedIssues", 0),
+            repo.get("stargazerCount", 0),
+        ),
+        reverse=True,
+    )
+    repo_rows.extend(
+        [
+            f"| [{repo.get('fullName', repo.get('name', 'unknown'))}]"
+            f"(../registry/{_sanitise_filename(repo.get('fullName', 'unknown/unknown'))}.md) | "
+            f"{repo.get('openedGoodFirstIssues', 0)} | {repo.get('openedHelpWantedIssues', 0)} | "
+            f"{_latest_issue_date(repo)} |"
+            for repo in active_repos
+        ]
+        or ["| _No tracked repositories currently advertise contribution labels._ | 0 | 0 | — |"]
+    )
+
+    status_block: list[str] = []
+    state = contribution_status.get("state")
+    if state == "skipped":
+        status_block = [
+            '!!! warning "Contribution sync skipped"',
+            f"    {contribution_status.get('message')}",
+            "",
+        ]
+    elif state in {"partial", "failed"}:
+        status_block = [
+            '!!! warning "Contribution sync incomplete"',
+            f"    {contribution_status.get('message')}",
+            "",
+        ]
+    else:
+        status_block = [
+            '!!! info "Contribution issue data"',
+            f"    {contribution_status.get('message')}",
+            "",
+        ]
+
+    lines: list[str] = [
+        "---",
+        "hide:",
+        "  - toc",
+        "---",
+        "",
+        "# :material-hand-heart: Contribution Opportunities",
+        "",
+        "Discover tracked repositories that currently advertise open "
+        "`good first issue` and `help wanted` tickets.",
+        "",
+        f'!!! info "Last synced: {now}"',
+        "    Repository metadata and issue details are generated by "
+        "[`sync_repos.py`](https://github.com/rpothin/PowerPlatform-OpenSource-Hub/blob/main/scripts/sync_repos.py).",
+        "",
+        *status_block,
+        "---",
+        "",
+        '<div class="registry-summary" markdown>',
+        "",
+        "## Summary",
+        "",
+        *overview_rows,
+        "",
+        "</div>",
+        "",
+        "---",
+        "",
+        "## Active Repositories",
+        "",
+        *repo_rows,
+        "",
+    ]
+
+    sections = [
+        (
+            "Good First Issues",
+            "openedGoodFirstIssues",
+            "recentGoodFirstIssues",
+            repos_with_good_first,
+        ),
+        (
+            "Help Wanted Issues",
+            "openedHelpWantedIssues",
+            "recentHelpWantedIssues",
+            repos_with_help_wanted,
+        ),
+    ]
+
+    for title, count_key, issues_key, section_repos in sections:
+        lines += ["---", "", f"## {title}", ""]
+        if not section_repos:
+            lines.append("_No matching open issues were returned for this sync._")
+            lines += ["", ""]
+            continue
+
+        for repo in section_repos:
+            full_name = repo.get("fullName", repo.get("name", "unknown/unknown"))
+            repo_link = f"../registry/{_sanitise_filename(full_name)}.md"
+            issue_count = repo.get(count_key, 0)
+            lines += [
+                f'??? note "[{full_name}]({repo_link}) — {_format_number(issue_count)} open"',
+                *(
+                    _render_issue_list(repo.get(issues_key) or [], indent="    ")
+                    + (
+                        [
+                            "    "
+                            f"_Showing the {min(issue_count, CONTRIBUTION_ISSUE_LIMIT)} most recent open issue(s)._"
+                        ]
+                        if issue_count > CONTRIBUTION_ISSUE_LIMIT
+                        else []
+                    )
+                ),
+                "",
+            ]
+
+    lines += [
+        "---",
+        "",
+        f"_Auto-generated by [`sync_repos.py`](https://github.com/rpothin/PowerPlatform-OpenSource-Hub/blob/main/scripts/sync_repos.py) on {now}._",
+        "",
+    ]
     return "\n".join(lines)
 
 
@@ -760,6 +1205,20 @@ def write_registry(
     log.info("Wrote %d category pages", len(criteria))
 
 
+def write_contribution_page(
+    repos: list[dict[str, Any]],
+    contribution_status: dict[str, Any],
+) -> None:
+    """Write the contribution opportunities landing page."""
+    CONTRIBUTE_DIR.mkdir(parents=True, exist_ok=True)
+    out_path = CONTRIBUTE_DIR / "index.md"
+    out_path.write_text(
+        generate_contribution_page(repos, contribution_status),
+        encoding="utf-8",
+    )
+    log.info("Wrote contribution opportunities page to %s", out_path)
+
+
 def _format_number_short(n: int) -> str:
     """Format a number for display: 54143 -> '54,000+'."""
     if n >= 1000:
@@ -871,8 +1330,10 @@ def write_home_data(
 def main() -> None:
     criteria = load_search_criteria()
     repos, limit_hits = fetch_repos_live(criteria)
+    contribution_status = fetch_contribution_opportunities(repos)
 
     write_registry(repos, criteria)
+    write_contribution_page(repos, contribution_status)
     write_home_data(repos, criteria)
     log_search_limit_summary(limit_hits)
     log.info("Done ✓")

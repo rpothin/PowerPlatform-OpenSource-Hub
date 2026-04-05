@@ -73,6 +73,48 @@
   <!-- ===== Stats + Featured + Focus + CTA — from generated partial ===== -->
   {% include "partials/home_hero.html" %}
 
+  <!-- ===== Contribution Opportunities ===== -->
+  <section class="mdx-contribute">
+    <div class="md-grid">
+      <div class="mdx-contribute__panel">
+        <div class="mdx-contribute__content">
+          <p class="mdx-contribute__eyebrow">Contribution opportunities</p>
+          <h2>Move from discovery to your next pull request faster</h2>
+          <p class="mdx-contribute__description">
+            Explore repositories with active <strong>good first issue</strong> and
+            <strong>help wanted</strong> signals, then jump into the projects that
+            are actively welcoming community contributions.
+          </p>
+          <div class="mdx-contribute__actions">
+            <a href="{{ 'contribute/' | url }}" class="md-button md-button--primary">
+              View Opportunities
+            </a>
+            <a href="{{ 'guide/contributing/' | url }}" class="md-button">
+              Read the Guide
+            </a>
+          </div>
+        </div>
+        <div class="mdx-contribute__highlights">
+          <article class="mdx-contribute__card">
+            <span class="mdx-contribute__icon" aria-hidden="true">🌱</span>
+            <h3>Beginner-friendly</h3>
+            <p>Start with repositories that surface approachable entry points for new contributors.</p>
+          </article>
+          <article class="mdx-contribute__card">
+            <span class="mdx-contribute__icon" aria-hidden="true">🛠️</span>
+            <h3>Action-ready</h3>
+            <p>See where maintainers are explicitly asking for help so you can contribute with confidence.</p>
+          </article>
+          <article class="mdx-contribute__card">
+            <span class="mdx-contribute__icon" aria-hidden="true">🧭</span>
+            <h3>Hub-guided</h3>
+            <p>Use the opportunity page alongside project detail pages and contribution guidance.</p>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ===== Focus Areas ===== -->
   <section class="mdx-focus">
     <div class="md-grid">
@@ -124,6 +166,7 @@
         <h4 class="mdx-footer__heading">Quick Links</h4>
         <ul class="mdx-footer__links">
           <li><a href="{{ 'registry/' | url }}">Registry</a></li>
+          <li><a href="{{ 'contribute/' | url }}">Contribution Opportunities</a></li>
           <li><a href="{{ 'guide/' | url }}">Guide</a></li>
           <li><a href="{{ 'guide/contributing/' | url }}">Contributing</a></li>
         </ul>
