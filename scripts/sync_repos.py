@@ -19,7 +19,7 @@ import os
 import sys
 import urllib.error
 import urllib.request
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from typing import Any
 
@@ -36,9 +36,11 @@ OVERRIDES_DIR = ROOT_DIR / "overrides"
 # Repository selection thresholds
 # ---------------------------------------------------------------------------
 MIN_STARS = 10
-CONTRIBUTION_ISSUE_LIMIT = 5
+CONTRIBUTION_ISSUE_DISPLAY_LIMIT = 5
 CONTRIBUTION_GRAPHQL_BATCH_SIZE = 20
 GITHUB_GRAPHQL_URL = "https://api.github.com/graphql"
+CONTRIBUTION_ACTIVE_MAX_AGE_DAYS = 180
+CONTRIBUTION_OLDER_MAX_AGE_DAYS = 365
 
 # ---------------------------------------------------------------------------
 # Required service coverage
@@ -252,9 +254,41 @@ def fetch_repos_live(
     return repos, limit_hits
 
 
-def _build_contribution_query(repos: list[dict[str, Any]]) -> tuple[str, dict[str, dict[str, Any]]]:
+def _parse_datetime(iso: str | None) -> datetime | None:
+    """Return a timezone-aware ``datetime`` parsed from ISO-8601."""
+    if not iso or not isinstance(iso, str):
+        return None
+    try:
+        dt = datetime.fromisoformat(iso.replace("Z", "+00:00"))
+    except ValueError:
+        return None
+    if dt.tzinfo is None:
+        return dt.replace(tzinfo=timezone.utc)
+    return dt.astimezone(timezone.utc)
+
+
+def _format_graphql_datetime(value: datetime) -> str:
+    """Return a UTC ISO-8601 timestamp suitable for GraphQL ``since`` filters."""
+    return (
+        value.astimezone(timezone.utc)
+        .replace(microsecond=0)
+        .isoformat()
+        .replace("+00:00", "Z")
+    )
+
+
+def _build_contribution_query(
+    repos: list[dict[str, Any]],
+    reference_time: datetime,
+) -> tuple[str, dict[str, dict[str, Any]]]:
     """Build a batched GraphQL query for contribution-opportunity issues."""
     aliases: dict[str, dict[str, Any]] = {}
+    active_since = _format_graphql_datetime(
+        reference_time - timedelta(days=CONTRIBUTION_ACTIVE_MAX_AGE_DAYS)
+    )
+    visible_since = _format_graphql_datetime(
+        reference_time - timedelta(days=CONTRIBUTION_OLDER_MAX_AGE_DAYS)
+    )
     query_parts = [
         "query ContributionOpportunities {",
         "  rateLimit { cost remaining resetAt }",
@@ -271,10 +305,11 @@ def _build_contribution_query(repos: list[dict[str, Any]]) -> tuple[str, dict[st
         query_parts += [
             f"  {alias}: repository(owner: {json.dumps(owner)}, name: {json.dumps(name)}) {{",
             "    nameWithOwner",
-            "    goodFirst: issues(",
+            "    goodFirstActive: issues(",
             '      states: OPEN, labels: ["good first issue"],',
-            f"      first: {CONTRIBUTION_ISSUE_LIMIT},",
-            "      orderBy: {field: CREATED_AT, direction: DESC}",
+            f"      filterBy: {{since: {json.dumps(active_since)}}},",
+            f"      first: {CONTRIBUTION_ISSUE_DISPLAY_LIMIT},",
+            "      orderBy: {field: UPDATED_AT, direction: DESC}",
             "    ) {",
             "      totalCount",
             "      nodes {",
@@ -282,16 +317,18 @@ def _build_contribution_query(repos: list[dict[str, Any]]) -> tuple[str, dict[st
             "        title",
             "        url",
             "        createdAt",
+            "        updatedAt",
             "        author {",
             "          login",
             "          url",
             "        }",
             "      }",
             "    }",
-            "    helpWanted: issues(",
-            '      states: OPEN, labels: ["help wanted"],',
-            f"      first: {CONTRIBUTION_ISSUE_LIMIT},",
-            "      orderBy: {field: CREATED_AT, direction: DESC}",
+            "    goodFirstVisible: issues(",
+            '      states: OPEN, labels: ["good first issue"],',
+            f"      filterBy: {{since: {json.dumps(visible_since)}}},",
+            f"      last: {CONTRIBUTION_ISSUE_DISPLAY_LIMIT},",
+            "      orderBy: {field: UPDATED_AT, direction: DESC}",
             "    ) {",
             "      totalCount",
             "      nodes {",
@@ -299,6 +336,45 @@ def _build_contribution_query(repos: list[dict[str, Any]]) -> tuple[str, dict[st
             "        title",
             "        url",
             "        createdAt",
+            "        updatedAt",
+            "        author {",
+            "          login",
+            "          url",
+            "        }",
+            "      }",
+            "    }",
+            "    helpWantedActive: issues(",
+            '      states: OPEN, labels: ["help wanted"],',
+            f"      filterBy: {{since: {json.dumps(active_since)}}},",
+            f"      first: {CONTRIBUTION_ISSUE_DISPLAY_LIMIT},",
+            "      orderBy: {field: UPDATED_AT, direction: DESC}",
+            "    ) {",
+            "      totalCount",
+            "      nodes {",
+            "        number",
+            "        title",
+            "        url",
+            "        createdAt",
+            "        updatedAt",
+            "        author {",
+            "          login",
+            "          url",
+            "        }",
+            "      }",
+            "    }",
+            "    helpWantedVisible: issues(",
+            '      states: OPEN, labels: ["help wanted"],',
+            f"      filterBy: {{since: {json.dumps(visible_since)}}},",
+            f"      last: {CONTRIBUTION_ISSUE_DISPLAY_LIMIT},",
+            "      orderBy: {field: UPDATED_AT, direction: DESC}",
+            "    ) {",
+            "      totalCount",
+            "      nodes {",
+            "        number",
+            "        title",
+            "        url",
+            "        createdAt",
+            "        updatedAt",
             "        author {",
             "          login",
             "          url",
@@ -343,6 +419,7 @@ def _normalise_issue(issue: dict[str, Any]) -> dict[str, Any]:
         "title": issue.get("title") or "Untitled issue",
         "url": issue.get("url") or "#",
         "createdAt": issue.get("createdAt"),
+        "updatedAt": issue.get("updatedAt"),
         "author": {
             "login": author.get("login") or "unknown",
             "url": author.get("url") or "",
@@ -350,11 +427,49 @@ def _normalise_issue(issue: dict[str, Any]) -> dict[str, Any]:
     }
 
 
+def _issue_activity_iso(issue: dict[str, Any]) -> str | None:
+    """Return the freshest known activity timestamp for an issue."""
+    return issue.get("updatedAt") or issue.get("createdAt")
+
+
+def _issue_updated_age_days(
+    issue: dict[str, Any],
+    reference_time: datetime,
+) -> int | None:
+    """Return age in days based strictly on the issue ``updatedAt`` timestamp."""
+    dt = _parse_datetime(issue.get("updatedAt"))
+    if not dt:
+        return None
+    return max(0, int((reference_time - dt).total_seconds() // 86400))
+
+
+def _filter_older_contribution_issues(
+    issues: list[dict[str, Any]],
+    reference_time: datetime,
+) -> list[dict[str, Any]]:
+    """Return issues whose ``updatedAt`` falls in the older/backlog window."""
+    older = [
+        issue
+        for issue in issues
+        if (
+            (age := _issue_updated_age_days(issue, reference_time)) is not None
+            and CONTRIBUTION_ACTIVE_MAX_AGE_DAYS < age <= CONTRIBUTION_OLDER_MAX_AGE_DAYS
+        )
+    ]
+    return sorted(
+        older,
+        key=lambda issue: _parse_datetime(issue.get("updatedAt"))
+        or datetime.min.replace(tzinfo=timezone.utc),
+        reverse=True,
+    )
+
+
 def fetch_contribution_opportunities(
     repos: list[dict[str, Any]],
 ) -> dict[str, Any]:
     """Enrich repositories with open contribution-opportunity issue data."""
     token = os.environ.get("GITHUB_TOKEN", "").strip()
+    reference_time = datetime.now(timezone.utc)
     status = {
         "state": "complete",
         "message": "Contribution-opportunity data refreshed from GitHub GraphQL.",
@@ -381,7 +496,7 @@ def fetch_contribution_opportunities(
     failed_batches = 0
     for start in range(0, len(repos), CONTRIBUTION_GRAPHQL_BATCH_SIZE):
         batch = repos[start : start + CONTRIBUTION_GRAPHQL_BATCH_SIZE]
-        query, aliases = _build_contribution_query(batch)
+        query, aliases = _build_contribution_query(batch, reference_time)
         if not aliases:
             continue
 
@@ -428,16 +543,55 @@ def fetch_contribution_opportunities(
             if not repo_data:
                 continue
 
-            good_first = repo_data.get("goodFirst") or {}
-            help_wanted = repo_data.get("helpWanted") or {}
-            repo["openedGoodFirstIssues"] = good_first.get("totalCount", 0) or 0
-            repo["openedHelpWantedIssues"] = help_wanted.get("totalCount", 0) or 0
-            repo["recentGoodFirstIssues"] = [
-                _normalise_issue(issue) for issue in good_first.get("nodes") or []
+            good_first_active = repo_data.get("goodFirstActive") or {}
+            good_first_visible = repo_data.get("goodFirstVisible") or {}
+            help_wanted_active = repo_data.get("helpWantedActive") or {}
+            help_wanted_visible = repo_data.get("helpWantedVisible") or {}
+
+            recent_good_first = [
+                _normalise_issue(issue)
+                for issue in good_first_active.get("nodes") or []
             ]
-            repo["recentHelpWantedIssues"] = [
-                _normalise_issue(issue) for issue in help_wanted.get("nodes") or []
+            recent_help_wanted = [
+                _normalise_issue(issue)
+                for issue in help_wanted_active.get("nodes") or []
             ]
+            older_good_first_candidates = [
+                _normalise_issue(issue)
+                for issue in good_first_visible.get("nodes") or []
+            ]
+            older_help_wanted_candidates = [
+                _normalise_issue(issue)
+                for issue in help_wanted_visible.get("nodes") or []
+            ]
+
+            active_good_first_count = good_first_active.get("totalCount", 0) or 0
+            active_help_wanted_count = help_wanted_active.get("totalCount", 0) or 0
+            visible_good_first_count = good_first_visible.get("totalCount", 0) or 0
+            visible_help_wanted_count = help_wanted_visible.get("totalCount", 0) or 0
+
+            repo["openedGoodFirstIssues"] = active_good_first_count
+            repo["openedHelpWantedIssues"] = active_help_wanted_count
+            repo["olderGoodFirstIssues"] = max(
+                visible_good_first_count - active_good_first_count,
+                0,
+            )
+            repo["olderHelpWantedIssues"] = max(
+                visible_help_wanted_count - active_help_wanted_count,
+                0,
+            )
+            repo["staleGoodFirstIssues"] = 0
+            repo["staleHelpWantedIssues"] = 0
+            repo["recentGoodFirstIssues"] = recent_good_first
+            repo["recentHelpWantedIssues"] = recent_help_wanted
+            repo["olderGoodFirstIssuesList"] = _filter_older_contribution_issues(
+                older_good_first_candidates,
+                reference_time,
+            )[:CONTRIBUTION_ISSUE_DISPLAY_LIMIT]
+            repo["olderHelpWantedIssuesList"] = _filter_older_contribution_issues(
+                older_help_wanted_candidates,
+                reference_time,
+            )[:CONTRIBUTION_ISSUE_DISPLAY_LIMIT]
             status["reposLoaded"] += 1
 
     if failed_batches:
@@ -505,8 +659,14 @@ def _normalise_repo(repo: Any) -> dict[str, Any]:
         "latestRelease": latest_release,
         "openedGoodFirstIssues": 0,
         "openedHelpWantedIssues": 0,
+        "olderGoodFirstIssues": 0,
+        "olderHelpWantedIssues": 0,
+        "staleGoodFirstIssues": 0,
+        "staleHelpWantedIssues": 0,
         "recentGoodFirstIssues": [],
         "recentHelpWantedIssues": [],
+        "olderGoodFirstIssuesList": [],
+        "olderHelpWantedIssuesList": [],
     }
 
 def log_search_limit_summary(limit_hits: list[dict[str, int | str]]) -> None:
@@ -538,11 +698,10 @@ def _format_date(iso: str | None) -> str:
     """Return a human-readable date string from an ISO-8601 timestamp."""
     if not iso:
         return "—"
-    try:
-        dt = datetime.fromisoformat(iso.replace("Z", "+00:00"))
-        return dt.strftime("%Y-%m-%d")
-    except (ValueError, TypeError):
+    dt = _parse_datetime(iso)
+    if not dt:
         return str(iso)[:10]
+    return dt.strftime("%Y-%m-%d")
 
 
 def _format_number(n: int | None) -> str:
@@ -553,12 +712,14 @@ def _format_number(n: int | None) -> str:
 
 
 def _latest_issue_date(repo: dict[str, Any]) -> str:
-    """Return the most recent contribution-issue date for a repository."""
+    """Return the most recent contribution-issue activity date for a repository."""
     dates = [
-        issue.get("createdAt")
+        _issue_activity_iso(issue)
         for issue in (repo.get("recentGoodFirstIssues") or [])
         + (repo.get("recentHelpWantedIssues") or [])
-        if issue.get("createdAt")
+        + (repo.get("olderGoodFirstIssuesList") or [])
+        + (repo.get("olderHelpWantedIssuesList") or [])
+        if _issue_activity_iso(issue)
     ]
     if not dates:
         return "—"
@@ -578,10 +739,14 @@ def _render_issue_list(issues: list[dict[str, Any]], indent: str = "") -> list[s
         author_link = (
             f"[@{author_login}]({author_url})" if author_url else f"@{author_login}"
         )
+        created = _format_date(issue.get("createdAt"))
+        updated = _format_date(issue.get("updatedAt") or issue.get("createdAt"))
+        recency = f"updated {updated}"
+        if created != updated:
+            recency += f" (opened {created})"
         lines.append(
             f"{indent}- [#{issue.get('number')} {issue.get('title', 'Untitled issue')}]"
-            f"({issue.get('url', '#')}) — opened {_format_date(issue.get('createdAt'))}"
-            f" by {author_link}"
+            f"({issue.get('url', '#')}) — {recency} by {author_link}"
         )
     return lines
 
@@ -682,31 +847,68 @@ def generate_repo_page(repo: dict[str, Any]) -> str:
     # Contribution admonition
     good_first = repo.get("openedGoodFirstIssues", 0)
     help_wanted = repo.get("openedHelpWantedIssues", 0)
+    older_good_first = repo.get("olderGoodFirstIssues", 0)
+    older_help_wanted = repo.get("olderHelpWantedIssues", 0)
     recent_good_first = repo.get("recentGoodFirstIssues") or []
     recent_help_wanted = repo.get("recentHelpWantedIssues") or []
+    older_good_first_list = repo.get("olderGoodFirstIssuesList") or []
+    older_help_wanted_list = repo.get("olderHelpWantedIssuesList") or []
     if good_first or help_wanted:
         lines += [
             "",
-            '!!! tip "Open to Contributions"',
-            f"    - **Good First Issues:** {good_first}",
-            f"    - **Help Wanted Issues:** {help_wanted}",
+            '!!! tip "Active Contribution Opportunities"',
+            f"    - **Good First Issues (updated <= {CONTRIBUTION_ACTIVE_MAX_AGE_DAYS} days):** {good_first}",
+            f"    - **Help Wanted Issues (updated <= {CONTRIBUTION_ACTIVE_MAX_AGE_DAYS} days):** {help_wanted}",
         ]
-        if recent_good_first or recent_help_wanted:
-            lines += ["", "## Contribution Opportunities", ""]
-        if recent_good_first:
+        if older_good_first or older_help_wanted:
             lines += [
-                "### Recent Good First Issues",
-                "",
-                *_render_issue_list(recent_good_first),
-                "",
+                f"    - **Older labeled backlog ({CONTRIBUTION_ACTIVE_MAX_AGE_DAYS + 1}-{CONTRIBUTION_OLDER_MAX_AGE_DAYS} days):** {older_good_first + older_help_wanted}",
             ]
-        if recent_help_wanted:
+    elif older_good_first or older_help_wanted:
+        lines += [
+            "",
+            '!!! note "No active opportunities in the last 180 days"',
+            "    This repository still has labeled contribution issues updated within the last year.",
+            f"    - **Older Good First Issues ({CONTRIBUTION_ACTIVE_MAX_AGE_DAYS + 1}-{CONTRIBUTION_OLDER_MAX_AGE_DAYS} days):** {older_good_first}",
+            f"    - **Older Help Wanted Issues ({CONTRIBUTION_ACTIVE_MAX_AGE_DAYS + 1}-{CONTRIBUTION_OLDER_MAX_AGE_DAYS} days):** {older_help_wanted}",
+        ]
+
+    if recent_good_first or recent_help_wanted:
+        lines += ["", "## Active Contribution Opportunities", ""]
+    if recent_good_first:
+        lines += [
+            "### Active Good First Issues",
+            "",
+            *_render_issue_list(recent_good_first),
+            "",
+        ]
+    if recent_help_wanted:
+        lines += [
+            "### Active Help Wanted Issues",
+            "",
+            *_render_issue_list(recent_help_wanted),
+            "",
+        ]
+    if older_good_first_list or older_help_wanted_list:
+        lines += [
+            "",
+            f'??? note "Older labeled opportunities ({CONTRIBUTION_ACTIVE_MAX_AGE_DAYS + 1}-{CONTRIBUTION_OLDER_MAX_AGE_DAYS} days)"',
+        ]
+        if older_good_first_list:
             lines += [
-                "### Recent Help Wanted Issues",
                 "",
-                *_render_issue_list(recent_help_wanted),
+                "    **Good First Issues**",
                 "",
+                *_render_issue_list(older_good_first_list, indent="    "),
             ]
+        if older_help_wanted_list:
+            lines += [
+                "",
+                "    **Help Wanted Issues**",
+                "",
+                *_render_issue_list(older_help_wanted_list, indent="    "),
+            ]
+        lines += [""]
 
     now = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
     lines += [
@@ -747,23 +949,7 @@ def generate_contribution_page(
         reverse=True,
     )
 
-    total_good_first = sum(repo.get("openedGoodFirstIssues", 0) for repo in repos)
-    total_help_wanted = sum(repo.get("openedHelpWantedIssues", 0) for repo in repos)
-    overview_rows = [
-        "| Metric | Value |",
-        "|--------|-------|",
-        f"| **Tracked repositories** | {len(repos)} |",
-        f"| **Repositories with Good First Issues** | {len(repos_with_good_first)} |",
-        f"| **Open Good First Issues** | {total_good_first} |",
-        f"| **Repositories with Help Wanted Issues** | {len(repos_with_help_wanted)} |",
-        f"| **Open Help Wanted Issues** | {total_help_wanted} |",
-    ]
-
-    repo_rows = [
-        "| Repository | Good First Issues | Help Wanted Issues | Latest Issue |",
-        "|------------|-------------------|--------------------|--------------|",
-    ]
-    active_repos = sorted(
+    repos_with_active_opportunities = sorted(
         [
             repo
             for repo in repos
@@ -775,15 +961,50 @@ def generate_contribution_page(
         ),
         reverse=True,
     )
+    repos_with_older_opportunities = sorted(
+        [
+            repo
+            for repo in repos
+            if repo.get("olderGoodFirstIssues", 0) or repo.get("olderHelpWantedIssues", 0)
+        ],
+        key=lambda repo: (
+            repo.get("olderGoodFirstIssues", 0) + repo.get("olderHelpWantedIssues", 0),
+            repo.get("stargazerCount", 0),
+        ),
+        reverse=True,
+    )
+
+    total_good_first = sum(repo.get("openedGoodFirstIssues", 0) for repo in repos)
+    total_help_wanted = sum(repo.get("openedHelpWantedIssues", 0) for repo in repos)
+    total_older_good_first = sum(repo.get("olderGoodFirstIssues", 0) for repo in repos)
+    total_older_help_wanted = sum(repo.get("olderHelpWantedIssues", 0) for repo in repos)
+    overview_rows = [
+        "| Metric | Value |",
+        "|--------|-------|",
+        f"| **Tracked repositories** | {len(repos)} |",
+        f"| **Repositories with active opportunities** | {len(repos_with_active_opportunities)} |",
+        f"| **Active Good First Issues (<= {CONTRIBUTION_ACTIVE_MAX_AGE_DAYS} days)** | {total_good_first} |",
+        f"| **Active Help Wanted Issues (<= {CONTRIBUTION_ACTIVE_MAX_AGE_DAYS} days)** | {total_help_wanted} |",
+        f"| **Repositories with older / backlog opportunities** | {len(repos_with_older_opportunities)} |",
+        f"| **Older Good First Issues ({CONTRIBUTION_ACTIVE_MAX_AGE_DAYS + 1}-{CONTRIBUTION_OLDER_MAX_AGE_DAYS} days)** | {total_older_good_first} |",
+        f"| **Older Help Wanted Issues ({CONTRIBUTION_ACTIVE_MAX_AGE_DAYS + 1}-{CONTRIBUTION_OLDER_MAX_AGE_DAYS} days)** | {total_older_help_wanted} |",
+    ]
+
+    repo_rows = [
+        "| Repository | Good First Issues | Help Wanted Issues | Latest Activity |",
+        "|------------|-------------------|--------------------|-----------------|",
+    ]
     repo_rows.extend(
         [
             f"| [{repo.get('fullName', repo.get('name', 'unknown'))}]"
             f"(../registry/{_sanitise_filename(repo.get('fullName', 'unknown/unknown'))}.md) | "
             f"{repo.get('openedGoodFirstIssues', 0)} | {repo.get('openedHelpWantedIssues', 0)} | "
             f"{_latest_issue_date(repo)} |"
-            for repo in active_repos
+            for repo in repos_with_active_opportunities
         ]
-        or ["| _No tracked repositories currently advertise contribution labels._ | 0 | 0 | — |"]
+        or [
+            f"| _No tracked repositories currently expose active contribution opportunities (<= {CONTRIBUTION_ACTIVE_MAX_AGE_DAYS} days)._ | 0 | 0 | — |"
+        ]
     )
 
     status_block: list[str] = []
@@ -815,14 +1036,20 @@ def generate_contribution_page(
         "",
         "# :material-hand-heart: Contribution Opportunities",
         "",
-        "Discover tracked repositories that currently advertise open "
-        "`good first issue` and `help wanted` tickets.",
+        "Discover tracked repositories with active contribution opportunities "
+        "updated in the last six months. Older labeled issues updated within the "
+        "last year are grouped separately as backlog.",
         "",
         f'!!! info "Last synced: {now}"',
         "    Repository metadata and issue details are generated by "
         "[`sync_repos.py`](https://github.com/rpothin/PowerPlatform-OpenSource-Hub/blob/main/scripts/sync_repos.py).",
         "",
         *status_block,
+        '!!! info "Freshness windows"',
+        f"    Active opportunities use issue `updatedAt` within the last {CONTRIBUTION_ACTIVE_MAX_AGE_DAYS} days.",
+        f"    Older / backlog opportunities use issue `updatedAt` between {CONTRIBUTION_ACTIVE_MAX_AGE_DAYS + 1} and {CONTRIBUTION_OLDER_MAX_AGE_DAYS} days.",
+        f"    Contribution-specific counts and lists hide issues older than {CONTRIBUTION_OLDER_MAX_AGE_DAYS} days.",
+        "",
         "---",
         "",
         '<div class="registry-summary" markdown>',
@@ -835,7 +1062,7 @@ def generate_contribution_page(
         "",
         "---",
         "",
-        "## Active Repositories",
+        f"## Active Repositories (updated <= {CONTRIBUTION_ACTIVE_MAX_AGE_DAYS} days)",
         "",
         *repo_rows,
         "",
@@ -843,13 +1070,13 @@ def generate_contribution_page(
 
     sections = [
         (
-            "Good First Issues",
+            f"Active Good First Issues (updated <= {CONTRIBUTION_ACTIVE_MAX_AGE_DAYS} days)",
             "openedGoodFirstIssues",
             "recentGoodFirstIssues",
             repos_with_good_first,
         ),
         (
-            "Help Wanted Issues",
+            f"Active Help Wanted Issues (updated <= {CONTRIBUTION_ACTIVE_MAX_AGE_DAYS} days)",
             "openedHelpWantedIssues",
             "recentHelpWantedIssues",
             repos_with_help_wanted,
@@ -870,18 +1097,50 @@ def generate_contribution_page(
             lines += [
                 f'??? note "[{full_name}]({repo_link}) — {_format_number(issue_count)} open"',
                 *(
-                    _render_issue_list(repo.get(issues_key) or [], indent="    ")
-                    + (
+                     _render_issue_list(repo.get(issues_key) or [], indent="    ")
+                     + (
                         [
                             "    "
-                            f"_Showing the {min(issue_count, CONTRIBUTION_ISSUE_LIMIT)} most recent open issue(s)._"
+                            f"_Showing the {min(issue_count, CONTRIBUTION_ISSUE_DISPLAY_LIMIT)} most recently updated issue(s)._"
                         ]
-                        if issue_count > CONTRIBUTION_ISSUE_LIMIT
+                        if issue_count > CONTRIBUTION_ISSUE_DISPLAY_LIMIT
                         else []
                     )
                 ),
                 "",
             ]
+
+    if repos_with_older_opportunities:
+        lines += [
+            "---",
+            "",
+            f"## Older Labeled Opportunities ({CONTRIBUTION_ACTIVE_MAX_AGE_DAYS + 1}-{CONTRIBUTION_OLDER_MAX_AGE_DAYS} days)",
+            "",
+            "These issues still showed activity within the last year, but they are not recent enough to count as active opportunities.",
+            "",
+        ]
+        for repo in repos_with_older_opportunities:
+            full_name = repo.get("fullName", repo.get("name", "unknown/unknown"))
+            repo_link = f"../registry/{_sanitise_filename(full_name)}.md"
+            older_total = repo.get("olderGoodFirstIssues", 0) + repo.get("olderHelpWantedIssues", 0)
+            lines += [
+                f'??? note "[{full_name}]({repo_link}) — {_format_number(older_total)} older labeled issue(s)"',
+            ]
+            if repo.get("olderGoodFirstIssuesList"):
+                lines += [
+                    "",
+                    "    **Good First Issues**",
+                    "",
+                    *_render_issue_list(repo.get("olderGoodFirstIssuesList") or [], indent="    "),
+                ]
+            if repo.get("olderHelpWantedIssuesList"):
+                lines += [
+                    "",
+                    "    **Help Wanted Issues**",
+                    "",
+                    *_render_issue_list(repo.get("olderHelpWantedIssuesList") or [], indent="    "),
+                ]
+            lines += [""]
 
     lines += [
         "---",
