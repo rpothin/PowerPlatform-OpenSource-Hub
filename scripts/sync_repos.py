@@ -44,6 +44,21 @@ CONTRIBUTION_ACTIVE_MAX_AGE_DAYS = 180
 CONTRIBUTION_OLDER_MAX_AGE_DAYS = 365
 
 # ---------------------------------------------------------------------------
+# Owner classification — orgs recognised as Microsoft-owned
+# ---------------------------------------------------------------------------
+MICROSOFT_ORGS = frozenset(name.lower() for name in (
+    "microsoft", "azure", "azure-samples", "microsoftdocs", "OfficeDev",
+    "MicrosoftLearning", "PowerPlatform", "dotnet", "SharePoint",
+    "pnp", "microsoftgraph",
+))
+
+# ---------------------------------------------------------------------------
+# Activity tiers based on repo updatedAt
+# ---------------------------------------------------------------------------
+ACTIVITY_ACTIVE_DAYS = 90
+ACTIVITY_MAINTAINED_DAYS = 365
+
+# ---------------------------------------------------------------------------
 # Required service coverage
 # ---------------------------------------------------------------------------
 REQUIRED_SERVICE_SLUGS = (
@@ -687,6 +702,33 @@ def log_search_limit_summary(limit_hits: list[dict[str, int | str]]) -> None:
     )
 
 
+def classify_owner(repo: dict[str, Any]) -> str:
+    """Return ``'microsoft'`` or ``'community'`` based on the repo owner."""
+    full_name = repo.get("fullName", "")
+    owner = full_name.split("/", 1)[0].lower() if "/" in full_name else ""
+    return "microsoft" if owner in MICROSOFT_ORGS else "community"
+
+
+def compute_activity_status(repo: dict[str, Any]) -> str:
+    """Return ``'active'``, ``'maintained'``, or ``'inactive'``."""
+    dt = _parse_datetime(repo.get("updatedAt"))
+    if not dt:
+        return "inactive"
+    age_days = (datetime.now(timezone.utc) - dt).days
+    if age_days <= ACTIVITY_ACTIVE_DAYS:
+        return "active"
+    if age_days <= ACTIVITY_MAINTAINED_DAYS:
+        return "maintained"
+    return "inactive"
+
+
+def enrich_repos(repos: list[dict[str, Any]]) -> None:
+    """Add ``ownerType`` and ``activityStatus`` to every repository dict."""
+    for repo in repos:
+        repo["ownerType"] = classify_owner(repo)
+        repo["activityStatus"] = compute_activity_status(repo)
+
+
 # ===================================================================
 # Markdown generation
 # ===================================================================
@@ -802,6 +844,45 @@ def _service_category_topics(service: dict[str, Any]) -> set[str]:
     return tracked_topics | set(service.get("aliases", []))
 
 
+def _owner_badge_html(repo: dict[str, Any]) -> str:
+    """Return an HTML badge indicating Microsoft or Community ownership."""
+    owner_type = repo.get("ownerType", "community")
+    if owner_type == "microsoft":
+        return '<span class="mdx-owner-badge mdx-owner-badge--microsoft" title="Microsoft">&#9679; Microsoft</span>'
+    return '<span class="mdx-owner-badge mdx-owner-badge--community" title="Community">&#9679; Community</span>'
+
+
+def _activity_badge_html(repo: dict[str, Any]) -> str:
+    """Return an HTML badge indicating activity status."""
+    status = repo.get("activityStatus", "inactive")
+    labels = {"active": "Active", "maintained": "Maintained", "inactive": "Inactive"}
+    label = labels.get(status, "Inactive")
+    return f'<span class="mdx-activity-badge mdx-activity-badge--{status}" title="{label}">{label}</span>'
+
+
+def _contribution_badges_html(repo: dict[str, Any]) -> str:
+    """Return HTML badges for Good First Issues / Help Wanted (only when > 0)."""
+    gfi = repo.get("openedGoodFirstIssues", 0)
+    hw = repo.get("openedHelpWantedIssues", 0)
+    parts: list[str] = []
+    if gfi:
+        parts.append(f'<span class="mdx-contrib-badge mdx-contrib-badge--gfi">🌱&nbsp;{gfi} Good First</span>')
+    if hw:
+        parts.append(f'<span class="mdx-contrib-badge mdx-contrib-badge--hw">🛠️&nbsp;{hw} Help Wanted</span>')
+    return " ".join(parts)
+
+
+def _owner_badge_table(repo: dict[str, Any]) -> str:
+    """Return a compact text indicator for tables."""
+    return "🏢" if repo.get("ownerType") == "microsoft" else "👤"
+
+
+def _activity_dot_table(repo: dict[str, Any]) -> str:
+    """Return a compact activity indicator for tables."""
+    status = repo.get("activityStatus", "inactive")
+    return {"active": "🟢", "maintained": "🟡", "inactive": "🔴"}.get(status, "🔴")
+
+
 def _categorize_repo(
     repo: dict[str, Any],
     criteria: dict[str, dict[str, Any]],
@@ -843,6 +924,11 @@ def generate_repo_page(repo: dict[str, Any]) -> str:
         '<section class="mdx-detail-hero">',
         f"  <h1>{name}</h1>",
         f'  <p class="mdx-detail-hero__description">{desc}</p>',
+        '  <div class="mdx-detail-hero__badges">',
+        f"    {_owner_badge_html(repo)}",
+        f"    {_activity_badge_html(repo)}",
+        f"    {_contribution_badges_html(repo)}",
+        "  </div>",
         '  <div class="mdx-detail-hero__actions">',
         f'    <a href="{url}" class="md-button md-button--primary" target="_blank" rel="noopener">',
         '      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" style="vertical-align: middle; margin-right: 0.4em; fill: currentColor;"><path d="M12 .3a12 12 0 0 0-3.8 23.38c.6.12.83-.26.83-.57L9 21.07c-3.34.72-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.08-.74.09-.73.09-.73 1.2.09 1.84 1.24 1.84 1.24 1.07 1.83 2.8 1.3 3.49 1 .1-.78.42-1.3.76-1.6-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.14-.3-.54-1.52.1-3.18 0 0 1-.32 3.3 1.23a11.5 11.5 0 0 1 6.02 0c2.28-1.55 3.29-1.23 3.29-1.23.64 1.66.24 2.88.12 3.18a4.65 4.65 0 0 1 1.23 3.22c0 4.61-2.8 5.63-5.48 5.92.42.36.81 1.1.81 2.22l-.01 3.29c0 .31.21.69.82.57A12 12 0 0 0 12 .3"/></svg>View on GitHub',
@@ -1043,8 +1129,8 @@ def generate_contribution_page(
         '<section class="mdx-contribute-hero">',
         '  <div class="md-grid">',
         '    <p class="mdx-contribute-hero__eyebrow">Contribution Opportunities</p>',
-        '    <h2>Find active contribution opportunities worth acting on now</h2>',
-        '    <p class="mdx-contribute-hero__description">Discover tracked repositories with active contribution opportunities updated in the last six months. Older labeled issues updated within the last year are grouped separately as backlog.</p>',
+        '    <h2>Your next open-source contribution starts here</h2>',
+        '    <p class="mdx-contribute-hero__description">Contributing to Power Platform open-source projects makes the ecosystem stronger for everyone. Whether you write code, improve documentation, test features, or report bugs — every contribution counts. Below you will find active issues from tracked repositories that are ready for community help.</p>',
         '    <div class="mdx-contribute-hero__stats">',
         f'      <span class="mdx-contribute-hero__stat">📦 {len(repos_with_active_opportunities)} active repos</span>',
         f'      <span class="mdx-contribute-hero__stat">🌱 {total_good_first} good first issues</span>',
@@ -1057,6 +1143,14 @@ def generate_contribution_page(
         f'    <p class="mdx-contribute-hero__sync">Last synced: {now}</p>',
         '  </div>',
         '</section>',
+        "",
+        "---",
+        "",
+        "## How to Get Started",
+        "",
+        "1. **Browse the issues below** — Look for good first issues if you are new, or help wanted issues if you are experienced.",
+        "2. **Read the Contributor Guide** — Our [Getting Started guide](../guide/contributors/getting-started/) walks you through finding the right project and making your first contribution.",
+        "3. **Pick an issue and start contributing** — Follow the repository's contribution guidelines, fork, and open a pull request.",
         "",
     ]
 
@@ -1081,9 +1175,11 @@ def generate_contribution_page(
         gfi = repo.get('openedGoodFirstIssues', 0)
         hw = repo.get('openedHelpWantedIssues', 0)
         latest = _latest_issue_date(repo)
+        owner_icon = _owner_badge_table(repo)
+        activity_icon = _activity_dot_table(repo)
         lines += [
             f'  <a class="mdx-contribute-repo-card" href="{repo_link}">',
-            f'    <div class="mdx-contribute-repo-card__name">{full_name}</div>',
+            f'    <div class="mdx-contribute-repo-card__name">{owner_icon} {activity_icon} {full_name}</div>',
             f'    <div class="mdx-contribute-repo-card__badges">',
             f'      <span class="mdx-contribute-repo-card__badge mdx-contribute-repo-card__badge--gfi">🌱 {gfi} Good First</span>',
             f'      <span class="mdx-contribute-repo-card__badge mdx-contribute-repo-card__badge--hw">🛠️ {hw} Help Wanted</span>',
@@ -1224,6 +1320,8 @@ def generate_registry_index(repos: list[dict[str, Any]]) -> str:
     languages: dict[str, int] = {}
     total_stars = 0
     contrib_repos = 0
+    active_repos = 0
+    ms_repos = 0
 
     for r in repos:
         lang = r.get("language") or "Unknown"
@@ -1231,6 +1329,10 @@ def generate_registry_index(repos: list[dict[str, Any]]) -> str:
         total_stars += r.get("stargazerCount", 0)
         if r.get("openedGoodFirstIssues", 0) or r.get("openedHelpWantedIssues", 0):
             contrib_repos += 1
+        if r.get("activityStatus") == "active":
+            active_repos += 1
+        if r.get("ownerType") == "microsoft":
+            ms_repos += 1
 
     top_langs = sorted(languages.items(), key=lambda x: x[1], reverse=True)[:10]
 
@@ -1254,12 +1356,16 @@ def generate_registry_index(repos: list[dict[str, Any]]) -> str:
         desc = (r.get("description") or "No description")[:100]
         if len(r.get("description") or "") > 100:
             desc += "…"
+        owner_icon = _owner_badge_table(r)
+        activity_icon = _activity_dot_table(r)
+        contrib = _contribution_badges_html(r)
+        contrib_line = f"\n\n    {contrib}" if contrib else ""
         card_items.append(
-            f"-   :star: **{name}** · {_format_number(stars)} stars{watcher_text} · `{lang}`\n"
+            f"-   {owner_icon} {activity_icon} :star: **{name}** · {_format_number(stars)} stars{watcher_text} · `{lang}`\n"
             f"\n"
             f"    ---\n"
             f"\n"
-            f"    {desc}\n"
+            f"    {desc}{contrib_line}\n"
             f"\n"
             f"    [:octicons-arrow-right-24: View details]({slug}.md)"
         )
@@ -1278,8 +1384,10 @@ def generate_registry_index(repos: list[dict[str, Any]]) -> str:
         desc = (r.get("description") or "")[:80]
         if len(r.get("description") or "") > 80:
             desc += "…"
+        owner_icon = _owner_badge_table(r)
+        activity_icon = _activity_dot_table(r)
         remaining_rows.append(
-            f"| [{name}]({slug}.md) | {lang} | :star: {_format_number(stars)} | {desc} |"
+            f"| {owner_icon} {activity_icon} [{name}]({slug}.md) | {lang} | :star: {_format_number(stars)} | {desc} |"
         )
 
     remaining_table = "\n".join(remaining_rows)
@@ -1295,6 +1403,16 @@ def generate_registry_index(repos: list[dict[str, Any]]) -> str:
             + "\n".join(f"    {row}" for row in remaining_rows)
         )
 
+    legend = (
+        '<div class="mdx-registry-legend">\n'
+        '  <span title="Microsoft">🏢 Microsoft</span>\n'
+        '  <span title="Community">👤 Community</span>\n'
+        '  <span title="Active — updated within 90 days">🟢 Active</span>\n'
+        '  <span title="Maintained — updated within a year">🟡 Maintained</span>\n'
+        '  <span title="Inactive — not updated in over a year">🔴 Inactive</span>\n'
+        '</div>'
+    )
+
     lines: list[str] = [
         "---",
         "hide:",
@@ -1309,6 +1427,7 @@ def generate_registry_index(repos: list[dict[str, Any]]) -> str:
         f'      <span class="mdx-registry-hero__stat"><span class="mdx-registry-hero__stat-icon">📦</span> {total} repositories</span>',
         f'      <span class="mdx-registry-hero__stat"><span class="mdx-registry-hero__stat-icon">⭐</span> {_format_number(total_stars)} stars</span>',
         f'      <span class="mdx-registry-hero__stat"><span class="mdx-registry-hero__stat-icon">🤝</span> {contrib_repos} open to contributions</span>',
+        f'      <span class="mdx-registry-hero__stat"><span class="mdx-registry-hero__stat-icon">🏢</span> {ms_repos} Microsoft · {total - ms_repos} Community</span>',
         '    </div>',
     ]
 
@@ -1328,6 +1447,8 @@ def generate_registry_index(repos: list[dict[str, Any]]) -> str:
         '</section>',
         "",
         "## Featured Repositories",
+        "",
+        legend,
         "",
         '<div class="grid cards" markdown>',
         "",
@@ -1379,12 +1500,16 @@ def generate_category_page(service: dict[str, Any], repos: list[dict[str, Any]])
         desc = (r.get("description") or "No description")[:100]
         if len(r.get("description") or "") > 100:
             desc += "…"
+        owner_icon = _owner_badge_table(r)
+        activity_icon = _activity_dot_table(r)
+        contrib = _contribution_badges_html(r)
+        contrib_line = f"\n\n    {contrib}" if contrib else ""
         card_items.append(
-            f"-   :star: **{name}** · {_format_number(stars)} stars{watcher_text} · `{lang}`\n"
+            f"-   {owner_icon} {activity_icon} :star: **{name}** · {_format_number(stars)} stars{watcher_text} · `{lang}`\n"
             f"\n"
             f"    ---\n"
             f"\n"
-            f"    {desc}\n"
+            f"    {desc}{contrib_line}\n"
             f"\n"
             f"    [:octicons-arrow-right-24: View details]({repo_slug}.md)"
         )
@@ -1421,8 +1546,10 @@ def generate_category_page(service: dict[str, Any], repos: list[dict[str, Any]])
             desc = (r.get("description") or "")[:80]
             if len(r.get("description") or "") > 80:
                 desc += "…"
+            owner_icon = _owner_badge_table(r)
+            activity_icon = _activity_dot_table(r)
             remaining_rows.append(
-                f"    | [{name}]({repo_slug}.md) | {lang} | :star: {_format_number(stars)} | {desc} |"
+                f"    | {owner_icon} {activity_icon} [{name}]({repo_slug}.md) | {lang} | :star: {_format_number(stars)} | {desc} |"
             )
         remaining_section = (
             "\n---\n\n"
@@ -1558,8 +1685,13 @@ def write_home_data(
         1 for r in repos
         if r.get("openedGoodFirstIssues", 0) or r.get("openedHelpWantedIssues", 0)
     )
-
-    topics_count = sum(len(service["topics"]) for service in criteria.values())
+    total_contribution_issues = sum(
+        r.get("openedGoodFirstIssues", 0) + r.get("openedHelpWantedIssues", 0)
+        for r in repos
+    )
+    active_project_count = sum(
+        1 for r in repos if r.get("activityStatus") == "active"
+    )
 
     featured = repos[:6]
 
@@ -1573,6 +1705,12 @@ def write_home_data(
             desc += "…"
         stars = _format_number(r.get("stargazerCount", 0))
         watchers = r.get("watchersCount")
+        owner_type = r.get("ownerType", "community")
+        owner_badge = (
+            '<span class="mdx-repo-card__owner mdx-repo-card__owner--microsoft">🏢</span>'
+            if owner_type == "microsoft"
+            else '<span class="mdx-repo-card__owner mdx-repo-card__owner--community">👤</span>'
+        )
         watchers_html = (
             f'        <div class="mdx-repo-card__metrics">\n'
             f'          <span class="mdx-repo-card__metric">⭐ {stars}</span>\n'
@@ -1589,6 +1727,7 @@ def write_home_data(
         featured_cards.append(
             f'      <a class="mdx-repo-card" href="registry/{slug}/">\n'
             f'        <div class="mdx-repo-card__header">\n'
+            f'          {owner_badge}\n'
             f'          <span class="mdx-repo-card__name">{name}</span>\n'
             f'        </div>\n'
             f'        <p class="mdx-repo-card__desc">{desc}</p>\n'
@@ -1606,19 +1745,19 @@ def write_home_data(
     <div class="mdx-stats__grid">
       <div class="mdx-stats__card">
         <div class="mdx-stats__number">📦 {_format_number_short(total)}</div>
-        <div class="mdx-stats__label">Repositories</div>
+        <div class="mdx-stats__label">Repositories Tracked</div>
       </div>
       <div class="mdx-stats__card">
         <div class="mdx-stats__number">⭐ {_format_number_short(total_stars)}</div>
         <div class="mdx-stats__label">Total Stars</div>
       </div>
       <div class="mdx-stats__card">
-        <div class="mdx-stats__number">🤝 {contrib_repos}</div>
-        <div class="mdx-stats__label">Open to Contributions</div>
+        <div class="mdx-stats__number">🤝 {total_contribution_issues}</div>
+        <div class="mdx-stats__label">Contribution Opportunities</div>
       </div>
       <div class="mdx-stats__card">
-        <div class="mdx-stats__number">🏷️ {topics_count}</div>
-        <div class="mdx-stats__label">Topics Tracked</div>
+        <div class="mdx-stats__number">🟢 {active_project_count}</div>
+        <div class="mdx-stats__label">Active Projects</div>
       </div>
     </div>
   </div>
@@ -1647,6 +1786,7 @@ def write_home_data(
 def main() -> None:
     criteria = load_search_criteria()
     repos, limit_hits = fetch_repos_live(criteria)
+    enrich_repos(repos)
     contribution_status = fetch_contribution_opportunities(repos)
 
     write_registry(repos, criteria)

@@ -19,13 +19,18 @@
     <div class="md-grid md-typeset">
       <div class="mdx-hero">
         <div class="mdx-hero__content">
-          <h1>Your open-source journey in<br> Power Platform starts here</h1>
-          <p>{{ config.site_description }}</p>
+          <h1>Helping the Power Platform<br> open-source community thrive</h1>
+          <p>
+            The Hub connects maintainers, contributors, and users across the
+            Power Platform &amp; Copilot Studio open-source ecosystem — so that
+            great projects get discovered, quality contributions happen, and
+            the community grows stronger together.
+          </p>
           <a href="{{ 'registry/' | url }}" class="md-button md-button--primary">
             Browse Registry
           </a>
-          <a href="{{ 'guide/' | url }}" class="md-button">
-            Contributing Guide
+          <a href="{{ 'contribute/' | url }}" class="md-button">
+            Find Contributions
           </a>
         </div>
         <div class="mdx-hero__image">
@@ -70,82 +75,41 @@
     </div>
   </section>
 
-  <!-- ===== Stats + Featured + Focus + CTA — from generated partial ===== -->
+  <!-- ===== Stats + Featured — from generated partial ===== -->
   {% include "partials/home_hero.html" %}
 
-  <!-- ===== Contribution Opportunities ===== -->
-  <section class="mdx-contribute">
+  <!-- ===== Persona Navigation ===== -->
+  <section class="mdx-personas">
     <div class="md-grid">
-      <div class="mdx-contribute__panel">
-        <div class="mdx-contribute__content">
-          <p class="mdx-contribute__eyebrow">Recent contribution opportunities</p>
-          <h2>Find active contribution opportunities worth acting on now</h2>
-          <p class="mdx-contribute__description">
-            Explore repositories where <strong>good first issue</strong> and
-            <strong>help wanted</strong> signals are backed by
-            <strong>recent activity</strong>, so the Hub spotlights
-            contribution opportunities that are fresh, maintained, and ready
-            for community help.
-          </p>
-          <div class="mdx-contribute__actions">
-            <a href="{{ 'contribute/' | url }}" class="md-button md-button--primary">
-              Browse Active Opportunities
-            </a>
-            <a href="{{ 'guide/contributing/' | url }}" class="md-button">
-              Read the Guide
-            </a>
+      <h2 class="mdx-personas__title">How Can We Help You?</h2>
+      <div class="mdx-personas__grid">
+        <div class="mdx-personas__card">
+          <span class="mdx-personas__icon" aria-hidden="true">🛡️</span>
+          <h3>Maintainers</h3>
+          <p>Grow your project's visibility and follow best practices to build a welcoming, sustainable open-source project.</p>
+          <div class="mdx-personas__actions">
+            <a href="{{ 'guide/maintainers/' | url }}" class="md-button md-button--primary">Maintainer Guide</a>
+            <a href="{{ 'registry/' | url }}" class="md-button">Browse Registry</a>
           </div>
         </div>
-        <div class="mdx-contribute__highlights">
-          <article class="mdx-contribute__card">
-            <span class="mdx-contribute__icon" aria-hidden="true">🌱</span>
-            <h3>Beginner-friendly</h3>
-            <p>Start with approachable issues that still show recent maintainer and project activity.</p>
-          </article>
-          <article class="mdx-contribute__card">
-            <span class="mdx-contribute__icon" aria-hidden="true">🛠️</span>
-            <h3>Action-ready</h3>
-            <p>Focus on opportunities that are labeled for contributors and remain current enough to pick up confidently.</p>
-          </article>
-          <article class="mdx-contribute__card">
-            <span class="mdx-contribute__icon" aria-hidden="true">🧭</span>
-            <h3>Hub-guided</h3>
-            <p>Use the opportunity page alongside project detail pages and contribution guidance to move quickly from browse to PR.</p>
-          </article>
+        <div class="mdx-personas__card">
+          <span class="mdx-personas__icon" aria-hidden="true">🤝</span>
+          <h3>Contributors</h3>
+          <p>Find your next contribution opportunity and learn how to make effective contributions to Power Platform projects.</p>
+          <div class="mdx-personas__actions">
+            <a href="{{ 'contribute/' | url }}" class="md-button md-button--primary">Find Opportunities</a>
+            <a href="{{ 'guide/contributors/' | url }}" class="md-button">Contributor Guide</a>
+          </div>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== Focus Areas ===== -->
-  <section class="mdx-focus">
-    <div class="md-grid">
-      <h2 class="mdx-focus__title">Explore by Focus Area</h2>
-      <div class="mdx-focus__grid">
-        <a class="mdx-focus__card" href="{{ 'registry/power-apps/' | url }}">
-          <span class="mdx-focus__icon">🔌</span>
-          <span class="mdx-focus__label">Power Apps</span>
-        </a>
-        <a class="mdx-focus__card" href="{{ 'registry/power-automate/' | url }}">
-          <span class="mdx-focus__icon">⚡</span>
-          <span class="mdx-focus__label">Power Automate</span>
-        </a>
-        <a class="mdx-focus__card" href="{{ 'registry/dataverse/' | url }}">
-          <span class="mdx-focus__icon">📊</span>
-          <span class="mdx-focus__label">Dataverse</span>
-        </a>
-        <a class="mdx-focus__card" href="{{ 'registry/copilot-studio/' | url }}">
-          <span class="mdx-focus__icon">🤖</span>
-          <span class="mdx-focus__label">Copilot Studio</span>
-        </a>
-        <a class="mdx-focus__card" href="{{ 'registry/pcf-controls/' | url }}">
-          <span class="mdx-focus__icon">🧩</span>
-          <span class="mdx-focus__label">PCF Controls</span>
-        </a>
-        <a class="mdx-focus__card" href="{{ 'registry/dynamics-365/' | url }}">
-          <span class="mdx-focus__icon">🏢</span>
-          <span class="mdx-focus__label">Dynamics 365</span>
-        </a>
+        <div class="mdx-personas__card">
+          <span class="mdx-personas__icon" aria-hidden="true">🔍</span>
+          <h3>Users</h3>
+          <p>Discover open-source tools for Power Platform and learn how to evaluate, use, and support the projects you depend on.</p>
+          <div class="mdx-personas__actions">
+            <a href="{{ 'registry/' | url }}" class="md-button md-button--primary">Explore Projects</a>
+            <a href="{{ 'guide/users/' | url }}" class="md-button">User Guide</a>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -170,7 +134,7 @@
           <li><a href="{{ 'registry/' | url }}">Registry</a></li>
           <li><a href="{{ 'contribute/' | url }}">Contribution Opportunities</a></li>
           <li><a href="{{ 'guide/' | url }}">Guide</a></li>
-          <li><a href="{{ 'guide/contributing/' | url }}">Contributing</a></li>
+          <li><a href="{{ 'guide/contributors/hub-development/' | url }}">Contributing to the Hub</a></li>
         </ul>
       </div>
       <div class="mdx-footer__col">

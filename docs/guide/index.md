@@ -1,18 +1,47 @@
-# :material-book-open-page-variant: Guidance & Best Practices
+# :material-book-open-variant: Guide
 
-Welcome to the **Guide** section. Here you will find everything you need to
-contribute to the Power Platform open-source ecosystem effectively.
+The Power Platform open-source ecosystem thrives when maintainers, contributors,
+and users all follow good practices. This guide provides actionable resources
+for each persona — pick the section that best describes your role.
 
 ---
 
-## Sections
+<div class="grid cards" markdown>
 
-| Page | Description |
-|------|-------------|
-| [Contributing](contributing.md) | How to contribute to the Hub and listed projects |
-| [Naming Conventions](naming-conventions.md) | Standards for repository and project naming |
-| [Repository Onboarding](repository-onboarding.md) | How to add your repository to the Hub |
+-   :material-shield-account: **For Maintainers**
+
+    ---
+
+    Set up your repository for success, build a welcoming community, follow
+    naming conventions, and manage releases professionally.
+
+    [:octicons-arrow-right-24: Maintainer Guide](maintainers/index.md)
+
+-   :material-account-group: **For Contributors**
+
+    ---
+
+    Find your first project, learn the fork-and-PR workflow, write quality
+    code, and navigate the review process with confidence.
+
+    [:octicons-arrow-right-24: Contributor Guide](contributors/index.md)
+
+-   :material-account-star: **For Users**
+
+    ---
+
+    Discover the right open-source tools, evaluate project health, and give
+    back to the community through bug reports, discussions, and support.
+
+    [:octicons-arrow-right-24: User Guide](users/index.md)
+
+</div>
+
+---
 
 !!! tip "New here?"
-    Start with the **[Contributing](contributing.md)** guide to learn how the
-    Hub works and how you can help.
+    If you are not sure where to start:
+
+    - **Want to use a tool?** Start with [Discovering Projects](users/discovering-projects.md).
+    - **Want to contribute?** Start with [Getting Started](contributors/getting-started.md).
+    - **Maintain a project?** Start with [Repository Setup](maintainers/repository-setup.md).

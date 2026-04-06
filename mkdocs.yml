@@ -96,6 +96,16 @@ extra:
       link: https://github.com/rpothin/PowerPlatform-OpenSource-Hub
   generator: false
 
+validation:
+  nav:
+    omitted_files: ignore
+    not_found: warn
+    absolute_links: info
+  links:
+    not_found: warn
+    absolute_links: info
+    unrecognized_links: info
+
 extra_css:
   - stylesheets/extra.css
 
@@ -113,6 +123,18 @@ nav:
   - Contribute: contribute/index.md
   - Guide:
     - guide/index.md
-    - Contributing: guide/contributing.md
-    - Naming Conventions: guide/naming-conventions.md
-    - Repository Onboarding: guide/repository-onboarding.md
+    - For Maintainers:
+      - guide/maintainers/index.md
+      - Repository Setup: guide/maintainers/repository-setup.md
+      - Naming Conventions: guide/maintainers/naming-conventions.md
+      - Community Health: guide/maintainers/community-health.md
+      - Releases: guide/maintainers/releases.md
+    - For Contributors:
+      - guide/contributors/index.md
+      - Getting Started: guide/contributors/getting-started.md
+      - Making Contributions: guide/contributors/making-contributions.md
+      - Hub Development: guide/contributors/hub-development.md
+    - For Users:
+      - guide/users/index.md
+      - Discovering Projects: guide/users/discovering-projects.md
+      - Giving Back: guide/users/giving-back.md

@@ -1601,3 +1601,284 @@
     gap: 1.5rem;
   }
 }
+
+/* ============================================================
+   j) PERSONA NAVIGATION CARDS
+   ============================================================ */
+
+.mdx-personas {
+  padding: 3rem 0 3.5rem;
+  background: color-mix(in srgb, var(--md-primary-fg-color) 3%, var(--md-default-bg-color));
+}
+
+[data-md-color-scheme="slate"] .mdx-personas {
+  background: color-mix(in srgb, var(--md-primary-fg-color) 5%, var(--md-default-bg-color));
+}
+
+.mdx-personas__title {
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  color: var(--md-default-fg-color);
+}
+
+.mdx-personas__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.mdx-personas__card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 2rem 1.5rem;
+  border-radius: 16px;
+  border: 1px solid var(--md-default-fg-color--lightest);
+  background: var(--md-default-bg-color);
+  transition: box-shadow 0.2s, transform 0.2s, border-color 0.2s;
+}
+
+.mdx-personas__card:hover {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  transform: translateY(-3px);
+  border-color: var(--md-accent-fg-color);
+}
+
+[data-md-color-scheme="slate"] .mdx-personas__card {
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+[data-md-color-scheme="slate"] .mdx-personas__card:hover {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  border-color: var(--md-accent-fg-color);
+}
+
+.mdx-personas__icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.mdx-personas__card h3 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin: 0 0 0.5rem;
+  color: var(--md-default-fg-color);
+}
+
+.mdx-personas__card p {
+  font-size: 0.9rem;
+  color: var(--md-default-fg-color--light);
+  line-height: 1.6;
+  margin: 0 0 1.25rem;
+  flex: 1;
+}
+
+.mdx-personas__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.mdx-personas__actions .md-button {
+  font-size: 0.82rem;
+  padding: 0.4rem 1rem;
+}
+
+@media screen and (max-width: 960px) {
+  .mdx-personas__grid {
+    grid-template-columns: 1fr;
+    max-width: 440px;
+    margin: 0 auto;
+  }
+}
+
+/* ============================================================
+   k) OWNER / ACTIVITY / CONTRIBUTION BADGES
+   ============================================================ */
+
+/* --- Owner badge (Microsoft / Community) ------------------- */
+.mdx-owner-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  white-space: nowrap;
+  vertical-align: middle;
+}
+
+.mdx-owner-badge--microsoft {
+  background: color-mix(in srgb, #0078d4 14%, transparent);
+  color: #0078d4;
+}
+
+[data-md-color-scheme="slate"] .mdx-owner-badge--microsoft {
+  background: color-mix(in srgb, #4ea8ff 18%, transparent);
+  color: #4ea8ff;
+}
+
+.mdx-owner-badge--community {
+  background: color-mix(in srgb, #6b7280 12%, transparent);
+  color: #6b7280;
+}
+
+[data-md-color-scheme="slate"] .mdx-owner-badge--community {
+  background: color-mix(in srgb, #9ca3af 16%, transparent);
+  color: #9ca3af;
+}
+
+/* --- Activity badge (pill) --------------------------------- */
+.mdx-activity-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  white-space: nowrap;
+  vertical-align: middle;
+}
+
+.mdx-activity-badge--active {
+  background: color-mix(in srgb, #22c55e 14%, transparent);
+  color: #16a34a;
+}
+
+[data-md-color-scheme="slate"] .mdx-activity-badge--active {
+  background: color-mix(in srgb, #4ade80 16%, transparent);
+  color: #4ade80;
+}
+
+.mdx-activity-badge--maintained {
+  background: color-mix(in srgb, #eab308 14%, transparent);
+  color: #a16207;
+}
+
+[data-md-color-scheme="slate"] .mdx-activity-badge--maintained {
+  background: color-mix(in srgb, #facc15 16%, transparent);
+  color: #fde047;
+}
+
+.mdx-activity-badge--inactive {
+  background: color-mix(in srgb, #ef4444 12%, transparent);
+  color: #dc2626;
+}
+
+[data-md-color-scheme="slate"] .mdx-activity-badge--inactive {
+  background: color-mix(in srgb, #f87171 14%, transparent);
+  color: #fca5a5;
+}
+
+/* --- Contribution badges (good first issue / help wanted) -- */
+.mdx-contrib-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.2rem;
+  padding: 0.2rem 0.55rem;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  white-space: nowrap;
+  vertical-align: middle;
+}
+
+.mdx-contrib-badge--gfi {
+  background: color-mix(in srgb, #22c55e 14%, transparent);
+  color: #16a34a;
+}
+
+[data-md-color-scheme="slate"] .mdx-contrib-badge--gfi {
+  background: color-mix(in srgb, #4ade80 16%, transparent);
+  color: #4ade80;
+}
+
+.mdx-contrib-badge--hw {
+  background: color-mix(in srgb, #f59e0b 14%, transparent);
+  color: #d97706;
+}
+
+[data-md-color-scheme="slate"] .mdx-contrib-badge--hw {
+  background: color-mix(in srgb, #fbbf24 16%, transparent);
+  color: #fbbf24;
+}
+
+/* ============================================================
+   l) REGISTRY LEGEND
+   ============================================================ */
+
+.mdx-registry-legend {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  margin-bottom: 1.5rem;
+  border-radius: 12px;
+  background: color-mix(in srgb, var(--md-primary-fg-color) 5%, var(--md-default-bg-color));
+  border: 1px solid var(--md-default-fg-color--lightest);
+  font-size: 0.82rem;
+  color: var(--md-default-fg-color--light);
+}
+
+[data-md-color-scheme="slate"] .mdx-registry-legend {
+  background: color-mix(in srgb, var(--md-primary-fg-color) 8%, var(--md-default-bg-color));
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+.mdx-registry-legend > span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  white-space: nowrap;
+}
+
+/* ============================================================
+   m) DETAIL PAGE BADGES CONTAINER
+   ============================================================ */
+
+.mdx-detail-hero__badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+/* ============================================================
+   n) FEATURED CARD OWNER BADGE (HOME PAGE)
+   ============================================================ */
+
+.mdx-repo-card__owner {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.5rem;
+  height: 1.5rem;
+  margin-right: 0.4rem;
+  font-size: 0.9rem;
+  border-radius: 999px;
+  flex-shrink: 0;
+  vertical-align: middle;
+}
+
+.mdx-repo-card__owner--microsoft {
+  background: color-mix(in srgb, #0078d4 12%, transparent);
+}
+
+[data-md-color-scheme="slate"] .mdx-repo-card__owner--microsoft {
+  background: color-mix(in srgb, #4ea8ff 16%, transparent);
+}
+
+.mdx-repo-card__owner--community {
+  background: color-mix(in srgb, #6b7280 10%, transparent);
+}
+
+[data-md-color-scheme="slate"] .mdx-repo-card__owner--community {
+  background: color-mix(in srgb, #9ca3af 14%, transparent);
+}
