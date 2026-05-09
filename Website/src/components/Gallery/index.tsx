@@ -1,11 +1,7 @@
-// Importing necessary libraries and components
-// React library
 import * as React from 'react';
 import { useState } from 'react';
 import { format } from 'date-fns';
 
-// Fluent UI libraries
-import { Dialog } from '@fluentui/react';
 import {
     Badge,
     Body1,
@@ -35,16 +31,13 @@ import {
     DialogTrigger,
 } from "@fluentui/react-components";
 
-// Fluent UI icons
 import { ArrowExpand16Regular, Dismiss24Regular, Eye16Filled, OpenRegular, Star16Filled } from "@fluentui/react-icons";
 
-// Local files
 import { filterItems, sortItems, isActive } from '../../utils/galleryUtils';
 import styles from './styles.module.css';
 
-// Defining the Gallery component
 const Gallery = ({ items, hasGoodFirstIssueChecked, hasHelpWantedIssueChecked, hasCodeOfConductChecked, selectedTopics = [], selectedLanguages = [], selectedLicenses = [], selectedOwners = [] }) => {
-    const [selectedItem, setSelectedItem] = useState(null);
+    const [selectedItem, setSelectedItem] = useState<any>(null);
     const [hideDialog, setHideDialog] = useState(true);
     const comboId = useId("combo-orderby");
     const options = [
@@ -58,7 +51,6 @@ const Gallery = ({ items, hasGoodFirstIssueChecked, hasHelpWantedIssueChecked, h
     ]);
     const [value, setValue] = React.useState("Stars (Descending)");
     
-    // Filter items based on selected criteria
     const filteredItems = filterItems(items, {
         hasGoodFirstIssueChecked,
         hasHelpWantedIssueChecked,
@@ -69,44 +61,26 @@ const Gallery = ({ items, hasGoodFirstIssueChecked, hasHelpWantedIssueChecked, h
         selectedOwners,
     });
 
-    /**
-     * Opens a dialog with the selected item.
-     * @param item - The selected item.
-     */
     const openDialog = (item) => {
         setSelectedItem(item);
         setHideDialog(false);
     }
 
-    /**
-     * Closes the dialog.
-     */
     const closeDialog = () => {
         setHideDialog(true);
     }
 
-    /**
-     * Opens the specified URL in a new tab.
-     * @param url - The URL to open.
-     */
     const openInGitHub = (url) => {
         window.open(url, "_blank");
     }
 
-    /**
-     * Handles the change in order by combobox.
-     * @param ev - The event object.
-     * @param data - The selected options data.
-     */
     const onOptionSelect: Partial<ComboboxProps>["onOptionSelect"] = (ev, data) => {
         setSelectedOptions(data.selectedOptions);
         setValue(data.optionText ?? "");
     };
 
-    // Sort the filtered items based on the selected order by option
     const sortedItems = sortItems(filteredItems, selectedOptions);
 
-    // Rendering the Gallery component
     return (
         <div style={{ width: '100%' }}>
             <div className={styles.galleryHeader}>
@@ -122,7 +96,7 @@ const Gallery = ({ items, hasGoodFirstIssueChecked, hasHelpWantedIssueChecked, h
                         onOptionSelect={onOptionSelect}
                     >
                         {options.map((option) => (
-                            <Option value={option.key} text={option.text}>
+                            <Option key={option.key} value={option.key} text={option.text}>
                                 {option.text}
                             </Option>
                         ))}
@@ -205,8 +179,8 @@ const Gallery = ({ items, hasGoodFirstIssueChecked, hasHelpWantedIssueChecked, h
                     </Card>
                 ))}
                 <Dialog
-                    hidden={hideDialog}
-                    onDismiss={closeDialog}
+                    open={!hideDialog}
+                    onOpenChange={(_, data) => setHideDialog(!data.open)}
                 >
                     <DialogSurface>
                         <DialogTitle className={styles.dialogTitle}>
@@ -267,5 +241,4 @@ const Gallery = ({ items, hasGoodFirstIssueChecked, hasHelpWantedIssueChecked, h
     );
 };
 
-// Exporting the Gallery component
 export default Gallery;

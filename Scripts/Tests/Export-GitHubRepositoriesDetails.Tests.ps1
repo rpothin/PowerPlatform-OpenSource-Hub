@@ -133,6 +133,10 @@ Describe "Export-GitHubRepositoriesDetails Unit Tests" {
             Mock Out-File {
                 # Do nothing
             }
+
+            Mock Test-Json {
+                $true
+            }
         }
 
         It "Should return a valid array of repositories with correct properties when valid parameters are provided" {
@@ -154,6 +158,9 @@ Describe "Export-GitHubRepositoriesDetails Unit Tests" {
             $result[0].fullName | Should -Be "Anonymized/Anonymized"
             $result[0].hasGoodFirstIssues | Should -Be $false
             $result[0].hasHelpWantedIssues | Should -Be $false
+            $result[0]._schemaVersion | Should -Be "1.0.0"
+            $result[0]._generatedAt | Should -Not -BeNullOrEmpty
+            $result[0]._workflowRunId | Should -Not -BeNullOrEmpty
             $result[1].fullName | Should -Be "Anonymized/Anonymized2"
             $result[1].hasGoodFirstIssues | Should -Be $true
             $result[1].hasHelpWantedIssues | Should -Be $true
