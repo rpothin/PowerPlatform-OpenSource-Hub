@@ -1,5 +1,6 @@
 export type UrlFilterState = {
   searchText: string;
+  sortBy: string;
   hasGoodFirstIssueChecked: boolean;
   hasHelpWantedIssueChecked: boolean;
   hasCodeOfConductChecked: boolean;
@@ -11,6 +12,7 @@ export type UrlFilterState = {
 
 export const defaultUrlFilterState: UrlFilterState = {
   searchText: '',
+  sortBy: 'starsDesc',
   hasGoodFirstIssueChecked: false,
   hasHelpWantedIssueChecked: false,
   hasCodeOfConductChecked: false,
@@ -29,6 +31,7 @@ export const parseFilterStateFromSearch = (search: string): UrlFilterState => {
   const params = new URLSearchParams(search);
   return {
     searchText: params.get('q') ?? defaultUrlFilterState.searchText,
+    sortBy: params.get('sort') ?? defaultUrlFilterState.sortBy,
     hasGoodFirstIssueChecked: parseBoolean(params.get('goodFirstIssue')),
     hasHelpWantedIssueChecked: parseBoolean(params.get('helpWantedIssue')),
     hasCodeOfConductChecked: parseBoolean(params.get('codeOfConduct')),
@@ -44,6 +47,10 @@ export const serializeFilterStateToSearch = (state: UrlFilterState): string => {
 
   if (state.searchText) {
     params.set('q', state.searchText);
+  }
+
+  if (state.sortBy && state.sortBy !== defaultUrlFilterState.sortBy) {
+    params.set('sort', state.sortBy);
   }
 
   if (state.hasGoodFirstIssueChecked) {

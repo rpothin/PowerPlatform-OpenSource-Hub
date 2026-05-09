@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import * as React from 'react';
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import {
   Button,
   Dialog,
@@ -40,6 +40,7 @@ const App = () => {
   const [isFilterPaneOpen, setIsFilterPaneOpen] = useState(false);
   const [isFilterStateInitialized, setIsFilterStateInitialized] = useState(false);
   const [filterState, setFilterState] = useState<UrlFilterState>(defaultUrlFilterState);
+  const historyWriteModeRef = useRef<'replace' | 'push'>('replace');
 
   useEffect(() => {
     setTimeout(() => {
@@ -70,6 +71,7 @@ const App = () => {
     }
 
     const applyUrlState = () => {
+      historyWriteModeRef.current = 'replace';
       setFilterState(parseFilterStateFromSearch(window.location.search));
     };
 
@@ -90,9 +92,22 @@ const App = () => {
     const nextSearch = serializeFilterStateToSearch(filterState);
     if (nextSearch !== window.location.search) {
       const nextUrl = `${window.location.pathname}${nextSearch}${window.location.hash}`;
-      window.history.replaceState({}, '', nextUrl);
+      if (historyWriteModeRef.current === 'push') {
+        window.history.pushState({}, '', nextUrl);
+      } else {
+        window.history.replaceState({}, '', nextUrl);
+      }
     }
+    historyWriteModeRef.current = 'replace';
   }, [filterState, isFilterStateInitialized]);
+
+  const setFilterStateWithHistory = (
+    updater: (previous: UrlFilterState) => UrlFilterState,
+    historyMode: 'replace' | 'push' = 'push',
+  ) => {
+    historyWriteModeRef.current = historyMode;
+    setFilterState((previous) => updater(previous));
+  };
 
   const items = useMemo(
     () => filterItemsBasedOnSearchInput(data as Repository[], filterState.searchText),
@@ -110,13 +125,13 @@ const App = () => {
       selectedLanguages={filterState.selectedLanguages}
       selectedLicenses={filterState.selectedLicenses}
       selectedOwners={filterState.selectedOwners}
-      onGoodFirstIssueChange={(value) => setFilterState((previous) => ({ ...previous, hasGoodFirstIssueChecked: value }))}
-      onHelpWantedIssueChange={(value) => setFilterState((previous) => ({ ...previous, hasHelpWantedIssueChecked: value }))}
-      onCodeOfConductChange={(value) => setFilterState((previous) => ({ ...previous, hasCodeOfConductChecked: value }))}
-      onTopicsChange={(value) => setFilterState((previous) => ({ ...previous, selectedTopics: value }))}
-      onLanguagesChange={(value) => setFilterState((previous) => ({ ...previous, selectedLanguages: value }))}
-      onLicensesChange={(value) => setFilterState((previous) => ({ ...previous, selectedLicenses: value }))}
-      onOwnersChange={(value) => setFilterState((previous) => ({ ...previous, selectedOwners: value }))}
+      onGoodFirstIssueChange={(value) => setFilterStateWithHistory((previous) => ({ ...previous, hasGoodFirstIssueChecked: value }))}
+      onHelpWantedIssueChange={(value) => setFilterStateWithHistory((previous) => ({ ...previous, hasHelpWantedIssueChecked: value }))}
+      onCodeOfConductChange={(value) => setFilterStateWithHistory((previous) => ({ ...previous, hasCodeOfConductChecked: value }))}
+      onTopicsChange={(value) => setFilterStateWithHistory((previous) => ({ ...previous, selectedTopics: value }))}
+      onLanguagesChange={(value) => setFilterStateWithHistory((previous) => ({ ...previous, selectedLanguages: value }))}
+      onLicensesChange={(value) => setFilterStateWithHistory((previous) => ({ ...previous, selectedLicenses: value }))}
+      onOwnersChange={(value) => setFilterStateWithHistory((previous) => ({ ...previous, selectedOwners: value }))}
     />
   );
 
@@ -140,7 +155,7 @@ const App = () => {
             size="large"
             placeholder="Search for a Power Platform GitHub repository..."
             value={filterState.searchText}
-            onChange={(_, data) => setFilterState((previous) => ({ ...previous, searchText: data.value }))}
+            onChange={(_, data) => setFilterStateWithHistory((previous) => ({ ...previous, searchText: data.value }), 'replace')}
             style={{ width: '100%', maxWidth: '740px' }}
           />
         </div>
@@ -179,6 +194,8 @@ const App = () => {
             selectedLanguages={filterState.selectedLanguages}
             selectedLicenses={filterState.selectedLicenses}
             selectedOwners={filterState.selectedOwners}
+            sortBy={filterState.sortBy}
+            onSortByChange={(value) => setFilterStateWithHistory((previous) => ({ ...previous, sortBy: value }))}
           />
         </div>
       </main>

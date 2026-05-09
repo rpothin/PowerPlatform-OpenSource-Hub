@@ -6,5 +6,14 @@
     "jsx": "react",
     "baseUrl": ".",
     "types": ["jest"]
-  }
+  },
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    "docusaurus.config.ts",
+    "sidebars.ts"
+  ],
+  "exclude": [
+    "tests/user_interface/**"
+  ]
 }

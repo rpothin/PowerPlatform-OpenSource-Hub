@@ -52,6 +52,12 @@ jobs:
         run: |
           npm ci
 
+      # Type-check the website code
+      - name: Type-check website
+        working-directory: Website
+        run: |
+          npm run typecheck
+
       # Build the website
       - name: Build website
         working-directory: Website

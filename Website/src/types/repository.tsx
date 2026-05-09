@@ -10,7 +10,7 @@ export interface Repository {
     key?: string;
     name: string;
     url?: string;
-  };
+  } | null;
   name: string;
   openIssuesCount: number;
   owner: {
@@ -64,6 +64,6 @@ export type Item = {
   codeOfConduct: { name: string } | null;
   topics: string[];
   languages: string[];
-  license: { name: string };
+  license: { name: string } | null;
   owner: { login: string };
 };

@@ -50,13 +50,20 @@
       "isArchived": { "type": "boolean" },
       "language": { "type": "string" },
       "license": {
-        "type": "object",
-        "required": ["name"],
-        "properties": {
-          "key": { "type": "string" },
-          "name": { "type": "string" },
-          "url": { "type": "string" }
-        }
+        "anyOf": [
+          {
+            "type": "null"
+          },
+          {
+            "type": "object",
+            "required": ["name"],
+            "properties": {
+              "key": { "type": "string" },
+              "name": { "type": "string" },
+              "url": { "type": "string" }
+            }
+          }
+        ]
       },
       "name": { "type": "string" },
       "openIssuesCount": { "type": "number" },

@@ -6,6 +6,7 @@ import {
     Badge,
     Body1,
     Button,
+    Dialog,
     Subtitle1,
     Text,
     Tooltip,
@@ -37,7 +38,20 @@ import { filterItems, sortItems, isActive } from '../../utils/galleryUtils';
 import { Repository } from '../../types/repository';
 import styles from './styles.module.css';
 
-const Gallery = ({ items, hasGoodFirstIssueChecked, hasHelpWantedIssueChecked, hasCodeOfConductChecked, selectedTopics = [], selectedLanguages = [], selectedLicenses = [], selectedOwners = [] }) => {
+type GalleryProps = {
+    items: Repository[];
+    hasGoodFirstIssueChecked: boolean;
+    hasHelpWantedIssueChecked: boolean;
+    hasCodeOfConductChecked: boolean;
+    selectedTopics: string[];
+    selectedLanguages: string[];
+    selectedLicenses: string[];
+    selectedOwners: string[];
+    sortBy: string;
+    onSortByChange: (sortBy: string) => void;
+}
+
+const Gallery = ({ items, hasGoodFirstIssueChecked, hasHelpWantedIssueChecked, hasCodeOfConductChecked, selectedTopics = [], selectedLanguages = [], selectedLicenses = [], selectedOwners = [], sortBy, onSortByChange }: GalleryProps) => {
     const [selectedItem, setSelectedItem] = useState<Repository | null>(null);
     const [hideDialog, setHideDialog] = useState(true);
     const comboId = useId("combo-orderby");
@@ -47,10 +61,9 @@ const Gallery = ({ items, hasGoodFirstIssueChecked, hasHelpWantedIssueChecked, h
         { key: 'alphabeticalAsc', text: 'Alphabetical (Ascending)' },
         { key: 'alphabeticalDesc', text: 'Alphabetical (Descending)' },
     ];
-    const [selectedOptions, setSelectedOptions] = React.useState<string[]>([
-        "starsDesc",
-    ]);
-    const [value, setValue] = React.useState("Stars (Descending)");
+    const selectedOption = options.find((option) => option.key === sortBy) ?? options[1];
+    const selectedOptions = [selectedOption.key];
+    const value = selectedOption.text;
     
     const filteredItems = filterItems(items, {
         hasGoodFirstIssueChecked,
@@ -76,8 +89,10 @@ const Gallery = ({ items, hasGoodFirstIssueChecked, hasHelpWantedIssueChecked, h
     }
 
     const onOptionSelect: Partial<ComboboxProps>["onOptionSelect"] = (ev, data) => {
-        setSelectedOptions(data.selectedOptions);
-        setValue(data.optionText ?? "");
+        const nextSortBy = data.selectedOptions?.[0];
+        if (nextSortBy) {
+            onSortByChange(nextSortBy);
+        }
     };
 
     const sortedItems = sortItems(filteredItems, selectedOptions);
@@ -211,8 +226,8 @@ const Gallery = ({ items, hasGoodFirstIssueChecked, hasHelpWantedIssueChecked, h
                                         {selectedItem?.description}
                                     </Text>
                                     <div style={{ marginTop: '10px', display: 'flex', flexWrap: 'wrap', flexDirection: 'column' }}>
-                                        {selectedItem?.license.name && (
-                                            <Badge id="licenseBadge" appearance="tint" style={{ marginBottom: '4px' }}>License: {selectedItem?.license.name}</Badge>
+                                        {selectedItem?.license?.name && (
+                                            <Badge id="licenseBadge" appearance="tint" style={{ marginBottom: '4px' }}>License: {selectedItem?.license?.name}</Badge>
                                         )}
                                         <Badge id="goodFirstIssuesBadge" appearance="tint" style={{ marginBottom: '4px' }}>Good 1st Issues: {selectedItem?.openedGoodFirstIssues}</Badge>
                                         <Badge id="helpWantedIssuesBadge" appearance="tint" style={{ marginBottom: '4px' }}>Help Wanted Issues: {selectedItem?.openedHelpWantedIssues}</Badge>
