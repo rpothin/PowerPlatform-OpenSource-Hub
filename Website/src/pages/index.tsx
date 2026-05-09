@@ -111,7 +111,7 @@ const App = () => {
       selectedLicenses={filterState.selectedLicenses}
       selectedOwners={filterState.selectedOwners}
       onGoodFirstIssueChange={(value) => setFilterState((previous) => ({ ...previous, hasGoodFirstIssueChecked: value }))}
-      onHelpWanteIssueChange={(value) => setFilterState((previous) => ({ ...previous, hasHelpWantedIssueChecked: value }))}
+      onHelpWantedIssueChange={(value) => setFilterState((previous) => ({ ...previous, hasHelpWantedIssueChecked: value }))}
       onCodeOfConductChange={(value) => setFilterState((previous) => ({ ...previous, hasCodeOfConductChecked: value }))}
       onTopicsChange={(value) => setFilterState((previous) => ({ ...previous, selectedTopics: value }))}
       onLanguagesChange={(value) => setFilterState((previous) => ({ ...previous, selectedLanguages: value }))}

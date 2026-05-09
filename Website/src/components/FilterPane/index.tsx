@@ -12,9 +12,10 @@ import {
 import type { CheckboxProps } from "@fluentui/react-components";
 
 import { countItemsByProperty, extractDistinctProperties } from '../../utils/filterPaneUtils';
+import { Repository } from '../../types/repository';
 
 type FilterPaneProps = {
-  items: any[];
+  items: Repository[];
   isMobile?: boolean;
   hasGoodFirstIssueChecked: boolean;
   hasHelpWantedIssueChecked: boolean;
@@ -24,7 +25,7 @@ type FilterPaneProps = {
   selectedLicenses: string[];
   selectedOwners: string[];
   onGoodFirstIssueChange: (checked: boolean) => void;
-  onHelpWanteIssueChange: (checked: boolean) => void;
+  onHelpWantedIssueChange: (checked: boolean) => void;
   onCodeOfConductChange: (checked: boolean) => void;
   onTopicsChange: (values: string[]) => void;
   onLanguagesChange: (values: string[]) => void;
@@ -43,7 +44,7 @@ const FilterPane = ({
   selectedLicenses = [],
   selectedOwners = [],
   onGoodFirstIssueChange,
-  onHelpWanteIssueChange,
+  onHelpWantedIssueChange,
   onCodeOfConductChange,
   onTopicsChange,
   onLanguagesChange,
@@ -125,7 +126,7 @@ const FilterPane = ({
               id="checkbox-r-help-wanted-issue"
               label={"Has help wanted issue (" + helpWantedIssueCount + ")"} 
               checked={hasHelpWantedIssueChecked}
-              onChange={(_, data) => onHelpWanteIssueChange(data.checked === true)}
+              onChange={(_, data) => onHelpWantedIssueChange(data.checked === true)}
             />
             <Checkbox 
               id="checkbox-r-code-of-conduct"

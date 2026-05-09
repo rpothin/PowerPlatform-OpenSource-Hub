@@ -34,10 +34,11 @@ import {
 import { ArrowExpand16Regular, Dismiss24Regular, Eye16Filled, OpenRegular, Star16Filled } from "@fluentui/react-icons";
 
 import { filterItems, sortItems, isActive } from '../../utils/galleryUtils';
+import { Repository } from '../../types/repository';
 import styles from './styles.module.css';
 
 const Gallery = ({ items, hasGoodFirstIssueChecked, hasHelpWantedIssueChecked, hasCodeOfConductChecked, selectedTopics = [], selectedLanguages = [], selectedLicenses = [], selectedOwners = [] }) => {
-    const [selectedItem, setSelectedItem] = useState<any>(null);
+    const [selectedItem, setSelectedItem] = useState<Repository | null>(null);
     const [hideDialog, setHideDialog] = useState(true);
     const comboId = useId("combo-orderby");
     const options = [
