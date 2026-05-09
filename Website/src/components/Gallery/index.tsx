@@ -189,7 +189,7 @@ const Gallery = ({ items, hasGoodFirstIssueChecked, hasHelpWantedIssueChecked, h
                         </div>
 
                         <CardFooter className={styles.cardFooter}>
-                            <Button id="openInGitHubButton" icon={<OpenRegular fontSize={16} />} onClick={() => openInGitHub(item.url)}>Open in GitHub</Button>
+                            <Button id="openInGitHubButton" data-repository-url={item.url} icon={<OpenRegular fontSize={16} />} onClick={() => openInGitHub(item.url)}>Open in GitHub</Button>
                             <Button id="seeMoreButton" icon={<ArrowExpand16Regular fontSize={16} />} onClick={() => openDialog(item)}>See more...</Button>
                         </CardFooter>
                     </Card>
@@ -248,7 +248,7 @@ const Gallery = ({ items, hasGoodFirstIssueChecked, hasHelpWantedIssueChecked, h
                         </DialogContent>
                         <DialogActions>
                             <Button id="closeButton" appearance="secondary" onClick={closeDialog}>Close</Button>
-                            <Button id="openInGitHubButton" appearance="primary" onClick={() => openInGitHub(selectedItem?.url)}>Open in GitHub</Button>
+                            <Button id="openInGitHubButton" data-repository-url={selectedItem?.url} appearance="primary" onClick={() => openInGitHub(selectedItem?.url)}>Open in GitHub</Button>
                         </DialogActions>
                     </DialogSurface>
                 </Dialog>
