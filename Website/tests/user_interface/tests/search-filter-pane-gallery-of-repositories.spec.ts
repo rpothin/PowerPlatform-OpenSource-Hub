@@ -862,7 +862,8 @@ test('Validate that when I click on the "See more..." button in a random card of
   // - the latest release tag and date if available
   const dialogTitle = await dialog.$('.fui-DialogTitle');
   const dialogTitleText = await dialogTitle.innerText();
-  const repositoryFullNameText = dialogTitleText[0];
+  const repositoryFullNameMatch = dialogTitleText.match(/[A-Za-z0-9_.-]+\/[A-Za-z0-9_.-]+/);
+  const repositoryFullNameText = repositoryFullNameMatch ? repositoryFullNameMatch[0] : '';
   expect(repositoryFullNameText).toBeTruthy();
 
   const description = await dialog.$('.fui-Text');
@@ -918,7 +919,10 @@ test('Validate that when I click on the "See more..." button in a random card of
   const latestReleaseBadge = await dialog.$('#latestReleaseBadge');
   if (latestReleaseBadge) {
     const latestRelease = await latestReleaseBadge.innerText();
-    expect(latestRelease).toMatch(/^Latest Release: [\w./-]+ \(\d{4}-\d{2}-\d{2}\)$/);
+    const latestReleaseMatch = latestRelease.match(/^Latest Release: ([\w./-]+) \((\d{4}-\d{2}-\d{2})\)$/);
+    expect(latestReleaseMatch).toBeTruthy();
+    const parsedDate = latestReleaseMatch ? new Date(`${latestReleaseMatch[2]}T00:00:00Z`) : new Date('invalid');
+    expect(Number.isNaN(parsedDate.getTime())).toBe(false);
   }
 
   // Validate that clicking on the "Open in GitHub" button in the dialog opens the corresponding GitHub repository in a new tab
@@ -930,7 +934,7 @@ test('Validate that when I click on the "See more..." button in a random card of
   await openInGitHubButton.click();
 
   const openedUrl = await page.evaluate(() => (window as any).__lastOpenedUrl);
-  expect(openedUrl).toContain('/');
+  expect(openedUrl).toContain(repositoryFullNameText);
 
   // Wait for the new tab to open
   const newTab = await newTabPromise;
