@@ -2,9 +2,26 @@ name: 4-build-push-website-to-gh-pages
 # Build and push the website to the gh-pages branch
 
 # Workflow triggered on every push in the "Website" folder or in the "Data/GitHubRepositoriesDetails.json" file in the main branch
+# Also validates pull requests that touch the website or generated repository data before merge
 # Can also be triggered manually without input parameters
 on:
   push:
+    branches:
+      - main
+    paths:
+      - 'Website/**'
+      - 'Data/GitHubRepositoriesDetails.json'
+      - '!.devcontainer/**'
+      - '!.github/**'
+      - '!.vscode/**'
+      - '!Configuration/**'
+      - '!Data/GitHubRepositoriesPopularityScoresSnapshot.json'
+      - '!Scripts/**'
+      - '!.gitignore'
+      - '!CODE_OF_CONDUCT.md'
+      - '!LICENSE'
+      - '!README.md'
+  pull_request:
     branches:
       - main
     paths:
@@ -24,7 +41,7 @@ on:
 
 # Concurrency configuration for the current workflow - Keep only the latest workflow queued for the considered group and the considered issue
 concurrency:
-  group: build-deploy-website
+  group: build-deploy-website-${{ github.event.pull_request.number || github.ref }}
   cancel-in-progress: true
 
 jobs:
@@ -107,6 +124,7 @@ jobs:
       # Deploy website to GitHub Pages
       #   Docs: https://github.com/peaceiris/actions-gh-pages#%EF%B8%8F-docusaurus
       - name: Deploy to GitHub Pages
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
