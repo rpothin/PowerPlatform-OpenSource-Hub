@@ -222,4 +222,14 @@ Describe "Export-GitHubRepositoriesDetails Unit Tests" {
             $result.Count | Should -Be 2
         }
     }
+
+    Context "Committed data validation" {
+        It "Should keep the committed repository details data aligned with the schema" {
+            $schemaFilePath = Join-Path -Path $global:executingTestPath -ChildPath "../../Configuration/Schemas/GitHubRepositoriesDetails.schema.json"
+            $dataFilePath = Join-Path -Path $global:executingTestPath -ChildPath "../../Data/GitHubRepositoriesDetails.json"
+
+            $dataAsJson = Get-Content -Path $dataFilePath -Raw
+            $dataAsJson | Test-Json -SchemaFile $schemaFilePath | Should -Be $true
+        }
+    }
 }
