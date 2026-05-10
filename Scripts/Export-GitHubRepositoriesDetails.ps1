@@ -164,14 +164,38 @@ function Export-GitHubRepositoriesDetails {
         # Sort the array of results by the value of the watchersCount property in the descendant order of the repository
         $repositoriesWithDetails = $repositoriesWithDetails | Sort-Object -Property stargazerCount -Descending
 
+        # Add provenance fields to each record
+        $schemaVersion = "1.0.0"
+        $generatedAt = (Get-Date).ToUniversalTime().ToString("o")
+        $workflowRunId = if ($env:GITHUB_RUN_ID) { $env:GITHUB_RUN_ID } else { "local" }
+
+        $repositoriesWithDetails | ForEach-Object {
+            $_ | Add-Member -NotePropertyName "_schemaVersion" -NotePropertyValue $schemaVersion -Force
+            $_ | Add-Member -NotePropertyName "_generatedAt" -NotePropertyValue $generatedAt -Force
+            $_ | Add-Member -NotePropertyName "_workflowRunId" -NotePropertyValue $workflowRunId -Force
+        }
+
         # Initialize the parent folder of the output file path if it does not exist
         $parentFolder = Split-Path -Path $OutputFilePath -Parent
         if (-not (Test-Path -Path $parentFolder)) {
             New-Item -Path $parentFolder -ItemType Directory
         }
 
+        # Validate schema before writing output
+        $schemaFilePath = Join-Path -Path $PSScriptRoot -ChildPath "..\Configuration\Schemas\GitHubRepositoriesDetails.schema.json"
+        if (-not (Test-Path -Path $schemaFilePath)) {
+            Throw "No schema file found at the path '$schemaFilePath'."
+        }
+
+        $repositoriesAsJson = $repositoriesWithDetails | ConvertTo-Json -Depth 6
+        $jsonValidationResult = $repositoriesAsJson | Test-Json -SchemaFile $schemaFilePath
+
+        if (-not $jsonValidationResult) {
+            Throw "The generated data does not match the schema file '$schemaFilePath'."
+        }
+
         # Export the results to a JSON file
-        $repositoriesWithDetails | ConvertTo-Json -Depth 4 | Out-File -FilePath $OutputFilePath
+        $repositoriesAsJson | Out-File -FilePath $OutputFilePath
 
         # Return the results
         $repositoriesWithDetails

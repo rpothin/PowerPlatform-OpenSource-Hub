@@ -1,43 +1,69 @@
-// Defining the Repository interface
 export interface Repository {
-    fullName: string;
-    url: string;
+  createdAt: string;
+  description: string;
+  fullName: string;
+  hasIssues: boolean;
+  homepage: string | null;
+  isArchived: boolean;
+  language: string;
+  license: {
+    key?: string;
     name: string;
-    owner: {
-        login: string;
-    };
-    description: string;
-    license: {
-        name: string;
-    };
-    codeOfConduct: {
-        name: string;
-    };
-    topics: string[];
-    language: string;
-    languages: string[];
-    stargazerCount: number;
-    watchers: {
-        totalCount: number;
-    };
-    hasGoodFirstIssues?: boolean;
-    hasHelpWantedIssues?: boolean;
-    latestRelease?: {
-      tagName: string;
-      publishedAt: string;
-    };
-    updatedAt: string;
+    url?: string;
+  } | null;
+  name: string;
+  openIssuesCount: number;
+  owner: {
+    id?: string;
+    is_bot?: boolean;
+    login: string;
+    type?: string;
+    url?: string;
+  };
+  updatedAt: string;
+  url: string;
+  codeOfConduct: {
+    key?: string;
+    name: string;
+    url?: string;
+  } | null;
+  forkCount: number;
+  fundingLinks: unknown[];
+  isSecurityPolicyEnabled: boolean;
+  isTemplate: boolean;
+  latestRelease: {
+    name?: string;
+    tagName: string;
+    url?: string;
+    publishedAt: string;
+  } | null;
+  primaryLanguage: {
+    name: string;
+  } | null;
+  securityPolicyUrl: string | null;
+  stargazerCount: number;
+  watchers: {
+    totalCount: number;
+  };
+  topics: string[];
+  languages: string[];
+  openedGoodFirstIssues: number;
+  hasGoodFirstIssues: boolean;
+  openedHelpWantedIssues: number;
+  hasHelpWantedIssues: boolean;
+  openedToContributionsIssues: number;
+  popularityScore: number;
+  _schemaVersion: string;
+  _generatedAt: string;
+  _workflowRunId: string;
 }
 
-/**
- * Represents an item in the gallery.
- */
 export type Item = {
-    hasGoodFirstIssues: boolean;
-    hasHelpWantedIssues: boolean;
-    codeOfConduct: { name: string } | null;
-    topics: string[];
-    languages: string[];
-    license: { name: string };
-    owner: { login: string };
+  hasGoodFirstIssues: boolean;
+  hasHelpWantedIssues: boolean;
+  codeOfConduct: { name: string } | null;
+  topics: string[];
+  languages: string[];
+  license: { name: string } | null;
+  owner: { login: string };
 };

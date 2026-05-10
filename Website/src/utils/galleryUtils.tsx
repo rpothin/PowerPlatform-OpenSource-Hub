@@ -30,7 +30,7 @@ export function filterItems(items, filterParams: FilterParams) {
                 (!hasCodeOfConductChecked || (item.codeOfConduct && item.codeOfConduct.name)) &&
                 (selectedTopics.length === 0 || selectedTopics.every(topic => item.topics.includes(topic))) &&
                 (selectedLanguages.length === 0 || selectedLanguages.every(language => item.languages.includes(language))) &&
-                (selectedLicenses.length === 0 || selectedLicenses.includes(item.license.name)) &&
+                (selectedLicenses.length === 0 || (item.license && selectedLicenses.includes(item.license.name))) &&
                 (selectedOwners.length === 0 || selectedOwners.includes(item.owner.login))
         );
     });

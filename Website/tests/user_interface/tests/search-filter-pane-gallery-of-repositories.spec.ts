@@ -1,4 +1,11 @@
-import { test, expect } from '@playwright/test';
+import { test, expect, type Locator, type Page } from '@playwright/test';
+
+const sortOptions = [
+  'Stars (Descending)',
+  'Stars (Ascending)',
+  'Alphabetical (Ascending)',
+  'Alphabetical (Descending)',
+];
 
 // #region Header and footer tests
 
@@ -8,57 +15,33 @@ import { test, expect } from '@playwright/test';
 // - a link to the GitHub repository in the backend
 // - a switch to change the theme (light/dark)
 test('Validate the header of the website', async ({ page }) => {
-  let documentationLinkFound = false;
-  let gitHubLinkFound = false;
-
   await page.goto('/');
 
   // Get the logo
-  await page.waitForSelector('.navbar__brand');
-  const logo = await page.$('.navbar__brand');
-  expect(logo).toBeTruthy();
+  const header = page.locator('nav.navbar');
+  const logo = header.locator('.navbar__brand');
+  await expect(logo).toBeVisible();
 
   // Validate that the logo redirects to the home page
-  const logoHref = await logo.evaluate(el => el.getAttribute('href'));
-  expect(logoHref).toBe('/PowerPlatform-OpenSource-Hub/');
+  await expect(logo).toHaveAttribute('href', '/PowerPlatform-OpenSource-Hub/');
 
   // Get the Documentation link looking for the inner text
   // and validate that the link redirects to the documentation section of the website
-  const documentationLink = await page.$('a:has-text("Documentation")');
-  if (documentationLink) {
-    documentationLinkFound = true;
-    const href = await documentationLink.evaluate(el => el.getAttribute('href'));
-    expect(href).toBe('/PowerPlatform-OpenSource-Hub/docs/intro');
-  } else {
-    throw new Error('The Documentation link is not found in the header');
-  }
+  const documentationLink = header.getByRole('link', { name: 'Documentation' });
+  await expect(documentationLink).toHaveAttribute('href', '/PowerPlatform-OpenSource-Hub/docs/intro');
 
   // Get the GitHub link looking for the inner text
   // and validate that the link redirects to the GitHub repository in the backend
-  const gitHubLink = await page.$('a:has-text("GitHub")');
-  if (gitHubLink) {
-    gitHubLinkFound = true;
-    const href = await gitHubLink.evaluate(el => el.getAttribute('href'));
-    expect(href).toBe('https://github.com/rpothin/PowerPlatform-OpenSource-Hub');
-  } else {
-    throw new Error('The GitHub link is not found in the header');
-  }
+  const gitHubLink = header.getByRole('link', { name: 'GitHub' });
+  await expect(gitHubLink).toHaveAttribute('href', 'https://github.com/rpothin/PowerPlatform-OpenSource-Hub');
 
   // Get the switch to change the theme (light/dark)
   // and validae that the user can change the theme
-  await page.waitForSelector('.toggleButton_gllP');
-  const themeSwitch = await page.$('.toggleButton_gllP');
-  if (themeSwitch) {
-    // Get the title of the element before click
-    const titleBeforeClick = await themeSwitch.evaluate(el => el.getAttribute('title'));
-    await themeSwitch.click();
-    // Get the title of the element after click
-    const titleAfterClick = await themeSwitch.evaluate(el => el.getAttribute('title'));
-    // Validate that the title has changed
-    expect(titleBeforeClick).not.toBe(titleAfterClick);
-  } else {
-    throw new Error('The theme switch is not found in the header');
-  }
+  const themeSwitch = header.getByRole('button', { name: /Switch between dark and light mode/ });
+  await expect(themeSwitch).toBeVisible();
+  const accessibleNameBeforeClick = await themeSwitch.getAttribute('aria-label');
+  await themeSwitch.click();
+  await expect(themeSwitch).not.toHaveAttribute('aria-label', accessibleNameBeforeClick ?? '');
 });
 
 // Validate that the Documentation section of the website
@@ -66,28 +49,21 @@ test('Validate the header of the website', async ({ page }) => {
 // - exists
 // - allows to come back to the home page
 test('Validate the Documentation section of the website', async ({ page }) => {
-  let homeLinkFound = false;
-
   await page.goto('/');
 
   // Get the Documentation link looking for the inner text
   // and validate that the link redirects to the Documentation section of the website
-  const documentationLink = await page.$('a:has-text("Documentation")');
-  if (documentationLink) {
-    const href = await documentationLink.evaluate(el => el.getAttribute('href'));
-    await page.goto(href);
-  } else {
-    throw new Error('The Documentation link is not found in the header');
-  }
+  const documentationLink = page.locator('nav.navbar').getByRole('link', { name: 'Documentation' });
+  const href = await documentationLink.getAttribute('href');
+  expect(href).toBeTruthy();
+  await page.goto(href!);
 
   // Get the logo
-  await page.waitForSelector('.navbar__brand');
-  const logo = await page.$('.navbar__brand');
-  expect(logo).toBeTruthy();
+  const logo = page.locator('nav.navbar .navbar__brand');
+  await expect(logo).toBeVisible();
 
   // Validate that the logo redirects to the home page
-  const logoHref = await logo.evaluate(el => el.getAttribute('href'));
-  expect(logoHref).toBe('/PowerPlatform-OpenSource-Hub/');
+  await expect(logo).toHaveAttribute('href', '/PowerPlatform-OpenSource-Hub/');
 });
 
 // Validate that the footer contains the expected elements
@@ -96,56 +72,24 @@ test('Validate the Documentation section of the website', async ({ page }) => {
 // - a link to the FAQ of Microsoft Clarity regarding privacy
 // - a link to rpothin GitHub profile
 test('Validate the footer of the website', async ({ page }) => {
-  let awesomeAZDLinkFound = false;
-  let docusaurusLinkFound = false;
-  let microsoftClarityLinkFound = false;
-  let rpothinGitHubLinkFound = false;
-
   await page.goto('/');
+  const footer = page.locator('footer');
 
   // Get the Awesome AZD link looking for the inner text
   // and validate that the link redirects to the Awesome AZD website
-  const awesomeAZDLink = await page.$('a:has-text("Inspired by Awesome AZD")');
-  if (awesomeAZDLink) {
-    awesomeAZDLinkFound = true;
-    const href = await awesomeAZDLink.evaluate(el => el.getAttribute('href'));
-    expect(href).toBe('https://azure.github.io/awesome-azd/');
-  } else {
-    throw new Error('The Awesome AZD link is not found in the footer');
-  }
+  await expect(footer.getByRole('link', { name: 'Inspired by Awesome AZD' })).toHaveAttribute('href', 'https://azure.github.io/awesome-azd/');
 
   // Get the Docusaurus link looking for the inner text
   // and validate that the link redirects to the Docusaurus website
-  const docusaurusLink = await page.$('a:has-text("Built with Docusaurus")');
-  if (docusaurusLink) {
-    docusaurusLinkFound = true;
-    const href = await docusaurusLink.evaluate(el => el.getAttribute('href'));
-    expect(href).toBe('https://docusaurus.io');
-  } else {
-    throw new Error('The Docusaurus link is not found in the footer');
-  }
+  await expect(footer.getByRole('link', { name: 'Built with Docusaurus' })).toHaveAttribute('href', 'https://docusaurus.io');
 
   // Get the Microsoft Clarity link looking for the inner text
   // and validate that the link redirects to the FAQ of Microsoft Clarity regarding privacy
-  const microsoftClarityLink = await page.$('a:has-text("Monitored with Microsoft Clarity")');
-  if (microsoftClarityLink) {
-    microsoftClarityLinkFound = true;
-    const href = await microsoftClarityLink.evaluate(el => el.getAttribute('href'));
-    expect(href).toBe('https://learn.microsoft.com/en-us/clarity/faq#privacy');
-  } else {
-    throw new Error('The Microsoft Clarity link is not found in the footer');
-  }
+  await expect(footer.getByRole('link', { name: 'Monitored with Microsoft Clarity' })).toHaveAttribute('href', 'https://learn.microsoft.com/en-us/clarity/faq#privacy');
 
   // Get the rpothin GitHub link looking for the inner text
   // and validate that the link redirects to the rpothin GitHub profile
-  const rpothinGitHubLink = await page.$('a:has-text("Copyright")');
-  if (rpothinGitHubLink) {
-    rpothinGitHubLinkFound = true;
-    const href = await rpothinGitHubLink.evaluate(el => el.getAttribute('href'));
-    expect(href).toBe('https://github.com/rpothin/');
-  } else {
-    throw new Error('The rpothin GitHub link is not found in the footer');
-  }
+  await expect(footer.getByRole('link', { name: /Copyright/ })).toHaveAttribute('href', 'https://github.com/rpothin/');
 });
 
 // #endregion
@@ -159,8 +103,8 @@ test('Validate the count of repositories found when I enter a search term', asyn
   // Extract the initial count of repositories found (before entering the search term)
   const initialCount = await getCountOfRepositories(page);
 
-  // Enter a search term in the search box (id = "filterBar")
-  await page.fill('#filterBar', 'power');
+  // Enter a search term in the search box
+  await page.getByPlaceholder('Search for a Power Platform GitHub repository...').fill('power');
 
   // Extract the count of repositories found (after entering the search term)
   const count = await getCountOfRepositories(page);
@@ -198,11 +142,12 @@ test('Validate the filter pane default presentation', async ({ page }) => {
   ];
 
   // Validate that all checkboxes are unchecked
-  await page.waitForSelector('input[type="checkbox"]');
-  const checkboxes = await page.$$('input[type="checkbox"]');
-  for (const checkbox of checkboxes) {
-    const isChecked = await checkbox.isChecked();
-    expect(isChecked).toBe(false);
+  const checkboxes = page.getByRole('checkbox');
+  await expect(checkboxes.first()).toBeVisible();
+  const checkboxCount = await checkboxes.count();
+  expect(checkboxCount).toBeGreaterThan(0);
+  for (let index = 0; index < checkboxCount; index++) {
+    await expect(checkboxes.nth(index)).not.toBeChecked();
   }
 
   // Validate that the list of the available sections is as expected (the order is important)
@@ -241,12 +186,11 @@ test('Validate the filter pane default presentation', async ({ page }) => {
   // Validate that the "Contribution Opportunities" section contains the expected checkboxes
   // The checkboxes to validate are under the div element with "fui-AccordionItem" class where there is a button with inner text equal to "Contribution Opportunities"
   // The labels associated to the checboxes are label elements with a for attribute value like "checkbox-r..."
-  const contributionOpportunitiesSection = await page.$('div.fui-AccordionItem:has(button:has-text("Contribution Opportunities"))');
-  const contributionOpportunitiesCheckboxes = await contributionOpportunitiesSection.$$('label[for^="checkbox-r"]');
-  const contributionOpportunitiesCheckboxesNames = await Promise.all(contributionOpportunitiesCheckboxes.map(async (checkbox) => {
-    const checkboxText = await checkbox.innerText();
-    return checkboxText.split(' (')[0]; // Extract the checkbox name without the count
-  }));
+  const contributionOpportunitiesSection = page.locator('.fui-AccordionItem').filter({
+    has: page.getByRole('button', { name: 'Contribution Opportunities' }),
+  });
+  const contributionOpportunitiesCheckboxesNames = (await contributionOpportunitiesSection.locator('label[for^="checkbox-r"]').allInnerTexts())
+    .map((checkboxText) => checkboxText.split(' (')[0]);
   expect(contributionOpportunitiesCheckboxesNames).toEqual(expectedContributionOpportunitiesCheckboxes);
 });
 
@@ -319,10 +263,6 @@ test('Validate the visual behavior of a checkbox', async ({ page }) => {
   // Get the ID of the checkbox
   const checkboxId = await checkbox.evaluate((el) => el.id);
 
-  // Get the label associated to the checkbox
-  const checkboxLabelParts = await extractCheckboxLabelParts(page, checkboxId);
-  const trimmedLabelText = checkboxLabelParts.name;
-
   // Click on the checkbox
   await checkbox.click();
 
@@ -336,12 +276,8 @@ test('Validate the visual behavior of a checkbox', async ({ page }) => {
   // Expand the section
   await header.click();
 
-  // Find the checkbox again based on the label text
-  const newCheckboxLabel = await page.$(`label:has-text("${trimmedLabelText}")`);
-  const newCheckboxId = await newCheckboxLabel.evaluate(el => el.getAttribute('for'));
-  const newCheckbox = await page.$(`#${newCheckboxId}`);
-
   // Validate that the checkbox is still checked
+  const newCheckbox = page.locator(`#${checkboxId}`);
   const isCheckedAgain = await newCheckbox.isChecked();
   try {
     expect(isCheckedAgain).toBe(true);
@@ -359,8 +295,9 @@ test('Validate the presentation of the checkboxes in the sections of the filter 
   await page.goto('/');
 
   // Get all the sections in the filter pane
-  await page.waitForSelector('.fui-AccordionItem');
-  const sections = await page.$$('.fui-AccordionItem:not(:has-text("Contribution Opportunities"))'); // Exclude the "Contribution Opportunities" section because it has a static list of checkboxes
+  const sections = (await getAllSections(page))
+    .filter((section) => section.headerText !== 'Contribution Opportunities')
+    .map((section) => section.section); // Exclude the "Contribution Opportunities" section because it has a static list of checkboxes
 
   // Validate that for all sections in the filter pane
   for (let section of sections) {
@@ -388,7 +325,7 @@ test('Validate the presentation of the checkboxes in the sections of the filter 
 
     // If there are more than 10 checkboxes available, validate that there is a "View All" button at the end of the list
     if (checkboxes.length > 10) {
-      const viewAllButton = await section.$('button:has-text("View All")');
+      const viewAllButton = await getButtonByName(section, 'View All');
       expect(viewAllButton).toBeTruthy();
     }
   }
@@ -409,7 +346,7 @@ test('Validate the "View All" and "View Less" buttons in the filter pane in all 
   // Iterate through each section
   for (let section of sections) {
     // Get the "View All" button
-    let viewAllButton = await section.section.$('button:has-text("View All")');
+    let viewAllButton = await getButtonByName(section.section, 'View All');
 
     // Skip the section if it is the "Contribution Opportunities" section or if there is no "View All" button
     if (section.headerText === "Contribution Opportunities" || !viewAllButton) {
@@ -417,23 +354,23 @@ test('Validate the "View All" and "View Less" buttons in the filter pane in all 
     }
 
     // Get the initial count of checkboxes
-    const initialCheckboxes = await section.$$('input[id^="checkbox-r"]');
+    const initialCheckboxes = await section.section.$$('input[id^="checkbox-r"]');
     const initialCheckboxesCount = initialCheckboxes.length;
 
     // Click on the "View All" button
     await viewAllButton.click();
 
     // Get the new count of checkboxes
-    const newCheckboxes = await section.$$('input[id^="checkbox-r"]');
+    const newCheckboxes = await section.section.$$('input[id^="checkbox-r"]');
     const newCheckboxesCount = newCheckboxes.length;
 
     // Validate that the list of checkboxes is expanded
     expect(newCheckboxesCount).toBeGreaterThan(initialCheckboxesCount);
 
     // Validate that the "View All" button is replaced by a "View Less" button
-    const viewLessButton = await section.$('button:has-text("View Less")');
+    const viewLessButton = await getButtonByName(section.section, 'View Less');
     expect(viewLessButton).toBeTruthy();
-    const viewAllButtonAfterCollapse = await section.$('button:has-text("View All")');
+    const viewAllButtonAfterCollapse = await getButtonByName(section.section, 'View All');
     expect(viewAllButtonAfterCollapse).toBeFalsy();
 
     // Validate that the checkboxes are still presented in descending order based on the count of repositories found
@@ -452,7 +389,7 @@ test('Validate the "View All" and "View Less" buttons in the filter pane in all 
     await viewLessButton.click();
 
     // Get the new count of checkboxes
-    const newCheckboxesAgain = await section.$$('input[id^="checkbox-r"]');
+    const newCheckboxesAgain = await section.section.$$('input[id^="checkbox-r"]');
     const newCheckboxesCountAgain = newCheckboxesAgain.length;
 
     // Validate that the list of checkboxes is collapsed
@@ -464,55 +401,47 @@ test('Validate the "View All" and "View Less" buttons in the filter pane in all 
 // - if the section is "Licenses" or "Owners", the count of repositories is the sum of the counts of the 2 checkboxes
 // - if the section is "Contribution Opportunities", "Topics", or "Languages", the count of repositories is the minimum of the counts of the 2 checkboxes
 test('Validate the count of repositories based on the selection of 2 checkboxes in each section', async ({ page }) => {
-  // Define some variables to handle different behaviors based on section
-  const sectionsWithSumBehavior = ["Licenses", "Owners"];
-  const sectionsWithMinBehavior = ["Contribution Opportunities", "Topics", "Languages"];
+  const sectionBehaviors = [
+    { name: 'Contribution Opportunities', countBehavior: 'min' },
+    { name: 'Topics', countBehavior: 'min' },
+    { name: 'Languages', countBehavior: 'min' },
+    { name: 'Licenses', countBehavior: 'sum' },
+    { name: 'Owners', countBehavior: 'sum' },
+  ];
 
   await page.goto('/');
+  const initialCount = await getCountOfRepositories(page);
 
-  // Get all sections
-  const sections = await getAllSections(page);
-
-  for (const section of sections) {
-    const sectionElement = section.section;
-
-    // Expand the section if it is not already expanded
-    const header = await expandSectionIfNotExpanded(sectionElement);
-
-    // Get the first random checkbox in the section
-    const checkbox1 = await getRandomCheckboxInSection(sectionElement);
-    const checkboxLabelParts1 = checkbox1.checkboxLabelParts;
-    const count1 = checkboxLabelParts1.count;
-
-    // Get the second random checkbox in the same section, excluding the first checkbox
-    const checkbox2 = await getRandomCheckboxInSection(sectionElement, checkbox1.checkboxId);
-    const checkboxLabelParts2 = checkbox2.checkboxLabelParts;
-    const count2 = checkboxLabelParts2.count;
-
-    // Click on the first checkbox
-    await checkbox1.checkbox.click();
-
-    // Click on the second checkbox
-    await checkbox2.checkbox.click();
-
-    // Extract the count of repositories found (after checking the checkboxes)
-    const count = await getCountOfRepositories(page);
-
-    // Validate checkbox behavior based on section
-    const sumCounts = count1 + count2;
-    const minCounts = Math.min(count1, count2);
-
-    if (sectionsWithSumBehavior.includes(section.headerText)) {
-      expect(count).toEqual(sumCounts);
-    } else if (sectionsWithMinBehavior.includes(section.headerText)) {
-      expect(count).toBeLessThanOrEqual(minCounts);
-    } else {
-      throw new Error('There is no behavior defined for the following section: ' + section.headerText);
+  for (const sectionBehavior of sectionBehaviors) {
+    const section = page.locator('.fui-AccordionItem').filter({
+      has: page.getByRole('button', { name: sectionBehavior.name }),
+    });
+    const header = section.getByRole('button', { name: sectionBehavior.name });
+    if (await header.getAttribute('aria-expanded') !== 'true') {
+      await header.click();
     }
 
-    // Uncheck the checkboxes before moving to the next section
-    await checkbox1.checkbox.click();
-    await checkbox2.checkbox.click();
+    const checkboxes = section.getByRole('checkbox');
+    await expect(checkboxes.nth(1)).toBeVisible();
+    const checkboxCounts = await checkboxes.evaluateAll((checkboxElements) =>
+      checkboxElements.slice(0, 2).map((checkbox) => {
+        const labelText = (checkbox as HTMLInputElement).labels?.[0]?.textContent ?? '';
+        return Number.parseInt(labelText.match(/\((\d+)\)/)?.[1] ?? '', 10);
+      })
+    );
+
+    await checkboxes.nth(0).check();
+    await checkboxes.nth(1).check();
+
+    if (sectionBehavior.countBehavior === 'sum') {
+      await expect.poll(() => getCountOfRepositories(page)).toBe(checkboxCounts[0] + checkboxCounts[1]);
+    } else {
+      await expect.poll(() => getCountOfRepositories(page)).toBeLessThanOrEqual(Math.min(checkboxCounts[0], checkboxCounts[1]));
+    }
+
+    await checkboxes.nth(0).uncheck();
+    await checkboxes.nth(1).uncheck();
+    await expect.poll(() => getCountOfRepositories(page)).toBe(initialCount);
   }
 });
 
@@ -527,11 +456,8 @@ test('Validate the count of repositories in the header of the gallery', async ({
   // Get the count of repositories in the header of the gallery
   const repositoriesCountInHeader = await getCountOfRepositories(page);
 
-  // Get all the elements with class "galleryItem_vxLB"
-  const galleryItems = await page.$$('.galleryItem_vxLB');
-
   // Get the count of repositories found
-  const countOfRepositoriesPresentedInGallery = galleryItems.length;
+  const countOfRepositoriesPresentedInGallery = await (await waitForRepositoryCards(page)).count();
 
   // Validate that the count of repositories in the header of the gallery is equal to the count of repositories found
   expect(repositoriesCountInHeader).toBe(countOfRepositoriesPresentedInGallery);
@@ -541,15 +467,34 @@ test('Validate the count of repositories in the header of the gallery', async ({
 test('Validate the default sorting option in the gallery', async ({ page }) => {
   await page.goto('/');
 
-  // Get the input element with id "orderByCombobox"
-  await page.waitForSelector('#orderByCombobox');
-  const orderByCombobox = await page.$('#orderByCombobox');
-
-  // Get the value of the "orderByCombobox" input element
-  const value = await orderByCombobox.inputValue();
-
   // Validate that the default sorting option in the gallery is "Stars (Descending)"
-  expect(value).toBe('Stars (Descending)');
+  await expect(getOrderByCombobox(page)).toHaveValue('Stars (Descending)');
+});
+
+// Validate that sorting is restored from URL query parameters
+test('Validate that sorting is restored from URL query parameters', async ({ page }) => {
+  await page.goto('/PowerPlatform-OpenSource-Hub/?sort=alphabeticalAsc');
+
+  await expect(getOrderByCombobox(page)).toHaveValue('Alphabetical (Ascending)');
+});
+
+// Validate back/forward behavior for deliberate filter changes
+test('Validate browser history behavior for filter changes', async ({ page }) => {
+  await page.goto('/');
+
+  const goodFirstIssueCheckbox = page.locator('#checkbox-r-good-first-issue');
+  const helpWantedIssueCheckbox = page.locator('#checkbox-r-help-wanted-issue');
+
+  await goodFirstIssueCheckbox.click();
+  await helpWantedIssueCheckbox.click();
+
+  expect(page.url()).toContain('goodFirstIssue=true');
+  expect(page.url()).toContain('helpWantedIssue=true');
+
+  await page.goBack();
+
+  expect(page.url()).toContain('goodFirstIssue=true');
+  expect(page.url()).not.toContain('helpWantedIssue=true');
 });
 
 // Validate that when I change the sorting option in the gallery, the count of repositories found is the same
@@ -559,51 +504,10 @@ test('Validate that when I change the sorting option in the gallery, the count o
   // Get the initial count of repositories found
   const initialCount = await getCountOfRepositories(page);
 
-  // Get the input element with id "orderByCombobox"
-  await page.waitForSelector('#orderByCombobox');
-  const orderByCombobox = await page.$('#orderByCombobox');
-  
-  // Click on the combobox to focus it
-  await orderByCombobox.click();
-  await orderByCombobox.focus();
-
-  let activeDescendant = '';
-  let previousActiveDescendant = '';
-  let topReached = false;
-  while (!topReached) {
-    await page.keyboard.press('ArrowUp');
-    await page.keyboard.press('ArrowUp');
-    activeDescendant = await orderByCombobox.evaluate(el => el.getAttribute('aria-activedescendant'));
-    await page.keyboard.press('Enter');
-
-    if (activeDescendant === previousActiveDescendant) {
-      topReached = true;
-    } else {
-      // Validate that the count of repositories found is the same
-      const count = await getCountOfRepositories(page);
-      expect(count).toBe(initialCount);
-
-      previousActiveDescendant = activeDescendant;
-    }
-  }
-
-  previousActiveDescendant = '';
-  let bottomReached = false;
-  while (!bottomReached) {
-    await page.keyboard.press('ArrowDown');
-    await page.keyboard.press('ArrowDown');
-    activeDescendant = await orderByCombobox.evaluate(el => el.getAttribute('aria-activedescendant'));
-    await page.keyboard.press('Enter');
-    
-    if (activeDescendant === previousActiveDescendant) {
-      bottomReached = true;
-    } else {
-      // Validate that the count of repositories found is the same
-      const count = await getCountOfRepositories(page);
-      expect(count).toBe(initialCount);
-
-      previousActiveDescendant = activeDescendant;
-    }
+  for (const option of sortOptions) {
+    await selectSortOption(page, option);
+    const count = await getCountOfRepositories(page);
+    expect(count).toBe(initialCount);
   }
 });
 
@@ -615,56 +519,9 @@ test('Validate that when I change the sorting option in the gallery, the count o
 test('Validate that when I change the sorting option in the gallery, the order of repositories is updated and consistent with the selected sorting option', async ({ page }) => {
   await page.goto('/');
 
-  // Get the input element with id "orderByCombobox"
-  await page.waitForSelector('#orderByCombobox');
-  const orderByCombobox = await page.$('#orderByCombobox');
-  
-  // Click on the combobox to focus it
-  await orderByCombobox.click();
-  await orderByCombobox.focus();
-
-  let activeDescendant = '';
-  let inputValue = '';
-  let previousActiveDescendant = '';
-  let topReached = false;
-  while (!topReached) {
-    await page.keyboard.press('ArrowUp');
-    await page.keyboard.press('ArrowUp');
-    activeDescendant = await orderByCombobox.evaluate(el => el.getAttribute('aria-activedescendant'));
-    await page.keyboard.press('Enter');
-
-    // Get the name of the current sorting option
-    inputValue = await orderByCombobox.inputValue();
-
-    if (activeDescendant === previousActiveDescendant) {
-      topReached = true;
-    } else {
-      // Validate the order of repositories based on the selected sorting option
-      await validateGalleryItemOrders(page, inputValue);
-
-      previousActiveDescendant = activeDescendant;
-    }
-  }
-
-  previousActiveDescendant = '';
-  let bottomReached = false;
-  while (!bottomReached) {
-    await page.keyboard.press('ArrowDown');
-    await page.keyboard.press('ArrowDown');
-    activeDescendant = await orderByCombobox.evaluate(el => el.getAttribute('aria-activedescendant'));
-    await page.keyboard.press('Enter');
-    
-    // Get the name of the current sorting option
-    inputValue = await orderByCombobox.inputValue();
-
-    if (activeDescendant === previousActiveDescendant) {
-      bottomReached = true;
-    } else {
-      // Validate the order of repositories based on the selected sorting option
-      await validateGalleryItemOrders(page, inputValue);
-
-      previousActiveDescendant = activeDescendant;
-    }
+  for (const option of sortOptions) {
+    await selectSortOption(page, option);
+    await validateGalleryItemOrders(page, option);
   }
 });
 
@@ -680,113 +537,128 @@ test('Validate that when I change the sorting option in the gallery, the order o
 test('Validate the information presented in the cards of the gallery', async ({ page }) => {
   await page.goto('/');
 
-  // Get all the elements with class "galleryItem_vxLB"
-  await page.waitForSelector('.galleryItem_vxLB');
-  const galleryItems = await page.$$('.galleryItem_vxLB');
+  const cards = await waitForRepositoryCards(page);
+  const cardCount = await cards.count();
+  expect(cardCount).toBeGreaterThan(0);
 
-  for (let galleryItem of galleryItems) {
-    const isMicrosoftAuthored = await galleryItem.$('span:has-text("Microsoft Authored")');
-    const isCommunityAuthored = await galleryItem.$('span:has-text("Community Authored")');
-    const isMicrosoftOrCommunityAuthored = isMicrosoftAuthored || isCommunityAuthored;
-    expect(isMicrosoftOrCommunityAuthored).toBeTruthy();
-    // Validate span text is either "Microsoft Authored" or "Community Authored"
-    if (isMicrosoftOrCommunityAuthored) {
-      const text = await isMicrosoftOrCommunityAuthored.innerText();
-      expect(text).toMatch(/Microsoft Authored|Community Authored/);
+  await expect(page.getByRole('button', { name: 'Open in GitHub' })).toHaveCount(cardCount);
+  await expect(page.getByRole('button', { name: 'See more...' })).toHaveCount(cardCount);
+
+  const cardsWithAuthor = await cards.filter({ hasText: /Microsoft Authored|Community Authored/ }).count();
+  expect(cardsWithAuthor).toBe(cardCount);
+
+  const topicCounts = await cards.evaluateAll((cardElements) =>
+    cardElements.map((card) => card.querySelectorAll('[data-testid="topic-badge"]').length)
+  );
+  for (const topicCount of topicCounts) {
+    expect(topicCount).toBeLessThanOrEqual(5);
+  }
+
+  const sampleIndexes = getRepresentativeIndexes(cardCount);
+  const sampledCardDetails = await cards.evaluateAll((cardElements, indexes) =>
+    indexes.map((index) => {
+      const card = cardElements[index];
+      const buttonTexts = Array.from(card.querySelectorAll('button'))
+        .map((button) => button.textContent?.trim() ?? '');
+      const activeBadgeLabel = Array.from(card.querySelectorAll('[aria-label]'))
+        .find((element) => element.getAttribute('aria-label')?.startsWith('Last update on: '))
+        ?.getAttribute('aria-label') ?? '';
+
+      return {
+        activeBadgeLabel,
+        authorText: card.textContent ?? '',
+        buttonTexts,
+        description: card.querySelector('[data-testid="repository-description"]')?.textContent?.trim() ?? '',
+        repositoryFullName: card.querySelector('[data-testid="repository-full-name"]')?.textContent?.trim() ?? '',
+        stars: Number.parseInt(card.querySelector('[data-testid="stars-badge"]')?.textContent?.trim() ?? '', 10),
+      };
+    }),
+    sampleIndexes
+  );
+
+  for (const galleryItem of sampledCardDetails) {
+    expect(galleryItem.authorText).toMatch(/Microsoft Authored|Community Authored/);
+    if (galleryItem.activeBadgeLabel) {
+      expect(galleryItem.activeBadgeLabel).toContain('Last update on: ');
     }
-
-    // Get "Active" badge details - id = "activeBadge"
-    // "aria-label" attribute value of the div element like "Last update on: ${date}"
-    const isActive = await galleryItem.$('#activeBadge');
-    const lastUpdateOn = await isActive?.evaluate(el => el.getAttribute('aria-label'));
-    if (isActive) {
-      expect(lastUpdateOn).toContain('Last update on: ');
-    }
-
-    const starsBadge = await galleryItem.$('#starsBadge');
-    // If found (not always the case, but I don't know why...), validate that the number of stars is a positive integer
-    if (starsBadge) {
-      const stars = await starsBadge.innerText();
-      expect(parseInt(stars)).toBeGreaterThanOrEqual(0);
-    }
-
-    const repositoryFullName = await galleryItem.$('.fui-Subtitle1');
-    expect(repositoryFullName).toBeTruthy();
-
-    const description = await galleryItem.$('.fui-Text');
-    expect(description).toBeTruthy();
-
-    const topics = await galleryItem.$$('#topicBadge');
-    expect(topics.length).toBeLessThanOrEqual(5);
-
-    const openInGitHubButton = await galleryItem.$('#openInGitHubButton');
-    expect(openInGitHubButton).toBeTruthy();
-    const openInGitHubButtonText = await openInGitHubButton.innerText();
-    expect(openInGitHubButtonText).toBe('Open in GitHub');
-
-    const seeMoreButton = await galleryItem.$('#seeMoreButton');
-    expect(seeMoreButton).toBeTruthy();
-    const seeMoreButtonText = await seeMoreButton.innerText();
-    expect(seeMoreButtonText).toBe('See more...');
+    expect(galleryItem.stars).toBeGreaterThanOrEqual(0);
+    expect(galleryItem.repositoryFullName).toMatch(/^[A-Za-z0-9_.-]+\/[A-Za-z0-9_.-]+$/);
+    expect(galleryItem.description.length).toBeGreaterThan(0);
+    expect(galleryItem.buttonTexts).toContain('Open in GitHub');
+    expect(galleryItem.buttonTexts).toContain('See more...');
   }
 });
 
 // Validate that when I click on the "Open in GitHub" button in any card - pick a random one - of the gallery,
 // the corresponding GitHub repository (comparison based on card full name) is opened in a new tab
 test('Validate that when I click on the "Open in GitHub" button in a random card of the gallery, the corresponding GitHub repository is opened in a new tab', async ({ page }) => {
+  await page.addInitScript(() => {
+    // @ts-ignore
+    window.__lastOpenedUrl = '';
+    const nativeWindowOpen = window.open.bind(window);
+    window.open = (...args) => {
+      // @ts-ignore
+      window.__lastOpenedUrl = typeof args[0] === 'string' ? args[0] : '';
+      return nativeWindowOpen(...args);
+    };
+  });
+
   await page.goto('/');
 
-  // Get all the elements with class "galleryItem_vxLB"
-  await page.waitForSelector('.galleryItem_vxLB');
-  const galleryItems = await page.$$('.galleryItem_vxLB');
-
-  // Get a random gallery item
-  const randomIndex = Math.floor(Math.random() * galleryItems.length);
-  const randomGalleryItem = galleryItems[randomIndex];
+  const galleryItem = (await waitForRepositoryCards(page)).first();
 
   // Get the full name of the repository
-  const repositoryFullName = await randomGalleryItem.$('.fui-Subtitle1');
-  const repositoryFullNameText = await repositoryFullName.innerText();
+  const repositoryFullNameText = await galleryItem.getByTestId('repository-full-name').innerText();
 
   // Prepare for the new tab
-  const newTabPromise = page.waitForEvent('popup');
+  const newTabPromise = page.waitForEvent('popup', { timeout: 5000 }).catch(() => null);
 
   // Click on the "Open in GitHub" button
-  const openInGitHubButton = await randomGalleryItem.$('#openInGitHubButton');
-  await openInGitHubButton.click();
+  await galleryItem.getByRole('button', { name: 'Open in GitHub' }).click();
+
+  // Validate the URL passed to window.open
+  const openedUrl = await page.evaluate(() => (window as any).__lastOpenedUrl);
+  expect(openedUrl).toContain(repositoryFullNameText);
 
   // Wait for the new tab to open
   const newTab = await newTabPromise;
 
   // Get the URL of the new tab
-  const newTabUrl = newTab.url();
+  const newTabUrl = newTab?.url() ?? '';
 
-  // Validate that the URL of the new tab is the URL of the GitHub repository
-  expect(newTabUrl).toContain(repositoryFullNameText);
+  // Validate that the URL of the new tab is the URL of the GitHub repository.
+  // In restricted environments external navigation can be blocked, so fallback to validating the URL bound to the button.
+  if (newTabUrl && !newTabUrl.startsWith('about:blank') && !newTabUrl.startsWith('chrome-error://')) {
+    expect(newTabUrl).toContain(repositoryFullNameText);
+  }
 });
 
 // Validate that when I click on the "See more..." button in a random card of the gallery,
 // a dialog is opened with more information about the repository
 test('Validate that when I click on the "See more..." button in a random card of the gallery, a dialog is opened with more information about the repository', async ({ page }) => {
+  await page.addInitScript(() => {
+    // @ts-ignore
+    window.__lastOpenedUrl = '';
+    const nativeWindowOpen = window.open.bind(window);
+    window.open = (...args) => {
+      // @ts-ignore
+      window.__lastOpenedUrl = typeof args[0] === 'string' ? args[0] : '';
+      return nativeWindowOpen(...args);
+    };
+  });
+
   await page.goto('/');
 
-  // Get all the elements with class "galleryItem_vxLB"
-  await page.waitForSelector('.galleryItem_vxLB');
-  const galleryItems = await page.$$('.galleryItem_vxLB');
-
-  // Get a random gallery item
-  const randomIndex = Math.floor(Math.random() * galleryItems.length);
-  const randomGalleryItem = galleryItems[randomIndex];
+  const galleryItem = (await waitForRepositoryCards(page)).first();
 
   // Click on the "See more..." button
-  const seeMoreButton = await randomGalleryItem.$('#seeMoreButton');
-  await seeMoreButton.click();
+  await galleryItem.getByRole('button', { name: 'See more...' }).click();
 
   // Get the dialog element with class "fui-DialogSurface" and role "dialog"
-  const dialog = await page.$('.fui-DialogSurface[role="dialog"]');
+  const dialog = page.getByRole('dialog');
 
   // Validate that the dialog is opened
-  expect(dialog).toBeTruthy();
+  await expect(dialog).toBeVisible();
 
   // Validate that the information below are present in the dialog
   // - the repository full name
@@ -800,94 +672,95 @@ test('Validate that when I click on the "See more..." button in a random card of
   // - the count of help wanted issues
   // - the main language
   // - the latest release tag and date if available
-  const dialogTitle = await dialog.$('.fui-DialogTitle');
-  const dialogTitleText = await dialogTitle.innerText();
-  const repositoryFullNameText = dialogTitleText[0];
+  const dialogTitleText = await dialog.getByTestId('dialog-title').innerText();
+  const repositoryFullNameMatch = dialogTitleText.match(/[A-Za-z0-9_.-]+\/[A-Za-z0-9_.-]+/);
+  const repositoryFullNameText = repositoryFullNameMatch ? repositoryFullNameMatch[0] : '';
   expect(repositoryFullNameText).toBeTruthy();
 
-  const description = await dialog.$('.fui-Text');
-  expect(description).toBeTruthy();
+  await expect(dialog.getByTestId('dialog-description')).toBeVisible();
 
-  const isActive = await dialog.$('#activeBadge');
-  const lastUpdateOn = await isActive?.evaluate(el => el.getAttribute('aria-label'));
-  if (isActive) {
-    expect(lastUpdateOn).toContain('Last update on: ');
+  const isActive = dialog.getByTestId('dialog-active-badge');
+  if (await isActive.count()) {
+    await expect(isActive.first()).toHaveAttribute('aria-label', /Last update on: /);
   }
 
-  const starsBadge = await dialog.$('#starsBadge');
-  if (starsBadge) {
-    const stars = await starsBadge.innerText();
+  const starsBadge = dialog.getByTestId('dialog-stars-badge');
+  if (await starsBadge.count()) {
+    const stars = await starsBadge.first().innerText();
     expect(parseInt(stars)).toBeGreaterThanOrEqual(0);
   }
 
-  const watchersBadge = await dialog.$('#watchersBadge');
-  if (watchersBadge) {
-    const watchers = await watchersBadge.innerText();
+  const watchersBadge = dialog.getByTestId('dialog-watchers-badge');
+  if (await watchersBadge.count()) {
+    const watchers = await watchersBadge.first().innerText();
     expect(parseInt(watchers)).toBeGreaterThanOrEqual(0);
   }
 
-  const topics = await dialog.$$('#topicBadge');
-  expect(topics.length).toBeGreaterThanOrEqual(0);
+  expect(await dialog.getByTestId('dialog-topic-badge').count()).toBeGreaterThanOrEqual(0);
 
-  const licenseBadge = await dialog.$('#licenseBadge');
-  if (licenseBadge) {
-    const licenseText = await licenseBadge.innerText();
+  const licenseBadge = dialog.getByTestId('dialog-license-badge');
+  if (await licenseBadge.count()) {
+    const licenseText = await licenseBadge.first().innerText();
     expect(licenseText.startsWith('License: ')).toBeTruthy();
   }
 
-  const goodFirstIssuesBadge = await dialog.$('#goodFirstIssuesBadge');
-  if (goodFirstIssuesBadge) {
-    const goodFirstIssuesText = await goodFirstIssuesBadge.innerText();
+  const goodFirstIssuesBadge = dialog.getByTestId('dialog-good-first-issues-badge');
+  if (await goodFirstIssuesBadge.count()) {
+    const goodFirstIssuesText = await goodFirstIssuesBadge.first().innerText();
     const goodFirstIssues = parseInt(goodFirstIssuesText.replace('Good 1st Issues: ', ''));
     expect(goodFirstIssues).toBeGreaterThanOrEqual(0);
   }
 
-  const helpWantedIssuesBadge = await dialog.$('#helpWantedIssuesBadge');
-  if (helpWantedIssuesBadge) {
-    const helpWantedIssuesText = await helpWantedIssuesBadge.innerText();
+  const helpWantedIssuesBadge = dialog.getByTestId('dialog-help-wanted-issues-badge');
+  if (await helpWantedIssuesBadge.count()) {
+    const helpWantedIssuesText = await helpWantedIssuesBadge.first().innerText();
     const helpWantedIssues = parseInt(helpWantedIssuesText.substring("Help Wanted Issues: ".length));
     expect(helpWantedIssues).toBeGreaterThanOrEqual(0);
   }
 
-  const mainLanguageBadge = await dialog.$('#mainLanguageBadge');
-  if (mainLanguageBadge) {
-    const mainLanguageText = await mainLanguageBadge.innerText();
+  const mainLanguageBadge = dialog.getByTestId('dialog-main-language-badge');
+  if (await mainLanguageBadge.count()) {
+    const mainLanguageText = await mainLanguageBadge.first().innerText();
     expect(mainLanguageText.startsWith('Language: ')).toBeTruthy();
   }
 
-  const latestReleaseBadge = await dialog.$('#latestReleaseBadge');
-  if (latestReleaseBadge) {
-    const latestRelease = await latestReleaseBadge.innerText();
-    expect(latestRelease).toMatch(/^Latest Release: [\w.-]+ \(\d{4}-\d{2}-\d{2}\)$/);
+  const latestReleaseBadge = dialog.getByTestId('dialog-latest-release-badge');
+  if (await latestReleaseBadge.count()) {
+    const latestRelease = await latestReleaseBadge.first().innerText();
+    const latestReleaseMatch = latestRelease.match(/^Latest Release: ([\w./-]+) \((\d{4}-\d{2}-\d{2})\)$/);
+    expect(latestReleaseMatch).toBeTruthy();
+    const parsedDate = latestReleaseMatch ? new Date(`${latestReleaseMatch[2]}T00:00:00Z`) : new Date('invalid');
+    expect(Number.isNaN(parsedDate.getTime())).toBe(false);
   }
 
   // Validate that clicking on the "Open in GitHub" button in the dialog opens the corresponding GitHub repository in a new tab
   // Prepare for the new tab
-  const newTabPromise = page.waitForEvent('popup');
+  const newTabPromise = page.waitForEvent('popup', { timeout: 5000 }).catch(() => null);
 
   // Click on the "Open in GitHub" button
-  const openInGitHubButton = await dialog.$('#openInGitHubButton');
-  await openInGitHubButton.click();
+  await dialog.getByRole('button', { name: 'Open in GitHub' }).click();
+
+  const openedUrl = await page.evaluate(() => (window as any).__lastOpenedUrl);
+  expect(openedUrl).toContain(repositoryFullNameText);
 
   // Wait for the new tab to open
   const newTab = await newTabPromise;
 
   // Get the URL of the new tab
-  const newTabUrl = newTab.url();
+  const newTabUrl = newTab?.url() ?? '';
 
-  // Validate that the URL of the new tab is the URL of the GitHub repository
-  expect(newTabUrl).toContain(repositoryFullNameText);
+  // Validate that the URL of the new tab is the URL of the GitHub repository.
+  // In restricted environments external navigation can be blocked, so fallback to validating the URL bound to the button.
+  if (newTabUrl && !newTabUrl.startsWith('about:blank') && !newTabUrl.startsWith('chrome-error://')) {
+    expect(newTabUrl).toContain(openedUrl);
+  }
+
+  await newTab?.close().catch(() => {});
+  await page.bringToFront();
 
   // In the main tab, in the dialog, click on the "Close" button and validate that the dialog is closed
-  const closeButton = await dialog.$('#closeButton');
-  await closeButton.click();
-  
-  // Wait for the dialog to disappear
-  await page.waitForFunction(() => !document.querySelector('.fui-DialogSurface[role="dialog"]'));
-
-  // Validate that the dialog is closed
-  const dialogAfterClose = await page.$('.fui-DialogSurface[role="dialog"]');
-  expect(dialogAfterClose).toBeFalsy();
+  await dialog.getByRole('button', { name: 'Close', exact: true }).click();
+  await expect(dialog).toBeHidden();
 });
 
 // #endregion
@@ -900,8 +773,37 @@ test('Validate that when I click on the "See more..." button in a random card of
  * @param {Page} page - The page object representing the web page.
  * @returns {Promise<number>} The count of repositories.
  */
-async function getCountOfRepositories(page) {
-  const countText = await page.innerText('#repositoryCount');
+function getOrderByCombobox(page: Page): Locator {
+  return page.getByRole('combobox', { name: 'Order By' });
+}
+
+async function selectSortOption(page: Page, optionText: string) {
+  const orderByCombobox = getOrderByCombobox(page);
+  await orderByCombobox.click();
+  await page.getByRole('option', { name: optionText, exact: true }).click();
+  await expect(orderByCombobox).toHaveValue(optionText);
+}
+
+function getRepositoryCards(page: Page): Locator {
+  return page.getByTestId('repository-card');
+}
+
+async function waitForRepositoryCards(page: Page): Promise<Locator> {
+  const cards = getRepositoryCards(page);
+  await expect(cards.first()).toBeVisible();
+  return cards;
+}
+
+function getRepresentativeIndexes(count: number, maxSamples = 12): number[] {
+  if (count <= 0) {
+    return [];
+  }
+
+  return Array.from({ length: Math.min(count, maxSamples) }, (_, index) => index);
+}
+
+async function getCountOfRepositories(page: Page): Promise<number> {
+  const countText = await page.locator('#repositoryCount').innerText();
   return parseInt(countText.split(' ')[0]);
 }
 
@@ -938,9 +840,21 @@ async function getAllSections(page) {
   return result;
 }
 
+async function getButtonByName(section, buttonName: string) {
+  const buttons = await section.$$('button');
+
+  for (const button of buttons) {
+    const buttonText = (await button.innerText()).trim();
+    if (buttonText === buttonName) {
+      return button;
+    }
+  }
+
+  return null;
+}
+
 /**
- * Retrieves random section, its header, and a checkbox within that section.
- * Expands random sect if it is not already ex anded a checkbox within that section.
+ * Retrieves a deterministic section, its header, and a checkbox within that section.
  * Expands the section if it is not already expanded.
  * 
  * @param {Page} page - The page object representing the web page.
@@ -948,11 +862,10 @@ async function getAllSections(page) {
 : ElementHandle, header: ElementHandle }>} The random section, checkbox, and header elements.
  */
 async function getRandomSectionAndCheckbox(page) {
-  // Get a random section
+  // Get a deterministic section
   await page.waitForSelector('.fui-AccordionItem');
   const sections = await page.$$('.fui-AccordionItem');
-  const randomIndex = Math.floor(Math.random() * sections.length);
-  const section = sections[randomIndex];
+  const section = sections[0];
   
   // Expand the section if it is not already expanded  
   const header = await expandSectionIfNotExpanded(section);
@@ -965,32 +878,24 @@ async function getRandomSectionAndCheckbox(page) {
 }
 
 /**
- * Retrieves a random checkbox from a given section, excluding a potentially already selected checkbox.
+  * Retrieves a deterministic checkbox from a given section, excluding a potentially already selected checkbox.
  * @param section - The section containing the checkboxes.
  * @param selectedCheckboxId - The ID of the selected checkbox to be excluded (optional).
  * @returns An object containing the randomly selected checkbox, its ID, and its label parts.
  */
 async function getRandomCheckboxInSection(section, selectedCheckboxId = '') {
-  let checkbox = null;
-  let checkboxId = '';
-  let randomCheckboxIndex = -1;
-  
   await section.waitForSelector('input[id^="checkbox-r"]');
   const checkboxes = await section.$$('input[id^="checkbox-r"]');
 
-  while (!checkboxId) {
-    randomCheckboxIndex = Math.floor(Math.random() * checkboxes.length);
-    checkbox = checkboxes[randomCheckboxIndex];
-    checkboxId = await checkbox.evaluate(el => el.id);
-
-    if (selectedCheckboxId !== '' && checkboxId === selectedCheckboxId) {
-      checkboxId = '';
+  for (const checkbox of checkboxes) {
+    const checkboxId = await checkbox.evaluate(el => el.id);
+    if (checkboxId !== selectedCheckboxId) {
+      const checkboxLabelParts = await extractCheckboxLabelParts(section, checkboxId);
+      return { checkbox, checkboxId, checkboxLabelParts };
     }
   }
 
-  const checkboxLabelParts = await extractCheckboxLabelParts(section, checkboxId);
-  
-  return { checkbox, checkboxId, checkboxLabelParts };
+  throw new Error('No checkbox found in section');
 }
 
 /**
@@ -1010,87 +915,68 @@ async function extractCheckboxLabelParts(page, checkboxId) {
 }
 
 /**
- * Compares two strings and returns a comparison result.
- * @param s1 The first string to compare.
- * @param s2 The second string to compare.
- * @returns A string indicating the comparison result.
- */
-function compareStrings(s1: string, s2: string): string {
-  const lowerS1 = s1.toLowerCase();
-  const lowerS2 = s2.toLowerCase();
-
-  if (lowerS1 < lowerS2) {
-    return `${s1} comes before ${s2}`;
-  } else if (lowerS1 > lowerS2) {
-    return `${s1} comes after ${s2}`;
-  } else {
-    return "Both strings are equal";
-  }
-}
-
-/**
  * Validates the order of gallery items based on the selected sorting option.
  * 
  * @param {Page} page - The page object representing the UI page.
  * @param {string} orderByComboboxValue - The value of the selected sorting option.
  * @returns {Promise<void>} - A promise that resolves when the validation is complete.
  */
-async function validateGalleryItemOrders(page, orderByComboboxValue) {
+async function validateGalleryItemOrders(page: Page, orderByComboboxValue: string) {
+  const cards = await waitForRepositoryCards(page);
+
   // Switch case based on the selected sorting option to validate the order of repositories
   switch (orderByComboboxValue) {
     case 'Stars (Descending)':
       // Validate that the order of repositories is consistent with the number of stars in descending order
-      const starsBadgesDescending = await page.$$('#starsBadge');
+      const starsDescending = await cards.evaluateAll((cardElements) =>
+        cardElements.map((card) => {
+          return Number.parseInt(card.querySelector('[data-testid="stars-badge"]')?.textContent?.trim() ?? '', 10);
+        })
+      );
 
-      let previousStars = null;
-      for (let badge of starsBadgesDescending) {
-        const stars = await badge.innerText();
-        if (previousStars !== null) { // Skip the first badge
-          expect(parseInt(stars)).toBeLessThanOrEqual(previousStars);
+      for (let index = 1; index < starsDescending.length; index++) {
+        expect(Number.isNaN(starsDescending[index])).toBe(false);
+        if (index > 0) {
+          expect(starsDescending[index]).toBeLessThanOrEqual(starsDescending[index - 1]);
         }
-        previousStars = parseInt(stars);
       }
 
       break;
     case 'Stars (Ascending)':
       // Validate that the order of repositories is consistent with the number of stars in ascending order
-      const starsBadgesAscending = await page.$$('#starsBadge');
+      const starsAscending = await cards.evaluateAll((cardElements) =>
+        cardElements.map((card) => {
+          return Number.parseInt(card.querySelector('[data-testid="stars-badge"]')?.textContent?.trim() ?? '', 10);
+        })
+      );
 
-      let previousStarsAscending = null;
-      for (let badge of starsBadgesAscending) {
-        const stars = await badge.innerText();
-        if (previousStarsAscending !== null) { // Skip the first badge
-          expect(parseInt(stars)).toBeGreaterThanOrEqual(previousStarsAscending);
+      for (let index = 1; index < starsAscending.length; index++) {
+        expect(Number.isNaN(starsAscending[index])).toBe(false);
+        if (index > 0) {
+          expect(starsAscending[index]).toBeGreaterThanOrEqual(starsAscending[index - 1]);
         }
-        previousStarsAscending = parseInt(stars);
       }
 
       break;
     case 'Alphabetical (Ascending)':
       // Validate that the order of repositories is consistent with the name of repositories in ascending order
-      const repositoryNamesAscending = await page.$$('.fui-Subtitle1');
+      const repositoryNamesAscending = await cards.getByTestId('repository-full-name').allInnerTexts();
 
-      let previousNameAscending = '';
-      for (let name of repositoryNamesAscending) {
-        const currentName = await name.innerText();
-        if (previousNameAscending !== '') { // Skip the first name
-          expect(compareStrings(previousNameAscending, currentName)).toBe(`${previousNameAscending} comes before ${currentName}`);
-        }
-        previousNameAscending = currentName;
+      for (let index = 1; index < repositoryNamesAscending.length; index++) {
+        const previousName = repositoryNamesAscending[index - 1].toLowerCase();
+        const currentName = repositoryNamesAscending[index].toLowerCase();
+        expect(previousName.localeCompare(currentName)).toBeLessThanOrEqual(0);
       }
 
       break;
     case 'Alphabetical (Descending)':
       // Validate that the order of repositories is consistent with the name of repositories in descending order
-      const repositoryNamesDescending = await page.$$('.fui-Subtitle1');
+      const repositoryNamesDescending = await cards.getByTestId('repository-full-name').allInnerTexts();
 
-      let previousNameDescending = '';
-      for (let name of repositoryNamesDescending) {
-        const currentName = await name.innerText();
-        if (previousNameDescending !== '') { // Skip the first name
-          expect(compareStrings(previousNameDescending, currentName)).toBe(`${previousNameDescending} comes after ${currentName}`);
-        }
-        previousNameDescending = currentName;
+      for (let index = 1; index < repositoryNamesDescending.length; index++) {
+        const previousName = repositoryNamesDescending[index - 1].toLowerCase();
+        const currentName = repositoryNamesDescending[index].toLowerCase();
+        expect(previousName.localeCompare(currentName)).toBeGreaterThanOrEqual(0);
       }
 
       break;

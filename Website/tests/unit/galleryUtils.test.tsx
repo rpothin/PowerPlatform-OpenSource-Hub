@@ -93,7 +93,7 @@ describe('filterItems', () => {
         expect(result).toEqual([data[0]]);
     });
 
-    it('returns a filtered list when the filters are not empty and a license is selected', () => {
+  it('returns a filtered list when the filters are not empty and a license is selected', () => {
         const result = filterItems(data, {
             hasGoodFirstIssueChecked: false,
             hasHelpWantedIssueChecked: false,
@@ -103,6 +103,28 @@ describe('filterItems', () => {
             selectedLicenses: ['MIT'],
             selectedOwners: []
         });
+        expect(result).toEqual([data[0]]);
+    });
+
+    it('handles repositories with null license when filtering by license', () => {
+        const dataWithNullLicense = [
+            data[0],
+            {
+                ...data[1],
+                license: null,
+            },
+        ];
+
+        const result = filterItems(dataWithNullLicense, {
+            hasGoodFirstIssueChecked: false,
+            hasHelpWantedIssueChecked: false,
+            hasCodeOfConductChecked: false,
+            selectedTopics: [],
+            selectedLanguages: [],
+            selectedLicenses: ['MIT'],
+            selectedOwners: []
+        });
+
         expect(result).toEqual([data[0]]);
     });
 

@@ -1,141 +1,210 @@
-// Importing necessary libraries and components
-// Third-party libraries
 import clsx from 'clsx';
-import Fuse from 'fuse.js';
 import * as React from 'react';
-import { useState, useEffect } from 'react';
-import { FluentProvider, webLightTheme, webDarkTheme } from '@fluentui/react-components';
-import { SearchBox } from "@fluentui/react/lib/SearchBox";
-import { initializeIcons } from "@fluentui/react/lib/Icons";
+import { useEffect, useMemo, useRef, useState } from 'react';
+import {
+  Button,
+  Dialog,
+  DialogBody,
+  DialogContent,
+  DialogSurface,
+  DialogTitle,
+  FluentProvider,
+  Input,
+  webDarkTheme,
+  webLightTheme,
+} from '@fluentui/react-components';
+import { Filter16Regular } from '@fluentui/react-icons';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
-import { useColorMode } from "@docusaurus/theme-common";
+import { useColorMode } from '@docusaurus/theme-common';
 import Layout from '@theme/Layout';
 import Heading from '@theme/Heading';
 
-// Local files
 import { Repository } from '../types/repository';
 import { filterItemsBasedOnSearchInput } from '../utils/filterItemsBasedOnSearchInput';
+import {
+  defaultUrlFilterState,
+  parseFilterStateFromSearch,
+  serializeFilterStateToSearch,
+  UrlFilterState,
+} from '../utils/filterUrlState';
 import styles from './index.module.css';
 import data from '../../../Data/GitHubRepositoriesDetails.json';
 import Gallery from '../components/Gallery';
 import FilterPane from '../components/FilterPane';
 
-// Initializing Fluent UI icons
-initializeIcons();
-
-/**
- * The main component of the application.
- * Renders the homepage with search functionality, filter pane, and gallery.
- */
 const App = () => {
   const { siteConfig } = useDocusaurusContext();
   const { colorMode } = useColorMode();
   const [loading, setLoading] = useState(true);
-
-  // Defining state variables
-  const [searchText, setSearchText] = useState('');
-  const [items, setItems] = useState<Repository[]>([]);
-  const [hasGoodFirstIssueChecked, setHasGoodFirstIssue] = useState(false);
-  const [hasHelpWantedIssueChecked, setHasHelpWantedIssue] = useState(false);
-  const [hasCodeOfConductChecked, setHasCodeOfConduct] = useState(false);
-  const [selectedTopics, setSelectedTopics] = useState<string[]>([]);
-  const [selectedLanguages, setSelectedLanguages] = useState<string[]>([]);
-  const [selectedLicenses, setSelectedLicenses] = useState<string[]>([]);
-  const [selectedOwners, setSelectedOwners] = useState<string[]>([]);
+  const [isMobile, setIsMobile] = useState(false);
+  const [isFilterPaneOpen, setIsFilterPaneOpen] = useState(false);
+  const [isFilterStateInitialized, setIsFilterStateInitialized] = useState(false);
+  const [filterState, setFilterState] = useState<UrlFilterState>(defaultUrlFilterState);
+  const historyWriteModeRef = useRef<'replace' | 'push'>('replace');
 
   useEffect(() => {
     setTimeout(() => {
       setLoading(false);
     }, 500);
   }, []);
-  
-  // useEffect hook to filter items based on search text
-  useEffect(() => {
-    setItems(filterItemsBasedOnSearchInput(data, searchText));
-  }, [searchText]);
 
-  // Function to handle search text change
-  const handleSearchChange = (event) => {
-    setSearchText(event.target.value);
+  useEffect(() => {
+    if (typeof window === 'undefined') {
+      return;
+    }
+
+    const handleWindowResize = () => {
+      setIsMobile(window.innerWidth <= 960);
+    };
+
+    handleWindowResize();
+    window.addEventListener('resize', handleWindowResize);
+
+    return () => {
+      window.removeEventListener('resize', handleWindowResize);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (typeof window === 'undefined') {
+      return;
+    }
+
+    const applyUrlState = () => {
+      historyWriteModeRef.current = 'replace';
+      setFilterState(parseFilterStateFromSearch(window.location.search));
+    };
+
+    applyUrlState();
+    setIsFilterStateInitialized(true);
+    window.addEventListener('popstate', applyUrlState);
+
+    return () => {
+      window.removeEventListener('popstate', applyUrlState);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (typeof window === 'undefined' || !isFilterStateInitialized) {
+      return;
+    }
+
+    const nextSearch = serializeFilterStateToSearch(filterState);
+    if (nextSearch !== window.location.search) {
+      const nextUrl = `${window.location.pathname}${nextSearch}${window.location.hash}`;
+      if (historyWriteModeRef.current === 'push') {
+        window.history.pushState({}, '', nextUrl);
+      } else {
+        window.history.replaceState({}, '', nextUrl);
+      }
+    }
+    historyWriteModeRef.current = 'replace';
+  }, [filterState, isFilterStateInitialized]);
+
+  const setFilterStateWithHistory = (
+    updater: (previous: UrlFilterState) => UrlFilterState,
+    historyMode: 'replace' | 'push' = 'push',
+  ) => {
+    historyWriteModeRef.current = historyMode;
+    setFilterState((previous) => updater(previous));
   };
 
-  // Rendering the HomePage component
-  return !loading ? (
-      <FluentProvider theme={colorMode === 'dark' ? webDarkTheme : webLightTheme}>
-        <header className={clsx('hero hero--primary', styles.heroBanner)}>
-          <div className="container" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column' }}>
-            <Heading as="h2" className="hero__title" style={{
-                  background: 'linear-gradient(90deg, rgba(10,110,159,1.2) 0%, rgba(10,110,159,1.2) 0%, rgba(44,142,75,1.2) 100%)',
-                  WebkitBackgroundClip: "text",
-                  WebkitTextFillColor: "transparent",
-                }}>
-              {siteConfig.title}
-            </Heading>
-            <p className="hero__subtitle" style={{
-                color: "#242424",
-                padding: "10px 0 20px 0",
-              }}>
-              {siteConfig.tagline}
-            </p>
-            <SearchBox
-              styles={{
-                root: {
-                  width: '100%',
-                  border: "1px solid #D1D1D1",
-                  height: "52px",
-                  maxWidth: "740px",
-                  borderRadius: "4px",
-                },
-                icon: {
-                  fontSize: "24px",
-                  paddingLeft: "10px",
-                },
-                field: {
-                  paddingLeft: "20px",
-                  fontSize: "18px",
-                },
-              }}
-              id="filterBar"
-              placeholder="Search for a Power Platform GitHub repository..."
-              value={searchText}
-              onChange={handleSearchChange}
-            />
-          </div>
-        </header>
-        <main>
-            <div className={styles.filterPaneAndGallery} >
-              <FilterPane 
-                items={items}
-                onGoodFirstIssueChange={setHasGoodFirstIssue}
-                onHelpWanteIssueChange={setHasHelpWantedIssue}
-                onCodeOfConductChange={setHasCodeOfConduct}
-                onTopicsChange={setSelectedTopics}
-                onLanguagesChange={setSelectedLanguages}
-                onLicensesChange={setSelectedLicenses}
-                onOwnersChange={setSelectedOwners}
-              />
-              <Gallery
-                items={items}
-                hasGoodFirstIssueChecked={hasGoodFirstIssueChecked}
-                hasHelpWantedIssueChecked={hasHelpWantedIssueChecked}
-                hasCodeOfConductChecked={hasCodeOfConductChecked}
-                selectedTopics={selectedTopics}
-                selectedLanguages={selectedLanguages}
-                selectedLicenses={selectedLicenses}
-                selectedOwners={selectedOwners}
-              />
-            </div>
-        </main>
-      </FluentProvider>
-  ) : null;
-}
+  const items = useMemo(
+    () => filterItemsBasedOnSearchInput(data as Repository[], filterState.searchText),
+    [filterState.searchText],
+  );
 
-/**
- * Renders the home page of the website.
- * @returns The JSX element representing the home page.
- */
+  const filterPane = (
+    <FilterPane
+      items={items}
+      isMobile={isMobile}
+      hasGoodFirstIssueChecked={filterState.hasGoodFirstIssueChecked}
+      hasHelpWantedIssueChecked={filterState.hasHelpWantedIssueChecked}
+      hasCodeOfConductChecked={filterState.hasCodeOfConductChecked}
+      selectedTopics={filterState.selectedTopics}
+      selectedLanguages={filterState.selectedLanguages}
+      selectedLicenses={filterState.selectedLicenses}
+      selectedOwners={filterState.selectedOwners}
+      onGoodFirstIssueChange={(value) => setFilterStateWithHistory((previous) => ({ ...previous, hasGoodFirstIssueChecked: value }))}
+      onHelpWantedIssueChange={(value) => setFilterStateWithHistory((previous) => ({ ...previous, hasHelpWantedIssueChecked: value }))}
+      onCodeOfConductChange={(value) => setFilterStateWithHistory((previous) => ({ ...previous, hasCodeOfConductChecked: value }))}
+      onTopicsChange={(value) => setFilterStateWithHistory((previous) => ({ ...previous, selectedTopics: value }))}
+      onLanguagesChange={(value) => setFilterStateWithHistory((previous) => ({ ...previous, selectedLanguages: value }))}
+      onLicensesChange={(value) => setFilterStateWithHistory((previous) => ({ ...previous, selectedLicenses: value }))}
+      onOwnersChange={(value) => setFilterStateWithHistory((previous) => ({ ...previous, selectedOwners: value }))}
+    />
+  );
+
+  return !loading ? (
+    <FluentProvider theme={colorMode === 'dark' ? webDarkTheme : webLightTheme}>
+      <header className={clsx('hero hero--primary', styles.heroBanner)}>
+        <div className="container" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column' }}>
+          <Heading as="h2" className="hero__title" style={{
+            background: 'linear-gradient(90deg, rgba(10,110,159,1.2) 0%, rgba(10,110,159,1.2) 0%, rgba(44,142,75,1.2) 100%)',
+            WebkitBackgroundClip: 'text',
+            WebkitTextFillColor: 'transparent',
+          }}>
+            {siteConfig.title}
+          </Heading>
+          <p className="hero__subtitle" style={{ color: '#242424', padding: '10px 0 20px 0' }}>
+            {siteConfig.tagline}
+          </p>
+          <Input
+            id="filterBar"
+            type="search"
+            size="large"
+            placeholder="Search for a Power Platform GitHub repository..."
+            value={filterState.searchText}
+            onChange={(_, data) => setFilterStateWithHistory((previous) => ({ ...previous, searchText: data.value }), 'replace')}
+            style={{ width: '100%', maxWidth: '740px' }}
+          />
+        </div>
+      </header>
+      <main>
+        <div className={styles.filterPaneAndGallery}>
+          {isMobile ? (
+            <>
+              <div style={{ marginBottom: '12px', width: '100%' }}>
+                <Button
+                  id="openFiltersButton"
+                  icon={<Filter16Regular />}
+                  onClick={() => setIsFilterPaneOpen(true)}
+                >
+                  Filters
+                </Button>
+              </div>
+              <Dialog open={isFilterPaneOpen} onOpenChange={(_, data) => setIsFilterPaneOpen(data.open)}>
+                <DialogSurface>
+                  <DialogBody>
+                    <DialogTitle>Filters</DialogTitle>
+                    <DialogContent>{filterPane}</DialogContent>
+                  </DialogBody>
+                </DialogSurface>
+              </Dialog>
+            </>
+          ) : (
+            filterPane
+          )}
+          <Gallery
+            items={items}
+            hasGoodFirstIssueChecked={filterState.hasGoodFirstIssueChecked}
+            hasHelpWantedIssueChecked={filterState.hasHelpWantedIssueChecked}
+            hasCodeOfConductChecked={filterState.hasCodeOfConductChecked}
+            selectedTopics={filterState.selectedTopics}
+            selectedLanguages={filterState.selectedLanguages}
+            selectedLicenses={filterState.selectedLicenses}
+            selectedOwners={filterState.selectedOwners}
+            sortBy={filterState.sortBy}
+            onSortByChange={(value) => setFilterStateWithHistory((previous) => ({ ...previous, sortBy: value }))}
+          />
+        </div>
+      </main>
+    </FluentProvider>
+  ) : null;
+};
+
 export default function HomePage(): JSX.Element {
-  const {siteConfig} = useDocusaurusContext();
+  const { siteConfig } = useDocusaurusContext();
 
   return (
     <Layout title={`${siteConfig.title}`} description="Power Platform Open-Source Hub">
