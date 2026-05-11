@@ -1,20 +1,20 @@
-name: backend-pipeline-candidates-validation
-# Validate the retained Phase 2 TypeScript backend pipeline candidate.
+name: backend-pipeline-ci-validation
+# CI gate: typecheck, unit tests, and dry-run for the TypeScript backend pipeline.
 
 on:
   pull_request:
     paths:
       - 'Pipeline/**'
       - 'Configuration/**'
-      - '.github/workflows/backend-pipeline-candidates-validation.yml'
-      - '.github/workflows/backend-pipeline-shadow-validation.yml'
+      - '.github/workflows/backend-pipeline-ci-validation.yml'
+      - '.github/workflows/backend-pipeline-manual-validation.yml'
   workflow_dispatch:
 
 permissions:
   contents: read
 
 concurrency:
-  group: backend-pipeline-candidates-validation-${{ github.event_name }}-${{ github.ref }}
+  group: backend-pipeline-ci-validation-${{ github.event_name }}-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:

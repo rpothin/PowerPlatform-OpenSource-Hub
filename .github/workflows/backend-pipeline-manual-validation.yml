@@ -1,5 +1,5 @@
-name: backend-pipeline-shadow-validation
-# Manual-only Phase 2 shadow validation for the TypeScript backend pipeline candidate.
+name: backend-pipeline-manual-validation
+# Manual-only validation workflow for the TypeScript backend pipeline (live or dry-run, with optional parity comparison).
 
 on:
   workflow_dispatch:
@@ -198,7 +198,7 @@ jobs:
         if: ${{ always() }}
         uses: actions/upload-artifact@v7
         with:
-          name: backend-pipeline-shadow-validation-${{ github.run_id }}
+          name: backend-pipeline-manual-validation-${{ github.run_id }}
           path: |
             Pipeline/Output/shadow/
           if-no-files-found: warn
