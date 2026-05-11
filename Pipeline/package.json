@@ -1,0 +1,33 @@
+{
+  "name": "powerplatform-open-source-hub-pipeline",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "TypeScript candidate pipeline for generating Power Platform open-source repository data.",
+  "bin": {
+    "pposh-pipeline": "./dist/cli.js"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js --runInBand",
+    "dry-run": "npm run build --silent && node dist/cli.js generate --dry-run --output .\\Output\\GitHubRepositoriesDetails.json --metrics .\\Output\\metrics.json",
+    "generate:live": "npm run build --silent && node dist/cli.js generate --live --output .\\Output\\GitHubRepositoriesDetails.json --metrics .\\Output\\metrics.json"
+  },
+  "dependencies": {
+    "@octokit/plugin-retry": "^8.0.1",
+    "@octokit/plugin-throttling": "^11.0.1",
+    "@octokit/rest": "^22.0.0",
+    "ajv": "^8.17.1"
+  },
+  "devDependencies": {
+    "@types/jest": "^30.0.0",
+    "@types/node": "^24.10.1",
+    "jest": "^30.3.0",
+    "ts-jest": "^29.4.6",
+    "typescript": "^5.9.3"
+  },
+  "engines": {
+    "node": ">=20.0"
+  }
+}

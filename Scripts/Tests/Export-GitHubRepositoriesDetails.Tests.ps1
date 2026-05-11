@@ -95,11 +95,11 @@ Describe "Export-GitHubRepositoriesDetails Unit Tests" {
                 )
             }
 
-            Mock gh {
+            Mock Invoke-GhCli {
                 # Check the parameters that were passed to the 'gh' command
-                param($Command, $Param1)
+                param($Arguments)
 
-                if ($Command -eq 'api' -and $Param1 -eq '/rate_limit') {
+                if ($Arguments[0] -eq 'api' -and $Arguments[1] -eq '/rate_limit') {
                     return "{
                         'resources': {
                           'core': {
@@ -141,6 +141,16 @@ Describe "Export-GitHubRepositoriesDetails Unit Tests" {
 
         It "Should return a valid array of repositories with correct properties when valid parameters are provided" {
             Mock Get-Content {
+                param($Path)
+                if ($Path -match "GitHubRepositoriesDetails\.json$") {
+                    return @"
+[
+    { "fullName": "Anonymized/Anonymized" },
+    { "fullName": "Anonymized/Anonymized2" }
+]
+"@
+                }
+
                 @"
 [
     {
@@ -168,6 +178,16 @@ Describe "Export-GitHubRepositoriesDetails Unit Tests" {
 
         It "Should return an array of repositories where duplicate repositories are removed" {
             Mock Get-Content {
+                param($Path)
+                if ($Path -match "GitHubRepositoriesDetails\.json$") {
+                    return @"
+[
+    { "fullName": "Anonymized/Anonymized" },
+    { "fullName": "Anonymized/Anonymized2" }
+]
+"@
+                }
+
                 @"
 [
     {
@@ -230,6 +250,20 @@ Describe "Export-GitHubRepositoriesDetails Unit Tests" {
 
             $dataAsJson = Get-Content -Path $dataFilePath -Raw
             $dataAsJson | Test-Json -SchemaFile $schemaFilePath | Should -Be $true
+        }
+    }
+
+    Context "Repository count delta guard" {
+        It "Should refuse suspiciously large repository count deltas" {
+            {
+                Test-RepositoryCountDelta -ExistingRepositoryCount 100 -NewRepositoryCount 10 -MaximumDeltaPercentage 50
+            } | Should -Throw "Refusing to write repository details because the repository count changed from 100 to 10*"
+        }
+
+        It "Should allow suspicious repository count deltas when explicitly overridden" {
+            {
+                Test-RepositoryCountDelta -ExistingRepositoryCount 100 -NewRepositoryCount 10 -MaximumDeltaPercentage 50 -AllowSuspiciousDelta
+            } | Should -Not -Throw
         }
     }
 }

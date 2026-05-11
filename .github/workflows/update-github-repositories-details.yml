@@ -6,6 +6,15 @@ on:
   schedule:
     - cron: "0 11 * * *" # Every day at 06:00 AM EST
   workflow_dispatch:
+    inputs:
+      allow_suspicious_repository_delta:
+        description: 'Allow committing a suspiciously large repository-count delta'
+        required: false
+        default: false
+        type: boolean
+
+permissions:
+  contents: write
 
 # Concurrency configuration for the current workflow - Keep only the latest workflow queued for the considered group
 concurrency:
@@ -41,26 +50,88 @@ jobs:
 
           Write-Host "/********************************************************************************/"
           Write-Host "Update GitHub repositories details"
-          $results = Export-GitHubRepositoriesDetails -ConfigurationFilePath "${{ vars.CONFIGURATION_FILE_PATH }}" -OutputFilePath "${{ vars.DATA_FILE_PATH }}" -verbose
+          $exportParameters = @{
+            ConfigurationFilePath = "${{ vars.CONFIGURATION_FILE_PATH }}"
+            OutputFilePath = "${{ vars.DATA_FILE_PATH }}"
+          }
+
+          if ("${{ inputs.allow_suspicious_repository_delta }}" -eq "true") {
+            $exportParameters.AllowSuspiciousRepositoryCountDelta = $true
+            Write-Warning "Suspicious repository-count delta guard is explicitly overridden for this run."
+          }
+
+          $results = Export-GitHubRepositoriesDetails @exportParameters -Verbose
 
           Write-Host "Number of GitHub repositories referenced: $($results.Count)"
         shell: pwsh
         env:
           GITHUB_TOKEN: ${{ secrets.PAT_ACCESS_PUBLIC_GITHUB_REPOSITORIES }}
 
+      - name: Validate generated repository details data
+        run: |
+          $schemaFilePath = ".\Configuration\Schemas\GitHubRepositoriesDetails.schema.json"
+          $dataFilePath = "${{ vars.DATA_FILE_PATH }}"
+
+          if (-not (Test-Path -Path $schemaFilePath)) {
+            throw "No schema file found at the path '$schemaFilePath'."
+          }
+
+          if (-not (Test-Path -Path $dataFilePath)) {
+            throw "No repository details data file found at the path '$dataFilePath'."
+          }
+
+          $dataAsJson = Get-Content -Path $dataFilePath -Raw
+          if (-not ($dataAsJson | Test-Json -SchemaFile $schemaFilePath)) {
+            throw "The generated repository details data does not match the schema file '$schemaFilePath'."
+          }
+
+          $repositories = @($dataAsJson | ConvertFrom-Json)
+          $schemaVersions = ($repositories | ForEach-Object { $_._schemaVersion } | Sort-Object -Unique) -join ", "
+          if ([string]::IsNullOrWhiteSpace($schemaVersions)) {
+            $schemaVersions = "none"
+          }
+
+          Write-Host "Repository details count: $($repositories.Count)"
+          Write-Host "Repository details schema versions: $schemaVersions"
+
+          if ($env:GITHUB_STEP_SUMMARY) {
+            @(
+              "### Repository details baseline"
+              ""
+              "| Metric | Value |"
+              "| --- | ---: |"
+              "| Repository count | $($repositories.Count) |"
+              "| Schema versions | $schemaVersions |"
+            ) | Add-Content -Path $env:GITHUB_STEP_SUMMARY
+          }
+        shell: pwsh
+
       # Push the changes in the current repository
       - name: Push changes
+        id: push_changes
         run: |
           git config --global user.name 'action@github.com'
           git config --global user.email 'GitHub Action'
 
-          git add --all
-          git commit -m "GitHub repositories details updated - ${{ steps.current_date.outputs.NOW }}.${{ github.run_number }}"
-          git -c http.extraheader="AUTHORIZATION: Bearer ${{ secrets.GITHUB_TOKEN }}" push origin main
+          git add -- "${{ vars.DATA_FILE_PATH }}"
+          git diff --cached --quiet
+          $gitDiffExitCode = $LASTEXITCODE
+
+          if ($gitDiffExitCode -eq 0) {
+            Write-Host "No GitHub repositories details changes to commit."
+            "has_changes=false" >> $env:GITHUB_OUTPUT
+          } elseif ($gitDiffExitCode -eq 1) {
+            git commit -m "GitHub repositories details updated - ${{ steps.current_date.outputs.NOW }}.${{ github.run_number }}"
+            git -c http.extraheader="AUTHORIZATION: Bearer ${{ secrets.GITHUB_TOKEN }}" push origin main
+            "has_changes=true" >> $env:GITHUB_OUTPUT
+          } else {
+            throw "Unable to check staged GitHub repositories details changes. git diff exited with code $gitDiffExitCode."
+          }
         shell: pwsh
 
       # Trigger the update-readme-with-github-repositories-details workflow in the current repository using GitHub CLI
       - name: Trigger update-readme-with-github-repositories-details workflow
+        if: steps.push_changes.outputs.has_changes == 'true'
         run: |
           gh workflow run update-readme-with-github-repositories-details.yml --ref main
         shell: pwsh
@@ -69,6 +140,7 @@ jobs:
 
       # Triggere the build-push-website-to-gh-pages workflow in the current repository using GitHub CLI
       - name: Trigger build-push-website-to-gh-pages workflow
+        if: steps.push_changes.outputs.has_changes == 'true'
         run: |
           gh workflow run build-push-website-to-gh-pages.yml --ref main
         shell: pwsh

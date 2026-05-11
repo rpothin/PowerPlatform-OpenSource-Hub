@@ -1,3 +1,82 @@
+if (-not (Get-Command -Name Invoke-GhCli -ErrorAction SilentlyContinue)) {
+    . "$PSScriptRoot\Invoke-GhCli.ps1"
+}
+
+function Wait-GitHubRateLimit {
+    [CmdletBinding()]
+    Param(
+        [Parameter(Mandatory = $true)]
+        [psobject]$RateLimit,
+
+        [Parameter(Mandatory = $true)]
+        [string[]]$ResourceNames,
+
+        [Parameter()]
+        [ValidateRange(1, 100)]
+        [int]$ConsumptionThresholdPercentage = 80,
+
+        [Parameter()]
+        [ValidateRange(0, 3600)]
+        [int]$MaximumWaitSeconds = 900
+    )
+
+    $currentUnixTime = [DateTimeOffset]::UtcNow.ToUnixTimeSeconds()
+
+    foreach ($resourceName in $ResourceNames) {
+        $resource = $RateLimit.resources.$resourceName
+        if ($null -eq $resource -or $resource.limit -le 0) {
+            continue
+        }
+
+        $consumptionPercentage = [math]::Round(($resource.used / $resource.limit) * 100, 2)
+        if ($consumptionPercentage -le $ConsumptionThresholdPercentage) {
+            continue
+        }
+
+        $waitSeconds = [math]::Max(0, [int]($resource.reset - $currentUnixTime + 5))
+        if ($waitSeconds -gt $MaximumWaitSeconds) {
+            throw "GitHub API '$resourceName' rate limit consumption is $consumptionPercentage% and resets in $waitSeconds second(s), exceeding the maximum wait of $MaximumWaitSeconds second(s). Re-run later or explicitly raise the cap."
+        }
+
+        if ($waitSeconds -gt 0) {
+            $resetAt = [DateTimeOffset]::FromUnixTimeSeconds([int64]$resource.reset).UtcDateTime.ToString("o")
+            Write-Warning -Message "GitHub API '$resourceName' rate limit consumption is $consumptionPercentage%. Waiting $waitSeconds second(s) until reset at $resetAt."
+            Start-Sleep -Seconds $waitSeconds
+        }
+    }
+}
+
+function Test-RepositoryCountDelta {
+    [CmdletBinding()]
+    Param(
+        [Parameter(Mandatory = $true)]
+        [ValidateRange(0, [int]::MaxValue)]
+        [int]$ExistingRepositoryCount,
+
+        [Parameter(Mandatory = $true)]
+        [ValidateRange(0, [int]::MaxValue)]
+        [int]$NewRepositoryCount,
+
+        [Parameter()]
+        [ValidateRange(1, 100)]
+        [int]$MaximumDeltaPercentage = 50,
+
+        [Parameter()]
+        [switch]$AllowSuspiciousDelta
+    )
+
+    if ($AllowSuspiciousDelta -or $ExistingRepositoryCount -eq 0) {
+        return
+    }
+
+    $delta = [math]::Abs($NewRepositoryCount - $ExistingRepositoryCount)
+    $deltaPercentage = [math]::Round(($delta / $ExistingRepositoryCount) * 100, 2)
+
+    if ($deltaPercentage -gt $MaximumDeltaPercentage) {
+        throw "Refusing to write repository details because the repository count changed from $ExistingRepositoryCount to $NewRepositoryCount ($deltaPercentage%), exceeding the maximum allowed delta of $MaximumDeltaPercentage%. Use -AllowSuspiciousRepositoryCountDelta to override intentionally."
+    }
+}
+
 function Export-GitHubRepositoriesDetails {
     <#
         .SYNOPSIS
@@ -65,7 +144,18 @@ function Export-GitHubRepositoriesDetails {
 
         # The path to the JSON file where the results of the search will be exported.
         [Parameter(Mandatory = $true)]
-        [string]$OutputFilePath
+        [string]$OutputFilePath,
+
+        [Parameter()]
+        [ValidateRange(1, 100)]
+        [int]$MaximumRepositoryCountDeltaPercentage = 50,
+
+        [Parameter()]
+        [switch]$AllowSuspiciousRepositoryCountDelta,
+
+        [Parameter()]
+        [ValidateRange(0, 3600)]
+        [int]$MaximumRateLimitWaitSeconds = 900
     )
 
     Process{
@@ -89,14 +179,8 @@ function Export-GitHubRepositoriesDetails {
         # Go through the topics in the configuration file
         foreach ($repositoriesSearchCriterion in $repositoriesSearchCriteria) {
             # Check the consumption of the GitHub API rate limit - Search
-            $githubApiRateLimit = gh api /rate_limit | ConvertFrom-Json
-            $githubApiSearchConsumptionPercentage = [math]::Round(($githubApiRateLimit.resources.search.used / $githubApiRateLimit.resources.search.limit) * 100, 2)
-
-            # If the consumption of the GitHub API Search is greater than 80%, wait for 2 minutes
-            if ($githubApiSearchConsumptionPercentage -gt 80) {
-                Write-Warning -Message "The consumption of the GitHub API Search is greater than 60% ($($githubApiSearchConsumptionPercentage)%) - waiting for 2 minutes."
-                Start-Sleep -Seconds 120
-            }
+            $githubApiRateLimit = Invoke-GhCli -Arguments @("api", "/rate_limit") | ConvertFrom-Json
+            Wait-GitHubRateLimit -RateLimit $githubApiRateLimit -ResourceNames @("search") -MaximumWaitSeconds $MaximumRateLimitWaitSeconds
 
             # Search GitHub repositories based on the topic and the search limit defined in the configuration file
             $repositoriesFound = Search-GitHubRepositories -Topic $repositoriesSearchCriterion.Topic -SearchLimit $repositoriesSearchCriterion.SearchLimit
@@ -113,13 +197,18 @@ function Export-GitHubRepositoriesDetails {
         }
 
         # Validate the number of objects in the array of results before removing duplicates and write this count as verbose
-        Write-Verbose -Message "Total number of repositories found: $($repositories.count)"
+        $repositoriesFoundCount = @($repositories).Count
+        Write-Verbose -Message "Total number of repositories found: $repositoriesFoundCount"
 
         # Remove duplicates from the array of results
-        $repositories = $repositories | Sort-Object -Property fullName | Get-Unique -AsString
+        $repositories = $repositories |
+            Group-Object -Property fullName |
+            ForEach-Object { $_.Group | Select-Object -First 1 } |
+            Sort-Object -Property fullName
 
         # Validate the number of objects in the array of results after removing duplicates and write this count as verbose
-        Write-Verbose -Message "Number of repositories after removing duplicates: $($repositories.count)"
+        $deduplicatedRepositoryCount = @($repositories).Count
+        Write-Verbose -Message "Number of repositories after removing duplicates: $deduplicatedRepositoryCount"
 
         # Filter the array of results to keep only the repositories respecting the following conditions:
         # - have been updated in the last 6 months
@@ -129,15 +218,8 @@ function Export-GitHubRepositoriesDetails {
         # For each repository in the array of results, get the details
         foreach ($repository in $repositories) {
             # Check the consumption of the GitHub API rate limit - GraphQL and Core
-            $githubApiRateLimit = gh api /rate_limit | ConvertFrom-Json
-            $githubApiGraphQlConsumptionPercentage = [math]::Round(($githubApiRateLimit.resources.graphql.used / $githubApiRateLimit.resources.graphql.limit) * 100, 2)
-            $githubApiCoreConsumptionPercentage = [math]::Round(($githubApiRateLimit.resources.core.used / $githubApiRateLimit.resources.core.limit) * 100, 2)
-
-            # If the consumption of the GitHub API GraphQL or Core is greater than 80%, wait for 60 minutes
-            if ($githubApiGraphQlConsumptionPercentage -gt 80 -or $githubApiCoreConsumptionPercentage -gt 80) {
-                Write-Warning -Message "The consumption of the GitHub API GraphQL ($($githubApiGraphQlConsumptionPercentage)%) or Core is greater than 80% ($($githubApiCoreConsumptionPercentage)%) - waiting for 60 minutes."
-                Start-Sleep -Seconds 3600
-            }
+            $githubApiRateLimit = Invoke-GhCli -Arguments @("api", "/rate_limit") | ConvertFrom-Json
+            Wait-GitHubRateLimit -RateLimit $githubApiRateLimit -ResourceNames @("graphql", "core") -MaximumWaitSeconds $MaximumRateLimitWaitSeconds
 
             $repositoryDetails = Get-GitHubRepositoryDetails -RepositoryFullName $repository.fullName
 
@@ -157,9 +239,10 @@ function Export-GitHubRepositoriesDetails {
         # Filter the array of results to keep only the repositories respecting the following conditions:
         # - have been updated in the last 6 months
         $repositoriesWithDetails = $repositoriesWithDetails | Where-Object { $_.stargazerCount -ge 10 -or $_.watchers.totalCount -ge 10 }
+        $generatedRepositoryCount = @($repositoriesWithDetails).Count
 
         # Validate the number of objects in the array of results after filtering and write this count as verbose
-        Write-Verbose -Message "Number of repositories after filtering: $($repositoriesWithDetails.count)"
+        Write-Verbose -Message "Number of repositories after filtering: $generatedRepositoryCount"
 
         # Sort the array of results by the value of the watchersCount property in the descendant order of the repository
         $repositoriesWithDetails = $repositoriesWithDetails | Sort-Object -Property stargazerCount -Descending
@@ -187,15 +270,44 @@ function Export-GitHubRepositoriesDetails {
             Throw "No schema file found at the path '$schemaFilePath'."
         }
 
-        $repositoriesAsJson = $repositoriesWithDetails | ConvertTo-Json -Depth 6
+        $repositoriesAsJson = @($repositoriesWithDetails) | ConvertTo-Json -Depth 6
         $jsonValidationResult = $repositoriesAsJson | Test-Json -SchemaFile $schemaFilePath
 
         if (-not $jsonValidationResult) {
             Throw "The generated data does not match the schema file '$schemaFilePath'."
         }
 
+        if (Test-Path -Path $OutputFilePath) {
+            $existingRepositoriesAsJson = Get-Content -Path $OutputFilePath -Raw
+            if (-not [string]::IsNullOrWhiteSpace($existingRepositoriesAsJson)) {
+                $existingRepositories = @($existingRepositoriesAsJson | ConvertFrom-Json)
+                Test-RepositoryCountDelta `
+                    -ExistingRepositoryCount $existingRepositories.Count `
+                    -NewRepositoryCount $generatedRepositoryCount `
+                    -MaximumDeltaPercentage $MaximumRepositoryCountDeltaPercentage `
+                    -AllowSuspiciousDelta:$AllowSuspiciousRepositoryCountDelta
+
+                Write-Verbose -Message "Repository count delta guard passed: $($existingRepositories.Count) existing -> $generatedRepositoryCount generated."
+            }
+        }
+
         # Export the results to a JSON file
         $repositoriesAsJson | Out-File -FilePath $OutputFilePath
+
+        Write-Verbose -Message "GitHub repositories details exported: $generatedRepositoryCount"
+
+        if ($env:GITHUB_STEP_SUMMARY) {
+            @(
+                "### GitHub repositories details export"
+                ""
+                "| Metric | Value |"
+                "| --- | ---: |"
+                "| Search results before dedupe | $repositoriesFoundCount |"
+                "| After fullName dedupe | $deduplicatedRepositoryCount |"
+                "| Final repository details | $generatedRepositoryCount |"
+                "| Delta override enabled | $($AllowSuspiciousRepositoryCountDelta.IsPresent) |"
+            ) | Add-Content -Path $env:GITHUB_STEP_SUMMARY
+        }
 
         # Return the results
         $repositoriesWithDetails

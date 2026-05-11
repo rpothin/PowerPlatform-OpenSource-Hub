@@ -10,6 +10,36 @@ BeforeAll {
 
 Describe "Get-GitHubRepositoryDetails Unit Tests" {
     Context "Parameters validation" {
+        BeforeEach {
+            Mock Invoke-GhCli {
+                param($Arguments)
+
+                if ($Arguments[0] -eq 'repo') {
+                    return "{
+                        'codeOfConduct': null,
+                        'forkCount': 0,
+                        'fundingLinks': [],
+                        'hasIssuesEnabled': false,
+                        'isSecurityPolicyEnabled': false,
+                        'isTemplate': false,
+                        'latestRelease': null,
+                        'primaryLanguage': null,
+                        'securityPolicyUrl': null,
+                        'stargazerCount': 0,
+                        'watchers': {
+                            'totalCount': 0
+                        }
+                    }"
+                }
+                elseif ($Arguments[0] -eq 'api' -and $Arguments[1] -match '/topics$') {
+                    return "{ 'names': [] }"
+                }
+                elseif ($Arguments[0] -eq 'api' -and $Arguments[1] -match '/languages$') {
+                    return "{}"
+                }
+            }
+        }
+
         It "Should throw an error if RepositoryFullName parameter is not valid" {
             $result = { Get-GitHubRepositoryDetails -RepositoryFullName "invalid repository full name" } | Should -Throw -PassThru
             $result.Exception.Message | Should -Be "The repository full name 'invalid repository full name' is not valid."
@@ -26,14 +56,8 @@ Describe "Get-GitHubRepositoryDetails Unit Tests" {
 
     Context "Valid execution for a non-existing repository" {
         BeforeEach {
-            Mock gh {
-                $errorRecord = New-Object System.Management.Automation.ErrorRecord -ArgumentList @(
-                    [System.Exception]::new("The repository 'anon/repo' does not exist."),
-                    "RepositoryDoesNotExist",
-                    [System.Management.Automation.ErrorCategory]::ObjectNotFound,
-                    $null
-                )
-                $errorRecord
+            Mock Invoke-GhCli {
+                throw "The repository 'anon/repo' does not exist."
             }
         }
 
@@ -45,11 +69,11 @@ Describe "Get-GitHubRepositoryDetails Unit Tests" {
 
     Context "Valid execution for an existing repository" {
         BeforeEach {
-            Mock gh {
+            Mock Invoke-GhCli {
                 # Check the parameters that were passed to the 'gh' command
-                param($Command, $Param1)
+                param($Arguments)
 
-                if ($Command -eq 'repo') {
+                if ($Arguments[0] -eq 'repo') {
                     # If the 'gh' command was called with 'repo view', return this mock data as a multi-line JSON structure as a string
                     return "{
                         'codeOfConduct': {
@@ -59,6 +83,7 @@ Describe "Get-GitHubRepositoryDetails Unit Tests" {
                         },
                         'forkCount': 0,
                         'fundingLinks': [],
+                        'hasIssuesEnabled': true,
                         'isSecurityPolicyEnabled': true,
                         'isTemplate': false,
                         'latestRelease': {
@@ -82,7 +107,7 @@ Describe "Get-GitHubRepositoryDetails Unit Tests" {
                         }
                     }"
                 }
-                elseif ($Command -eq 'api' -and $Param1 -eq 'repos/anon/repo/topics') {
+                elseif ($Arguments[0] -eq 'api' -and $Arguments[1] -eq 'repos/anon/repo/topics') {
                     # If the 'gh' command was called with 'api repos', return this mock data
                     return "{
                         'names': [
@@ -93,14 +118,14 @@ Describe "Get-GitHubRepositoryDetails Unit Tests" {
                         ]
                     }"
                 }
-                elseif ($Command -eq 'api' -and $Param1 -eq 'repos/anon/repo/languages') {
+                elseif ($Arguments[0] -eq 'api' -and $Arguments[1] -eq 'repos/anon/repo/languages') {
                     # If the 'gh' command was called with 'api repos', return this mock data
                     return "{
                         'languages1': '123',
                         'languages2': '456'
                     }"
                 }
-                elseif ($Command -eq 'issue') {
+                elseif ($Arguments[0] -eq 'issue') {
                     # If the 'gh' command was called with 'api repos', return this mock data
                     return "[
                         {
@@ -149,11 +174,11 @@ Describe "Get-GitHubRepositoryDetails Unit Tests" {
 
     Context "Valid execution for an existing repository with issues disabled" {
         BeforeEach {
-            Mock gh {
+            Mock Invoke-GhCli {
                 # Check the parameters that were passed to the 'gh' command
-                param($Command, $Param1)
+                param($Arguments)
 
-                if ($Command -eq 'repo') {
+                if ($Arguments[0] -eq 'repo') {
                     # If the 'gh' command was called with 'repo view', return this mock data as a multi-line JSON structure as a string
                     return "{
                         'codeOfConduct': {
@@ -163,6 +188,7 @@ Describe "Get-GitHubRepositoryDetails Unit Tests" {
                         },
                         'forkCount': 0,
                         'fundingLinks': [],
+                        'hasIssuesEnabled': false,
                         'isSecurityPolicyEnabled': true,
                         'isTemplate': false,
                         'latestRelease': {
@@ -186,7 +212,7 @@ Describe "Get-GitHubRepositoryDetails Unit Tests" {
                         }
                     }"
                 }
-                elseif ($Command -eq 'api' -and $Param1 -eq 'repos/anon/repo/topics') {
+                elseif ($Arguments[0] -eq 'api' -and $Arguments[1] -eq 'repos/anon/repo/topics') {
                     # If the 'gh' command was called with 'api repos', return this mock data
                     return "{
                         'names': [
@@ -197,14 +223,14 @@ Describe "Get-GitHubRepositoryDetails Unit Tests" {
                         ]
                     }"
                 }
-                elseif ($Command -eq 'api' -and $Param1 -eq 'repos/anon/repo/languages') {
+                elseif ($Arguments[0] -eq 'api' -and $Arguments[1] -eq 'repos/anon/repo/languages') {
                     # If the 'gh' command was called with 'api repos', return this mock data
                     return "{
                         'languages1': '123',
                         'languages2': '456'
                     }"
                 }
-                elseif ($Command -eq 'issue') {
+                elseif ($Arguments[0] -eq 'issue') {
                     break # To simulate a repository with issues disabled, we break the loop and do not return any issue
                 }
             }
@@ -217,6 +243,7 @@ Describe "Get-GitHubRepositoryDetails Unit Tests" {
             $result.hasHelpWantedIssues | Should -Be $false
             $result.openedHelpWantedIssues | Should -Be 0
             $result.openedToContributionsIssues | Should -Be 0
+            Assert-MockCalled Invoke-GhCli -ParameterFilter { $Arguments[0] -eq 'issue' } -Times 0
         }
     }
 }

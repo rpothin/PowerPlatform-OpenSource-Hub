@@ -28,7 +28,7 @@ Describe "Search-GitHubRepositories Unit Tests" {
 
     Context "Valid execution with a mocked gh command" {
         BeforeEach {
-            Mock gh {
+            Mock Invoke-GhCli {
                 "[
                     {
                       'createdAt': '0000-00-00T00:00:00Z',

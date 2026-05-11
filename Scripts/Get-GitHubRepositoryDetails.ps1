@@ -1,3 +1,7 @@
+if (-not (Get-Command -Name Invoke-GhCli -ErrorAction SilentlyContinue)) {
+    . "$PSScriptRoot\Invoke-GhCli.ps1"
+}
+
 function Get-GitHubRepositoryDetails {
     <#
         .SYNOPSIS
@@ -57,24 +61,37 @@ function Get-GitHubRepositoryDetails {
 
         # Initialize an array to store the languages of the repository
         $repositoryLanguages = @()
+        $repositoryExists = $false
 
-        # Validate the existence of the repository and get a first round of details
-        $repositoryDetails = gh repo view $RepositoryFullName --json codeOfConduct,forkCount,fundingLinks,isSecurityPolicyEnabled,isTemplate,latestRelease,primaryLanguage,securityPolicyUrl,stargazerCount,watchers 2>&1
+        try {
+            # Validate the existence of the repository and get a first round of details
+            $repositoryDetailsAsJson = Invoke-GhCli -Arguments @(
+                "repo",
+                "view",
+                $RepositoryFullName,
+                "--json",
+                "codeOfConduct,forkCount,fundingLinks,hasIssuesEnabled,isSecurityPolicyEnabled,isTemplate,latestRelease,primaryLanguage,securityPolicyUrl,stargazerCount,watchers"
+            )
+            $repositoryExists = $true
+        }
+        catch {
+            if ($_.Exception.Message -notmatch "does not exist|not found|Could not resolve to a Repository|HTTP 404") {
+                throw
+            }
 
-        # If the repository does not exist, add an error message to the repository details object
-        if ($repositoryDetails -is [System.Management.Automation.ErrorRecord]) {
             $repositoryDetails = New-Object PSObject # In that case we need to create a new object to be able to add the error message because the object returned by the GitHub CLI is not a PSObject
 
             $errorMessage = "The repository '$RepositoryFullName' does not exist."
             $repositoryDetails | Add-Member -MemberType NoteProperty -Name "error" -Value $errorMessage
         }
-        # If the repository exists, get its topics and add them to the repository details object
-        else {
-            $repositoryTopics = gh api repos/$RepositoryFullName/topics | ConvertFrom-Json
-            $repositoryLanguagesTemp = gh api repos/$RepositoryFullName/languages | ConvertFrom-Json
+
+        if ($repositoryExists) {
+            # If the repository exists, get its topics and add them to the repository details object
+            $repositoryTopics = Invoke-GhCli -Arguments @("api", "repos/$RepositoryFullName/topics") | ConvertFrom-Json
+            $repositoryLanguagesTemp = Invoke-GhCli -Arguments @("api", "repos/$RepositoryFullName/languages") | ConvertFrom-Json
 
             # Convert the object from JSON to PSObject to be able to add the topics
-            $repositoryDetails = $repositoryDetails | ConvertFrom-Json
+            $repositoryDetails = $repositoryDetailsAsJson | ConvertFrom-Json
 
             $repositoryDetails | Add-Member -MemberType NoteProperty -Name "topics" -Value $repositoryTopics.names
 
@@ -85,12 +102,20 @@ function Get-GitHubRepositoryDetails {
 
             $repositoryDetails | Add-Member -MemberType NoteProperty -Name "languages" -Value $repositoryLanguages
 
-            # Get the number of good first issues for the repository
-            $repositoryGoodFirstIssuesAsJson = gh issue list --repo $($RepositoryFullName) --state open --label "good first issue" --json number,title
-
-            # Management of the case where considered repository has disabled issues - output of the previous command 'repository has disabled issues'
-            if ($?) {
-                $repositoryGoodFirstIssues = $repositoryGoodFirstIssuesAsJson | ConvertFrom-Json
+            if ($repositoryDetails.hasIssuesEnabled -eq $true) {
+                # Get the number of good first issues for the repository
+                $repositoryGoodFirstIssues = Invoke-GhCli -Arguments @(
+                    "issue",
+                    "list",
+                    "--repo",
+                    $RepositoryFullName,
+                    "--state",
+                    "open",
+                    "--label",
+                    "good first issue",
+                    "--json",
+                    "number,title"
+                ) | ConvertFrom-Json
                 $repositoryDetails | Add-Member -MemberType NoteProperty -Name openedGoodFirstIssues -Value $repositoryGoodFirstIssues.count
 
                 if ($repositoryGoodFirstIssues.count -gt 0) {
@@ -101,7 +126,18 @@ function Get-GitHubRepositoryDetails {
                 }
 
                 # Get the number of help wanted issues for the repository
-                $repositoryHelpWantedIssues = gh issue list --repo $($RepositoryFullName) --state open --label "help wanted" --json number,title | ConvertFrom-Json
+                $repositoryHelpWantedIssues = Invoke-GhCli -Arguments @(
+                    "issue",
+                    "list",
+                    "--repo",
+                    $RepositoryFullName,
+                    "--state",
+                    "open",
+                    "--label",
+                    "help wanted",
+                    "--json",
+                    "number,title"
+                ) | ConvertFrom-Json
                 $repositoryDetails | Add-Member -MemberType NoteProperty -Name openedHelpWantedIssues -Value $repositoryHelpWantedIssues.count
 
                 if ($repositoryHelpWantedIssues.count -gt 0) {
@@ -110,7 +146,9 @@ function Get-GitHubRepositoryDetails {
                 else {
                     $repositoryDetails | Add-Member -MemberType NoteProperty -Name hasHelpWantedIssues -Value $false
                 }
-            } else {
+            }
+            else {
+                Write-Verbose -Message "Skipping issue label queries for '$RepositoryFullName' because issues are disabled."
                 $repositoryDetails | Add-Member -MemberType NoteProperty -Name openedGoodFirstIssues -Value 0
                 $repositoryDetails | Add-Member -MemberType NoteProperty -Name hasGoodFirstIssues -Value $false
                 $repositoryDetails | Add-Member -MemberType NoteProperty -Name openedHelpWantedIssues -Value 0

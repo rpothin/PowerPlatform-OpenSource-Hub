@@ -1,3 +1,7 @@
+if (-not (Get-Command -Name Invoke-GhCli -ErrorAction SilentlyContinue)) {
+    . "$PSScriptRoot\Invoke-GhCli.ps1"
+}
+
 function Search-GitHubRepositories {
     <#
         .SYNOPSIS
@@ -60,7 +64,18 @@ function Search-GitHubRepositories {
         $repositories = @()
 
         # Search the GitHub repositories based on the provided parameters
-        $repositories = gh search repos --topic $Topic --visibility public --limit $SearchLimit --json description,fullName,homepage,language,license,name,hasIssues,openIssuesCount,owner,createdAt,updatedAt,url,isArchived | ConvertFrom-Json
+        $repositories = Invoke-GhCli -Arguments @(
+            "search",
+            "repos",
+            "--topic",
+            $Topic,
+            "--visibility",
+            "public",
+            "--limit",
+            $SearchLimit,
+            "--json",
+            "description,fullName,homepage,language,license,name,hasIssues,openIssuesCount,owner,createdAt,updatedAt,url,isArchived"
+        ) | ConvertFrom-Json
 
         # Return the results
         $repositories

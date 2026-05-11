@@ -1,0 +1,82 @@
+name: backend-pipeline-candidates-validation
+# Validate Phase 2 backend pipeline candidates.
+
+on:
+  pull_request:
+    paths:
+      - 'Pipeline/**'
+      - 'PipelineRust/**'
+      - 'Configuration/**'
+      - '.github/workflows/backend-pipeline-candidates-validation.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: backend-pipeline-candidates-validation-${{ github.event_name }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  validate-typescript-candidate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: Pipeline/package-lock.json
+
+      - name: Install dependencies
+        working-directory: Pipeline
+        run: npm ci
+
+      - name: Type-check TypeScript candidate
+        working-directory: Pipeline
+        run: npm run typecheck
+
+      - name: Test TypeScript candidate
+        working-directory: Pipeline
+        run: npm test
+
+      - name: Run TypeScript dry-run generation
+        working-directory: Pipeline
+        run: npm run dry-run
+
+      - name: Upload TypeScript dry-run artifacts
+        uses: actions/upload-artifact@v7
+        with:
+          name: typescript-candidate-dry-run
+          path: Pipeline/Output/
+
+  validate-rust-candidate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Show Rust toolchain
+        run: |
+          rustc --version
+          cargo --version
+
+      - name: Install Rust components
+        run: rustup component add clippy rustfmt
+
+      - name: Check Rust formatting
+        working-directory: PipelineRust
+        run: cargo fmt --check
+
+      - name: Test Rust candidate
+        working-directory: PipelineRust
+        run: cargo test
+
+      - name: Lint Rust candidate
+        working-directory: PipelineRust
+        run: cargo clippy --all-targets --all-features -- -D warnings
