@@ -133,6 +133,41 @@ describe("generateRepositoryDetails", () => {
     expect(metrics.generatedRecords).toBe(2);
   });
 
+  it("filters repositories by popularity: keeps if stargazerCount >= 10 OR watchers.totalCount >= 10", async () => {
+    const configPath = path.join(outputRoot, "criteria-popularity.json");
+    const outputPath = path.join(outputRoot, "details-popularity.json");
+    await writeFile(configPath, JSON.stringify([{ topic: "powerplatform", searchLimit: 10 }]), "utf8");
+
+    const provider = new FakeProvider(
+      {
+        powerplatform: [
+          searchRepository("owner/stars-pass"),   // 10 stars, 1 watcher — passes via stars
+          searchRepository("owner/watchers-pass"), // 0 stars, 10 watchers — passes via watchers
+          searchRepository("owner/both-fail"),     // 9 stars, 9 watchers — fails both conditions
+          searchRepository("owner/sum-pass-or-fail") // 9 stars, 1 watcher — sum=10 but fails OR
+        ]
+      },
+      {
+        "owner/stars-pass": { ...repositoryDetails(10), watchers: { totalCount: 1 } },
+        "owner/watchers-pass": { ...repositoryDetails(0), watchers: { totalCount: 10 } },
+        "owner/both-fail": { ...repositoryDetails(9), watchers: { totalCount: 9 } },
+        "owner/sum-pass-or-fail": { ...repositoryDetails(9), watchers: { totalCount: 1 } }
+      }
+    );
+
+    const result = await generateRepositoryDetails({
+      configPath,
+      outputPath,
+      schemaPath,
+      provider,
+      now: new Date("2026-01-01T00:00:00Z"),
+      workflowRunId: "test-run"
+    });
+
+    expect(result.records.map((r) => r.fullName)).toEqual(["owner/stars-pass", "owner/watchers-pass"]);
+  });
+
+
   it("skips repository detail failures by default and reports them in metrics", async () => {
     const configPath = path.join(outputRoot, "criteria-errors.json");
     const outputPath = path.join(outputRoot, "details-errors.json");

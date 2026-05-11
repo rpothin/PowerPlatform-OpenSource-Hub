@@ -200,9 +200,19 @@ jobs:
           import fs from 'node:fs';
 
           const reportPath = process.env.TYPESCRIPT_PARITY_REPORT_PATH;
+          const metricsPath = process.env.TYPESCRIPT_METRICS_PATH;
           const allowSuspiciousDelta = process.env.ALLOW_SUSPICIOUS_REPOSITORY_DELTA === 'true';
           const report = JSON.parse(fs.readFileSync(reportPath, 'utf8'));
           const blockingFailures = [];
+
+          // Block on any repository detail hydration failure: silent skips in live mode must not reach production.
+          if (metricsPath && fs.existsSync(metricsPath)) {
+            const metrics = JSON.parse(fs.readFileSync(metricsPath, 'utf8'));
+            const failures = metrics.detailFailures ?? 0;
+            if (failures > 0) {
+              blockingFailures.push(`TypeScript pipeline had ${failures} repository detail hydration failure(s); all must succeed in production live mode`);
+            }
+          }
 
           if ((report.failures.invalidInputs ?? []).length > 0) {
             blockingFailures.push('comparison inputs are invalid');
@@ -300,6 +310,19 @@ jobs:
           Write-Host "Repository details count: $($repositories.Count)"
           Write-Host "Repository details schema versions: $schemaVersions"
 
+          $sentinelStatus = "not checked"
+          $sentinelsFilePath = "Configuration/SentinelRepositories.json"
+          if (Test-Path -Path $sentinelsFilePath) {
+            $sentinelFullNames = @(Get-Content -Path $sentinelsFilePath -Raw | ConvertFrom-Json)
+            $repositoryFullNames = @($repositories | ForEach-Object { $_.fullName })
+            $missingSentinels = @($sentinelFullNames | Where-Object { $repositoryFullNames -notcontains $_ })
+            if ($missingSentinels.Count -gt 0) {
+              throw "Generated data is missing $($missingSentinels.Count) sentinel repository/repositories: $($missingSentinels -join ', ')"
+            }
+            Write-Host "All $($sentinelFullNames.Count) sentinel repositories are present in generated data."
+            $sentinelStatus = "all $($sentinelFullNames.Count) present"
+          }
+
           if ($env:GITHUB_STEP_SUMMARY) {
             @(
               "### Generated repository details"
@@ -308,6 +331,7 @@ jobs:
               "| --- | ---: |"
               "| Repository count | $($repositories.Count) |"
               "| Schema versions | $schemaVersions |"
+              "| Sentinel check | $sentinelStatus |"
             ) | Add-Content -Path $env:GITHUB_STEP_SUMMARY
           }
         shell: pwsh

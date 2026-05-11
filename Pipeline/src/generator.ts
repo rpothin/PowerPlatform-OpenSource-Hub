@@ -81,7 +81,9 @@ export async function generateRepositoryDetails(options: GenerateOptions): Promi
 
   const minPopularityScore = options.minPopularityScore ?? 10;
   const records = sortByPopularity(
-    hydratedRecords.filter((record): record is RepositoryRecord => record !== null).filter((record) => record.popularityScore >= minPopularityScore)
+    hydratedRecords
+      .filter((record): record is RepositoryRecord => record !== null)
+      .filter((record) => record.stargazerCount >= minPopularityScore || record.watchers.totalCount >= minPopularityScore)
   );
   metrics.generatedRecords = records.length;
 
