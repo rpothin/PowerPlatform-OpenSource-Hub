@@ -63,10 +63,11 @@ Useful direct CLI options:
 ```powershell
 node dist\cli.js generate --dry-run --output .\Output\GitHubRepositoriesDetails.json --metrics .\Output\metrics.json
 node dist\cli.js generate --dry-run --output ..\Data\GitHubRepositoriesDetails.json --generated-dir ..\Data\GeneratedRepositories
+node dist\cli.js merge --generated-dir ..\Data\GeneratedRepositories --overlay-dir ..\Data\CuratedRepositories --schema ..\Configuration\Schemas\GitHubRepositoriesDetails.schema.json --output ..\Data\GitHubRepositoriesDetails.json --taxonomy-dir ..\Configuration\Taxonomy --sentinels ..\Configuration\SentinelRepositories.json
 node dist\cli.js generate --live --concurrency 4 --output .\Output\GitHubRepositoriesDetails.json
 ```
 
-Schema validation is performed with `ajv`. The array output validates against `GitHubRepositoriesDetails.schema.json`; when `--generated-dir` is provided, each per-repository file is validated against `GitHubRepositoryGenerated.schema.json`, written through a staging directory, and the generated directory is replaced so orphaned repository files are removed.
+Schema validation is performed with `ajv`. The array output validates against `GitHubRepositoriesDetails.schema.json`; when `--generated-dir` is provided, each per-repository file is validated against `GitHubRepositoryGenerated.schema.json`, written through a staging directory, and the generated directory is replaced so orphaned repository files are removed. The `merge` command validates generated records and curated overlays, rejects duplicate or unknown overlay identities, blocks sentinel exclusions, checks taxonomy values, applies only the approved curated fields, and writes the same frontend artifact format.
 
 ## Production workflow cutover
 

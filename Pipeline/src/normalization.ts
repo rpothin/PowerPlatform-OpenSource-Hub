@@ -49,7 +49,7 @@ export function normalizeRepositoryRecord(
   };
 }
 
-export function serializeRecords(records: readonly RepositoryRecord[]): string {
+export function serializeRecords(records: readonly unknown[]): string {
   return `${JSON.stringify(records, null, 2)}\n`;
 }
 
@@ -75,7 +75,7 @@ export function isRecentlyUpdated(repository: SearchRepository, now: Date, maxAg
   return updatedAt > cutoff;
 }
 
-export function sortByPopularity(records: readonly RepositoryRecord[]): RepositoryRecord[] {
+export function sortByPopularity<TRecord extends Pick<RepositoryRecord, "fullName" | "stargazerCount">>(records: readonly TRecord[]): TRecord[] {
   return [...records].sort((left, right) => {
     const popularityDelta = right.stargazerCount - left.stargazerCount;
     return popularityDelta === 0 ? left.fullName.localeCompare(right.fullName) : popularityDelta;

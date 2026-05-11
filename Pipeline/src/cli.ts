@@ -9,6 +9,7 @@ import {
 } from "./comparison.js";
 import { generateRepositoryDetails } from "./generator.js";
 import { createGitHubClient } from "./githubClient.js";
+import { mergeRepositoryDetails } from "./merge.js";
 import { DryRunProvider, OctokitRepositoryProvider } from "./providers.js";
 
 interface CliIO {
@@ -37,7 +38,19 @@ interface CompareCliOptions {
   repositoryCountDeltaThreshold: number;
 }
 
-type CliOptions = GenerateCliOptions | CompareCliOptions;
+interface MergeCliOptions {
+  command: "merge";
+  generatedDirPath: string;
+  overlayDirPath: string;
+  outputPath: string;
+  schemaPath: string;
+  taxonomyDirPath: string;
+  sentinelsPath: string;
+  generatedSchemaPath?: string;
+  overlaySchemaPath?: string;
+}
+
+type CliOptions = GenerateCliOptions | CompareCliOptions | MergeCliOptions;
 
 const cliFilePath = fileURLToPath(import.meta.url);
 const packageRoot = path.resolve(path.dirname(cliFilePath), "..");
@@ -65,6 +78,32 @@ export async function runCli(args: string[], env: NodeJS.ProcessEnv = process.en
       await writeComparisonReport(report, options.reportPath);
       stdout(formatComparisonSummary(report, options.reportPath));
       return report.status === "passed" ? 0 : 1;
+    }
+
+    if (options.command === "merge") {
+      const result = await mergeRepositoryDetails({
+        generatedDirPath: options.generatedDirPath,
+        overlayDirPath: options.overlayDirPath,
+        outputPath: options.outputPath,
+        schemaPath: options.schemaPath,
+        taxonomyDirPath: options.taxonomyDirPath,
+        sentinelsPath: options.sentinelsPath,
+        ...(options.generatedSchemaPath === undefined ? {} : { generatedSchemaPath: options.generatedSchemaPath }),
+        ...(options.overlaySchemaPath === undefined ? {} : { overlaySchemaPath: options.overlaySchemaPath })
+      });
+      stdout(
+        JSON.stringify(
+          {
+            outputPath: options.outputPath,
+            generatedDirPath: options.generatedDirPath,
+            overlayDirPath: options.overlayDirPath,
+            ...result.metrics
+          },
+          null,
+          2
+        )
+      );
+      return 0;
     }
 
     const provider = options.live ? new OctokitRepositoryProvider(createGitHubClient(requiredToken(env))) : new DryRunProvider();
@@ -112,6 +151,10 @@ function parseArgs(args: string[]): CliOptions {
 
   if (args[0] === "compare") {
     return parseCompareArgs(args);
+  }
+
+  if (args[0] === "merge") {
+    return parseMergeArgs(args);
   }
 
   throw new Error(`Unknown command '${args[0] ?? ""}'.\n${helpText()}`);
@@ -192,6 +235,68 @@ function parseGenerateArgs(args: string[]): GenerateCliOptions {
     live,
     concurrency,
     ...(metricsPath === undefined ? {} : { metricsPath })
+  };
+}
+
+function parseMergeArgs(args: string[]): MergeCliOptions {
+  let generatedDirPath: string | undefined;
+  let overlayDirPath: string | undefined;
+  let outputPath = path.join(repositoryRoot, "Data", "GitHubRepositoriesDetails.json");
+  let schemaPath = defaultSchemaPath();
+  let taxonomyDirPath = defaultTaxonomyDirPath();
+  let sentinelsPath = defaultSentinelsPath();
+  let generatedSchemaPath: string | undefined;
+  let overlaySchemaPath: string | undefined;
+
+  for (let index = 1; index < args.length; index += 1) {
+    const current = args[index];
+    switch (current) {
+      case "--generated-dir":
+        generatedDirPath = resolveUserPath(requiredValue(args, (index += 1), current));
+        break;
+      case "--overlay-dir":
+        overlayDirPath = resolveUserPath(requiredValue(args, (index += 1), current));
+        break;
+      case "--schema":
+        schemaPath = resolveUserPath(requiredValue(args, (index += 1), current));
+        break;
+      case "--output":
+        outputPath = resolveUserPath(requiredValue(args, (index += 1), current));
+        break;
+      case "--taxonomy-dir":
+        taxonomyDirPath = resolveUserPath(requiredValue(args, (index += 1), current));
+        break;
+      case "--sentinels":
+        sentinelsPath = resolveUserPath(requiredValue(args, (index += 1), current));
+        break;
+      case "--generated-schema":
+        generatedSchemaPath = resolveUserPath(requiredValue(args, (index += 1), current));
+        break;
+      case "--overlay-schema":
+        overlaySchemaPath = resolveUserPath(requiredValue(args, (index += 1), current));
+        break;
+      default:
+        throw new Error(`Unknown option '${current}'.\n${helpText()}`);
+    }
+  }
+
+  if (generatedDirPath === undefined) {
+    throw new Error("merge requires --generated-dir <dir>.");
+  }
+  if (overlayDirPath === undefined) {
+    throw new Error("merge requires --overlay-dir <dir>.");
+  }
+
+  return {
+    command: "merge",
+    generatedDirPath,
+    overlayDirPath,
+    outputPath,
+    schemaPath,
+    taxonomyDirPath,
+    sentinelsPath,
+    ...(generatedSchemaPath === undefined ? {} : { generatedSchemaPath }),
+    ...(overlaySchemaPath === undefined ? {} : { overlaySchemaPath })
   };
 }
 
@@ -287,9 +392,14 @@ function defaultSentinelsPath(): string {
   return path.join(repositoryRoot, "Configuration", "SentinelRepositories.json");
 }
 
+function defaultTaxonomyDirPath(): string {
+  return path.join(repositoryRoot, "Configuration", "Taxonomy");
+}
+
 function helpText(): string {
   return `Usage:
   node dist/cli.js generate [--dry-run|--live] --output <file> [options]
+  node dist/cli.js merge --generated-dir <dir> --overlay-dir <dir> [options]
   node dist/cli.js compare --baseline <file> --candidate <file> --report <file> [options]
 
 Generate options:
@@ -303,6 +413,16 @@ Generate options:
   --concurrency <n>     Repository detail concurrency. Defaults to 4.
   --dry-run             Generate deterministic no-network data (default).
   --live                Use Octokit REST APIs with GITHUB_TOKEN.
+
+Merge options:
+  --generated-dir <dir>         Required per-repository generated JSON directory.
+  --overlay-dir <dir>           Required curated overlay JSON directory.
+  --schema <file>               Merged output schema. Defaults to repository schema.
+  --output <file>               Merged frontend artifact. Defaults to repository Data.
+  --taxonomy-dir <dir>          Taxonomy directory. Defaults to repository Configuration.
+  --sentinels <file>            Sentinel repository config. Defaults to repository Configuration.
+  --generated-schema <file>     Per-repository generated record schema.
+  --overlay-schema <file>       Curated overlay schema.
 
 Compare options:
   --baseline <file>             Baseline JSON array, usually PowerShell output.
