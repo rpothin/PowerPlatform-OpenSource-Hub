@@ -15,8 +15,13 @@ Describe "SentinelRepositories configuration" {
     }
 
     It "Should keep the sentinel list compact and focused" {
-        ($script:sentinelRepositories.Count -gt 0) | Should Be $true
-        ($script:sentinelRepositories.Count -le 10) | Should Be $true
+        if ($script:sentinelRepositories.Count -le 0) {
+            throw "At least one sentinel repository must be configured."
+        }
+
+        if ($script:sentinelRepositories.Count -gt 10) {
+            throw "The sentinel repository list should stay compact; found $($script:sentinelRepositories.Count) entries."
+        }
     }
 
     It "Should define only full repository names and rationale" {
@@ -24,9 +29,17 @@ Describe "SentinelRepositories configuration" {
 
         foreach ($sentinelRepository in $script:sentinelRepositories) {
             $unexpectedProperties = @($sentinelRepository.PSObject.Properties.Name | Where-Object { $_ -notin $allowedProperties })
-            $unexpectedProperties.Count | Should Be 0
-            $sentinelRepository.fullName | Should Match "^[^/]+/[^/]+$"
-            ([string]::IsNullOrWhiteSpace($sentinelRepository.rationale)) | Should Be $false
+            if ($unexpectedProperties.Count -ne 0) {
+                throw "Unexpected sentinel repository properties: $($unexpectedProperties -join ', ')."
+            }
+
+            if ($sentinelRepository.fullName -notmatch "^[^/]+/[^/]+$") {
+                throw "Sentinel repository '$($sentinelRepository.fullName)' is not a full repository name."
+            }
+
+            if ([string]::IsNullOrWhiteSpace($sentinelRepository.rationale)) {
+                throw "Sentinel repository '$($sentinelRepository.fullName)' must include a rationale."
+            }
         }
     }
 
@@ -34,7 +47,9 @@ Describe "SentinelRepositories configuration" {
         $fullNames = @($script:sentinelRepositories | Select-Object -ExpandProperty fullName)
         $uniqueFullNames = @($fullNames | Sort-Object -Unique)
 
-        $uniqueFullNames.Count | Should Be $fullNames.Count
+        if ($uniqueFullNames.Count -ne $fullNames.Count) {
+            throw "Sentinel repository names must be unique."
+        }
     }
 
     It "Should reference repositories present in committed repository details" {
@@ -44,7 +59,9 @@ Describe "SentinelRepositories configuration" {
         }
 
         foreach ($sentinelRepository in $script:sentinelRepositories) {
-            $repositoryDetailFullNames.Contains($sentinelRepository.fullName) | Should Be $true
+            if (-not $repositoryDetailFullNames.Contains($sentinelRepository.fullName)) {
+                throw "Sentinel repository '$($sentinelRepository.fullName)' is not present in committed repository details."
+            }
         }
     }
 }

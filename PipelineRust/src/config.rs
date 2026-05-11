@@ -85,9 +85,8 @@ mod tests {
 
     #[test]
     fn rejects_whitespace_in_topic() {
-        let error =
-            load_config_from_str(r#"[{ "topic": "power platform", "searchLimit": 10 }]"#)
-                .expect_err("topic whitespace should be rejected");
+        let error = load_config_from_str(r#"[{ "topic": "power platform", "searchLimit": 10 }]"#)
+            .expect_err("topic whitespace should be rejected");
 
         assert!(error.to_string().contains("cannot contain whitespace"));
     }
@@ -100,4 +99,3 @@ mod tests {
         assert!(error.to_string().contains("between 1 and 1000"));
     }
 }
-

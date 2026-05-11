@@ -46,4 +46,3 @@ impl MetricsTimer {
         self.started_at.elapsed().as_millis()
     }
 }
-

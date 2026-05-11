@@ -3,7 +3,7 @@ use crate::error::{PipelineError, PipelineResult};
 use crate::metrics::PipelineMetrics;
 use crate::models::{LicenseInfo, NameOnly, OwnerInfo, RepositoryRecord, Watchers};
 use reqwest::blocking::Client;
-use reqwest::header::{ACCEPT, AUTHORIZATION, HeaderMap, HeaderValue, USER_AGENT};
+use reqwest::header::{HeaderMap, HeaderValue, ACCEPT, AUTHORIZATION, USER_AGENT};
 use serde::Deserialize;
 use std::collections::BTreeMap;
 
@@ -41,11 +41,7 @@ impl RepositorySource for DryRunSource {
         Ok(criteria
             .iter()
             .map(|criterion| {
-                RepositoryRecord::dry_run_from_criterion(
-                    criterion,
-                    generated_at,
-                    workflow_run_id,
-                )
+                RepositoryRecord::dry_run_from_criterion(criterion, generated_at, workflow_run_id)
             })
             .collect())
     }
@@ -152,7 +148,9 @@ impl RepositorySource for LiveGithubSource {
                 let item_count = payload.items.len();
                 for item in payload.items {
                     let record = item.into_record(generated_at, workflow_run_id);
-                    repositories.entry(record.full_name.clone()).or_insert(record);
+                    repositories
+                        .entry(record.full_name.clone())
+                        .or_insert(record);
                 }
 
                 if item_count < per_page {
@@ -314,4 +312,3 @@ mod tests {
         assert!(matches!(error, PipelineError::MissingGithubToken));
     }
 }
-

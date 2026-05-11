@@ -34,7 +34,11 @@ impl Display for PipelineError {
             }
             Self::InvalidConfig(message) => write!(formatter, "invalid configuration: {message}"),
             Self::InvalidOutputPath(path) => {
-                write!(formatter, "output path must target a .json file: '{}'", path.display())
+                write!(
+                    formatter,
+                    "output path must target a .json file: '{}'",
+                    path.display()
+                )
             }
             Self::MissingGithubToken => {
                 write!(formatter, "live GitHub API calls require GITHUB_TOKEN")
@@ -63,4 +67,3 @@ impl From<reqwest::Error> for PipelineError {
         Self::Http(source)
     }
 }
-

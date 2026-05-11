@@ -17,7 +17,10 @@ enum Commands {
     /// Generate repository details JSON from search criteria.
     Generate {
         /// Search criteria JSON path.
-        #[arg(long, default_value = "Configuration/GitHubRepositoriesSearchCriteria.json")]
+        #[arg(
+            long,
+            default_value = "Configuration/GitHubRepositoriesSearchCriteria.json"
+        )]
         config: PathBuf,
 
         /// Output repository details JSON path.
@@ -91,4 +94,3 @@ fn run(cli: Cli) -> pipeline_rust::error::PipelineResult<()> {
         }
     }
 }
-

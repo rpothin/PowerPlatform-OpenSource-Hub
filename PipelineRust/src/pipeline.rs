@@ -77,7 +77,10 @@ fn validate_json_output_path(path: &Path) -> PipelineResult<()> {
 }
 
 fn write_json<T: serde::Serialize>(path: &Path, value: &T) -> PipelineResult<()> {
-    if let Some(parent) = path.parent().filter(|parent| !parent.as_os_str().is_empty()) {
+    if let Some(parent) = path
+        .parent()
+        .filter(|parent| !parent.as_os_str().is_empty())
+    {
         fs::create_dir_all(parent).map_err(|source| PipelineError::Io {
             path: parent.to_path_buf(),
             source,
@@ -134,7 +137,13 @@ mod tests {
             &fs::read_to_string(output_path).expect("record output should be readable"),
         )
         .expect("record output should be valid JSON");
-        assert_eq!(records.as_array().expect("records should be an array").len(), 2);
+        assert_eq!(
+            records
+                .as_array()
+                .expect("records should be an array")
+                .len(),
+            2
+        );
         assert_eq!(records[0]["_workflowRunId"], "unit-test");
 
         let metrics_json: Value = serde_json::from_str(
@@ -172,4 +181,3 @@ mod tests {
             .join(format!("{}-{name}", std::process::id()))
     }
 }
-
