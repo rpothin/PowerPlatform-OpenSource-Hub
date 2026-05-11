@@ -2,7 +2,6 @@ use crate::config::{load_config, SearchCriterion};
 use crate::error::{PipelineError, PipelineResult};
 use crate::github::RepositorySource;
 use crate::metrics::{MetricsTimer, PipelineMetrics};
-use crate::models::RepositoryRecord;
 use std::fs;
 use std::path::Path;
 
