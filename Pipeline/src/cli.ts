@@ -1,6 +1,12 @@
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
+import {
+  DEFAULT_REPOSITORY_COUNT_DELTA_THRESHOLD,
+  compareRepositoryOutputs,
+  formatComparisonSummary,
+  writeComparisonReport
+} from "./comparison.js";
 import { generateRepositoryDetails } from "./generator.js";
 import { createGitHubClient } from "./githubClient.js";
 import { DryRunProvider, OctokitRepositoryProvider } from "./providers.js";
@@ -10,7 +16,7 @@ interface CliIO {
   stderr?: (message: string) => void;
 }
 
-interface CliOptions {
+interface GenerateCliOptions {
   command: "generate";
   configPath: string;
   outputPath: string;
@@ -19,6 +25,17 @@ interface CliOptions {
   live: boolean;
   concurrency: number;
 }
+
+interface CompareCliOptions {
+  command: "compare";
+  baselinePath: string;
+  candidatePath: string;
+  sentinelsPath: string;
+  reportPath: string;
+  repositoryCountDeltaThreshold: number;
+}
+
+type CliOptions = GenerateCliOptions | CompareCliOptions;
 
 const cliFilePath = fileURLToPath(import.meta.url);
 const packageRoot = path.resolve(path.dirname(cliFilePath), "..");
@@ -35,10 +52,20 @@ export async function runCli(args: string[], env: NodeJS.ProcessEnv = process.en
     }
 
     const options = parseArgs(args);
-    const provider = options.live
-      ? new OctokitRepositoryProvider(createGitHubClient(requiredToken(env)))
-      : new DryRunProvider();
+    if (options.command === "compare") {
+      const report = await compareRepositoryOutputs({
+        baselinePath: options.baselinePath,
+        candidatePath: options.candidatePath,
+        sentinelsPath: options.sentinelsPath,
+        reportPath: options.reportPath,
+        repositoryCountDeltaThreshold: options.repositoryCountDeltaThreshold
+      });
+      await writeComparisonReport(report, options.reportPath);
+      stdout(formatComparisonSummary(report, options.reportPath));
+      return report.status === "passed" ? 0 : 1;
+    }
 
+    const provider = options.live ? new OctokitRepositoryProvider(createGitHubClient(requiredToken(env))) : new DryRunProvider();
     const result = await generateRepositoryDetails({
       configPath: options.configPath,
       outputPath: options.outputPath,
@@ -70,6 +97,18 @@ export async function runCli(args: string[], env: NodeJS.ProcessEnv = process.en
 }
 
 function parseArgs(args: string[]): CliOptions {
+  if (args[0] === "generate") {
+    return parseGenerateArgs(args);
+  }
+
+  if (args[0] === "compare") {
+    return parseCompareArgs(args);
+  }
+
+  throw new Error(`Unknown command '${args[0] ?? ""}'.\n${helpText()}`);
+}
+
+function parseGenerateArgs(args: string[]): GenerateCliOptions {
   if (args[0] !== "generate") {
     throw new Error(`Unknown command '${args[0] ?? ""}'.\n${helpText()}`);
   }
@@ -131,6 +170,61 @@ function parseArgs(args: string[]): CliOptions {
   };
 }
 
+function parseCompareArgs(args: string[]): CompareCliOptions {
+  let baselinePath: string | undefined;
+  let candidatePath: string | undefined;
+  let sentinelsPath = defaultSentinelsPath();
+  let reportPath: string | undefined;
+  let repositoryCountDeltaThreshold = DEFAULT_REPOSITORY_COUNT_DELTA_THRESHOLD;
+
+  for (let index = 1; index < args.length; index += 1) {
+    const current = args[index];
+    switch (current) {
+      case "--baseline":
+        baselinePath = resolveUserPath(requiredValue(args, (index += 1), current));
+        break;
+      case "--candidate":
+        candidatePath = resolveUserPath(requiredValue(args, (index += 1), current));
+        break;
+      case "--sentinels":
+        sentinelsPath = resolveUserPath(requiredValue(args, (index += 1), current));
+        break;
+      case "--report":
+        reportPath = resolveUserPath(requiredValue(args, (index += 1), current));
+        break;
+      case "--count-delta-threshold": {
+        const value = Number.parseFloat(requiredValue(args, (index += 1), current));
+        if (!Number.isFinite(value) || value < 0) {
+          throw new Error("--count-delta-threshold must be a non-negative number.");
+        }
+        repositoryCountDeltaThreshold = value;
+        break;
+      }
+      default:
+        throw new Error(`Unknown option '${current}'.\n${helpText()}`);
+    }
+  }
+
+  if (baselinePath === undefined) {
+    throw new Error("compare requires --baseline <file>.");
+  }
+  if (candidatePath === undefined) {
+    throw new Error("compare requires --candidate <file>.");
+  }
+  if (reportPath === undefined) {
+    throw new Error("compare requires --report <file>.");
+  }
+
+  return {
+    command: "compare",
+    baselinePath,
+    candidatePath,
+    sentinelsPath,
+    reportPath,
+    repositoryCountDeltaThreshold
+  };
+}
+
 function requiredValue(args: string[], index: number, optionName: string): string {
   const value = args[index];
   if (value === undefined || value.startsWith("--")) {
@@ -160,8 +254,31 @@ function defaultSchemaPath(): string {
   return path.join(repositoryRoot, "Configuration", "Schemas", "GitHubRepositoriesDetails.schema.json");
 }
 
+function defaultSentinelsPath(): string {
+  return path.join(repositoryRoot, "Configuration", "SentinelRepositories.json");
+}
+
 function helpText(): string {
-  return `Usage: node dist/cli.js generate [--dry-run|--live] --output <file> [options]\n\nOptions:\n  --config <file>       Search criteria JSON. Defaults to repository Configuration.\n  --schema <file>       Output schema JSON. Defaults to repository schema.\n  --output <file>       Output JSON path. Defaults to Pipeline Output.\n  --metrics <file>      Optional metrics JSON path.\n  --concurrency <n>     Repository detail concurrency. Defaults to 4.\n  --dry-run             Generate deterministic no-network data (default).\n  --live                Use Octokit REST APIs with GITHUB_TOKEN.\n`;
+  return `Usage:
+  node dist/cli.js generate [--dry-run|--live] --output <file> [options]
+  node dist/cli.js compare --baseline <file> --candidate <file> --report <file> [options]
+
+Generate options:
+  --config <file>       Search criteria JSON. Defaults to repository Configuration.
+  --schema <file>       Output schema JSON. Defaults to repository schema.
+  --output <file>       Output JSON path. Defaults to Pipeline Output.
+  --metrics <file>      Optional metrics JSON path.
+  --concurrency <n>     Repository detail concurrency. Defaults to 4.
+  --dry-run             Generate deterministic no-network data (default).
+  --live                Use Octokit REST APIs with GITHUB_TOKEN.
+
+Compare options:
+  --baseline <file>             Baseline JSON array, usually PowerShell output.
+  --candidate <file>            Candidate JSON array, such as TypeScript or Rust output.
+  --sentinels <file>            Sentinel repository config. Defaults to repository Configuration.
+  --report <file>               JSON comparison report path.
+  --count-delta-threshold <n>   Allowed repository-count delta ratio. Defaults to 0.15.
+`;
 }
 
 if (process.argv[1] !== undefined && path.resolve(process.argv[1]) === cliFilePath) {

@@ -12,6 +12,7 @@
     "typecheck": "tsc --noEmit -p tsconfig.json",
     "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js --runInBand",
     "dry-run": "npm run build --silent && node dist/cli.js generate --dry-run --output .\\Output\\GitHubRepositoriesDetails.json --metrics .\\Output\\metrics.json",
+    "compare:fixtures": "npm run build --silent && node dist/cli.js compare --baseline .\\tests\\fixtures\\comparison\\baseline.json --candidate .\\tests\\fixtures\\comparison\\candidate.json --sentinels .\\tests\\fixtures\\comparison\\sentinels.json --report .\\.test-output\\parity-fixture-report.json",
     "generate:live": "npm run build --silent && node dist/cli.js generate --live --output .\\Output\\GitHubRepositoriesDetails.json --metrics .\\Output\\metrics.json"
   },
   "dependencies": {

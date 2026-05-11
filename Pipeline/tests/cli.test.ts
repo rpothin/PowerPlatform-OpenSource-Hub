@@ -7,6 +7,7 @@ const packageRoot = process.cwd();
 const repositoryRoot = path.resolve(packageRoot, "..");
 const schemaPath = path.join(repositoryRoot, "Configuration", "Schemas", "GitHubRepositoriesDetails.schema.json");
 const outputRoot = path.join(packageRoot, ".test-output", "cli");
+const comparisonFixtureRoot = path.join(packageRoot, "tests", "fixtures", "comparison");
 
 describe("CLI", () => {
   beforeEach(async () => {
@@ -40,5 +41,30 @@ describe("CLI", () => {
 
     expect(exitCode).toBe(1);
     expect(stderr.join("\n")).toContain("GITHUB_TOKEN");
+  });
+
+  it("compares baseline and candidate outputs without live GitHub calls", async () => {
+    const reportPath = path.join(outputRoot, "parity-report.json");
+    const stdout: string[] = [];
+
+    const exitCode = await runCli(
+      [
+        "compare",
+        "--baseline",
+        path.join(comparisonFixtureRoot, "baseline.json"),
+        "--candidate",
+        path.join(comparisonFixtureRoot, "candidate.json"),
+        "--sentinels",
+        path.join(comparisonFixtureRoot, "sentinels.json"),
+        "--report",
+        reportPath
+      ],
+      {},
+      { stdout: (message) => stdout.push(message) }
+    );
+
+    expect(exitCode).toBe(0);
+    expect(JSON.parse(await readFile(reportPath, "utf8"))).toMatchObject({ status: "passed" });
+    expect(stdout.join("\n")).toContain("Volatile differences");
   });
 });
