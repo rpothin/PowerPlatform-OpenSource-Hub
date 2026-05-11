@@ -396,7 +396,8 @@ jobs:
           $sentinelStatus = "not checked"
           $sentinelsFilePath = "Configuration/SentinelRepositories.json"
           if (Test-Path -Path $sentinelsFilePath) {
-            $sentinelFullNames = @(Get-Content -Path $sentinelsFilePath -Raw | ConvertFrom-Json)
+            $sentinelConfiguration = Get-Content -Path $sentinelsFilePath -Raw | ConvertFrom-Json
+            $sentinelFullNames = @($sentinelConfiguration.repositories | ForEach-Object { $_.fullName })
             $repositoryFullNames = @($repositories | ForEach-Object { $_.fullName })
             $missingSentinels = @($sentinelFullNames | Where-Object { $repositoryFullNames -notcontains $_ })
             if ($missingSentinels.Count -gt 0) {

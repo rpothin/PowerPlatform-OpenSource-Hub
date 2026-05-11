@@ -35,3 +35,5 @@ The hub combines generated GitHub facts with human-reviewed curation:
 - The daily bot can update generated files and the merged website data, but it does not create or rewrite curated overlays.
 
 If your repository appears with the wrong category, focus area, audience, description, or health/featured badge, open a PR or issue requesting an overlay update. New taxonomy values should be requested with a clear description so maintainers can keep the vocabulary stable and useful for filtering.
+
+Curating a repository does not pin it in the generated catalog by itself. If a curated repository is not part of the sentinel list and later disappears from GitHub topic search results, the merge step fails loudly so maintainers can either restore discovery, remove the stale overlay, or intentionally add the repository as a sentinel.
