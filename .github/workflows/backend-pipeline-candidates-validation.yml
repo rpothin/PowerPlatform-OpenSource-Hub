@@ -8,6 +8,7 @@ on:
       - 'PipelineRust/**'
       - 'Configuration/**'
       - '.github/workflows/backend-pipeline-candidates-validation.yml'
+      - '.github/workflows/backend-pipeline-shadow-validation.yml'
   workflow_dispatch:
 
 permissions:

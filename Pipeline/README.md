@@ -61,3 +61,7 @@ node dist\cli.js compare `
 ```
 
 The initial repository-count delta threshold is 15% and can be adjusted with `--count-delta-threshold 0.15`. Missing or extra repositories, missing sentinels, invalid/non-array JSON inputs, duplicate `fullName` values, threshold breaches, and stable field differences fail the comparison. Volatile fields such as stars, watchers, open issue counts, release timestamps, and provenance timestamps are reported separately; `_workflowRunId` is treated as ignored/report-only.
+
+## Manual shadow validation workflow
+
+The `backend-pipeline-shadow-validation` GitHub Actions workflow is manual-only (`workflow_dispatch`) and is intended for Phase 2 shadow runs. By default it runs TypeScript and Rust dry-run generation, compares generated artifacts against `Data\GitHubRepositoriesDetails.json` when present, uploads outputs/reports as artifacts, and does not commit generated data. Live TypeScript or Rust generation must be explicitly selected in the workflow inputs and uses `GITHUB_TOKEN` only inside the generation step.
