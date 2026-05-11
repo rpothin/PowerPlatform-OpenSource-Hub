@@ -13,7 +13,20 @@ import { Repository } from '../types/repository';
  */
 export const filterItemsBasedOnSearchInput = (data: Repository[], searchText: string): Repository[] => {
     const fuse = new Fuse(data, {
-      keys: ['fullName', 'description', 'topics', 'language', 'owner.login', 'license.name', 'codeOfConduct.name'],
+      keys: [
+        'fullName',
+        'description',
+        'displayDescription',
+        'customDescription',
+        'topics',
+        'language',
+        'owner.login',
+        'license.name',
+        'codeOfConduct.name',
+        'category',
+        'focusAreas',
+        'audiences',
+      ],
       includeScore: true,
       findAllMatches: true,
       threshold: 0.3

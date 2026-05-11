@@ -10,7 +10,10 @@ describe('filterItems', () => {
       selectedTopics: [],
       selectedLanguages: [],
       selectedLicenses: [],
-      selectedOwners: []
+      selectedOwners: [],
+      selectedCategories: [],
+      selectedFocusAreas: [],
+      selectedAudiences: []
     });
     expect(result).toEqual([]);
   });
@@ -23,7 +26,10 @@ describe('filterItems', () => {
       selectedTopics: [],
       selectedLanguages: [],
       selectedLicenses: [],
-      selectedOwners: []
+      selectedOwners: [],
+      selectedCategories: [],
+      selectedFocusAreas: [],
+      selectedAudiences: []
     });
     expect(result).toEqual(data);
   });
@@ -36,7 +42,10 @@ describe('filterItems', () => {
       selectedTopics: [],
       selectedLanguages: [],
       selectedLicenses: [],
-      selectedOwners: []
+      selectedOwners: [],
+      selectedCategories: [],
+      selectedFocusAreas: [],
+      selectedAudiences: []
     });
     expect(result).toEqual([data[0]]);
   });
@@ -49,7 +58,10 @@ describe('filterItems', () => {
       selectedTopics: [],
       selectedLanguages: [],
       selectedLicenses: [],
-      selectedOwners: []
+      selectedOwners: [],
+      selectedCategories: [],
+      selectedFocusAreas: [],
+      selectedAudiences: []
     });
     expect(result).toEqual([data[1]]);
   });
@@ -62,7 +74,10 @@ describe('filterItems', () => {
       selectedTopics: [],
       selectedLanguages: [],
       selectedLicenses: [],
-      selectedOwners: []
+      selectedOwners: [],
+      selectedCategories: [],
+      selectedFocusAreas: [],
+      selectedAudiences: []
     });
     expect(result).toEqual([data[0], data[1]]);
   });
@@ -75,7 +90,10 @@ describe('filterItems', () => {
       selectedTopics: ['powerapps'],
       selectedLanguages: [],
       selectedLicenses: [],
-      selectedOwners: []
+      selectedOwners: [],
+      selectedCategories: [],
+      selectedFocusAreas: [],
+      selectedAudiences: []
     });
     expect(result).toEqual([data[0]]);
     });
@@ -88,7 +106,10 @@ describe('filterItems', () => {
             selectedTopics: [],
             selectedLanguages: ['JavaScript'],
             selectedLicenses: [],
-            selectedOwners: []
+            selectedOwners: [],
+      selectedCategories: [],
+      selectedFocusAreas: [],
+      selectedAudiences: []
         });
         expect(result).toEqual([data[0]]);
     });
@@ -101,7 +122,10 @@ describe('filterItems', () => {
             selectedTopics: [],
             selectedLanguages: [],
             selectedLicenses: ['MIT'],
-            selectedOwners: []
+            selectedOwners: [],
+      selectedCategories: [],
+      selectedFocusAreas: [],
+      selectedAudiences: []
         });
         expect(result).toEqual([data[0]]);
     });
@@ -122,7 +146,10 @@ describe('filterItems', () => {
             selectedTopics: [],
             selectedLanguages: [],
             selectedLicenses: ['MIT'],
-            selectedOwners: []
+            selectedOwners: [],
+      selectedCategories: [],
+      selectedFocusAreas: [],
+      selectedAudiences: []
         });
 
         expect(result).toEqual([data[0]]);
@@ -136,7 +163,58 @@ describe('filterItems', () => {
             selectedTopics: [],
             selectedLanguages: [],
             selectedLicenses: [],
-            selectedOwners: ['microsoft']
+            selectedOwners: ['microsoft'],
+            selectedCategories: [],
+            selectedFocusAreas: [],
+            selectedAudiences: []
+        });
+        expect(result).toEqual([data[0]]);
+    });
+
+    it('returns a filtered list when a category is selected', () => {
+        const result = filterItems(data, {
+            hasGoodFirstIssueChecked: false,
+            hasHelpWantedIssueChecked: false,
+            hasCodeOfConductChecked: false,
+            selectedTopics: [],
+            selectedLanguages: [],
+            selectedLicenses: [],
+            selectedOwners: [],
+            selectedCategories: ['power-apps'],
+            selectedFocusAreas: [],
+            selectedAudiences: []
+        });
+        expect(result).toEqual([data[0]]);
+    });
+
+    it('returns a filtered list when focus areas are selected', () => {
+        const result = filterItems(data, {
+            hasGoodFirstIssueChecked: false,
+            hasHelpWantedIssueChecked: false,
+            hasCodeOfConductChecked: false,
+            selectedTopics: [],
+            selectedLanguages: [],
+            selectedLicenses: [],
+            selectedOwners: [],
+            selectedCategories: [],
+            selectedFocusAreas: ['canvas-apps', 'community-samples'],
+            selectedAudiences: []
+        });
+        expect(result).toEqual([data[0]]);
+    });
+
+    it('excludes repositories without curated data when curated filters are selected', () => {
+        const result = filterItems(data, {
+            hasGoodFirstIssueChecked: false,
+            hasHelpWantedIssueChecked: false,
+            hasCodeOfConductChecked: false,
+            selectedTopics: [],
+            selectedLanguages: [],
+            selectedLicenses: [],
+            selectedOwners: [],
+            selectedCategories: [],
+            selectedFocusAreas: [],
+            selectedAudiences: ['developers']
         });
         expect(result).toEqual([data[0]]);
     });

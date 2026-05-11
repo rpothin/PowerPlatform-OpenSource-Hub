@@ -55,3 +55,11 @@ export function extractDistinctProperties<T>(items: T[], propertyPath: string): 
 
   return sortedProperties;
 }
+
+export function formatFacetLabel(value: string): string {
+  return value
+    .split('-')
+    .filter(Boolean)
+    .map(part => part.charAt(0).toUpperCase() + part.slice(1))
+    .join(' ');
+}

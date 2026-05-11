@@ -75,7 +75,7 @@
     },
     "repositoryAudience": {
       "type": "string",
-      "enum": ["users", "contributors", "maintainers", "makers", "developers"]
+      "enum": ["users", "contributors", "maintainers", "makers", "developers", "admins"]
     },
     "curationStatus": {
       "type": "string",

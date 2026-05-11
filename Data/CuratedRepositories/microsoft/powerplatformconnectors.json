@@ -1,0 +1,25 @@
+{
+  "repositoryId": 161588836,
+  "fullName": "microsoft/PowerPlatformConnectors",
+  "exclude": false,
+  "curationStatus": "needs-review",
+  "category": "connectors",
+  "focusAreas": [
+    "custom-connectors",
+    "community-samples"
+  ],
+  "audiences": [
+    "makers",
+    "developers",
+    "maintainers"
+  ],
+  "featured": false,
+  "customDescription": "Starter curation overlay for the canonical Power Platform connector samples and certification assets.",
+  "maintainerNotes": "Review connector taxonomy and any future featured status in a human-owned PR.",
+  "health": {
+    "curated": {
+      "maturity": "unknown",
+      "maintenance": "unknown"
+    }
+  }
+}

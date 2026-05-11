@@ -1,8 +1,9 @@
-import { mkdir, writeFile } from "node:fs/promises";
+import { mkdir, rename, rm, writeFile } from "node:fs/promises";
 import path from "node:path";
 
 import { mapWithConcurrency } from "./concurrency.js";
 import { loadSearchCriteria } from "./config.js";
+import { writeGeneratedRepositoryFilesAtomically } from "./generatedFiles.js";
 import { deduplicateByFullName, isRecentlyUpdated, normalizeRepositoryRecord, serializeRecords, sortByPopularity } from "./normalization.js";
 import { validateRecordsWithSchema } from "./schema.js";
 import type { CandidateProvider, GenerateResult, PipelineMetrics, RepositoryRecord } from "./types.js";
@@ -13,6 +14,8 @@ export interface GenerateOptions {
   schemaPath: string;
   provider: CandidateProvider;
   metricsPath?: string;
+  generatedDirPath?: string;
+  generatedSchemaPath?: string;
   concurrency?: number;
   now?: Date;
   workflowRunId?: string;
@@ -25,6 +28,9 @@ export async function generateRepositoryDetails(options: GenerateOptions): Promi
   assertJsonPath(options.outputPath, "output");
   if (options.metricsPath !== undefined) {
     assertJsonPath(options.metricsPath, "metrics");
+  }
+  if (options.generatedSchemaPath !== undefined) {
+    assertJsonPath(options.generatedSchemaPath, "generated schema");
   }
 
   const startedAt = Date.now();
@@ -88,6 +94,12 @@ export async function generateRepositoryDetails(options: GenerateOptions): Promi
   metrics.generatedRecords = records.length;
 
   await validateRecordsWithSchema(records, options.schemaPath);
+  if (options.generatedDirPath !== undefined) {
+    await writeGeneratedRepositoryFilesAtomically(records, {
+      generatedDir: options.generatedDirPath,
+      schemaPath: options.generatedSchemaPath ?? defaultGeneratedSchemaPath(options.schemaPath)
+    });
+  }
   await writeTextFile(options.outputPath, serializeRecords(records));
 
   metrics.elapsedMs = Date.now() - startedAt;
@@ -116,7 +128,26 @@ function createMetrics(criteriaCount: number): PipelineMetrics {
 async function writeTextFile(filePath: string, content: string): Promise<void> {
   const parent = path.dirname(filePath);
   await mkdir(parent, { recursive: true });
-  await writeFile(filePath, content, "utf8");
+
+  for (let attempt = 0; attempt < 100; attempt += 1) {
+    const temporaryPath = path.join(parent, `.${path.basename(filePath)}.staging-${process.pid}-${Date.now()}-${attempt}`);
+    let temporaryFileCreated = false;
+    try {
+      await writeFile(temporaryPath, content, { encoding: "utf8", flag: "wx" });
+      temporaryFileCreated = true;
+      await rename(temporaryPath, filePath);
+      return;
+    } catch (error) {
+      if (temporaryFileCreated) {
+        await rm(temporaryPath, { force: true });
+      }
+      if (!isNodeError(error) || error.code !== "EEXIST") {
+        throw error;
+      }
+    }
+  }
+
+  throw new Error(`Unable to create staging file for '${filePath}'.`);
 }
 
 function assertJsonPath(filePath: string, label: string): void {
@@ -127,4 +158,12 @@ function assertJsonPath(filePath: string, label: string): void {
 
 function errorMessage(error: unknown): string {
   return error instanceof Error ? error.message : String(error);
+}
+
+function defaultGeneratedSchemaPath(schemaPath: string): string {
+  return path.join(path.dirname(schemaPath), "GitHubRepositoryGenerated.schema.json");
+}
+
+function isNodeError(error: unknown): error is NodeJS.ErrnoException {
+  return typeof error === "object" && error !== null && "code" in error;
 }

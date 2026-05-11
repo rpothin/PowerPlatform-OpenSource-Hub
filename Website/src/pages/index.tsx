@@ -125,6 +125,9 @@ const App = () => {
       selectedLanguages={filterState.selectedLanguages}
       selectedLicenses={filterState.selectedLicenses}
       selectedOwners={filterState.selectedOwners}
+      selectedCategories={filterState.selectedCategories}
+      selectedFocusAreas={filterState.selectedFocusAreas}
+      selectedAudiences={filterState.selectedAudiences}
       onGoodFirstIssueChange={(value) => setFilterStateWithHistory((previous) => ({ ...previous, hasGoodFirstIssueChecked: value }))}
       onHelpWantedIssueChange={(value) => setFilterStateWithHistory((previous) => ({ ...previous, hasHelpWantedIssueChecked: value }))}
       onCodeOfConductChange={(value) => setFilterStateWithHistory((previous) => ({ ...previous, hasCodeOfConductChecked: value }))}
@@ -132,6 +135,9 @@ const App = () => {
       onLanguagesChange={(value) => setFilterStateWithHistory((previous) => ({ ...previous, selectedLanguages: value }))}
       onLicensesChange={(value) => setFilterStateWithHistory((previous) => ({ ...previous, selectedLicenses: value }))}
       onOwnersChange={(value) => setFilterStateWithHistory((previous) => ({ ...previous, selectedOwners: value }))}
+      onCategoriesChange={(value) => setFilterStateWithHistory((previous) => ({ ...previous, selectedCategories: value }))}
+      onFocusAreasChange={(value) => setFilterStateWithHistory((previous) => ({ ...previous, selectedFocusAreas: value }))}
+      onAudiencesChange={(value) => setFilterStateWithHistory((previous) => ({ ...previous, selectedAudiences: value }))}
     />
   );
 
@@ -194,6 +200,9 @@ const App = () => {
             selectedLanguages={filterState.selectedLanguages}
             selectedLicenses={filterState.selectedLicenses}
             selectedOwners={filterState.selectedOwners}
+            selectedCategories={filterState.selectedCategories}
+            selectedFocusAreas={filterState.selectedFocusAreas}
+            selectedAudiences={filterState.selectedAudiences}
             sortBy={filterState.sortBy}
             onSortByChange={(value) => setFilterStateWithHistory((previous) => ({ ...previous, sortBy: value }))}
           />

@@ -35,6 +35,7 @@ import {
 import { ArrowExpand16Regular, Dismiss24Regular, Eye16Filled, OpenRegular, Star16Filled } from "@fluentui/react-icons";
 
 import { filterItems, sortItems, isActive } from '../../utils/galleryUtils';
+import { formatFacetLabel } from '../../utils/filterPaneUtils';
 import { Repository } from '../../types/repository';
 import styles from './styles.module.css';
 
@@ -47,11 +48,28 @@ type GalleryProps = {
     selectedLanguages: string[];
     selectedLicenses: string[];
     selectedOwners: string[];
+    selectedCategories: string[];
+    selectedFocusAreas: string[];
+    selectedAudiences: string[];
     sortBy: string;
     onSortByChange: (sortBy: string) => void;
 }
 
-const Gallery = ({ items, hasGoodFirstIssueChecked, hasHelpWantedIssueChecked, hasCodeOfConductChecked, selectedTopics = [], selectedLanguages = [], selectedLicenses = [], selectedOwners = [], sortBy, onSortByChange }: GalleryProps) => {
+const Gallery = ({
+    items,
+    hasGoodFirstIssueChecked,
+    hasHelpWantedIssueChecked,
+    hasCodeOfConductChecked,
+    selectedTopics = [],
+    selectedLanguages = [],
+    selectedLicenses = [],
+    selectedOwners = [],
+    selectedCategories = [],
+    selectedFocusAreas = [],
+    selectedAudiences = [],
+    sortBy,
+    onSortByChange,
+}: GalleryProps) => {
     const [selectedItem, setSelectedItem] = useState<Repository | null>(null);
     const [hideDialog, setHideDialog] = useState(true);
     const comboId = useId("combo-orderby");
@@ -73,6 +91,9 @@ const Gallery = ({ items, hasGoodFirstIssueChecked, hasHelpWantedIssueChecked, h
         selectedLanguages,
         selectedLicenses,
         selectedOwners,
+        selectedCategories,
+        selectedFocusAreas,
+        selectedAudiences,
     });
 
     const openDialog = (item) => {
@@ -96,6 +117,51 @@ const Gallery = ({ items, hasGoodFirstIssueChecked, hasHelpWantedIssueChecked, h
     };
 
     const sortedItems = sortItems(filteredItems, selectedOptions);
+    const getRepositoryDescription = (item?: Repository | null): string =>
+        item?.displayDescription ?? item?.customDescription ?? item?.description ?? '';
+
+    const hasRelaunchBadges = (item: Repository): boolean =>
+        !!(
+            item.featured ||
+            item.category ||
+            item.focusAreas?.length ||
+            item.audiences?.length ||
+            item.health?.computed?.activityStatus ||
+            item.health?.curated?.maintenance ||
+            item.health?.curated?.maturity
+        );
+
+    const renderRelaunchBadges = (item: Repository, testIdPrefix: string) => {
+        if (!hasRelaunchBadges(item)) {
+            return null;
+        }
+
+        return (
+            <div style={{ display: 'flex', flexWrap: 'wrap', marginBottom: '4px' }}>
+                {item.featured && (
+                    <Badge data-testid={`${testIdPrefix}-featured-badge`} appearance="filled" color="brand" style={{ marginRight: '2px', marginBottom: '2px' }}>Featured</Badge>
+                )}
+                {item.category && (
+                    <Badge data-testid={`${testIdPrefix}-category-badge`} appearance="tint" style={{ marginRight: '2px', marginBottom: '2px' }}>Category: {formatFacetLabel(item.category)}</Badge>
+                )}
+                {item.focusAreas?.map((focusArea, index) => (
+                    <Badge data-testid={`${testIdPrefix}-focus-area-badge`} appearance="outline" key={`focus-${focusArea}-${index}`} style={{ marginRight: '2px', marginBottom: '2px' }}>Focus: {formatFacetLabel(focusArea)}</Badge>
+                ))}
+                {item.audiences?.map((audience, index) => (
+                    <Badge data-testid={`${testIdPrefix}-audience-badge`} appearance="outline" key={`audience-${audience}-${index}`} style={{ marginRight: '2px', marginBottom: '2px' }}>Audience: {formatFacetLabel(audience)}</Badge>
+                ))}
+                {item.health?.computed?.activityStatus && (
+                    <Badge data-testid={`${testIdPrefix}-health-badge`} appearance="tint" style={{ marginRight: '2px', marginBottom: '2px' }}>Health: {formatFacetLabel(item.health.computed.activityStatus)}</Badge>
+                )}
+                {item.health?.curated?.maintenance && (
+                    <Badge data-testid={`${testIdPrefix}-maintenance-badge`} appearance="tint" style={{ marginRight: '2px', marginBottom: '2px' }}>Maintenance: {formatFacetLabel(item.health.curated.maintenance)}</Badge>
+                )}
+                {item.health?.curated?.maturity && (
+                    <Badge data-testid={`${testIdPrefix}-maturity-badge`} appearance="tint" style={{ marginRight: '2px', marginBottom: '2px' }}>Maturity: {formatFacetLabel(item.health.curated.maturity)}</Badge>
+                )}
+            </div>
+        );
+    };
 
     return (
         <div style={{ width: '100%' }}>
@@ -173,14 +239,16 @@ const Gallery = ({ items, hasGoodFirstIssueChecked, hasHelpWantedIssueChecked, h
                         </Subtitle1>
 
                         <Text data-testid="repository-description">
-                            {item.description.length > 150 ?
+                            {getRepositoryDescription(item).length > 150 ?
                                 <p>
-                                    {item.description.substring(0, 150) + '... '}
+                                    {getRepositoryDescription(item).substring(0, 150) + '... '}
                                 </p>
                                 :
-                                item.description
+                                getRepositoryDescription(item)
                             }
                         </Text>
+
+                        {renderRelaunchBadges(item, 'card')}
 
                         <div style={{ display: 'flex', flexWrap: 'wrap' }}>
                             {item.topics.slice(0, 5).map((topic, index) => (
@@ -223,8 +291,9 @@ const Gallery = ({ items, hasGoodFirstIssueChecked, hasHelpWantedIssueChecked, h
                             <DialogBody>
                                 <div style={{ display: 'flex', flexDirection: 'column' }}>
                                     <Text data-testid="dialog-description">
-                                        {selectedItem?.description}
+                                        {getRepositoryDescription(selectedItem)}
                                     </Text>
+                                    {selectedItem && renderRelaunchBadges(selectedItem, 'dialog')}
                                     <div style={{ marginTop: '10px', display: 'flex', flexWrap: 'wrap', flexDirection: 'column' }}>
                                         {selectedItem?.license?.name && (
                                             <Badge data-testid="dialog-license-badge" appearance="tint" style={{ marginBottom: '4px' }}>License: {selectedItem?.license?.name}</Badge>

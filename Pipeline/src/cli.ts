@@ -21,6 +21,8 @@ interface GenerateCliOptions {
   configPath: string;
   outputPath: string;
   schemaPath: string;
+  generatedDirPath?: string;
+  generatedSchemaPath?: string;
   metricsPath?: string;
   live: boolean;
   concurrency: number;
@@ -72,6 +74,12 @@ export async function runCli(args: string[], env: NodeJS.ProcessEnv = process.en
       schemaPath: options.schemaPath,
       provider,
       concurrency: options.concurrency,
+      ...(options.generatedDirPath === undefined
+        ? {}
+        : {
+            generatedDirPath: options.generatedDirPath,
+            ...(options.generatedSchemaPath === undefined ? {} : { generatedSchemaPath: options.generatedSchemaPath })
+          }),
       ...(options.metricsPath === undefined ? {} : { metricsPath: options.metricsPath })
     });
 
@@ -80,6 +88,7 @@ export async function runCli(args: string[], env: NodeJS.ProcessEnv = process.en
         {
           mode: options.live ? "live" : "dry-run",
           outputPath: options.outputPath,
+          generatedDirPath: options.generatedDirPath ?? null,
           metricsPath: options.metricsPath ?? null,
           generatedRecords: result.metrics.generatedRecords,
           detailFailures: result.metrics.detailFailures,
@@ -118,6 +127,8 @@ function parseGenerateArgs(args: string[]): GenerateCliOptions {
   let configPath = defaultConfigPath();
   let outputPath = path.join(packageRoot, "Output", "GitHubRepositoriesDetails.json");
   let schemaPath = defaultSchemaPath();
+  let generatedDirPath: string | undefined;
+  let generatedSchemaPath: string | undefined;
   let metricsPath: string | undefined;
   let concurrency = 4;
 
@@ -139,6 +150,12 @@ function parseGenerateArgs(args: string[]): GenerateCliOptions {
       case "--schema":
         schemaPath = resolveUserPath(requiredValue(args, (index += 1), current));
         break;
+      case "--generated-dir":
+        generatedDirPath = resolveUserPath(requiredValue(args, (index += 1), current));
+        break;
+      case "--generated-schema":
+        generatedSchemaPath = resolveUserPath(requiredValue(args, (index += 1), current));
+        break;
       case "--metrics":
         metricsPath = resolveUserPath(requiredValue(args, (index += 1), current));
         break;
@@ -158,12 +175,20 @@ function parseGenerateArgs(args: string[]): GenerateCliOptions {
   if (live && dryRun) {
     throw new Error("Choose either --live or --dry-run, not both.");
   }
+  if (generatedSchemaPath !== undefined && generatedDirPath === undefined) {
+    throw new Error("--generated-schema requires --generated-dir.");
+  }
+  if (generatedDirPath !== undefined && generatedSchemaPath === undefined) {
+    generatedSchemaPath = defaultGeneratedSchemaPath();
+  }
 
   return {
     command: "generate",
     configPath,
     outputPath,
     schemaPath,
+    ...(generatedDirPath === undefined ? {} : { generatedDirPath }),
+    ...(generatedSchemaPath === undefined ? {} : { generatedSchemaPath }),
     live,
     concurrency,
     ...(metricsPath === undefined ? {} : { metricsPath })
@@ -254,6 +279,10 @@ function defaultSchemaPath(): string {
   return path.join(repositoryRoot, "Configuration", "Schemas", "GitHubRepositoriesDetails.schema.json");
 }
 
+function defaultGeneratedSchemaPath(): string {
+  return path.join(repositoryRoot, "Configuration", "Schemas", "GitHubRepositoryGenerated.schema.json");
+}
+
 function defaultSentinelsPath(): string {
   return path.join(repositoryRoot, "Configuration", "SentinelRepositories.json");
 }
@@ -267,6 +296,9 @@ Generate options:
   --config <file>       Search criteria JSON. Defaults to repository Configuration.
   --schema <file>       Output schema JSON. Defaults to repository schema.
   --output <file>       Output JSON path. Defaults to Pipeline Output.
+  --generated-dir <dir> Write per-repository generated JSON files to a replaced directory.
+  --generated-schema <file>
+                        Per-repository generated record schema. Defaults to repository generated schema.
   --metrics <file>      Optional metrics JSON path.
   --concurrency <n>     Repository detail concurrency. Defaults to 4.
   --dry-run             Generate deterministic no-network data (default).

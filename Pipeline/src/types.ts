@@ -37,7 +37,7 @@ export type RepositoryFocusArea =
   | "testing-quality"
   | "community-samples";
 
-export type RepositoryAudience = "users" | "contributors" | "maintainers" | "makers" | "developers";
+export type RepositoryAudience = "users" | "contributors" | "maintainers" | "makers" | "developers" | "admins";
 
 export type CurationStatus = "unreviewed" | "reviewed" | "needs-review";
 

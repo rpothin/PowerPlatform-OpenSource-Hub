@@ -15,6 +15,30 @@ npm run typecheck
 npm test
 ```
 
+## Curated repository overlays
+
+Phase 3 separates machine-generated repository facts from human-owned curation:
+
+- `Data\GitHubRepositoriesDetails.json` remains the generated/merged frontend artifact and may be updated by automation.
+- `Data\CuratedRepositories\<owner>\<repository>.json` contains PR-reviewed overlays owned by humans. The daily bot workflow must read existing overlays only; it must not create, rewrite, or stage overlay files.
+- Overlay paths use lowercase owner and repository path segments for filesystem stability, for example `Data\CuratedRepositories\microsoft\powerapps-samples.json` for `microsoft/PowerApps-Samples`.
+
+Each overlay is validated with `Configuration\Schemas\GitHubRepositoryOverlay.schema.json`. Required identity fields are `repositoryId` and `fullName`: `repositoryId` is the stable GitHub repository id used for matching, while `fullName` is required readable metadata and should match the current canonical `owner/repo`. Do not invent repository ids; copy them from generated data once present or verify them from GitHub before opening a curation PR. Use `previousFullNames` only for known renames or transfers.
+
+Allowed overlay fields are intentionally small: `previousFullNames`, `exclude`, `curationStatus`, `category`, `focusAreas`, `audiences`, `featured`, `customDescription`, `maintainerNotes`, and `health.curated`. Overlays must not override generated GitHub facts such as stars, releases, issues, topics, license, or URLs.
+
+Taxonomy values live in `Configuration\Taxonomy\RepositoryCategories.json`, `RepositoryFocusAreas.json`, and `RepositoryAudiences.json`. Each entry has a stable `value`, display `label`, and maintenance `description`. Request new taxonomy values in the same PR as the overlays that need them, and keep schema enums, pipeline types, and taxonomy files aligned.
+
+Exclusions are allowed only through reviewed overlays. `exclude: true` should explain the reason in `maintainerNotes`; sentinel repositories from `Configuration\SentinelRepositories.json` must not be excluded unless the sentinel configuration is intentionally changed and reviewed in the same work. Featured status and curated health fields (`maturity`, `maintenance`, `reviewedAt`, `reviewedBy`) are human judgments and should be reviewed by maintainers before setting `curationStatus` to `reviewed`.
+
+Before requesting review for curation changes, run:
+
+```powershell
+cd .\Pipeline
+npm run typecheck
+npm test
+```
+
 ## Dry-run generation (no network)
 
 ```powershell
@@ -38,10 +62,11 @@ Useful direct CLI options:
 
 ```powershell
 node dist\cli.js generate --dry-run --output .\Output\GitHubRepositoriesDetails.json --metrics .\Output\metrics.json
+node dist\cli.js generate --dry-run --output ..\Data\GitHubRepositoriesDetails.json --generated-dir ..\Data\GeneratedRepositories
 node dist\cli.js generate --live --concurrency 4 --output .\Output\GitHubRepositoriesDetails.json
 ```
 
-Schema validation is performed with `ajv` against the repository's existing JSON Schema so the candidate remains focused on the Phase 1 record shape.
+Schema validation is performed with `ajv`. The array output validates against `GitHubRepositoriesDetails.schema.json`; when `--generated-dir` is provided, each per-repository file is validated against `GitHubRepositoryGenerated.schema.json`, written through a staging directory, and the generated directory is replaced so orphaned repository files are removed.
 
 ## Production workflow cutover
 
