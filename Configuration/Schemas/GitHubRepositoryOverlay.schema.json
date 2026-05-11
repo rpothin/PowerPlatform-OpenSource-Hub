@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "GitHubRepositoryOverlay.schema.json",
+  "title": "GitHubRepositoryOverlay",
+  "description": "A single human-curated repository overlay.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["repositoryId", "fullName"],
+  "properties": {
+    "repositoryId": { "$ref": "GitHubRepositoryDefinitions.schema.json#/$defs/repositoryId" },
+    "fullName": { "$ref": "GitHubRepositoryDefinitions.schema.json#/$defs/fullName" },
+    "previousFullNames": { "$ref": "GitHubRepositoryDefinitions.schema.json#/$defs/previousFullNames" },
+    "exclude": { "type": "boolean", "default": false },
+    "curationStatus": { "$ref": "GitHubRepositoryDefinitions.schema.json#/$defs/curationStatus", "default": "unreviewed" },
+    "category": { "$ref": "GitHubRepositoryDefinitions.schema.json#/$defs/repositoryCategory" },
+    "focusAreas": {
+      "type": "array",
+      "items": { "$ref": "GitHubRepositoryDefinitions.schema.json#/$defs/repositoryFocusArea" },
+      "uniqueItems": true
+    },
+    "audiences": {
+      "type": "array",
+      "items": { "$ref": "GitHubRepositoryDefinitions.schema.json#/$defs/repositoryAudience" },
+      "uniqueItems": true
+    },
+    "featured": { "type": "boolean", "default": false },
+    "customDescription": { "type": "string" },
+    "maintainerNotes": { "type": "string" },
+    "health": { "$ref": "GitHubRepositoryDefinitions.schema.json#/$defs/curatedHealthContainer" }
+  }
+}

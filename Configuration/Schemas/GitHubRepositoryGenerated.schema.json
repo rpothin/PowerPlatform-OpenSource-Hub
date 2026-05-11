@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "GitHubRepositoryGenerated.schema.json",
+  "title": "GitHubRepositoryGenerated",
+  "description": "A single machine-generated repository record.",
+  "allOf": [
+    { "$ref": "GitHubRepositoryDefinitions.schema.json#/$defs/repositoryIdentity" },
+    { "$ref": "GitHubRepositoryDefinitions.schema.json#/$defs/githubRepositoryFacts" },
+    {
+      "type": "object",
+      "properties": {
+        "health": { "$ref": "GitHubRepositoryDefinitions.schema.json#/$defs/computedHealthContainer" }
+      }
+    }
+  ],
+  "unevaluatedProperties": false
+}

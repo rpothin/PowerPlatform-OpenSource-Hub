@@ -17,6 +17,7 @@ interface GitHubSearchRepositoryItem {
   has_issues?: boolean;
   homepage?: string | null;
   html_url?: string;
+  id?: number | string;
   language?: string | null;
   license?: { key?: string | null; name?: string | null; url?: string | null } | null;
   name?: string;
@@ -89,6 +90,7 @@ export class DryRunProvider implements CandidateProvider {
         createdAt: "2023-01-01T00:00:00Z",
         description: `Dry-run repository fixture for ${criterion.topic}`,
         fullName,
+        repositoryId: `dry-run:${safeTopic}`,
         hasIssues: true,
         homepage: "",
         isArchived: false,
@@ -232,6 +234,7 @@ function mapSearchRepository(item: GitHubSearchRepositoryItem): SearchRepository
     createdAt: item.created_at ?? "",
     description: item.description ?? "",
     fullName,
+    repositoryId: item.id ?? fullName,
     hasIssues: item.has_issues ?? false,
     homepage: item.homepage ?? "",
     isArchived: item.archived ?? false,

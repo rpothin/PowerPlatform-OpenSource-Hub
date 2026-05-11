@@ -1,0 +1,309 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "GitHubRepositoryDefinitions.schema.json",
+  "title": "GitHub repository shared schema definitions",
+  "type": "object",
+  "$defs": {
+    "repositoryId": {
+      "description": "Stable GitHub repository id. String is allowed for fixtures and API shape compatibility.",
+      "anyOf": [
+        { "type": "integer", "minimum": 0 },
+        { "type": "string", "minLength": 1 }
+      ]
+    },
+    "fullName": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^[^\\s/]+/[^\\s/]+$"
+    },
+    "repositoryIdentity": {
+      "type": "object",
+      "required": ["repositoryId", "fullName"],
+      "properties": {
+        "repositoryId": { "$ref": "#/$defs/repositoryId" },
+        "fullName": { "$ref": "#/$defs/fullName" }
+      }
+    },
+    "previousFullNames": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/fullName" },
+      "uniqueItems": true
+    },
+    "nonEmptyString": {
+      "type": "string",
+      "minLength": 1
+    },
+    "stringList": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "repositoryCategory": {
+      "type": "string",
+      "enum": [
+        "copilot-studio",
+        "power-apps",
+        "power-automate",
+        "power-pages",
+        "dataverse",
+        "power-bi",
+        "connectors",
+        "alm-devops",
+        "governance-admin",
+        "developer-tooling",
+        "samples-templates",
+        "learning-docs"
+      ]
+    },
+    "repositoryFocusArea": {
+      "type": "string",
+      "enum": [
+        "agent-development",
+        "bot-building",
+        "custom-connectors",
+        "pcf-controls",
+        "canvas-apps",
+        "model-driven-apps",
+        "cloud-flows",
+        "desktop-flows",
+        "power-pages-sites",
+        "dataverse-modeling",
+        "environment-governance",
+        "solution-lifecycle",
+        "testing-quality",
+        "community-samples"
+      ]
+    },
+    "repositoryAudience": {
+      "type": "string",
+      "enum": ["users", "contributors", "maintainers", "makers", "developers"]
+    },
+    "curationStatus": {
+      "type": "string",
+      "enum": ["unreviewed", "reviewed", "needs-review"]
+    },
+    "computedHealth": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "activityStatus": {
+          "type": "string",
+          "enum": ["active", "stale", "inactive", "archived"]
+        },
+        "hasRecentRelease": { "type": "boolean" },
+        "hasContributionSignals": { "type": "boolean" },
+        "hasTrustSignals": { "type": "boolean" }
+      }
+    },
+    "curatedHealth": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "maturity": {
+          "type": "string",
+          "enum": ["experimental", "stable", "mature", "unknown"]
+        },
+        "maintenance": {
+          "type": "string",
+          "enum": ["maintained", "limited", "unmaintained", "unknown"]
+        },
+        "reviewedAt": { "type": "string" },
+        "reviewedBy": { "$ref": "#/$defs/nonEmptyString" }
+      }
+    },
+    "computedHealthContainer": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["computed"],
+      "properties": {
+        "computed": { "$ref": "#/$defs/computedHealth" }
+      }
+    },
+    "curatedHealthContainer": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["curated"],
+      "properties": {
+        "curated": { "$ref": "#/$defs/curatedHealth" }
+      }
+    },
+    "repositoryHealth": {
+      "type": "object",
+      "additionalProperties": false,
+      "minProperties": 1,
+      "properties": {
+        "computed": { "$ref": "#/$defs/computedHealth" },
+        "curated": { "$ref": "#/$defs/curatedHealth" }
+      }
+    },
+    "licenseInfo": {
+      "anyOf": [
+        { "type": "null" },
+        {
+          "type": "object",
+          "required": ["name"],
+          "properties": {
+            "key": { "type": "string" },
+            "name": { "type": "string" },
+            "url": { "type": "string" }
+          }
+        }
+      ]
+    },
+    "repositoryOwner": {
+      "type": "object",
+      "required": ["login"],
+      "properties": {
+        "id": { "type": "string" },
+        "is_bot": { "type": "boolean" },
+        "login": { "type": "string" },
+        "type": { "type": "string" },
+        "url": { "type": "string" }
+      }
+    },
+    "codeOfConductInfo": {
+      "type": ["object", "null"],
+      "properties": {
+        "key": { "type": "string" },
+        "name": { "type": "string" },
+        "url": { "type": "string" }
+      }
+    },
+    "latestReleaseInfo": {
+      "type": ["object", "null"],
+      "properties": {
+        "name": { "type": "string" },
+        "tagName": { "type": "string" },
+        "url": { "type": "string" },
+        "publishedAt": { "type": "string" }
+      }
+    },
+    "primaryLanguageInfo": {
+      "type": ["object", "null"],
+      "properties": {
+        "name": { "type": "string" }
+      }
+    },
+    "watchersInfo": {
+      "type": "object",
+      "required": ["totalCount"],
+      "properties": {
+        "totalCount": { "type": "number" }
+      }
+    },
+    "generationProvenance": {
+      "type": "object",
+      "required": ["_schemaVersion", "_generatedAt", "_workflowRunId"],
+      "properties": {
+        "_schemaVersion": { "type": "string" },
+        "_generatedAt": { "type": "string" },
+        "_workflowRunId": { "type": "string" }
+      }
+    },
+    "curationProvenance": {
+      "type": "object",
+      "properties": {
+        "_curatedAt": { "type": "string" },
+        "_curatedBy": { "$ref": "#/$defs/nonEmptyString" }
+      }
+    },
+    "githubRepositoryFacts": {
+      "type": "object",
+      "required": [
+        "createdAt",
+        "description",
+        "fullName",
+        "hasIssues",
+        "homepage",
+        "isArchived",
+        "language",
+        "license",
+        "name",
+        "openIssuesCount",
+        "owner",
+        "updatedAt",
+        "url",
+        "codeOfConduct",
+        "forkCount",
+        "fundingLinks",
+        "isSecurityPolicyEnabled",
+        "isTemplate",
+        "latestRelease",
+        "primaryLanguage",
+        "securityPolicyUrl",
+        "stargazerCount",
+        "watchers",
+        "topics",
+        "languages",
+        "openedGoodFirstIssues",
+        "hasGoodFirstIssues",
+        "openedHelpWantedIssues",
+        "hasHelpWantedIssues",
+        "openedToContributionsIssues",
+        "popularityScore",
+        "_schemaVersion",
+        "_generatedAt",
+        "_workflowRunId"
+      ],
+      "properties": {
+        "createdAt": { "type": "string" },
+        "description": { "type": "string" },
+        "fullName": { "$ref": "#/$defs/fullName" },
+        "hasIssues": { "type": "boolean" },
+        "homepage": { "type": ["string", "null"] },
+        "isArchived": { "type": "boolean" },
+        "language": { "type": "string" },
+        "license": { "$ref": "#/$defs/licenseInfo" },
+        "name": { "type": "string" },
+        "openIssuesCount": { "type": "number" },
+        "owner": { "$ref": "#/$defs/repositoryOwner" },
+        "updatedAt": { "type": "string" },
+        "url": { "type": "string" },
+        "codeOfConduct": { "$ref": "#/$defs/codeOfConductInfo" },
+        "forkCount": { "type": "number" },
+        "fundingLinks": { "type": "array" },
+        "isSecurityPolicyEnabled": { "type": "boolean" },
+        "isTemplate": { "type": "boolean" },
+        "latestRelease": { "$ref": "#/$defs/latestReleaseInfo" },
+        "primaryLanguage": { "$ref": "#/$defs/primaryLanguageInfo" },
+        "securityPolicyUrl": { "type": ["string", "null"] },
+        "stargazerCount": { "type": "number" },
+        "watchers": { "$ref": "#/$defs/watchersInfo" },
+        "topics": { "$ref": "#/$defs/stringList" },
+        "languages": { "$ref": "#/$defs/stringList" },
+        "openedGoodFirstIssues": { "type": "number" },
+        "hasGoodFirstIssues": { "type": "boolean" },
+        "openedHelpWantedIssues": { "type": "number" },
+        "hasHelpWantedIssues": { "type": "boolean" },
+        "openedToContributionsIssues": { "type": "number" },
+        "popularityScore": { "type": "number" },
+        "_schemaVersion": { "type": "string" },
+        "_generatedAt": { "type": "string" },
+        "_workflowRunId": { "type": "string" }
+      }
+    },
+    "curatedRepositoryFields": {
+      "type": "object",
+      "properties": {
+        "previousFullNames": { "$ref": "#/$defs/previousFullNames" },
+        "exclude": { "type": "boolean", "default": false },
+        "curationStatus": { "$ref": "#/$defs/curationStatus", "default": "unreviewed" },
+        "category": { "$ref": "#/$defs/repositoryCategory" },
+        "focusAreas": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/repositoryFocusArea" },
+          "uniqueItems": true
+        },
+        "audiences": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/repositoryAudience" },
+          "uniqueItems": true
+        },
+        "featured": { "type": "boolean", "default": false },
+        "customDescription": { "type": "string" },
+        "displayDescription": { "type": "string" },
+        "maintainerNotes": { "type": "string" },
+        "health": { "$ref": "#/$defs/repositoryHealth" }
+      }
+    }
+  }
+}

@@ -14,6 +14,7 @@ export function normalizeRepositoryRecord(
     createdAt: repository.createdAt,
     description: repository.description ?? "",
     fullName: repository.fullName,
+    repositoryId: repository.repositoryId,
     hasIssues: Boolean(repository.hasIssues),
     homepage: repository.homepage ?? "",
     isArchived: Boolean(repository.isArchived),
