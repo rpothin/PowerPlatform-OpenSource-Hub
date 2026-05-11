@@ -46,7 +46,7 @@ cd .\Pipeline
 npm run dry-run
 ```
 
-The dry-run loads `..\Configuration\GitHubRepositoriesSearchCriteria.json`, uses deterministic in-memory repository fixtures, validates the output with `..\Configuration\Schemas\GitHubRepositoriesDetails.schema.json`, writes `Output\GitHubRepositoriesDetails.json`, and writes `Output\metrics.json`.
+The dry-run loads `..\Configuration\GitHubRepositoriesSearchCriteria.json`, uses deterministic in-memory repository fixtures, writes and validates per-repository files in `Output\GeneratedRepositories`, merges them with an empty dry-run overlay directory into `Output\GitHubRepositoriesDetails.json`, and writes `Output\metrics.json`.
 
 ## Optional live mode
 
@@ -61,17 +61,17 @@ npm run generate:live
 Useful direct CLI options:
 
 ```powershell
-node dist\cli.js generate --dry-run --output .\Output\GitHubRepositoriesDetails.json --metrics .\Output\metrics.json
-node dist\cli.js generate --dry-run --output ..\Data\GitHubRepositoriesDetails.json --generated-dir ..\Data\GeneratedRepositories
+node dist\cli.js generate --dry-run --output .\Output\GitHubRepositoriesGenerated.json --generated-dir .\Output\GeneratedRepositories --metrics .\Output\metrics.json
+node dist\cli.js merge --generated-dir .\Output\GeneratedRepositories --overlay-dir .\Output\CuratedRepositories --schema ..\Configuration\Schemas\GitHubRepositoriesDetails.schema.json --output .\Output\GitHubRepositoriesDetails.json --taxonomy-dir ..\Configuration\Taxonomy --sentinels ..\Configuration\SentinelRepositories.json
+node dist\cli.js generate --live --concurrency 4 --output .\Output\GitHubRepositoriesGenerated.json --generated-dir ..\Data\GeneratedRepositories
 node dist\cli.js merge --generated-dir ..\Data\GeneratedRepositories --overlay-dir ..\Data\CuratedRepositories --schema ..\Configuration\Schemas\GitHubRepositoriesDetails.schema.json --output ..\Data\GitHubRepositoriesDetails.json --taxonomy-dir ..\Configuration\Taxonomy --sentinels ..\Configuration\SentinelRepositories.json
-node dist\cli.js generate --live --concurrency 4 --output .\Output\GitHubRepositoriesDetails.json
 ```
 
 Schema validation is performed with `ajv`. The array output validates against `GitHubRepositoriesDetails.schema.json`; when `--generated-dir` is provided, each per-repository file is validated against `GitHubRepositoryGenerated.schema.json`, written through a staging directory, and the generated directory is replaced so orphaned repository files are removed. The `merge` command validates generated records and curated overlays, rejects duplicate or unknown overlay identities, blocks sentinel exclusions, checks taxonomy values, applies only the approved curated fields, and writes the same frontend artifact format.
 
 ## Production workflow cutover
 
-The `1-update-github-repositories-details` workflow now runs this TypeScript pipeline by default for scheduled and manual production generation. It writes the configured repository details data path unchanged, validates the existing schema during generation, compares the new output with the previous committed data, blocks suspicious repository-count deltas above 15%, and only dispatches downstream workflows after a data commit. Stable parity differences are reported for review but are not production commit blockers. Manual `workflow_dispatch` runs can select `pipeline: powershell` as a rollback fallback during the stabilization window; the PowerShell scripts remain in place.
+The `1-update-github-repositories-details` workflow now runs this TypeScript pipeline by default for scheduled and manual production generation. It writes `Data\GeneratedRepositories`, compares the generated layer with the previous generated-layer baseline so curated exclusions do not distort the count guard, merges existing PR-owned overlays from `Data\CuratedRepositories` into the configured frontend artifact, and stages only the generated directory plus the merged artifact. It validates generated records, overlays, sentinel exclusions, and the final schema before committing. Downstream README/site workflows dispatch only when the merged frontend artifact changes. Manual `workflow_dispatch` runs can select `pipeline: powershell` as a rollback fallback during the stabilization window; the PowerShell scripts remain in place.
 
 ## Output parity comparison (no network)
 
@@ -98,4 +98,4 @@ The initial repository-count delta threshold is 15% and can be adjusted with `--
 
 ## Manual validation workflow
 
-The `backend-pipeline-manual-validation` GitHub Actions workflow is manual-only (`workflow_dispatch`) and can be used to run the TypeScript pipeline in dry-run or live mode outside the daily production schedule. By default it runs TypeScript dry-run generation, compares generated artifacts against `Data\GitHubRepositoriesDetails.json` when present, uploads outputs/reports as artifacts, and does not commit generated data. Live TypeScript generation must be explicitly selected in the workflow inputs and uses `GITHUB_TOKEN` only inside the generation step.
+The `backend-pipeline-manual-validation` GitHub Actions workflow is manual-only (`workflow_dispatch`) and can be used to run the TypeScript pipeline in dry-run or live mode outside the daily production schedule. By default it runs TypeScript dry-run generation with per-repository output, merges a dry-run overlay directory, compares generated and merged artifacts against `Data\GitHubRepositoriesDetails.json` when requested, uploads outputs/reports as artifacts, and does not commit generated data. Live TypeScript generation must be explicitly selected in the workflow inputs, uses `GITHUB_TOKEN` only inside the generation step, and merges the checked-in curated overlays without rewriting them.

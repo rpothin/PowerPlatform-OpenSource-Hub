@@ -5,9 +5,14 @@ on:
   pull_request:
     paths:
       - 'Pipeline/**'
-      - 'Configuration/**'
+      - 'Configuration/GitHubRepositoriesSearchCriteria.json'
+      - 'Configuration/SentinelRepositories.json'
+      - 'Configuration/Schemas/**'
+      - 'Configuration/Taxonomy/**'
+      - 'Data/CuratedRepositories/**'
       - '.github/workflows/backend-pipeline-ci-validation.yml'
       - '.github/workflows/backend-pipeline-manual-validation.yml'
+      - '.github/workflows/update-github-repositories-details.yml'
   workflow_dispatch:
 
 permissions:
@@ -44,7 +49,7 @@ jobs:
         working-directory: Pipeline
         run: npm test
 
-      - name: Run TypeScript dry-run generation
+      - name: Run TypeScript dry-run generation and merge
         working-directory: Pipeline
         run: npm run dry-run
 

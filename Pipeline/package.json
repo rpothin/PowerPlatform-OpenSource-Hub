@@ -11,7 +11,7 @@
     "build": "tsc -p tsconfig.build.json",
     "typecheck": "tsc --noEmit -p tsconfig.json",
     "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js --runInBand",
-    "dry-run": "npm run build --silent && node dist/cli.js generate --dry-run --output .\\Output\\GitHubRepositoriesDetails.json --metrics .\\Output\\metrics.json",
+    "dry-run": "npm run build --silent && node -e \"const fs=require('node:fs');fs.rmSync('Output/GeneratedRepositories',{recursive:true,force:true});fs.rmSync('Output/CuratedRepositories',{recursive:true,force:true});fs.mkdirSync('Output/CuratedRepositories',{recursive:true});\" && node dist/cli.js generate --dry-run --output Output/GitHubRepositoriesGenerated.json --generated-dir Output/GeneratedRepositories --metrics Output/metrics.json && node dist/cli.js merge --generated-dir Output/GeneratedRepositories --overlay-dir Output/CuratedRepositories --output Output/GitHubRepositoriesDetails.json --schema ../Configuration/Schemas/GitHubRepositoriesDetails.schema.json --taxonomy-dir ../Configuration/Taxonomy --sentinels ../Configuration/SentinelRepositories.json",
     "compare:fixtures": "npm run build --silent && node dist/cli.js compare --baseline .\\tests\\fixtures\\comparison\\baseline.json --candidate .\\tests\\fixtures\\comparison\\candidate.json --sentinels .\\tests\\fixtures\\comparison\\sentinels.json --report .\\.test-output\\parity-fixture-report.json",
     "generate:live": "npm run build --silent && node dist/cli.js generate --live --output .\\Output\\GitHubRepositoriesDetails.json --metrics .\\Output\\metrics.json"
   },
