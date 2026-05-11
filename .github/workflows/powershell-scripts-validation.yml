@@ -1,27 +1,30 @@
 name: powershell-scripts-validation
 # Validate the changes to PowerShell scripts
 
-# Workflow triggered by a change under the 'Scripts' folder - but can also be triggered manually
+# Workflow triggered by a change under the PowerShell pipeline surfaces - but can also be triggered manually
 on:
   push:
     branches: [ main ]
     paths:
       - 'Scripts/**'
-      - '!.devcontainer/**'
-      - '!.github/**'
-      - '!.vscode/**'
-      - '!Configuration/**'
-      - '!Data/**'
-      - '!Website/**'
-      - '!.gitignore'
-      - '!CODE_OF_CONDUCT.md'
-      - '!LICENSE'
-      - '!README.md'
+      - 'Configuration/**'
+      - '.github/workflows/powershell-scripts-validation.yml'
+      - '.github/workflows/update-github-repositories-details.yml'
+  pull_request:
+    paths:
+      - 'Scripts/**'
+      - 'Configuration/**'
+      - '.github/workflows/powershell-scripts-validation.yml'
+      - '.github/workflows/update-github-repositories-details.yml'
   workflow_dispatch:
+
+permissions:
+  contents: read
+  security-events: write
 
 # Concurrency configuration for the current workflow - Keep only the latest workflow queued for the considered group and the considered issue
 concurrency:
-  group: powershell-scripts-validation
+  group: powershell-scripts-validation-${{ github.event_name }}-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
