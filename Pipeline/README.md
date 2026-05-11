@@ -1,6 +1,10 @@
 # TypeScript candidate pipeline
 
-This standalone package is the Phase 2 TypeScript + Octokit candidate for generating `Data/GitHubRepositoriesDetails.json`-shaped records. It is intentionally isolated from the existing PowerShell pipeline and from `PipelineRust/`.
+This standalone package is the retained Phase 2 TypeScript + Octokit candidate for generating `Data/GitHubRepositoriesDetails.json`-shaped records. It is intentionally isolated from the existing PowerShell pipeline until cutover.
+
+## Stack decision
+
+Phase 2 retains TypeScript + Octokit and removes the Rust comparison candidate from the final PR. The TypeScript implementation already provides the production-shaped detail hydration surface, Octokit retry/throttling, schema validation, dry-run/live modes, parity comparison tooling, tests, and manual shadow validation needed for the planned cutover. The Rust candidate was useful for comparison, but its live path remained primarily search-shaped and did not hydrate the full current PowerShell detail surface to the same production-parity level.
 
 ## Setup and validation
 
@@ -64,4 +68,4 @@ The initial repository-count delta threshold is 15% and can be adjusted with `--
 
 ## Manual shadow validation workflow
 
-The `backend-pipeline-shadow-validation` GitHub Actions workflow is manual-only (`workflow_dispatch`) and is intended for Phase 2 shadow runs. By default it runs TypeScript and Rust dry-run generation, compares generated artifacts against `Data\GitHubRepositoriesDetails.json` when present, uploads outputs/reports as artifacts, and does not commit generated data. Live TypeScript or Rust generation must be explicitly selected in the workflow inputs and uses `GITHUB_TOKEN` only inside the generation step.
+The `backend-pipeline-shadow-validation` GitHub Actions workflow is manual-only (`workflow_dispatch`) and is intended for Phase 2 TypeScript shadow runs. By default it runs TypeScript dry-run generation, compares generated artifacts against `Data\GitHubRepositoriesDetails.json` when present, uploads outputs/reports as artifacts, and does not commit generated data. Live TypeScript generation must be explicitly selected in the workflow inputs and uses `GITHUB_TOKEN` only inside the generation step.

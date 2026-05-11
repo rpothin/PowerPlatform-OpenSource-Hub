@@ -1,11 +1,10 @@
 name: backend-pipeline-candidates-validation
-# Validate Phase 2 backend pipeline candidates.
+# Validate the retained Phase 2 TypeScript backend pipeline candidate.
 
 on:
   pull_request:
     paths:
       - 'Pipeline/**'
-      - 'PipelineRust/**'
       - 'Configuration/**'
       - '.github/workflows/backend-pipeline-candidates-validation.yml'
       - '.github/workflows/backend-pipeline-shadow-validation.yml'
@@ -54,30 +53,3 @@ jobs:
         with:
           name: typescript-candidate-dry-run
           path: Pipeline/Output/
-
-  validate-rust-candidate:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v6
-
-      - name: Show Rust toolchain
-        run: |
-          rustc --version
-          cargo --version
-
-      - name: Install Rust components
-        run: rustup component add clippy rustfmt
-
-      - name: Check Rust formatting
-        working-directory: PipelineRust
-        run: cargo fmt --check
-
-      - name: Test Rust candidate
-        working-directory: PipelineRust
-        run: cargo test
-
-      - name: Lint Rust candidate
-        working-directory: PipelineRust
-        run: cargo clippy --all-targets --all-features -- -D warnings

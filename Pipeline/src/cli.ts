@@ -274,7 +274,7 @@ Generate options:
 
 Compare options:
   --baseline <file>             Baseline JSON array, usually PowerShell output.
-  --candidate <file>            Candidate JSON array, such as TypeScript or Rust output.
+  --candidate <file>            Candidate JSON array, such as generated TypeScript output.
   --sentinels <file>            Sentinel repository config. Defaults to repository Configuration.
   --report <file>               JSON comparison report path.
   --count-delta-threshold <n>   Allowed repository-count delta ratio. Defaults to 0.15.

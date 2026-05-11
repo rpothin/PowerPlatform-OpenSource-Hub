@@ -1,20 +1,11 @@
 name: backend-pipeline-shadow-validation
-# Manual-only Phase 2 shadow validation for backend pipeline candidates.
+# Manual-only Phase 2 shadow validation for the TypeScript backend pipeline candidate.
 
 on:
   workflow_dispatch:
     inputs:
       typescript_mode:
         description: 'TypeScript candidate generation mode.'
-        required: true
-        default: dry-run
-        type: choice
-        options:
-          - dry-run
-          - live
-          - skip
-      rust_mode:
-        description: 'Rust candidate generation mode.'
         required: true
         default: dry-run
         type: choice
@@ -48,7 +39,6 @@ jobs:
       BASELINE_PATH: ${{ inputs.baseline_path }}
       COMPARE_WITH_BASELINE: ${{ inputs.compare_with_baseline }}
       FAIL_ON_PARITY_FAILURE: ${{ inputs.fail_on_parity_failure }}
-      RUST_MODE: ${{ inputs.rust_mode }}
       TYPESCRIPT_MODE: ${{ inputs.typescript_mode }}
 
     steps:
@@ -72,7 +62,6 @@ jobs:
             echo "| Setting | Value |"
             echo "| --- | --- |"
             echo "| TypeScript mode | \`$TYPESCRIPT_MODE\` |"
-            echo "| Rust mode | \`$RUST_MODE\` |"
             echo "| Baseline | \`$BASELINE_PATH\` |"
             echo "| Compare with baseline | \`$COMPARE_WITH_BASELINE\` |"
             echo "| Fail on parity failure | \`$FAIL_ON_PARITY_FAILURE\` |"
@@ -119,61 +108,6 @@ jobs:
           CANDIDATE_MODE="$TYPESCRIPT_MODE" \
           OUTPUT_PATH=Output/shadow/typescript-repositories.json \
           METRICS_PATH=Output/shadow/typescript-metrics.json \
-          node --input-type=module <<'NODE'
-          import fs from 'node:fs';
-
-          const metrics = JSON.parse(fs.readFileSync(process.env.METRICS_PATH, 'utf8'));
-          const lines = [
-            `### ${process.env.CANDIDATE_NAME} shadow generation`,
-            '',
-            '| Metric | Value |',
-            '| --- | ---: |',
-            `| Mode | \`${process.env.CANDIDATE_MODE}\` |`,
-            `| Generated records | ${metrics.generatedRecords ?? metrics.recordsWritten ?? 'n/a'} |`,
-            `| Detail failures | ${metrics.detailFailures ?? 'n/a'} |`,
-            `| Warnings | ${(metrics.warnings ?? metrics.observations ?? []).length} |`,
-            `| Metrics artifact | \`${process.env.METRICS_PATH}\` |`,
-            `| Output artifact | \`${process.env.OUTPUT_PATH}\` |`,
-            ''
-          ];
-          fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY, `${lines.join('\n')}\n`);
-          NODE
-
-      - name: Show Rust toolchain
-        if: ${{ inputs.rust_mode != 'skip' }}
-        run: |
-          rustc --version
-          cargo --version
-
-      - name: Run Rust candidate shadow generation
-        if: ${{ inputs.rust_mode != 'skip' }}
-        working-directory: PipelineRust
-        env:
-          GITHUB_TOKEN: ${{ secrets.PAT_ACCESS_PUBLIC_GITHUB_REPOSITORIES || github.token }}
-        run: |
-          set -euo pipefail
-          mkdir -p target/shadow-output
-
-          rust_args=(
-            run
-            --
-            generate
-            --config ../Configuration/GitHubRepositoriesSearchCriteria.json
-            --output ./target/shadow-output/rust-repositories.json
-            --metrics-output ./target/shadow-output/rust-metrics.json
-          )
-
-          if [[ "$RUST_MODE" == "live" ]]; then
-            echo "Rust live mode was explicitly requested for this manual shadow run."
-            rust_args+=(--live)
-          fi
-
-          cargo "${rust_args[@]}"
-
-          CANDIDATE_NAME=Rust \
-          CANDIDATE_MODE="$RUST_MODE" \
-          OUTPUT_PATH=target/shadow-output/rust-repositories.json \
-          METRICS_PATH=target/shadow-output/rust-metrics.json \
           node --input-type=module <<'NODE'
           import fs from 'node:fs';
 
@@ -255,7 +189,6 @@ jobs:
           }
 
           compare_candidate "TypeScript" ./Output/shadow/typescript-repositories.json ./Output/shadow/typescript-parity-report.json
-          compare_candidate "Rust" ../PipelineRust/target/shadow-output/rust-repositories.json ./Output/shadow/rust-parity-report.json
 
           if [[ "$comparison_status" -ne 0 && "$FAIL_ON_PARITY_FAILURE" == "true" ]]; then
             exit 1
@@ -268,5 +201,4 @@ jobs:
           name: backend-pipeline-shadow-validation-${{ github.run_id }}
           path: |
             Pipeline/Output/shadow/
-            PipelineRust/target/shadow-output/
           if-no-files-found: warn
