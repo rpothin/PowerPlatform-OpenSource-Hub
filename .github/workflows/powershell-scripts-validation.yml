@@ -1,27 +1,32 @@
 name: powershell-scripts-validation
 # Validate the changes to PowerShell scripts
 
-# Workflow triggered by a change under the 'Scripts' folder - but can also be triggered manually
+# Workflow triggered by a change under the PowerShell pipeline surfaces - but can also be triggered manually
 on:
   push:
     branches: [ main ]
     paths:
       - 'Scripts/**'
-      - '!.devcontainer/**'
-      - '!.github/**'
-      - '!.vscode/**'
-      - '!Configuration/**'
-      - '!Data/**'
-      - '!Website/**'
-      - '!.gitignore'
-      - '!CODE_OF_CONDUCT.md'
-      - '!LICENSE'
-      - '!README.md'
+      - 'Configuration/**'
+      - 'Data/GitHubRepositoriesDetails.json'
+      - '.github/workflows/powershell-scripts-validation.yml'
+      - '.github/workflows/update-github-repositories-details.yml'
+  pull_request:
+    paths:
+      - 'Scripts/**'
+      - 'Configuration/**'
+      - 'Data/GitHubRepositoriesDetails.json'
+      - '.github/workflows/powershell-scripts-validation.yml'
+      - '.github/workflows/update-github-repositories-details.yml'
   workflow_dispatch:
+
+permissions:
+  contents: read
+  security-events: write
 
 # Concurrency configuration for the current workflow - Keep only the latest workflow queued for the considered group and the considered issue
 concurrency:
-  group: powershell-scripts-validation
+  group: powershell-scripts-validation-${{ github.event_name }}-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
@@ -36,9 +41,59 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v6
 
+      - name: Validate repository details data
+        run: |
+          $schemaFilePath = ".\Configuration\Schemas\GitHubRepositoriesDetails.schema.json"
+          $dataFilePath = ".\Data\GitHubRepositoriesDetails.json"
+
+          if (-not (Test-Path -Path $schemaFilePath)) {
+            throw "No schema file found at the path '$schemaFilePath'."
+          }
+
+          if (-not (Test-Path -Path $dataFilePath)) {
+            throw "No repository details data file found at the path '$dataFilePath'."
+          }
+
+          $dataAsJson = Get-Content -Path $dataFilePath -Raw
+          if (-not ($dataAsJson | Test-Json -SchemaFile $schemaFilePath)) {
+            throw "The committed repository details data does not match the schema file '$schemaFilePath'."
+          }
+
+          $repositories = @($dataAsJson | ConvertFrom-Json)
+          $schemaVersions = ($repositories | ForEach-Object { $_._schemaVersion } | Sort-Object -Unique) -join ", "
+          if ([string]::IsNullOrWhiteSpace($schemaVersions)) {
+            $schemaVersions = "none"
+          }
+
+          Write-Host "Repository details count: $($repositories.Count)"
+          Write-Host "Repository details schema versions: $schemaVersions"
+
+          if ($env:GITHUB_STEP_SUMMARY) {
+            @(
+              "### Repository details baseline"
+              ""
+              "| Metric | Value |"
+              "| --- | ---: |"
+              "| Repository count | $($repositories.Count) |"
+              "| Schema versions | $schemaVersions |"
+            ) | Add-Content -Path $env:GITHUB_STEP_SUMMARY
+          }
+        shell: pwsh
+
       # Run tests on all *.Tests.ps1 files
       - name: Run Pester tests
-        run: Invoke-Pester
+        run: |
+          $pesterCommand = Get-Command Invoke-Pester -ErrorAction SilentlyContinue
+          if (-not $pesterCommand) {
+            throw "Invoke-Pester is not available."
+          }
+
+          $pesterModule = Get-Module -Name Pester -ListAvailable | Sort-Object -Property Version -Descending | Select-Object -First 1
+          if ($pesterModule -and $pesterModule.Version.Major -ge 5) {
+            Invoke-Pester -CI
+          } else {
+            Invoke-Pester -EnableExit
+          }
         shell: pwsh
         env:
           GITHUB_TOKEN: ${{ secrets.PAT_ACCESS_PUBLIC_GITHUB_REPOSITORIES }}

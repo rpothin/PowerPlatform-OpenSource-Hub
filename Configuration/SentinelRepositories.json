@@ -1,0 +1,32 @@
+{
+    "repositories": [
+        {
+            "fullName": "microsoft/powerplatform",
+            "rationale": "Official Power Platform tools and resources hub."
+        },
+        {
+            "fullName": "microsoft/PowerApps-Samples",
+            "rationale": "Broad Power Apps samples covering Dataverse, canvas apps, model-driven apps, PCF, portals, and AI Builder."
+        },
+        {
+            "fullName": "microsoft/PowerPlatformConnectors",
+            "rationale": "Canonical connector catalog for Power Automate, Power Apps, and Azure Logic Apps."
+        },
+        {
+            "fullName": "microsoft/PowerPlatform-DataverseServiceClient",
+            "rationale": "Dataverse client SDK source used by Power Platform integrations."
+        },
+        {
+            "fullName": "microsoft/Power-Fx",
+            "rationale": "Power Fx low-code language implementation."
+        },
+        {
+            "fullName": "microsoft/powerplatform-actions",
+            "rationale": "Power Platform GitHub Actions for ALM and CI/CD workflows."
+        },
+        {
+            "fullName": "microsoft/Agents",
+            "rationale": "Microsoft agent SDK covering Copilot Studio, Microsoft 365, Teams, and webchat agents."
+        }
+    ]
+}

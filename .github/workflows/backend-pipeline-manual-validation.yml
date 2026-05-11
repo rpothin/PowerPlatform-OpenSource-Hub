@@ -1,0 +1,204 @@
+name: backend-pipeline-manual-validation
+# Manual-only validation workflow for the TypeScript backend pipeline (live or dry-run, with optional parity comparison).
+
+on:
+  workflow_dispatch:
+    inputs:
+      typescript_mode:
+        description: 'TypeScript candidate generation mode.'
+        required: true
+        default: dry-run
+        type: choice
+        options:
+          - dry-run
+          - live
+          - skip
+      baseline_path:
+        description: 'Repository-relative baseline JSON for parity comparison.'
+        required: true
+        default: Data/GitHubRepositoriesDetails.json
+        type: string
+      compare_with_baseline:
+        description: 'Compare generated candidate outputs with the selected baseline.'
+        required: true
+        default: true
+        type: boolean
+      fail_on_parity_failure:
+        description: 'Fail this shadow run when a requested parity comparison fails.'
+        required: true
+        default: false
+        type: boolean
+
+permissions:
+  contents: read
+
+jobs:
+  shadow-validation:
+    runs-on: ubuntu-latest
+    env:
+      BASELINE_PATH: ${{ inputs.baseline_path }}
+      COMPARE_WITH_BASELINE: ${{ inputs.compare_with_baseline }}
+      FAIL_ON_PARITY_FAILURE: ${{ inputs.fail_on_parity_failure }}
+      TYPESCRIPT_MODE: ${{ inputs.typescript_mode }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Validate shadow-run inputs
+        run: |
+          set -euo pipefail
+          normalized_baseline="${BASELINE_PATH//\\//}"
+          if [[ "$normalized_baseline" == /* || "$normalized_baseline" == *".."* ]]; then
+            echo "::error::baseline_path must stay within the checked-out repository."
+            exit 1
+          fi
+          echo "BASELINE_PATH=$normalized_baseline" >> "$GITHUB_ENV"
+          BASELINE_PATH="$normalized_baseline"
+
+          {
+            echo "### Backend pipeline shadow validation"
+            echo ""
+            echo "| Setting | Value |"
+            echo "| --- | --- |"
+            echo "| TypeScript mode | \`$TYPESCRIPT_MODE\` |"
+            echo "| Baseline | \`$BASELINE_PATH\` |"
+            echo "| Compare with baseline | \`$COMPARE_WITH_BASELINE\` |"
+            echo "| Fail on parity failure | \`$FAIL_ON_PARITY_FAILURE\` |"
+            echo ""
+            echo "This workflow uploads shadow outputs and reports only; it does not commit generated data."
+            echo ""
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Set up Node.js
+        if: ${{ inputs.typescript_mode != 'skip' || inputs.compare_with_baseline }}
+        uses: actions/setup-node@v6
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: Pipeline/package-lock.json
+
+      - name: Install TypeScript candidate dependencies
+        if: ${{ inputs.typescript_mode != 'skip' || inputs.compare_with_baseline }}
+        working-directory: Pipeline
+        run: npm ci
+
+      - name: Build TypeScript candidate CLI
+        if: ${{ inputs.typescript_mode != 'skip' || inputs.compare_with_baseline }}
+        working-directory: Pipeline
+        run: npm run build
+
+      - name: Run TypeScript candidate shadow generation
+        if: ${{ inputs.typescript_mode != 'skip' }}
+        working-directory: Pipeline
+        env:
+          GITHUB_TOKEN: ${{ secrets.PAT_ACCESS_PUBLIC_GITHUB_REPOSITORIES || github.token }}
+        run: |
+          set -euo pipefail
+          mkdir -p Output/shadow
+
+          if [[ "$TYPESCRIPT_MODE" == "live" ]]; then
+            echo "TypeScript live mode was explicitly requested for this manual shadow run."
+            node dist/cli.js generate --live --output ./Output/shadow/typescript-repositories.json --metrics ./Output/shadow/typescript-metrics.json
+          else
+            node dist/cli.js generate --dry-run --output ./Output/shadow/typescript-repositories.json --metrics ./Output/shadow/typescript-metrics.json
+          fi
+
+          CANDIDATE_NAME=TypeScript \
+          CANDIDATE_MODE="$TYPESCRIPT_MODE" \
+          OUTPUT_PATH=Output/shadow/typescript-repositories.json \
+          METRICS_PATH=Output/shadow/typescript-metrics.json \
+          node --input-type=module <<'NODE'
+          import fs from 'node:fs';
+
+          const metrics = JSON.parse(fs.readFileSync(process.env.METRICS_PATH, 'utf8'));
+          const lines = [
+            `### ${process.env.CANDIDATE_NAME} shadow generation`,
+            '',
+            '| Metric | Value |',
+            '| --- | ---: |',
+            `| Mode | \`${process.env.CANDIDATE_MODE}\` |`,
+            `| Generated records | ${metrics.generatedRecords ?? metrics.recordsWritten ?? 'n/a'} |`,
+            `| Detail failures | ${metrics.detailFailures ?? 'n/a'} |`,
+            `| Warnings | ${(metrics.warnings ?? metrics.observations ?? []).length} |`,
+            `| Metrics artifact | \`${process.env.METRICS_PATH}\` |`,
+            `| Output artifact | \`${process.env.OUTPUT_PATH}\` |`,
+            ''
+          ];
+          fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY, `${lines.join('\n')}\n`);
+          NODE
+
+      - name: Compare shadow outputs with baseline
+        if: ${{ inputs.compare_with_baseline }}
+        working-directory: Pipeline
+        run: |
+          set -euo pipefail
+          mkdir -p Output/shadow
+
+          baseline="../$BASELINE_PATH"
+          if [[ ! -f "$baseline" ]]; then
+            {
+              echo "### Output parity comparison"
+              echo ""
+              echo "Skipped because baseline \`$BASELINE_PATH\` was not found."
+              echo ""
+            } >> "$GITHUB_STEP_SUMMARY"
+            exit 0
+          fi
+
+          comparison_status=0
+
+          compare_candidate() {
+            local label="$1"
+            local candidate="$2"
+            local report="$3"
+            local summary="${report%.json}.summary.md"
+
+            if [[ ! -f "$candidate" ]]; then
+              {
+                echo "### ${label} output parity comparison"
+                echo ""
+                echo "Skipped because candidate output \`$candidate\` was not generated."
+                echo ""
+              } >> "$GITHUB_STEP_SUMMARY"
+              return
+            fi
+
+            set +e
+            node dist/cli.js compare --baseline "$baseline" --candidate "$candidate" --sentinels ../Configuration/SentinelRepositories.json --report "$report" > "$summary" 2>&1
+            local exit_code=$?
+            set -e
+
+            {
+              echo "### ${label} output parity comparison"
+              echo ""
+              echo "| Setting | Value |"
+              echo "| --- | --- |"
+              echo "| Baseline | \`$BASELINE_PATH\` |"
+              echo "| Candidate | \`$candidate\` |"
+              echo "| Report | \`$report\` |"
+              echo "| Exit code | \`$exit_code\` |"
+              echo ""
+              cat "$summary"
+              echo ""
+            } >> "$GITHUB_STEP_SUMMARY"
+
+            if [[ "$exit_code" -ne 0 ]]; then
+              comparison_status=1
+            fi
+          }
+
+          compare_candidate "TypeScript" ./Output/shadow/typescript-repositories.json ./Output/shadow/typescript-parity-report.json
+
+          if [[ "$comparison_status" -ne 0 && "$FAIL_ON_PARITY_FAILURE" == "true" ]]; then
+            exit 1
+          fi
+
+      - name: Upload shadow validation artifacts
+        if: ${{ always() }}
+        uses: actions/upload-artifact@v7
+        with:
+          name: backend-pipeline-manual-validation-${{ github.run_id }}
+          path: |
+            Pipeline/Output/shadow/
+          if-no-files-found: warn
