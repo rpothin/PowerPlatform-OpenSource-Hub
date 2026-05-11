@@ -1,11 +1,9 @@
 # To execute these tests run the following command from the root of the repository: Invoke-Pester -Script .\Scripts\Tests\SentinelRepositories.Tests.ps1
 
-# Set a global variable with the path of the executing script
-$global:executingTestPath = Split-Path -Parent $MyInvocation.MyCommand.Path
-
 Describe "SentinelRepositories configuration" {
     BeforeAll {
-        $repositoryRoot = (Resolve-Path -Path (Join-Path -Path $global:executingTestPath -ChildPath "..\..")).Path
+        $executingTestPath = $PSScriptRoot
+        $repositoryRoot = (Resolve-Path -Path (Join-Path -Path $executingTestPath -ChildPath "..\..")).Path
         $configurationFilePath = Join-Path -Path $repositoryRoot -ChildPath "Configuration\SentinelRepositories.json"
         $repositoryDetailsFilePath = Join-Path -Path $repositoryRoot -ChildPath "Data\GitHubRepositoriesDetails.json"
 

@@ -1,14 +1,22 @@
 name: 1-update-github-repositories-details
 # Update the details of all the GitHub repositories corresponding to the list of considered topics
 
-# Workflow triggered every day at 06:00 AM EST - but can also be triggered manually without input parameters
+# Workflow triggered every day at 06:00 AM EST - but can also be triggered manually.
 on:
   schedule:
     - cron: "0 11 * * *" # Every day at 06:00 AM EST
   workflow_dispatch:
     inputs:
+      pipeline:
+        description: 'Generation pipeline to run. Use powershell only as a manual rollback fallback; both paths use a 15% count guard.'
+        required: true
+        default: typescript
+        type: choice
+        options:
+          - typescript
+          - powershell
       allow_suspicious_repository_delta:
-        description: 'Allow committing a suspiciously large repository-count delta'
+        description: 'Allow committing a suspiciously large repository-count delta for an intentional scope change or rollback run'
         required: false
         default: false
         type: boolean
@@ -26,12 +34,72 @@ jobs:
     runs-on: ubuntu-latest
     env:
       RUNNER_DEBUG: 1
-    
+      PIPELINE: ${{ inputs.pipeline || 'typescript' }}
+      ALLOW_SUSPICIOUS_REPOSITORY_DELTA: ${{ inputs.allow_suspicious_repository_delta || false }}
+      CONFIGURATION_FILE_PATH: ${{ vars.CONFIGURATION_FILE_PATH }}
+      DATA_FILE_PATH: ${{ vars.DATA_FILE_PATH }}
+      SCHEMA_FILE_PATH: Configuration/Schemas/GitHubRepositoriesDetails.schema.json
+      TYPESCRIPT_OUTPUT_DIR: Pipeline/Output/production
+
     steps:
       # Action used to checkout the main branch in the current repository
       #   Community action: https://github.com/actions/checkout
       - name: Checkout
         uses: actions/checkout@v6
+
+      - name: Validate production pipeline inputs
+        run: |
+          set -euo pipefail
+
+          normalize_repo_path() {
+            local label="$1"
+            local raw="${2:-}"
+            local normalized="${raw//\\//}"
+            normalized="${normalized#./}"
+
+            if [[ -z "$normalized" || "$normalized" == /* || "$normalized" == *".."* ]]; then
+              echo "::error::${label} must be a repository-relative path."
+              exit 1
+            fi
+
+            printf '%s' "$normalized"
+          }
+
+          case "$PIPELINE" in
+            typescript|powershell) ;;
+            *)
+              echo "::error::Unsupported pipeline '$PIPELINE'."
+              exit 1
+              ;;
+          esac
+
+          config_path="$(normalize_repo_path CONFIGURATION_FILE_PATH "$CONFIGURATION_FILE_PATH")"
+          data_path="$(normalize_repo_path DATA_FILE_PATH "$DATA_FILE_PATH")"
+          schema_path="$(normalize_repo_path SCHEMA_FILE_PATH "$SCHEMA_FILE_PATH")"
+
+          {
+            echo "CONFIGURATION_FILE_PATH=$config_path"
+            echo "DATA_FILE_PATH=$data_path"
+            echo "SCHEMA_FILE_PATH=$schema_path"
+            echo "TYPESCRIPT_BASELINE_PATH=$TYPESCRIPT_OUTPUT_DIR/baseline-before-typescript.json"
+            echo "TYPESCRIPT_METRICS_PATH=$TYPESCRIPT_OUTPUT_DIR/typescript-metrics.json"
+            echo "TYPESCRIPT_PARITY_REPORT_PATH=$TYPESCRIPT_OUTPUT_DIR/typescript-parity-report.json"
+            echo "TYPESCRIPT_PARITY_SUMMARY_PATH=$TYPESCRIPT_OUTPUT_DIR/typescript-parity-summary.md"
+          } >> "$GITHUB_ENV"
+
+          {
+            echo "### Repository details production generation"
+            echo ""
+            echo "| Setting | Value |"
+            echo "| --- | --- |"
+            echo "| Pipeline | \`$PIPELINE\` |"
+            echo "| Configuration | \`$config_path\` |"
+            echo "| Data output | \`$data_path\` |"
+            echo "| Schema | \`$schema_path\` |"
+            echo "| Suspicious delta override | \`$ALLOW_SUSPICIOUS_REPOSITORY_DELTA\` |"
+            echo ""
+          } >> "$GITHUB_STEP_SUMMARY"
+        shell: bash
 
       # Set a current date environment variable in the following format: YYYYMMDD
       - name: Set current date as env variable
@@ -39,8 +107,145 @@ jobs:
         run: echo "NOW=$(date +'%Y%m%d')" >> $env:GITHUB_OUTPUT
         shell: pwsh
 
+      - name: Set up Node.js
+        if: ${{ env.PIPELINE == 'typescript' }}
+        uses: actions/setup-node@v6
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: Pipeline/package-lock.json
+
+      - name: Install TypeScript pipeline dependencies
+        if: ${{ env.PIPELINE == 'typescript' }}
+        working-directory: Pipeline
+        run: npm ci
+
+      - name: Build TypeScript pipeline CLI
+        if: ${{ env.PIPELINE == 'typescript' }}
+        working-directory: Pipeline
+        run: npm run build
+
+      - name: Capture existing repository details baseline
+        if: ${{ env.PIPELINE == 'typescript' }}
+        run: |
+          set -euo pipefail
+          mkdir -p "$TYPESCRIPT_OUTPUT_DIR"
+
+          if [[ -f "$DATA_FILE_PATH" ]]; then
+            cp "$DATA_FILE_PATH" "$TYPESCRIPT_BASELINE_PATH"
+            echo "Captured baseline from '$DATA_FILE_PATH'."
+            echo "TYPESCRIPT_BASELINE_PRESENT=true" >> "$GITHUB_ENV"
+          else
+            echo "::warning::No existing repository details data found at '$DATA_FILE_PATH'; using an empty baseline so candidate duplicate, sentinel, and count guards still run."
+            printf '[]\n' > "$TYPESCRIPT_BASELINE_PATH"
+            echo "TYPESCRIPT_BASELINE_PRESENT=false" >> "$GITHUB_ENV"
+          fi
+        shell: bash
+
+      - name: Generate repository details with TypeScript pipeline
+        if: ${{ env.PIPELINE == 'typescript' }}
+        run: |
+          set -euo pipefail
+          mkdir -p "$(dirname "$DATA_FILE_PATH")" "$TYPESCRIPT_OUTPUT_DIR"
+
+          node Pipeline/dist/cli.js generate \
+            --live \
+            --config "$CONFIGURATION_FILE_PATH" \
+            --schema "$SCHEMA_FILE_PATH" \
+            --output "$DATA_FILE_PATH" \
+            --metrics "$TYPESCRIPT_METRICS_PATH"
+        shell: bash
+        env:
+          GITHUB_TOKEN: ${{ secrets.PAT_ACCESS_PUBLIC_GITHUB_REPOSITORIES }}
+
+      - name: Guard TypeScript repository-count delta
+        if: ${{ env.PIPELINE == 'typescript' }}
+        run: |
+          set -euo pipefail
+
+          threshold="0.15"
+          if [[ "$ALLOW_SUSPICIOUS_REPOSITORY_DELTA" == "true" ]]; then
+            threshold="999"
+            echo "::warning::Repository-count delta guard is explicitly overridden for this run; schema, input, duplicate, and sentinel failures still block commits."
+          fi
+
+          set +e
+          node Pipeline/dist/cli.js compare \
+            --baseline "$TYPESCRIPT_BASELINE_PATH" \
+            --candidate "$DATA_FILE_PATH" \
+            --sentinels Configuration/SentinelRepositories.json \
+            --report "$TYPESCRIPT_PARITY_REPORT_PATH" \
+            --count-delta-threshold "$threshold" > "$TYPESCRIPT_PARITY_SUMMARY_PATH" 2>&1
+          comparison_exit_code=$?
+          set -e
+
+          {
+            echo "### TypeScript output parity guard"
+            echo ""
+            echo "| Setting | Value |"
+            echo "| --- | --- |"
+            echo "| Baseline | \`$TYPESCRIPT_BASELINE_PATH\` |"
+            echo "| Existing baseline present | \`${TYPESCRIPT_BASELINE_PRESENT:-unknown}\` |"
+            echo "| Candidate | \`$DATA_FILE_PATH\` |"
+            echo "| Count delta threshold | \`$threshold\` |"
+            echo "| Report | \`$TYPESCRIPT_PARITY_REPORT_PATH\` |"
+            echo "| Exit code | \`$comparison_exit_code\` |"
+            echo "| Production blocking scope | repository-count delta, invalid inputs, candidate duplicates, candidate missing sentinels |"
+            echo ""
+            cat "$TYPESCRIPT_PARITY_SUMMARY_PATH"
+            echo ""
+          } >> "$GITHUB_STEP_SUMMARY"
+
+          node --input-type=module <<'NODE'
+          import fs from 'node:fs';
+
+          const reportPath = process.env.TYPESCRIPT_PARITY_REPORT_PATH;
+          const allowSuspiciousDelta = process.env.ALLOW_SUSPICIOUS_REPOSITORY_DELTA === 'true';
+          const report = JSON.parse(fs.readFileSync(reportPath, 'utf8'));
+          const blockingFailures = [];
+
+          if ((report.failures.invalidInputs ?? []).length > 0) {
+            blockingFailures.push('comparison inputs are invalid');
+          }
+
+          const candidateDuplicates = (report.failures.duplicateFullNames ?? []).filter((failure) => failure.input === 'candidate');
+          if (candidateDuplicates.length > 0) {
+            blockingFailures.push('candidate output contains duplicate fullName values');
+          }
+
+          if (!allowSuspiciousDelta && report.failures.repositoryCountDelta !== undefined) {
+            const delta = report.failures.repositoryCountDelta;
+            blockingFailures.push(
+              `repository-count delta ${(delta.percentDelta * 100).toFixed(2)}% exceeds ${(delta.threshold * 100).toFixed(2)}%`
+            );
+          }
+
+          const missingCandidateSentinels = report.failures.missingSentinels?.candidate ?? [];
+          if (missingCandidateSentinels.length > 0) {
+            blockingFailures.push(`candidate output is missing sentinel repositories: ${missingCandidateSentinels.join(', ')}`);
+          }
+
+          if (blockingFailures.length > 0) {
+            for (const failure of blockingFailures) {
+              console.error(`::error::${failure}`);
+            }
+            process.exit(1);
+          }
+          NODE
+        shell: bash
+
+      - name: Upload TypeScript production guard artifacts
+        if: ${{ always() && env.PIPELINE == 'typescript' }}
+        uses: actions/upload-artifact@v7
+        with:
+          name: repository-details-typescript-production-${{ github.run_id }}
+          path: |
+            Pipeline/Output/production/
+          if-no-files-found: warn
+
       # Update the details of all the GitHub repositories corresponding to the list of considered topics
-      - name: Update GitHub repositories details
+      - name: Update GitHub repositories details with PowerShell fallback
+        if: ${{ env.PIPELINE == 'powershell' }}
         run: |
           Write-Host "/********************************************************************************/"
           Write-Host "Install required modules"
@@ -51,11 +256,12 @@ jobs:
           Write-Host "/********************************************************************************/"
           Write-Host "Update GitHub repositories details"
           $exportParameters = @{
-            ConfigurationFilePath = "${{ vars.CONFIGURATION_FILE_PATH }}"
-            OutputFilePath = "${{ vars.DATA_FILE_PATH }}"
+            ConfigurationFilePath = $env:CONFIGURATION_FILE_PATH
+            OutputFilePath = $env:DATA_FILE_PATH
+            MaximumRepositoryCountDeltaPercentage = 15
           }
 
-          if ("${{ inputs.allow_suspicious_repository_delta }}" -eq "true") {
+          if ($env:ALLOW_SUSPICIOUS_REPOSITORY_DELTA -eq "true") {
             $exportParameters.AllowSuspiciousRepositoryCountDelta = $true
             Write-Warning "Suspicious repository-count delta guard is explicitly overridden for this run."
           }
@@ -69,8 +275,8 @@ jobs:
 
       - name: Validate generated repository details data
         run: |
-          $schemaFilePath = ".\Configuration\Schemas\GitHubRepositoriesDetails.schema.json"
-          $dataFilePath = "${{ vars.DATA_FILE_PATH }}"
+          $schemaFilePath = $env:SCHEMA_FILE_PATH
+          $dataFilePath = $env:DATA_FILE_PATH
 
           if (-not (Test-Path -Path $schemaFilePath)) {
             throw "No schema file found at the path '$schemaFilePath'."
@@ -96,7 +302,7 @@ jobs:
 
           if ($env:GITHUB_STEP_SUMMARY) {
             @(
-              "### Repository details baseline"
+              "### Generated repository details"
               ""
               "| Metric | Value |"
               "| --- | ---: |"
@@ -113,7 +319,7 @@ jobs:
           git config --global user.name 'action@github.com'
           git config --global user.email 'GitHub Action'
 
-          git add -- "${{ vars.DATA_FILE_PATH }}"
+          git add -- "$env:DATA_FILE_PATH"
           git diff --cached --quiet
           $gitDiffExitCode = $LASTEXITCODE
 

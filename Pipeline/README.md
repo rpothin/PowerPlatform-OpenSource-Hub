@@ -1,6 +1,6 @@
 # TypeScript candidate pipeline
 
-This standalone package is the retained Phase 2 TypeScript + Octokit candidate for generating `Data/GitHubRepositoriesDetails.json`-shaped records. It is intentionally isolated from the existing PowerShell pipeline until cutover.
+This standalone package is the retained Phase 2 TypeScript + Octokit pipeline for generating `Data/GitHubRepositoriesDetails.json`-shaped records.
 
 ## Stack decision
 
@@ -42,6 +42,10 @@ node dist\cli.js generate --live --concurrency 4 --output .\Output\GitHubReposit
 ```
 
 Schema validation is performed with `ajv` against the repository's existing JSON Schema so the candidate remains focused on the Phase 1 record shape.
+
+## Production workflow cutover
+
+The `1-update-github-repositories-details` workflow now runs this TypeScript pipeline by default for scheduled and manual production generation. It writes the configured repository details data path unchanged, validates the existing schema during generation, compares the new output with the previous committed data, blocks suspicious repository-count deltas above 15%, and only dispatches downstream workflows after a data commit. Stable parity differences are reported for review but are not production commit blockers. Manual `workflow_dispatch` runs can select `pipeline: powershell` as a rollback fallback during the stabilization window; the PowerShell scripts remain in place.
 
 ## Output parity comparison (no network)
 

@@ -1,4 +1,4 @@
-function Join-GhCliArguments {
+function Join-GhCliArgument {
     [CmdletBinding()]
     [OutputType([string])]
     Param(
@@ -84,7 +84,7 @@ function Invoke-GhCli {
     }
 
     $attempt = 0
-    $commandDisplay = "gh $(Join-GhCliArguments -Arguments $Arguments)"
+    $commandDisplay = "gh $(Join-GhCliArgument -Arguments $Arguments)"
 
     do {
         $attempt++
