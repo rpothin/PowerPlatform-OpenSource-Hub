@@ -28,8 +28,6 @@ Describe "Invoke-GhCli Unit Tests" {
             $script:sleepCallCount = 0
 
             Set-Item -Path Function:\script:Start-Sleep -Value {
-                Param([int]$Seconds)
-
                 $script:sleepCallCount++
             }
         }
