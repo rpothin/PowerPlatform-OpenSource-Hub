@@ -25,3 +25,13 @@ If you are not a maintainer of the repository, you can follow the [Invitation to
 That's it for the actions on your side!
 
 Now we will just need to wait for a maximum of 24 hours for the repository to be added to the Power Platform Open-Source Hub initative and be visible on the website.
+
+## Repository metadata and curation
+
+The hub combines generated GitHub facts with human-reviewed curation:
+
+- Generated fields such as stars, topics, languages, releases, license, issues, and activity come from the daily pipeline.
+- Curated fields such as category, focus areas, audience, featured status, custom description, exclusion, and curated health are reviewed through files in `Data\CuratedRepositories`.
+- The daily bot can update generated files and the merged website data, but it does not create or rewrite curated overlays.
+
+If your repository appears with the wrong category, focus area, audience, description, or health/featured badge, open a PR or issue requesting an overlay update. New taxonomy values should be requested with a clear description so maintainers can keep the vocabulary stable and useful for filtering.

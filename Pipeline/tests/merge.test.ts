@@ -105,6 +105,15 @@ describe("mergeRepositoryDetails", () => {
     await expect(mergeRepositoryDetails(paths)).rejects.toThrow("unknown repositoryId '2'");
   });
 
+  it("rejects overlays whose repository id matches but fullName points to a different repository", async () => {
+    const paths = await createFixturePaths("mismatched-full-name");
+    await writeGenerated(paths.generatedDirPath, generatedRecord({ repositoryId: 1, fullName: "owner/current" }));
+    await writeOverlay(paths.overlayDirPath, { repositoryId: 1, fullName: "owner/old-name", previousFullNames: ["owner/current"] });
+    await writeSentinels(paths.sentinelsPath, []);
+
+    await expect(mergeRepositoryDetails(paths)).rejects.toThrow("has fullName 'owner/old-name' but generated data has 'owner/current'");
+  });
+
   it("excludes repositories before writing merged output", async () => {
     const paths = await createFixturePaths("exclude");
     await writeGenerated(paths.generatedDirPath, generatedRecord({ repositoryId: 1, fullName: "owner/keep", stars: 10 }));
@@ -192,6 +201,38 @@ describe("merge CLI command", () => {
     expect(exitCode).toBe(0);
     expect(JSON.parse(await readFile(paths.outputPath, "utf8"))).toHaveLength(1);
     expect(JSON.parse(stdout.join("\n"))).toMatchObject({ generatedCount: 1, overlayCount: 1, matchedOverlays: 1 });
+  });
+
+  it("returns a non-zero exit code and does not write output when merge validation fails", async () => {
+    const paths = await createFixturePaths("cli-failure");
+    const stderr: string[] = [];
+    await writeGenerated(paths.generatedDirPath, generatedRecord({ repositoryId: 1, fullName: "owner/alpha" }));
+    await writeOverlay(paths.overlayDirPath, { repositoryId: 2, fullName: "owner/beta" });
+    await writeSentinels(paths.sentinelsPath, []);
+
+    const exitCode = await runCli(
+      [
+        "merge",
+        "--generated-dir",
+        paths.generatedDirPath,
+        "--overlay-dir",
+        paths.overlayDirPath,
+        "--schema",
+        paths.schemaPath,
+        "--output",
+        paths.outputPath,
+        "--taxonomy-dir",
+        paths.taxonomyDirPath,
+        "--sentinels",
+        paths.sentinelsPath
+      ],
+      {},
+      { stderr: (message) => stderr.push(message) }
+    );
+
+    expect(exitCode).toBe(1);
+    expect(stderr.join("\n")).toContain("unknown repositoryId '2'");
+    await expect(readFile(paths.outputPath, "utf8")).rejects.toMatchObject({ code: "ENOENT" });
   });
 });
 

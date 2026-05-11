@@ -1,5 +1,5 @@
 import { data } from './mockData';
-import { filterItems, sortItems, isActive } from '../../src/utils/galleryUtils';
+import { filterItems, sortItems, isActive, getRepositoryDescription, getRelaunchBadgeEntries } from '../../src/utils/galleryUtils';
 
 describe('filterItems', () => {
   it('returns the full list when the items array is empty, but the filter parameters are not', () => {
@@ -285,5 +285,54 @@ describe('isActive', () => {
         today.setDate(today.getDate() - 30);
         const result = isActive(today.toISOString());
         expect(result).toEqual(false);
+    });
+});
+
+describe('relaunch metadata helpers', () => {
+    it('prefers curated display descriptions over generated descriptions', () => {
+        expect(getRepositoryDescription({
+            ...data[0],
+            description: 'Generated description',
+            customDescription: 'Curated description',
+            displayDescription: 'Display description',
+        })).toEqual('Display description');
+        expect(getRepositoryDescription({
+            ...data[0],
+            description: 'Generated description',
+            customDescription: 'Curated description',
+            displayDescription: undefined,
+        })).toEqual('Curated description');
+        expect(getRepositoryDescription(null)).toEqual('');
+    });
+
+    it('builds badge labels for featured, taxonomy, computed health, and curated health fields', () => {
+        const badges = getRelaunchBadgeEntries(data[0]);
+
+        expect(badges.map((badge) => badge.label)).toEqual([
+            'Featured',
+            'Category: Power Apps',
+            'Focus: Canvas Apps',
+            'Focus: Community Samples',
+            'Audience: Makers',
+            'Audience: Developers',
+            'Health: Active',
+            'Maintenance: Maintained',
+            'Maturity: Stable',
+        ]);
+        expect(badges.map((badge) => badge.testIdSuffix)).toEqual([
+            'featured',
+            'category',
+            'focus-area',
+            'focus-area',
+            'audience',
+            'audience',
+            'health',
+            'maintenance',
+            'maturity',
+        ]);
+    });
+
+    it('does not create relaunch badges for repositories without curated or health fields', () => {
+        expect(getRelaunchBadgeEntries(data[1])).toEqual([]);
     });
 });

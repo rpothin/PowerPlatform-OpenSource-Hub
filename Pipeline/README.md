@@ -20,6 +20,7 @@ npm test
 Phase 3 separates machine-generated repository facts from human-owned curation:
 
 - `Data\GitHubRepositoriesDetails.json` remains the generated/merged frontend artifact and may be updated by automation.
+- `Data\GeneratedRepositories\<owner>\<repository>.json` is the per-repository generated layer. It is owned by the pipeline, replaced atomically during generation, and staged by the bot together with the merged artifact.
 - `Data\CuratedRepositories\<owner>\<repository>.json` contains PR-reviewed overlays owned by humans. The daily bot workflow must read existing overlays only; it must not create, rewrite, or stage overlay files.
 - Overlay paths use lowercase owner and repository path segments for filesystem stability, for example `Data\CuratedRepositories\microsoft\powerapps-samples.json` for `microsoft/PowerApps-Samples`.
 
@@ -30,6 +31,27 @@ Allowed overlay fields are intentionally small: `previousFullNames`, `exclude`, 
 Taxonomy values live in `Configuration\Taxonomy\RepositoryCategories.json`, `RepositoryFocusAreas.json`, and `RepositoryAudiences.json`. Each entry has a stable `value`, display `label`, and maintenance `description`. Request new taxonomy values in the same PR as the overlays that need them, and keep schema enums, pipeline types, and taxonomy files aligned.
 
 Exclusions are allowed only through reviewed overlays. `exclude: true` should explain the reason in `maintainerNotes`; sentinel repositories from `Configuration\SentinelRepositories.json` must not be excluded unless the sentinel configuration is intentionally changed and reviewed in the same work. Featured status and curated health fields (`maturity`, `maintenance`, `reviewedAt`, `reviewedBy`) are human judgments and should be reviewed by maintainers before setting `curationStatus` to `reviewed`.
+
+### Overlay authoring checklist
+
+1. Find the matching generated record in `Data\GeneratedRepositories` or the merged artifact and copy its `repositoryId` and current `fullName`.
+2. Create or update `Data\CuratedRepositories\<lowercase-owner>\<lowercase-repository>.json`.
+3. Add only the allow-listed curated fields. Use `customDescription` for editorial text; never copy generated facts into the overlay.
+4. Choose taxonomy values from the checked-in taxonomy files. Missing taxonomy is allowed during bootstrap, but reviewed overlays should include the best available `category`, `focusAreas`, and `audiences`.
+5. If setting `featured` or `health.curated`, include enough context in the PR for maintainers to review the judgment.
+6. If setting `exclude: true`, include `maintainerNotes` and confirm the repository is not listed in `Configuration\SentinelRepositories.json`.
+
+### Taxonomy governance
+
+Taxonomy values are stable identifiers used by overlays, filters, and badges. Labels and descriptions can be clarified, but avoid renaming a `value` once overlays use it.
+
+| Field | Source file | Current values |
+| --- | --- | --- |
+| `category` | `RepositoryCategories.json` | `copilot-studio`, `power-apps`, `power-automate`, `power-pages`, `dataverse`, `power-bi`, `connectors`, `alm-devops`, `governance-admin`, `developer-tooling`, `samples-templates`, `learning-docs` |
+| `focusAreas` | `RepositoryFocusAreas.json` | `agent-development`, `bot-building`, `custom-connectors`, `pcf-controls`, `canvas-apps`, `model-driven-apps`, `cloud-flows`, `desktop-flows`, `power-pages-sites`, `dataverse-modeling`, `environment-governance`, `solution-lifecycle`, `testing-quality`, `community-samples` |
+| `audiences` | `RepositoryAudiences.json` | `users`, `contributors`, `maintainers`, `makers`, `developers`, `admins` |
+
+When adding a value, update the taxonomy file, the shared schema enum in `Configuration\Schemas\GitHubRepositoryDefinitions.schema.json`, and the TypeScript taxonomy unions in `Pipeline\src\types.ts` and `Website\src\types\repository.tsx`. The schema tests verify that the files remain aligned.
 
 Before requesting review for curation changes, run:
 
@@ -72,6 +94,8 @@ Schema validation is performed with `ajv`. The array output validates against `G
 ## Production workflow cutover
 
 The `1-update-github-repositories-details` workflow now runs this TypeScript pipeline by default for scheduled and manual production generation. It writes `Data\GeneratedRepositories`, compares the generated layer with the previous generated-layer baseline so curated exclusions do not distort the count guard, merges existing PR-owned overlays from `Data\CuratedRepositories` into the configured frontend artifact, and stages only the generated directory plus the merged artifact. It validates generated records, overlays, sentinel exclusions, and the final schema before committing. Downstream README/site workflows dispatch only when the merged frontend artifact changes. Manual `workflow_dispatch` runs can select `pipeline: powershell` as a rollback fallback during the stabilization window; the PowerShell scripts remain in place.
+
+Bot ownership is intentionally narrow: scheduled runs may add, update, or delete files under `Data\GeneratedRepositories` and may update `Data\GitHubRepositoriesDetails.json`. They must not stage `Data\CuratedRepositories`, taxonomy files, schemas, or sentinel configuration. Those files are reviewed in normal PRs so curation and governance changes are attributable to humans.
 
 ## Output parity comparison (no network)
 
