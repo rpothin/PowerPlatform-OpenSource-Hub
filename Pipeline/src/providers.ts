@@ -294,14 +294,31 @@ export class OctokitRepositoryProvider implements CandidateProvider {
           }
 
           const node = responseData[alias] as GraphQLRepositoryNode | null | undefined;
-          if (node === null || node === undefined) {
-            // Prefer root-level error message over generic "not found" so that the calling
-            // code can correctly classify PAT-policy errors (vs blocking data failures).
-            const missingError =
-              rootLevelErrors.length > 0
-                ? new Error(rootLevelErrors.map((e) => e.message).join("; "))
-                : new Error(`Repository not found: ${repo.fullName}`);
-            result.set(repo.fullName, missingError);
+          if (node === undefined || node === null) {
+            if (rootLevelErrors.length > 0) {
+              // Root-level error present: propagate its message so the caller can classify
+              // PAT-policy errors (vs. blocking data failures). Applies to both the
+              // Azure-Samples/Azure pattern (alias absent = undefined) and cases where
+              // GraphQL explicitly returns null alongside a root-level error.
+              result.set(repo.fullName, new Error(rootLevelErrors.map((e) => e.message).join("; ")));
+            } else if (node === undefined) {
+              // Alias absent with no error — unexpected, likely a malformed response.
+              result.set(repo.fullName, new Error(`GraphQL response missing alias '${alias}' for ${repo.fullName}`));
+            } else {
+              // GraphQL returned null with no error. All repos in this batch were found by the
+              // search API so they exist. GitHub can silently null-out repos for PAT-policy
+              // restrictions without surfacing an explicit GraphQL error (behaviour differs by
+              // org). Fall back to REST — getRepositoryDetails() calls repos.get first, so a
+              // 403 PAT-policy error surfaces immediately and can be classified by the caller.
+              try {
+                result.set(repo.fullName, await this.getRepositoryDetails(repo.fullName, repo));
+              } catch (fallbackError) {
+                result.set(
+                  repo.fullName,
+                  fallbackError instanceof Error ? fallbackError : new Error(String(fallbackError))
+                );
+              }
+            }
             continue;
           }
 
