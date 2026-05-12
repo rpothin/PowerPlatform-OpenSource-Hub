@@ -232,8 +232,13 @@ function indexOverlays(
       warnings.push(fullNameWarning);
     }
     validateOverlayTaxonomy(overlayFile.filePath, overlay, taxonomy);
-    if (overlay.exclude === true && sentinelFullNames.has(normalizeFullName(overlay.fullName))) {
-      throw new Error(`Curated overlay '${overlayFile.filePath}' cannot exclude sentinel repository '${overlay.fullName}'.`);
+    const isSentinel =
+      sentinelFullNames.has(normalizeFullName(generated.fullName)) ||
+      sentinelFullNames.has(normalizeFullName(overlay.fullName));
+    if (overlay.exclude === true && isSentinel) {
+      throw new Error(
+        `Curated overlay '${overlayFile.filePath}' cannot exclude sentinel repository '${overlay.fullName}' (current name: '${generated.fullName}').`
+      );
     }
 
     byId.set(key, overlay);

@@ -175,6 +175,15 @@ describe("mergeRepositoryDetails", () => {
     expect(output[0]).toMatchObject({ repositoryId: 1, fullName: "owner/new-name", category: "power-apps" });
   });
 
+  it("rejects curated exclusions for renamed sentinel repositories whose generated fullName matches the sentinel", async () => {
+    const paths = await createFixturePaths("sentinel-exclude-renamed");
+    await writeGenerated(paths.generatedDirPath, generatedRecord({ repositoryId: 1, fullName: "owner/new-sentinel" }));
+    await writeOverlay(paths.overlayDirPath, { repositoryId: 1, fullName: "owner/old-sentinel", exclude: true });
+    await writeSentinels(paths.sentinelsPath, ["owner/new-sentinel"]);
+
+    await expect(mergeRepositoryDetails(paths)).rejects.toThrow("cannot exclude sentinel repository");
+  });
+
   it("rejects taxonomy values that are not present in taxonomy configuration", async () => {
     const paths = await createFixturePaths("taxonomy-rejection");
     const customTaxonomyDir = path.join(outputRoot, "taxonomy-rejection", "Taxonomy");
