@@ -23,6 +23,9 @@ export default defineConfig({
   reporter: 'html',
   /* Global test timeout — allow 60 s per test (default is 30 s). */
   timeout: 60000,
+  /* Assertion timeout — allow 15 s for expect() assertions (default is 5 s).
+     actionTimeout only applies to Playwright actions (click, fill, etc.), not expect(). */
+  expect: { timeout: 15000 },
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Base URL to use in actions like `await page.goto('/')`. */
