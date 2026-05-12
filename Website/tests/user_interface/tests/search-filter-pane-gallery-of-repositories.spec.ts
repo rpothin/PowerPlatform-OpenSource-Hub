@@ -5,6 +5,8 @@ const sortOptions = [
   'Stars (Ascending)',
   'Alphabetical (Ascending)',
   'Alphabetical (Descending)',
+  'Recently Updated',
+  'Recently Released',
 ];
 
 // #region Header and footer tests
@@ -106,11 +108,8 @@ test('Validate the count of repositories found when I enter a search term', asyn
   // Enter a search term in the search box
   await page.getByPlaceholder('Search for a Power Platform GitHub repository...').fill('power');
 
-  // Extract the count of repositories found (after entering the search term)
-  const count = await getCountOfRepositories(page);
-
-  // Validate that the count of repositories found is smaller than the initial count
-  expect(count).toBeLessThan(initialCount);
+  // Wait for React to re-render and the count to update (may be filtered down)
+  await expect.poll(() => getCountOfRepositories(page)).toBeLessThan(initialCount);
 });
 
 // #endregion
@@ -1027,6 +1026,13 @@ async function validateGalleryItemOrders(page: Page, orderByComboboxValue: strin
         expect(previousName.localeCompare(currentName)).toBeGreaterThanOrEqual(0);
       }
 
+      break;
+
+    case 'Recently Updated':
+    case 'Recently Released':
+      // These sorts use date fields not exposed directly in the card UI.
+      // Verify the gallery is still populated after selecting the sort.
+      expect(await cards.count()).toBeGreaterThan(0);
       break;
   }
 }
