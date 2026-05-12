@@ -248,7 +248,15 @@ export class OctokitRepositoryProvider implements CandidateProvider {
         const responseData = response.data.data ?? {};
         const gqlErrors = response.data.errors ?? [];
 
-        if (Object.keys(responseData).length === 0 && gqlErrors.length > 0) {
+        // Root-level errors (no path, or path not matching a repo alias) indicate a batch-wide failure
+        // (e.g. PAT-policy rejection arriving as a top-level GraphQL error without a repo path).
+        const rootLevelErrors = gqlErrors.filter(
+          (gqlError) => gqlError.path === undefined || gqlError.path === null || gqlError.path.length === 0
+        );
+        const aliasKeys = new Set(batch.map((_, j) => `repo${j}`));
+        const hasAnyRepoData = [...aliasKeys].some((alias) => responseData[alias] !== undefined);
+
+        if (!hasAnyRepoData && (rootLevelErrors.length > 0 || gqlErrors.length > 0)) {
           const batchError = new Error(gqlErrors.map((error) => error.message).join("; "));
           for (const repo of batch) {
             result.set(repo.fullName, batchError);
@@ -263,10 +271,11 @@ export class OctokitRepositoryProvider implements CandidateProvider {
           await new Promise((resolve) => setTimeout(resolve, waitMs));
         }
 
+        // Collect per-alias errors (errors with a path pointing to a specific repo alias)
         const failedAliases = new Set<string>();
         for (const gqlError of gqlErrors) {
           const alias = typeof gqlError.path?.[0] === "string" ? gqlError.path[0] : undefined;
-          if (alias !== undefined) {
+          if (alias !== undefined && aliasKeys.has(alias)) {
             failedAliases.add(alias);
           }
         }
@@ -290,7 +299,12 @@ export class OctokitRepositoryProvider implements CandidateProvider {
             continue;
           }
 
-          result.set(repo.fullName, this.mapGraphQLNodeToDetails(node));
+          // Catch per-repo mapping errors so one bad node doesn't poison the whole batch
+          try {
+            result.set(repo.fullName, this.mapGraphQLNodeToDetails(node));
+          } catch (mapError) {
+            result.set(repo.fullName, mapError instanceof Error ? mapError : new Error(String(mapError)));
+          }
         }
       } catch (error) {
         const batchError = error instanceof Error ? error : new Error(String(error));
