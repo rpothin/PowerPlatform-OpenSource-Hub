@@ -83,27 +83,60 @@ export async function generateRepositoryDetails(options: GenerateOptions): Promi
     workflowRunId: options.workflowRunId ?? process.env.GITHUB_RUN_ID ?? "local"
   };
 
-  const hydratedRecords = await mapWithConcurrency(activeRepositories, options.concurrency ?? 4, async (repository) => {
-    metrics.detailRequests += 1;
-    try {
-      const details = await options.provider.getRepositoryDetails(repository.fullName, repository);
-      return normalizeRepositoryRecord(repository, details, provenance);
-    } catch (error) {
-      if (isPatPolicyError(error)) {
-        metrics.patPolicyFailures += 1;
-        metrics.patPolicyFailureNames.push(repository.fullName);
-        metrics.warnings.push(`Skipping '${repository.fullName}' due to PAT policy restriction: ${errorMessage(error)}`);
-        return null;
-      }
-      metrics.detailFailures += 1;
-      if (options.continueOnRepositoryError ?? true) {
-        metrics.warnings.push(`Skipping '${repository.fullName}' because detail hydration failed: ${errorMessage(error)}`);
-        return null;
-      }
+  let hydratedRecords: Array<RepositoryRecord | null>;
 
-      throw new Error(`Failed hydrating repository '${repository.fullName}'.`, { cause: error });
-    }
-  });
+  if (options.provider.batchGetRepositoryDetails !== undefined) {
+    const batchSize = 20;
+    metrics.detailBatchCalls = Math.ceil(activeRepositories.length / batchSize);
+    const batchResults = await options.provider.batchGetRepositoryDetails(activeRepositories);
+
+    hydratedRecords = activeRepositories.map((repository) => {
+      metrics.detailRequests += 1;
+      const result = batchResults.get(repository.fullName);
+      if (result === undefined) {
+        metrics.detailFailures += 1;
+        metrics.warnings.push(`Skipping '${repository.fullName}' because detail hydration returned no result.`);
+        return null;
+      }
+      if (result instanceof Error) {
+        if (isPatPolicyError(result)) {
+          metrics.patPolicyFailures += 1;
+          metrics.patPolicyFailureNames.push(repository.fullName);
+          metrics.warnings.push(`Skipping '${repository.fullName}' due to PAT policy restriction: ${result.message}`);
+          return null;
+        }
+        metrics.detailFailures += 1;
+        if (options.continueOnRepositoryError ?? true) {
+          metrics.warnings.push(`Skipping '${repository.fullName}' because detail hydration failed: ${result.message}`);
+          return null;
+        }
+        throw new Error(`Failed hydrating repository '${repository.fullName}'.`, { cause: result });
+      }
+      return normalizeRepositoryRecord(repository, result, provenance);
+    });
+  } else {
+    hydratedRecords = await mapWithConcurrency(activeRepositories, options.concurrency ?? 4, async (repository) => {
+      metrics.detailRequests += 1;
+      try {
+        const details = await options.provider.getRepositoryDetails(repository.fullName, repository);
+        return normalizeRepositoryRecord(repository, details, provenance);
+      } catch (error) {
+        if (isPatPolicyError(error)) {
+          metrics.patPolicyFailures += 1;
+          metrics.patPolicyFailureNames.push(repository.fullName);
+          metrics.warnings.push(`Skipping '${repository.fullName}' due to PAT policy restriction: ${errorMessage(error)}`);
+          return null;
+        }
+        metrics.detailFailures += 1;
+        if (options.continueOnRepositoryError ?? true) {
+          metrics.warnings.push(`Skipping '${repository.fullName}' because detail hydration failed: ${errorMessage(error)}`);
+          return null;
+        }
+
+        throw new Error(`Failed hydrating repository '${repository.fullName}'.`, { cause: error });
+      }
+    });
+  }
 
   const minPopularityScore = options.minPopularityScore ?? 10;
   const records = sortByPopularity(
