@@ -204,6 +204,10 @@ const App = () => {
             selectedFocusAreas={filterState.selectedFocusAreas}
             selectedAudiences={filterState.selectedAudiences}
             sortBy={filterState.sortBy}
+            onCategoriesChange={(value) => setFilterStateWithHistory((previous) => ({ ...previous, selectedCategories: value }))}
+            onFocusAreasChange={(value) => setFilterStateWithHistory((previous) => ({ ...previous, selectedFocusAreas: value }))}
+            onAudiencesChange={(value) => setFilterStateWithHistory((previous) => ({ ...previous, selectedAudiences: value }))}
+            onTopicsChange={(value) => setFilterStateWithHistory((previous) => ({ ...previous, selectedTopics: value }))}
             onSortByChange={(value) => setFilterStateWithHistory((previous) => ({ ...previous, sortBy: value }))}
           />
         </div>

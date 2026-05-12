@@ -3,6 +3,7 @@ import {
   parseFilterStateFromSearch,
   serializeFilterStateToSearch,
 } from '../../src/utils/filterUrlState';
+import { appendSelectedFilterValue } from '../../src/utils/galleryUtils';
 
 describe('filterUrlState', () => {
   it('returns default values when query string is empty', () => {
@@ -27,6 +28,12 @@ describe('filterUrlState', () => {
     expect(result.selectedCategories).toEqual(['power-apps']);
     expect(result.selectedFocusAreas).toEqual(['canvas-apps', 'pcf-controls']);
     expect(result.selectedAudiences).toEqual(['makers', 'developers']);
+  });
+
+  it('falls back to the default sort when the query string has an unknown sort value', () => {
+    const result = parseFilterStateFromSearch('?sort=not-a-sort-option');
+
+    expect(result.sortBy).toEqual(defaultUrlFilterState.sortBy);
   });
 
   it('serializes state to comma separated query parameters', () => {
@@ -66,5 +73,16 @@ describe('filterUrlState', () => {
 
     expect(search).toContain('q=power');
     expect(search).not.toContain('sort=');
+  });
+
+  it('serializes clicked chip values without duplicating existing selections', () => {
+    const selectedCategories = appendSelectedFilterValue(['power-apps'], 'power-apps');
+    const search = serializeFilterStateToSearch({
+      ...defaultUrlFilterState,
+      selectedCategories,
+    });
+
+    expect(selectedCategories).toEqual(['power-apps']);
+    expect(parseFilterStateFromSearch(search).selectedCategories).toEqual(['power-apps']);
   });
 });

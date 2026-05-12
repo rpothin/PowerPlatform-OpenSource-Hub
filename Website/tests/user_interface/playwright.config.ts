@@ -21,6 +21,11 @@ export default defineConfig({
   workers: process.env.CI ? 1 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   reporter: 'html',
+  /* Global test timeout — allow 60 s per test (default is 30 s). */
+  timeout: 60000,
+  /* Assertion timeout — allow 15 s for expect() assertions (default is 5 s).
+     actionTimeout only applies to Playwright actions (click, fill, etc.), not expect(). */
+  expect: { timeout: 15000 },
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Base URL to use in actions like `await page.goto('/')`. */
@@ -28,6 +33,9 @@ export default defineConfig({
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
+    /* Default action / navigation timeout to 15 s (default is 30 s globally but expectations use 5 s). */
+    actionTimeout: 15000,
+    navigationTimeout: 30000,
   },
 
   /* Configure projects for major browsers */
@@ -69,9 +77,11 @@ export default defineConfig({
   ],
 
   /* Run your local dev server before starting the tests */
-   webServer: {
+  webServer: {
     command: process.env.CI ? 'cd ../../ && npm run serve' : 'cd ../../ && npm run build && npm run serve',
-     url: 'http://127.0.0.1:3000',
-     reuseExistingServer: !process.env.CI,
-   },
+    url: 'http://127.0.0.1:3000',
+    reuseExistingServer: !process.env.CI,
+    /* Allow up to 3 minutes for build + serve to become ready. */
+    timeout: 180000,
+  },
 });

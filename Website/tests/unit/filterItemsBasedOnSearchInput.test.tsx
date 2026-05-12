@@ -1,5 +1,6 @@
 import { data } from './mockData';
 import { filterItemsBasedOnSearchInput } from '../../src/utils/filterItemsBasedOnSearchInput';
+import type { Repository } from '../../src/types/repository';
 
 describe('filterItemsBasedOnSearchInput', () => {
   it('returns an empty list when the array is empty and the search text is empty', () => {
@@ -14,6 +15,7 @@ describe('filterItemsBasedOnSearchInput', () => {
   
   it('returns the full list when the search text is empty', () => {
     const result = filterItemsBasedOnSearchInput(data, '');
+    expect(result).toBe(data);
     expect(result).toEqual(data);
   });
 
@@ -90,6 +92,35 @@ describe('filterItemsBasedOnSearchInput', () => {
   it('returns a filtered list when the search text matches curated relaunch metadata', () => {
     const result = filterItemsBasedOnSearchInput(data, 'canvas-apps');
     expect(result).toEqual([data[0]]);
+  });
+
+  it('matches natural taxonomy labels in addition to stored taxonomy values', () => {
+    const result = filterItemsBasedOnSearchInput(data, 'Power Apps');
+    expect(result).toEqual([data[0]]);
+  });
+
+  it('ranks matches in displayDescription above the same phrase in topics', () => {
+    const targetPhrase = 'model driven command bar';
+    const topicOnlyMatch: Repository = {
+      ...data[0],
+      fullName: 'example/topic-only-match',
+      description: 'General repository description',
+      displayDescription: 'Unrelated curated summary',
+      customDescription: undefined,
+      topics: [targetPhrase],
+    };
+    const displayDescriptionMatch: Repository = {
+      ...data[1],
+      fullName: 'example/display-description-match',
+      description: 'Another general repository description',
+      displayDescription: targetPhrase,
+      customDescription: undefined,
+      topics: [],
+    };
+
+    const result = filterItemsBasedOnSearchInput([topicOnlyMatch, displayDescriptionMatch], targetPhrase);
+
+    expect(result).toEqual([displayDescriptionMatch, topicOnlyMatch]);
   });
 
   it('returns an empty list when the search text is not empty and the search text does not match any of the fields of a repository', () => {

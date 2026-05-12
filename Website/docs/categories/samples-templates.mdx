@@ -1,0 +1,15 @@
+---
+sidebar_position: 12
+sidebar_label: Samples and Templates
+---
+
+import CategoryRepositoryList from '../../src/components/CategoryRepositoryList';
+import { getCategoryTaxonomy } from '../../src/data/taxonomy';
+
+export const category = getCategoryTaxonomy('samples-templates');
+
+# {category.label}
+
+{category.description}
+
+<CategoryRepositoryList categoryId="samples-templates" />

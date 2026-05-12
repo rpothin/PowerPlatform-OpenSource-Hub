@@ -1,0 +1,15 @@
+---
+sidebar_position: 13
+sidebar_label: Learning and Docs
+---
+
+import CategoryRepositoryList from '../../src/components/CategoryRepositoryList';
+import { getCategoryTaxonomy } from '../../src/data/taxonomy';
+
+export const category = getCategoryTaxonomy('learning-docs');
+
+# {category.label}
+
+{category.description}
+
+<CategoryRepositoryList categoryId="learning-docs" />

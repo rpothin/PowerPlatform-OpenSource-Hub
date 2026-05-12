@@ -1,0 +1,15 @@
+---
+sidebar_position: 6
+sidebar_label: Dataverse
+---
+
+import CategoryRepositoryList from '../../src/components/CategoryRepositoryList';
+import { getCategoryTaxonomy } from '../../src/data/taxonomy';
+
+export const category = getCategoryTaxonomy('dataverse');
+
+# {category.label}
+
+{category.description}
+
+<CategoryRepositoryList categoryId="dataverse" />

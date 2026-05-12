@@ -1,0 +1,15 @@
+---
+sidebar_position: 11
+sidebar_label: Developer Tooling
+---
+
+import CategoryRepositoryList from '../../src/components/CategoryRepositoryList';
+import { getCategoryTaxonomy } from '../../src/data/taxonomy';
+
+export const category = getCategoryTaxonomy('developer-tooling');
+
+# {category.label}
+
+{category.description}
+
+<CategoryRepositoryList categoryId="developer-tooling" />

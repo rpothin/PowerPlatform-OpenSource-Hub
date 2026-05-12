@@ -28,16 +28,28 @@ export const defaultUrlFilterState: UrlFilterState = {
   selectedAudiences: [],
 };
 
+const validSortValues = new Set([
+  'starsAsc',
+  'starsDesc',
+  'alphabeticalAsc',
+  'alphabeticalDesc',
+  'recentlyUpdated',
+  'recentlyReleased',
+]);
+
 const parseBoolean = (value: string | null): boolean => value === 'true' || value === '1';
 
 const parseList = (value: string | null): string[] =>
   value ? value.split(',').map((item) => item.trim()).filter(Boolean) : [];
 
+const parseSortBy = (value: string | null): string =>
+  value && validSortValues.has(value) ? value : defaultUrlFilterState.sortBy;
+
 export const parseFilterStateFromSearch = (search: string): UrlFilterState => {
   const params = new URLSearchParams(search);
   return {
     searchText: params.get('q') ?? defaultUrlFilterState.searchText,
-    sortBy: params.get('sort') ?? defaultUrlFilterState.sortBy,
+    sortBy: parseSortBy(params.get('sort')),
     hasGoodFirstIssueChecked: parseBoolean(params.get('goodFirstIssue')),
     hasHelpWantedIssueChecked: parseBoolean(params.get('helpWantedIssue')),
     hasCodeOfConductChecked: parseBoolean(params.get('codeOfConduct')),

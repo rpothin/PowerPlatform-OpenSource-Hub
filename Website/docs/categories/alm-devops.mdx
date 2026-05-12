@@ -1,0 +1,15 @@
+---
+sidebar_position: 9
+sidebar_label: ALM and DevOps
+---
+
+import CategoryRepositoryList from '../../src/components/CategoryRepositoryList';
+import { getCategoryTaxonomy } from '../../src/data/taxonomy';
+
+export const category = getCategoryTaxonomy('alm-devops');
+
+# {category.label}
+
+{category.description}
+
+<CategoryRepositoryList categoryId="alm-devops" />

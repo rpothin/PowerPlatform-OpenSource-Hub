@@ -24,10 +24,18 @@ export type RelaunchBadgeEntry = {
     label: string;
     appearance: 'filled' | 'tint' | 'outline';
     color?: 'brand';
+    filterFacet?: 'category' | 'focusArea' | 'audience';
+    filterValue?: string;
 };
 
 export const getRepositoryDescription = (item?: Repository | null): string =>
     item?.displayDescription ?? item?.customDescription ?? item?.description ?? '';
+
+export const appendSelectedFilterValue = (selectedValues: string[], value: string): string[] =>
+    selectedValues.includes(value) ? selectedValues : [...selectedValues, value];
+
+export const getFeaturedSpotlightItems = (items: Repository[]): Repository[] =>
+    items.filter((item) => item.featured);
 
 export function getRelaunchBadgeEntries(item: Repository): RelaunchBadgeEntry[] {
     const entries: RelaunchBadgeEntry[] = [];
@@ -36,7 +44,14 @@ export function getRelaunchBadgeEntries(item: Repository): RelaunchBadgeEntry[] 
         entries.push({ key: 'featured', testIdSuffix: 'featured', label: 'Featured', appearance: 'filled', color: 'brand' });
     }
     if (item.category) {
-        entries.push({ key: `category-${item.category}`, testIdSuffix: 'category', label: `Category: ${formatFacetLabel(item.category)}`, appearance: 'tint' });
+        entries.push({
+            key: `category-${item.category}`,
+            testIdSuffix: 'category',
+            label: `Category: ${formatFacetLabel(item.category)}`,
+            appearance: 'tint',
+            filterFacet: 'category',
+            filterValue: item.category,
+        });
     }
     item.focusAreas?.forEach((focusArea, index) => {
         entries.push({
@@ -44,6 +59,8 @@ export function getRelaunchBadgeEntries(item: Repository): RelaunchBadgeEntry[] 
             testIdSuffix: 'focus-area',
             label: `Focus: ${formatFacetLabel(focusArea)}`,
             appearance: 'outline',
+            filterFacet: 'focusArea',
+            filterValue: focusArea,
         });
     });
     item.audiences?.forEach((audience, index) => {
@@ -52,6 +69,8 @@ export function getRelaunchBadgeEntries(item: Repository): RelaunchBadgeEntry[] 
             testIdSuffix: 'audience',
             label: `Audience: ${formatFacetLabel(audience)}`,
             appearance: 'outline',
+            filterFacet: 'audience',
+            filterValue: audience,
         });
     });
     if (item.health?.computed?.activityStatus) {
@@ -134,6 +153,11 @@ export function filterItems(items: Repository[], filterParams: FilterParams): Re
 export function sortItems(items, selectedOptions) {
     const itemsCopy = [...items]; // Create a copy of the array
     const selectedOption = selectedOptions[0];
+    const compareByFullName = (a: Repository, b: Repository) => a.fullName.localeCompare(b.fullName);
+    const getSortableDate = (date: string | undefined): number => {
+        const timestamp = date ? Date.parse(date) : Number.NEGATIVE_INFINITY;
+        return Number.isNaN(timestamp) ? Number.NEGATIVE_INFINITY : timestamp;
+    };
     switch (selectedOption) {
         case 'starsAsc':
             return itemsCopy.sort((a, b) => a.stargazerCount - b.stargazerCount);
@@ -143,6 +167,28 @@ export function sortItems(items, selectedOptions) {
             return itemsCopy.sort((a, b) => a.fullName.localeCompare(b.fullName));
         case 'alphabeticalDesc':
             return itemsCopy.sort((a, b) => b.fullName.localeCompare(a.fullName));
+        case 'recentlyUpdated':
+            return itemsCopy.sort((a, b) => getSortableDate(b.updatedAt) - getSortableDate(a.updatedAt) || compareByFullName(a, b));
+        case 'recentlyReleased':
+            return itemsCopy.sort((a, b) => {
+                const leftReleaseTimestamp = getSortableDate(a.latestRelease?.publishedAt);
+                const rightReleaseTimestamp = getSortableDate(b.latestRelease?.publishedAt);
+                const leftHasReleaseDate = leftReleaseTimestamp !== Number.NEGATIVE_INFINITY;
+                const rightHasReleaseDate = rightReleaseTimestamp !== Number.NEGATIVE_INFINITY;
+
+                if (!leftHasReleaseDate && !rightHasReleaseDate) {
+                    return b.stargazerCount - a.stargazerCount || compareByFullName(a, b);
+                }
+                if (!leftHasReleaseDate) {
+                    return 1;
+                }
+                if (!rightHasReleaseDate) {
+                    return -1;
+                }
+                return rightReleaseTimestamp - leftReleaseTimestamp
+                    || b.stargazerCount - a.stargazerCount
+                    || compareByFullName(a, b);
+            });
         default:
             return itemsCopy;
     }

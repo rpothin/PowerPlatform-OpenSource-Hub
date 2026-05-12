@@ -1,0 +1,15 @@
+---
+sidebar_position: 5
+sidebar_label: Power Pages
+---
+
+import CategoryRepositoryList from '../../src/components/CategoryRepositoryList';
+import { getCategoryTaxonomy } from '../../src/data/taxonomy';
+
+export const category = getCategoryTaxonomy('power-pages');
+
+# {category.label}
+
+{category.description}
+
+<CategoryRepositoryList categoryId="power-pages" />
