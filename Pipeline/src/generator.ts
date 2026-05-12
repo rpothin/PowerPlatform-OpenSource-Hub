@@ -24,6 +24,20 @@ export interface GenerateOptions {
   continueOnRepositoryError?: boolean;
 }
 
+/** Returns true if the error is a GitHub enterprise PAT-policy rejection (HTTP 403 with lifetime restriction message). */
+function isPatPolicyError(error: unknown): boolean {
+  const messageSources = [
+    error instanceof Error ? error.message : undefined,
+    error instanceof Error ? (error.cause instanceof Error ? error.cause.message : undefined) : undefined,
+  ];
+  const octokitError = error as { response?: { data?: { message?: string } } };
+  if (octokitError?.response?.data?.message) {
+    messageSources.push(octokitError.response.data.message);
+  }
+  const combined = messageSources.filter(Boolean).join(" ").toLowerCase();
+  return combined.includes("fine-grained personal access tokens") || combined.includes("enterprise forbids access");
+}
+
 export async function generateRepositoryDetails(options: GenerateOptions): Promise<GenerateResult> {
   assertJsonPath(options.outputPath, "output");
   if (options.metricsPath !== undefined) {
@@ -69,21 +83,60 @@ export async function generateRepositoryDetails(options: GenerateOptions): Promi
     workflowRunId: options.workflowRunId ?? process.env.GITHUB_RUN_ID ?? "local"
   };
 
-  const hydratedRecords = await mapWithConcurrency(activeRepositories, options.concurrency ?? 4, async (repository) => {
-    metrics.detailRequests += 1;
-    try {
-      const details = await options.provider.getRepositoryDetails(repository.fullName, repository);
-      return normalizeRepositoryRecord(repository, details, provenance);
-    } catch (error) {
-      metrics.detailFailures += 1;
-      if (options.continueOnRepositoryError ?? true) {
-        metrics.warnings.push(`Skipping '${repository.fullName}' because detail hydration failed: ${errorMessage(error)}`);
+  let hydratedRecords: Array<RepositoryRecord | null>;
+
+  if (options.provider.batchGetRepositoryDetails !== undefined) {
+    const batchSize = 20;
+    metrics.detailBatchCalls = Math.ceil(activeRepositories.length / batchSize);
+    const batchResults = await options.provider.batchGetRepositoryDetails(activeRepositories);
+
+    hydratedRecords = activeRepositories.map((repository) => {
+      metrics.detailRequests += 1;
+      const result = batchResults.get(repository.fullName);
+      if (result === undefined) {
+        metrics.detailFailures += 1;
+        metrics.warnings.push(`Skipping '${repository.fullName}' because detail hydration returned no result.`);
         return null;
       }
+      if (result instanceof Error) {
+        if (isPatPolicyError(result)) {
+          metrics.patPolicyFailures += 1;
+          metrics.patPolicyFailureNames.push(repository.fullName);
+          metrics.warnings.push(`Skipping '${repository.fullName}' due to PAT policy restriction: ${result.message}`);
+          return null;
+        }
+        metrics.detailFailures += 1;
+        if (options.continueOnRepositoryError ?? true) {
+          metrics.warnings.push(`Skipping '${repository.fullName}' because detail hydration failed: ${result.message}`);
+          return null;
+        }
+        throw new Error(`Failed hydrating repository '${repository.fullName}'.`, { cause: result });
+      }
+      return normalizeRepositoryRecord(repository, result, provenance);
+    });
+  } else {
+    hydratedRecords = await mapWithConcurrency(activeRepositories, options.concurrency ?? 4, async (repository) => {
+      metrics.detailRequests += 1;
+      try {
+        const details = await options.provider.getRepositoryDetails(repository.fullName, repository);
+        return normalizeRepositoryRecord(repository, details, provenance);
+      } catch (error) {
+        if (isPatPolicyError(error)) {
+          metrics.patPolicyFailures += 1;
+          metrics.patPolicyFailureNames.push(repository.fullName);
+          metrics.warnings.push(`Skipping '${repository.fullName}' due to PAT policy restriction: ${errorMessage(error)}`);
+          return null;
+        }
+        metrics.detailFailures += 1;
+        if (options.continueOnRepositoryError ?? true) {
+          metrics.warnings.push(`Skipping '${repository.fullName}' because detail hydration failed: ${errorMessage(error)}`);
+          return null;
+        }
 
-      throw new Error(`Failed hydrating repository '${repository.fullName}'.`, { cause: error });
-    }
-  });
+        throw new Error(`Failed hydrating repository '${repository.fullName}'.`, { cause: error });
+      }
+    });
+  }
 
   const minPopularityScore = options.minPopularityScore ?? 10;
   const records = sortByPopularity(
@@ -119,6 +172,9 @@ function createMetrics(criteriaCount: number): PipelineMetrics {
     activeRepositories: 0,
     detailRequests: 0,
     detailFailures: 0,
+    patPolicyFailures: 0,
+    patPolicyFailureNames: [],
+    detailBatchCalls: 0,
     generatedRecords: 0,
     warnings: [],
     elapsedMs: 0

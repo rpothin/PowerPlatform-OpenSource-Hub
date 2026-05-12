@@ -195,6 +195,7 @@ export interface Provenance {
 export interface CandidateProvider {
   searchRepositories(criterion: SearchCriterion): Promise<SearchRepository[]>;
   getRepositoryDetails(repositoryFullName: string, searchRepository: SearchRepository): Promise<RepositoryDetails>;
+  batchGetRepositoryDetails?(repos: SearchRepository[]): Promise<Map<string, RepositoryDetails | Error>>;
 }
 
 export interface PipelineMetrics {
@@ -205,6 +206,9 @@ export interface PipelineMetrics {
   activeRepositories: number;
   detailRequests: number;
   detailFailures: number;
+  patPolicyFailures: number;
+  patPolicyFailureNames: string[];
+  detailBatchCalls: number;
   generatedRecords: number;
   warnings: string[];
   elapsedMs: number;

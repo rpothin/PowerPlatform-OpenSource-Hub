@@ -263,6 +263,12 @@ jobs:
             if (failures > 0) {
               blockingFailures.push(`TypeScript pipeline had ${failures} repository detail hydration failure(s); all must succeed in production live mode`);
             }
+
+            const patPolicyFailures = metrics.patPolicyFailures ?? 0;
+            if (patPolicyFailures > 0) {
+              const names = (metrics.patPolicyFailureNames ?? []).join(', ');
+              console.log(`::warning::TypeScript pipeline skipped ${patPolicyFailures} repo(s) due to PAT policy restrictions (fine-grained PAT lifetime exceeded enterprise limit). Affected repos: ${names}. Consider switching to a classic PAT with public_repo scope.`);
+            }
           }
 
           if ((report.failures.invalidInputs ?? []).length > 0) {
