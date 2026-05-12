@@ -173,7 +173,7 @@ jobs:
             walk(generatedDir);
             const records = files.sort().map((filePath) => JSON.parse(fs.readFileSync(filePath, 'utf8')));
             fs.writeFileSync(baselinePath, `${JSON.stringify(records, null, 2)}\n`);
-            NODE
+          NODE
             echo "Captured generated-layer baseline from '$DATA_GENERATED_DIR'."
             echo "TYPESCRIPT_BASELINE_PRESENT=true" >> "$GITHUB_ENV"
             echo "TYPESCRIPT_BASELINE_SOURCE=generated-dir" >> "$GITHUB_ENV"
