@@ -17,7 +17,10 @@ export function createGitHubClient(authToken: string): GitHubClient {
         const request = options.request as { retryCount?: number };
         return (request.retryCount ?? 0) < 2;
       },
-      onSecondaryRateLimit: () => false
+      onSecondaryRateLimit: (_retryAfter, options) => {
+        const request = options.request as { retryCount?: number };
+        return (request.retryCount ?? 0) < 2;
+      }
     }
   }) as unknown as GitHubClient;
 }
