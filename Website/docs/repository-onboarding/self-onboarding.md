@@ -36,4 +36,13 @@ The hub combines generated GitHub facts with human-reviewed curation:
 
 If your repository appears with the wrong category, focus area, audience, description, or health/featured badge, open a PR or issue requesting an overlay update. New taxonomy values should be requested with a clear description so maintainers can keep the vocabulary stable and useful for filtering.
 
+Common overlay fields include:
+
+- `customDescription` for the human-written summary shown to users.
+- `maintainerNotes` for curation context that helps reviewers and future maintainers understand why an overlay exists or why a repository is excluded.
+
+> ⚠️ `maintainerNotes` is included in the committed `Data\GitHubRepositoriesDetails.json` file, which is publicly visible. Keep this field to curation-relevant, publicly appropriate notes only.
+
+- `exclude` to intentionally remove a repository from the published catalog when maintainers have reviewed and approved that decision.
+
 Curating a repository does not pin it in the generated catalog by itself. If a curated repository is not part of the sentinel list and later disappears from GitHub topic search results, the merge step fails loudly so maintainers can either restore discovery, remove the stale overlay, or intentionally add the repository as a sentinel.

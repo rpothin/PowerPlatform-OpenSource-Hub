@@ -28,6 +28,8 @@ Each overlay is validated with `Configuration\Schemas\GitHubRepositoryOverlay.sc
 
 Allowed overlay fields are intentionally small: `previousFullNames`, `exclude`, `curationStatus`, `category`, `focusAreas`, `audiences`, `featured`, `customDescription`, `maintainerNotes`, and `health.curated`. Overlays must not override generated GitHub facts such as stars, releases, issues, topics, license, or URLs.
 
+> ⚠️ `maintainerNotes` is copied into the committed `Data\GitHubRepositoriesDetails.json` merged artifact, so it is public and committed to the repository. Keep it limited to curation-relevant, publicly appropriate notes only; do not include confidential or private context.
+
 Taxonomy values live in `Configuration\Taxonomy\RepositoryCategories.json`, `RepositoryFocusAreas.json`, and `RepositoryAudiences.json`. Each entry has a stable `value`, display `label`, and maintenance `description`. Request new taxonomy values in the same PR as the overlays that need them, and keep schema enums, pipeline types, and taxonomy files aligned.
 
 Exclusions are allowed only through reviewed overlays. `exclude: true` should explain the reason in `maintainerNotes`; sentinel repositories from `Configuration\SentinelRepositories.json` must not be excluded unless the sentinel configuration is intentionally changed and reviewed in the same work. Featured status and curated health fields (`maturity`, `maintenance`, `reviewedAt`, `reviewedBy`) are human judgments and should be reviewed by maintainers before setting `curationStatus` to `reviewed`.
@@ -70,6 +72,8 @@ npm run dry-run
 
 The dry-run loads `..\Configuration\GitHubRepositoriesSearchCriteria.json`, uses deterministic in-memory repository fixtures, writes and validates per-repository files in `Output\GeneratedRepositories`, merges them with an empty dry-run overlay directory into `Output\GitHubRepositoriesDetails.json`, and writes `Output\metrics.json`.
 
+> ℹ️ CI uses this dry-run shape to validate the merge pipeline logic, including schema validation, taxonomy validation, duplicate detection, and sentinel guards, but it does **not** validate committed overlays from `Data\CuratedRepositories` against real generated data. The dry-run merge reads `Output\CuratedRepositories` instead, because the synthetic fixture `repositoryId` values do not match real overlay identities. Real overlay `repositoryId` and `fullName` matching is validated against generated data on the first production run after an overlay is added. For non-sentinel repositories, that means a curated overlay PR can merge and then fail on the next production run if the repository is not found by the configured search criteria. Overlay validation scenarios are still covered in `Pipeline\tests\merge.test.ts`.
+
 ## Optional live mode
 
 Live mode uses Octokit REST APIs with retry and throttling plugins. It requires `GITHUB_TOKEN` and uses bounded concurrency for repository detail hydration.
@@ -94,6 +98,8 @@ Schema validation is performed with `ajv`. The array output validates against `G
 ## Production workflow cutover
 
 The `1-update-github-repositories-details` workflow now runs this TypeScript pipeline by default for scheduled and manual production generation. It writes `Data\GeneratedRepositories`, compares the generated layer with the previous generated-layer baseline so curated exclusions do not distort the count guard, merges existing PR-owned overlays from `Data\CuratedRepositories` into the configured frontend artifact, and stages only the generated directory plus the merged artifact. It validates generated records, overlays, sentinel exclusions, and the final schema before committing. Downstream README/site workflows dispatch only when the merged frontend artifact changes. Manual `workflow_dispatch` runs can select `pipeline: powershell` as a rollback fallback during the stabilization window; the PowerShell scripts remain in place.
+
+> ℹ️ The PowerShell fallback updates only the committed merged artifact at `Data\GitHubRepositoriesDetails.json`. It does **not** regenerate or stage `Data\GeneratedRepositories`, so the generated layer remains stale relative to the merged artifact after a fallback run. That is expected: the next TypeScript production run re-generates `Data\GeneratedRepositories` and uses the previous TypeScript-generated directory as its baseline for the 15% delta guard. The merged artifact committed by the PowerShell fallback is therefore not output from the TypeScript `merge` command. If maintainers ever need to clear `Data\GeneratedRepositories` for a clean restart, do it manually in a reviewed PR.
 
 Bot ownership is intentionally narrow: scheduled runs may add, update, or delete files under `Data\GeneratedRepositories` and may update `Data\GitHubRepositoriesDetails.json`. They must not stage `Data\CuratedRepositories`, taxonomy files, schemas, or sentinel configuration. Those files are reviewed in normal PRs so curation and governance changes are attributable to humans.
 
