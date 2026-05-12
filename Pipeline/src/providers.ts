@@ -58,6 +58,38 @@ interface GitHubCommunityProfileResponse {
   };
 }
 
+interface GraphQLRepositoryNode {
+  forkCount: number;
+  stargazerCount: number;
+  watchers: { totalCount: number };
+  primaryLanguage: { name: string } | null;
+  isTemplate: boolean;
+  hasIssuesEnabled: boolean;
+  latestRelease: { name: string | null; tagName: string; url: string; publishedAt: string | null } | null;
+  repositoryTopics: { nodes: Array<{ topic: { name: string } }> };
+  languages: { nodes: Array<{ name: string }> };
+  codeOfConduct: { key: string; name: string; url: string } | null;
+  securityPolicyUrl: string | null;
+  fundingLinks: Array<{ platform: string; url: string }>;
+  goodFirstIssues: { totalCount: number };
+  helpWanted: { totalCount: number };
+}
+
+interface GraphQLRateLimit {
+  remaining: number;
+  resetAt: string;
+}
+
+interface GraphQLErrorResponse {
+  message: string;
+  path?: Array<string | number>;
+}
+
+interface GraphQLBatchResponse {
+  data?: Record<string, unknown>;
+  errors?: GraphQLErrorResponse[];
+}
+
 export interface GitHubClient {
   rest: {
     search: {
@@ -71,7 +103,7 @@ export interface GitHubClient {
       getLatestRelease(parameters: { owner: string; repo: string }): Promise<{ data: GitHubReleaseResponse }>;
     };
   };
-  request<T>(route: string, parameters: { owner: string; repo: string }): Promise<{ data: T }>;
+  request<T>(route: string, parameters: Record<string, unknown>): Promise<{ data: T }>;
 }
 
 export class DryRunProvider implements CandidateProvider {
@@ -200,6 +232,141 @@ export class OctokitRepositoryProvider implements CandidateProvider {
       hasGoodFirstIssues: goodFirstIssues > 0,
       openedHelpWantedIssues: helpWantedIssues,
       hasHelpWantedIssues: helpWantedIssues > 0
+    };
+  }
+
+  public async batchGetRepositoryDetails(repos: SearchRepository[]): Promise<Map<string, RepositoryDetails | Error>> {
+    const result = new Map<string, RepositoryDetails | Error>();
+    const batchSize = 20;
+
+    for (let i = 0; i < repos.length; i += batchSize) {
+      const batch = repos.slice(i, i + batchSize);
+      const query = this.buildBatchQuery(batch);
+
+      try {
+        const response = await this.client.request<GraphQLBatchResponse>("POST /graphql", { query });
+        const responseData = response.data.data ?? {};
+        const gqlErrors = response.data.errors ?? [];
+
+        if (Object.keys(responseData).length === 0 && gqlErrors.length > 0) {
+          const batchError = new Error(gqlErrors.map((error) => error.message).join("; "));
+          for (const repo of batch) {
+            result.set(repo.fullName, batchError);
+          }
+          continue;
+        }
+
+        const rateLimit = responseData["rateLimit"] as GraphQLRateLimit | undefined;
+        if (rateLimit !== undefined && rateLimit.remaining < 50) {
+          const resetAt = new Date(rateLimit.resetAt).getTime();
+          const waitMs = Math.max(0, resetAt - Date.now()) + 1000;
+          await new Promise((resolve) => setTimeout(resolve, waitMs));
+        }
+
+        const failedAliases = new Set<string>();
+        for (const gqlError of gqlErrors) {
+          const alias = typeof gqlError.path?.[0] === "string" ? gqlError.path[0] : undefined;
+          if (alias !== undefined) {
+            failedAliases.add(alias);
+          }
+        }
+
+        for (let j = 0; j < batch.length; j += 1) {
+          const repo = batch[j];
+          if (repo === undefined) {
+            continue;
+          }
+
+          const alias = `repo${j}`;
+          if (failedAliases.has(alias)) {
+            const error = gqlErrors.find((gqlError) => gqlError.path?.[0] === alias);
+            result.set(repo.fullName, new Error(error?.message ?? "GraphQL error"));
+            continue;
+          }
+
+          const node = responseData[alias] as GraphQLRepositoryNode | null | undefined;
+          if (node === null || node === undefined) {
+            result.set(repo.fullName, new Error(`Repository not found: ${repo.fullName}`));
+            continue;
+          }
+
+          result.set(repo.fullName, this.mapGraphQLNodeToDetails(node));
+        }
+      } catch (error) {
+        const batchError = error instanceof Error ? error : new Error(String(error));
+        for (const repo of batch) {
+          result.set(repo.fullName, batchError);
+        }
+      }
+    }
+
+    return result;
+  }
+
+  private buildBatchQuery(batch: SearchRepository[]): string {
+    const aliases = batch
+      .map((repository, index) => {
+        const [owner, name] = splitRepositoryFullName(repository.fullName);
+        return `
+      repo${index}: repository(owner: ${JSON.stringify(owner)}, name: ${JSON.stringify(name)}) {
+        forkCount
+        stargazerCount
+        watchers { totalCount }
+        primaryLanguage { name }
+        isTemplate
+        hasIssuesEnabled
+        latestRelease { name tagName url publishedAt }
+        repositoryTopics(first: 20) { nodes { topic { name } } }
+        languages(first: 20, orderBy: {field: SIZE, direction: DESC}) { nodes { name } }
+        codeOfConduct { key name url }
+        securityPolicyUrl
+        fundingLinks { platform url }
+        goodFirstIssues: issues(first: 1, states: OPEN, labels: ["good first issue"]) { totalCount }
+        helpWanted: issues(first: 1, states: OPEN, labels: ["help wanted"]) { totalCount }
+      }
+`;
+      })
+      .join("\n");
+
+    return `query BatchRepositoryDetails {\n  rateLimit { remaining resetAt }\n${aliases}}`;
+  }
+
+  private mapGraphQLNodeToDetails(node: GraphQLRepositoryNode): RepositoryDetails {
+    const openedGoodFirstIssues = node.hasIssuesEnabled ? node.goodFirstIssues.totalCount : 0;
+    const openedHelpWantedIssues = node.hasIssuesEnabled ? node.helpWanted.totalCount : 0;
+
+    return {
+      forkCount: node.forkCount,
+      stargazerCount: node.stargazerCount,
+      watchers: node.watchers,
+      primaryLanguage: mapPrimaryLanguage(node.primaryLanguage?.name ?? null),
+      isTemplate: node.isTemplate,
+      latestRelease:
+        node.latestRelease === null
+          ? null
+          : {
+              name: node.latestRelease.name ?? node.latestRelease.tagName,
+              tagName: node.latestRelease.tagName,
+              url: node.latestRelease.url,
+              publishedAt: node.latestRelease.publishedAt ?? ""
+            },
+      topics: node.repositoryTopics.nodes.map((topicNode) => topicNode.topic.name),
+      languages: node.languages.nodes.map((languageNode) => languageNode.name),
+      codeOfConduct:
+        node.codeOfConduct === null
+          ? null
+          : {
+              key: node.codeOfConduct.key,
+              name: node.codeOfConduct.name,
+              url: node.codeOfConduct.url
+            },
+      securityPolicyUrl: node.securityPolicyUrl,
+      isSecurityPolicyEnabled: node.securityPolicyUrl !== null,
+      fundingLinks: node.fundingLinks,
+      openedGoodFirstIssues,
+      hasGoodFirstIssues: openedGoodFirstIssues > 0,
+      openedHelpWantedIssues,
+      hasHelpWantedIssues: openedHelpWantedIssues > 0
     };
   }
 
