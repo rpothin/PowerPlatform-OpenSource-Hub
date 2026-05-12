@@ -52,7 +52,8 @@ describe("mergeRepositoryDetails", () => {
       excludedRepositories: 0,
       missingCategoryCount: 1,
       missingFocusAreasCount: 1,
-      missingAudiencesCount: 1
+      missingAudiencesCount: 1,
+      warnings: []
     });
     expect(output).toHaveLength(2);
     expect(output[0]).toMatchObject({
@@ -105,13 +106,21 @@ describe("mergeRepositoryDetails", () => {
     await expect(mergeRepositoryDetails(paths)).rejects.toThrow("unknown repositoryId '2'");
   });
 
-  it("rejects overlays whose repository id matches but fullName points to a different repository", async () => {
+  it("warns when an overlay repository id matches but fullName points to a renamed repository", async () => {
     const paths = await createFixturePaths("mismatched-full-name");
     await writeGenerated(paths.generatedDirPath, generatedRecord({ repositoryId: 1, fullName: "owner/current" }));
     await writeOverlay(paths.overlayDirPath, { repositoryId: 1, fullName: "owner/old-name", previousFullNames: ["owner/current"] });
     await writeSentinels(paths.sentinelsPath, []);
 
-    await expect(mergeRepositoryDetails(paths)).rejects.toThrow("has fullName 'owner/old-name' but generated data has 'owner/current'");
+    const result = await mergeRepositoryDetails(paths);
+    const output = JSON.parse(await readFile(paths.outputPath, "utf8")) as MergedRepositoryRecord[];
+
+    expect(result.metrics.warnings).toEqual([
+      expect.stringContaining("has fullName 'owner/old-name' but generated data has 'owner/current'")
+    ]);
+    expect(output).toHaveLength(1);
+    expect(output[0]?.fullName).toBe("owner/current");
+    expect(output[0]?.previousFullNames).toEqual(["owner/current"]);
   });
 
   it("excludes repositories before writing merged output", async () => {
@@ -136,6 +145,34 @@ describe("mergeRepositoryDetails", () => {
     await writeSentinels(paths.sentinelsPath, ["owner/sentinel"]);
 
     await expect(mergeRepositoryDetails(paths)).rejects.toThrow("cannot exclude sentinel repository 'owner/sentinel'");
+  });
+
+  it("rejects overlays whose path only matches the expected suffix", async () => {
+    const paths = await createFixturePaths("nested-overlay-path");
+    await writeGenerated(paths.generatedDirPath, generatedRecord({ repositoryId: 1, fullName: "owner/repo" }));
+    await writeOverlayAtPath(path.join(paths.overlayDirPath, "extra", generatedRepositoryRelativePath("owner/repo")), {
+      repositoryId: 1,
+      fullName: "owner/repo"
+    });
+    await writeSentinels(paths.sentinelsPath, []);
+
+    await expect(mergeRepositoryDetails(paths)).rejects.toThrow("Expected relative path 'owner/repo.json' from overlay directory");
+  });
+
+  it("allows repository renames by warning and keeping the generated fullName", async () => {
+    const paths = await createFixturePaths("renamed-repository");
+    await writeGenerated(paths.generatedDirPath, generatedRecord({ repositoryId: 1, fullName: "owner/new-name" }));
+    await writeOverlay(paths.overlayDirPath, { repositoryId: 1, fullName: "owner/old-name", category: "power-apps" });
+    await writeSentinels(paths.sentinelsPath, []);
+
+    const result = await mergeRepositoryDetails(paths);
+    const output = JSON.parse(await readFile(paths.outputPath, "utf8")) as MergedRepositoryRecord[];
+
+    expect(result.metrics.warnings).toHaveLength(1);
+    expect(result.metrics.warnings[0]).toContain("owner/old-name");
+    expect(result.metrics.warnings[0]).toContain("owner/new-name");
+    expect(output).toHaveLength(1);
+    expect(output[0]).toMatchObject({ repositoryId: 1, fullName: "owner/new-name", category: "power-apps" });
   });
 
   it("rejects taxonomy values that are not present in taxonomy configuration", async () => {
@@ -200,7 +237,40 @@ describe("merge CLI command", () => {
 
     expect(exitCode).toBe(0);
     expect(JSON.parse(await readFile(paths.outputPath, "utf8"))).toHaveLength(1);
-    expect(JSON.parse(stdout.join("\n"))).toMatchObject({ generatedCount: 1, overlayCount: 1, matchedOverlays: 1 });
+    expect(JSON.parse(stdout.join("\n"))).toMatchObject({ generatedCount: 1, overlayCount: 1, matchedOverlays: 1, warnings: [] });
+  });
+
+  it("prints merge warnings to stderr as workflow annotations", async () => {
+    const paths = await createFixturePaths("cli-warning");
+    const stdout: string[] = [];
+    const stderr: string[] = [];
+    await writeGenerated(paths.generatedDirPath, generatedRecord({ repositoryId: 1, fullName: "owner/new-name" }));
+    await writeOverlay(paths.overlayDirPath, { repositoryId: 1, fullName: "owner/old-name", category: "power-apps" });
+    await writeSentinels(paths.sentinelsPath, []);
+
+    const exitCode = await runCli(
+      [
+        "merge",
+        "--generated-dir",
+        paths.generatedDirPath,
+        "--overlay-dir",
+        paths.overlayDirPath,
+        "--schema",
+        paths.schemaPath,
+        "--output",
+        paths.outputPath,
+        "--taxonomy-dir",
+        paths.taxonomyDirPath,
+        "--sentinels",
+        paths.sentinelsPath
+      ],
+      {},
+      { stdout: (message) => stdout.push(message), stderr: (message) => stderr.push(message) }
+    );
+
+    expect(exitCode).toBe(0);
+    expect(stderr).toEqual([expect.stringContaining("::warning::Curated overlay")]);
+    expect(JSON.parse(stdout.join("\n"))).toMatchObject({ warnings: [expect.stringContaining("owner/old-name")] });
   });
 
   it("returns a non-zero exit code and does not write output when merge validation fails", async () => {
@@ -312,7 +382,11 @@ async function writeGenerated(generatedDirPath: string, record: GeneratedReposit
 }
 
 async function writeOverlay(overlayDirPath: string, overlay: CuratedRepositoryOverlay): Promise<void> {
-  await writeJson(path.join(overlayDirPath, generatedRepositoryRelativePath(overlay.fullName)), overlay);
+  await writeOverlayAtPath(path.join(overlayDirPath, generatedRepositoryRelativePath(overlay.fullName)), overlay);
+}
+
+async function writeOverlayAtPath(filePath: string, overlay: CuratedRepositoryOverlay): Promise<void> {
+  await writeJson(filePath, overlay);
 }
 
 async function writeSentinels(sentinelsPath: string, fullNames: string[]): Promise<void> {

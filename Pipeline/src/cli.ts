@@ -91,6 +91,9 @@ export async function runCli(args: string[], env: NodeJS.ProcessEnv = process.en
         ...(options.generatedSchemaPath === undefined ? {} : { generatedSchemaPath: options.generatedSchemaPath }),
         ...(options.overlaySchemaPath === undefined ? {} : { overlaySchemaPath: options.overlaySchemaPath })
       });
+      for (const warning of result.metrics.warnings) {
+        stderr(`::warning::${warning}`);
+      }
       stdout(
         JSON.stringify(
           {

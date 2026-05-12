@@ -35,6 +35,7 @@ export interface MergeMetrics {
   missingCategoryCount: number;
   missingFocusAreasCount: number;
   missingAudiencesCount: number;
+  warnings: string[];
 }
 
 export interface MergeResult {
@@ -61,6 +62,11 @@ interface TaxonomyValues {
   audiences: ReadonlySet<string>;
 }
 
+interface IndexedOverlays {
+  byId: ReadonlyMap<string, CuratedRepositoryOverlay>;
+  warnings: string[];
+}
+
 export async function mergeRepositoryDetails(options: MergeOptions): Promise<MergeResult> {
   assertJsonPath(options.outputPath, "output");
   assertJsonPath(options.schemaPath, "schema");
@@ -73,7 +79,7 @@ export async function mergeRepositoryDetails(options: MergeOptions): Promise<Mer
   ]);
 
   const generatedById = indexGeneratedRecords(generatedRecords);
-  const overlaysById = indexOverlays(overlays, generatedById, taxonomy, sentinelFullNames);
+  const { byId: overlaysById, warnings } = indexOverlays(overlays, options.overlayDirPath, generatedById, taxonomy, sentinelFullNames);
   let matchedOverlays = 0;
   let excludedRepositories = 0;
   const mergedRecords: MergedRepositoryRecord[] = [];
@@ -102,7 +108,8 @@ export async function mergeRepositoryDetails(options: MergeOptions): Promise<Mer
     excludedRepositories,
     missingCategoryCount: records.filter((record) => record.category === undefined).length,
     missingFocusAreasCount: records.filter((record) => record.focusAreas === undefined || record.focusAreas.length === 0).length,
-    missingAudiencesCount: records.filter((record) => record.audiences === undefined || record.audiences.length === 0).length
+    missingAudiencesCount: records.filter((record) => record.audiences === undefined || record.audiences.length === 0).length,
+    warnings
   };
 
   return { records, metrics };
@@ -198,11 +205,13 @@ function indexGeneratedRecords(records: readonly GeneratedRepositoryRecord[]): R
 
 function indexOverlays(
   overlays: readonly LoadedJson<CuratedRepositoryOverlay>[],
+  overlayDirPath: string,
   generatedById: ReadonlyMap<string, GeneratedRepositoryRecord>,
   taxonomy: TaxonomyValues,
   sentinelFullNames: ReadonlySet<string>
-): ReadonlyMap<string, CuratedRepositoryOverlay> {
+): IndexedOverlays {
   const byId = new Map<string, CuratedRepositoryOverlay>();
+  const warnings: string[] = [];
 
   for (const overlayFile of overlays) {
     const overlay = overlayFile.value;
@@ -217,8 +226,11 @@ function indexOverlays(
       throw new Error(`Curated overlay '${overlayFile.filePath}' references unknown repositoryId '${key}' (${overlay.fullName}).`);
     }
 
-    validateOverlayPath(overlayFile.filePath, overlay);
-    validateOverlayFullName(overlayFile.filePath, overlay, generated);
+    validateOverlayPath(overlayDirPath, overlayFile.filePath, overlay);
+    const fullNameWarning = checkOverlayFullName(overlayFile.filePath, overlay, generated);
+    if (fullNameWarning !== undefined) {
+      warnings.push(fullNameWarning);
+    }
     validateOverlayTaxonomy(overlayFile.filePath, overlay, taxonomy);
     if (overlay.exclude === true && sentinelFullNames.has(normalizeFullName(overlay.fullName))) {
       throw new Error(`Curated overlay '${overlayFile.filePath}' cannot exclude sentinel repository '${overlay.fullName}'.`);
@@ -227,24 +239,25 @@ function indexOverlays(
     byId.set(key, overlay);
   }
 
-  return byId;
+  return { byId, warnings };
 }
 
-function validateOverlayPath(filePath: string, overlay: CuratedRepositoryOverlay): void {
-  const expectedRelativePath = generatedRepositoryRelativePath(overlay.fullName);
-  const normalizedFilePath = filePath.split(path.sep).join("/").toLowerCase();
-  const normalizedExpectedSuffix = expectedRelativePath.split(path.sep).join("/").toLowerCase();
-  if (!normalizedFilePath.endsWith(normalizedExpectedSuffix)) {
-    throw new Error(`Curated overlay '${filePath}' path does not match fullName '${overlay.fullName}'. Expected suffix '${expectedRelativePath}'.`);
-  }
-}
-
-function validateOverlayFullName(filePath: string, overlay: CuratedRepositoryOverlay, generated: GeneratedRepositoryRecord): void {
-  if (normalizeFullName(overlay.fullName) !== normalizeFullName(generated.fullName)) {
+function validateOverlayPath(overlayDirPath: string, filePath: string, overlay: CuratedRepositoryOverlay): void {
+  const expectedRelativePath = generatedRepositoryRelativePath(overlay.fullName).split(path.sep).join("/");
+  const actualRelativePath = path.relative(overlayDirPath, filePath).split(path.sep).join("/").toLowerCase();
+  if (actualRelativePath !== expectedRelativePath) {
     throw new Error(
-      `Curated overlay '${filePath}' repositoryId '${repositoryIdKey(overlay.repositoryId)}' has fullName '${overlay.fullName}' but generated data has '${generated.fullName}'.`
+      `Curated overlay '${filePath}' path does not match fullName '${overlay.fullName}'. Expected relative path '${expectedRelativePath}' from overlay directory.`
     );
   }
+}
+
+function checkOverlayFullName(filePath: string, overlay: CuratedRepositoryOverlay, generated: GeneratedRepositoryRecord): string | undefined {
+  if (normalizeFullName(overlay.fullName) !== normalizeFullName(generated.fullName)) {
+    return `Curated overlay '${filePath}' repositoryId '${repositoryIdKey(overlay.repositoryId)}' has fullName '${overlay.fullName}' but generated data has '${generated.fullName}'. The overlay fullName should be updated to match the current repository name.`;
+  }
+
+  return undefined;
 }
 
 function validateOverlayTaxonomy(filePath: string, overlay: CuratedRepositoryOverlay, taxonomy: TaxonomyValues): void {
