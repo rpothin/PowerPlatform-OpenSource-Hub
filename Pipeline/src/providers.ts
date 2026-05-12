@@ -329,10 +329,18 @@ export class OctokitRepositoryProvider implements CandidateProvider {
             result.set(repo.fullName, mapError instanceof Error ? mapError : new Error(String(mapError)));
           }
         }
-      } catch (error) {
-        const batchError = error instanceof Error ? error : new Error(String(error));
+      } catch (batchLevelError) {
+        // The entire GraphQL batch failed (e.g. 502 Bad Gateway due to query complexity on
+        // large repos, network timeout, etc.). Fall back to individual REST calls so one
+        // failing batch does not poison all 20 repos at once. With a classic PAT, REST
+        // succeeds for all public repos; PAT-policy errors from REST are still classified
+        // by the caller via isPatPolicyError().
         for (const repo of batch) {
-          result.set(repo.fullName, batchError);
+          try {
+            result.set(repo.fullName, await this.getRepositoryDetails(repo.fullName, repo));
+          } catch (restError) {
+            result.set(repo.fullName, restError instanceof Error ? restError : new Error(String(restError)));
+          }
         }
       }
     }
