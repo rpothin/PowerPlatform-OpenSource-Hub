@@ -1,0 +1,24 @@
+{
+  "repositoryId": 883315339,
+  "fullName": "microsoft/Agents",
+  "exclude": false,
+  "curationStatus": "needs-review",
+  "category": "copilot-studio",
+  "focusAreas": [
+    "agent-development",
+    "bot-building"
+  ],
+  "audiences": [
+    "makers",
+    "developers"
+  ],
+  "featured": false,
+  "customDescription": "Starter curation overlay for Microsoft agent SDK scenarios that overlap with Copilot Studio and extensibility.",
+  "maintainerNotes": "Review scope against Copilot Studio, Microsoft 365, Teams, and webchat agent scenarios during curation.",
+  "health": {
+    "curated": {
+      "maturity": "unknown",
+      "maintenance": "unknown"
+    }
+  }
+}

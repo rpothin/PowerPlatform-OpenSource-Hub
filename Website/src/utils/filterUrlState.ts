@@ -8,6 +8,9 @@ export type UrlFilterState = {
   selectedLanguages: string[];
   selectedLicenses: string[];
   selectedOwners: string[];
+  selectedCategories: string[];
+  selectedFocusAreas: string[];
+  selectedAudiences: string[];
 };
 
 export const defaultUrlFilterState: UrlFilterState = {
@@ -20,6 +23,9 @@ export const defaultUrlFilterState: UrlFilterState = {
   selectedLanguages: [],
   selectedLicenses: [],
   selectedOwners: [],
+  selectedCategories: [],
+  selectedFocusAreas: [],
+  selectedAudiences: [],
 };
 
 const parseBoolean = (value: string | null): boolean => value === 'true' || value === '1';
@@ -39,6 +45,9 @@ export const parseFilterStateFromSearch = (search: string): UrlFilterState => {
     selectedLanguages: parseList(params.get('languages')),
     selectedLicenses: parseList(params.get('licenses')),
     selectedOwners: parseList(params.get('owners')),
+    selectedCategories: parseList(params.get('categories')),
+    selectedFocusAreas: parseList(params.get('focusAreas')),
+    selectedAudiences: parseList(params.get('audiences')),
   };
 };
 
@@ -79,6 +88,18 @@ export const serializeFilterStateToSearch = (state: UrlFilterState): string => {
 
   if (state.selectedOwners.length > 0) {
     params.set('owners', state.selectedOwners.join(','));
+  }
+
+  if (state.selectedCategories.length > 0) {
+    params.set('categories', state.selectedCategories.join(','));
+  }
+
+  if (state.selectedFocusAreas.length > 0) {
+    params.set('focusAreas', state.selectedFocusAreas.join(','));
+  }
+
+  if (state.selectedAudiences.length > 0) {
+    params.set('audiences', state.selectedAudiences.join(','));
   }
 
   const queryString = params.toString();

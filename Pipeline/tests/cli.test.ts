@@ -34,6 +34,27 @@ describe("CLI", () => {
     expect(stdout.join("\n")).toContain("dry-run");
   });
 
+  it("generates dry-run per-repository files when requested", async () => {
+    const configPath = path.join(outputRoot, "criteria-generated-files.json");
+    const outputPath = path.join(outputRoot, "details-generated-files.json");
+    const generatedDir = path.join(outputRoot, "GeneratedRepositories");
+    const stdout: string[] = [];
+    await writeFile(configPath, JSON.stringify([{ topic: "powerplatform", searchLimit: 1 }]), "utf8");
+
+    const exitCode = await runCli(
+      ["generate", "--dry-run", "--config", configPath, "--schema", schemaPath, "--output", outputPath, "--generated-dir", generatedDir],
+      {},
+      { stdout: (message) => stdout.push(message) }
+    );
+
+    expect(exitCode).toBe(0);
+    expect(JSON.parse(await readFile(outputPath, "utf8"))).toHaveLength(1);
+    expect(
+      JSON.parse(await readFile(path.join(generatedDir, "powerplatform-open-source-hub-dry-run", "powerplatform.json"), "utf8"))
+    ).toMatchObject({ fullName: "powerplatform-open-source-hub-dry-run/powerplatform" });
+    expect(stdout.join("\n")).toContain("generatedDirPath");
+  });
+
   it("requires GITHUB_TOKEN for live mode", async () => {
     const stderr: string[] = [];
 

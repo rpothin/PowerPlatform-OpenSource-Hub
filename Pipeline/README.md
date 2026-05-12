@@ -15,6 +15,54 @@ npm run typecheck
 npm test
 ```
 
+## Curated repository overlays
+
+Phase 3 separates machine-generated repository facts from human-owned curation:
+
+- `Data\GitHubRepositoriesDetails.json` remains the generated/merged frontend artifact and may be updated by automation.
+- `Data\GeneratedRepositories\<owner>\<repository>.json` is the per-repository generated layer. It is owned by the pipeline, replaced atomically during generation, and staged by the bot together with the merged artifact.
+- `Data\CuratedRepositories\<owner>\<repository>.json` contains PR-reviewed overlays owned by humans. The daily bot workflow must read existing overlays only; it must not create, rewrite, or stage overlay files.
+- Overlay paths use lowercase owner and repository path segments for filesystem stability, for example `Data\CuratedRepositories\microsoft\powerapps-samples.json` for `microsoft/PowerApps-Samples`.
+
+Each overlay is validated with `Configuration\Schemas\GitHubRepositoryOverlay.schema.json`. Required identity fields are `repositoryId` and `fullName`: `repositoryId` is the stable GitHub repository id used for matching, while `fullName` is required readable metadata and should match the current canonical `owner/repo`. Do not invent repository ids; copy them from generated data once present or verify them from GitHub before opening a curation PR. Use `previousFullNames` only for known renames or transfers.
+
+Allowed overlay fields are intentionally small: `previousFullNames`, `exclude`, `curationStatus`, `category`, `focusAreas`, `audiences`, `featured`, `customDescription`, `maintainerNotes`, and `health.curated`. Overlays must not override generated GitHub facts such as stars, releases, issues, topics, license, or URLs.
+
+> ⚠️ `maintainerNotes` is copied into the committed `Data\GitHubRepositoriesDetails.json` merged artifact, so it is public and committed to the repository. Keep it limited to curation-relevant, publicly appropriate notes only; do not include confidential or private context.
+
+Taxonomy values live in `Configuration\Taxonomy\RepositoryCategories.json`, `RepositoryFocusAreas.json`, and `RepositoryAudiences.json`. Each entry has a stable `value`, display `label`, and maintenance `description`. Request new taxonomy values in the same PR as the overlays that need them, and keep schema enums, pipeline types, and taxonomy files aligned.
+
+Exclusions are allowed only through reviewed overlays. `exclude: true` should explain the reason in `maintainerNotes`; sentinel repositories from `Configuration\SentinelRepositories.json` must not be excluded unless the sentinel configuration is intentionally changed and reviewed in the same work. Featured status and curated health fields (`maturity`, `maintenance`, `reviewedAt`, `reviewedBy`) are human judgments and should be reviewed by maintainers before setting `curationStatus` to `reviewed`.
+
+### Overlay authoring checklist
+
+1. Find the matching generated record in `Data\GeneratedRepositories` or the merged artifact and copy its `repositoryId` and current `fullName`.
+2. Create or update `Data\CuratedRepositories\<lowercase-owner>\<lowercase-repository>.json`.
+3. Add only the allow-listed curated fields. Use `customDescription` for editorial text; never copy generated facts into the overlay.
+4. Choose taxonomy values from the checked-in taxonomy files. Missing taxonomy is allowed during bootstrap, but reviewed overlays should include the best available `category`, `focusAreas`, and `audiences`.
+5. If setting `featured` or `health.curated`, include enough context in the PR for maintainers to review the judgment.
+6. If setting `exclude: true`, include `maintainerNotes` and confirm the repository is not listed in `Configuration\SentinelRepositories.json`.
+
+### Taxonomy governance
+
+Taxonomy values are stable identifiers used by overlays, filters, and badges. Labels and descriptions can be clarified, but avoid renaming a `value` once overlays use it.
+
+| Field | Source file | Current values |
+| --- | --- | --- |
+| `category` | `RepositoryCategories.json` | `copilot-studio`, `power-apps`, `power-automate`, `power-pages`, `dataverse`, `power-bi`, `connectors`, `alm-devops`, `governance-admin`, `developer-tooling`, `samples-templates`, `learning-docs` |
+| `focusAreas` | `RepositoryFocusAreas.json` | `agent-development`, `bot-building`, `custom-connectors`, `pcf-controls`, `canvas-apps`, `model-driven-apps`, `cloud-flows`, `desktop-flows`, `power-pages-sites`, `dataverse-modeling`, `environment-governance`, `solution-lifecycle`, `testing-quality`, `community-samples` |
+| `audiences` | `RepositoryAudiences.json` | `users`, `contributors`, `maintainers`, `makers`, `developers`, `admins` |
+
+When adding a value, update the taxonomy file, the shared schema enum in `Configuration\Schemas\GitHubRepositoryDefinitions.schema.json`, and the TypeScript taxonomy unions in `Pipeline\src\types.ts` and `Website\src\types\repository.tsx`. The schema tests verify that the files remain aligned.
+
+Before requesting review for curation changes, run:
+
+```powershell
+cd .\Pipeline
+npm run typecheck
+npm test
+```
+
 ## Dry-run generation (no network)
 
 ```powershell
@@ -22,7 +70,9 @@ cd .\Pipeline
 npm run dry-run
 ```
 
-The dry-run loads `..\Configuration\GitHubRepositoriesSearchCriteria.json`, uses deterministic in-memory repository fixtures, validates the output with `..\Configuration\Schemas\GitHubRepositoriesDetails.schema.json`, writes `Output\GitHubRepositoriesDetails.json`, and writes `Output\metrics.json`.
+The dry-run loads `..\Configuration\GitHubRepositoriesSearchCriteria.json`, uses deterministic in-memory repository fixtures, writes and validates per-repository files in `Output\GeneratedRepositories`, merges them with an empty dry-run overlay directory into `Output\GitHubRepositoriesDetails.json`, and writes `Output\metrics.json`.
+
+> ℹ️ CI uses this dry-run shape to validate the merge pipeline logic, including schema validation, taxonomy validation, duplicate detection, and sentinel guards, but it does **not** validate committed overlays from `Data\CuratedRepositories` against real generated data. The dry-run merge reads `Output\CuratedRepositories` instead, because the synthetic fixture `repositoryId` values do not match real overlay identities. Real overlay `repositoryId` and `fullName` matching is validated against generated data on the first production run after an overlay is added. For non-sentinel repositories, that means a curated overlay PR can merge and then fail on the next production run if the repository is not found by the configured search criteria. Overlay validation scenarios are still covered in `Pipeline\tests\merge.test.ts`.
 
 ## Optional live mode
 
@@ -37,15 +87,21 @@ npm run generate:live
 Useful direct CLI options:
 
 ```powershell
-node dist\cli.js generate --dry-run --output .\Output\GitHubRepositoriesDetails.json --metrics .\Output\metrics.json
-node dist\cli.js generate --live --concurrency 4 --output .\Output\GitHubRepositoriesDetails.json
+node dist\cli.js generate --dry-run --output .\Output\GitHubRepositoriesGenerated.json --generated-dir .\Output\GeneratedRepositories --metrics .\Output\metrics.json
+node dist\cli.js merge --generated-dir .\Output\GeneratedRepositories --overlay-dir .\Output\CuratedRepositories --schema ..\Configuration\Schemas\GitHubRepositoriesDetails.schema.json --output .\Output\GitHubRepositoriesDetails.json --taxonomy-dir ..\Configuration\Taxonomy --sentinels ..\Configuration\SentinelRepositories.json
+node dist\cli.js generate --live --concurrency 4 --output .\Output\GitHubRepositoriesGenerated.json --generated-dir ..\Data\GeneratedRepositories
+node dist\cli.js merge --generated-dir ..\Data\GeneratedRepositories --overlay-dir ..\Data\CuratedRepositories --schema ..\Configuration\Schemas\GitHubRepositoriesDetails.schema.json --output ..\Data\GitHubRepositoriesDetails.json --taxonomy-dir ..\Configuration\Taxonomy --sentinels ..\Configuration\SentinelRepositories.json
 ```
 
-Schema validation is performed with `ajv` against the repository's existing JSON Schema so the candidate remains focused on the Phase 1 record shape.
+Schema validation is performed with `ajv`. The array output validates against `GitHubRepositoriesDetails.schema.json`; when `--generated-dir` is provided, each per-repository file is validated against `GitHubRepositoryGenerated.schema.json`, written through a staging directory, and the generated directory is replaced so orphaned repository files are removed. The `merge` command validates generated records and curated overlays, rejects duplicate or unknown overlay identities, blocks sentinel exclusions, checks taxonomy values, applies only the approved curated fields, and writes the same frontend artifact format.
 
 ## Production workflow cutover
 
-The `1-update-github-repositories-details` workflow now runs this TypeScript pipeline by default for scheduled and manual production generation. It writes the configured repository details data path unchanged, validates the existing schema during generation, compares the new output with the previous committed data, blocks suspicious repository-count deltas above 15%, and only dispatches downstream workflows after a data commit. Stable parity differences are reported for review but are not production commit blockers. Manual `workflow_dispatch` runs can select `pipeline: powershell` as a rollback fallback during the stabilization window; the PowerShell scripts remain in place.
+The `1-update-github-repositories-details` workflow now runs this TypeScript pipeline by default for scheduled and manual production generation. It writes `Data\GeneratedRepositories`, compares the generated layer with the previous generated-layer baseline so curated exclusions do not distort the count guard, merges existing PR-owned overlays from `Data\CuratedRepositories` into the configured frontend artifact, and stages only the generated directory plus the merged artifact. It validates generated records, overlays, sentinel exclusions, and the final schema before committing. Downstream README/site workflows dispatch only when the merged frontend artifact changes. Manual `workflow_dispatch` runs can select `pipeline: powershell` as a rollback fallback during the stabilization window; the PowerShell scripts remain in place.
+
+> ℹ️ The PowerShell fallback updates only the committed merged artifact at `Data\GitHubRepositoriesDetails.json`. It does **not** regenerate or stage `Data\GeneratedRepositories`, so the generated layer remains stale relative to the merged artifact after a fallback run. That is expected: the next TypeScript production run re-generates `Data\GeneratedRepositories` and uses the previous TypeScript-generated directory as its baseline for the 15% delta guard. The merged artifact committed by the PowerShell fallback is therefore not output from the TypeScript `merge` command. If maintainers ever need to clear `Data\GeneratedRepositories` for a clean restart, do it manually in a reviewed PR.
+
+Bot ownership is intentionally narrow: scheduled runs may add, update, or delete files under `Data\GeneratedRepositories` and may update `Data\GitHubRepositoriesDetails.json`. They must not stage `Data\CuratedRepositories`, taxonomy files, schemas, or sentinel configuration. Those files are reviewed in normal PRs so curation and governance changes are attributable to humans.
 
 ## Output parity comparison (no network)
 
@@ -72,4 +128,4 @@ The initial repository-count delta threshold is 15% and can be adjusted with `--
 
 ## Manual validation workflow
 
-The `backend-pipeline-manual-validation` GitHub Actions workflow is manual-only (`workflow_dispatch`) and can be used to run the TypeScript pipeline in dry-run or live mode outside the daily production schedule. By default it runs TypeScript dry-run generation, compares generated artifacts against `Data\GitHubRepositoriesDetails.json` when present, uploads outputs/reports as artifacts, and does not commit generated data. Live TypeScript generation must be explicitly selected in the workflow inputs and uses `GITHUB_TOKEN` only inside the generation step.
+The `backend-pipeline-manual-validation` GitHub Actions workflow is manual-only (`workflow_dispatch`) and can be used to run the TypeScript pipeline in dry-run or live mode outside the daily production schedule. By default it runs TypeScript dry-run generation with per-repository output, merges a dry-run overlay directory, compares generated and merged artifacts against `Data\GitHubRepositoriesDetails.json` when requested, uploads outputs/reports as artifacts, and does not commit generated data. Live TypeScript generation must be explicitly selected in the workflow inputs, uses `GITHUB_TOKEN` only inside the generation step, and merges the checked-in curated overlays without rewriting them.

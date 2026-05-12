@@ -38,7 +38,11 @@ jobs:
       ALLOW_SUSPICIOUS_REPOSITORY_DELTA: ${{ inputs.allow_suspicious_repository_delta || false }}
       CONFIGURATION_FILE_PATH: ${{ vars.CONFIGURATION_FILE_PATH }}
       DATA_FILE_PATH: ${{ vars.DATA_FILE_PATH }}
+      DATA_GENERATED_DIR: Data/GeneratedRepositories
+      CURATED_OVERLAY_DIR: Data/CuratedRepositories
+      TAXONOMY_DIR: Configuration/Taxonomy
       SCHEMA_FILE_PATH: Configuration/Schemas/GitHubRepositoriesDetails.schema.json
+      GENERATED_SCHEMA_FILE_PATH: Configuration/Schemas/GitHubRepositoryGenerated.schema.json
       TYPESCRIPT_OUTPUT_DIR: Pipeline/Output/production
 
     steps:
@@ -75,16 +79,26 @@ jobs:
 
           config_path="$(normalize_repo_path CONFIGURATION_FILE_PATH "$CONFIGURATION_FILE_PATH")"
           data_path="$(normalize_repo_path DATA_FILE_PATH "$DATA_FILE_PATH")"
+          generated_dir="$(normalize_repo_path DATA_GENERATED_DIR "$DATA_GENERATED_DIR")"
+          overlay_dir="$(normalize_repo_path CURATED_OVERLAY_DIR "$CURATED_OVERLAY_DIR")"
+          taxonomy_dir="$(normalize_repo_path TAXONOMY_DIR "$TAXONOMY_DIR")"
           schema_path="$(normalize_repo_path SCHEMA_FILE_PATH "$SCHEMA_FILE_PATH")"
+          generated_schema_path="$(normalize_repo_path GENERATED_SCHEMA_FILE_PATH "$GENERATED_SCHEMA_FILE_PATH")"
 
           {
             echo "CONFIGURATION_FILE_PATH=$config_path"
             echo "DATA_FILE_PATH=$data_path"
+            echo "DATA_GENERATED_DIR=$generated_dir"
+            echo "CURATED_OVERLAY_DIR=$overlay_dir"
+            echo "TAXONOMY_DIR=$taxonomy_dir"
             echo "SCHEMA_FILE_PATH=$schema_path"
+            echo "GENERATED_SCHEMA_FILE_PATH=$generated_schema_path"
             echo "TYPESCRIPT_BASELINE_PATH=$TYPESCRIPT_OUTPUT_DIR/baseline-before-typescript.json"
+            echo "TYPESCRIPT_GENERATED_ARRAY_PATH=$TYPESCRIPT_OUTPUT_DIR/generated-layer.json"
             echo "TYPESCRIPT_METRICS_PATH=$TYPESCRIPT_OUTPUT_DIR/typescript-metrics.json"
             echo "TYPESCRIPT_PARITY_REPORT_PATH=$TYPESCRIPT_OUTPUT_DIR/typescript-parity-report.json"
             echo "TYPESCRIPT_PARITY_SUMMARY_PATH=$TYPESCRIPT_OUTPUT_DIR/typescript-parity-summary.md"
+            echo "TYPESCRIPT_MERGE_SUMMARY_PATH=$TYPESCRIPT_OUTPUT_DIR/typescript-merge-summary.json"
           } >> "$GITHUB_ENV"
 
           {
@@ -95,6 +109,8 @@ jobs:
             echo "| Pipeline | \`$PIPELINE\` |"
             echo "| Configuration | \`$config_path\` |"
             echo "| Data output | \`$data_path\` |"
+            echo "| Generated directory | \`$generated_dir\` |"
+            echo "| Curated overlays | \`$overlay_dir\` |"
             echo "| Schema | \`$schema_path\` |"
             echo "| Suspicious delta override | \`$ALLOW_SUSPICIOUS_REPOSITORY_DELTA\` |"
             echo ""
@@ -131,14 +147,46 @@ jobs:
           set -euo pipefail
           mkdir -p "$TYPESCRIPT_OUTPUT_DIR"
 
-          if [[ -f "$DATA_FILE_PATH" ]]; then
-            cp "$DATA_FILE_PATH" "$TYPESCRIPT_BASELINE_PATH"
-            echo "Captured baseline from '$DATA_FILE_PATH'."
+          if [[ -d "$DATA_GENERATED_DIR" ]]; then
+            BASELINE_PATH="$TYPESCRIPT_BASELINE_PATH" GENERATED_DIR="$DATA_GENERATED_DIR" node --input-type=module <<'NODE'
+            import fs from 'node:fs';
+            import path from 'node:path';
+
+            const generatedDir = process.env.GENERATED_DIR;
+            const baselinePath = process.env.BASELINE_PATH;
+            if (!generatedDir || !baselinePath) {
+              throw new Error('Generated baseline paths were not provided.');
+            }
+
+            const files = [];
+            const walk = (directory) => {
+              for (const entry of fs.readdirSync(directory, { withFileTypes: true })) {
+                const entryPath = path.join(directory, entry.name);
+                if (entry.isDirectory()) {
+                  walk(entryPath);
+                } else if (entry.isFile() && entry.name.endsWith('.json')) {
+                  files.push(entryPath);
+                }
+              }
+            };
+
+            walk(generatedDir);
+            const records = files.sort().map((filePath) => JSON.parse(fs.readFileSync(filePath, 'utf8')));
+            fs.writeFileSync(baselinePath, `${JSON.stringify(records, null, 2)}\n`);
+            NODE
+            echo "Captured generated-layer baseline from '$DATA_GENERATED_DIR'."
             echo "TYPESCRIPT_BASELINE_PRESENT=true" >> "$GITHUB_ENV"
+            echo "TYPESCRIPT_BASELINE_SOURCE=generated-dir" >> "$GITHUB_ENV"
+          elif [[ -f "$DATA_FILE_PATH" ]]; then
+            cp "$DATA_FILE_PATH" "$TYPESCRIPT_BASELINE_PATH"
+            echo "::warning::No generated-layer baseline found at '$DATA_GENERATED_DIR'; falling back to merged artifact '$DATA_FILE_PATH' for this run."
+            echo "TYPESCRIPT_BASELINE_PRESENT=true" >> "$GITHUB_ENV"
+            echo "TYPESCRIPT_BASELINE_SOURCE=merged-artifact-fallback" >> "$GITHUB_ENV"
           else
             echo "::warning::No existing repository details data found at '$DATA_FILE_PATH'; using an empty baseline so candidate duplicate, sentinel, and count guards still run."
             printf '[]\n' > "$TYPESCRIPT_BASELINE_PATH"
             echo "TYPESCRIPT_BASELINE_PRESENT=false" >> "$GITHUB_ENV"
+            echo "TYPESCRIPT_BASELINE_SOURCE=empty" >> "$GITHUB_ENV"
           fi
         shell: bash
 
@@ -146,13 +194,15 @@ jobs:
         if: ${{ env.PIPELINE == 'typescript' }}
         run: |
           set -euo pipefail
-          mkdir -p "$(dirname "$DATA_FILE_PATH")" "$TYPESCRIPT_OUTPUT_DIR"
+          mkdir -p "$(dirname "$DATA_FILE_PATH")" "$TYPESCRIPT_OUTPUT_DIR" "$DATA_GENERATED_DIR"
 
           node Pipeline/dist/cli.js generate \
             --live \
             --config "$CONFIGURATION_FILE_PATH" \
             --schema "$SCHEMA_FILE_PATH" \
-            --output "$DATA_FILE_PATH" \
+            --output "$TYPESCRIPT_GENERATED_ARRAY_PATH" \
+            --generated-dir "$DATA_GENERATED_DIR" \
+            --generated-schema "$GENERATED_SCHEMA_FILE_PATH" \
             --metrics "$TYPESCRIPT_METRICS_PATH"
         shell: bash
         env:
@@ -172,7 +222,7 @@ jobs:
           set +e
           node Pipeline/dist/cli.js compare \
             --baseline "$TYPESCRIPT_BASELINE_PATH" \
-            --candidate "$DATA_FILE_PATH" \
+            --candidate "$TYPESCRIPT_GENERATED_ARRAY_PATH" \
             --sentinels Configuration/SentinelRepositories.json \
             --report "$TYPESCRIPT_PARITY_REPORT_PATH" \
             --count-delta-threshold "$threshold" > "$TYPESCRIPT_PARITY_SUMMARY_PATH" 2>&1
@@ -186,7 +236,8 @@ jobs:
             echo "| --- | --- |"
             echo "| Baseline | \`$TYPESCRIPT_BASELINE_PATH\` |"
             echo "| Existing baseline present | \`${TYPESCRIPT_BASELINE_PRESENT:-unknown}\` |"
-            echo "| Candidate | \`$DATA_FILE_PATH\` |"
+            echo "| Baseline source | \`${TYPESCRIPT_BASELINE_SOURCE:-unknown}\` |"
+            echo "| Candidate generated layer | \`$TYPESCRIPT_GENERATED_ARRAY_PATH\` |"
             echo "| Count delta threshold | \`$threshold\` |"
             echo "| Report | \`$TYPESCRIPT_PARITY_REPORT_PATH\` |"
             echo "| Exit code | \`$comparison_exit_code\` |"
@@ -244,6 +295,36 @@ jobs:
           NODE
         shell: bash
 
+      - name: Merge TypeScript generated layer with curated overlays
+        if: ${{ env.PIPELINE == 'typescript' }}
+        run: |
+          set -euo pipefail
+          node Pipeline/dist/cli.js merge \
+            --generated-dir "$DATA_GENERATED_DIR" \
+            --overlay-dir "$CURATED_OVERLAY_DIR" \
+            --schema "$SCHEMA_FILE_PATH" \
+            --output "$DATA_FILE_PATH" \
+            --taxonomy-dir "$TAXONOMY_DIR" \
+            --sentinels Configuration/SentinelRepositories.json \
+            --generated-schema "$GENERATED_SCHEMA_FILE_PATH" > "$TYPESCRIPT_MERGE_SUMMARY_PATH"
+
+          {
+            echo "### TypeScript generated + curated merge"
+            echo ""
+            echo "| Setting | Value |"
+            echo "| --- | --- |"
+            echo "| Generated directory | \`$DATA_GENERATED_DIR\` |"
+            echo "| Curated overlays | \`$CURATED_OVERLAY_DIR\` |"
+            echo "| Merged artifact | \`$DATA_FILE_PATH\` |"
+            echo "| Merge summary | \`$TYPESCRIPT_MERGE_SUMMARY_PATH\` |"
+            echo ""
+            echo '```json'
+            cat "$TYPESCRIPT_MERGE_SUMMARY_PATH"
+            echo '```'
+            echo ""
+          } >> "$GITHUB_STEP_SUMMARY"
+        shell: bash
+
       - name: Upload TypeScript production guard artifacts
         if: ${{ always() && env.PIPELINE == 'typescript' }}
         uses: actions/upload-artifact@v7
@@ -251,6 +332,8 @@ jobs:
           name: repository-details-typescript-production-${{ github.run_id }}
           path: |
             Pipeline/Output/production/
+            Data/GeneratedRepositories/
+            Data/GitHubRepositoriesDetails.json
           if-no-files-found: warn
 
       # Update the details of all the GitHub repositories corresponding to the list of considered topics
@@ -283,7 +366,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.PAT_ACCESS_PUBLIC_GITHUB_REPOSITORIES }}
 
-      - name: Validate generated repository details data
+      - name: Validate merged repository details data
         run: |
           $schemaFilePath = $env:SCHEMA_FILE_PATH
           $dataFilePath = $env:DATA_FILE_PATH
@@ -298,7 +381,7 @@ jobs:
 
           $dataAsJson = Get-Content -Path $dataFilePath -Raw
           if (-not ($dataAsJson | Test-Json -SchemaFile $schemaFilePath)) {
-            throw "The generated repository details data does not match the schema file '$schemaFilePath'."
+            throw "The merged repository details data does not match the schema file '$schemaFilePath'."
           }
 
           $repositories = @($dataAsJson | ConvertFrom-Json)
@@ -313,19 +396,20 @@ jobs:
           $sentinelStatus = "not checked"
           $sentinelsFilePath = "Configuration/SentinelRepositories.json"
           if (Test-Path -Path $sentinelsFilePath) {
-            $sentinelFullNames = @(Get-Content -Path $sentinelsFilePath -Raw | ConvertFrom-Json)
+            $sentinelConfiguration = Get-Content -Path $sentinelsFilePath -Raw | ConvertFrom-Json
+            $sentinelFullNames = @($sentinelConfiguration.repositories | ForEach-Object { $_.fullName })
             $repositoryFullNames = @($repositories | ForEach-Object { $_.fullName })
             $missingSentinels = @($sentinelFullNames | Where-Object { $repositoryFullNames -notcontains $_ })
             if ($missingSentinels.Count -gt 0) {
-              throw "Generated data is missing $($missingSentinels.Count) sentinel repository/repositories: $($missingSentinels -join ', ')"
+              throw "Merged data is missing $($missingSentinels.Count) sentinel repository/repositories: $($missingSentinels -join ', ')"
             }
-            Write-Host "All $($sentinelFullNames.Count) sentinel repositories are present in generated data."
+            Write-Host "All $($sentinelFullNames.Count) sentinel repositories are present in merged data."
             $sentinelStatus = "all $($sentinelFullNames.Count) present"
           }
 
           if ($env:GITHUB_STEP_SUMMARY) {
             @(
-              "### Generated repository details"
+              "### Merged repository details"
               ""
               "| Metric | Value |"
               "| --- | ---: |"
@@ -344,16 +428,32 @@ jobs:
           git config --global user.email 'GitHub Action'
 
           git add -- "$env:DATA_FILE_PATH"
+          if ($env:PIPELINE -eq "typescript") {
+            git add -- "$env:DATA_GENERATED_DIR"
+          }
+
+          git diff --cached --quiet -- "$env:DATA_FILE_PATH"
+          $mergedArtifactDiffExitCode = $LASTEXITCODE
+          if ($mergedArtifactDiffExitCode -eq 0) {
+            $hasMergedArtifactChanges = $false
+          } elseif ($mergedArtifactDiffExitCode -eq 1) {
+            $hasMergedArtifactChanges = $true
+          } else {
+            throw "Unable to check staged merged repository details changes. git diff exited with code $mergedArtifactDiffExitCode."
+          }
+
           git diff --cached --quiet
           $gitDiffExitCode = $LASTEXITCODE
 
           if ($gitDiffExitCode -eq 0) {
             Write-Host "No GitHub repositories details changes to commit."
             "has_changes=false" >> $env:GITHUB_OUTPUT
+            "has_merged_artifact_changes=false" >> $env:GITHUB_OUTPUT
           } elseif ($gitDiffExitCode -eq 1) {
             git commit -m "GitHub repositories details updated - ${{ steps.current_date.outputs.NOW }}.${{ github.run_number }}"
             git -c http.extraheader="AUTHORIZATION: Bearer ${{ secrets.GITHUB_TOKEN }}" push origin main
             "has_changes=true" >> $env:GITHUB_OUTPUT
+            "has_merged_artifact_changes=$($hasMergedArtifactChanges.ToString().ToLowerInvariant())" >> $env:GITHUB_OUTPUT
           } else {
             throw "Unable to check staged GitHub repositories details changes. git diff exited with code $gitDiffExitCode."
           }
@@ -361,7 +461,7 @@ jobs:
 
       # Trigger the update-readme-with-github-repositories-details workflow in the current repository using GitHub CLI
       - name: Trigger update-readme-with-github-repositories-details workflow
-        if: steps.push_changes.outputs.has_changes == 'true'
+        if: steps.push_changes.outputs.has_merged_artifact_changes == 'true'
         run: |
           gh workflow run update-readme-with-github-repositories-details.yml --ref main
         shell: pwsh
@@ -370,7 +470,7 @@ jobs:
 
       # Triggere the build-push-website-to-gh-pages workflow in the current repository using GitHub CLI
       - name: Trigger build-push-website-to-gh-pages workflow
-        if: steps.push_changes.outputs.has_changes == 'true'
+        if: steps.push_changes.outputs.has_merged_artifact_changes == 'true'
         run: |
           gh workflow run build-push-website-to-gh-pages.yml --ref main
         shell: pwsh

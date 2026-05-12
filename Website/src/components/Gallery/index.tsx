@@ -34,7 +34,7 @@ import {
 
 import { ArrowExpand16Regular, Dismiss24Regular, Eye16Filled, OpenRegular, Star16Filled } from "@fluentui/react-icons";
 
-import { filterItems, sortItems, isActive } from '../../utils/galleryUtils';
+import { filterItems, sortItems, isActive, getRepositoryDescription, getRelaunchBadgeEntries } from '../../utils/galleryUtils';
 import { Repository } from '../../types/repository';
 import styles from './styles.module.css';
 
@@ -47,11 +47,28 @@ type GalleryProps = {
     selectedLanguages: string[];
     selectedLicenses: string[];
     selectedOwners: string[];
+    selectedCategories: string[];
+    selectedFocusAreas: string[];
+    selectedAudiences: string[];
     sortBy: string;
     onSortByChange: (sortBy: string) => void;
 }
 
-const Gallery = ({ items, hasGoodFirstIssueChecked, hasHelpWantedIssueChecked, hasCodeOfConductChecked, selectedTopics = [], selectedLanguages = [], selectedLicenses = [], selectedOwners = [], sortBy, onSortByChange }: GalleryProps) => {
+const Gallery = ({
+    items,
+    hasGoodFirstIssueChecked,
+    hasHelpWantedIssueChecked,
+    hasCodeOfConductChecked,
+    selectedTopics = [],
+    selectedLanguages = [],
+    selectedLicenses = [],
+    selectedOwners = [],
+    selectedCategories = [],
+    selectedFocusAreas = [],
+    selectedAudiences = [],
+    sortBy,
+    onSortByChange,
+}: GalleryProps) => {
     const [selectedItem, setSelectedItem] = useState<Repository | null>(null);
     const [hideDialog, setHideDialog] = useState(true);
     const comboId = useId("combo-orderby");
@@ -73,6 +90,9 @@ const Gallery = ({ items, hasGoodFirstIssueChecked, hasHelpWantedIssueChecked, h
         selectedLanguages,
         selectedLicenses,
         selectedOwners,
+        selectedCategories,
+        selectedFocusAreas,
+        selectedAudiences,
     });
 
     const openDialog = (item) => {
@@ -96,6 +116,28 @@ const Gallery = ({ items, hasGoodFirstIssueChecked, hasHelpWantedIssueChecked, h
     };
 
     const sortedItems = sortItems(filteredItems, selectedOptions);
+    const renderRelaunchBadges = (item: Repository, testIdPrefix: string) => {
+        const badges = getRelaunchBadgeEntries(item);
+        if (badges.length === 0) {
+            return null;
+        }
+
+        return (
+            <div style={{ display: 'flex', flexWrap: 'wrap', marginBottom: '4px' }}>
+                {badges.map((badge) => (
+                    <Badge
+                        data-testid={`${testIdPrefix}-${badge.testIdSuffix}-badge`}
+                        appearance={badge.appearance}
+                        color={badge.color}
+                        key={badge.key}
+                        style={{ marginRight: '2px', marginBottom: '2px' }}
+                    >
+                        {badge.label}
+                    </Badge>
+                ))}
+            </div>
+        );
+    };
 
     return (
         <div style={{ width: '100%' }}>
@@ -173,14 +215,16 @@ const Gallery = ({ items, hasGoodFirstIssueChecked, hasHelpWantedIssueChecked, h
                         </Subtitle1>
 
                         <Text data-testid="repository-description">
-                            {item.description.length > 150 ?
+                            {getRepositoryDescription(item).length > 150 ?
                                 <p>
-                                    {item.description.substring(0, 150) + '... '}
+                                    {getRepositoryDescription(item).substring(0, 150) + '... '}
                                 </p>
                                 :
-                                item.description
+                                getRepositoryDescription(item)
                             }
                         </Text>
+
+                        {renderRelaunchBadges(item, 'card')}
 
                         <div style={{ display: 'flex', flexWrap: 'wrap' }}>
                             {item.topics.slice(0, 5).map((topic, index) => (
@@ -223,8 +267,9 @@ const Gallery = ({ items, hasGoodFirstIssueChecked, hasHelpWantedIssueChecked, h
                             <DialogBody>
                                 <div style={{ display: 'flex', flexDirection: 'column' }}>
                                     <Text data-testid="dialog-description">
-                                        {selectedItem?.description}
+                                        {getRepositoryDescription(selectedItem)}
                                     </Text>
+                                    {selectedItem && renderRelaunchBadges(selectedItem, 'dialog')}
                                     <div style={{ marginTop: '10px', display: 'flex', flexWrap: 'wrap', flexDirection: 'column' }}>
                                         {selectedItem?.license?.name && (
                                             <Badge data-testid="dialog-license-badge" appearance="tint" style={{ marginBottom: '4px' }}>License: {selectedItem?.license?.name}</Badge>

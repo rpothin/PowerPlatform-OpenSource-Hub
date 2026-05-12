@@ -1,5 +1,6 @@
 // Local files
-import { Item } from '../types/repository';
+import { Repository } from '../types/repository';
+import { formatFacetLabel } from './filterPaneUtils';
 
 /**
  * Represents the filter parameters for the gallery.
@@ -12,7 +13,80 @@ export type FilterParams = {
     selectedLanguages: string[];
     selectedLicenses: string[];
     selectedOwners: string[];
+    selectedCategories: string[];
+    selectedFocusAreas: string[];
+    selectedAudiences: string[];
 };
+
+export type RelaunchBadgeEntry = {
+    key: string;
+    testIdSuffix: 'featured' | 'category' | 'focus-area' | 'audience' | 'health' | 'maintenance' | 'maturity';
+    label: string;
+    appearance: 'filled' | 'tint' | 'outline';
+    color?: 'brand';
+};
+
+export const getRepositoryDescription = (item?: Repository | null): string =>
+    item?.displayDescription ?? item?.customDescription ?? item?.description ?? '';
+
+export function getRelaunchBadgeEntries(item: Repository): RelaunchBadgeEntry[] {
+    const entries: RelaunchBadgeEntry[] = [];
+
+    if (item.featured) {
+        entries.push({ key: 'featured', testIdSuffix: 'featured', label: 'Featured', appearance: 'filled', color: 'brand' });
+    }
+    if (item.category) {
+        entries.push({ key: `category-${item.category}`, testIdSuffix: 'category', label: `Category: ${formatFacetLabel(item.category)}`, appearance: 'tint' });
+    }
+    item.focusAreas?.forEach((focusArea, index) => {
+        entries.push({
+            key: `focus-${focusArea}-${index}`,
+            testIdSuffix: 'focus-area',
+            label: `Focus: ${formatFacetLabel(focusArea)}`,
+            appearance: 'outline',
+        });
+    });
+    item.audiences?.forEach((audience, index) => {
+        entries.push({
+            key: `audience-${audience}-${index}`,
+            testIdSuffix: 'audience',
+            label: `Audience: ${formatFacetLabel(audience)}`,
+            appearance: 'outline',
+        });
+    });
+    if (item.health?.computed?.activityStatus) {
+        entries.push({
+            key: `health-${item.health.computed.activityStatus}`,
+            testIdSuffix: 'health',
+            label: `Health: ${formatFacetLabel(item.health.computed.activityStatus)}`,
+            appearance: 'tint',
+        });
+    }
+    if (item.health?.curated?.maintenance) {
+        entries.push({
+            key: `maintenance-${item.health.curated.maintenance}`,
+            testIdSuffix: 'maintenance',
+            label: `Maintenance: ${formatFacetLabel(item.health.curated.maintenance)}`,
+            appearance: 'tint',
+        });
+    }
+    if (item.health?.curated?.maturity) {
+        entries.push({
+            key: `maturity-${item.health.curated.maturity}`,
+            testIdSuffix: 'maturity',
+            label: `Maturity: ${formatFacetLabel(item.health.curated.maturity)}`,
+            appearance: 'tint',
+        });
+    }
+
+    return entries;
+}
+
+const includesAllSelectedValues = (itemValues: readonly string[] | undefined, selectedValues: string[]): boolean =>
+    selectedValues.length === 0 || selectedValues.every(value => itemValues?.includes(value));
+
+const includesSelectedValue = (itemValue: string | undefined, selectedValues: string[]): boolean =>
+    selectedValues.length === 0 || (!!itemValue && selectedValues.includes(itemValue));
 
 /**
  * Filters the items based on the provided filter parameters.
@@ -20,18 +94,32 @@ export type FilterParams = {
  * @param filterParams - The object containing the filter parameters.
  * @returns The filtered array of items.
  */
-export function filterItems(items, filterParams: FilterParams) {
+export function filterItems(items: Repository[], filterParams: FilterParams): Repository[] {
     const itemsCopy = [...items]; // Create a copy of the array
     return itemsCopy.filter(item => {
-        const { hasGoodFirstIssueChecked, hasHelpWantedIssueChecked, hasCodeOfConductChecked, selectedTopics, selectedLanguages, selectedLicenses, selectedOwners } = filterParams;
+        const {
+            hasGoodFirstIssueChecked,
+            hasHelpWantedIssueChecked,
+            hasCodeOfConductChecked,
+            selectedTopics,
+            selectedLanguages,
+            selectedLicenses,
+            selectedOwners,
+            selectedCategories,
+            selectedFocusAreas,
+            selectedAudiences,
+        } = filterParams;
         return (
                 (!hasGoodFirstIssueChecked || item.hasGoodFirstIssues) &&
                 (!hasHelpWantedIssueChecked || item.hasHelpWantedIssues) &&
                 (!hasCodeOfConductChecked || (item.codeOfConduct && item.codeOfConduct.name)) &&
-                (selectedTopics.length === 0 || selectedTopics.every(topic => item.topics.includes(topic))) &&
-                (selectedLanguages.length === 0 || selectedLanguages.every(language => item.languages.includes(language))) &&
+                includesAllSelectedValues(item.topics, selectedTopics) &&
+                includesAllSelectedValues(item.languages, selectedLanguages) &&
                 (selectedLicenses.length === 0 || (item.license && selectedLicenses.includes(item.license.name))) &&
-                (selectedOwners.length === 0 || selectedOwners.includes(item.owner.login))
+                (selectedOwners.length === 0 || selectedOwners.includes(item.owner.login)) &&
+                includesSelectedValue(item.category, selectedCategories) &&
+                includesAllSelectedValues(item.focusAreas, selectedFocusAreas) &&
+                includesAllSelectedValues(item.audiences, selectedAudiences)
         );
     });
 }

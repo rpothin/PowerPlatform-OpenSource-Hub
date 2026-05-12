@@ -1,138 +1,20 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "GitHubRepositoriesDetails.schema.json",
   "title": "GitHubRepositoriesDetails",
+  "description": "Merged frontend repository artifact consumed by the website.",
   "type": "array",
   "items": {
-    "type": "object",
-    "required": [
-      "createdAt",
-      "description",
-      "fullName",
-      "hasIssues",
-      "homepage",
-      "isArchived",
-      "language",
-      "license",
-      "name",
-      "openIssuesCount",
-      "owner",
-      "updatedAt",
-      "url",
-      "codeOfConduct",
-      "forkCount",
-      "fundingLinks",
-      "isSecurityPolicyEnabled",
-      "isTemplate",
-      "latestRelease",
-      "primaryLanguage",
-      "securityPolicyUrl",
-      "stargazerCount",
-      "watchers",
-      "topics",
-      "languages",
-      "openedGoodFirstIssues",
-      "hasGoodFirstIssues",
-      "openedHelpWantedIssues",
-      "hasHelpWantedIssues",
-      "openedToContributionsIssues",
-      "popularityScore",
-      "_schemaVersion",
-      "_generatedAt",
-      "_workflowRunId"
-    ],
-    "additionalProperties": true,
-    "properties": {
-      "createdAt": { "type": "string" },
-      "description": { "type": "string" },
-      "fullName": { "type": "string" },
-      "hasIssues": { "type": "boolean" },
-      "homepage": { "type": ["string", "null"] },
-      "isArchived": { "type": "boolean" },
-      "language": { "type": "string" },
-      "license": {
-        "anyOf": [
-          {
-            "type": "null"
-          },
-          {
-            "type": "object",
-            "required": ["name"],
-            "properties": {
-              "key": { "type": "string" },
-              "name": { "type": "string" },
-              "url": { "type": "string" }
-            }
-          }
-        ]
-      },
-      "name": { "type": "string" },
-      "openIssuesCount": { "type": "number" },
-      "owner": {
+    "allOf": [
+      { "$ref": "GitHubRepositoryDefinitions.schema.json#/$defs/githubRepositoryFacts" },
+      {
         "type": "object",
-        "required": ["login"],
         "properties": {
-          "id": { "type": "string" },
-          "is_bot": { "type": "boolean" },
-          "login": { "type": "string" },
-          "type": { "type": "string" },
-          "url": { "type": "string" }
+          "repositoryId": { "$ref": "GitHubRepositoryDefinitions.schema.json#/$defs/repositoryId" }
         }
       },
-      "updatedAt": { "type": "string" },
-      "url": { "type": "string" },
-      "codeOfConduct": {
-        "type": ["object", "null"],
-        "properties": {
-          "key": { "type": "string" },
-          "name": { "type": "string" },
-          "url": { "type": "string" }
-        }
-      },
-      "forkCount": { "type": "number" },
-      "fundingLinks": { "type": "array" },
-      "isSecurityPolicyEnabled": { "type": "boolean" },
-      "isTemplate": { "type": "boolean" },
-      "latestRelease": {
-        "type": ["object", "null"],
-        "properties": {
-          "name": { "type": "string" },
-          "tagName": { "type": "string" },
-          "url": { "type": "string" },
-          "publishedAt": { "type": "string" }
-        }
-      },
-      "primaryLanguage": {
-        "type": ["object", "null"],
-        "properties": {
-          "name": { "type": "string" }
-        }
-      },
-      "securityPolicyUrl": { "type": ["string", "null"] },
-      "stargazerCount": { "type": "number" },
-      "watchers": {
-        "type": "object",
-        "required": ["totalCount"],
-        "properties": {
-          "totalCount": { "type": "number" }
-        }
-      },
-      "topics": {
-        "type": "array",
-        "items": { "type": "string" }
-      },
-      "languages": {
-        "type": "array",
-        "items": { "type": "string" }
-      },
-      "openedGoodFirstIssues": { "type": "number" },
-      "hasGoodFirstIssues": { "type": "boolean" },
-      "openedHelpWantedIssues": { "type": "number" },
-      "hasHelpWantedIssues": { "type": "boolean" },
-      "openedToContributionsIssues": { "type": "number" },
-      "popularityScore": { "type": "number" },
-      "_schemaVersion": { "type": "string" },
-      "_generatedAt": { "type": "string" },
-      "_workflowRunId": { "type": "string" }
-    }
+      { "$ref": "GitHubRepositoryDefinitions.schema.json#/$defs/curatedRepositoryFields" },
+      { "$ref": "GitHubRepositoryDefinitions.schema.json#/$defs/curationProvenance" }
+    ]
   }
 }

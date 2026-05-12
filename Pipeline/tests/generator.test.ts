@@ -15,6 +15,7 @@ function searchRepository(fullName: string, overrides: Partial<SearchRepository>
     createdAt: "2024-01-01T00:00:00Z",
     description: `Repository ${fullName}`,
     fullName,
+    repositoryId: `fixture:${fullName}`,
     hasIssues: true,
     homepage: "",
     isArchived: false,

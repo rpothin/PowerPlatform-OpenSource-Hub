@@ -40,6 +40,10 @@ jobs:
       COMPARE_WITH_BASELINE: ${{ inputs.compare_with_baseline }}
       FAIL_ON_PARITY_FAILURE: ${{ inputs.fail_on_parity_failure }}
       TYPESCRIPT_MODE: ${{ inputs.typescript_mode }}
+      GENERATED_SCHEMA_PATH: ../Configuration/Schemas/GitHubRepositoryGenerated.schema.json
+      MERGED_SCHEMA_PATH: ../Configuration/Schemas/GitHubRepositoriesDetails.schema.json
+      SENTINELS_PATH: ../Configuration/SentinelRepositories.json
+      TAXONOMY_DIR: ../Configuration/Taxonomy
 
     steps:
       - name: Checkout
@@ -95,23 +99,55 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.PAT_ACCESS_PUBLIC_GITHUB_REPOSITORIES || github.token }}
         run: |
           set -euo pipefail
-          mkdir -p Output/shadow
+          mkdir -p Output/shadow/GeneratedRepositories Output/shadow/CuratedRepositories
+
+          generated_dir="./Output/shadow/GeneratedRepositories"
+          generated_output="./Output/shadow/typescript-generated-layer.json"
+          merged_output="./Output/shadow/typescript-merged-repositories.json"
+          metrics_output="./Output/shadow/typescript-metrics.json"
+          merge_summary="./Output/shadow/typescript-merge-summary.json"
+          overlay_dir="./Output/shadow/CuratedRepositories"
 
           if [[ "$TYPESCRIPT_MODE" == "live" ]]; then
             echo "TypeScript live mode was explicitly requested for this manual shadow run."
-            node dist/cli.js generate --live --output ./Output/shadow/typescript-repositories.json --metrics ./Output/shadow/typescript-metrics.json
+            overlay_dir="../Data/CuratedRepositories"
+            node dist/cli.js generate \
+              --live \
+              --output "$generated_output" \
+              --generated-dir "$generated_dir" \
+              --generated-schema "$GENERATED_SCHEMA_PATH" \
+              --metrics "$metrics_output"
           else
-            node dist/cli.js generate --dry-run --output ./Output/shadow/typescript-repositories.json --metrics ./Output/shadow/typescript-metrics.json
+            node dist/cli.js generate \
+              --dry-run \
+              --output "$generated_output" \
+              --generated-dir "$generated_dir" \
+              --generated-schema "$GENERATED_SCHEMA_PATH" \
+              --metrics "$metrics_output"
           fi
+
+          node dist/cli.js merge \
+            --generated-dir "$generated_dir" \
+            --overlay-dir "$overlay_dir" \
+            --schema "$MERGED_SCHEMA_PATH" \
+            --output "$merged_output" \
+            --taxonomy-dir "$TAXONOMY_DIR" \
+            --sentinels "$SENTINELS_PATH" \
+            --generated-schema "$GENERATED_SCHEMA_PATH" > "$merge_summary"
 
           CANDIDATE_NAME=TypeScript \
           CANDIDATE_MODE="$TYPESCRIPT_MODE" \
-          OUTPUT_PATH=Output/shadow/typescript-repositories.json \
-          METRICS_PATH=Output/shadow/typescript-metrics.json \
+          GENERATED_DIR="$generated_dir" \
+          GENERATED_OUTPUT_PATH="$generated_output" \
+          MERGED_OUTPUT_PATH="$merged_output" \
+          METRICS_PATH="$metrics_output" \
+          MERGE_SUMMARY_PATH="$merge_summary" \
+          OVERLAY_DIR="$overlay_dir" \
           node --input-type=module <<'NODE'
           import fs from 'node:fs';
 
           const metrics = JSON.parse(fs.readFileSync(process.env.METRICS_PATH, 'utf8'));
+          const mergeMetrics = JSON.parse(fs.readFileSync(process.env.MERGE_SUMMARY_PATH, 'utf8'));
           const lines = [
             `### ${process.env.CANDIDATE_NAME} shadow generation`,
             '',
@@ -120,9 +156,15 @@ jobs:
             `| Mode | \`${process.env.CANDIDATE_MODE}\` |`,
             `| Generated records | ${metrics.generatedRecords ?? metrics.recordsWritten ?? 'n/a'} |`,
             `| Detail failures | ${metrics.detailFailures ?? 'n/a'} |`,
+            `| Matched overlays | ${mergeMetrics.matchedOverlays ?? 'n/a'} |`,
+            `| Excluded repositories | ${mergeMetrics.excludedRepositories ?? 'n/a'} |`,
             `| Warnings | ${(metrics.warnings ?? metrics.observations ?? []).length} |`,
             `| Metrics artifact | \`${process.env.METRICS_PATH}\` |`,
-            `| Output artifact | \`${process.env.OUTPUT_PATH}\` |`,
+            `| Generated directory | \`${process.env.GENERATED_DIR}\` |`,
+            `| Generated layer artifact | \`${process.env.GENERATED_OUTPUT_PATH}\` |`,
+            `| Overlay source | \`${process.env.OVERLAY_DIR}\` |`,
+            `| Merged output artifact | \`${process.env.MERGED_OUTPUT_PATH}\` |`,
+            `| Merge summary artifact | \`${process.env.MERGE_SUMMARY_PATH}\` |`,
             ''
           ];
           fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY, `${lines.join('\n')}\n`);
@@ -188,7 +230,8 @@ jobs:
             fi
           }
 
-          compare_candidate "TypeScript" ./Output/shadow/typescript-repositories.json ./Output/shadow/typescript-parity-report.json
+          compare_candidate "TypeScript generated layer" ./Output/shadow/typescript-generated-layer.json ./Output/shadow/typescript-generated-parity-report.json
+          compare_candidate "TypeScript merged artifact" ./Output/shadow/typescript-merged-repositories.json ./Output/shadow/typescript-merged-parity-report.json
 
           if [[ "$comparison_status" -ne 0 && "$FAIL_ON_PARITY_FAILURE" == "true" ]]; then
             exit 1

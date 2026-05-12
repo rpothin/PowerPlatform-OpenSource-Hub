@@ -1,0 +1,25 @@
+{
+  "repositoryId": 285654377,
+  "fullName": "microsoft/powerplatform-actions",
+  "exclude": false,
+  "curationStatus": "needs-review",
+  "category": "alm-devops",
+  "focusAreas": [
+    "solution-lifecycle",
+    "testing-quality"
+  ],
+  "audiences": [
+    "developers",
+    "admins",
+    "maintainers"
+  ],
+  "featured": false,
+  "customDescription": "Starter curation overlay for Power Platform GitHub Actions used in ALM and CI/CD workflows.",
+  "maintainerNotes": "Confirm ALM guidance, supported scenarios, and maintenance status before marking reviewed.",
+  "health": {
+    "curated": {
+      "maturity": "unknown",
+      "maintenance": "unknown"
+    }
+  }
+}

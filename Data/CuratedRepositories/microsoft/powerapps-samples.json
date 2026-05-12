@@ -1,0 +1,28 @@
+{
+  "repositoryId": 126898329,
+  "fullName": "microsoft/PowerApps-Samples",
+  "exclude": false,
+  "curationStatus": "needs-review",
+  "category": "samples-templates",
+  "focusAreas": [
+    "canvas-apps",
+    "model-driven-apps",
+    "pcf-controls",
+    "dataverse-modeling",
+    "community-samples"
+  ],
+  "audiences": [
+    "makers",
+    "developers",
+    "contributors"
+  ],
+  "featured": false,
+  "customDescription": "Starter curation overlay for official Microsoft Power Apps and Dataverse samples.",
+  "maintainerNotes": "Validate sample coverage and featured status during human curation review.",
+  "health": {
+    "curated": {
+      "maturity": "unknown",
+      "maintenance": "unknown"
+    }
+  }
+}

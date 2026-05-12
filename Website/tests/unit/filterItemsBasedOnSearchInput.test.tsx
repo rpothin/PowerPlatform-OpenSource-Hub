@@ -87,6 +87,11 @@ describe('filterItemsBasedOnSearchInput', () => {
     expect(result).toEqual([data[0]]);
   });
 
+  it('returns a filtered list when the search text matches curated relaunch metadata', () => {
+    const result = filterItemsBasedOnSearchInput(data, 'canvas-apps');
+    expect(result).toEqual([data[0]]);
+  });
+
   it('returns an empty list when the search text is not empty and the search text does not match any of the fields of a repository', () => {
     const result = filterItemsBasedOnSearchInput(data, 'abc');
     expect(result).toEqual([]);

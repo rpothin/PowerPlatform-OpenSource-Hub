@@ -66,6 +66,13 @@ describe('countItemsByProperty', () => {
         const result = countItemsByProperty(data, 'owner.login', 'microsoft');
         expect(result).toEqual(1);
     });
+
+    it('returns counts for curated taxonomy and health fields', () => {
+        expect(countItemsByProperty(data, 'category', 'power-apps')).toEqual(1);
+        expect(countItemsByProperty(data, 'focusAreas', 'canvas-apps')).toEqual(1);
+        expect(countItemsByProperty(data, 'audiences', 'makers')).toEqual(1);
+        expect(countItemsByProperty(data, 'health.curated.maintenance', 'maintained')).toEqual(1);
+    });
 });
 
 describe('extractDistinctProperties', () => {
@@ -97,5 +104,11 @@ describe('extractDistinctProperties', () => {
     it('returns the distinct owners', () => {
         const result = extractDistinctProperties(data, 'owner.login');
         expect(result).toEqual(['microsoft', 'rpothin']);
+    });
+
+    it('returns distinct curated taxonomy values for filter options', () => {
+        expect(extractDistinctProperties(data, 'category')).toEqual(['power-apps']);
+        expect(extractDistinctProperties(data, 'focusAreas')).toEqual(['canvas-apps', 'community-samples']);
+        expect(extractDistinctProperties(data, 'audiences')).toEqual(['makers', 'developers']);
     });
 });

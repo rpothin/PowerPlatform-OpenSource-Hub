@@ -25,3 +25,24 @@ If you are not a maintainer of the repository, you can follow the [Invitation to
 That's it for the actions on your side!
 
 Now we will just need to wait for a maximum of 24 hours for the repository to be added to the Power Platform Open-Source Hub initative and be visible on the website.
+
+## Repository metadata and curation
+
+The hub combines generated GitHub facts with human-reviewed curation:
+
+- Generated fields such as stars, topics, languages, releases, license, issues, and activity come from the daily pipeline.
+- Curated fields such as category, focus areas, audience, featured status, custom description, exclusion, and curated health are reviewed through files in `Data\CuratedRepositories`.
+- The daily bot can update generated files and the merged website data, but it does not create or rewrite curated overlays.
+
+If your repository appears with the wrong category, focus area, audience, description, or health/featured badge, open a PR or issue requesting an overlay update. New taxonomy values should be requested with a clear description so maintainers can keep the vocabulary stable and useful for filtering.
+
+Common overlay fields include:
+
+- `customDescription` for the human-written summary shown to users.
+- `maintainerNotes` for curation context that helps reviewers and future maintainers understand why an overlay exists or why a repository is excluded.
+
+> ⚠️ `maintainerNotes` is included in the committed `Data\GitHubRepositoriesDetails.json` file, which is publicly visible. Keep this field to curation-relevant, publicly appropriate notes only.
+
+- `exclude` to intentionally remove a repository from the published catalog when maintainers have reviewed and approved that decision.
+
+Curating a repository does not pin it in the generated catalog by itself. If a curated repository is not part of the sentinel list and later disappears from GitHub topic search results, the merge step fails loudly so maintainers can either restore discovery, remove the stale overlay, or intentionally add the repository as a sentinel.
