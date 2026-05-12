@@ -119,6 +119,9 @@ function createMetrics(criteriaCount: number): PipelineMetrics {
     activeRepositories: 0,
     detailRequests: 0,
     detailFailures: 0,
+    patPolicyFailures: 0,
+    patPolicyFailureNames: [],
+    detailBatchCalls: 0,
     generatedRecords: 0,
     warnings: [],
     elapsedMs: 0
