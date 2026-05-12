@@ -1,5 +1,5 @@
 import { data } from './mockData';
-import { countItemsByProperty, extractDistinctProperties } from '../../src/utils/filterPaneUtils';
+import { countItemsByProperty, extractDistinctProperties, formatFacetLabel } from '../../src/utils/filterPaneUtils';
 
 describe('countItemsByProperty', () => {
     it('returns 0 when all the inputs are empty', () => {
@@ -110,5 +110,17 @@ describe('extractDistinctProperties', () => {
         expect(extractDistinctProperties(data, 'category')).toEqual(['power-apps']);
         expect(extractDistinctProperties(data, 'focusAreas')).toEqual(['canvas-apps', 'community-samples']);
         expect(extractDistinctProperties(data, 'audiences')).toEqual(['makers', 'developers']);
+    });
+});
+
+describe('formatFacetLabel', () => {
+    it('uses curated taxonomy labels when available', () => {
+        expect(formatFacetLabel('power-bi')).toEqual('Power BI');
+        expect(formatFacetLabel('alm-devops')).toEqual('ALM and DevOps');
+        expect(formatFacetLabel('pcf-controls')).toEqual('PCF Controls');
+    });
+
+    it('falls back to title-casing unknown slug values', () => {
+        expect(formatFacetLabel('custom-unknown-value')).toEqual('Custom Unknown Value');
     });
 });

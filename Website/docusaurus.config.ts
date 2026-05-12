@@ -4,7 +4,7 @@ import type * as Preset from '@docusaurus/preset-classic';
 
 const config: Config = {
   title: 'Power Platform Open-Source Hub',
-  tagline: 'Your amazing journey in Power Platform open-source ecosystem could start here 🧳',
+  tagline: 'Discover open-source projects for Microsoft Power Platform and Copilot Studio 🧳',
   favicon: 'img/PowerPlatform_scalable.svg', //'img/favicon.ico',
 
   // Set the production url of your site here
@@ -86,6 +86,16 @@ const config: Config = {
           sidebarId: 'tutorialSidebar',
           position: 'left',
           label: 'Documentation',
+        },
+        {
+          to: '/docs/categories',
+          label: 'Categories',
+          position: 'left',
+        },
+        {
+          to: '/docs/community',
+          label: 'Community',
+          position: 'left',
         },
         /*{to: '/blog', label: 'Blog', position: 'left'},*/
         {

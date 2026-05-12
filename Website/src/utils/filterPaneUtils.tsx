@@ -1,3 +1,5 @@
+import { getTaxonomyLabel } from '../data/taxonomy';
+
 /**
  * Counts the number of items that satisfy a specific condition.
  * 
@@ -57,9 +59,11 @@ export function extractDistinctProperties<T>(items: T[], propertyPath: string): 
 }
 
 export function formatFacetLabel(value: string): string {
-  return value
+  const fallbackLabel = value
     .split('-')
     .filter(Boolean)
     .map(part => part.charAt(0).toUpperCase() + part.slice(1))
     .join(' ');
+
+  return getTaxonomyLabel(value) ?? fallbackLabel;
 }

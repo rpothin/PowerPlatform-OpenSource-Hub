@@ -34,7 +34,7 @@ import {
 
 import { ArrowExpand16Regular, Dismiss24Regular, Eye16Filled, OpenRegular, Star16Filled } from "@fluentui/react-icons";
 
-import { filterItems, sortItems, isActive, getRepositoryDescription, getRelaunchBadgeEntries } from '../../utils/galleryUtils';
+import { appendSelectedFilterValue, filterItems, sortItems, isActive, getRepositoryDescription, getRelaunchBadgeEntries, getFeaturedSpotlightItems } from '../../utils/galleryUtils';
 import { Repository } from '../../types/repository';
 import styles from './styles.module.css';
 
@@ -51,6 +51,10 @@ type GalleryProps = {
     selectedFocusAreas: string[];
     selectedAudiences: string[];
     sortBy: string;
+    onCategoriesChange: (values: string[]) => void;
+    onFocusAreasChange: (values: string[]) => void;
+    onAudiencesChange: (values: string[]) => void;
+    onTopicsChange: (values: string[]) => void;
     onSortByChange: (sortBy: string) => void;
 }
 
@@ -67,6 +71,10 @@ const Gallery = ({
     selectedFocusAreas = [],
     selectedAudiences = [],
     sortBy,
+    onCategoriesChange,
+    onFocusAreasChange,
+    onAudiencesChange,
+    onTopicsChange,
     onSortByChange,
 }: GalleryProps) => {
     const [selectedItem, setSelectedItem] = useState<Repository | null>(null);
@@ -77,6 +85,8 @@ const Gallery = ({
         { key: 'starsDesc', text: 'Stars (Descending)' },
         { key: 'alphabeticalAsc', text: 'Alphabetical (Ascending)' },
         { key: 'alphabeticalDesc', text: 'Alphabetical (Descending)' },
+        { key: 'recentlyUpdated', text: 'Recently Updated' },
+        { key: 'recentlyReleased', text: 'Recently Released' },
     ];
     const selectedOption = options.find((option) => option.key === sortBy) ?? options[1];
     const selectedOptions = [selectedOption.key];
@@ -115,7 +125,81 @@ const Gallery = ({
         }
     };
 
+    const chipButtonStyle: React.CSSProperties = {
+        height: 'auto',
+        minWidth: 'unset',
+        padding: 0,
+        marginRight: '2px',
+        marginBottom: '2px',
+    };
+
+    const addSelectedFilterValue = (
+        value: string,
+        selectedValues: string[],
+        onChange: (values: string[]) => void,
+    ) => {
+        const nextSelectedValues = appendSelectedFilterValue(selectedValues, value);
+        if (nextSelectedValues !== selectedValues) {
+            onChange(nextSelectedValues);
+        }
+    };
+
+    const renderClickableBadge = ({
+        key,
+        testId,
+        label,
+        appearance,
+        color,
+        value,
+        selectedValues,
+        onChange,
+        ariaLabel,
+        marginBottom = '2px',
+    }: {
+        key: string;
+        testId: string;
+        label: React.ReactNode;
+        appearance: 'filled' | 'tint' | 'outline';
+        color?: 'brand';
+        value: string;
+        selectedValues: string[];
+        onChange: (values: string[]) => void;
+        ariaLabel: string;
+        marginBottom?: string;
+    }) => {
+        const isSelected = selectedValues.includes(value);
+        return (
+            <Button
+                appearance="transparent"
+                aria-label={ariaLabel}
+                aria-pressed={isSelected}
+                key={key}
+                onClick={() => addSelectedFilterValue(value, selectedValues, onChange)}
+                size="small"
+                style={{ ...chipButtonStyle, marginBottom }}
+            >
+                <Badge data-testid={testId} appearance={appearance} color={color}>
+                    {label}
+                </Badge>
+            </Button>
+        );
+    };
+
+    const renderTopicBadge = (topic: string, key: string | number, testId: string, marginBottom = '2px') =>
+        renderClickableBadge({
+            key: String(key),
+            testId,
+            label: topic,
+            appearance: 'outline',
+            value: topic,
+            selectedValues: selectedTopics,
+            onChange: onTopicsChange,
+            ariaLabel: `Filter by topic ${topic}`,
+            marginBottom,
+        });
+
     const sortedItems = sortItems(filteredItems, selectedOptions);
+    const featuredItems = getFeaturedSpotlightItems(sortedItems);
     const renderRelaunchBadges = (item: Repository, testIdPrefix: string) => {
         const badges = getRelaunchBadgeEntries(item);
         if (badges.length === 0) {
@@ -124,17 +208,38 @@ const Gallery = ({
 
         return (
             <div style={{ display: 'flex', flexWrap: 'wrap', marginBottom: '4px' }}>
-                {badges.map((badge) => (
-                    <Badge
-                        data-testid={`${testIdPrefix}-${badge.testIdSuffix}-badge`}
-                        appearance={badge.appearance}
-                        color={badge.color}
-                        key={badge.key}
-                        style={{ marginRight: '2px', marginBottom: '2px' }}
-                    >
-                        {badge.label}
-                    </Badge>
-                ))}
+                {badges.map((badge) => {
+                    const testId = `${testIdPrefix}-${badge.testIdSuffix}-badge`;
+                    if (badge.filterFacet && badge.filterValue) {
+                        const filterConfig = badge.filterFacet === 'category'
+                            ? { selectedValues: selectedCategories, onChange: onCategoriesChange, ariaLabel: `Filter by ${badge.label}` }
+                            : badge.filterFacet === 'focusArea'
+                                ? { selectedValues: selectedFocusAreas, onChange: onFocusAreasChange, ariaLabel: `Filter by ${badge.label}` }
+                                : { selectedValues: selectedAudiences, onChange: onAudiencesChange, ariaLabel: `Filter by ${badge.label}` };
+
+                        return renderClickableBadge({
+                            key: badge.key,
+                            testId,
+                            label: badge.label,
+                            appearance: badge.appearance,
+                            color: badge.color,
+                            value: badge.filterValue,
+                            ...filterConfig,
+                        });
+                    }
+
+                    return (
+                        <Badge
+                            data-testid={testId}
+                            appearance={badge.appearance}
+                            color={badge.color}
+                            key={badge.key}
+                            style={{ marginRight: '2px', marginBottom: '2px' }}
+                        >
+                            {badge.label}
+                        </Badge>
+                    );
+                })}
             </div>
         );
     };
@@ -161,6 +266,49 @@ const Gallery = ({
                     </Combobox>
                 </div>
             </div>
+            {featuredItems.length > 0 && (
+                <section
+                    aria-label="Featured repositories"
+                    data-testid="featured-spotlight"
+                    style={{ margin: '0 10px 10px', padding: '10px' }}
+                >
+                    <Subtitle1>Featured repositories</Subtitle1>
+                    <div style={{ display: 'flex', gap: '12px', overflowX: 'auto', padding: '8px 0' }}>
+                        {featuredItems.map((item) => (
+                            <Card
+                                data-testid="featured-repository-card"
+                                key={`featured-${item.repositoryId ?? item.fullName}`}
+                                style={{ flex: '0 0 320px', maxWidth: '320px' }}
+                            >
+                                <CardHeader
+                                    header={
+                                        <div className={styles.cardHeader}>
+                                            <Body1>{item.fullName}</Body1>
+                                            <Badge appearance="filled" color="warning" icon={<Star16Filled />}>{item.stargazerCount}</Badge>
+                                        </div>
+                                    }
+                                />
+                                <CardPreview className={styles.cardBreakLine} />
+                                <Text data-testid="featured-repository-description">
+                                    {getRepositoryDescription(item).length > 110
+                                        ? `${getRepositoryDescription(item).substring(0, 110)}...`
+                                        : getRepositoryDescription(item)}
+                                </Text>
+                                {renderRelaunchBadges(item, 'featured')}
+                                <div style={{ display: 'flex', flexWrap: 'wrap' }}>
+                                    {item.topics.slice(0, 3).map((topic, index) => (
+                                        renderTopicBadge(topic, `featured-${topic}-${index}`, 'featured-topic-badge')
+                                    ))}
+                                </div>
+                                <CardFooter className={styles.cardFooter}>
+                                    <Button data-testid="featured-open-in-github-button" data-repository-url={item.url} icon={<OpenRegular fontSize={16} />} onClick={() => openInGitHub(item.url)}>Open</Button>
+                                    <Button data-testid="featured-see-more-button" icon={<ArrowExpand16Regular fontSize={16} />} onClick={() => openDialog(item)}>See more</Button>
+                                </CardFooter>
+                            </Card>
+                        ))}
+                    </div>
+                </section>
+            )}
             <div className={styles.gallery}>
                 {sortedItems.map((item, index) => (
                     <Card className={styles.galleryItem} data-testid="repository-card" key={index}>
@@ -228,7 +376,7 @@ const Gallery = ({
 
                         <div style={{ display: 'flex', flexWrap: 'wrap' }}>
                             {item.topics.slice(0, 5).map((topic, index) => (
-                                <Badge data-testid="topic-badge" appearance="outline" key={index} style={{ marginRight: '2px', marginBottom: '2px' }}>{topic}</Badge>
+                                renderTopicBadge(topic, `${topic}-${index}`, 'topic-badge')
                             ))}
                         </div>
 
@@ -286,7 +434,7 @@ const Gallery = ({
                                 </div>
                                 <div style={{ display: 'flex', flexWrap: 'wrap' }}>
                                     {selectedItem?.topics.map((topic, index) => (
-                                        <Badge data-testid="dialog-topic-badge" appearance="outline" key={index} style={{ marginRight: '2px', marginBottom: '1px' }}>{topic}</Badge>
+                                        renderTopicBadge(topic, `dialog-${topic}-${index}`, 'dialog-topic-badge', '1px')
                                     ))}
                                 </div>
                             </DialogBody>

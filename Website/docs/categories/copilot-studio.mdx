@@ -1,0 +1,15 @@
+---
+sidebar_position: 2
+sidebar_label: Copilot Studio
+---
+
+import CategoryRepositoryList from '../../src/components/CategoryRepositoryList';
+import { getCategoryTaxonomy } from '../../src/data/taxonomy';
+
+export const category = getCategoryTaxonomy('copilot-studio');
+
+# {category.label}
+
+{category.description}
+
+<CategoryRepositoryList categoryId="copilot-studio" />

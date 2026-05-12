@@ -1,0 +1,15 @@
+---
+sidebar_position: 10
+sidebar_label: Governance and Admin
+---
+
+import CategoryRepositoryList from '../../src/components/CategoryRepositoryList';
+import { getCategoryTaxonomy } from '../../src/data/taxonomy';
+
+export const category = getCategoryTaxonomy('governance-admin');
+
+# {category.label}
+
+{category.description}
+
+<CategoryRepositoryList categoryId="governance-admin" />

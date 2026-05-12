@@ -1,0 +1,15 @@
+---
+sidebar_position: 4
+sidebar_label: Power Automate
+---
+
+import CategoryRepositoryList from '../../src/components/CategoryRepositoryList';
+import { getCategoryTaxonomy } from '../../src/data/taxonomy';
+
+export const category = getCategoryTaxonomy('power-automate');
+
+# {category.label}
+
+{category.description}
+
+<CategoryRepositoryList categoryId="power-automate" />

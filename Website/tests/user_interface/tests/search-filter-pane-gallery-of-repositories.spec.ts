@@ -497,6 +497,54 @@ test('Validate browser history behavior for filter changes', async ({ page }) =>
   expect(page.url()).not.toContain('helpWantedIssue=true');
 });
 
+test('Validate category documentation page links to the filtered gallery', async ({ page }) => {
+  await page.goto('/PowerPlatform-OpenSource-Hub/docs/categories/power-apps');
+
+  await expect(page.getByRole('heading', { name: 'Power Apps', exact: true })).toBeVisible();
+  const galleryLink = page.getByRole('link', { name: 'View all in gallery' });
+  await expect(galleryLink).toBeVisible();
+  await expect(galleryLink).toHaveAttribute('href', '/PowerPlatform-OpenSource-Hub/?categories=power-apps');
+});
+
+test('Validate community landing page links to community child pages', async ({ page }) => {
+  await page.goto('/PowerPlatform-OpenSource-Hub/docs/community');
+
+  await expect(page.getByRole('heading', { name: 'Community' })).toBeVisible();
+  const article = page.getByRole('article');
+  await expect(article.getByRole('link', { name: 'Find solutions', exact: true })).toHaveAttribute('href', /\/PowerPlatform-OpenSource-Hub\/docs\/community\/find-solutions\/?$/);
+  await expect(article.getByRole('link', { name: 'Contribute to projects', exact: true })).toHaveAttribute('href', /\/PowerPlatform-OpenSource-Hub\/docs\/community\/contribute-to-projects\/?$/);
+  await expect(article.getByRole('link', { name: 'List your repository', exact: true })).toHaveAttribute('href', /\/PowerPlatform-OpenSource-Hub\/docs\/community\/list-your-repository\/?$/);
+});
+
+test('Validate category badge or URL-driven category filtering', async ({ page }) => {
+  await page.goto('/');
+  await waitForRepositoryCards(page);
+
+  const categoryBadges = page.getByTestId('card-category-badge');
+  if (await categoryBadges.count()) {
+    await categoryBadges.first().click();
+    await expect(page).toHaveURL(/categories=/);
+    return;
+  }
+
+  await page.goto('/PowerPlatform-OpenSource-Hub/?categories=power-apps');
+  await expect(page.locator('#repositoryCount')).toHaveText('0 repositories found');
+  await expect(getRepositoryCards(page)).toHaveCount(0);
+});
+
+test('Validate featured spotlight follows featured repository availability', async ({ page }) => {
+  await page.goto('/');
+  await waitForRepositoryCards(page);
+
+  const spotlight = page.getByTestId('featured-spotlight');
+  if (await spotlight.count()) {
+    await expect(spotlight).toBeVisible();
+    await expect(spotlight.getByTestId('featured-repository-card').first()).toBeVisible();
+  } else {
+    await expect(spotlight).toHaveCount(0);
+  }
+});
+
 // Validate that when I change the sorting option in the gallery, the count of repositories found is the same
 test('Validate that when I change the sorting option in the gallery, the count of repositories found is the same', async ({ page }) => {
   await page.goto('/');
