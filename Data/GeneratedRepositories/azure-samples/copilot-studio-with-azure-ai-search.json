@@ -1,0 +1,74 @@
+{
+  "createdAt": "2025-04-11T17:50:45Z",
+  "description": "AZD template for deploying Azure Copilot Studio with Azure AI search",
+  "fullName": "Azure-Samples/Copilot-Studio-with-Azure-AI-Search",
+  "repositoryId": 964739309,
+  "hasIssues": true,
+  "homepage": "",
+  "isArchived": false,
+  "language": "HCL",
+  "license": {
+    "key": "mit",
+    "name": "MIT License",
+    "url": "https://api.github.com/licenses/mit"
+  },
+  "name": "Copilot-Studio-with-Azure-AI-Search",
+  "openIssuesCount": 26,
+  "owner": {
+    "id": "1844662",
+    "is_bot": false,
+    "login": "Azure-Samples",
+    "type": "Organization",
+    "url": "https://github.com/Azure-Samples"
+  },
+  "updatedAt": "2026-05-07T17:15:44Z",
+  "url": "https://github.com/Azure-Samples/Copilot-Studio-with-Azure-AI-Search",
+  "codeOfConduct": {
+    "key": "other",
+    "name": "Other",
+    "url": "https://github.com/Azure-Samples/Copilot-Studio-with-Azure-AI-Search/blob/main/.github/CODE_OF_CONDUCT.md"
+  },
+  "forkCount": 6,
+  "fundingLinks": [],
+  "isSecurityPolicyEnabled": true,
+  "isTemplate": false,
+  "latestRelease": {
+    "name": "v0.2.0",
+    "tagName": "v0.2.0",
+    "url": "https://github.com/Azure-Samples/Copilot-Studio-with-Azure-AI-Search/releases/tag/v0.2.0",
+    "publishedAt": "2025-10-17T16:03:07Z"
+  },
+  "primaryLanguage": {
+    "name": "HCL"
+  },
+  "securityPolicyUrl": "https://github.com/Azure-Samples/Copilot-Studio-with-Azure-AI-Search/security/policy",
+  "stargazerCount": 26,
+  "watchers": {
+    "totalCount": 13
+  },
+  "topics": [
+    "ai-azd-templates",
+    "azd-templates",
+    "azure-ai-search",
+    "copilot-studio",
+    "power-platform",
+    "terraform"
+  ],
+  "languages": [
+    "HCL",
+    "Python",
+    "PowerShell",
+    "Shell",
+    "C#",
+    "Dockerfile"
+  ],
+  "openedGoodFirstIssues": 3,
+  "hasGoodFirstIssues": true,
+  "openedHelpWantedIssues": 0,
+  "hasHelpWantedIssues": false,
+  "openedToContributionsIssues": 3,
+  "popularityScore": 39,
+  "_schemaVersion": "1.0.0",
+  "_generatedAt": "2026-05-12T18:13:42.524Z",
+  "_workflowRunId": "25753350755"
+}

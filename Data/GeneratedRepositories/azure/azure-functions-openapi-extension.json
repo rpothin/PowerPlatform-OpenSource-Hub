@@ -1,0 +1,72 @@
+{
+  "createdAt": "2020-07-20T18:51:25Z",
+  "description": "This extension provides an Azure Functions app with Open API capability for better discoverability to consuming parties",
+  "fullName": "Azure/azure-functions-openapi-extension",
+  "repositoryId": 281200525,
+  "hasIssues": true,
+  "homepage": "https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.OpenApi/",
+  "isArchived": false,
+  "language": "C#",
+  "license": {
+    "key": "mit",
+    "name": "MIT License",
+    "url": "https://api.github.com/licenses/mit"
+  },
+  "name": "azure-functions-openapi-extension",
+  "openIssuesCount": 215,
+  "owner": {
+    "id": "6844498",
+    "is_bot": false,
+    "login": "Azure",
+    "type": "Organization",
+    "url": "https://github.com/Azure"
+  },
+  "updatedAt": "2026-04-10T03:06:34Z",
+  "url": "https://github.com/Azure/azure-functions-openapi-extension",
+  "codeOfConduct": {
+    "key": "other",
+    "name": "Other",
+    "url": "https://github.com/Azure/azure-functions-openapi-extension/blob/main/CODE_OF_CONDUCT.md"
+  },
+  "forkCount": 197,
+  "fundingLinks": [],
+  "isSecurityPolicyEnabled": true,
+  "isTemplate": false,
+  "latestRelease": {
+    "name": "v1.6.0",
+    "tagName": "v1.6.0",
+    "url": "https://github.com/Azure/azure-functions-openapi-extension/releases/tag/v1.6.0",
+    "publishedAt": "2025-10-03T22:41:42Z"
+  },
+  "primaryLanguage": {
+    "name": "C#"
+  },
+  "securityPolicyUrl": "https://github.com/Azure/azure-functions-openapi-extension/security/policy",
+  "stargazerCount": 388,
+  "watchers": {
+    "totalCount": 35
+  },
+  "topics": [
+    "azure-functions",
+    "swagger-ui",
+    "hacktoberfest",
+    "azure",
+    "openapi",
+    "power-platform"
+  ],
+  "languages": [
+    "C#",
+    "PowerShell",
+    "Shell",
+    "Dockerfile"
+  ],
+  "openedGoodFirstIssues": 0,
+  "hasGoodFirstIssues": false,
+  "openedHelpWantedIssues": 0,
+  "hasHelpWantedIssues": false,
+  "openedToContributionsIssues": 0,
+  "popularityScore": 423,
+  "_schemaVersion": "1.0.0",
+  "_generatedAt": "2026-05-12T18:13:42.524Z",
+  "_workflowRunId": "25753350755"
+}

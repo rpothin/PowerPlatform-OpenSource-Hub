@@ -1,0 +1,68 @@
+{
+  "createdAt": "2020-08-06T19:28:51Z",
+  "description": "Power Platform GitHub Actions automate common build and deployment tasks related to Power Platform. This includes synchronization of solution metadata (a.k.a. solutions) between development environments and source control, generating build artifacts, deploying to downstream environments, provisioning/de-provisioning of environments, and the ability to perform static analysis checks against your solution using the PowerApps checker service.",
+  "fullName": "microsoft/powerplatform-actions",
+  "repositoryId": 285654377,
+  "hasIssues": true,
+  "homepage": "",
+  "isArchived": false,
+  "language": "TypeScript",
+  "license": {
+    "key": "mit",
+    "name": "MIT License",
+    "url": "https://api.github.com/licenses/mit"
+  },
+  "name": "powerplatform-actions",
+  "openIssuesCount": 56,
+  "owner": {
+    "id": "6154722",
+    "is_bot": false,
+    "login": "microsoft",
+    "type": "Organization",
+    "url": "https://github.com/microsoft"
+  },
+  "updatedAt": "2026-05-06T23:11:13Z",
+  "url": "https://github.com/microsoft/powerplatform-actions",
+  "codeOfConduct": {
+    "key": "other",
+    "name": "Other",
+    "url": "https://github.com/microsoft/powerplatform-actions/blob/main/CODE_OF_CONDUCT.md"
+  },
+  "forkCount": 86,
+  "fundingLinks": [],
+  "isSecurityPolicyEnabled": false,
+  "isTemplate": false,
+  "latestRelease": {
+    "name": "v1.9.1 Hotfix - Fixed Dependencies ",
+    "tagName": "v1.9.1",
+    "url": "https://github.com/microsoft/powerplatform-actions/releases/tag/v1.9.1",
+    "publishedAt": "2025-06-06T18:55:15Z"
+  },
+  "primaryLanguage": {
+    "name": "TypeScript"
+  },
+  "securityPolicyUrl": null,
+  "stargazerCount": 288,
+  "watchers": {
+    "totalCount": 30
+  },
+  "topics": [
+    "powerplatform",
+    "github-actions"
+  ],
+  "languages": [
+    "TypeScript",
+    "JavaScript",
+    "Shell",
+    "Batchfile"
+  ],
+  "openedGoodFirstIssues": 0,
+  "hasGoodFirstIssues": false,
+  "openedHelpWantedIssues": 0,
+  "hasHelpWantedIssues": false,
+  "openedToContributionsIssues": 0,
+  "popularityScore": 318,
+  "_schemaVersion": "1.0.0",
+  "_generatedAt": "2026-05-12T18:13:42.524Z",
+  "_workflowRunId": "25753350755"
+}

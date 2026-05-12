@@ -1,0 +1,70 @@
+{
+  "createdAt": "2026-01-21T18:25:14Z",
+  "description": "A plugin marketplace for Claude Code/GitHub Copilot that provides Power Platform development plugins, including reusable skills, agents, and commands for building and deploying solutions.",
+  "fullName": "microsoft/power-platform-skills",
+  "repositoryId": 1139262569,
+  "hasIssues": true,
+  "homepage": "https://aka.ms/ppskills",
+  "isArchived": false,
+  "language": "JavaScript",
+  "license": {
+    "key": "mit",
+    "name": "MIT License",
+    "url": "https://api.github.com/licenses/mit"
+  },
+  "name": "power-platform-skills",
+  "openIssuesCount": 27,
+  "owner": {
+    "id": "6154722",
+    "is_bot": false,
+    "login": "microsoft",
+    "type": "Organization",
+    "url": "https://github.com/microsoft"
+  },
+  "updatedAt": "2026-05-12T14:26:45Z",
+  "url": "https://github.com/microsoft/power-platform-skills",
+  "codeOfConduct": {
+    "key": "other",
+    "name": "Other",
+    "url": "https://github.com/microsoft/power-platform-skills/blob/main/CODE_OF_CONDUCT.md"
+  },
+  "forkCount": 54,
+  "fundingLinks": [],
+  "isSecurityPolicyEnabled": false,
+  "isTemplate": false,
+  "latestRelease": null,
+  "primaryLanguage": {
+    "name": "JavaScript"
+  },
+  "securityPolicyUrl": null,
+  "stargazerCount": 279,
+  "watchers": {
+    "totalCount": 6
+  },
+  "topics": [
+    "claude-code-plugin",
+    "claude-code-skills",
+    "power-apps",
+    "power-pages",
+    "power-platform",
+    "code-apps",
+    "github-copilot-plugin"
+  ],
+  "languages": [
+    "JavaScript",
+    "HTML",
+    "TypeScript",
+    "Astro",
+    "Vue",
+    "CSS"
+  ],
+  "openedGoodFirstIssues": 0,
+  "hasGoodFirstIssues": false,
+  "openedHelpWantedIssues": 0,
+  "hasHelpWantedIssues": false,
+  "openedToContributionsIssues": 0,
+  "popularityScore": 285,
+  "_schemaVersion": "1.0.0",
+  "_generatedAt": "2026-05-12T18:13:42.524Z",
+  "_workflowRunId": "25753350755"
+}

@@ -1,0 +1,65 @@
+{
+  "createdAt": "2025-06-05T08:59:57Z",
+  "description": "Connection to Microsoft Dataverse using managed authentication",
+  "fullName": "delegateas/DataverseConnection",
+  "repositoryId": 996651064,
+  "hasIssues": true,
+  "homepage": "",
+  "isArchived": false,
+  "language": "C#",
+  "license": {
+    "key": "mit",
+    "name": "MIT License",
+    "url": "https://api.github.com/licenses/mit"
+  },
+  "name": "DataverseConnection",
+  "openIssuesCount": 0,
+  "owner": {
+    "id": "7015300",
+    "is_bot": false,
+    "login": "delegateas",
+    "type": "Organization",
+    "url": "https://github.com/delegateas"
+  },
+  "updatedAt": "2026-04-30T10:41:04Z",
+  "url": "https://github.com/delegateas/DataverseConnection",
+  "codeOfConduct": null,
+  "forkCount": 2,
+  "fundingLinks": [],
+  "isSecurityPolicyEnabled": false,
+  "isTemplate": false,
+  "latestRelease": {
+    "name": "Added new extensions and caching",
+    "tagName": "v1.1.1",
+    "url": "https://github.com/delegateas/DataverseConnection/releases/tag/v1.1.1",
+    "publishedAt": "2025-06-05T20:22:30Z"
+  },
+  "primaryLanguage": {
+    "name": "C#"
+  },
+  "securityPolicyUrl": null,
+  "stargazerCount": 10,
+  "watchers": {
+    "totalCount": 2
+  },
+  "topics": [
+    "authentication",
+    "csharp",
+    "dataverse",
+    "dotnet",
+    "dynamics-365",
+    "library"
+  ],
+  "languages": [
+    "C#"
+  ],
+  "openedGoodFirstIssues": 0,
+  "hasGoodFirstIssues": false,
+  "openedHelpWantedIssues": 0,
+  "hasHelpWantedIssues": false,
+  "openedToContributionsIssues": 0,
+  "popularityScore": 12,
+  "_schemaVersion": "1.0.0",
+  "_generatedAt": "2026-05-12T18:13:42.524Z",
+  "_workflowRunId": "25753350755"
+}

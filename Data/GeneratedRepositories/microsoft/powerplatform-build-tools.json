@@ -1,0 +1,72 @@
+{
+  "createdAt": "2020-11-04T00:21:18Z",
+  "description": "Power Platform Build Tools automate common build and deployment tasks related to Power Platform. This includes synchronization of solution metadata (a.k.a. solutions) between development environments and source control, generating build artifacts, deploying to downstream environments, provisioning/de-provisioning of environments, and the ability to perform static analysis checks against your solution using the PowerApps checker service.",
+  "fullName": "microsoft/powerplatform-build-tools",
+  "repositoryId": 309839504,
+  "hasIssues": true,
+  "homepage": "",
+  "isArchived": false,
+  "language": "TypeScript",
+  "license": {
+    "key": "mit",
+    "name": "MIT License",
+    "url": "https://api.github.com/licenses/mit"
+  },
+  "name": "powerplatform-build-tools",
+  "openIssuesCount": 181,
+  "owner": {
+    "id": "6154722",
+    "is_bot": false,
+    "login": "microsoft",
+    "type": "Organization",
+    "url": "https://github.com/microsoft"
+  },
+  "updatedAt": "2026-05-07T03:17:39Z",
+  "url": "https://github.com/microsoft/powerplatform-build-tools",
+  "codeOfConduct": {
+    "key": "other",
+    "name": "Other",
+    "url": "https://github.com/microsoft/powerplatform-build-tools/blob/main/CODE_OF_CONDUCT.md"
+  },
+  "forkCount": 66,
+  "fundingLinks": [],
+  "isSecurityPolicyEnabled": false,
+  "isTemplate": false,
+  "latestRelease": {
+    "name": "V2.0.136",
+    "tagName": "v2.0.136",
+    "url": "https://github.com/microsoft/powerplatform-build-tools/releases/tag/v2.0.136",
+    "publishedAt": "2026-04-27T20:24:00Z"
+  },
+  "primaryLanguage": {
+    "name": "TypeScript"
+  },
+  "securityPolicyUrl": null,
+  "stargazerCount": 282,
+  "watchers": {
+    "totalCount": 31
+  },
+  "topics": [
+    "azure-devops",
+    "azure-devops-extension",
+    "ci-cd",
+    "dataverse",
+    "powerplattform"
+  ],
+  "languages": [
+    "TypeScript",
+    "JavaScript",
+    "C#",
+    "Shell",
+    "Batchfile"
+  ],
+  "openedGoodFirstIssues": 0,
+  "hasGoodFirstIssues": false,
+  "openedHelpWantedIssues": 0,
+  "hasHelpWantedIssues": false,
+  "openedToContributionsIssues": 0,
+  "popularityScore": 313,
+  "_schemaVersion": "1.0.0",
+  "_generatedAt": "2026-05-12T18:13:42.524Z",
+  "_workflowRunId": "25753350755"
+}

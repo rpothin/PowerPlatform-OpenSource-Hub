@@ -1,0 +1,62 @@
+{
+  "createdAt": "2026-03-11T23:00:58Z",
+  "description": "Microsoft Dataverse skills for AI coding agents. Wraps the Dataverse MCP server, Dataverse CLI, Python SDK, and PAC CLI behind specialist skills for building, querying, deploying, and administering Dataverse environments.",
+  "fullName": "microsoft/Dataverse-skills",
+  "repositoryId": 1179317724,
+  "hasIssues": true,
+  "homepage": "",
+  "isArchived": false,
+  "language": "",
+  "license": {
+    "key": "mit",
+    "name": "MIT License",
+    "url": "https://api.github.com/licenses/mit"
+  },
+  "name": "Dataverse-skills",
+  "openIssuesCount": 8,
+  "owner": {
+    "id": "6154722",
+    "is_bot": false,
+    "login": "microsoft",
+    "type": "Organization",
+    "url": "https://github.com/microsoft"
+  },
+  "updatedAt": "2026-05-09T15:45:58Z",
+  "url": "https://github.com/microsoft/Dataverse-skills",
+  "codeOfConduct": {
+    "key": "other",
+    "name": "Other",
+    "url": "https://github.com/microsoft/Dataverse-skills/blob/main/CODE_OF_CONDUCT.md"
+  },
+  "forkCount": 23,
+  "fundingLinks": [],
+  "isSecurityPolicyEnabled": false,
+  "isTemplate": false,
+  "latestRelease": null,
+  "primaryLanguage": null,
+  "securityPolicyUrl": null,
+  "stargazerCount": 95,
+  "watchers": {
+    "totalCount": 3
+  },
+  "topics": [
+    "agent-skills",
+    "dataverse",
+    "dynamics-365",
+    "dynamics-crm",
+    "mcp",
+    "mcp-server",
+    "plugin",
+    "power-platform"
+  ],
+  "languages": [],
+  "openedGoodFirstIssues": 0,
+  "hasGoodFirstIssues": false,
+  "openedHelpWantedIssues": 0,
+  "hasHelpWantedIssues": false,
+  "openedToContributionsIssues": 0,
+  "popularityScore": 98,
+  "_schemaVersion": "1.0.0",
+  "_generatedAt": "2026-05-12T18:13:42.524Z",
+  "_workflowRunId": "25753350755"
+}

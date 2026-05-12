@@ -1,0 +1,82 @@
+{
+  "createdAt": "2011-10-14T21:44:30Z",
+  "description": "🌀 Rapidly build feature-rich data portals using a modern frontend framework. Native CKAN support. OpenMetadata and Git compatible.",
+  "fullName": "datopian/portaljs",
+  "repositoryId": 2579069,
+  "hasIssues": true,
+  "homepage": "https://www.portaljs.com",
+  "isArchived": false,
+  "language": "TypeScript",
+  "license": {
+    "key": "mit",
+    "name": "MIT License",
+    "url": "https://api.github.com/licenses/mit"
+  },
+  "name": "portaljs",
+  "openIssuesCount": 81,
+  "owner": {
+    "id": "24832801",
+    "is_bot": false,
+    "login": "datopian",
+    "type": "Organization",
+    "url": "https://github.com/datopian"
+  },
+  "updatedAt": "2026-05-12T10:23:33Z",
+  "url": "https://github.com/datopian/portaljs",
+  "codeOfConduct": null,
+  "forkCount": 331,
+  "fundingLinks": [],
+  "isSecurityPolicyEnabled": true,
+  "isTemplate": false,
+  "latestRelease": {
+    "name": "@portaljs/ckan-api-client-js@1.4.0",
+    "tagName": "@portaljs/ckan-api-client-js@1.4.0",
+    "url": "https://github.com/datopian/portaljs/releases/tag/%40portaljs/ckan-api-client-js%401.4.0",
+    "publishedAt": "2025-05-22T14:22:17Z"
+  },
+  "primaryLanguage": {
+    "name": "TypeScript"
+  },
+  "securityPolicyUrl": "https://github.com/datopian/portaljs/security/policy",
+  "stargazerCount": 2273,
+  "watchers": {
+    "totalCount": 95
+  },
+  "topics": [
+    "data-portal",
+    "data-portals",
+    "ckan",
+    "data-portal-frontends",
+    "data-presentation",
+    "data-fabric",
+    "data-management-platform",
+    "nextjs",
+    "open-data-portal",
+    "react",
+    "data-mesh",
+    "datahub",
+    "open-data",
+    "openmetadata",
+    "dataverse",
+    "dkan",
+    "opendatasoft",
+    "socrata"
+  ],
+  "languages": [
+    "TypeScript",
+    "JavaScript",
+    "CSS",
+    "Shell",
+    "SCSS",
+    "MDX"
+  ],
+  "openedGoodFirstIssues": 10,
+  "hasGoodFirstIssues": true,
+  "openedHelpWantedIssues": 0,
+  "hasHelpWantedIssues": false,
+  "openedToContributionsIssues": 10,
+  "popularityScore": 2368,
+  "_schemaVersion": "1.0.0",
+  "_generatedAt": "2026-05-12T18:13:42.524Z",
+  "_workflowRunId": "25753350755"
+}

@@ -1,0 +1,75 @@
+{
+  "createdAt": "2023-05-25T11:08:38Z",
+  "description": "Provision Assist is a request and provisioning solution for Teams, Groups, SPO Sites and Viva Engage Communities in Microsoft 365. It can be used as part of a Copilot for Microsoft 365 deployment.",
+  "fullName": "pnp/provision-assist-m365",
+  "repositoryId": 645304740,
+  "hasIssues": true,
+  "homepage": "",
+  "isArchived": false,
+  "language": "PowerShell",
+  "license": {
+    "key": "mit",
+    "name": "MIT License",
+    "url": "https://api.github.com/licenses/mit"
+  },
+  "name": "provision-assist-m365",
+  "openIssuesCount": 74,
+  "owner": {
+    "id": "31443929",
+    "is_bot": false,
+    "login": "pnp",
+    "type": "Organization",
+    "url": "https://github.com/pnp"
+  },
+  "updatedAt": "2026-05-12T13:10:37Z",
+  "url": "https://github.com/pnp/provision-assist-m365",
+  "codeOfConduct": {
+    "key": "other",
+    "name": "Other",
+    "url": "https://github.com/pnp/provision-assist-m365/blob/main/CODE_OF_CONDUCT.md"
+  },
+  "forkCount": 24,
+  "fundingLinks": [],
+  "isSecurityPolicyEnabled": false,
+  "isTemplate": false,
+  "latestRelease": {
+    "name": "ProvisionAssist_v2.0.8",
+    "tagName": "v2.0.8",
+    "url": "https://github.com/pnp/provision-assist-m365/releases/tag/v2.0.8",
+    "publishedAt": "2025-04-07T11:29:21Z"
+  },
+  "primaryLanguage": {
+    "name": "PowerShell"
+  },
+  "securityPolicyUrl": null,
+  "stargazerCount": 114,
+  "watchers": {
+    "totalCount": 16
+  },
+  "topics": [
+    "microsoftteams",
+    "powerapps",
+    "powerapps-solutions",
+    "sharepoint",
+    "azureautomation",
+    "logicapps",
+    "powerautomate",
+    "powershell",
+    "provisioning",
+    "copilot",
+    "copilot-for-microsoft-365"
+  ],
+  "languages": [
+    "PowerShell",
+    "Bicep"
+  ],
+  "openedGoodFirstIssues": 1,
+  "hasGoodFirstIssues": true,
+  "openedHelpWantedIssues": 1,
+  "hasHelpWantedIssues": true,
+  "openedToContributionsIssues": 2,
+  "popularityScore": 130,
+  "_schemaVersion": "1.0.0",
+  "_generatedAt": "2026-05-12T18:13:42.524Z",
+  "_workflowRunId": "25753350755"
+}

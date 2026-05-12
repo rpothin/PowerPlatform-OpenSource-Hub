@@ -1,0 +1,65 @@
+{
+  "createdAt": "2020-04-21T19:04:24Z",
+  "description": "Early-bound types generator for CDS/Dataverse",
+  "fullName": "scottdurow/dataverse-gen",
+  "repositoryId": 257690009,
+  "hasIssues": true,
+  "homepage": "",
+  "isArchived": false,
+  "language": "TypeScript",
+  "license": {
+    "key": "mit",
+    "name": "MIT License",
+    "url": "https://api.github.com/licenses/mit"
+  },
+  "name": "dataverse-gen",
+  "openIssuesCount": 16,
+  "owner": {
+    "id": "2871121",
+    "is_bot": false,
+    "login": "scottdurow",
+    "type": "User",
+    "url": "https://github.com/scottdurow"
+  },
+  "updatedAt": "2026-03-22T10:43:18Z",
+  "url": "https://github.com/scottdurow/dataverse-gen",
+  "codeOfConduct": null,
+  "forkCount": 12,
+  "fundingLinks": [],
+  "isSecurityPolicyEnabled": false,
+  "isTemplate": false,
+  "latestRelease": {
+    "name": "v1.0.16 ",
+    "tagName": "v1.0.16",
+    "url": "https://github.com/scottdurow/dataverse-gen/releases/tag/v1.0.16",
+    "publishedAt": "2022-11-22T01:52:15Z"
+  },
+  "primaryLanguage": {
+    "name": "TypeScript"
+  },
+  "securityPolicyUrl": null,
+  "stargazerCount": 26,
+  "watchers": {
+    "totalCount": 3
+  },
+  "topics": [
+    "cds",
+    "codegen",
+    "common-data-service",
+    "dataverse"
+  ],
+  "languages": [
+    "TypeScript",
+    "JavaScript",
+    "EJS"
+  ],
+  "openedGoodFirstIssues": 0,
+  "hasGoodFirstIssues": false,
+  "openedHelpWantedIssues": 2,
+  "hasHelpWantedIssues": true,
+  "openedToContributionsIssues": 2,
+  "popularityScore": 29,
+  "_schemaVersion": "1.0.0",
+  "_generatedAt": "2026-05-12T18:13:42.524Z",
+  "_workflowRunId": "25753350755"
+}

@@ -1,0 +1,70 @@
+{
+  "createdAt": "2019-01-30T18:18:46Z",
+  "description": "Visual Studio Code extension that allows for automatic merging of (simple) XLIFF translation files.",
+  "fullName": "rvanbekkum/vsc-xliff-sync",
+  "repositoryId": 168391843,
+  "hasIssues": true,
+  "homepage": "https://marketplace.visualstudio.com/items?itemName=rvanbekkum.xliff-sync",
+  "isArchived": false,
+  "language": "TypeScript",
+  "license": {
+    "key": "mit",
+    "name": "MIT License",
+    "url": "https://api.github.com/licenses/mit"
+  },
+  "name": "vsc-xliff-sync",
+  "openIssuesCount": 14,
+  "owner": {
+    "id": "7383241",
+    "is_bot": false,
+    "login": "rvanbekkum",
+    "type": "User",
+    "url": "https://github.com/rvanbekkum"
+  },
+  "updatedAt": "2026-03-19T19:53:08Z",
+  "url": "https://github.com/rvanbekkum/vsc-xliff-sync",
+  "codeOfConduct": null,
+  "forkCount": 4,
+  "fundingLinks": [
+    {
+      "platform": "BUY_ME_A_COFFEE",
+      "url": "https://buymeacoffee.com/robvanbekkum"
+    }
+  ],
+  "isSecurityPolicyEnabled": false,
+  "isTemplate": false,
+  "latestRelease": {
+    "name": "1.6.1",
+    "tagName": "1.6.1",
+    "url": "https://github.com/rvanbekkum/vsc-xliff-sync/releases/tag/1.6.1",
+    "publishedAt": "2025-10-07T18:19:38Z"
+  },
+  "primaryLanguage": {
+    "name": "TypeScript"
+  },
+  "securityPolicyUrl": null,
+  "stargazerCount": 34,
+  "watchers": {
+    "totalCount": 6
+  },
+  "topics": [
+    "xliff",
+    "localization",
+    "translation",
+    "dynamics-365",
+    "synchronization",
+    "bcopensource"
+  ],
+  "languages": [
+    "TypeScript"
+  ],
+  "openedGoodFirstIssues": 0,
+  "hasGoodFirstIssues": false,
+  "openedHelpWantedIssues": 0,
+  "hasHelpWantedIssues": false,
+  "openedToContributionsIssues": 0,
+  "popularityScore": 40,
+  "_schemaVersion": "1.0.0",
+  "_generatedAt": "2026-05-12T18:13:42.524Z",
+  "_workflowRunId": "25753350755"
+}

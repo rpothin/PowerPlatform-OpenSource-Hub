@@ -1,0 +1,61 @@
+{
+  "createdAt": "2025-08-18T16:25:23Z",
+  "description": "Framework and scripts for harvesting datasets into PortalJS . Provides reusable pipelines, connectors, and utilities for extracting, transforming, and loading (ETL) data from diverse sources into your data portal. Designed for extensibility and automation, making it easy to bootstrap data portals at scale.",
+  "fullName": "datopian/harvesterjs",
+  "repositoryId": 1040218378,
+  "hasIssues": true,
+  "homepage": "https://www.portaljs.com/",
+  "isArchived": false,
+  "language": "TypeScript",
+  "license": {
+    "key": "mit",
+    "name": "MIT License",
+    "url": "https://api.github.com/licenses/mit"
+  },
+  "name": "harvesterjs",
+  "openIssuesCount": 1,
+  "owner": {
+    "id": "24832801",
+    "is_bot": false,
+    "login": "datopian",
+    "type": "Organization",
+    "url": "https://github.com/datopian"
+  },
+  "updatedAt": "2026-05-03T21:58:02Z",
+  "url": "https://github.com/datopian/harvesterjs",
+  "codeOfConduct": null,
+  "forkCount": 2,
+  "fundingLinks": [],
+  "isSecurityPolicyEnabled": false,
+  "isTemplate": true,
+  "latestRelease": null,
+  "primaryLanguage": {
+    "name": "TypeScript"
+  },
+  "securityPolicyUrl": null,
+  "stargazerCount": 21,
+  "watchers": {
+    "totalCount": 1
+  },
+  "topics": [
+    "ckan",
+    "dataverse",
+    "dkan",
+    "harvest",
+    "open-data",
+    "opendatasoft",
+    "socrata"
+  ],
+  "languages": [
+    "TypeScript"
+  ],
+  "openedGoodFirstIssues": 0,
+  "hasGoodFirstIssues": false,
+  "openedHelpWantedIssues": 0,
+  "hasHelpWantedIssues": false,
+  "openedToContributionsIssues": 0,
+  "popularityScore": 22,
+  "_schemaVersion": "1.0.0",
+  "_generatedAt": "2026-05-12T18:13:42.524Z",
+  "_workflowRunId": "25753350755"
+}

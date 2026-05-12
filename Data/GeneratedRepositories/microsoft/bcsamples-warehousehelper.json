@@ -1,0 +1,69 @@
+{
+  "createdAt": "2023-05-15T19:39:00Z",
+  "description": "The Warehouse Helper sample consists of an AL extension, a Power App, and a Power Automate flow. The app can scan a barcode and attempt to map the value to a Business Central item's GTIN property.",
+  "fullName": "microsoft/bcsamples-warehousehelper",
+  "repositoryId": 641104517,
+  "hasIssues": true,
+  "homepage": "",
+  "isArchived": false,
+  "language": "AL",
+  "license": {
+    "key": "mit",
+    "name": "MIT License",
+    "url": "https://api.github.com/licenses/mit"
+  },
+  "name": "bcsamples-warehousehelper",
+  "openIssuesCount": 0,
+  "owner": {
+    "id": "6154722",
+    "is_bot": false,
+    "login": "microsoft",
+    "type": "Organization",
+    "url": "https://github.com/microsoft"
+  },
+  "updatedAt": "2026-04-21T14:59:54Z",
+  "url": "https://github.com/microsoft/bcsamples-warehousehelper",
+  "codeOfConduct": {
+    "key": "other",
+    "name": "Other",
+    "url": "https://github.com/microsoft/bcsamples-warehousehelper/blob/main/CODE_OF_CONDUCT.md"
+  },
+  "forkCount": 19,
+  "fundingLinks": [],
+  "isSecurityPolicyEnabled": false,
+  "isTemplate": false,
+  "latestRelease": {
+    "name": "(preview) Warehouse Helper sample",
+    "tagName": "1.0.0",
+    "url": "https://github.com/microsoft/bcsamples-warehousehelper/releases/tag/1.0.0",
+    "publishedAt": "2023-05-17T14:15:31Z"
+  },
+  "primaryLanguage": {
+    "name": "AL"
+  },
+  "securityPolicyUrl": null,
+  "stargazerCount": 32,
+  "watchers": {
+    "totalCount": 5
+  },
+  "topics": [
+    "powerplatform",
+    "bcsamples",
+    "msdyn365bc",
+    "al",
+    "bcopensource"
+  ],
+  "languages": [
+    "AL",
+    "PowerShell"
+  ],
+  "openedGoodFirstIssues": 0,
+  "hasGoodFirstIssues": false,
+  "openedHelpWantedIssues": 0,
+  "hasHelpWantedIssues": false,
+  "openedToContributionsIssues": 0,
+  "popularityScore": 37,
+  "_schemaVersion": "1.0.0",
+  "_generatedAt": "2026-05-12T18:13:42.524Z",
+  "_workflowRunId": "25753350755"
+}

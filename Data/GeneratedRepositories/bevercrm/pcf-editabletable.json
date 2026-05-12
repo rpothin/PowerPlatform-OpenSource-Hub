@@ -1,0 +1,71 @@
+{
+  "createdAt": "2022-10-03T07:45:09Z",
+  "description": "This control allows the transformation of the default Dynamics 365 grid to an editable grid with add new line functionality.",
+  "fullName": "BeverCRM/PCF-EditableTable",
+  "repositoryId": 544773693,
+  "hasIssues": true,
+  "homepage": "https://marketplace.bevercrm.com",
+  "isArchived": false,
+  "language": "TypeScript",
+  "license": {
+    "key": "mit",
+    "name": "MIT License",
+    "url": "https://api.github.com/licenses/mit"
+  },
+  "name": "PCF-EditableTable",
+  "openIssuesCount": 9,
+  "owner": {
+    "id": "33987143",
+    "is_bot": false,
+    "login": "BeverCRM",
+    "type": "Organization",
+    "url": "https://github.com/BeverCRM"
+  },
+  "updatedAt": "2026-03-17T11:38:46Z",
+  "url": "https://github.com/BeverCRM/PCF-EditableTable",
+  "codeOfConduct": null,
+  "forkCount": 9,
+  "fundingLinks": [],
+  "isSecurityPolicyEnabled": false,
+  "isTemplate": false,
+  "latestRelease": {
+    "name": "v1.1.0",
+    "tagName": "v1.1.0",
+    "url": "https://github.com/BeverCRM/PCF-EditableTable/releases/tag/v1.1.0",
+    "publishedAt": "2023-10-02T11:34:19Z"
+  },
+  "primaryLanguage": {
+    "name": "TypeScript"
+  },
+  "securityPolicyUrl": null,
+  "stargazerCount": 23,
+  "watchers": {
+    "totalCount": 1
+  },
+  "topics": [
+    "bever-controls",
+    "dynamics-365",
+    "dynamics-crm",
+    "dynamics365",
+    "editable-table",
+    "fluent-ui",
+    "fluentui",
+    "pcf",
+    "powerapps",
+    "powerapps-component-framework",
+    "powerappscomponentframework"
+  ],
+  "languages": [
+    "TypeScript",
+    "CSS"
+  ],
+  "openedGoodFirstIssues": 0,
+  "hasGoodFirstIssues": false,
+  "openedHelpWantedIssues": 0,
+  "hasHelpWantedIssues": false,
+  "openedToContributionsIssues": 0,
+  "popularityScore": 24,
+  "_schemaVersion": "1.0.0",
+  "_generatedAt": "2026-05-12T18:13:42.524Z",
+  "_workflowRunId": "25753350755"
+}

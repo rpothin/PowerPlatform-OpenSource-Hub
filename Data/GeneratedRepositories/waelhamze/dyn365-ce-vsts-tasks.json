@@ -1,0 +1,72 @@
+{
+  "createdAt": "2018-03-04T17:10:30Z",
+  "description": "VSTS Extension for Dynamics 365 Customer Engagement",
+  "fullName": "WaelHamze/dyn365-ce-vsts-tasks",
+  "repositoryId": 123810420,
+  "hasIssues": true,
+  "homepage": "https://marketplace.visualstudio.com/items?itemName=WaelHamze.xrm-ci-framework-build-tasks",
+  "isArchived": false,
+  "language": "PowerShell",
+  "license": {
+    "key": "gpl-3.0",
+    "name": "GNU General Public License v3.0",
+    "url": "https://api.github.com/licenses/gpl-3.0"
+  },
+  "name": "dyn365-ce-vsts-tasks",
+  "openIssuesCount": 121,
+  "owner": {
+    "id": "11046518",
+    "is_bot": false,
+    "login": "WaelHamze",
+    "type": "User",
+    "url": "https://github.com/WaelHamze"
+  },
+  "updatedAt": "2026-03-26T12:20:37Z",
+  "url": "https://github.com/WaelHamze/dyn365-ce-vsts-tasks",
+  "codeOfConduct": null,
+  "forkCount": 58,
+  "fundingLinks": [],
+  "isSecurityPolicyEnabled": false,
+  "isTemplate": false,
+  "latestRelease": {
+    "name": "Dynamics 365 Build Tools v9.14.2",
+    "tagName": "v9.14.2",
+    "url": "https://github.com/WaelHamze/dyn365-ce-vsts-tasks/releases/tag/v9.14.2",
+    "publishedAt": "2020-03-30T16:27:01Z"
+  },
+  "primaryLanguage": {
+    "name": "PowerShell"
+  },
+  "securityPolicyUrl": null,
+  "stargazerCount": 121,
+  "watchers": {
+    "totalCount": 31
+  },
+  "topics": [
+    "devops",
+    "continuous-integration",
+    "continuous-delivery",
+    "continuous-deployment",
+    "dynamics-365",
+    "powershell",
+    "msdyn365",
+    "crm",
+    "dynamics",
+    "build-automation",
+    "release-automation"
+  ],
+  "languages": [
+    "PowerShell",
+    "C#",
+    "XSLT"
+  ],
+  "openedGoodFirstIssues": 0,
+  "hasGoodFirstIssues": false,
+  "openedHelpWantedIssues": 32,
+  "hasHelpWantedIssues": true,
+  "openedToContributionsIssues": 32,
+  "popularityScore": 152,
+  "_schemaVersion": "1.0.0",
+  "_generatedAt": "2026-05-12T18:13:42.524Z",
+  "_workflowRunId": "25753350755"
+}

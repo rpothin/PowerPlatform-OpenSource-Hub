@@ -1,0 +1,74 @@
+{
+  "createdAt": "2023-05-19T18:54:08Z",
+  "description": "The Supply Chain Management Accelerator leverages deep learning forecasts, Azure Machine Learning and distributed computing with a Ray Cluster, to simulate an inventory optimization problem using synthetic data. It allows you to also run other simulations, using a PowerApps user-interface connected directly to the Azure Kubernetes Instance running ",
+  "fullName": "MSUSAzureAccelerators/Intelligent-Supply-Chain-Management",
+  "repositoryId": 642964386,
+  "hasIssues": true,
+  "homepage": "",
+  "isArchived": false,
+  "language": "Jupyter Notebook",
+  "license": {
+    "key": "mit",
+    "name": "MIT License",
+    "url": "https://api.github.com/licenses/mit"
+  },
+  "name": "Intelligent-Supply-Chain-Management",
+  "openIssuesCount": 3,
+  "owner": {
+    "id": "81333644",
+    "is_bot": false,
+    "login": "MSUSAzureAccelerators",
+    "type": "Organization",
+    "url": "https://github.com/MSUSAzureAccelerators"
+  },
+  "updatedAt": "2026-05-09T18:13:29Z",
+  "url": "https://github.com/MSUSAzureAccelerators/Intelligent-Supply-Chain-Management",
+  "codeOfConduct": {
+    "key": "other",
+    "name": "Other",
+    "url": "https://github.com/MSUSAzureAccelerators/Intelligent-Supply-Chain-Management/blob/main/CODE_OF_CONDUCT.md"
+  },
+  "forkCount": 7,
+  "fundingLinks": [],
+  "isSecurityPolicyEnabled": true,
+  "isTemplate": false,
+  "latestRelease": null,
+  "primaryLanguage": {
+    "name": "Jupyter Notebook"
+  },
+  "securityPolicyUrl": "https://github.com/MSUSAzureAccelerators/Intelligent-Supply-Chain-Management/security/policy",
+  "stargazerCount": 18,
+  "watchers": {
+    "totalCount": 0
+  },
+  "topics": [
+    "microsoft",
+    "accelerator",
+    "ai",
+    "azure",
+    "deep-learning",
+    "machine-learning",
+    "ml",
+    "optimization",
+    "power-apps",
+    "power-bi",
+    "supply-chain-management",
+    "ray-cluster"
+  ],
+  "languages": [
+    "Jupyter Notebook",
+    "Python",
+    "Bicep",
+    "Dockerfile",
+    "PowerShell"
+  ],
+  "openedGoodFirstIssues": 0,
+  "hasGoodFirstIssues": false,
+  "openedHelpWantedIssues": 0,
+  "hasHelpWantedIssues": false,
+  "openedToContributionsIssues": 0,
+  "popularityScore": 18,
+  "_schemaVersion": "1.0.0",
+  "_generatedAt": "2026-05-12T18:13:42.524Z",
+  "_workflowRunId": "25753350755"
+}

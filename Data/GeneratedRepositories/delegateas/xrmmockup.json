@@ -1,0 +1,72 @@
+{
+  "createdAt": "2017-05-24T08:56:02Z",
+  "description": "Engine which simulates your exact Dynamics 365/CRM instance locally including all of it's logic!",
+  "fullName": "delegateas/XrmMockup",
+  "repositoryId": 92271530,
+  "hasIssues": true,
+  "homepage": "",
+  "isArchived": false,
+  "language": "C#",
+  "license": {
+    "key": "mit",
+    "name": "MIT License",
+    "url": "https://api.github.com/licenses/mit"
+  },
+  "name": "XrmMockup",
+  "openIssuesCount": 64,
+  "owner": {
+    "id": "7015300",
+    "is_bot": false,
+    "login": "delegateas",
+    "type": "Organization",
+    "url": "https://github.com/delegateas"
+  },
+  "updatedAt": "2026-05-04T23:27:01Z",
+  "url": "https://github.com/delegateas/XrmMockup",
+  "codeOfConduct": null,
+  "forkCount": 32,
+  "fundingLinks": [],
+  "isSecurityPolicyEnabled": false,
+  "isTemplate": false,
+  "latestRelease": {
+    "name": "XrmMockup v1.18.0 / Metadata Generator v1.0.4",
+    "tagName": "v1.18.0-v1.0.4",
+    "url": "https://github.com/delegateas/XrmMockup/releases/tag/v1.18.0-v1.0.4",
+    "publishedAt": "2026-03-23T07:57:53Z"
+  },
+  "primaryLanguage": {
+    "name": "C#"
+  },
+  "securityPolicyUrl": null,
+  "stargazerCount": 83,
+  "watchers": {
+    "totalCount": 20
+  },
+  "topics": [
+    "dynamics-365",
+    "dynamics-crm",
+    "csharp",
+    "testing",
+    "unit-testing",
+    "mockup",
+    "simulation-engine",
+    "dataverse",
+    "dotnet",
+    "emulator",
+    "xrm"
+  ],
+  "languages": [
+    "C#",
+    "PowerShell",
+    "F#"
+  ],
+  "openedGoodFirstIssues": 0,
+  "hasGoodFirstIssues": false,
+  "openedHelpWantedIssues": 0,
+  "hasHelpWantedIssues": false,
+  "openedToContributionsIssues": 0,
+  "popularityScore": 103,
+  "_schemaVersion": "1.0.0",
+  "_generatedAt": "2026-05-12T18:13:42.524Z",
+  "_workflowRunId": "25753350755"
+}

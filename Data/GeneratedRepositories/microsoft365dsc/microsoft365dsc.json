@@ -1,0 +1,86 @@
+{
+  "createdAt": "2018-11-21T16:54:50Z",
+  "description": "Manages, configures, extracts and monitors Microsoft 365 tenant configurations",
+  "fullName": "Microsoft365DSC/Microsoft365DSC",
+  "repositoryId": 158580093,
+  "hasIssues": true,
+  "homepage": "https://microsoft365dsc.com/",
+  "isArchived": false,
+  "language": "PowerShell",
+  "license": {
+    "key": "mit",
+    "name": "MIT License",
+    "url": "https://api.github.com/licenses/mit"
+  },
+  "name": "Microsoft365DSC",
+  "openIssuesCount": 123,
+  "owner": {
+    "id": "270493417",
+    "is_bot": false,
+    "login": "Microsoft365DSC",
+    "type": "Organization",
+    "url": "https://github.com/Microsoft365DSC"
+  },
+  "updatedAt": "2026-05-12T16:57:10Z",
+  "url": "https://github.com/Microsoft365DSC/Microsoft365DSC",
+  "codeOfConduct": {
+    "key": "contributor_covenant",
+    "name": "Contributor Covenant",
+    "url": "https://github.com/Microsoft365DSC/Microsoft365DSC/blob/Dev/CODE_OF_CONDUCT.md"
+  },
+  "forkCount": 652,
+  "fundingLinks": [],
+  "isSecurityPolicyEnabled": true,
+  "isTemplate": false,
+  "latestRelease": {
+    "name": "Release 1.26.506.2",
+    "tagName": "1.26.506.2",
+    "url": "https://github.com/Microsoft365DSC/Microsoft365DSC/releases/tag/1.26.506.2",
+    "publishedAt": "2026-05-07T14:39:07Z"
+  },
+  "primaryLanguage": {
+    "name": "PowerShell"
+  },
+  "securityPolicyUrl": "https://github.com/Microsoft365DSC/Microsoft365DSC/security/policy",
+  "stargazerCount": 2280,
+  "watchers": {
+    "totalCount": 93
+  },
+  "topics": [
+    "microsoft365",
+    "powershell",
+    "monitoring",
+    "desiredstateconfiguration",
+    "configuration-as-code",
+    "devops",
+    "office365",
+    "sharepoint",
+    "onedrive",
+    "powerplatform",
+    "teams",
+    "microsoft",
+    "securityandcompliance",
+    "skypeforbusiness",
+    "azuread",
+    "exchangeonline",
+    "intune",
+    "hacktoberfest"
+  ],
+  "languages": [
+    "PowerShell",
+    "C#",
+    "TypeScript",
+    "SCSS",
+    "CSS",
+    "HTML"
+  ],
+  "openedGoodFirstIssues": 0,
+  "hasGoodFirstIssues": false,
+  "openedHelpWantedIssues": 2,
+  "hasHelpWantedIssues": true,
+  "openedToContributionsIssues": 2,
+  "popularityScore": 2373,
+  "_schemaVersion": "1.0.0",
+  "_generatedAt": "2026-05-12T18:13:42.524Z",
+  "_workflowRunId": "25753350755"
+}

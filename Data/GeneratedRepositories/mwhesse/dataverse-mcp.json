@@ -1,0 +1,64 @@
+{
+  "createdAt": "2025-07-25T13:58:04Z",
+  "description": "A Model Context Protocol (MCP) server for Microsoft Dataverse that enables schema operations including creating and updating tables, columns, relationships, and option sets using the Dataverse Web API.",
+  "fullName": "mwhesse/dataverse-mcp",
+  "repositoryId": 1026216673,
+  "hasIssues": true,
+  "homepage": "",
+  "isArchived": false,
+  "language": "TypeScript",
+  "license": {
+    "key": "mit",
+    "name": "MIT License",
+    "url": "https://api.github.com/licenses/mit"
+  },
+  "name": "dataverse-mcp",
+  "openIssuesCount": 1,
+  "owner": {
+    "id": "1764092",
+    "is_bot": false,
+    "login": "mwhesse",
+    "type": "User",
+    "url": "https://github.com/mwhesse"
+  },
+  "updatedAt": "2026-04-22T01:53:32Z",
+  "url": "https://github.com/mwhesse/dataverse-mcp",
+  "codeOfConduct": null,
+  "forkCount": 14,
+  "fundingLinks": [],
+  "isSecurityPolicyEnabled": false,
+  "isTemplate": false,
+  "latestRelease": {
+    "name": "v0.2.8",
+    "tagName": "v0.2.8",
+    "url": "https://github.com/mwhesse/dataverse-mcp/releases/tag/v0.2.8",
+    "publishedAt": "2025-08-15T13:39:13Z"
+  },
+  "primaryLanguage": {
+    "name": "TypeScript"
+  },
+  "securityPolicyUrl": null,
+  "stargazerCount": 17,
+  "watchers": {
+    "totalCount": 0
+  },
+  "topics": [
+    "dataverse",
+    "dataverse-api",
+    "mcp-server",
+    "powerplatform"
+  ],
+  "languages": [
+    "TypeScript",
+    "JavaScript"
+  ],
+  "openedGoodFirstIssues": 0,
+  "hasGoodFirstIssues": false,
+  "openedHelpWantedIssues": 0,
+  "hasHelpWantedIssues": false,
+  "openedToContributionsIssues": 0,
+  "popularityScore": 17,
+  "_schemaVersion": "1.0.0",
+  "_generatedAt": "2026-05-12T18:13:42.524Z",
+  "_workflowRunId": "25753350755"
+}

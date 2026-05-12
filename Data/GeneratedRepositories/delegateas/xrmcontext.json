@@ -1,0 +1,67 @@
+{
+  "createdAt": "2015-12-18T12:25:02Z",
+  "description": "Tool to generate early-bound .NET classes and enumerations for MS Dynamics 365/CRM server-side coding.",
+  "fullName": "delegateas/XrmContext",
+  "repositoryId": 48234066,
+  "hasIssues": true,
+  "homepage": "http://delegateas.github.io/Delegate.XrmContext/",
+  "isArchived": false,
+  "language": "F#",
+  "license": {
+    "key": "mit",
+    "name": "MIT License",
+    "url": "https://api.github.com/licenses/mit"
+  },
+  "name": "XrmContext",
+  "openIssuesCount": 11,
+  "owner": {
+    "id": "7015300",
+    "is_bot": false,
+    "login": "delegateas",
+    "type": "Organization",
+    "url": "https://github.com/delegateas"
+  },
+  "updatedAt": "2026-04-30T10:42:16Z",
+  "url": "https://github.com/delegateas/XrmContext",
+  "codeOfConduct": null,
+  "forkCount": 16,
+  "fundingLinks": [],
+  "isSecurityPolicyEnabled": false,
+  "isTemplate": false,
+  "latestRelease": null,
+  "primaryLanguage": {
+    "name": "F#"
+  },
+  "securityPolicyUrl": null,
+  "stargazerCount": 53,
+  "watchers": {
+    "totalCount": 25
+  },
+  "topics": [
+    "dynamics-365",
+    "dynamics-crm",
+    "early-bound",
+    "developer-tools",
+    "developer-experience",
+    "code-generation",
+    "dataverse",
+    "dotnet",
+    "fsharp",
+    "xrm"
+  ],
+  "languages": [
+    "F#",
+    "C#",
+    "Batchfile",
+    "PowerShell"
+  ],
+  "openedGoodFirstIssues": 0,
+  "hasGoodFirstIssues": false,
+  "openedHelpWantedIssues": 0,
+  "hasHelpWantedIssues": false,
+  "openedToContributionsIssues": 0,
+  "popularityScore": 78,
+  "_schemaVersion": "1.0.0",
+  "_generatedAt": "2026-05-12T18:13:42.524Z",
+  "_workflowRunId": "25753350755"
+}

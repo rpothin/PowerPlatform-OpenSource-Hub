@@ -1,0 +1,69 @@
+{
+  "createdAt": "2023-01-26T17:21:48Z",
+  "description": "Power Platform Terraform Provider",
+  "fullName": "microsoft/terraform-provider-power-platform",
+  "repositoryId": 593716393,
+  "hasIssues": true,
+  "homepage": "https://registry.terraform.io/providers/microsoft/power-platform/latest/docs",
+  "isArchived": false,
+  "language": "Go",
+  "license": {
+    "key": "mit",
+    "name": "MIT License",
+    "url": "https://api.github.com/licenses/mit"
+  },
+  "name": "terraform-provider-power-platform",
+  "openIssuesCount": 33,
+  "owner": {
+    "id": "6154722",
+    "is_bot": false,
+    "login": "microsoft",
+    "type": "Organization",
+    "url": "https://github.com/microsoft"
+  },
+  "updatedAt": "2026-05-12T09:30:27Z",
+  "url": "https://github.com/microsoft/terraform-provider-power-platform",
+  "codeOfConduct": {
+    "key": "other",
+    "name": "Other",
+    "url": "https://github.com/microsoft/terraform-provider-power-platform/blob/main/CODE_OF_CONDUCT.md"
+  },
+  "forkCount": 18,
+  "fundingLinks": [],
+  "isSecurityPolicyEnabled": true,
+  "isTemplate": false,
+  "latestRelease": {
+    "name": "v4.1.0",
+    "tagName": "v4.1.0",
+    "url": "https://github.com/microsoft/terraform-provider-power-platform/releases/tag/v4.1.0",
+    "publishedAt": "2026-01-26T08:59:16Z"
+  },
+  "primaryLanguage": {
+    "name": "Go"
+  },
+  "securityPolicyUrl": "https://github.com/microsoft/terraform-provider-power-platform/security/policy",
+  "stargazerCount": 54,
+  "watchers": {
+    "totalCount": 16
+  },
+  "topics": [
+    "power-platform",
+    "terraform",
+    "terraform-provider"
+  ],
+  "languages": [
+    "Go",
+    "Go Template",
+    "Shell",
+    "Makefile"
+  ],
+  "openedGoodFirstIssues": 0,
+  "hasGoodFirstIssues": false,
+  "openedHelpWantedIssues": 0,
+  "hasHelpWantedIssues": false,
+  "openedToContributionsIssues": 0,
+  "popularityScore": 70,
+  "_schemaVersion": "1.0.0",
+  "_generatedAt": "2026-05-12T18:13:42.524Z",
+  "_workflowRunId": "25753350755"
+}

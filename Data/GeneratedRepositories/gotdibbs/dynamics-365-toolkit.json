@@ -1,0 +1,65 @@
+{
+  "createdAt": "2015-04-12T03:05:39Z",
+  "description": "Toolkit for development in a Microsoft Dynamics 365/CRM 2011+ environment. Note that the bookmarklets are deprecated in favor of the chrome extension, but will continue to function for CRM 2011 through 8.x.",
+  "fullName": "gotdibbs/Dynamics-365-Toolkit",
+  "repositoryId": 33801112,
+  "hasIssues": true,
+  "homepage": "https://chrome.google.com/webstore/devconsole/2a32dd73-ad4f-4679-92a4-e373d1d25970/ajhcbjjgonogiifldoofdeonjclcehkh/edit?hl=en_US",
+  "isArchived": false,
+  "language": "JavaScript",
+  "license": {
+    "key": "mit",
+    "name": "MIT License",
+    "url": "https://api.github.com/licenses/mit"
+  },
+  "name": "Dynamics-365-Toolkit",
+  "openIssuesCount": 5,
+  "owner": {
+    "id": "1540648",
+    "is_bot": false,
+    "login": "gotdibbs",
+    "type": "User",
+    "url": "https://github.com/gotdibbs"
+  },
+  "updatedAt": "2026-03-16T02:32:41Z",
+  "url": "https://github.com/gotdibbs/Dynamics-365-Toolkit",
+  "codeOfConduct": null,
+  "forkCount": 8,
+  "fundingLinks": [],
+  "isSecurityPolicyEnabled": false,
+  "isTemplate": false,
+  "latestRelease": {
+    "name": "v2026.3.0",
+    "tagName": "v2026.3.0",
+    "url": "https://github.com/gotdibbs/Dynamics-365-Toolkit/releases/tag/v2026.3.0",
+    "publishedAt": "2026-03-16T02:41:17Z"
+  },
+  "primaryLanguage": {
+    "name": "JavaScript"
+  },
+  "securityPolicyUrl": null,
+  "stargazerCount": 25,
+  "watchers": {
+    "totalCount": 2
+  },
+  "topics": [
+    "javascript",
+    "bookmarklet",
+    "dynamics-365",
+    "dynamics-crm"
+  ],
+  "languages": [
+    "JavaScript",
+    "CSS",
+    "Gherkin"
+  ],
+  "openedGoodFirstIssues": 0,
+  "hasGoodFirstIssues": false,
+  "openedHelpWantedIssues": 0,
+  "hasHelpWantedIssues": false,
+  "openedToContributionsIssues": 0,
+  "popularityScore": 27,
+  "_schemaVersion": "1.0.0",
+  "_generatedAt": "2026-05-12T18:13:42.524Z",
+  "_workflowRunId": "25753350755"
+}

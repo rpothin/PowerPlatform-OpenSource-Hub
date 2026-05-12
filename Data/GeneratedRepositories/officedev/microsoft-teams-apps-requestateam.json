@@ -1,0 +1,69 @@
+{
+  "createdAt": "2020-04-20T17:58:04Z",
+  "description": "Power Platform based solution that allows users to request teams and automates team creation. NO LONGER MAINTAINED. Please use 'Provision Assist' - https://github.com/pnp/provision-assist-m365/ instead.",
+  "fullName": "OfficeDev/microsoft-teams-apps-requestateam",
+  "repositoryId": 257362676,
+  "hasIssues": true,
+  "homepage": "",
+  "isArchived": false,
+  "language": "PowerShell",
+  "license": {
+    "key": "mit",
+    "name": "MIT License",
+    "url": "https://api.github.com/licenses/mit"
+  },
+  "name": "microsoft-teams-apps-requestateam",
+  "openIssuesCount": 138,
+  "owner": {
+    "id": "6789362",
+    "is_bot": false,
+    "login": "OfficeDev",
+    "type": "Organization",
+    "url": "https://github.com/OfficeDev"
+  },
+  "updatedAt": "2026-05-12T06:35:10Z",
+  "url": "https://github.com/OfficeDev/microsoft-teams-apps-requestateam",
+  "codeOfConduct": {
+    "key": "other",
+    "name": "Other",
+    "url": "https://github.com/OfficeDev/microsoft-teams-apps-requestateam/blob/master/CODE_OF_CONDUCT.md"
+  },
+  "forkCount": 65,
+  "fundingLinks": [],
+  "isSecurityPolicyEnabled": true,
+  "isTemplate": false,
+  "latestRelease": {
+    "name": "RequestATeam_v1.1.0",
+    "tagName": "v1.1.0",
+    "url": "https://github.com/OfficeDev/microsoft-teams-apps-requestateam/releases/tag/v1.1.0",
+    "publishedAt": "2021-11-05T09:00:22Z"
+  },
+  "primaryLanguage": {
+    "name": "PowerShell"
+  },
+  "securityPolicyUrl": "https://github.com/OfficeDev/microsoft-teams-apps-requestateam/security/policy",
+  "stargazerCount": 238,
+  "watchers": {
+    "totalCount": 44
+  },
+  "topics": [
+    "microsoft",
+    "microsoftteams",
+    "powerapps",
+    "powerautomate",
+    "logicapps",
+    "azure"
+  ],
+  "languages": [
+    "PowerShell"
+  ],
+  "openedGoodFirstIssues": 17,
+  "hasGoodFirstIssues": true,
+  "openedHelpWantedIssues": 30,
+  "hasHelpWantedIssues": true,
+  "openedToContributionsIssues": 47,
+  "popularityScore": 282,
+  "_schemaVersion": "1.0.0",
+  "_generatedAt": "2026-05-12T18:13:42.524Z",
+  "_workflowRunId": "25753350755"
+}

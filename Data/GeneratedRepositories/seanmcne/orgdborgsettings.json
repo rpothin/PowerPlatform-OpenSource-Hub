@@ -1,0 +1,71 @@
+{
+  "createdAt": "2017-04-04T00:58:26Z",
+  "description": "This is a utility allowing admins of Dynamics CRM Online & onPrem to edit organization database settings (aka: OrgDBOrgSettings). This allows you to edit your settings without using the command line utility in the KB article documenting \"OrgDBOrgSettings.\" The utility is written using the CRM SDK as a reference and currently all changes and retrieval of settings are done via the CRM's OData Endpoint and is installed via a managed solution containing several webresources and can easily be installed and uninstalled from your CRM environment.",
+  "fullName": "seanmcne/OrgDbOrgSettings",
+  "repositoryId": 87135310,
+  "hasIssues": true,
+  "homepage": "",
+  "isArchived": false,
+  "language": "HTML",
+  "license": {
+    "key": "mit",
+    "name": "MIT License",
+    "url": "https://api.github.com/licenses/mit"
+  },
+  "name": "OrgDbOrgSettings",
+  "openIssuesCount": 0,
+  "owner": {
+    "id": "2292260",
+    "is_bot": false,
+    "login": "seanmcne",
+    "type": "User",
+    "url": "https://github.com/seanmcne"
+  },
+  "updatedAt": "2026-03-11T18:07:13Z",
+  "url": "https://github.com/seanmcne/OrgDbOrgSettings",
+  "codeOfConduct": null,
+  "forkCount": 34,
+  "fundingLinks": [],
+  "isSecurityPolicyEnabled": false,
+  "isTemplate": false,
+  "latestRelease": {
+    "name": "Adding CorrelatedSubjectChangedRegex (#159)",
+    "tagName": "v1.0.2603.11178",
+    "url": "https://github.com/seanmcne/OrgDbOrgSettings/releases/tag/v1.0.2603.11178",
+    "publishedAt": "2026-03-11T21:07:55Z"
+  },
+  "primaryLanguage": {
+    "name": "HTML"
+  },
+  "securityPolicyUrl": null,
+  "stargazerCount": 110,
+  "watchers": {
+    "totalCount": 25
+  },
+  "topics": [
+    "crm2011",
+    "crm2013",
+    "crm2015",
+    "crm2016",
+    "dynamics",
+    "dynamics365",
+    "dynamics-365",
+    "orgdborgsettings",
+    "crm-online",
+    "xrm",
+    "dataverse",
+    "powerapps"
+  ],
+  "languages": [
+    "HTML"
+  ],
+  "openedGoodFirstIssues": 0,
+  "hasGoodFirstIssues": false,
+  "openedHelpWantedIssues": 0,
+  "hasHelpWantedIssues": false,
+  "openedToContributionsIssues": 0,
+  "popularityScore": 135,
+  "_schemaVersion": "1.0.0",
+  "_generatedAt": "2026-05-12T18:13:42.524Z",
+  "_workflowRunId": "25753350755"
+}

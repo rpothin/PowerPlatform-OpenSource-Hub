@@ -1,0 +1,78 @@
+{
+  "createdAt": "2021-07-16T19:43:59Z",
+  "description": "The all-in-one tool to develop code for Dataverse/Dynamics 365. Helps you connect to a Dataverse environment, generate TypeScript definitions for entities, create a different type of Dataverse-specific projects, and much more.",
+  "fullName": "Power-Maverick/DataverseDevTools-VSCode",
+  "repositoryId": 386746991,
+  "hasIssues": true,
+  "homepage": "https://marketplace.visualstudio.com/items?itemName=danish-naglekar.dataverse-devtools",
+  "isArchived": false,
+  "language": "TypeScript",
+  "license": {
+    "key": "gpl-3.0",
+    "name": "GNU General Public License v3.0",
+    "url": "https://api.github.com/licenses/gpl-3.0"
+  },
+  "name": "DataverseDevTools-VSCode",
+  "openIssuesCount": 8,
+  "owner": {
+    "id": "36135520",
+    "is_bot": false,
+    "login": "Power-Maverick",
+    "type": "User",
+    "url": "https://github.com/Power-Maverick"
+  },
+  "updatedAt": "2026-05-08T01:02:05Z",
+  "url": "https://github.com/Power-Maverick/DataverseDevTools-VSCode",
+  "codeOfConduct": {
+    "key": "contributor_covenant",
+    "name": "Contributor Covenant",
+    "url": "https://github.com/Power-Maverick/DataverseDevTools-VSCode/blob/main/CODE_OF_CONDUCT.md"
+  },
+  "forkCount": 20,
+  "fundingLinks": [
+    {
+      "platform": "GITHUB",
+      "url": "https://github.com/Power-Maverick"
+    }
+  ],
+  "isSecurityPolicyEnabled": false,
+  "isTemplate": false,
+  "latestRelease": {
+    "name": "v2.2.6",
+    "tagName": "v2.2.6",
+    "url": "https://github.com/Power-Maverick/DataverseDevTools-VSCode/releases/tag/v2.2.6",
+    "publishedAt": "2025-10-10T15:14:37Z"
+  },
+  "primaryLanguage": {
+    "name": "TypeScript"
+  },
+  "securityPolicyUrl": null,
+  "stargazerCount": 84,
+  "watchers": {
+    "totalCount": 5
+  },
+  "topics": [
+    "dataverse",
+    "dynamics-365",
+    "power-platform",
+    "vscode-extension",
+    "vscode",
+    "typescript",
+    "visual-studio-code"
+  ],
+  "languages": [
+    "TypeScript",
+    "HTML",
+    "JavaScript",
+    "CSS"
+  ],
+  "openedGoodFirstIssues": 0,
+  "hasGoodFirstIssues": false,
+  "openedHelpWantedIssues": 0,
+  "hasHelpWantedIssues": false,
+  "openedToContributionsIssues": 0,
+  "popularityScore": 89,
+  "_schemaVersion": "1.0.0",
+  "_generatedAt": "2026-05-12T18:13:42.524Z",
+  "_workflowRunId": "25753350755"
+}

@@ -1,0 +1,70 @@
+{
+  "createdAt": "2020-08-28T20:37:56Z",
+  "description": "A PowerShell module to synchronize and validate XLIFF translation files.",
+  "fullName": "rvanbekkum/ps-xliff-sync",
+  "repositoryId": 291141569,
+  "hasIssues": true,
+  "homepage": "https://www.powershellgallery.com/packages/XliffSync",
+  "isArchived": false,
+  "language": "PowerShell",
+  "license": {
+    "key": "mit",
+    "name": "MIT License",
+    "url": "https://api.github.com/licenses/mit"
+  },
+  "name": "ps-xliff-sync",
+  "openIssuesCount": 7,
+  "owner": {
+    "id": "7383241",
+    "is_bot": false,
+    "login": "rvanbekkum",
+    "type": "User",
+    "url": "https://github.com/rvanbekkum"
+  },
+  "updatedAt": "2026-03-19T19:55:14Z",
+  "url": "https://github.com/rvanbekkum/ps-xliff-sync",
+  "codeOfConduct": null,
+  "forkCount": 8,
+  "fundingLinks": [
+    {
+      "platform": "BUY_ME_A_COFFEE",
+      "url": "https://buymeacoffee.com/robvanbekkum"
+    }
+  ],
+  "isSecurityPolicyEnabled": false,
+  "isTemplate": false,
+  "latestRelease": {
+    "name": "",
+    "tagName": "1.10.0",
+    "url": "https://github.com/rvanbekkum/ps-xliff-sync/releases/tag/1.10.0",
+    "publishedAt": "2025-01-10T15:35:08Z"
+  },
+  "primaryLanguage": {
+    "name": "PowerShell"
+  },
+  "securityPolicyUrl": null,
+  "stargazerCount": 22,
+  "watchers": {
+    "totalCount": 5
+  },
+  "topics": [
+    "xliff",
+    "localization",
+    "translation",
+    "dynamics-365",
+    "synchronization",
+    "bcopensource"
+  ],
+  "languages": [
+    "PowerShell"
+  ],
+  "openedGoodFirstIssues": 0,
+  "hasGoodFirstIssues": false,
+  "openedHelpWantedIssues": 0,
+  "hasHelpWantedIssues": false,
+  "openedToContributionsIssues": 0,
+  "popularityScore": 27,
+  "_schemaVersion": "1.0.0",
+  "_generatedAt": "2026-05-12T18:13:42.524Z",
+  "_workflowRunId": "25753350755"
+}

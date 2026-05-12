@@ -1,0 +1,69 @@
+{
+  "createdAt": "2024-06-02T16:16:16Z",
+  "description": "ERPL is a DuckDB extension to connect to API based ecosystems via standard interfaces like OData, GraphQL and REST. This works e.g. for SAP ERP, SAP Ariba, SAP C4C, Microsoft Dynamics and many more.",
+  "fullName": "DataZooDE/erpl-web",
+  "repositoryId": 809415290,
+  "hasIssues": true,
+  "homepage": "https://erpl.io",
+  "isArchived": false,
+  "language": "C++",
+  "license": {
+    "key": "other",
+    "name": "Other",
+    "url": ""
+  },
+  "name": "erpl-web",
+  "openIssuesCount": 2,
+  "owner": {
+    "id": "136052936",
+    "is_bot": false,
+    "login": "DataZooDE",
+    "type": "Organization",
+    "url": "https://github.com/DataZooDE"
+  },
+  "updatedAt": "2026-05-12T17:13:36Z",
+  "url": "https://github.com/DataZooDE/erpl-web",
+  "codeOfConduct": null,
+  "forkCount": 2,
+  "fundingLinks": [],
+  "isSecurityPolicyEnabled": false,
+  "isTemplate": false,
+  "latestRelease": null,
+  "primaryLanguage": {
+    "name": "C++"
+  },
+  "securityPolicyUrl": null,
+  "stargazerCount": 27,
+  "watchers": {
+    "totalCount": 3
+  },
+  "topics": [
+    "api",
+    "duckdb",
+    "duckdb-extension",
+    "dynamics-365",
+    "fiori",
+    "odata",
+    "rest",
+    "datasphere",
+    "sap-odata",
+    "duckdb-community"
+  ],
+  "languages": [
+    "C++",
+    "CMake",
+    "Shell",
+    "Python",
+    "Makefile",
+    "ABAP"
+  ],
+  "openedGoodFirstIssues": 0,
+  "hasGoodFirstIssues": false,
+  "openedHelpWantedIssues": 0,
+  "hasHelpWantedIssues": false,
+  "openedToContributionsIssues": 0,
+  "popularityScore": 30,
+  "_schemaVersion": "1.0.0",
+  "_generatedAt": "2026-05-12T18:13:42.524Z",
+  "_workflowRunId": "25753350755"
+}
