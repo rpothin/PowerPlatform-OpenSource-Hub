@@ -78,6 +78,47 @@ class FakeProvider implements CandidateProvider {
   }
 }
 
+class BatchFakeProvider implements CandidateProvider {
+  public batchCallCount = 0;
+
+  public constructor(
+    private readonly searchResults: Record<string, SearchRepository[]>,
+    private readonly detailResults: Record<string, RepositoryDetails | Error>
+  ) {}
+
+  public async searchRepositories(criterion: SearchCriterion): Promise<SearchRepository[]> {
+    return this.searchResults[criterion.topic] ?? [];
+  }
+
+  public async getRepositoryDetails(repositoryFullName: string): Promise<RepositoryDetails> {
+    const result = this.detailResults[repositoryFullName];
+    if (result === undefined) {
+      throw new Error(`No fixture for ${repositoryFullName}`);
+    }
+
+    if (result instanceof Error) {
+      throw result;
+    }
+
+    return result;
+  }
+
+  public async batchGetRepositoryDetails(repos: SearchRepository[]): Promise<Map<string, RepositoryDetails | Error>> {
+    this.batchCallCount += 1;
+    const map = new Map<string, RepositoryDetails | Error>();
+    for (const repo of repos) {
+      const result = this.detailResults[repo.fullName];
+      if (result === undefined) {
+        map.set(repo.fullName, new Error(`No fixture for ${repo.fullName}`));
+      } else {
+        map.set(repo.fullName, result);
+      }
+    }
+
+    return map;
+  }
+}
+
 describe("generateRepositoryDetails", () => {
   beforeEach(async () => {
     await rm(outputRoot, { recursive: true, force: true });
@@ -189,6 +230,128 @@ describe("generateRepositoryDetails", () => {
     expect(result.records.map((record) => record.fullName)).toEqual(["owner/keep"]);
     expect(result.metrics.detailFailures).toBe(1);
     expect(result.metrics.warnings.join("\n")).toContain("owner/fail");
+  });
+
+  it("routes PAT-policy 403 errors to patPolicyFailures metric (serial path)", async () => {
+    const configPath = path.join(outputRoot, "criteria-pat-policy.json");
+    const outputPath = path.join(outputRoot, "details-pat-policy.json");
+    await writeFile(configPath, JSON.stringify([{ topic: "powerplatform", searchLimit: 3 }]), "utf8");
+
+    const patError = new Error(
+      "The 'Microsoft Open Source' enterprise forbids access via a fine-grained personal access tokens if the token's lifetime is greater than 90 days."
+    );
+
+    const result = await generateRepositoryDetails({
+      configPath,
+      outputPath,
+      schemaPath,
+      provider: new FakeProvider(
+        { powerplatform: [searchRepository("owner/keep"), searchRepository("owner/pat-blocked")] },
+        { "owner/keep": repositoryDetails(15), "owner/pat-blocked": patError }
+      ),
+      now: new Date("2026-01-01T00:00:00Z"),
+      workflowRunId: "test-run"
+    });
+
+    expect(result.records.map((r) => r.fullName)).toEqual(["owner/keep"]);
+    expect(result.metrics.patPolicyFailures).toBe(1);
+    expect(result.metrics.patPolicyFailureNames).toContain("owner/pat-blocked");
+    expect(result.metrics.detailFailures).toBe(0);
+  });
+
+  it("routes non-PAT errors to detailFailures metric, not patPolicyFailures", async () => {
+    const configPath = path.join(outputRoot, "criteria-ordinary-error.json");
+    const outputPath = path.join(outputRoot, "details-ordinary-error.json");
+    await writeFile(configPath, JSON.stringify([{ topic: "powerplatform", searchLimit: 2 }]), "utf8");
+
+    const result = await generateRepositoryDetails({
+      configPath,
+      outputPath,
+      schemaPath,
+      provider: new FakeProvider(
+        { powerplatform: [searchRepository("owner/keep"), searchRepository("owner/fail")] },
+        { "owner/keep": repositoryDetails(15), "owner/fail": new Error("network timeout") }
+      ),
+      now: new Date("2026-01-01T00:00:00Z"),
+      workflowRunId: "test-run"
+    });
+
+    expect(result.metrics.detailFailures).toBe(1);
+    expect(result.metrics.patPolicyFailures).toBe(0);
+    expect(result.metrics.patPolicyFailureNames).toHaveLength(0);
+  });
+
+  it("uses batchGetRepositoryDetails when available and sets detailBatchCalls", async () => {
+    const configPath = path.join(outputRoot, "criteria-batch.json");
+    const outputPath = path.join(outputRoot, "details-batch.json");
+    await writeFile(configPath, JSON.stringify([{ topic: "powerplatform", searchLimit: 3 }]), "utf8");
+
+    const provider = new BatchFakeProvider(
+      { powerplatform: [searchRepository("owner/a"), searchRepository("owner/b")] },
+      { "owner/a": repositoryDetails(15), "owner/b": repositoryDetails(12) }
+    );
+
+    const result = await generateRepositoryDetails({
+      configPath,
+      outputPath,
+      schemaPath,
+      provider,
+      now: new Date("2026-01-01T00:00:00Z"),
+      workflowRunId: "test-run"
+    });
+
+    expect(result.records.map((r) => r.fullName)).toEqual(["owner/a", "owner/b"]);
+    expect(result.metrics.detailRequests).toBe(2);
+    expect(result.metrics.detailBatchCalls).toBeGreaterThan(0);
+    expect(result.metrics.detailFailures).toBe(0);
+    expect(provider.batchCallCount).toBe(1);
+  });
+
+  it("handles partial batch failure: failed repo goes to detailFailures, others succeed", async () => {
+    const configPath = path.join(outputRoot, "criteria-batch-partial.json");
+    const outputPath = path.join(outputRoot, "details-batch-partial.json");
+    await writeFile(configPath, JSON.stringify([{ topic: "powerplatform", searchLimit: 3 }]), "utf8");
+
+    const result = await generateRepositoryDetails({
+      configPath,
+      outputPath,
+      schemaPath,
+      provider: new BatchFakeProvider(
+        { powerplatform: [searchRepository("owner/ok"), searchRepository("owner/err")] },
+        { "owner/ok": repositoryDetails(20), "owner/err": new Error("GraphQL partial failure") }
+      ),
+      now: new Date("2026-01-01T00:00:00Z"),
+      workflowRunId: "test-run"
+    });
+
+    expect(result.records.map((r) => r.fullName)).toEqual(["owner/ok"]);
+    expect(result.metrics.detailFailures).toBe(1);
+    expect(result.metrics.patPolicyFailures).toBe(0);
+  });
+
+  it("routes PAT-policy errors in batch path to patPolicyFailures", async () => {
+    const configPath = path.join(outputRoot, "criteria-batch-pat.json");
+    const outputPath = path.join(outputRoot, "details-batch-pat.json");
+    await writeFile(configPath, JSON.stringify([{ topic: "powerplatform", searchLimit: 3 }]), "utf8");
+
+    const patError = new Error("enterprise forbids access via a fine-grained personal access tokens");
+
+    const result = await generateRepositoryDetails({
+      configPath,
+      outputPath,
+      schemaPath,
+      provider: new BatchFakeProvider(
+        { powerplatform: [searchRepository("owner/ok"), searchRepository("owner/pat-blocked")] },
+        { "owner/ok": repositoryDetails(15), "owner/pat-blocked": patError }
+      ),
+      now: new Date("2026-01-01T00:00:00Z"),
+      workflowRunId: "test-run"
+    });
+
+    expect(result.records.map((r) => r.fullName)).toEqual(["owner/ok"]);
+    expect(result.metrics.patPolicyFailures).toBe(1);
+    expect(result.metrics.patPolicyFailureNames).toContain("owner/pat-blocked");
+    expect(result.metrics.detailFailures).toBe(0);
   });
 
   it("wraps search failures with topic context", async () => {
