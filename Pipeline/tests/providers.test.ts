@@ -61,6 +61,55 @@ function makeClient(responses: Array<Record<string, unknown>>): GitHubClient {
   };
 }
 
+function makeRestFallbackClient(options: { graphqlError?: Error; restRepoError?: Error } = {}): {
+  client: GitHubClient;
+  repoGetCalls: string[];
+} {
+  const repoGetCalls: string[] = [];
+  const graphqlError = options.graphqlError ?? Object.assign(new Error("Bad Gateway"), { status: 502 });
+
+  return {
+    repoGetCalls,
+    client: {
+      rest: {
+        repos: {
+          get: ({ owner, repo }) => {
+            const fullName = `${owner}/${repo}`;
+            repoGetCalls.push(fullName);
+            if (options.restRepoError !== undefined) {
+              return Promise.reject(options.restRepoError);
+            }
+            return Promise.resolve({
+              data: {
+                forks_count: 10,
+                stargazers_count: repoGetCalls.length * 100,
+                has_issues: true,
+                is_template: false,
+                language: "TypeScript",
+                subscribers_count: 5
+              }
+            });
+          },
+          getAllTopics: () => Promise.resolve({ data: { names: ["powerplatform"] } }),
+          listLanguages: () => Promise.resolve({ data: { TypeScript: 1 } }),
+          getLatestRelease: () => Promise.reject(Object.assign(new Error("Not Found"), { status: 404 }))
+        },
+        search: {
+          repos: () => Promise.resolve({ data: { items: [] } }),
+          issuesAndPullRequests: () => Promise.resolve({ data: { total_count: 0 } })
+        }
+      } as GitHubClient["rest"],
+      request<T>(route: string): Promise<{ data: T }> {
+        if (route === "POST /graphql") {
+          return Promise.reject(graphqlError);
+        }
+
+        return Promise.resolve({ data: {} as T });
+      }
+    }
+  };
+}
+
 // ---------------------------------------------------------------------------
 // batchGetRepositoryDetails — happy path
 // ---------------------------------------------------------------------------
@@ -356,6 +405,45 @@ describe("OctokitRepositoryProvider.batchGetRepositoryDetails", () => {
       expect(r.forkCount).toBe(10);
       expect(r.stargazerCount).toBe(50);
       expect(r.topics).toEqual(["powerplatform"]);
+    }
+  });
+
+  it("falls back to REST for each repo when the entire GraphQL batch fails", async () => {
+    const { client, repoGetCalls } = makeRestFallbackClient();
+    const repoList = [repo("owner/a"), repo("owner/b"), repo("owner/c")];
+
+    const provider = new OctokitRepositoryProvider(client);
+    const results = await provider.batchGetRepositoryDetails(repoList);
+
+    expect(repoGetCalls).toEqual(["owner/a", "owner/b", "owner/c"]);
+    for (const repository of repoList) {
+      const details = results.get(repository.fullName);
+      expect(details).not.toBeInstanceOf(Error);
+      if (!(details instanceof Error) && details !== undefined) {
+        expect(details.topics).toEqual(["powerplatform"]);
+        expect(details.languages).toEqual(["TypeScript"]);
+      }
+    }
+  });
+
+  it("records the REST fallback error when the entire GraphQL batch fails", async () => {
+    const patError = Object.assign(
+      new Error(
+        "The 'Microsoft Open Source' enterprise forbids access via a fine-grained personal access tokens if the token's lifetime is greater than 90 days."
+      ),
+      { status: 403 }
+    );
+    const { client, repoGetCalls } = makeRestFallbackClient({ restRepoError: patError });
+    const repoList = [repo("microsoft/PowerApps-Samples"), repo("microsoft/PowerPlatformConnectors")];
+
+    const provider = new OctokitRepositoryProvider(client);
+    const results = await provider.batchGetRepositoryDetails(repoList);
+
+    expect(repoGetCalls).toEqual(["microsoft/PowerApps-Samples", "microsoft/PowerPlatformConnectors"]);
+    for (const repository of repoList) {
+      const details = results.get(repository.fullName);
+      expect(details).toBeInstanceOf(Error);
+      expect((details as Error).message).toContain("fine-grained personal access tokens");
     }
   });
 
