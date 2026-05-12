@@ -24,6 +24,20 @@ export interface GenerateOptions {
   continueOnRepositoryError?: boolean;
 }
 
+/** Returns true if the error is a GitHub enterprise PAT-policy rejection (HTTP 403 with lifetime restriction message). */
+function isPatPolicyError(error: unknown): boolean {
+  const messageSources = [
+    error instanceof Error ? error.message : undefined,
+    error instanceof Error ? (error.cause instanceof Error ? error.cause.message : undefined) : undefined,
+  ];
+  const octokitError = error as { response?: { data?: { message?: string } } };
+  if (octokitError?.response?.data?.message) {
+    messageSources.push(octokitError.response.data.message);
+  }
+  const combined = messageSources.filter(Boolean).join(" ").toLowerCase();
+  return combined.includes("fine-grained personal access tokens") || combined.includes("enterprise forbids access");
+}
+
 export async function generateRepositoryDetails(options: GenerateOptions): Promise<GenerateResult> {
   assertJsonPath(options.outputPath, "output");
   if (options.metricsPath !== undefined) {
@@ -75,6 +89,12 @@ export async function generateRepositoryDetails(options: GenerateOptions): Promi
       const details = await options.provider.getRepositoryDetails(repository.fullName, repository);
       return normalizeRepositoryRecord(repository, details, provenance);
     } catch (error) {
+      if (isPatPolicyError(error)) {
+        metrics.patPolicyFailures += 1;
+        metrics.patPolicyFailureNames.push(repository.fullName);
+        metrics.warnings.push(`Skipping '${repository.fullName}' due to PAT policy restriction: ${errorMessage(error)}`);
+        return null;
+      }
       metrics.detailFailures += 1;
       if (options.continueOnRepositoryError ?? true) {
         metrics.warnings.push(`Skipping '${repository.fullName}' because detail hydration failed: ${errorMessage(error)}`);
