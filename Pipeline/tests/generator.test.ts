@@ -354,6 +354,56 @@ describe("generateRepositoryDetails", () => {
     expect(result.metrics.detailFailures).toBe(0);
   });
 
+  it("routes PAT-policy errors via error.cause.message to patPolicyFailures", async () => {
+    const configPath = path.join(outputRoot, "criteria-pat-cause.json");
+    const outputPath = path.join(outputRoot, "details-pat-cause.json");
+    await writeFile(configPath, JSON.stringify([{ topic: "powerplatform", searchLimit: 3 }]), "utf8");
+
+    const outerError = new Error("GitHub error") as Error & { cause: unknown };
+    outerError.cause = new Error("enterprise forbids access via a fine-grained personal access tokens");
+
+    const result = await generateRepositoryDetails({
+      configPath,
+      outputPath,
+      schemaPath,
+      provider: new FakeProvider(
+        { powerplatform: [searchRepository("owner/a"), searchRepository("owner/blocked")] },
+        { "owner/a": repositoryDetails(10), "owner/blocked": outerError }
+      ),
+      now: new Date("2026-01-01T00:00:00Z"),
+      workflowRunId: "test-run"
+    });
+
+    expect(result.metrics.patPolicyFailures).toBe(1);
+    expect(result.metrics.patPolicyFailureNames).toContain("owner/blocked");
+    expect(result.metrics.detailFailures).toBe(0);
+  });
+
+  it("routes PAT-policy errors via error.response.data.message to patPolicyFailures", async () => {
+    const configPath = path.join(outputRoot, "criteria-pat-response.json");
+    const outputPath = path.join(outputRoot, "details-pat-response.json");
+    await writeFile(configPath, JSON.stringify([{ topic: "powerplatform", searchLimit: 3 }]), "utf8");
+
+    const octokitError = new Error("Request failed") as Error & { response?: unknown };
+    octokitError.response = { data: { message: "fine-grained personal access tokens not permitted" } };
+
+    const result = await generateRepositoryDetails({
+      configPath,
+      outputPath,
+      schemaPath,
+      provider: new FakeProvider(
+        { powerplatform: [searchRepository("owner/a"), searchRepository("owner/blocked")] },
+        { "owner/a": repositoryDetails(10), "owner/blocked": octokitError }
+      ),
+      now: new Date("2026-01-01T00:00:00Z"),
+      workflowRunId: "test-run"
+    });
+
+    expect(result.metrics.patPolicyFailures).toBe(1);
+    expect(result.metrics.patPolicyFailureNames).toContain("owner/blocked");
+    expect(result.metrics.detailFailures).toBe(0);
+  });
+
   it("wraps search failures with topic context", async () => {
     const configPath = path.join(outputRoot, "criteria-search-error.json");
     const outputPath = path.join(outputRoot, "details-search-error.json");

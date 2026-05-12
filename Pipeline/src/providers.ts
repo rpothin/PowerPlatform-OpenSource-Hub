@@ -295,7 +295,13 @@ export class OctokitRepositoryProvider implements CandidateProvider {
 
           const node = responseData[alias] as GraphQLRepositoryNode | null | undefined;
           if (node === null || node === undefined) {
-            result.set(repo.fullName, new Error(`Repository not found: ${repo.fullName}`));
+            // Prefer root-level error message over generic "not found" so that the calling
+            // code can correctly classify PAT-policy errors (vs blocking data failures).
+            const missingError =
+              rootLevelErrors.length > 0
+                ? new Error(rootLevelErrors.map((e) => e.message).join("; "))
+                : new Error(`Repository not found: ${repo.fullName}`);
+            result.set(repo.fullName, missingError);
             continue;
           }
 
