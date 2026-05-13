@@ -9,7 +9,7 @@ Use the hub when you need Power Platform or Copilot Studio open-source projects 
 ## How to use the hub
 
 1. Search for keywords that match the product, scenario, or problem you are exploring.
-2. Filter by topics, language, focus area, audience, activity, license, or other available metadata.
+2. Filter by categories, topics, language, focus area, audience, issue signals (good-first-issue, help-wanted), license, owners, or other available metadata.
 3. Open promising repositories and review their README, releases, issues, and license before adopting them.
 
 ## What to look for
