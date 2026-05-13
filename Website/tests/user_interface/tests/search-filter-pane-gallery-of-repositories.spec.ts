@@ -27,9 +27,9 @@ test('Validate the header of the website', async ({ page }) => {
   // Validate that the logo redirects to the home page
   await expect(logo).toHaveAttribute('href', '/PowerPlatform-OpenSource-Hub/');
 
-  // Get the Documentation link looking for the inner text
+  // Get the Docs link looking for the inner text
   // and validate that the link redirects to the documentation section of the website
-  const documentationLink = header.getByRole('link', { name: 'Documentation' });
+  const documentationLink = header.getByRole('link', { name: 'Docs' });
   await expect(documentationLink).toHaveAttribute('href', '/PowerPlatform-OpenSource-Hub/docs/intro');
 
   // Get the GitHub link looking for the inner text
@@ -53,9 +53,9 @@ test('Validate the header of the website', async ({ page }) => {
 test('Validate the Documentation section of the website', async ({ page }) => {
   await page.goto('/');
 
-  // Get the Documentation link looking for the inner text
+  // Get the Docs link looking for the inner text
   // and validate that the link redirects to the Documentation section of the website
-  const documentationLink = page.locator('nav.navbar').getByRole('link', { name: 'Documentation' });
+  const documentationLink = page.locator('nav.navbar').getByRole('link', { name: 'Docs' });
   const href = await documentationLink.getAttribute('href');
   expect(href).toBeTruthy();
   await page.goto(href!);
