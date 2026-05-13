@@ -29,6 +29,9 @@ The goal of this initiative is to create a platform that not only simplifies the
   <img alt='power-automate Badge' src='https://img.shields.io/badge/power--automate-F7EA82' />
   <img alt='powervirtualagent Badge' src='https://img.shields.io/badge/powervirtualagent-AE6097' />
   <img alt='power-virtual-agent Badge' src='https://img.shields.io/badge/power--virtual--agent-34ECEE' />
+  <img alt='copilot-studio Badge' src='https://img.shields.io/badge/copilot--studio-D6D4FF' />
+  <img alt='microsoft-copilot-studio Badge' src='https://img.shields.io/badge/microsoft--copilot--studio-8A7FFF' />
+  <img alt='copilotstudio Badge' src='https://img.shields.io/badge/copilotstudio-6B64FF' />
   <img alt='dataverse Badge' src='https://img.shields.io/badge/dataverse-6BBAFD' />
   <img alt='microsoft-dataverse Badge' src='https://img.shields.io/badge/microsoft--dataverse-AD54B6' />
   <img alt='powerfx Badge' src='https://img.shields.io/badge/powerfx-662DE1' />
@@ -40,11 +43,13 @@ The goal of this initiative is to create a platform that not only simplifies the
   <img alt='ai-builder Badge' src='https://img.shields.io/badge/ai--builder-5506A9' />
 </div>
 
+> **Note:** `powervirtualagent` and `power-virtual-agent` are the predecessor topic names for Copilot Studio. The hub now also tracks `copilot-studio`, `microsoft-copilot-studio`, and `copilotstudio` directly.
+
 2. A series of updates are then made:
     - Sections of the README file are updated to include the latest details regarding the referenced repositories
-    - A new version of the website is deployed to include the updated information
+    - A new version of the website is deployed with the latest data — including the searchable, filterable gallery where you can narrow results by categories, focus areas, audiences, topics, languages, licenses, and owners
 
 You can consider:
-- The GitHub workflows as the "engine" of the initiative
+- The GitHub workflows as the "engine" of the initiative — fetching repository data and refreshing it daily
 - The README file as a summary view of the repositories details
-- The website as the "face" of the initiative
+- The website as the "face" of the initiative — a searchable, filterable gallery of repositories, enriched with a curated overlay system that supports custom descriptions, featured status, health signals, and exclusions

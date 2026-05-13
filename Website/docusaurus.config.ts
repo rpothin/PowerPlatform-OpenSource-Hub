@@ -39,7 +39,7 @@ const config: Config = {
       '@docusaurus/preset-classic',
       {
         docs: {
-          sidebarPath: require.resolve('./sidebars.js'),
+          sidebarPath: require.resolve('./sidebars.ts'),
           editUrl:
             'https://github.com/rpothin/PowerPlatform-OpenSource-Hub/edit/main/Website/',
         },
@@ -87,17 +87,7 @@ const config: Config = {
           type: 'docSidebar',
           sidebarId: 'tutorialSidebar',
           position: 'left',
-          label: 'Documentation',
-        },
-        {
-          to: '/docs/categories',
-          label: 'Categories',
-          position: 'left',
-        },
-        {
-          to: '/docs/community',
-          label: 'Community',
-          position: 'left',
+          label: 'Docs',
         },
         /*{to: '/blog', label: 'Blog', position: 'left'},*/
         {

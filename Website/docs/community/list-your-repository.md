@@ -21,4 +21,6 @@ Before listing a project, make sure the repository has:
 
 Follow the existing [self-onboarding guide](../repository-onboarding/self-onboarding.md) to add the right topics to your repository and understand the refresh timing.
 
+If you are not the maintainer of the repository, see the [Invitation to Join](../repository-onboarding/invitation-to-join.md) guide to ask maintainers to complete the process.
+
 If your repository needs corrected category, focus area, audience, description, or health information after it appears in the hub, open an issue or pull request so maintainers can review the curated metadata.
