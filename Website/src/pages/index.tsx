@@ -106,6 +106,7 @@ const App = () => {
 
   const hasAnyActiveFilters = useMemo(
     () =>
+      filterState.searchText.length > 0 ||
       filterState.hasGoodFirstIssueChecked ||
       filterState.hasHelpWantedIssueChecked ||
       filterState.hasCodeOfConductChecked ||

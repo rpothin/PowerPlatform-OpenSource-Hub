@@ -449,6 +449,36 @@ test('Validate the count of repositories based on the selection of 2 checkboxes 
   }
 });
 
+// Validate the "Clear all filters" button behavior
+// - button is hidden when no filters are active
+// - button appears when a filter is applied (including search text)
+// - clicking the button clears all active filters and restores the full count
+test('Validate the "Clear all filters" button behavior', async ({ page }) => {
+  await page.goto('/');
+
+  const clearButton = page.getByRole('button', { name: 'Clear all filters' });
+
+  // Button should not be visible initially (no active filters)
+  await expect(clearButton).not.toBeVisible();
+
+  // Apply a filter checkbox
+  const initialCount = await getCountOfRepositories(page);
+  const goodFirstIssueCheckbox = page.locator('#checkbox-r-good-first-issue');
+  await goodFirstIssueCheckbox.check();
+  await expect.poll(() => getCountOfRepositories(page)).toBeLessThan(initialCount);
+
+  // Button should now be visible
+  await expect(clearButton).toBeVisible();
+
+  // Click "Clear all filters" — all selections should reset and count should restore
+  await clearButton.click();
+  await expect(goodFirstIssueCheckbox).not.toBeChecked();
+  await expect.poll(() => getCountOfRepositories(page)).toBe(initialCount);
+
+  // Button should be hidden again
+  await expect(clearButton).not.toBeVisible();
+});
+
 // #endregion
 
 // #region Gallery functionality tests
@@ -467,6 +497,55 @@ test('Validate the count of repositories in the header of the gallery', async ({
   // With pagination (30 items/page), visible cards ≤ 30; header reflects total filtered count
   expect(countOfRepositoriesPresentedInGallery).toBeLessThanOrEqual(30);
   expect(countOfRepositoriesPresentedInGallery).toBe(Math.min(repositoriesCountInHeader, 30));
+});
+
+// Validate pagination navigation when more than 30 repositories are present
+test('Validate pagination navigation', async ({ page }) => {
+  await page.goto('/');
+
+  const totalCount = await getCountOfRepositories(page);
+
+  // Pagination only renders when total > 30
+  if (totalCount <= 30) {
+    // Not enough data to test pagination; skip gracefully
+    return;
+  }
+
+  // Page 1: Next button is enabled, Previous is disabled
+  const nextButton = page.getByRole('button', { name: 'Next' });
+  const prevButton = page.getByRole('button', { name: 'Previous' });
+  await expect(nextButton).toBeEnabled();
+  await expect(prevButton).toBeDisabled();
+
+  // Get the first card title on page 1
+  const page1Cards = await waitForRepositoryCards(page);
+  const firstCardPage1 = await page1Cards.first().textContent();
+
+  // Navigate to page 2
+  await nextButton.click();
+  await page.waitForFunction(() => {
+    const btn = document.querySelector('[aria-current="page"]');
+    return btn && btn.textContent?.trim() === '2';
+  });
+
+  // Page 2 should show different cards; Previous is now enabled
+  await expect(prevButton).toBeEnabled();
+  const page2Cards = await waitForRepositoryCards(page);
+  const firstCardPage2 = await page2Cards.first().textContent();
+  expect(firstCardPage2).not.toBe(firstCardPage1);
+
+  // Navigate back to page 1
+  await prevButton.click();
+  await page.waitForFunction(() => {
+    const btn = document.querySelector('[aria-current="page"]');
+    return btn && btn.textContent?.trim() === '1';
+  });
+
+  // Previous should be disabled again on page 1
+  await expect(prevButton).toBeDisabled();
+  const page1CardsAgain = await waitForRepositoryCards(page);
+  const firstCardPage1Again = await page1CardsAgain.first().textContent();
+  expect(firstCardPage1Again).toBe(firstCardPage1);
 });
 
 // Validate that the default sorting option in the gallery is "Stars (Descending)"

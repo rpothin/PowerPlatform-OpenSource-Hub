@@ -300,6 +300,7 @@ const FilterPane = ({
                 {showAllTopics ? (
                   <>
                     <Input
+                      aria-label="Search topics"
                       placeholder="Search topics…"
                       value={topicSearch}
                       onChange={(_, data) => setTopicSearch(data.value)}
@@ -405,6 +406,7 @@ const FilterPane = ({
               {showAllOwners ? (
                 <>
                   <Input
+                    aria-label="Search owners"
                     placeholder="Search owners…"
                     value={ownerSearch}
                     onChange={(_, data) => setOwnerSearch(data.value)}

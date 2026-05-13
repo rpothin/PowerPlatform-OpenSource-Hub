@@ -447,12 +447,14 @@ const Gallery = ({
                                     <Button
                                         key={p}
                                         appearance={p === clampedPage ? 'primary' : 'subtle'}
-                                        onClick={() => setPage(p)}
-                                        style={{ minHeight: '44px', minWidth: '44px' }}
-                                    >
-                                        {p}
-                                    </Button>
-                                ));
+                                                        aria-label={`Go to page ${p}`}
+                                                        aria-current={p === clampedPage ? 'page' : undefined}
+                                                        onClick={() => setPage(p)}
+                                                        style={{ minHeight: '44px', minWidth: '44px' }}
+                                                    >
+                                                        {p}
+                                                    </Button>
+                                                ));
                             })()}
                             <Button
                                 appearance="secondary"
