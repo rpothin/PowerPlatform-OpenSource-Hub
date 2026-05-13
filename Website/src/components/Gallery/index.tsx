@@ -491,9 +491,9 @@ const Gallery = ({
                             />
                         </DialogTrigger>
                     </DialogTitle>
-                    <DialogContent style={{ marginBottom: '16px', marginTop: '8px', width: '100%' }}>
-                        <DialogBody>
-                            <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', width: '100%' }}>
+                    <DialogBody>
+                        <DialogContent>
+                            <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
                                 {/* Row 1: Description */}
                                 <Text data-testid="dialog-description" style={{ display: 'block' }}>
                                     {getRepositoryDescription(selectedItem)}
@@ -600,12 +600,12 @@ const Gallery = ({
                                     </div>
                                 )}
                             </div>
-                        </DialogBody>
-                    </DialogContent>
-                    <DialogActions>
-                        <Button data-testid="dialog-close-button" appearance="secondary" onClick={closeDialog}>Close</Button>
-                        <Button data-testid="dialog-open-in-github-button" data-repository-url={selectedItem?.url} appearance="primary" onClick={() => openInGitHub(selectedItem?.url)}>Open in GitHub</Button>
-                    </DialogActions>
+                        </DialogContent>
+                        <DialogActions>
+                            <Button data-testid="dialog-close-button" appearance="secondary" onClick={closeDialog}>Close</Button>
+                            <Button data-testid="dialog-open-in-github-button" data-repository-url={selectedItem?.url} appearance="primary" onClick={() => openInGitHub(selectedItem?.url)}>Open in GitHub</Button>
+                        </DialogActions>
+                    </DialogBody>
                 </DialogSurface>
             </Dialog>
         </div>

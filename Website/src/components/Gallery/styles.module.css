@@ -153,10 +153,9 @@
 }
 .dialogDetailsTwoCol {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
     gap: 6px 20px;
     margin-top: 4px;
-    width: 100%;
 }
 @media (max-width: 500px) {
     .dialogDetailsTwoCol {
