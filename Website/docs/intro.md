@@ -4,7 +4,7 @@ sidebar_position: 1
 
 # Power Platform Open-Source Hub Presentation
 
-Accross this section, you will discover a bit more about the Power Platform Open-Source Hub initiative.
+Across this section, you will discover a bit more about the Power Platform Open-Source Hub initiative.
 
 ## Why this initiative?
 

@@ -8,6 +8,7 @@ import {
   AccordionPanel,
   Button,
   Checkbox,
+  Input,
 } from "@fluentui/react-components";
 import type { CheckboxProps } from "@fluentui/react-components";
 
@@ -37,6 +38,8 @@ type FilterPaneProps = {
   onCategoriesChange: (values: string[]) => void;
   onFocusAreasChange: (values: string[]) => void;
   onAudiencesChange: (values: string[]) => void;
+  onClearAllFilters?: () => void;
+  hasAnyActiveFilters?: boolean;
 };
 
 const FilterPane = ({
@@ -62,11 +65,15 @@ const FilterPane = ({
   onCategoriesChange,
   onFocusAreasChange,
   onAudiencesChange,
+  onClearAllFilters,
+  hasAnyActiveFilters = false,
 }: FilterPaneProps) => {
   const [showAllTopics, setShowAllTopics] = useState(false);
+  const [topicSearch, setTopicSearch] = useState('');
   const [showAllLanguages, setShowAllLanguages] = useState(false);
   const [showAllLicenses, setShowAllLicenses] = useState(false);
   const [showAllOwners, setShowAllOwners] = useState(false);
+  const [ownerSearch, setOwnerSearch] = useState('');
   const [showAllCategories, setShowAllCategories] = useState(false);
   const [showAllFocusAreas, setShowAllFocusAreas] = useState(false);
   const [showAllAudiences, setShowAllAudiences] = useState(false);
@@ -158,29 +165,47 @@ const FilterPane = ({
         minWidth: isMobile ? '100%' : '350px',
       }}
     >
+      {hasAnyActiveFilters && onClearAllFilters && (
+        <div style={{ padding: '8px 0', marginBottom: '8px', borderBottom: '1px solid var(--ifm-color-emphasis-300)' }}>
+          <Button
+            appearance="secondary"
+            size="small"
+            onClick={onClearAllFilters}
+            style={{ width: '100%' }}
+          >
+            Clear all filters
+          </Button>
+        </div>
+      )}
       <AccordionItem value="1">
-        <AccordionHeader style={{ marginBottom: '10px' }} size="large" expandIconPosition="end">Contribution Opportunities</AccordionHeader>
+        <AccordionHeader style={{ marginBottom: '10px' }} size="large" expandIconPosition="end">Repository Signals</AccordionHeader>
         <AccordionPanel>
-          <div style={{ display: 'flex', flexDirection: 'column' }}>
-            <Checkbox 
-              id="checkbox-r-good-first-issue"
-              label={"Has good first issue (" + goodFirstIssueCount +  ")"}
-              checked={hasGoodFirstIssueChecked}
-              onChange={(_, data) => onGoodFirstIssueChange(data.checked === true)}
-            />
-            <Checkbox 
-              id="checkbox-r-help-wanted-issue"
-              label={"Has help wanted issue (" + helpWantedIssueCount + ")"} 
-              checked={hasHelpWantedIssueChecked}
-              onChange={(_, data) => onHelpWantedIssueChange(data.checked === true)}
-            />
-            <Checkbox 
-              id="checkbox-r-code-of-conduct"
-              label={"Has code of conduct (" + codeOfConductCount +  ")"} 
-              checked={hasCodeOfConductChecked}
-              onChange={(_, data) => onCodeOfConductChange(data.checked === true)}
-            />
-          </div>
+          <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
+            <li style={{ minHeight: '44px', display: 'flex', alignItems: 'center' }}>
+              <Checkbox 
+                id="checkbox-r-good-first-issue"
+                label={"Has good first issue (" + goodFirstIssueCount +  ")"}
+                checked={hasGoodFirstIssueChecked}
+                onChange={(_, data) => onGoodFirstIssueChange(data.checked === true)}
+              />
+            </li>
+            <li style={{ minHeight: '44px', display: 'flex', alignItems: 'center' }}>
+              <Checkbox 
+                id="checkbox-r-help-wanted-issue"
+                label={"Has help wanted issue (" + helpWantedIssueCount + ")"} 
+                checked={hasHelpWantedIssueChecked}
+                onChange={(_, data) => onHelpWantedIssueChange(data.checked === true)}
+              />
+            </li>
+            <li style={{ minHeight: '44px', display: 'flex', alignItems: 'center' }}>
+              <Checkbox 
+                id="checkbox-r-code-of-conduct"
+                label={"Has code of conduct (" + codeOfConductCount +  ")"} 
+                checked={hasCodeOfConductChecked}
+                onChange={(_, data) => onCodeOfConductChange(data.checked === true)}
+              />
+            </li>
+          </ul>
         </AccordionPanel>
       </AccordionItem>
       {categories.length > 0 && (
@@ -189,17 +214,18 @@ const FilterPane = ({
           <AccordionPanel>
             <div style={{ display: 'flex', flexDirection: 'column' }}>
               <div style={{ display: 'flex', flexDirection: 'column', rowGap: '10px' }}>
-                <div>
+                <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
                   {displayedCategories.map((category, index) => (
-                    <Checkbox
-                      key={index}
-                      id={`checkbox-r-category-${category.toLowerCase().replace(/[^a-z0-9]/g, '-')}`}
-                      label={formatFacetLabel(category) + " (" + countItemsByProperty(items, 'category', category) + ")"}
-                      checked={selectedCategories.includes(category)}
-                      onChange={(_, data) => handleCategoryChange(category, data.checked)}
-                    />
+                    <li key={index} style={{ minHeight: '44px', display: 'flex', alignItems: 'center' }}>
+                      <Checkbox
+                        id={`checkbox-r-category-${category.toLowerCase().replace(/[^a-z0-9]/g, '-')}`}
+                        label={formatFacetLabel(category) + " (" + countItemsByProperty(items, 'category', category) + ")"}
+                        checked={selectedCategories.includes(category)}
+                        onChange={(_, data) => handleCategoryChange(category, data.checked)}
+                      />
+                    </li>
                   ))}
-                </div>
+                </ul>
                 {categories.length > 10 && (
                   <Button appearance="secondary" onClick={() => setShowAllCategories(!showAllCategories)}>
                     {showAllCategories ? 'View Less' : 'View All'}
@@ -216,17 +242,18 @@ const FilterPane = ({
           <AccordionPanel>
             <div style={{ display: 'flex', flexDirection: 'column' }}>
               <div style={{ display: 'flex', flexDirection: 'column', rowGap: '10px' }}>
-                <div>
+                <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
                   {displayedFocusAreas.map((focusArea, index) => (
-                    <Checkbox
-                      key={index}
-                      id={`checkbox-r-focus-area-${focusArea.toLowerCase().replace(/[^a-z0-9]/g, '-')}`}
-                      label={formatFacetLabel(focusArea) + " (" + countItemsByProperty(items, 'focusAreas', focusArea) + ")"}
-                      checked={selectedFocusAreas.includes(focusArea)}
-                      onChange={(_, data) => handleFocusAreaChange(focusArea, data.checked)}
-                    />
+                    <li key={index} style={{ minHeight: '44px', display: 'flex', alignItems: 'center' }}>
+                      <Checkbox
+                        id={`checkbox-r-focus-area-${focusArea.toLowerCase().replace(/[^a-z0-9]/g, '-')}`}
+                        label={formatFacetLabel(focusArea) + " (" + countItemsByProperty(items, 'focusAreas', focusArea) + ")"}
+                        checked={selectedFocusAreas.includes(focusArea)}
+                        onChange={(_, data) => handleFocusAreaChange(focusArea, data.checked)}
+                      />
+                    </li>
                   ))}
-                </div>
+                </ul>
                 {focusAreas.length > 10 && (
                   <Button appearance="secondary" onClick={() => setShowAllFocusAreas(!showAllFocusAreas)}>
                     {showAllFocusAreas ? 'View Less' : 'View All'}
@@ -243,17 +270,18 @@ const FilterPane = ({
           <AccordionPanel>
             <div style={{ display: 'flex', flexDirection: 'column' }}>
               <div style={{ display: 'flex', flexDirection: 'column', rowGap: '10px' }}>
-                <div>
+                <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
                   {displayedAudiences.map((audience, index) => (
-                    <Checkbox
-                      key={index}
-                      id={`checkbox-r-audience-${audience.toLowerCase().replace(/[^a-z0-9]/g, '-')}`}
-                      label={formatFacetLabel(audience) + " (" + countItemsByProperty(items, 'audiences', audience) + ")"}
-                      checked={selectedAudiences.includes(audience)}
-                      onChange={(_, data) => handleAudienceChange(audience, data.checked)}
-                    />
+                    <li key={index} style={{ minHeight: '44px', display: 'flex', alignItems: 'center' }}>
+                      <Checkbox
+                        id={`checkbox-r-audience-${audience.toLowerCase().replace(/[^a-z0-9]/g, '-')}`}
+                        label={formatFacetLabel(audience) + " (" + countItemsByProperty(items, 'audiences', audience) + ")"}
+                        checked={selectedAudiences.includes(audience)}
+                        onChange={(_, data) => handleAudienceChange(audience, data.checked)}
+                      />
+                    </li>
                   ))}
-                </div>
+                </ul>
                 {audiences.length > 10 && (
                   <Button appearance="secondary" onClick={() => setShowAllAudiences(!showAllAudiences)}>
                     {showAllAudiences ? 'View Less' : 'View All'}
@@ -269,19 +297,47 @@ const FilterPane = ({
         <AccordionPanel>
             <div style={{ display: 'flex', flexDirection: 'column' }}>
               <div style={{ display: 'flex', flexDirection: 'column', rowGap: '10px' }}>
-                <div>
-                  {displayedTopics.map((topic, index) => (
-                    <Checkbox 
-                      key={index}
-                      id={`checkbox-r-topic-${topic.toLowerCase().replace(/[^a-z0-9]/g, '-')}`}
-                      label={topic + " (" + countItemsByProperty(items, 'topics', topic) + ")"}
-                      checked={selectedTopics.includes(topic)}
-                      onChange={(_, data) => handleTopicChange(topic, data.checked)}
+                {showAllTopics ? (
+                  <>
+                    <Input
+                      placeholder="Search topics…"
+                      value={topicSearch}
+                      onChange={(_, data) => setTopicSearch(data.value)}
+                      style={{ marginBottom: '8px', width: '100%' }}
                     />
-                  ))}
-                </div>
+                    <div style={{ maxHeight: '280px', overflowY: 'auto' }}>
+                      <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
+                        {topics
+                          .filter(t => t.toLowerCase().includes(topicSearch.toLowerCase()))
+                          .map((topic, index) => (
+                            <li key={index} style={{ minHeight: '44px', display: 'flex', alignItems: 'center' }}>
+                              <Checkbox 
+                                id={`checkbox-r-topic-${topic.toLowerCase().replace(/[^a-z0-9]/g, '-')}`}
+                                label={topic + " (" + countItemsByProperty(items, 'topics', topic) + ")"}
+                                checked={selectedTopics.includes(topic)}
+                                onChange={(_, data) => handleTopicChange(topic, data.checked)}
+                              />
+                            </li>
+                          ))}
+                      </ul>
+                    </div>
+                  </>
+                ) : (
+                  <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
+                    {displayedTopics.map((topic, index) => (
+                      <li key={index} style={{ minHeight: '44px', display: 'flex', alignItems: 'center' }}>
+                        <Checkbox 
+                          id={`checkbox-r-topic-${topic.toLowerCase().replace(/[^a-z0-9]/g, '-')}`}
+                          label={topic + " (" + countItemsByProperty(items, 'topics', topic) + ")"}
+                          checked={selectedTopics.includes(topic)}
+                          onChange={(_, data) => handleTopicChange(topic, data.checked)}
+                        />
+                      </li>
+                    ))}
+                  </ul>
+                )}
                 {topics.length > 10 && (
-                  <Button appearance="secondary" onClick={() => setShowAllTopics(!showAllTopics)}>
+                  <Button appearance="secondary" onClick={() => { setShowAllTopics(!showAllTopics); if (showAllTopics) setTopicSearch(''); }}>
                     {showAllTopics ? 'View Less' : 'View All'}
                   </Button>
                 )}
@@ -294,17 +350,18 @@ const FilterPane = ({
         <AccordionPanel>
           <div style={{ display: 'flex', flexDirection: 'column' }}>
             <div style={{ display: 'flex', flexDirection: 'column', rowGap: '10px' }}>
-              <div>
+              <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
                 {displayedLanguages.map((language, index) => (
-                  <Checkbox 
-                    key={index}
-                    id={`checkbox-r-language-${language.toLowerCase().replace(/[^a-z0-9]/g, '-')}`}
-                    label={language + " (" + countItemsByProperty(items, 'languages', language) + ")"} 
-                    checked={selectedLanguages.includes(language)}
-                    onChange={(_, data) => handleLanguageChange(language, data.checked)}
-                  />
+                  <li key={index} style={{ minHeight: '44px', display: 'flex', alignItems: 'center' }}>
+                    <Checkbox 
+                      id={`checkbox-r-language-${language.toLowerCase().replace(/[^a-z0-9]/g, '-')}`}
+                      label={language + " (" + countItemsByProperty(items, 'languages', language) + ")"} 
+                      checked={selectedLanguages.includes(language)}
+                      onChange={(_, data) => handleLanguageChange(language, data.checked)}
+                    />
+                  </li>
                 ))}
-              </div>
+              </ul>
               {languages.length > 10 && (
                 <Button appearance="secondary" onClick={() => setShowAllLanguages(!showAllLanguages)}>
                   {showAllLanguages ? 'View Less' : 'View All'}
@@ -319,17 +376,18 @@ const FilterPane = ({
         <AccordionPanel>
           <div style={{ display: 'flex', flexDirection: 'column' }}>
             <div style={{ display: 'flex', flexDirection: 'column', rowGap: '10px' }}>
-              <div>
+              <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
                 {displayedLicenses.map((license, index) => (
-                  <Checkbox 
-                    key={index}
-                    id={`checkbox-r-license-${license.toLowerCase().replace(/[^a-z0-9]/g, '-')}`}
-                    label={license + " (" + countItemsByProperty(items, 'license.name', license) + ")"} 
-                    checked={selectedLicenses.includes(license)}
-                    onChange={(_, data) => handleLicenseChange(license, data.checked)}
-                  />
+                  <li key={index} style={{ minHeight: '44px', display: 'flex', alignItems: 'center' }}>
+                    <Checkbox 
+                      id={`checkbox-r-license-${license.toLowerCase().replace(/[^a-z0-9]/g, '-')}`}
+                      label={license + " (" + countItemsByProperty(items, 'license.name', license) + ")"} 
+                      checked={selectedLicenses.includes(license)}
+                      onChange={(_, data) => handleLicenseChange(license, data.checked)}
+                    />
+                  </li>
                 ))}
-              </div>
+              </ul>
               {licenses.length > 10 && (
                 <Button appearance="secondary" onClick={() => setShowAllLicenses(!showAllLicenses)}>
                   {showAllLicenses ? 'View Less' : 'View All'}
@@ -344,19 +402,47 @@ const FilterPane = ({
         <AccordionPanel>
           <div style={{ display: 'flex', flexDirection: 'column' }}>
             <div style={{ display: 'flex', flexDirection: 'column', rowGap: '10px' }}>
-              <div>
-                {displayedOwners.map((owner, index) => (
-                  <Checkbox 
-                    key={index}
-                    id={`checkbox-r-owner-${owner.toLowerCase().replace(/[^a-z0-9]/g, '-')}`}
-                    label={owner + " (" + countItemsByProperty(items, 'owner.login', owner) + ")"} 
-                    checked={selectedOwners.includes(owner)}
-                    onChange={(_, data) => handleOwnerChange(owner, data.checked)}
+              {showAllOwners ? (
+                <>
+                  <Input
+                    placeholder="Search owners…"
+                    value={ownerSearch}
+                    onChange={(_, data) => setOwnerSearch(data.value)}
+                    style={{ marginBottom: '8px', width: '100%' }}
                   />
-                ))}
-              </div>
+                  <div style={{ maxHeight: '280px', overflowY: 'auto' }}>
+                    <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
+                      {owners
+                        .filter(o => o.toLowerCase().includes(ownerSearch.toLowerCase()))
+                        .map((owner, index) => (
+                          <li key={index} style={{ minHeight: '44px', display: 'flex', alignItems: 'center' }}>
+                            <Checkbox 
+                              id={`checkbox-r-owner-${owner.toLowerCase().replace(/[^a-z0-9]/g, '-')}`}
+                              label={owner + " (" + countItemsByProperty(items, 'owner.login', owner) + ")"} 
+                              checked={selectedOwners.includes(owner)}
+                              onChange={(_, data) => handleOwnerChange(owner, data.checked)}
+                            />
+                          </li>
+                        ))}
+                    </ul>
+                  </div>
+                </>
+              ) : (
+                <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
+                  {displayedOwners.map((owner, index) => (
+                    <li key={index} style={{ minHeight: '44px', display: 'flex', alignItems: 'center' }}>
+                      <Checkbox 
+                        id={`checkbox-r-owner-${owner.toLowerCase().replace(/[^a-z0-9]/g, '-')}`}
+                        label={owner + " (" + countItemsByProperty(items, 'owner.login', owner) + ")"} 
+                        checked={selectedOwners.includes(owner)}
+                        onChange={(_, data) => handleOwnerChange(owner, data.checked)}
+                      />
+                    </li>
+                  ))}
+                </ul>
+              )}
               {owners.length > 10 && (
-                <Button appearance="secondary" onClick={() => setShowAllOwners(!showAllOwners)}>
+                <Button appearance="secondary" onClick={() => { setShowAllOwners(!showAllOwners); if (showAllOwners) setOwnerSearch(''); }}>
                   {showAllOwners ? 'View Less' : 'View All'}
                 </Button>
               )}

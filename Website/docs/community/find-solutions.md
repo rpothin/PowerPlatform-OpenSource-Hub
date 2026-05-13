@@ -20,3 +20,10 @@ Use the hub when you need Power Platform or Copilot Studio open-source projects 
 - A license that fits your intended use.
 
 If you find a useful repository that is missing from the hub, consider inviting its maintainers or pointing them to the repository listing guidance.
+
+## Explore the hub
+
+Ready to search?
+
+- [Browse all repositories](https://rpothin.github.io/PowerPlatform-OpenSource-Hub/) — use search and filters to find what you need.
+- [Browse repositories with good first issues](https://rpothin.github.io/PowerPlatform-OpenSource-Hub/?goodFirstIssue=true) — jump straight to repositories welcoming new contributors.

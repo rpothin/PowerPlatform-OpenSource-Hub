@@ -18,6 +18,13 @@
     grid-gap: 10px; /* adjust as needed */
 }
 
+@media (max-width: 960px) {
+    .gallery {
+        grid-template-columns: repeat(auto-fit, minmax(min(350px, 100%), 1fr));
+        padding: 4px;
+    }
+}
+
 /* Styling for the gallery item */
 .galleryItem {
     display: flex; /* Use flexbox for layout */
@@ -26,6 +33,17 @@
     max-width: 450px; /* Set max width */
     max-height: 400px; /* Set max height */
     margin: 10px; /* Add margin all around */
+    transition: box-shadow 0.15s ease, transform 0.1s ease;
+    cursor: pointer;
+}
+
+.galleryItem:hover {
+    box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+    transform: translateY(-2px);
+}
+
+[data-theme="dark"] .galleryItem:hover {
+    box-shadow: 0 4px 16px rgba(0,0,0,0.4);
 }
 
 /* Styling for the gallery item in dark theme */
@@ -49,6 +67,10 @@
     font-size: 13px; /* Set font size */
     height: 60%; /* Set height to 60% of the parent container */
     padding: 20px; /* Add padding all around */
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
 }
 
 /* Styling for the gallery item stars count */
