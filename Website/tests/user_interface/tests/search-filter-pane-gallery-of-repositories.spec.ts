@@ -126,8 +126,12 @@ test('Validate the filter pane default presentation', async ({ page }) => {
   await page.goto('/');
 
   // Array of the expected sections (the order is important)
+  // Categories, Focus Areas, and Audiences are conditionally rendered when the data contains values for them
   const expectedSections = [
     'Repository Signals',
+    'Categories',
+    'Focus Areas',
+    'Audiences',
     'Topics',
     'Languages',
     'Licenses',
@@ -177,7 +181,7 @@ test('Validate the filter pane default presentation', async ({ page }) => {
   const expandedSectionName = await expandedSections[0].innerText();
   expect(expandedSectionName).toBe(expectedSections[0]);
 
-  expect(nonExpandedSections.length).toBe(4);
+  expect(nonExpandedSections.length).toBe(expectedSections.length - 1);
   const nonExpandedSectionNames = await Promise.all(nonExpandedSections.map(async (section) => {
     return section.innerText();
   }));
