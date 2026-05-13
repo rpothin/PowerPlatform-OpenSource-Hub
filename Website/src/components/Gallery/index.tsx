@@ -528,7 +528,7 @@ const Gallery = ({
                                         <div>
                                             {selectedItem?.latestRelease && (
                                                 <div data-testid="dialog-latest-release-badge" className={styles.dialogDetailsRow}>
-                                                    <span className={styles.dialogDetailsLabel}>Latest Release: </span>
+                                                    <span className={styles.dialogDetailsLabel}>Latest Release:</span>{' '}
                                                     <span className={styles.dialogDetailsValue}>
                                                         {selectedItem.latestRelease.url ? (
                                                             <a href={selectedItem.latestRelease.url} target="_blank" rel="noopener noreferrer">
@@ -541,13 +541,13 @@ const Gallery = ({
                                             )}
                                             {selectedItem?.language && (
                                                 <div data-testid="dialog-main-language-badge" className={styles.dialogDetailsRow}>
-                                                    <span className={styles.dialogDetailsLabel}>Language: </span>
+                                                    <span className={styles.dialogDetailsLabel}>Language:</span>{' '}
                                                     <span className={styles.dialogDetailsValue}>{selectedItem.language}</span>
                                                 </div>
                                             )}
                                             {selectedItem?.license?.name && (
                                                 <div data-testid="dialog-license-badge" className={styles.dialogDetailsRow}>
-                                                    <span className={styles.dialogDetailsLabel}>License: </span>
+                                                    <span className={styles.dialogDetailsLabel}>License:</span>{' '}
                                                     <span className={styles.dialogDetailsValue}>
                                                         {selectedItem.license.url ? (
                                                             <a href={selectedItem.license.url} target="_blank" rel="noopener noreferrer">
@@ -559,7 +559,7 @@ const Gallery = ({
                                             )}
                                             {selectedItem?.homepage && (
                                                 <div className={styles.dialogDetailsRow}>
-                                                    <span className={styles.dialogDetailsLabel}>Homepage: </span>
+                                                    <span className={styles.dialogDetailsLabel}>Homepage:</span>{' '}
                                                     <span className={styles.dialogDetailsValue}>
                                                         <a href={selectedItem.homepage} target="_blank" rel="noopener noreferrer">
                                                             {selectedItem.homepage}
@@ -572,16 +572,16 @@ const Gallery = ({
                                         <div>
                                             {selectedItem?.openIssuesCount > 0 && (
                                                 <div className={styles.dialogDetailsRow}>
-                                                    <span className={styles.dialogDetailsLabel}>Open Issues: </span>
+                                                    <span className={styles.dialogDetailsLabel}>Open Issues:</span>{' '}
                                                     <span className={styles.dialogDetailsValue}>{selectedItem.openIssuesCount}</span>
                                                 </div>
                                             )}
                                             <div data-testid="dialog-good-first-issues-badge" className={styles.dialogDetailsRow}>
-                                                <span className={styles.dialogDetailsLabel}>Good 1st Issues: </span>
+                                                <span className={styles.dialogDetailsLabel}>Good 1st Issues:</span>{' '}
                                                 <span className={styles.dialogDetailsValue}>{selectedItem?.openedGoodFirstIssues ?? 0}</span>
                                             </div>
                                             <div data-testid="dialog-help-wanted-issues-badge" className={styles.dialogDetailsRow}>
-                                                <span className={styles.dialogDetailsLabel}>Help Wanted Issues: </span>
+                                                <span className={styles.dialogDetailsLabel}>Help Wanted Issues:</span>{' '}
                                                 <span className={styles.dialogDetailsValue}>{selectedItem?.openedHelpWantedIssues ?? 0}</span>
                                             </div>
                                         </div>
