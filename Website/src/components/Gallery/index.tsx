@@ -493,38 +493,37 @@ const Gallery = ({
                     </DialogTitle>
                     <DialogContent style={{ marginBottom: '16px', marginTop: '8px' }}>
                         <DialogBody>
-                            {/* Description */}
-                            <Text data-testid="dialog-description" style={{ display: 'block' }}>
-                                {getRepositoryDescription(selectedItem)}
-                            </Text>
+                            <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+                                {/* Row 1: Description */}
+                                <Text data-testid="dialog-description" style={{ display: 'block' }}>
+                                    {getRepositoryDescription(selectedItem)}
+                                </Text>
 
-                            {/* Stats row */}
-                            <div className={styles.dialogStats}>
-                                {isActive(selectedItem?.updatedAt) && (
-                                    <Tooltip
-                                        content={`Last update on: ${format(new Date(selectedItem?.updatedAt), 'yyyy-MM-dd')}`}
-                                        relationship="label"
-                                    >
-                                        <Badge data-testid="dialog-active-badge" appearance="outline">🔥 Active</Badge>
-                                    </Tooltip>
-                                )}
-                                <Badge data-testid="dialog-stars-badge" appearance="filled" color="warning" icon={<Star16Filled />}>
-                                    {selectedItem?.stargazerCount}
-                                </Badge>
-                                <Badge data-testid="dialog-watchers-badge" appearance="outline" icon={<Eye16Filled />}>
-                                    {selectedItem?.watchers.totalCount}
-                                </Badge>
-                                {selectedItem?.forkCount > 0 && (
-                                    <Badge appearance="outline">⑂ {selectedItem.forkCount}</Badge>
-                                )}
-                            </div>
+                                {/* Row 2: Stats badges in one horizontal line */}
+                                <div className={styles.dialogStats}>
+                                    {isActive(selectedItem?.updatedAt) && (
+                                        <Tooltip
+                                            content={`Last update on: ${format(new Date(selectedItem?.updatedAt), 'yyyy-MM-dd')}`}
+                                            relationship="label"
+                                        >
+                                            <Badge data-testid="dialog-active-badge" appearance="outline">🔥 Active</Badge>
+                                        </Tooltip>
+                                    )}
+                                    <Badge data-testid="dialog-stars-badge" appearance="filled" color="warning" icon={<Star16Filled />}>
+                                        {selectedItem?.stargazerCount}
+                                    </Badge>
+                                    <Badge data-testid="dialog-watchers-badge" appearance="outline" icon={<Eye16Filled />}>
+                                        {selectedItem?.watchers.totalCount}
+                                    </Badge>
+                                    {selectedItem?.forkCount > 0 && (
+                                        <Badge appearance="outline">⑂ {selectedItem.forkCount}</Badge>
+                                    )}
+                                </div>
 
-                            {/* Two-column body */}
-                            <div className={styles.dialogTwoColumn}>
-                                {/* Left: Details */}
+                                {/* Row 3: Details in 2 columns */}
                                 <div>
                                     <span className={styles.dialogSectionTitle}>Details</span>
-                                    <div className={styles.dialogDetailsList}>
+                                    <div className={styles.dialogDetailsTwoCol}>
                                         {selectedItem?.language && (
                                             <div data-testid="dialog-main-language-badge" className={styles.dialogDetailsRow}>
                                                 <span className={styles.dialogDetailsLabel}>Language: </span>
@@ -589,7 +588,7 @@ const Gallery = ({
                                     )}
                                 </div>
 
-                                {/* Right: Topics */}
+                                {/* Row 4: Topics */}
                                 {selectedItem?.topics.length > 0 && (
                                     <div>
                                         <span className={styles.dialogSectionTitle}>Topics</span>
