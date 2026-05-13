@@ -472,7 +472,7 @@ const Gallery = ({
                 open={!hideDialog}
                 onOpenChange={(_, data) => setHideDialog(!data.open)}
             >
-                <DialogSurface data-testid="repository-dialog" style={{ maxWidth: '700px', width: '90vw' }}>
+                <DialogSurface data-testid="repository-dialog" style={{ maxWidth: '800px', width: '90vw' }}>
                     <DialogTitle data-testid="dialog-title" className={styles.dialogTitle}>
                         <a
                             href={selectedItem?.url}
@@ -491,9 +491,9 @@ const Gallery = ({
                             />
                         </DialogTrigger>
                     </DialogTitle>
-                    <DialogContent style={{ marginBottom: '16px', marginTop: '8px' }}>
+                    <DialogContent style={{ marginBottom: '16px', marginTop: '8px', width: '100%' }}>
                         <DialogBody>
-                            <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+                            <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', width: '100%' }}>
                                 {/* Row 1: Description */}
                                 <Text data-testid="dialog-description" style={{ display: 'block' }}>
                                     {getRepositoryDescription(selectedItem)}
