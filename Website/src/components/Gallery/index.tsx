@@ -472,59 +472,146 @@ const Gallery = ({
                 open={!hideDialog}
                 onOpenChange={(_, data) => setHideDialog(!data.open)}
             >
-                <DialogSurface data-testid="repository-dialog">
+                <DialogSurface data-testid="repository-dialog" style={{ maxWidth: '800px', width: '90vw' }}>
                     <DialogTitle data-testid="dialog-title" className={styles.dialogTitle}>
-                        {selectedItem?.fullName}
-                        <div style={{ display: 'flex', gap: '5px', flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}>
-                            {isActive(selectedItem?.updatedAt) && 
-                                <Tooltip content={`Last update on: ${format(new Date(selectedItem?.updatedAt), 'yyyy-MM-dd')}`} relationship={'label'}>
-                                    <Badge data-testid="dialog-active-badge" appearance="outline" style={{ marginRight: '5px' }}>🔥 Active</Badge>
-                                </Tooltip>
-                            }
-                            <Badge data-testid="dialog-stars-badge" appearance="filled" color="warning" icon={<Star16Filled />}>{selectedItem?.stargazerCount}</Badge>
-                            <Badge data-testid="dialog-watchers-badge" appearance="outline" icon={<Eye16Filled />}>{selectedItem?.watchers.totalCount}</Badge>
-                            <DialogTrigger action="close">
-                                <Button
-                                    appearance="subtle"
-                                    aria-label="close"
-                                    icon={<Dismiss24Regular />}
-                                    onClick={closeDialog}
-                                />
-                            </DialogTrigger>
-                        </div>
+                        <a
+                            href={selectedItem?.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className={styles.dialogRepoLink}
+                        >
+                            {selectedItem?.fullName}
+                        </a>
+                        <DialogTrigger action="close">
+                            <Button
+                                appearance="subtle"
+                                aria-label="close"
+                                icon={<Dismiss24Regular />}
+                                onClick={closeDialog}
+                            />
+                        </DialogTrigger>
                     </DialogTitle>
-                    <DialogContent style={{ marginBottom: '16px', marginTop: '16px' }}>
-                        <DialogBody>
-                            <div style={{ display: 'flex', flexDirection: 'column' }}>
-                                <Text data-testid="dialog-description">
+                    <DialogBody>
+                        <DialogContent>
+                            <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+                                {/* Row 1: Description */}
+                                <Text data-testid="dialog-description" style={{ display: 'block' }}>
                                     {getRepositoryDescription(selectedItem)}
                                 </Text>
-                                {selectedItem && renderRelaunchBadges(selectedItem, 'dialog')}
-                                <div style={{ marginTop: '10px', display: 'flex', flexWrap: 'wrap', flexDirection: 'column' }}>
-                                    {selectedItem?.license?.name && (
-                                        <Badge data-testid="dialog-license-badge" appearance="tint" style={{ marginBottom: '4px' }}>License: {selectedItem?.license?.name}</Badge>
+
+                                {/* Row 2: Stats badges in one horizontal line */}
+                                <div className={styles.dialogStats}>
+                                    {isActive(selectedItem?.updatedAt) && (
+                                        <Tooltip
+                                            content={`Last update on: ${format(new Date(selectedItem?.updatedAt), 'yyyy-MM-dd')}`}
+                                            relationship="label"
+                                        >
+                                            <Badge data-testid="dialog-active-badge" appearance="outline">🔥 Active</Badge>
+                                        </Tooltip>
                                     )}
-                                    <Badge data-testid="dialog-good-first-issues-badge" appearance="tint" style={{ marginBottom: '4px' }}>Good 1st Issues: {selectedItem?.openedGoodFirstIssues}</Badge>
-                                    <Badge data-testid="dialog-help-wanted-issues-badge" appearance="tint" style={{ marginBottom: '4px' }}>Help Wanted Issues: {selectedItem?.openedHelpWantedIssues}</Badge>
-                                    {selectedItem?.language && (
-                                        <Badge data-testid="dialog-main-language-badge" appearance="tint" style={{ marginBottom: '4px' }}>Language: {selectedItem?.language}</Badge>
-                                    )}
-                                    {selectedItem?.latestRelease && (
-                                        <Badge data-testid="dialog-latest-release-badge" appearance="tint" style={{ marginBottom: '4px' }}>Latest Release: {selectedItem?.latestRelease.tagName} ({format(new Date(selectedItem?.latestRelease.publishedAt), 'yyyy-MM-dd')})</Badge>
+                                    <Badge data-testid="dialog-stars-badge" appearance="filled" color="warning" icon={<Star16Filled />}>
+                                        {selectedItem?.stargazerCount}
+                                    </Badge>
+                                    <Badge data-testid="dialog-watchers-badge" appearance="outline" icon={<Eye16Filled />}>
+                                        {selectedItem?.watchers.totalCount}
+                                    </Badge>
+                                    {selectedItem?.forkCount > 0 && (
+                                        <Badge appearance="outline">⑂ {selectedItem.forkCount}</Badge>
                                     )}
                                 </div>
+
+                                {/* Row 3: Details in 2 columns */}
+                                <div>
+                                    <span className={styles.dialogSectionTitle}>Details</span>
+                                    <div className={styles.dialogDetailsTwoCol}>
+                                        {/* Left column: release, language, license, homepage */}
+                                        <div>
+                                            {selectedItem?.latestRelease && (
+                                                <div data-testid="dialog-latest-release-badge" className={styles.dialogDetailsRow}>
+                                                    <span className={styles.dialogDetailsLabel}>Latest Release:</span>{' '}
+                                                    <span className={styles.dialogDetailsValue}>
+                                                        {selectedItem.latestRelease.url ? (
+                                                            <a href={selectedItem.latestRelease.url} target="_blank" rel="noopener noreferrer">
+                                                                {selectedItem.latestRelease.tagName}
+                                                            </a>
+                                                        ) : selectedItem.latestRelease.tagName}
+                                                        {' '}({format(new Date(selectedItem.latestRelease.publishedAt), 'yyyy-MM-dd')})
+                                                    </span>
+                                                </div>
+                                            )}
+                                            {selectedItem?.language && (
+                                                <div data-testid="dialog-main-language-badge" className={styles.dialogDetailsRow}>
+                                                    <span className={styles.dialogDetailsLabel}>Language:</span>{' '}
+                                                    <span className={styles.dialogDetailsValue}>{selectedItem.language}</span>
+                                                </div>
+                                            )}
+                                            {selectedItem?.license?.name && (
+                                                <div data-testid="dialog-license-badge" className={styles.dialogDetailsRow}>
+                                                    <span className={styles.dialogDetailsLabel}>License:</span>{' '}
+                                                    <span className={styles.dialogDetailsValue}>
+                                                        {selectedItem.license.url ? (
+                                                            <a href={selectedItem.license.url} target="_blank" rel="noopener noreferrer">
+                                                                {selectedItem.license.name}
+                                                            </a>
+                                                        ) : selectedItem.license.name}
+                                                    </span>
+                                                </div>
+                                            )}
+                                            {selectedItem?.homepage && (
+                                                <div className={styles.dialogDetailsRow}>
+                                                    <span className={styles.dialogDetailsLabel}>Homepage:</span>{' '}
+                                                    <span className={styles.dialogDetailsValue}>
+                                                        <a href={selectedItem.homepage} target="_blank" rel="noopener noreferrer">
+                                                            {selectedItem.homepage}
+                                                        </a>
+                                                    </span>
+                                                </div>
+                                            )}
+                                        </div>
+                                        {/* Right column: open issues, good 1st issues, help wanted issues */}
+                                        <div>
+                                            {selectedItem?.openIssuesCount > 0 && (
+                                                <div className={styles.dialogDetailsRow}>
+                                                    <span className={styles.dialogDetailsLabel}>Open Issues:</span>{' '}
+                                                    <span className={styles.dialogDetailsValue}>{selectedItem.openIssuesCount}</span>
+                                                </div>
+                                            )}
+                                            <div data-testid="dialog-good-first-issues-badge" className={styles.dialogDetailsRow}>
+                                                <span className={styles.dialogDetailsLabel}>Good 1st Issues:</span>{' '}
+                                                <span className={styles.dialogDetailsValue}>{selectedItem?.openedGoodFirstIssues ?? 0}</span>
+                                            </div>
+                                            <div data-testid="dialog-help-wanted-issues-badge" className={styles.dialogDetailsRow}>
+                                                <span className={styles.dialogDetailsLabel}>Help Wanted Issues:</span>{' '}
+                                                <span className={styles.dialogDetailsValue}>{selectedItem?.openedHelpWantedIssues ?? 0}</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {/* Relaunch badges (category, focus areas, audiences, health) */}
+                                    {selectedItem && (
+                                        <div style={{ marginTop: '10px' }}>
+                                            {renderRelaunchBadges(selectedItem, 'dialog')}
+                                        </div>
+                                    )}
+                                </div>
+
+                                {/* Row 4: Topics */}
+                                {selectedItem?.topics.length > 0 && (
+                                    <div>
+                                        <span className={styles.dialogSectionTitle}>Topics</span>
+                                        <div className={styles.dialogTopicList}>
+                                            {selectedItem.topics.map((topic, index) => (
+                                                renderTopicBadge(topic, `dialog-${topic}-${index}`, 'dialog-topic-badge', '0px')
+                                            ))}
+                                        </div>
+                                    </div>
+                                )}
                             </div>
-                            <div style={{ display: 'flex', flexWrap: 'wrap' }}>
-                                {selectedItem?.topics.map((topic, index) => (
-                                    renderTopicBadge(topic, `dialog-${topic}-${index}`, 'dialog-topic-badge', '1px')
-                                ))}
-                            </div>
-                        </DialogBody>
-                    </DialogContent>
-                    <DialogActions>
-                        <Button data-testid="dialog-close-button" appearance="secondary" onClick={closeDialog}>Close</Button>
-                        <Button data-testid="dialog-open-in-github-button" data-repository-url={selectedItem?.url} appearance="primary" onClick={() => openInGitHub(selectedItem?.url)}>Open in GitHub</Button>
-                    </DialogActions>
+                        </DialogContent>
+                        <DialogActions>
+                            <Button data-testid="dialog-close-button" appearance="secondary" onClick={closeDialog}>Close</Button>
+                            <Button data-testid="dialog-open-in-github-button" data-repository-url={selectedItem?.url} appearance="primary" onClick={() => openInGitHub(selectedItem?.url)}>Open in GitHub</Button>
+                        </DialogActions>
+                    </DialogBody>
                 </DialogSurface>
             </Dialog>
         </div>

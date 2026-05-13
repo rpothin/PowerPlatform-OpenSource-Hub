@@ -134,3 +134,76 @@
     justify-content: center;
     align-items: flex-end;
 }
+
+/* Dialog redesign styles */
+.dialogRepoLink {
+    font-size: 18px;
+    font-weight: 600;
+    color: inherit;
+    text-decoration: none;
+}
+.dialogRepoLink:hover {
+    text-decoration: underline;
+}
+.dialogStats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin: 10px 0;
+}
+.dialogDetailsTwoCol {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 6px 20px;
+    margin-top: 4px;
+}
+@media (max-width: 500px) {
+    .dialogDetailsTwoCol {
+        grid-template-columns: 1fr;
+    }
+}
+.dialogSectionTitle {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--ifm-color-secondary-darkest);
+    margin-bottom: 6px;
+    display: block;
+}
+.dialogDetailsList {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin: 0;
+}
+.dialogDetailsRow {
+    display: block;
+}
+.dialogDetailsLabel {
+    font-size: 13px;
+    color: var(--ifm-color-secondary-darkest);
+    white-space: nowrap;
+    font-weight: 500;
+    display: inline-block;
+    min-width: 130px;
+    vertical-align: top;
+}
+.dialogDetailsValue {
+    font-size: 13px;
+    display: inline;
+    word-break: break-word;
+}
+.dialogDetailsValue a {
+    color: var(--ifm-link-color);
+    text-decoration: none;
+}
+.dialogDetailsValue a:hover {
+    text-decoration: underline;
+}
+.dialogTopicList {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    margin-top: 4px;
+}
