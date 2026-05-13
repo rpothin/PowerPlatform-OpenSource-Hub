@@ -13,3 +13,5 @@ Use this section based on what you want to do next:
 - [List your repository](./list-your-repository.md) when you maintain a project that should appear in the hub.
 
 The hub is powered by public GitHub metadata, topic-based discovery, and curated repository information. It is meant to make relevant projects easier to find, compare, and support—not to replace each project's own documentation, issues, or contribution process.
+
+→ **[Open the hub](https://rpothin.github.io/PowerPlatform-OpenSource-Hub/)** to start exploring.

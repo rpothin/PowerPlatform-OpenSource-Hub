@@ -120,21 +120,25 @@ test('Validate the count of repositories found when I enter a search term', asyn
 // Validate the filters default presentation
 // - all checkboxes are unchecked
 // - the list of the available sections is as expected (the order is important)
-// - only the "Contribution Opportunities" section is expanded
-// - the "Contribution Opportunities" section contains the expected checkboxes
+// - only the "Repository Signals" section is expanded
+// - the "Repository Signals" section contains the expected checkboxes
 test('Validate the filter pane default presentation', async ({ page }) => {
   await page.goto('/');
 
   // Array of the expected sections (the order is important)
+  // Categories, Focus Areas, and Audiences are conditionally rendered when the data contains values for them
   const expectedSections = [
-    'Contribution Opportunities',
+    'Repository Signals',
+    'Categories',
+    'Focus Areas',
+    'Audiences',
     'Topics',
     'Languages',
     'Licenses',
     'Owners'
   ];
 
-  // Array of the expected checkboxes for the "Contribution Opportunities" section
+  // Array of the expected checkboxes for the "Repository Signals" section
   const expectedContributionOpportunitiesCheckboxes = [
     'Has good first issue',
     'Has help wanted issue',
@@ -160,7 +164,7 @@ test('Validate the filter pane default presentation', async ({ page }) => {
   }));
   expect(sectionNames).toEqual(expectedSections);
 
-  // Validate that only the "Contribution Opportunities" section is expanded
+  // Validate that only the "Repository Signals" section is expanded
   // The button element in each section has a "aria-expanded" attribute allowing to know if the section is expanded or not
   let expandedSections = [];
   let nonExpandedSections = [];
@@ -177,19 +181,19 @@ test('Validate the filter pane default presentation', async ({ page }) => {
   const expandedSectionName = await expandedSections[0].innerText();
   expect(expandedSectionName).toBe(expectedSections[0]);
 
-  expect(nonExpandedSections.length).toBe(4);
+  expect(nonExpandedSections.length).toBe(expectedSections.length - 1);
   const nonExpandedSectionNames = await Promise.all(nonExpandedSections.map(async (section) => {
     return section.innerText();
   }));
   expect(nonExpandedSectionNames).toEqual(expectedSections.slice(1));
 
-  // Validate that the "Contribution Opportunities" section contains the expected checkboxes
-  // The checkboxes to validate are under the div element with "fui-AccordionItem" class where there is a button with inner text equal to "Contribution Opportunities"
+  // Validate that the "Repository Signals" section contains the expected checkboxes
+  // The checkboxes to validate are under the div element with "fui-AccordionItem" class where there is a button with inner text equal to "Repository Signals"
   // The labels associated to the checboxes are label elements with a for attribute value like "checkbox-r..."
-  const contributionOpportunitiesSection = page.locator('.fui-AccordionItem').filter({
-    has: page.getByRole('button', { name: 'Contribution Opportunities' }),
+  const repositorySignalsSection = page.locator('.fui-AccordionItem').filter({
+    has: page.getByRole('button', { name: 'Repository Signals' }),
   });
-  const contributionOpportunitiesCheckboxesNames = (await contributionOpportunitiesSection.locator('label[for^="checkbox-r"]').allInnerTexts())
+  const contributionOpportunitiesCheckboxesNames = (await repositorySignalsSection.locator('label[for^="checkbox-r"]').allInnerTexts())
     .map((checkboxText) => checkboxText.split(' (')[0]);
   expect(contributionOpportunitiesCheckboxesNames).toEqual(expectedContributionOpportunitiesCheckboxes);
 });
@@ -287,7 +291,7 @@ test('Validate the visual behavior of a checkbox', async ({ page }) => {
   }
 });
 
-// Validate that for all sections with a dynamic list of checkboxes (do not consider "Contribution Opportunities") in the filter pane,
+// Validate that for all sections with a dynamic list of checkboxes (do not consider "Repository Signals") in the filter pane,
 // - there are no more than 10 checkboxes presented
 // - the checboxes are presented in descending order based on the count of repositories found
 // - if there are more than 10 checkboxes available, there is a "View All" button at the end of the list
@@ -296,8 +300,8 @@ test('Validate the presentation of the checkboxes in the sections of the filter 
 
   // Get all the sections in the filter pane
   const sections = (await getAllSections(page))
-    .filter((section) => section.headerText !== 'Contribution Opportunities')
-    .map((section) => section.section); // Exclude the "Contribution Opportunities" section because it has a static list of checkboxes
+    .filter((section) => section.headerText !== 'Repository Signals')
+    .map((section) => section.section); // Exclude the "Repository Signals" section because it has a static list of checkboxes
 
   // Validate that for all sections in the filter pane
   for (let section of sections) {
@@ -331,7 +335,7 @@ test('Validate the presentation of the checkboxes in the sections of the filter 
   }
 });
 
-// Validate that for any section with a dynamic list of checkboxes (do not consider "Contribution Opportunities") in the filter pane where there is a "View All" button,
+// Validate that for any section with a dynamic list of checkboxes (do not consider "Repository Signals") in the filter pane where there is a "View All" button,
 // - when I click on the "View All" button, the list of checkboxes is expanded
 // - the "View All" button is replaced by a "View Less" button
 // - all the checkboxes are presented (new count of checkboxes is greater than the initial count)
@@ -348,8 +352,8 @@ test('Validate the "View All" and "View Less" buttons in the filter pane in all 
     // Get the "View All" button
     let viewAllButton = await getButtonByName(section.section, 'View All');
 
-    // Skip the section if it is the "Contribution Opportunities" section or if there is no "View All" button
-    if (section.headerText === "Contribution Opportunities" || !viewAllButton) {
+    // Skip the section if it is the "Repository Signals" section or if there is no "View All" button
+    if (section.headerText === "Repository Signals" || !viewAllButton) {
       continue;
     }
 
@@ -399,10 +403,10 @@ test('Validate the "View All" and "View Less" buttons in the filter pane in all 
 
 // Validate the count of repositories based on the selection of 2 checkboxes in each section
 // - if the section is "Licenses" or "Owners", the count of repositories is the sum of the counts of the 2 checkboxes
-// - if the section is "Contribution Opportunities", "Topics", or "Languages", the count of repositories is the minimum of the counts of the 2 checkboxes
+// - if the section is "Repository Signals", "Topics", or "Languages", the count of repositories is the minimum of the counts of the 2 checkboxes
 test('Validate the count of repositories based on the selection of 2 checkboxes in each section', async ({ page }) => {
   const sectionBehaviors = [
-    { name: 'Contribution Opportunities', countBehavior: 'min' },
+    { name: 'Repository Signals', countBehavior: 'min' },
     { name: 'Topics', countBehavior: 'min' },
     { name: 'Languages', countBehavior: 'min' },
     { name: 'Licenses', countBehavior: 'sum' },
@@ -445,22 +449,103 @@ test('Validate the count of repositories based on the selection of 2 checkboxes 
   }
 });
 
+// Validate the "Clear all filters" button behavior
+// - button is hidden when no filters are active
+// - button appears when a filter is applied (including search text)
+// - clicking the button clears all active filters and restores the full count
+test('Validate the "Clear all filters" button behavior', async ({ page }) => {
+  await page.goto('/');
+
+  const clearButton = page.getByRole('button', { name: 'Clear all filters' });
+
+  // Button should not be visible initially (no active filters)
+  await expect(clearButton).not.toBeVisible();
+
+  // Apply a filter checkbox
+  const initialCount = await getCountOfRepositories(page);
+  const goodFirstIssueCheckbox = page.locator('#checkbox-r-good-first-issue');
+  await goodFirstIssueCheckbox.check();
+  await expect.poll(() => getCountOfRepositories(page)).toBeLessThan(initialCount);
+
+  // Button should now be visible
+  await expect(clearButton).toBeVisible();
+
+  // Click "Clear all filters" — all selections should reset and count should restore
+  await clearButton.click();
+  await expect(goodFirstIssueCheckbox).not.toBeChecked();
+  await expect.poll(() => getCountOfRepositories(page)).toBe(initialCount);
+
+  // Button should be hidden again
+  await expect(clearButton).not.toBeVisible();
+});
+
 // #endregion
 
 // #region Gallery functionality tests
 
-// Validate that the count of repositories in the header of the gallery is equal to the count of repositories found
+// Validate that the count of repositories in the header of the gallery is correct
+// With pagination (30 items/page), visible cards on page 1 = min(total, 30)
 test('Validate the count of repositories in the header of the gallery', async ({ page }) => {
   await page.goto('/');
 
-  // Get the count of repositories in the header of the gallery
+  // Get the total count from the gallery header
   const repositoriesCountInHeader = await getCountOfRepositories(page);
 
-  // Get the count of repositories found
+  // Get the count of repository cards visible on the current page
   const countOfRepositoriesPresentedInGallery = await (await waitForRepositoryCards(page)).count();
 
-  // Validate that the count of repositories in the header of the gallery is equal to the count of repositories found
-  expect(repositoriesCountInHeader).toBe(countOfRepositoriesPresentedInGallery);
+  // With pagination (30 items/page), visible cards ≤ 30; header reflects total filtered count
+  expect(countOfRepositoriesPresentedInGallery).toBeLessThanOrEqual(30);
+  expect(countOfRepositoriesPresentedInGallery).toBe(Math.min(repositoriesCountInHeader, 30));
+});
+
+// Validate pagination navigation when more than 30 repositories are present
+test('Validate pagination navigation', async ({ page }) => {
+  await page.goto('/');
+
+  const totalCount = await getCountOfRepositories(page);
+
+  // Pagination only renders when total > 30
+  if (totalCount <= 30) {
+    // Not enough data to test pagination; skip gracefully
+    return;
+  }
+
+  // Page 1: Next button is enabled, Previous is disabled
+  const nextButton = page.getByRole('button', { name: 'Next' });
+  const prevButton = page.getByRole('button', { name: 'Previous' });
+  await expect(nextButton).toBeEnabled();
+  await expect(prevButton).toBeDisabled();
+
+  // Get the first card title on page 1
+  const page1Cards = await waitForRepositoryCards(page);
+  const firstCardPage1 = await page1Cards.first().textContent();
+
+  // Navigate to page 2
+  await nextButton.click();
+  await page.waitForFunction(() => {
+    const btn = document.querySelector('[aria-current="page"]');
+    return btn && btn.textContent?.trim() === '2';
+  });
+
+  // Page 2 should show different cards; Previous is now enabled
+  await expect(prevButton).toBeEnabled();
+  const page2Cards = await waitForRepositoryCards(page);
+  const firstCardPage2 = await page2Cards.first().textContent();
+  expect(firstCardPage2).not.toBe(firstCardPage1);
+
+  // Navigate back to page 1
+  await prevButton.click();
+  await page.waitForFunction(() => {
+    const btn = document.querySelector('[aria-current="page"]');
+    return btn && btn.textContent?.trim() === '1';
+  });
+
+  // Previous should be disabled again on page 1
+  await expect(prevButton).toBeDisabled();
+  const page1CardsAgain = await waitForRepositoryCards(page);
+  const firstCardPage1Again = await page1CardsAgain.first().textContent();
+  expect(firstCardPage1Again).toBe(firstCardPage1);
 });
 
 // Validate that the default sorting option in the gallery is "Stars (Descending)"
@@ -587,7 +672,7 @@ test('Validate that when I change the sorting option in the gallery, the order o
 // - the number of stars
 // - the repository full name (owner and name)
 // - the description
-// - maximum 5 topics
+// - maximum 4 topics (+ optional "+N more" badge)
 // - an "Open in GitHub" button
 // - an "See more..." button
 test('Validate the information presented in the cards of the gallery', async ({ page }) => {
@@ -607,7 +692,7 @@ test('Validate the information presented in the cards of the gallery', async ({ 
     cardElements.map((card) => card.querySelectorAll('[data-testid="topic-badge"]').length)
   );
   for (const topicCount of topicCounts) {
-    expect(topicCount).toBeLessThanOrEqual(5);
+    expect(topicCount).toBeLessThanOrEqual(4);
   }
 
   const sampleIndexes = getRepresentativeIndexes(cardCount);
@@ -830,7 +915,7 @@ test('Validate that when I click on the "See more..." button in a random card of
  * @returns {Promise<number>} The count of repositories.
  */
 function getOrderByCombobox(page: Page): Locator {
-  return page.getByRole('combobox', { name: 'Order By' });
+  return page.getByRole('combobox', { name: 'Sort by' });
 }
 
 async function selectSortOption(page: Page, optionText: string) {

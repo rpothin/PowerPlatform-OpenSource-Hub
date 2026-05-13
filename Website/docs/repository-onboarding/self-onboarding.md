@@ -10,7 +10,7 @@ This guide will help you configure your GitHub repository to be part of the Powe
 
 ## Prerequisites
 
-To be able to onboard a repository into the initative you need to have the permission to add topics to it.
+To be able to onboard a repository into the initiative you need to have the permission to add topics to it.
 
 If you are not a maintainer of the repository, you can follow the [Invitation to Join](./invitation-to-join.md) procedure and ask the maintainer(s) to complete the process.
 
@@ -24,7 +24,7 @@ If you are not a maintainer of the repository, you can follow the [Invitation to
 
 That's it for the actions on your side!
 
-Now we will just need to wait for a maximum of 24 hours for the repository to be added to the Power Platform Open-Source Hub initative and be visible on the website.
+Now we will just need to wait for a maximum of 24 hours for the repository to be added to the Power Platform Open-Source Hub initiative and be visible on the website.
 
 ## Repository metadata and curation
 

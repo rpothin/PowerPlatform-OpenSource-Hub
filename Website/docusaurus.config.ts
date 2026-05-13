@@ -71,11 +71,13 @@ const config: Config = {
     },
   ],
 
+  plugins: [],
+
   themeConfig: {
     // Replace with your project's social card
     image: 'img/docusaurus-social-card.jpg',
     navbar: {
-      title: 'PP OSS Hub',
+      title: 'Power Platform OSS Hub',
       logo: {
         alt: 'Power Platform Open-Source Hub Logo',
         src: 'img/PowerPlatform_scalable.svg',

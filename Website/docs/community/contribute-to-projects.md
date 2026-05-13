@@ -23,3 +23,10 @@ Look for repositories that match your skills and interests. Good first contribut
 4. Keep changes focused so maintainers can review them confidently.
 
 Each project in the hub is maintained by its own community. Be respectful of the maintainers' time and the project's scope.
+
+## Find a project to contribute to
+
+Use the hub's filters to narrow down repositories by contribution signals:
+
+- [Browse repositories with good first issues](https://rpothin.github.io/PowerPlatform-OpenSource-Hub/?goodFirstIssue=true)
+- [Browse repositories with help-wanted issues](https://rpothin.github.io/PowerPlatform-OpenSource-Hub/?helpWantedIssue=true)
