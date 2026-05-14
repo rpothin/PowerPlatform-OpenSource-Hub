@@ -13,7 +13,7 @@
     "url": "https://api.github.com/licenses/mit"
   },
   "name": "powerplatform-actions",
-  "openIssuesCount": 56,
+  "openIssuesCount": 55,
   "owner": {
     "id": "6154722",
     "is_bot": false,
@@ -21,7 +21,7 @@
     "type": "Organization",
     "url": "https://github.com/microsoft"
   },
-  "updatedAt": "2026-05-06T23:11:13Z",
+  "updatedAt": "2026-05-14T01:31:32Z",
   "url": "https://github.com/microsoft/powerplatform-actions",
   "codeOfConduct": {
     "key": "other",
@@ -33,16 +33,16 @@
   "isSecurityPolicyEnabled": false,
   "isTemplate": false,
   "latestRelease": {
-    "name": "v1.9.1 Hotfix - Fixed Dependencies ",
-    "tagName": "v1.9.1",
-    "url": "https://github.com/microsoft/powerplatform-actions/releases/tag/v1.9.1",
-    "publishedAt": "2025-06-06T18:55:15Z"
+    "name": "Updated pac cli to 2.7, node to V24",
+    "tagName": "v1.9.2",
+    "url": "https://github.com/microsoft/powerplatform-actions/releases/tag/v1.9.2",
+    "publishedAt": "2026-05-14T01:37:10Z"
   },
   "primaryLanguage": {
     "name": "TypeScript"
   },
   "securityPolicyUrl": null,
-  "stargazerCount": 288,
+  "stargazerCount": 289,
   "watchers": {
     "totalCount": 30
   },
@@ -61,8 +61,8 @@
   "openedHelpWantedIssues": 0,
   "hasHelpWantedIssues": false,
   "openedToContributionsIssues": 0,
-  "popularityScore": 318,
+  "popularityScore": 319,
   "_schemaVersion": "1.0.0",
-  "_generatedAt": "2026-05-13T11:46:30.421Z",
-  "_workflowRunId": "25797072827"
+  "_generatedAt": "2026-05-14T11:38:50.265Z",
+  "_workflowRunId": "25857963297"
 }
