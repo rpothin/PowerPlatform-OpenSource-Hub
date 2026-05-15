@@ -30,7 +30,7 @@
   },
   "forkCount": 189,
   "fundingLinks": [],
-  "isSecurityPolicyEnabled": false,
+  "isSecurityPolicyEnabled": true,
   "isTemplate": false,
   "latestRelease": {
     "name": "Add new sample workflows",
@@ -39,7 +39,7 @@
     "publishedAt": "2023-04-07T04:35:44Z"
   },
   "primaryLanguage": null,
-  "securityPolicyUrl": null,
+  "securityPolicyUrl": "https://github.com/microsoft/powerplatform-actions-lab/security/policy",
   "stargazerCount": 178,
   "watchers": {
     "totalCount": 25
@@ -56,6 +56,6 @@
   "openedToContributionsIssues": 0,
   "popularityScore": 203,
   "_schemaVersion": "1.0.0",
-  "_generatedAt": "2026-05-14T11:38:50.265Z",
-  "_workflowRunId": "25857963297"
+  "_generatedAt": "2026-05-15T11:42:00.053Z",
+  "_workflowRunId": "25915925536"
 }

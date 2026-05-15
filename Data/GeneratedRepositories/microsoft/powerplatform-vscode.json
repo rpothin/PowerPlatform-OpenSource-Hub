@@ -30,7 +30,7 @@
   },
   "forkCount": 56,
   "fundingLinks": [],
-  "isSecurityPolicyEnabled": false,
+  "isSecurityPolicyEnabled": true,
   "isTemplate": false,
   "latestRelease": {
     "name": "v2.0.143",
@@ -41,7 +41,7 @@
   "primaryLanguage": {
     "name": "TypeScript"
   },
-  "securityPolicyUrl": null,
+  "securityPolicyUrl": "https://github.com/microsoft/powerplatform-vscode/security/policy",
   "stargazerCount": 266,
   "watchers": {
     "totalCount": 21
@@ -65,6 +65,6 @@
   "openedToContributionsIssues": 0,
   "popularityScore": 287,
   "_schemaVersion": "1.0.0",
-  "_generatedAt": "2026-05-14T11:38:50.265Z",
-  "_workflowRunId": "25857963297"
+  "_generatedAt": "2026-05-15T11:42:00.053Z",
+  "_workflowRunId": "25915925536"
 }
