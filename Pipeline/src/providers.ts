@@ -303,7 +303,12 @@ export class OctokitRepositoryProvider implements CandidateProvider {
               result.set(repo.fullName, new Error(rootLevelErrors.map((e) => e.message).join("; ")));
             } else if (node === undefined) {
               // Alias absent with no error — unexpected, likely a malformed response.
-              result.set(repo.fullName, new Error(`GraphQL response missing alias '${alias}' for ${repo.fullName}`));
+              result.set(
+                repo.fullName,
+                Object.assign(new Error(`GraphQL response missing alias '${alias}' for ${repo.fullName}`), {
+                  isMissingAlias: true as const
+                })
+              );
             } else {
               // GraphQL returned null with no error. All repos in this batch were found by the
               // search API so they exist. GitHub can silently null-out repos for PAT-policy

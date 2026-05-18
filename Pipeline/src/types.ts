@@ -198,6 +198,14 @@ export interface CandidateProvider {
   batchGetRepositoryDetails?(repos: SearchRepository[]): Promise<Map<string, RepositoryDetails | Error>>;
 }
 
+export type MissingAliasError = Error & {
+  isMissingAlias: true;
+};
+
+export function isMissingAliasError(error: unknown): error is MissingAliasError {
+  return error instanceof Error && (error as Partial<MissingAliasError>).isMissingAlias === true;
+}
+
 export interface PipelineMetrics {
   criteriaCount: number;
   searchRequests: number;
@@ -206,6 +214,8 @@ export interface PipelineMetrics {
   activeRepositories: number;
   detailRequests: number;
   detailFailures: number;
+  missingRepoSkips: number;
+  missingRepoSkipNames: string[];
   patPolicyFailures: number;
   patPolicyFailureNames: string[];
   detailBatchCalls: number;
