@@ -6,6 +6,7 @@ import { loadSearchCriteria } from "./config.js";
 import { writeGeneratedRepositoryFilesAtomically } from "./generatedFiles.js";
 import { deduplicateByFullName, isRecentlyUpdated, normalizeRepositoryRecord, serializeRecords, sortByPopularity } from "./normalization.js";
 import { validateRecordsWithSchema } from "./schema.js";
+import { isMissingAliasError } from "./types.js";
 import type { CandidateProvider, GenerateResult, PipelineMetrics, RepositoryRecord } from "./types.js";
 
 export interface GenerateOptions {
@@ -99,6 +100,14 @@ export async function generateRepositoryDetails(options: GenerateOptions): Promi
         return null;
       }
       if (result instanceof Error) {
+        if (isMissingAliasError(result)) {
+          metrics.missingRepoSkips += 1;
+          metrics.missingRepoSkipNames.push(repository.fullName);
+          metrics.warnings.push(
+            `Skipping '${repository.fullName}' because it is no longer accessible (GraphQL alias absent): ${result.message}`
+          );
+          return null;
+        }
         if (isPatPolicyError(result)) {
           metrics.patPolicyFailures += 1;
           metrics.patPolicyFailureNames.push(repository.fullName);
@@ -172,6 +181,8 @@ function createMetrics(criteriaCount: number): PipelineMetrics {
     activeRepositories: 0,
     detailRequests: 0,
     detailFailures: 0,
+    missingRepoSkips: 0,
+    missingRepoSkipNames: [],
     patPolicyFailures: 0,
     patPolicyFailureNames: [],
     detailBatchCalls: 0,

@@ -1,0 +1,70 @@
+{
+  "schemaVersion": "1.0.0",
+  "generatedAt": "2026-05-18T12:38:20.047Z",
+  "status": "failed",
+  "inputs": {
+    "baselinePath": "/home/runner/work/PowerPlatform-OpenSource-Hub/PowerPlatform-OpenSource-Hub/Pipeline/.testsfixturescomparisonbaseline.json",
+    "candidatePath": "/home/runner/work/PowerPlatform-OpenSource-Hub/PowerPlatform-OpenSource-Hub/Pipeline/.testsfixturescomparisoncandidate.json",
+    "sentinelsPath": "/home/runner/work/PowerPlatform-OpenSource-Hub/PowerPlatform-OpenSource-Hub/Pipeline/.testsfixturescomparisonsentinels.json",
+    "repositoryCountDeltaThreshold": 0.15
+  },
+  "summary": {
+    "baselineCount": 0,
+    "candidateCount": 0,
+    "sentinelCount": 0,
+    "failureCount": 3,
+    "missingRepositories": 0,
+    "extraRepositories": 0,
+    "missingSentinels": 0,
+    "stableDifferences": 0,
+    "volatileDifferences": 0,
+    "ignoredDifferences": 0,
+    "repositoryCountDeltaPercent": 0
+  },
+  "failures": {
+    "invalidInputs": [
+      {
+        "input": "baseline",
+        "path": "/home/runner/work/PowerPlatform-OpenSource-Hub/PowerPlatform-OpenSource-Hub/Pipeline/.testsfixturescomparisonbaseline.json",
+        "reason": "ENOENT: no such file or directory, open '/home/runner/work/PowerPlatform-OpenSource-Hub/PowerPlatform-OpenSource-Hub/Pipeline/.testsfixturescomparisonbaseline.json'"
+      },
+      {
+        "input": "candidate",
+        "path": "/home/runner/work/PowerPlatform-OpenSource-Hub/PowerPlatform-OpenSource-Hub/Pipeline/.testsfixturescomparisoncandidate.json",
+        "reason": "ENOENT: no such file or directory, open '/home/runner/work/PowerPlatform-OpenSource-Hub/PowerPlatform-OpenSource-Hub/Pipeline/.testsfixturescomparisoncandidate.json'"
+      },
+      {
+        "input": "sentinels",
+        "path": "/home/runner/work/PowerPlatform-OpenSource-Hub/PowerPlatform-OpenSource-Hub/Pipeline/.testsfixturescomparisonsentinels.json",
+        "reason": "ENOENT: no such file or directory, open '/home/runner/work/PowerPlatform-OpenSource-Hub/PowerPlatform-OpenSource-Hub/Pipeline/.testsfixturescomparisonsentinels.json'"
+      }
+    ],
+    "duplicateFullNames": [],
+    "missingRepositories": [],
+    "extraRepositories": [],
+    "missingSentinels": {
+      "baseline": [],
+      "candidate": []
+    }
+  },
+  "differences": {
+    "stable": {
+      "total": 0,
+      "truncated": false,
+      "omitted": 0,
+      "items": []
+    },
+    "volatile": {
+      "total": 0,
+      "truncated": false,
+      "omitted": 0,
+      "items": []
+    },
+    "ignored": {
+      "total": 0,
+      "truncated": false,
+      "omitted": 0,
+      "items": []
+    }
+  }
+}

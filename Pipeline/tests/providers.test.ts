@@ -202,6 +202,26 @@ describe("OctokitRepositoryProvider.batchGetRepositoryDetails", () => {
     expect((bad as Error).message).toContain("Could not resolve to a Repository");
   });
 
+  it("tags a missing-alias error when GraphQL omits a repo alias with no errors", async () => {
+    const client = makeClient([
+      {
+        data: {
+          rateLimit: RATE_LIMIT_OK,
+          repo0: goodNode()
+        },
+        errors: []
+      }
+    ]);
+
+    const provider = new OctokitRepositoryProvider(client);
+    const results = await provider.batchGetRepositoryDetails([repo("owner/ok"), repo("owner/missing")]);
+
+    const r = results.get("owner/missing");
+    expect(r).toBeInstanceOf(Error);
+    expect((r as Error).message).toContain("GraphQL response missing alias 'repo1' for owner/missing");
+    expect((r as any).isMissingAlias).toBe(true);
+  });
+
   // ---------------------------------------------------------------------------
   // Root-level GraphQL errors (PAT-policy scenario)
   // ---------------------------------------------------------------------------

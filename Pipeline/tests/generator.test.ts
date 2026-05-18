@@ -166,6 +166,8 @@ describe("generateRepositoryDetails", () => {
       activeRepositories: 2,
       detailRequests: 2,
       detailFailures: 0,
+      missingRepoSkips: 0,
+      missingRepoSkipNames: [],
       generatedRecords: 2
     });
 
@@ -327,6 +329,34 @@ describe("generateRepositoryDetails", () => {
     expect(result.records.map((r) => r.fullName)).toEqual(["owner/ok"]);
     expect(result.metrics.detailFailures).toBe(1);
     expect(result.metrics.patPolicyFailures).toBe(0);
+  });
+
+  it("routes missing GraphQL aliases in batch path to missingRepoSkips", async () => {
+    const configPath = path.join(outputRoot, "criteria-batch-missing-alias.json");
+    const outputPath = path.join(outputRoot, "details-batch-missing-alias.json");
+    await writeFile(configPath, JSON.stringify([{ topic: "powerplatform", searchLimit: 3 }]), "utf8");
+
+    const missingAliasError = Object.assign(new Error("GraphQL response missing alias 'repo1' for owner/missing"), {
+      isMissingAlias: true as const
+    });
+
+    const result = await generateRepositoryDetails({
+      configPath,
+      outputPath,
+      schemaPath,
+      provider: new BatchFakeProvider(
+        { powerplatform: [searchRepository("owner/ok"), searchRepository("owner/missing")] },
+        { "owner/ok": repositoryDetails(20), "owner/missing": missingAliasError }
+      ),
+      now: new Date("2026-01-01T00:00:00Z"),
+      workflowRunId: "test-run"
+    });
+
+    expect(result.records.map((r) => r.fullName)).toEqual(["owner/ok"]);
+    expect(result.metrics.missingRepoSkips).toBe(1);
+    expect(result.metrics.missingRepoSkipNames).toEqual(["owner/missing"]);
+    expect(result.metrics.detailFailures).toBe(0);
+    expect(result.metrics.warnings.join("\n")).toContain("owner/missing");
   });
 
   it("routes PAT-policy errors in batch path to patPolicyFailures", async () => {

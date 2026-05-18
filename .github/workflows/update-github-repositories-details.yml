@@ -260,6 +260,11 @@ jobs:
           if (metricsPath && fs.existsSync(metricsPath)) {
             const metrics = JSON.parse(fs.readFileSync(metricsPath, 'utf8'));
             const failures = metrics.detailFailures ?? 0;
+            const missingRepoSkips = metrics.missingRepoSkips ?? 0;
+            if (missingRepoSkips > 0) {
+              const names = (metrics.missingRepoSkipNames ?? []).join(', ');
+              console.log(`::warning::TypeScript pipeline skipped ${missingRepoSkips} repo(s) whose GraphQL alias was absent (likely deleted/private). Affected: ${names}`);
+            }
             if (failures > 0) {
               blockingFailures.push(`TypeScript pipeline had ${failures} repository detail hydration failure(s); all must succeed in production live mode`);
             }
