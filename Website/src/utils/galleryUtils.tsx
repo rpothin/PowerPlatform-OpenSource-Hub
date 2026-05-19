@@ -150,7 +150,7 @@ export function filterItems(items: Repository[], filterParams: FilterParams): Re
  * @param {Array} selectedOptions - The selected options for sorting.
  * @returns {Array} - The sorted array of items.
  */
-export function sortItems(items, selectedOptions) {
+export function sortItems(items: Repository[], selectedOptions: string[]): Repository[] {
     const itemsCopy = [...items]; // Create a copy of the array
     const selectedOption = selectedOptions[0];
     const compareByFullName = (a: Repository, b: Repository) => a.fullName.localeCompare(b.fullName);
@@ -199,9 +199,17 @@ export function sortItems(items, selectedOptions) {
  * @param {string} dateString - The date string to check.
  * @returns {boolean} - True if the date is within the last 10 days, false otherwise.
  */
-export function isActive(dateString) {
+export function isActive(dateString: string | null | undefined): boolean {
+    if (!dateString) {
+        return false;
+    }
+
     const date = new Date(dateString);
-    const thirtyDaysAgo = new Date();
-    thirtyDaysAgo.setDate(thirtyDaysAgo.getDate() - 10);
-    return date >= thirtyDaysAgo;
+    if (Number.isNaN(date.getTime())) {
+        return false;
+    }
+
+    const tenDaysAgo = new Date();
+    tenDaysAgo.setDate(tenDaysAgo.getDate() - 10);
+    return date >= tenDaysAgo;
 }
