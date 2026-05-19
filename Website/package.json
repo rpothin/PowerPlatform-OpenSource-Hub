@@ -19,28 +19,27 @@
   },
   "dependencies": {
     "@docusaurus/core": "^3.10.1",
-    "@docusaurus/plugin-client-redirects": "^3.10.1",
     "@docusaurus/plugin-content-docs": "^3.10.1",
     "@docusaurus/preset-classic": "^3.10.1",
     "@docusaurus/theme-common": "^3.10.1",
-    "@fluentui/react-components": "^9.73.4",
-    "@fluentui/react-icons": "^2.0.321",
+    "@fluentui/react-components": "^9.73.8",
+    "@fluentui/react-icons": "^2.0.326",
     "@types/date-fns": "^2.6.3",
     "clsx": "^2.1.1",
-    "date-fns": "^4.1.0",
-    "fuse.js": "^7.1.0",
+    "date-fns": "^4.2.1",
+    "fuse.js": "^7.3.0",
     "prism-react-renderer": "^2.4.1",
-    "react": "^19.2.4",
-    "react-dom": "^19.2.4"
+    "react": "^19.2.6",
+    "react-dom": "^19.2.6"
   },
   "devDependencies": {
     "@docusaurus/tsconfig": "^3.10.1",
     "@docusaurus/types": "^3.10.1",
     "@types/jest": "^30.0.0",
-    "jest": "^30.3.0",
-    "ts-jest": "^29.4.6",
+    "jest": "^30.4.2",
+    "ts-jest": "^29.4.10",
     "ts-node": "^10.9.2",
-    "typescript": "^5.9.3"
+    "typescript": "^6.0.3"
   },
   "browserslist": {
     "production": [
