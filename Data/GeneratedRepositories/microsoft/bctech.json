@@ -30,7 +30,7 @@
   },
   "forkCount": 381,
   "fundingLinks": [],
-  "isSecurityPolicyEnabled": false,
+  "isSecurityPolicyEnabled": true,
   "isTemplate": false,
   "latestRelease": {
     "name": "D365BC Troubleshooting Guides (TSG)",
@@ -41,7 +41,7 @@
   "primaryLanguage": {
     "name": "AL"
   },
-  "securityPolicyUrl": null,
+  "securityPolicyUrl": "https://github.com/microsoft/BCTech/security/policy",
   "stargazerCount": 728,
   "watchers": {
     "totalCount": 116
@@ -63,6 +63,6 @@
   "openedToContributionsIssues": 0,
   "popularityScore": 844,
   "_schemaVersion": "1.0.0",
-  "_generatedAt": "2026-05-20T11:59:38.094Z",
-  "_workflowRunId": "26161060479"
+  "_generatedAt": "2026-05-21T12:05:51.774Z",
+  "_workflowRunId": "26224837636"
 }
