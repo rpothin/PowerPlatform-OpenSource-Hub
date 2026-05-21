@@ -35,6 +35,8 @@ function normalizeCriterion(item: unknown, index: number, configPath: string): S
 
   const topic = item.topic ?? item.Topic;
   const searchLimit = item.searchLimit ?? item.SearchLimit;
+  const hasMinStars = Object.hasOwn(item, "minStars") || Object.hasOwn(item, "MinStars");
+  const minStars = item.minStars ?? item.MinStars;
 
   if (typeof topic !== "string" || topic.trim() === "") {
     throw new Error(`Search criterion ${index} in '${configPath}' must include a non-empty topic.`);
@@ -48,5 +50,11 @@ function normalizeCriterion(item: unknown, index: number, configPath: string): S
     throw new Error(`Search criterion '${topic}' in '${configPath}' must include searchLimit between 1 and 1000.`);
   }
 
-  return { topic, searchLimit };
+  if (hasMinStars) {
+    if (typeof minStars !== "number" || !Number.isInteger(minStars) || minStars < 1) {
+      throw new Error(`Search criterion '${topic}' in '${configPath}' has invalid minStars: must be a positive integer.`);
+    }
+  }
+
+  return { topic, searchLimit, ...(hasMinStars ? { minStars: minStars as number } : {}) };
 }

@@ -1,27 +1,33 @@
 [
     {
         "topic": "powerplatform",
-        "searchLimit": 200
+        "searchLimit": 200,
+        "minStars": 5
     },
     {
         "topic": "power-platform",
-        "searchLimit": 100
+        "searchLimit": 100,
+        "minStars": 5
     },
     {
         "topic": "powerapps",
-        "searchLimit": 300
+        "searchLimit": 300,
+        "minStars": 5
     },
     {
         "topic": "power-apps",
-        "searchLimit": 100
+        "searchLimit": 100,
+        "minStars": 5
     },
     {
         "topic": "powerautomate",
-        "searchLimit": 200
+        "searchLimit": 200,
+        "minStars": 5
     },
     {
         "topic": "power-automate",
-        "searchLimit": 100
+        "searchLimit": 100,
+        "minStars": 5
     },
     {
         "topic": "powervirtualagent",
@@ -33,7 +39,8 @@
     },
     {
         "topic": "dataverse",
-        "searchLimit": 200
+        "searchLimit": 200,
+        "minStars": 5
     },
     {
         "topic": "microsoft-dataverse",
@@ -53,7 +60,8 @@
     },
     {
         "topic": "dynamics-365",
-        "searchLimit": 500
+        "searchLimit": 500,
+        "minStars": 5
     },
     {
         "topic": "pcf-controls",
@@ -69,7 +77,8 @@
     },
     {
         "topic": "copilot-studio",
-        "searchLimit": 50
+        "searchLimit": 50,
+        "minStars": 5
     },
     {
         "topic": "microsoft-copilot-studio",

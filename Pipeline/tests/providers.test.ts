@@ -486,3 +486,57 @@ describe("OctokitRepositoryProvider.batchGetRepositoryDetails", () => {
     expect((r as Error).message).not.toContain("Repository not found");
   });
 });
+
+// ---------------------------------------------------------------------------
+// searchRepositories — query building
+// ---------------------------------------------------------------------------
+
+describe("OctokitRepositoryProvider.searchRepositories", () => {
+  function makeSearchClient(capturedQueries: string[]): GitHubClient {
+    return {
+      rest: {
+        search: {
+          repos(params: Record<string, string | number>) {
+            capturedQueries.push(params["q"] as string);
+            return Promise.resolve({ data: { items: [] } });
+          },
+          issuesAndPullRequests: () => Promise.resolve({ data: { total_count: 0 } })
+        },
+        repos: {} as GitHubClient["rest"]["repos"]
+      } as GitHubClient["rest"],
+      request<T>(): Promise<{ data: T }> {
+        return Promise.resolve({ data: {} as T });
+      }
+    };
+  }
+
+  it("builds a plain query when minStars is not set", async () => {
+    const capturedQueries: string[] = [];
+    const client = makeSearchClient(capturedQueries);
+    const provider = new OctokitRepositoryProvider(client);
+
+    await provider.searchRepositories({ topic: "powerplatform", searchLimit: 10 });
+
+    expect(capturedQueries[0]).toBe("topic:powerplatform is:public");
+  });
+
+  it("appends stars qualifier when minStars is set", async () => {
+    const capturedQueries: string[] = [];
+    const client = makeSearchClient(capturedQueries);
+    const provider = new OctokitRepositoryProvider(client);
+
+    await provider.searchRepositories({ topic: "powerplatform", searchLimit: 10, minStars: 5 });
+
+    expect(capturedQueries[0]).toBe("topic:powerplatform is:public stars:>=5");
+  });
+
+  it("does not append stars qualifier when minStars is undefined", async () => {
+    const capturedQueries: string[] = [];
+    const client = makeSearchClient(capturedQueries);
+    const provider = new OctokitRepositoryProvider(client);
+
+    await provider.searchRepositories({ topic: "dataverse", searchLimit: 5, minStars: undefined });
+
+    expect(capturedQueries[0]).toBe("topic:dataverse is:public");
+  });
+});
