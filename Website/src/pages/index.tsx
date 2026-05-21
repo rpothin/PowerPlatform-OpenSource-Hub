@@ -154,7 +154,7 @@ const App = () => {
     />
   );
 
-  return isFilterStateInitialized ? (
+  return (
     <FluentProvider theme={colorMode === 'dark' ? webDarkTheme : webLightTheme}>
       <header className={clsx('hero hero--primary', styles.heroBanner)}>
         <div className="container" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column' }}>
@@ -233,14 +233,17 @@ const App = () => {
         </div>
       </main>
     </FluentProvider>
-  ) : null;
+  );
 };
 
-export default function HomePage(): JSX.Element {
+export default function HomePage(): React.JSX.Element {
   const { siteConfig } = useDocusaurusContext();
 
   return (
-    <Layout title={`${siteConfig.title}`} description="Discover 200+ open-source projects for Microsoft Power Platform and Copilot Studio — searchable, filterable, and community-driven.">
+    <Layout
+      title="Discover Open-Source Power Platform Projects"
+      description="Explore 200+ open-source projects for Microsoft Power Platform and Copilot Studio — Power Apps, Power Automate, Dataverse, and more. Searchable, filterable, and community-driven."
+    >
       <App />
     </Layout>
   );

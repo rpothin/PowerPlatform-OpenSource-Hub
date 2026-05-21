@@ -4,8 +4,8 @@
   "compilerOptions": {
     "resolveJsonModule": true,
     "jsx": "react",
-    "baseUrl": ".",
-    "types": ["jest"]
+    "ignoreDeprecations": "6.0",
+    "types": ["jest", "react"]
   },
   "include": [
     "src/**/*.ts",

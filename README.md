@@ -29,12 +29,14 @@
 
 <h3 align="center">
   <a href="https://github.com/rpothin/PowerPlatform-OpenSource-Hub/discussions/new/choose">📢 Start a discussion</a>
+  &nbsp;·&nbsp;
+  <a href="https://rpothin.github.io/PowerPlatform-OpenSource-Hub/">🌐 Explore the Hub →</a>
 </h3>
 
 ## 🏡 What is the PowerPlatform-OpenSource-Hub project?
 
 Having a thriving open-source ecosystem is a team sport.
-The Power Platform community should feel lucky, because we already have amazing open-source projects.
+The Power Platform community should feel lucky, because we already have amazing Power Platform open-source projects — from Power Apps components and Power Automate flows to Copilot Studio samples and tools.
 
 But it is not necessarily simple to navigate into this amazing world full of opportunities.
 The goal of this repository is to try to simplify your journey in Power Platform open-source ecosystem and also to help accelerate its growth.
