@@ -401,8 +401,6 @@ const Gallery = ({
                                     }
                                 </Text>
 
-                                {renderRelaunchBadges(item, 'card')}
-
                                 <div style={{ display: 'flex', flexWrap: 'wrap' }}>
                                     {item.topics.slice(0, 4).map((topic, index) => (
                                         renderTopicBadge(topic, `${topic}-${index}`, 'topic-badge')
