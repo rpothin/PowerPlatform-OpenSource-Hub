@@ -1,15 +1,12 @@
 # To execute these tests run the following command from the root of the repository: Invoke-Pester -Script .\Scripts\Tests\Export-GitHubRepositoriesDetails.Tests.ps1
 
-# Set a script-scoped variable with the path of the executing script
-$script:executingTestPath = Split-Path -Parent $MyInvocation.MyCommand.Path
-
 BeforeAll {
     # Import Export-GitHubRepositoriesDetails function
-    Import-Module $script:executingTestPath/../Export-GitHubRepositoriesDetails.ps1 -Force
+    Import-Module $PSScriptRoot/../Export-GitHubRepositoriesDetails.ps1 -Force
 
     # Import required modules
-    Import-Module $script:executingTestPath/../../Scripts/Search-GitHubRepositories.ps1 -Force
-    Import-Module $script:executingTestPath/../../Scripts/Get-GitHubRepositoryDetails.ps1 -Force
+    Import-Module $PSScriptRoot/../../Scripts/Search-GitHubRepositories.ps1 -Force
+    Import-Module $PSScriptRoot/../../Scripts/Get-GitHubRepositoryDetails.ps1 -Force
 }
 
 Describe "Export-GitHubRepositoriesDetails Unit Tests" {
@@ -31,7 +28,7 @@ Describe "Export-GitHubRepositoriesDetails Unit Tests" {
         BeforeEach {
             Mock Test-Path { $true }
 
-            Import-Module $script:executingTestPath/../Search-GitHubRepositories.ps1 -Force
+            Import-Module $PSScriptRoot/../Search-GitHubRepositories.ps1 -Force
             Mock Search-GitHubRepositories {
                 @(
                     [PSCustomObject]@{
@@ -125,7 +122,7 @@ Describe "Export-GitHubRepositoriesDetails Unit Tests" {
                 }
             }
 
-            Import-Module $script:executingTestPath/../../Scripts/Get-GitHubRepositoryDetails.ps1 -Force
+            Import-Module $PSScriptRoot/../../Scripts/Get-GitHubRepositoryDetails.ps1 -Force
             Mock Get-GitHubRepositoryDetails {
                 [PSCustomObject]@{}
             }
@@ -245,8 +242,8 @@ Describe "Export-GitHubRepositoriesDetails Unit Tests" {
 
     Context "Committed data validation" {
         It "Should keep the committed repository details data aligned with the schema" {
-            $schemaFilePath = Join-Path -Path $script:executingTestPath -ChildPath "../../Configuration/Schemas/GitHubRepositoriesDetails.schema.json"
-            $dataFilePath = Join-Path -Path $script:executingTestPath -ChildPath "../../Data/GitHubRepositoriesDetails.json"
+            $schemaFilePath = Join-Path -Path $PSScriptRoot -ChildPath "../../Configuration/Schemas/GitHubRepositoriesDetails.schema.json"
+            $dataFilePath = Join-Path -Path $PSScriptRoot -ChildPath "../../Data/GitHubRepositoriesDetails.json"
 
             $dataAsJson = Get-Content -Path $dataFilePath -Raw
             $dataAsJson | Test-Json -SchemaFile $schemaFilePath | Should -Be $true
