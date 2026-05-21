@@ -530,12 +530,12 @@ describe("OctokitRepositoryProvider.searchRepositories", () => {
     expect(capturedQueries[0]).toBe("topic:powerplatform is:public stars:>=5");
   });
 
-  it("does not append stars qualifier when minStars is undefined", async () => {
+  it("does not append stars qualifier when minStars is omitted", async () => {
     const capturedQueries: string[] = [];
     const client = makeSearchClient(capturedQueries);
     const provider = new OctokitRepositoryProvider(client);
 
-    await provider.searchRepositories({ topic: "dataverse", searchLimit: 5, minStars: undefined });
+    await provider.searchRepositories({ topic: "dataverse", searchLimit: 5 });
 
     expect(capturedQueries[0]).toBe("topic:dataverse is:public");
   });
