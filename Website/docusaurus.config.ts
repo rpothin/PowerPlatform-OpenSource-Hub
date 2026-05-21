@@ -43,11 +43,7 @@ const config: Config = {
           editUrl:
             'https://github.com/rpothin/PowerPlatform-OpenSource-Hub/edit/main/Website/',
         },
-        blog: {
-          showReadingTime: true,
-          editUrl:
-            'https://github.com/rpothin/PowerPlatform-OpenSource-Hub/edit/main/website/blog/',
-        },
+        blog: false,
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
         },
@@ -76,6 +72,10 @@ const config: Config = {
   themeConfig: {
     // Replace with your project's social card
     image: 'img/docusaurus-social-card.jpg',
+    metadata: [
+      { property: 'og:type', content: 'website' },
+      { name: 'twitter:card', content: 'summary_large_image' },
+    ],
     navbar: {
       title: 'Power Platform OSS Hub',
       logo: {

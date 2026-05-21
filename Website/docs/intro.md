@@ -1,5 +1,6 @@
 ---
 sidebar_position: 1
+description: "Learn how the Power Platform Open-Source Hub works — a daily-updated, community-driven directory of open-source projects for Power Platform and Copilot Studio."
 ---
 
 # Power Platform Open-Source Hub Presentation

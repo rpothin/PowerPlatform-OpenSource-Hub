@@ -1,5 +1,6 @@
 ---
 sidebar_position: 1
+description: "Join the Power Platform open-source community — find solutions, contribute to projects, and list your own repository in the hub."
 ---
 
 # Community
