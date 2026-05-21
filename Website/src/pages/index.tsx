@@ -236,7 +236,7 @@ const App = () => {
   );
 };
 
-export default function HomePage(): JSX.Element {
+export default function HomePage(): React.JSX.Element {
   const { siteConfig } = useDocusaurusContext();
 
   return (

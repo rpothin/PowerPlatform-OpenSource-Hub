@@ -37,7 +37,7 @@ const buildMetadata = (repository: Repository): string[] => {
   return metadata;
 };
 
-export default function CategoryRepositoryList({ categoryId }: CategoryRepositoryListProps): JSX.Element {
+export default function CategoryRepositoryList({ categoryId }: CategoryRepositoryListProps): React.JSX.Element {
   const category = categories.find((entry) => entry.value === categoryId);
   const repositories = (data as Repository[])
     .filter((repository) => !repository.exclude && repository.category === categoryId)

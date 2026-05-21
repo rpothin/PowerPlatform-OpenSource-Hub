@@ -115,7 +115,7 @@ const Gallery = ({
     });
     useEffect(() => { setPage(1); }, [filterKey]);
 
-    const openDialog = (item) => {
+    const openDialog = (item: Repository) => {
         setSelectedItem(item);
         setHideDialog(false);
     }
@@ -124,7 +124,7 @@ const Gallery = ({
         setHideDialog(true);
     }
 
-    const openInGitHub = (url) => {
+    const openInGitHub = (url: string) => {
         window.open(url, "_blank");
     }
 
@@ -503,7 +503,7 @@ const Gallery = ({
                                 <div className={styles.dialogStats}>
                                     {isActive(selectedItem?.updatedAt) && (
                                         <Tooltip
-                                            content={`Last update on: ${format(new Date(selectedItem?.updatedAt), 'yyyy-MM-dd')}`}
+                                            content={`Last update on: ${format(new Date(selectedItem!.updatedAt), 'yyyy-MM-dd')}`}
                                             relationship="label"
                                         >
                                             <Badge data-testid="dialog-active-badge" appearance="outline">🔥 Active</Badge>
@@ -515,8 +515,8 @@ const Gallery = ({
                                     <Badge data-testid="dialog-watchers-badge" appearance="outline" icon={<Eye16Filled />}>
                                         {selectedItem?.watchers.totalCount}
                                     </Badge>
-                                    {selectedItem?.forkCount > 0 && (
-                                        <Badge appearance="outline">⑂ {selectedItem.forkCount}</Badge>
+                                    {(selectedItem?.forkCount ?? 0) > 0 && (
+                                        <Badge appearance="outline">⑂ {selectedItem!.forkCount}</Badge>
                                     )}
                                 </div>
 
@@ -570,10 +570,10 @@ const Gallery = ({
                                         </div>
                                         {/* Right column: open issues, good 1st issues, help wanted issues */}
                                         <div>
-                                            {selectedItem?.openIssuesCount > 0 && (
+                                            {(selectedItem?.openIssuesCount ?? 0) > 0 && (
                                                 <div className={styles.dialogDetailsRow}>
                                                     <span className={styles.dialogDetailsLabel}>Open Issues:</span>{' '}
-                                                    <span className={styles.dialogDetailsValue}>{selectedItem.openIssuesCount}</span>
+                                                    <span className={styles.dialogDetailsValue}>{selectedItem!.openIssuesCount}</span>
                                                 </div>
                                             )}
                                             <div data-testid="dialog-good-first-issues-badge" className={styles.dialogDetailsRow}>
@@ -595,11 +595,11 @@ const Gallery = ({
                                 </div>
 
                                 {/* Row 4: Topics */}
-                                {selectedItem?.topics.length > 0 && (
+                                {(selectedItem?.topics?.length ?? 0) > 0 && (
                                     <div>
                                         <span className={styles.dialogSectionTitle}>Topics</span>
                                         <div className={styles.dialogTopicList}>
-                                            {selectedItem.topics.map((topic, index) => (
+                                            {selectedItem!.topics.map((topic, index) => (
                                                 renderTopicBadge(topic, `dialog-${topic}-${index}`, 'dialog-topic-badge', '0px')
                                             ))}
                                         </div>
@@ -609,7 +609,7 @@ const Gallery = ({
                         </DialogContent>
                         <DialogActions>
                             <Button data-testid="dialog-close-button" appearance="secondary" onClick={closeDialog}>Close</Button>
-                            <Button data-testid="dialog-open-in-github-button" data-repository-url={selectedItem?.url} appearance="primary" onClick={() => openInGitHub(selectedItem?.url)}>Open in GitHub</Button>
+                            <Button data-testid="dialog-open-in-github-button" data-repository-url={selectedItem?.url} appearance="primary" onClick={() => openInGitHub(selectedItem!.url)}>Open in GitHub</Button>
                         </DialogActions>
                     </DialogBody>
                 </DialogSurface>
