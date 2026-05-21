@@ -183,7 +183,16 @@ function Export-GitHubRepositoriesDetails {
             Wait-GitHubRateLimit -RateLimit $githubApiRateLimit -ResourceNames @("search") -MaximumWaitSeconds $MaximumRateLimitWaitSeconds
 
             # Search GitHub repositories based on the topic and the search limit defined in the configuration file
-            $repositoriesFound = Search-GitHubRepositories -Topic $repositoriesSearchCriterion.Topic -SearchLimit $repositoriesSearchCriterion.SearchLimit
+            $searchParams = @{
+                Topic = $repositoriesSearchCriterion.Topic
+                SearchLimit = $repositoriesSearchCriterion.SearchLimit
+            }
+
+            if ($null -ne $repositoriesSearchCriterion.MinStars -and $repositoriesSearchCriterion.MinStars -gt 0) {
+                $searchParams.MinStars = [int]$repositoriesSearchCriterion.MinStars
+            }
+
+            $repositoriesFound = Search-GitHubRepositories @searchParams
 
             # If number of repositories found is equal to the search limit, write a warning
             if ($repositoriesFound.count -eq $repositoriesSearchCriterion.SearchLimit) {

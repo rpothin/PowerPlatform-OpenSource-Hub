@@ -17,6 +17,11 @@ function Search-GitHubRepositories {
             Limit on the maximum number of repositories we will search for through the GitHub CLI.
             The value need to be between 1 and 1000 to be compliant with the GitHub CLI search repos command definition.
 
+        .PARAMETER MinStars
+            Optional minimum star count to pre-filter repositories at search time.
+            When provided, appends 'stars:>=N' to the search query.
+            Must be a positive integer if specified.
+
         .INPUTS
             None. You cannot pipe objects to Search-GitHubRepositories.
 
@@ -51,7 +56,12 @@ function Search-GitHubRepositories {
         # Limit on the maximum number of repositories we will search for through the GitHub CLI.
         [Parameter(Mandatory = $true)]
         [ValidateRange(1,1000)]
-        [int]$SearchLimit
+        [int]$SearchLimit,
+
+        # Optional minimum star count pre-filter.
+        [Parameter(Mandatory = $false)]
+        [ValidateScript({ $_ -gt 0 })]
+        [int]$MinStars
     )
 
     Process{
@@ -63,10 +73,14 @@ function Search-GitHubRepositories {
         # Initialize an empty array to store the results
         $repositories = @()
 
-        # Search the GitHub repositories based on the provided parameters
-        $repositories = Invoke-GhCli -Arguments @(
-            "search",
-            "repos",
+        # Build the search arguments, optionally including a stars qualifier
+        $searchArguments = @("search", "repos")
+
+        if ($PSBoundParameters.ContainsKey('MinStars')) {
+            $searchArguments += "stars:>=$MinStars"
+        }
+
+        $searchArguments += @(
             "--topic",
             $Topic,
             "--visibility",
@@ -75,7 +89,10 @@ function Search-GitHubRepositories {
             $SearchLimit,
             "--json",
             "description,fullName,homepage,language,license,name,hasIssues,openIssuesCount,owner,createdAt,updatedAt,url,isArchived"
-        ) | ConvertFrom-Json
+        )
+
+        # Search the GitHub repositories based on the provided parameters
+        $repositories = Invoke-GhCli -Arguments $searchArguments | ConvertFrom-Json
 
         # Return the results
         $repositories

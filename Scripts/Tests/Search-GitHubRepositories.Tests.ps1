@@ -24,6 +24,16 @@ Describe "Search-GitHubRepositories Unit Tests" {
             $result = { Search-GitHubRepositories -Topic "validtopic" -SearchLimit 1001 } | Should -Throw -PassThru
             $result.Exception.Message | Should -Be "Cannot validate argument on parameter 'SearchLimit'. The 1001 argument is greater than the maximum allowed range of 1000. Supply an argument that is less than or equal to 1000 and then try the command again."
         }
+
+        It "Should throw an error if MinStars is not a positive integer (zero)" {
+            $result = { Search-GitHubRepositories -Topic "validtopic" -SearchLimit 10 -MinStars 0 } | Should -Throw -PassThru
+            $result.Exception.Message | Should -Match "MinStars"
+        }
+
+        It "Should throw an error if MinStars is negative" {
+            $result = { Search-GitHubRepositories -Topic "validtopic" -SearchLimit 10 -MinStars -5 } | Should -Throw -PassThru
+            $result.Exception.Message | Should -Match "MinStars"
+        }
     }
 
     Context "Valid execution with a mocked gh command" {
@@ -64,6 +74,30 @@ Describe "Search-GitHubRepositories Unit Tests" {
             $result[0].fullName | Should -Be "anonymised/Anonymised"
             $result[0].language | Should -Be "Anonymised Language"
             $result.count | Should -Be 1
+        }
+
+        It "Should include stars qualifier in gh arguments when MinStars is provided" {
+            $capturedArguments = $null
+            Mock Invoke-GhCli {
+                param($Arguments)
+                $script:capturedArguments = $Arguments
+                "[]"
+            }
+
+            Search-GitHubRepositories -Topic "validtopic" -SearchLimit 1 -MinStars 5
+            $script:capturedArguments | Should -Contain "stars:>=5"
+        }
+
+        It "Should not include stars qualifier in gh arguments when MinStars is not provided" {
+            $capturedArguments = $null
+            Mock Invoke-GhCli {
+                param($Arguments)
+                $script:capturedArguments = $Arguments
+                "[]"
+            }
+
+            Search-GitHubRepositories -Topic "validtopic" -SearchLimit 1
+            $script:capturedArguments | Should -Not -Contain "stars:>=5"
         }
     }
 }

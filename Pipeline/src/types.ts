@@ -3,6 +3,7 @@ export const SCHEMA_VERSION = "1.0.0";
 export interface SearchCriterion {
   topic: string;
   searchLimit: number;
+  minStars?: number;
 }
 
 export type RepositoryId = string | number;

@@ -179,8 +179,9 @@ export class OctokitRepositoryProvider implements CandidateProvider {
     while (repositories.length < criterion.searchLimit) {
       const remaining = criterion.searchLimit - repositories.length;
       const perPage = Math.min(100, remaining);
+      const starsQualifier = criterion.minStars !== undefined && criterion.minStars > 0 ? ` stars:>=${criterion.minStars}` : "";
       const response = await this.client.rest.search.repos({
-        q: `topic:${criterion.topic} is:public`,
+        q: `topic:${criterion.topic} is:public${starsQualifier}`,
         per_page: perPage,
         page
       });
