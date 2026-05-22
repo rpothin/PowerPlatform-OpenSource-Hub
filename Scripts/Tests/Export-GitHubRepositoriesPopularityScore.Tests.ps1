@@ -203,9 +203,9 @@ Describe "Export-GitHubRepositoriesPopularityScore Unit Tests" {
 
     Context "Metadata output file" {
         BeforeEach {
-            $inputFilePath = "C:\path\to\input.json"
-            $outputFilePath = "C:\path\to\output.json"
-            $metadataOutputFilePath = "C:\path\to\metadata.json"
+            $script:inputFilePath = "C:\path\to\input.json"
+            $script:outputFilePath = "C:\path\to\output.json"
+            $script:metadataOutputFilePath = "C:\path\to\metadata.json"
 
             Mock Test-Path { $true }
 
@@ -219,35 +219,33 @@ Describe "Export-GitHubRepositoriesPopularityScore Unit Tests" {
         }
 
         It "When -MetadataOutputFilePath is provided, Out-File should be called twice (once for snapshot, once for metadata)" {
-            Export-GitHubRepositoriesPopularityScore -InputFilePath $inputFilePath -OutputFilePath $outputFilePath -MetadataOutputFilePath $metadataOutputFilePath
+            Export-GitHubRepositoriesPopularityScore -InputFilePath $script:inputFilePath -OutputFilePath $script:outputFilePath -MetadataOutputFilePath $script:metadataOutputFilePath
             Assert-MockCalled Out-File -Times 2 -Exactly
         }
 
         It "When -MetadataOutputFilePath is provided, the metadata content contains _snapshotTakenAt" {
-            $capturedContent = $null
+            $script:capturedContent = $null
             Mock Out-File {
                 param($FilePath, $InputObject)
-                if ($FilePath -eq $metadataOutputFilePath) {
+                if ($FilePath -eq $script:metadataOutputFilePath) {
                     $script:capturedContent = $InputObject
                 }
-            } -ParameterFilter { $FilePath -eq $metadataOutputFilePath }
+            } -ParameterFilter { $FilePath -eq $script:metadataOutputFilePath }
 
-            Export-GitHubRepositoriesPopularityScore -InputFilePath $inputFilePath -OutputFilePath $outputFilePath -MetadataOutputFilePath $metadataOutputFilePath
+            Export-GitHubRepositoriesPopularityScore -InputFilePath $script:inputFilePath -OutputFilePath $script:outputFilePath -MetadataOutputFilePath $script:metadataOutputFilePath
             $script:capturedContent | Should -Not -BeNullOrEmpty
             $script:capturedContent | Should -Match '_snapshotTakenAt'
         }
 
         It "When -MetadataOutputFilePath is provided, _snapshotTakenAt is a valid ISO 8601 string" {
-            $capturedContent = $null
             Mock Out-File {
                 param($FilePath)
-                if ($FilePath -eq $metadataOutputFilePath) {
-                    # Capture the piped input via $_ / $Input is not available, so check the actual timestamp separately
+                if ($FilePath -eq $script:metadataOutputFilePath) {
                     $script:capturedTimestamp = [System.DateTime]::UtcNow.ToString("o")
                 }
-            } -ParameterFilter { $FilePath -eq $metadataOutputFilePath }
+            } -ParameterFilter { $FilePath -eq $script:metadataOutputFilePath }
 
-            Export-GitHubRepositoriesPopularityScore -InputFilePath $inputFilePath -OutputFilePath $outputFilePath -MetadataOutputFilePath $metadataOutputFilePath
+            Export-GitHubRepositoriesPopularityScore -InputFilePath $script:inputFilePath -OutputFilePath $script:outputFilePath -MetadataOutputFilePath $script:metadataOutputFilePath
 
             # Verify the generated timestamp is a parseable ISO 8601 date
             $parsed = [System.DateTime]::Parse($script:capturedTimestamp, $null, [System.Globalization.DateTimeStyles]::RoundtripKind)
@@ -256,7 +254,7 @@ Describe "Export-GitHubRepositoriesPopularityScore Unit Tests" {
         }
 
         It "When -MetadataOutputFilePath is omitted, Out-File should be called only once (for the snapshot)" {
-            Export-GitHubRepositoriesPopularityScore -InputFilePath $inputFilePath -OutputFilePath $outputFilePath
+            Export-GitHubRepositoriesPopularityScore -InputFilePath $script:inputFilePath -OutputFilePath $script:outputFilePath
             Assert-MockCalled Out-File -Times 1 -Exactly
         }
     }
