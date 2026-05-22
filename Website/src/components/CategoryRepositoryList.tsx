@@ -44,7 +44,7 @@ export default function CategoryRepositoryList({ categoryId }: CategoryRepositor
     .sort((left, right) =>
       right.stargazerCount - left.stargazerCount || left.fullName.localeCompare(right.fullName),
     );
-  const galleryFilterUrl = `/?categories=${encodeURIComponent(categoryId)}`;
+  const galleryFilterUrl = `/gallery?categories=${encodeURIComponent(categoryId)}`;
 
   return (
     <section aria-labelledby={`category-${categoryId}-repositories`}>

@@ -100,7 +100,7 @@ test('Validate the footer of the website', async ({ page }) => {
 
 // Validate that when I enter a search term, the count of repositories found is updated (smaller than the one before entering the search term)
 test('Validate the count of repositories found when I enter a search term', async ({ page }) => {
-  await page.goto('/');
+  await page.goto('/gallery');
 
   // Extract the initial count of repositories found (before entering the search term)
   const initialCount = await getCountOfRepositories(page);
@@ -123,7 +123,7 @@ test('Validate the count of repositories found when I enter a search term', asyn
 // - only the "Repository Signals" section is expanded
 // - the "Repository Signals" section contains the expected checkboxes
 test('Validate the filter pane default presentation', async ({ page }) => {
-  await page.goto('/');
+  await page.goto('/gallery');
 
   // Array of the expected sections (the order is important)
   // Categories, Focus Areas, and Audiences are conditionally rendered when the data contains values for them
@@ -200,7 +200,7 @@ test('Validate the filter pane default presentation', async ({ page }) => {
 
 // Validate that all sections in the filter pane can be expanded/collapsed
 test('Validate that all sections in the filter pane can be expanded / collapsed', async ({ page }) => {
-  await page.goto('/');
+  await page.goto('/gallery');
 
   // Validate that any section in the filter pane can be expanded/collapsed
   // The button element in each section has a "aria-expanded" attribute allowing to know if the section is expanded or not
@@ -233,7 +233,7 @@ test('Validate that all sections in the filter pane can be expanded / collapsed'
 
 // Validate that when I check a checkbox in the filter pane, the count presented in the checkbox label is equal to the count of repositories found
 test('Validate that when I check a checkbox in the filter pane, the count presented in the checkbox label is equal to the count of repositories found', async ({ page }) => {
-  await page.goto('/');
+  await page.goto('/gallery');
 
   // Get a random section and a random checkbox within that section, excluding the "Languages" section
   const { section, header, checkbox } = await getRandomSectionAndCheckbox(page);
@@ -259,7 +259,7 @@ test('Validate that when I check a checkbox in the filter pane, the count presen
 // - the checkbox is checked when we click on it
 // - the checkbox is still checked when we collapse then expand the section where the checkbox is
 test('Validate the visual behavior of a checkbox', async ({ page }) => {
-  await page.goto('/');
+  await page.goto('/gallery');
 
   // Get a random section and a random checkbox within that section
   const { section, header, checkbox } = await getRandomSectionAndCheckbox(page);
@@ -296,7 +296,7 @@ test('Validate the visual behavior of a checkbox', async ({ page }) => {
 // - the checboxes are presented in descending order based on the count of repositories found
 // - if there are more than 10 checkboxes available, there is a "View All" button at the end of the list
 test('Validate the presentation of the checkboxes in the sections of the filter pane with a dynamic list of checkboxes', async ({ page }) => {
-  await page.goto('/');
+  await page.goto('/gallery');
 
   // Get all the sections in the filter pane
   const sections = (await getAllSections(page))
@@ -342,7 +342,7 @@ test('Validate the presentation of the checkboxes in the sections of the filter 
 // - the checboxes are still presented in descending order based on the count of repositories found
 // - when I click on the "View Less" button, the list of checkboxes is collapsed (new count of checkboxes is equal to the initial count)
 test('Validate the "View All" and "View Less" buttons in the filter pane in all relevant sections', async ({ page }) => {
-  await page.goto('/');
+  await page.goto('/gallery');
 
   // Get all sections
   const sections = await getAllSections(page);
@@ -413,7 +413,7 @@ test('Validate the count of repositories based on the selection of 2 checkboxes 
     { name: 'Owners', countBehavior: 'sum' },
   ];
 
-  await page.goto('/');
+  await page.goto('/gallery');
   const initialCount = await getCountOfRepositories(page);
 
   for (const sectionBehavior of sectionBehaviors) {
@@ -454,7 +454,7 @@ test('Validate the count of repositories based on the selection of 2 checkboxes 
 // - button appears when a filter is applied (including search text)
 // - clicking the button clears all active filters and restores the full count
 test('Validate the "Clear all filters" button behavior', async ({ page }) => {
-  await page.goto('/');
+  await page.goto('/gallery');
 
   const clearButton = page.getByRole('button', { name: 'Clear all filters' });
 
@@ -486,7 +486,7 @@ test('Validate the "Clear all filters" button behavior', async ({ page }) => {
 // Validate that the count of repositories in the header of the gallery is correct
 // With pagination (30 items/page), visible cards on page 1 = min(total, 30)
 test('Validate the count of repositories in the header of the gallery', async ({ page }) => {
-  await page.goto('/');
+  await page.goto('/gallery');
 
   // Get the total count from the gallery header
   const repositoriesCountInHeader = await getCountOfRepositories(page);
@@ -501,7 +501,7 @@ test('Validate the count of repositories in the header of the gallery', async ({
 
 // Validate pagination navigation when more than 30 repositories are present
 test('Validate pagination navigation', async ({ page }) => {
-  await page.goto('/');
+  await page.goto('/gallery');
 
   const totalCount = await getCountOfRepositories(page);
 
@@ -550,7 +550,7 @@ test('Validate pagination navigation', async ({ page }) => {
 
 // Validate that the default sorting option in the gallery is "Stars (Descending)"
 test('Validate the default sorting option in the gallery', async ({ page }) => {
-  await page.goto('/');
+  await page.goto('/gallery');
 
   // Validate that the default sorting option in the gallery is "Stars (Descending)"
   await expect(getOrderByCombobox(page)).toHaveValue('Stars (Descending)');
@@ -558,21 +558,21 @@ test('Validate the default sorting option in the gallery', async ({ page }) => {
 
 // Validate that sorting is restored from URL query parameters
 test('Validate that sorting is restored from URL query parameters', async ({ page }) => {
-  await page.goto('/PowerPlatform-OpenSource-Hub/?sort=alphabeticalAsc');
+  await page.goto('/PowerPlatform-OpenSource-Hub/gallery?sort=alphabeticalAsc');
 
   await expect(getOrderByCombobox(page)).toHaveValue('Alphabetical (Ascending)');
 });
 
 // Validate that an invalid sort query parameter is clamped to the default sort
 test('Validate that an invalid sort query parameter falls back to default sort', async ({ page }) => {
-  await page.goto('/PowerPlatform-OpenSource-Hub/?sort=not-a-valid-sort');
+  await page.goto('/PowerPlatform-OpenSource-Hub/gallery?sort=not-a-valid-sort');
 
   await expect(getOrderByCombobox(page)).toHaveValue('Stars (Descending)');
 });
 
 // Validate back/forward behavior for deliberate filter changes
 test('Validate browser history behavior for filter changes', async ({ page }) => {
-  await page.goto('/');
+  await page.goto('/gallery');
 
   const goodFirstIssueCheckbox = page.locator('#checkbox-r-good-first-issue');
   const helpWantedIssueCheckbox = page.locator('#checkbox-r-help-wanted-issue');
@@ -595,7 +595,7 @@ test('Validate category documentation page links to the filtered gallery', async
   await expect(page.getByRole('heading', { name: 'Power Apps', exact: true })).toBeVisible();
   const galleryLink = page.getByRole('link', { name: 'View all in gallery' });
   await expect(galleryLink).toBeVisible();
-  await expect(galleryLink).toHaveAttribute('href', '/PowerPlatform-OpenSource-Hub/?categories=power-apps');
+  await expect(galleryLink).toHaveAttribute('href', '/PowerPlatform-OpenSource-Hub/gallery?categories=power-apps');
 });
 
 test('Validate community landing page links to community child pages', async ({ page }) => {
@@ -610,7 +610,7 @@ test('Validate community landing page links to community child pages', async ({ 
 
 test('Validate category badge or URL-driven category filtering', async ({ page }) => {
   // Navigate directly to the filtered URL; this tests both URL parsing and badge presence
-  await page.goto('/PowerPlatform-OpenSource-Hub/?categories=power-apps');
+  await page.goto('/PowerPlatform-OpenSource-Hub/gallery?categories=power-apps');
   await page.waitForLoadState('domcontentloaded');
 
   const categoryBadges = page.getByTestId('card-category-badge');
@@ -626,7 +626,7 @@ test('Validate category badge or URL-driven category filtering', async ({ page }
 });
 
 test('Validate featured spotlight follows featured repository availability', async ({ page }) => {
-  await page.goto('/');
+  await page.goto('/gallery');
   await waitForRepositoryCards(page);
 
   const spotlight = page.getByTestId('featured-spotlight');
@@ -640,7 +640,7 @@ test('Validate featured spotlight follows featured repository availability', asy
 
 // Validate that when I change the sorting option in the gallery, the count of repositories found is the same
 test('Validate that when I change the sorting option in the gallery, the count of repositories found is the same', async ({ page }) => {
-  await page.goto('/');
+  await page.goto('/gallery');
 
   // Get the initial count of repositories found
   const initialCount = await getCountOfRepositories(page);
@@ -658,7 +658,7 @@ test('Validate that when I change the sorting option in the gallery, the count o
 // - if the selected sorting option is "Alphabetical (Ascending)", the order of repositories is consistent with the name of repositories in ascending order
 // - if the selected sorting option is "Alphabetical (Descending)", the order of repositories is consistent with the name of repositories in descending order
 test('Validate that when I change the sorting option in the gallery, the order of repositories is updated and consistent with the selected sorting option', async ({ page }) => {
-  await page.goto('/');
+  await page.goto('/gallery');
 
   for (const option of sortOptions) {
     await selectSortOption(page, option);
@@ -676,7 +676,7 @@ test('Validate that when I change the sorting option in the gallery, the order o
 // - an "Open in GitHub" button
 // - an "See more..." button
 test('Validate the information presented in the cards of the gallery', async ({ page }) => {
-  await page.goto('/');
+  await page.goto('/gallery');
 
   const cards = await waitForRepositoryCards(page);
   const cardCount = await cards.count();
@@ -744,7 +744,7 @@ test('Validate that when I click on the "Open in GitHub" button in a random card
     };
   });
 
-  await page.goto('/');
+  await page.goto('/gallery');
 
   const galleryItem = (await waitForRepositoryCards(page)).first();
 
@@ -788,7 +788,7 @@ test('Validate that when I click on the "See more..." button in a random card of
     };
   });
 
-  await page.goto('/');
+  await page.goto('/gallery');
 
   const galleryItem = (await waitForRepositoryCards(page)).first();
 
@@ -906,7 +906,22 @@ test('Validate that when I click on the "See more..." button in a random card of
 
 // #endregion
 
-// #region Helper functions
+// #region Landing page smoke tests
+
+test('Landing page has CTA linking to gallery', async ({ page }) => {
+  await page.goto('/');
+  const cta = page.getByRole('link', { name: /explore the gallery/i });
+  await expect(cta).toBeVisible();
+  await expect(cta).toHaveAttribute('href', /\/gallery/);
+});
+
+test('Landing page shows stat cards', async ({ page }) => {
+  await page.goto('/');
+  const statsSection = page.locator('[data-testid="stats-row"]');
+  await expect(statsSection).toBeVisible();
+});
+
+// #endregion
 
 /**
  * Retrieves the count of repositories in the header of the gallery

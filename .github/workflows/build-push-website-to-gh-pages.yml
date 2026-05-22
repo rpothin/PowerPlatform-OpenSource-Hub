@@ -4,7 +4,11 @@ name: 4-build-push-website-to-gh-pages
 # Workflow triggered on every push in the "Website" folder or in the "Data/GitHubRepositoriesDetails.json" file in the main branch
 # Also validates pull requests that touch the website or generated repository data before merge
 # Can also be triggered manually without input parameters
+# Also rebuilds after the weekly popularity-score snapshot completes successfully
 on:
+  workflow_run:
+    workflows: ["3-snapshot-github-repositories-popularity-score"]
+    types: [completed]
   push:
     branches:
       - main
@@ -47,6 +51,7 @@ concurrency:
 jobs:
   build-deploy-website:
     runs-on: ubuntu-latest
+    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
     env:
       RUNNER_DEBUG: 1
     

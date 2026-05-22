@@ -89,3 +89,52 @@
 [data-theme="dark"] .heroSubtitle {
   color: #e8e8e8 !important;
 }
+
+/* Hero body text */
+.heroBody {
+  color: #3b3b3b;
+  font-size: 1rem;
+  margin-top: 0.75rem;
+  max-width: 700px;
+}
+
+[data-theme="dark"] .heroBody {
+  color: #e8e8e8;
+}
+
+.statsRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  margin: 2rem 0;
+}
+
+.statCard {
+  background: var(--ifm-card-background-color);
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 8px;
+  padding: 1.25rem 1.75rem;
+  text-align: center;
+  min-width: 180px;
+  flex: 1 1 180px;
+  max-width: 240px;
+}
+
+.statValue {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--ifm-color-primary);
+  line-height: 1.1;
+}
+
+.statLabel {
+  font-size: 0.85rem;
+  color: var(--ifm-color-emphasis-700);
+  margin-top: 0.25rem;
+}
+
+.ctaSection {
+  text-align: center;
+  margin: 2rem 0 3rem;
+}
