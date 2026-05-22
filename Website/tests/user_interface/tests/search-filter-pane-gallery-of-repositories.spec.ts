@@ -526,10 +526,7 @@ test('Validate pagination navigation', async ({ page }) => {
 
   // Navigate to page 2
   await nextButton.click();
-  await page.waitForFunction(() => {
-    const btn = document.querySelector('[aria-current="page"]');
-    return btn && btn.textContent?.trim() === '2';
-  });
+  await expect(page.locator('#repositoryCount')).toContainText('page 2 of');
 
   // Page 2 should show different cards; Previous is now enabled
   await expect(prevButton).toBeEnabled();
@@ -539,10 +536,7 @@ test('Validate pagination navigation', async ({ page }) => {
 
   // Navigate back to page 1
   await prevButton.click();
-  await page.waitForFunction(() => {
-    const btn = document.querySelector('[aria-current="page"]');
-    return btn && btn.textContent?.trim() === '1';
-  });
+  await expect(page.locator('#repositoryCount')).toContainText('page 1 of');
 
   // Previous should be disabled again on page 1
   await expect(prevButton).toBeDisabled();
