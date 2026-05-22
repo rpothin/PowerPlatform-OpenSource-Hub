@@ -74,7 +74,7 @@ function Export-GitHubRepositoriesPopularityScore {
             $metadata = [PSCustomObject]@{
                 _snapshotTakenAt = [System.DateTime]::UtcNow.ToString("o")
             }
-            $metadata | ConvertTo-Json | Out-File -FilePath $MetadataOutputFilePath -Encoding utf8
+            $metadata | ConvertTo-Json | Out-File -FilePath $MetadataOutputFilePath
         }
 
         $repositoriesWithPopularityScore
