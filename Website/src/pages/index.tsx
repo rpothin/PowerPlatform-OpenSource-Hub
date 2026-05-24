@@ -111,6 +111,19 @@ export default function LandingPage(): React.JSX.Element {
 
       <main>
         <div className="container">
+          <div className={styles.ctaSection}>
+            <Link to="/gallery" className="button button--primary button--lg">
+              Explore the Gallery →
+            </Link>
+            <Link
+              to="/docs/category/repository-onboarding"
+              className={`button button--secondary button--lg ${styles.ctaSecondary}`}
+            >
+              Add a Project
+            </Link>
+          </div>
+
+          <Heading as="h2" className={styles.sectionTitle}>Key Insights</Heading>
           <div data-testid="stats-row" className={styles.statsRow}>
             <StatCard
               emoji="🗂"
@@ -148,16 +161,6 @@ export default function LandingPage(): React.JSX.Element {
             </p>
             <div className={styles.personaGrid}>
               <PersonaCard
-                emoji="🎨"
-                title="Makers"
-                description="You build apps, flows, and automations with Power Platform. Discover ready-made templates, components, and connectors that accelerate your work — no need to start from scratch."
-              />
-              <PersonaCard
-                emoji="🧑‍💻"
-                title="Developers"
-                description="You extend Power Platform with code — PCF controls, custom connectors, plugins, and SDKs. Find open-source building blocks and libraries maintained by the community."
-              />
-              <PersonaCard
                 emoji="🤝"
                 title="Contributors"
                 description="You want to give back. Browse projects actively looking for help — filter by good-first-issue and help-wanted labels to find your first (or next) open-source contribution."
@@ -174,18 +177,6 @@ export default function LandingPage(): React.JSX.Element {
               />
             </div>
           </section>
-
-          <div className={styles.ctaSection}>
-            <Link to="/gallery" className="button button--primary button--lg">
-              Explore the Gallery →
-            </Link>
-            <Link
-              to="/docs/category/repository-onboarding"
-              className={`button button--secondary button--lg ${styles.ctaSecondary}`}
-            >
-              Add a Project
-            </Link>
-          </div>
         </div>
       </main>
     </Layout>
