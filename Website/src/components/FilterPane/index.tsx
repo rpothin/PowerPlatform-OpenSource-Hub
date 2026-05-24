@@ -178,7 +178,7 @@ const FilterPane = ({
         </div>
       )}
       <AccordionItem value="1">
-        <AccordionHeader style={{ marginBottom: '10px' }} size="large" expandIconPosition="end">Repository Signals</AccordionHeader>
+        <AccordionHeader style={{ marginBottom: '10px' }} size="large" expandIconPosition="end">Contribution Signals</AccordionHeader>
         <AccordionPanel>
           <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
             <li style={{ minHeight: '44px', display: 'flex', alignItems: 'center' }}>
@@ -266,7 +266,7 @@ const FilterPane = ({
       )}
       {audiences.length > 0 && (
         <AccordionItem value="8">
-          <AccordionHeader style={{ marginTop: '10px', marginBottom: '10px' }} size="large" expandIconPosition="end">Audiences</AccordionHeader>
+          <AccordionHeader style={{ marginTop: '10px', marginBottom: '10px' }} size="large" expandIconPosition="end">Who It Helps</AccordionHeader>
           <AccordionPanel>
             <div style={{ display: 'flex', flexDirection: 'column' }}>
               <div style={{ display: 'flex', flexDirection: 'column', rowGap: '10px' }}>

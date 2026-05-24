@@ -83,7 +83,7 @@
 
 /* Hero subtitle — accessible color per theme */
 .heroSubtitle {
-  color: #3b3b3b !important;
+  color: #1b1b1b !important;
 }
 
 [data-theme="dark"] .heroSubtitle {
@@ -92,7 +92,7 @@
 
 /* Hero body text */
 .heroBody {
-  color: #3b3b3b;
+  color: #1b1b1b;
   font-size: 1rem;
   margin-top: 0.75rem;
   max-width: 700px;
@@ -165,4 +165,13 @@
 .ctaSection {
   text-align: center;
   margin: 2rem 0 3rem;
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.ctaSecondary {
+  white-space: nowrap;
 }

@@ -123,25 +123,25 @@ test('Validate the count of repositories found when I enter a search term', asyn
 // Validate the filters default presentation
 // - all checkboxes are unchecked
 // - the list of the available sections is as expected (the order is important)
-// - only the "Repository Signals" section is expanded
-// - the "Repository Signals" section contains the expected checkboxes
+// - only the "Contribution Signals" section is expanded
+// - the "Contribution Signals" section contains the expected checkboxes
 test('Validate the filter pane default presentation', async ({ page }) => {
   await page.goto(GALLERY_PATH);
 
   // Array of the expected sections (the order is important)
   // Categories, Focus Areas, and Audiences are conditionally rendered when the data contains values for them
   const expectedSections = [
-    'Repository Signals',
+    'Contribution Signals',
     'Categories',
     'Focus Areas',
-    'Audiences',
+    'Who It Helps',
     'Topics',
     'Languages',
     'Licenses',
     'Owners'
   ];
 
-  // Array of the expected checkboxes for the "Repository Signals" section
+  // Array of the expected checkboxes for the "Contribution Signals" section
   const expectedContributionOpportunitiesCheckboxes = [
     'Has good first issue',
     'Has help wanted issue',
@@ -167,7 +167,7 @@ test('Validate the filter pane default presentation', async ({ page }) => {
   }));
   expect(sectionNames).toEqual(expectedSections);
 
-  // Validate that only the "Repository Signals" section is expanded
+  // Validate that only the "Contribution Signals" section is expanded
   // The button element in each section has a "aria-expanded" attribute allowing to know if the section is expanded or not
   let expandedSections = [];
   let nonExpandedSections = [];
@@ -190,11 +190,11 @@ test('Validate the filter pane default presentation', async ({ page }) => {
   }));
   expect(nonExpandedSectionNames).toEqual(expectedSections.slice(1));
 
-  // Validate that the "Repository Signals" section contains the expected checkboxes
-  // The checkboxes to validate are under the div element with "fui-AccordionItem" class where there is a button with inner text equal to "Repository Signals"
+  // Validate that the "Contribution Signals" section contains the expected checkboxes
+  // The checkboxes to validate are under the div element with "fui-AccordionItem" class where there is a button with inner text equal to "Contribution Signals"
   // The labels associated to the checboxes are label elements with a for attribute value like "checkbox-r..."
   const repositorySignalsSection = page.locator('.fui-AccordionItem').filter({
-    has: page.getByRole('button', { name: 'Repository Signals' }),
+    has: page.getByRole('button', { name: 'Contribution Signals' }),
   });
   const contributionOpportunitiesCheckboxesNames = (await repositorySignalsSection.locator('label[for^="checkbox-r"]').allInnerTexts())
     .map((checkboxText) => checkboxText.split(' (')[0]);
@@ -294,7 +294,7 @@ test('Validate the visual behavior of a checkbox', async ({ page }) => {
   }
 });
 
-// Validate that for all sections with a dynamic list of checkboxes (do not consider "Repository Signals") in the filter pane,
+// Validate that for all sections with a dynamic list of checkboxes (do not consider "Contribution Signals") in the filter pane,
 // - there are no more than 10 checkboxes presented
 // - the checboxes are presented in descending order based on the count of repositories found
 // - if there are more than 10 checkboxes available, there is a "View All" button at the end of the list
@@ -303,8 +303,8 @@ test('Validate the presentation of the checkboxes in the sections of the filter 
 
   // Get all the sections in the filter pane
   const sections = (await getAllSections(page))
-    .filter((section) => section.headerText !== 'Repository Signals')
-    .map((section) => section.section); // Exclude the "Repository Signals" section because it has a static list of checkboxes
+    .filter((section) => section.headerText !== 'Contribution Signals')
+    .map((section) => section.section); // Exclude the "Contribution Signals" section because it has a static list of checkboxes
 
   // Validate that for all sections in the filter pane
   for (let section of sections) {
@@ -338,7 +338,7 @@ test('Validate the presentation of the checkboxes in the sections of the filter 
   }
 });
 
-// Validate that for any section with a dynamic list of checkboxes (do not consider "Repository Signals") in the filter pane where there is a "View All" button,
+// Validate that for any section with a dynamic list of checkboxes (do not consider "Contribution Signals") in the filter pane where there is a "View All" button,
 // - when I click on the "View All" button, the list of checkboxes is expanded
 // - the "View All" button is replaced by a "View Less" button
 // - all the checkboxes are presented (new count of checkboxes is greater than the initial count)
@@ -355,8 +355,8 @@ test('Validate the "View All" and "View Less" buttons in the filter pane in all 
     // Get the "View All" button
     let viewAllButton = await getButtonByName(section.section, 'View All');
 
-    // Skip the section if it is the "Repository Signals" section or if there is no "View All" button
-    if (section.headerText === "Repository Signals" || !viewAllButton) {
+    // Skip the section if it is the "Contribution Signals" section or if there is no "View All" button
+    if (section.headerText === "Contribution Signals" || !viewAllButton) {
       continue;
     }
 
@@ -406,10 +406,10 @@ test('Validate the "View All" and "View Less" buttons in the filter pane in all 
 
 // Validate the count of repositories based on the selection of 2 checkboxes in each section
 // - if the section is "Licenses" or "Owners", the count of repositories is the sum of the counts of the 2 checkboxes
-// - if the section is "Repository Signals", "Topics", or "Languages", the count of repositories is the minimum of the counts of the 2 checkboxes
+// - if the section is "Contribution Signals", "Topics", or "Languages", the count of repositories is the minimum of the counts of the 2 checkboxes
 test('Validate the count of repositories based on the selection of 2 checkboxes in each section', async ({ page }) => {
   const sectionBehaviors = [
-    { name: 'Repository Signals', countBehavior: 'min' },
+    { name: 'Contribution Signals', countBehavior: 'min' },
     { name: 'Topics', countBehavior: 'min' },
     { name: 'Languages', countBehavior: 'min' },
     { name: 'Licenses', countBehavior: 'sum' },
