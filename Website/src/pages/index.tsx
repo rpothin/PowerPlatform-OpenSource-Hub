@@ -161,19 +161,19 @@ export default function LandingPage(): React.JSX.Element {
             </p>
             <div className={styles.personaGrid}>
               <PersonaCard
-                emoji="🤝"
-                title="Contributors"
-                description="You want to give back. Browse projects actively looking for help — filter by good-first-issue and help-wanted labels to find your first (or next) open-source contribution."
-              />
-              <PersonaCard
                 emoji="🛠️"
                 title="Maintainers"
-                description="You own or want to start an open-source Power Platform project. Get your project listed, grow your community, and track your ecosystem momentum over time."
+                description="You own or are a core contributor to an open-source Power Platform project. Get your project listed, grow your community, and track your ecosystem momentum over time."
               />
               <PersonaCard
-                emoji="⚙️"
-                title="Admins"
-                description="You govern and manage Power Platform environments. Discover community-built ALM pipelines, CoE toolkits, governance frameworks, and security utilities."
+                emoji="🤝"
+                title="Contributors"
+                description="You occasionally contribute to open-source projects. Browse projects actively looking for help — filter by good-first-issue and help-wanted labels to find your next contribution."
+              />
+              <PersonaCard
+                emoji="👤"
+                title="Users"
+                description="You use Power Platform and are looking for community-built tools, templates, and solutions. Discover hundreds of open-source projects ready to accelerate your work."
               />
             </div>
           </section>
