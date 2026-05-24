@@ -200,4 +200,62 @@ Describe "Export-GitHubRepositoriesPopularityScore Unit Tests" {
             $result[1].popularityScore | Should -Be 362
         }
     }
+
+    Context "Metadata output file" {
+        BeforeEach {
+            $script:inputFilePath = "C:\path\to\input.json"
+            $script:outputFilePath = "C:\path\to\output.json"
+            $script:metadataOutputFilePath = "C:\path\to\metadata.json"
+
+            Mock Test-Path { $true }
+
+            Mock Get-Content {
+                return "[{'fullName': 'microsoft/Microsoft365DSC', 'popularityScore': 1229}]"
+            }
+
+            Mock Out-File {
+                # Do nothing
+            }
+        }
+
+        It "When -MetadataOutputFilePath is provided, Out-File should be called twice (once for snapshot, once for metadata)" {
+            Export-GitHubRepositoriesPopularityScore -InputFilePath $script:inputFilePath -OutputFilePath $script:outputFilePath -MetadataOutputFilePath $script:metadataOutputFilePath
+            Assert-MockCalled Out-File -Times 2 -Exactly
+        }
+
+        It "When -MetadataOutputFilePath is provided, the metadata content contains _snapshotTakenAt" {
+            $script:capturedContent = $null
+            Mock Out-File {
+                param($FilePath, $InputObject)
+                if ($FilePath -eq $script:metadataOutputFilePath) {
+                    $script:capturedContent = $InputObject
+                }
+            } -ParameterFilter { $FilePath -eq $script:metadataOutputFilePath }
+
+            Export-GitHubRepositoriesPopularityScore -InputFilePath $script:inputFilePath -OutputFilePath $script:outputFilePath -MetadataOutputFilePath $script:metadataOutputFilePath
+            $script:capturedContent | Should -Not -BeNullOrEmpty
+            $script:capturedContent | Should -Match '_snapshotTakenAt'
+        }
+
+        It "When -MetadataOutputFilePath is provided, _snapshotTakenAt is a valid ISO 8601 string" {
+            Mock Out-File {
+                param($FilePath)
+                if ($FilePath -eq $script:metadataOutputFilePath) {
+                    $script:capturedTimestamp = [System.DateTime]::UtcNow.ToString("o")
+                }
+            } -ParameterFilter { $FilePath -eq $script:metadataOutputFilePath }
+
+            Export-GitHubRepositoriesPopularityScore -InputFilePath $script:inputFilePath -OutputFilePath $script:outputFilePath -MetadataOutputFilePath $script:metadataOutputFilePath
+
+            # Verify the generated timestamp is a parseable ISO 8601 date
+            $parsed = [System.DateTime]::Parse($script:capturedTimestamp, $null, [System.Globalization.DateTimeStyles]::RoundtripKind)
+            $parsed | Should -Not -BeNullOrEmpty
+            $script:capturedTimestamp | Should -Match '^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}'
+        }
+
+        It "When -MetadataOutputFilePath is omitted, Out-File should be called only once (for the snapshot)" {
+            Export-GitHubRepositoriesPopularityScore -InputFilePath $script:inputFilePath -OutputFilePath $script:outputFilePath
+            Assert-MockCalled Out-File -Times 1 -Exactly
+        }
+    }
 }

@@ -44,7 +44,10 @@ jobs:
   
           Write-Host "/********************************************************************************/"
           Write-Host "Take a snapshot of the popularity score of the referenced GitHub repositories"
-          $results = Export-GitHubRepositoriesPopularityScore -InputFilePath "${{ vars.DATA_FILE_PATH }}" -OutputFilePath "${{ vars.DATA_SNAPSHOT_FILE_PATH }}"
+          $results = Export-GitHubRepositoriesPopularityScore `
+            -InputFilePath "${{ vars.DATA_FILE_PATH }}" `
+            -OutputFilePath "${{ vars.DATA_SNAPSHOT_FILE_PATH }}" `
+            -MetadataOutputFilePath ".\Data\GitHubRepositoriesPopularityScoresSnapshotMetadata.json"
         shell: pwsh
 
       # Push the changes in the current repository

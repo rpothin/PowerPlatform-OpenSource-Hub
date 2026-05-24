@@ -12,6 +12,9 @@ function Export-GitHubRepositoriesPopularityScore {
         .PARAMETER OutputFilePath
             The path to the JSON file where the results of the calculation will be exported.
 
+        .PARAMETER MetadataOutputFilePath
+            Optional. When provided, writes a companion JSON file containing the snapshot timestamp (_snapshotTakenAt in ISO 8601 format).
+
         .INPUTS
             None. You cannot pipe objects to Export-GitHubRepositoriesPopularityScore.
 
@@ -37,7 +40,10 @@ function Export-GitHubRepositoriesPopularityScore {
 
         [Parameter(Mandatory = $true)]
         [ValidateNotNullOrEmpty()]
-        [string]$OutputFilePath
+        [string]$OutputFilePath,
+
+        [Parameter(Mandatory = $false)]
+        [string]$MetadataOutputFilePath
     )
 
     Process {
@@ -62,6 +68,14 @@ function Export-GitHubRepositoriesPopularityScore {
 
         # Export the results in the output file
         $repositoriesWithPopularityScore | ConvertTo-Json | Out-File -FilePath $OutputFilePath
+
+        # Write companion metadata file when path is provided
+        if ($PSBoundParameters.ContainsKey('MetadataOutputFilePath') -and -not [string]::IsNullOrEmpty($MetadataOutputFilePath)) {
+            $metadata = [PSCustomObject]@{
+                _snapshotTakenAt = [System.DateTime]::UtcNow.ToString("o")
+            }
+            $metadata | ConvertTo-Json | Out-File -FilePath $MetadataOutputFilePath
+        }
 
         $repositoriesWithPopularityScore
     }

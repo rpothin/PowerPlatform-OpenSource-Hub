@@ -1,250 +1,179 @@
-import clsx from 'clsx';
 import * as React from 'react';
-import { useEffect, useMemo, useRef, useState } from 'react';
-import {
-  Button,
-  Dialog,
-  DialogBody,
-  DialogContent,
-  DialogSurface,
-  DialogTitle,
-  FluentProvider,
-  Input,
-  webDarkTheme,
-  webLightTheme,
-} from '@fluentui/react-components';
-import { Filter16Regular } from '@fluentui/react-icons';
-import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
-import { useColorMode } from '@docusaurus/theme-common';
+import { useEffect } from 'react';
+import Link from '@docusaurus/Link';
+import { useHistory } from '@docusaurus/router';
+import useBaseUrl from '@docusaurus/useBaseUrl';
 import Layout from '@theme/Layout';
 import Heading from '@theme/Heading';
 
-import { Repository } from '../types/repository';
-import { filterItemsBasedOnSearchInput } from '../utils/filterItemsBasedOnSearchInput';
+import type { Repository } from '../types/repository';
+import type { SnapshotEntry, SnapshotMetadata } from '../utils/statsUtils';
 import {
-  defaultUrlFilterState,
-  parseFilterStateFromSearch,
-  serializeFilterStateToSearch,
-  UrlFilterState,
-} from '../utils/filterUrlState';
+  computeTotalRepos,
+  computeActiveRepos,
+  computeContributionOpportunities,
+  computeTotalStars,
+  computeMomentum,
+} from '../utils/statsUtils';
 import styles from './index.module.css';
-import data from '../../../Data/GitHubRepositoriesDetails.json';
-import Gallery from '../components/Gallery';
-import FilterPane from '../components/FilterPane';
+import repoData from '../../../Data/GitHubRepositoriesDetails.json';
+import snapshotData from '../../../Data/GitHubRepositoriesPopularityScoresSnapshot.json';
+import snapshotMetadata from '../../../Data/GitHubRepositoriesPopularityScoresSnapshotMetadata.json';
 
-const App = () => {
-  const { siteConfig } = useDocusaurusContext();
-  const { colorMode } = useColorMode();
-  const [isMobile, setIsMobile] = useState(false);
-  const [isFilterPaneOpen, setIsFilterPaneOpen] = useState(false);
-  const [isFilterStateInitialized, setIsFilterStateInitialized] = useState(false);
-  const [filterState, setFilterState] = useState<UrlFilterState>(defaultUrlFilterState);
-  const historyWriteModeRef = useRef<'replace' | 'push'>('replace');
+const data = repoData as Repository[];
+const snapshot = snapshotData as SnapshotEntry[];
+const metadata = (snapshotMetadata as SnapshotMetadata)._snapshotTakenAt
+  ? (snapshotMetadata as SnapshotMetadata)
+  : null;
 
-  useEffect(() => {
-    if (typeof window === 'undefined') {
-      return;
-    }
+// Reference date from first repo's _generatedAt field (build-time reference)
+const rawGeneratedAt = data.length > 0 ? data[0]._generatedAt : undefined;
+const parsedReferenceDate = rawGeneratedAt ? new Date(rawGeneratedAt) : new Date();
+const referenceDate = Number.isNaN(parsedReferenceDate.getTime()) ? new Date() : parsedReferenceDate;
 
-    const handleWindowResize = () => {
-      setIsMobile(window.innerWidth <= 960);
-    };
+const totalRepos = computeTotalRepos(data);
+const activeRepos = computeActiveRepos(data, referenceDate);
+const contributions = computeContributionOpportunities(data);
+const totalStars = computeTotalStars(data);
+const momentum = computeMomentum(data, snapshot, metadata);
 
-    handleWindowResize();
-    window.addEventListener('resize', handleWindowResize);
+const numberFormatter = new Intl.NumberFormat('en-US');
 
-    return () => {
-      window.removeEventListener('resize', handleWindowResize);
-    };
-  }, []);
+const galleryParams = [
+  'q', 'sort', 'topics', 'languages', 'licenses', 'owners',
+  'categories', 'focusAreas', 'audiences', 'goodFirstIssue', 'helpWantedIssue', 'codeOfConduct',
+];
 
-  useEffect(() => {
-    if (typeof window === 'undefined') {
-      return;
-    }
+interface StatCardProps {
+  emoji: string;
+  value: string;
+  label: string;
+}
 
-    const applyUrlState = () => {
-      historyWriteModeRef.current = 'replace';
-      setFilterState(parseFilterStateFromSearch(window.location.search));
-    };
-
-    applyUrlState();
-    setIsFilterStateInitialized(true);
-    window.addEventListener('popstate', applyUrlState);
-
-    return () => {
-      window.removeEventListener('popstate', applyUrlState);
-    };
-  }, []);
-
-  useEffect(() => {
-    if (typeof window === 'undefined' || !isFilterStateInitialized) {
-      return;
-    }
-
-    const nextSearch = serializeFilterStateToSearch(filterState);
-    if (nextSearch !== window.location.search) {
-      const nextUrl = `${window.location.pathname}${nextSearch}${window.location.hash}`;
-      if (historyWriteModeRef.current === 'push') {
-        window.history.pushState({}, '', nextUrl);
-      } else {
-        window.history.replaceState({}, '', nextUrl);
-      }
-    }
-    historyWriteModeRef.current = 'replace';
-  }, [filterState, isFilterStateInitialized]);
-
-  const setFilterStateWithHistory = (
-    updater: (previous: UrlFilterState) => UrlFilterState,
-    historyMode: 'replace' | 'push' = 'push',
-  ) => {
-    historyWriteModeRef.current = historyMode;
-    setFilterState((previous) => updater(previous));
-  };
-
-  const handleClearAllFilters = () => setFilterStateWithHistory(() => defaultUrlFilterState, 'push');
-
-  const hasAnyActiveFilters = useMemo(
-    () =>
-      filterState.searchText.length > 0 ||
-      filterState.hasGoodFirstIssueChecked ||
-      filterState.hasHelpWantedIssueChecked ||
-      filterState.hasCodeOfConductChecked ||
-      filterState.selectedTopics.length > 0 ||
-      filterState.selectedLanguages.length > 0 ||
-      filterState.selectedLicenses.length > 0 ||
-      filterState.selectedOwners.length > 0 ||
-      filterState.selectedCategories.length > 0 ||
-      filterState.selectedFocusAreas.length > 0 ||
-      filterState.selectedAudiences.length > 0,
-    [filterState],
-  );
-
-  const items = useMemo(
-    () => filterItemsBasedOnSearchInput(data as Repository[], filterState.searchText),
-    [filterState.searchText],
-  );
-
-  const filterPane = (
-    <FilterPane
-      items={items}
-      isMobile={isMobile}
-      hasGoodFirstIssueChecked={filterState.hasGoodFirstIssueChecked}
-      hasHelpWantedIssueChecked={filterState.hasHelpWantedIssueChecked}
-      hasCodeOfConductChecked={filterState.hasCodeOfConductChecked}
-      selectedTopics={filterState.selectedTopics}
-      selectedLanguages={filterState.selectedLanguages}
-      selectedLicenses={filterState.selectedLicenses}
-      selectedOwners={filterState.selectedOwners}
-      selectedCategories={filterState.selectedCategories}
-      selectedFocusAreas={filterState.selectedFocusAreas}
-      selectedAudiences={filterState.selectedAudiences}
-      onGoodFirstIssueChange={(value) => setFilterStateWithHistory((previous) => ({ ...previous, hasGoodFirstIssueChecked: value }))}
-      onHelpWantedIssueChange={(value) => setFilterStateWithHistory((previous) => ({ ...previous, hasHelpWantedIssueChecked: value }))}
-      onCodeOfConductChange={(value) => setFilterStateWithHistory((previous) => ({ ...previous, hasCodeOfConductChecked: value }))}
-      onTopicsChange={(value) => setFilterStateWithHistory((previous) => ({ ...previous, selectedTopics: value }))}
-      onLanguagesChange={(value) => setFilterStateWithHistory((previous) => ({ ...previous, selectedLanguages: value }))}
-      onLicensesChange={(value) => setFilterStateWithHistory((previous) => ({ ...previous, selectedLicenses: value }))}
-      onOwnersChange={(value) => setFilterStateWithHistory((previous) => ({ ...previous, selectedOwners: value }))}
-      onCategoriesChange={(value) => setFilterStateWithHistory((previous) => ({ ...previous, selectedCategories: value }))}
-      onFocusAreasChange={(value) => setFilterStateWithHistory((previous) => ({ ...previous, selectedFocusAreas: value }))}
-      onAudiencesChange={(value) => setFilterStateWithHistory((previous) => ({ ...previous, selectedAudiences: value }))}
-      onClearAllFilters={handleClearAllFilters}
-      hasAnyActiveFilters={hasAnyActiveFilters}
-    />
-  );
-
+function StatCard({ emoji, value, label }: StatCardProps): React.JSX.Element {
   return (
-    <FluentProvider theme={colorMode === 'dark' ? webDarkTheme : webLightTheme}>
-      <header className={clsx('hero hero--primary', styles.heroBanner)}>
-        <div className="container" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column' }}>
-          <Heading as="h1" className={clsx('hero__title', styles.heroTitle)}>
-            {siteConfig.title}
-          </Heading>
-          <p className={clsx('hero__subtitle', styles.heroSubtitle)} style={{ padding: '10px 0 20px 0' }}>
-            {siteConfig.tagline}
-          </p>
-          <Input
-            id="filterBar"
-            type="search"
-            size="large"
-            placeholder="Search for a Power Platform GitHub repository..."
-            aria-label="Search repositories"
-            value={filterState.searchText}
-            onChange={(_, data) => setFilterStateWithHistory((previous) => ({ ...previous, searchText: data.value }), 'replace')}
-            style={{ width: '100%', maxWidth: '740px' }}
-          />
-        </div>
-      </header>
-      <main>
-        <div className={styles.filterPaneAndGallery}>
-          {isMobile ? (
-            <>
-              <div style={{ marginBottom: '12px', width: '100%' }}>
-                <Button
-                  id="openFiltersButton"
-                  icon={<Filter16Regular />}
-                  onClick={() => setIsFilterPaneOpen(true)}
-                  style={{ minHeight: '44px' }}
-                >
-                  Filters
-                </Button>
-              </div>
-              <Dialog
-                open={isFilterPaneOpen}
-                onOpenChange={(_, data) => {
-                  setIsFilterPaneOpen(data.open);
-                  if (!data.open) {
-                    setTimeout(() => document.getElementById('openFiltersButton')?.focus(), 50);
-                  }
-                }}
-              >
-                <DialogSurface>
-                  <DialogBody>
-                    <DialogTitle>Filters</DialogTitle>
-                    <DialogContent>{filterPane}</DialogContent>
-                  </DialogBody>
-                </DialogSurface>
-              </Dialog>
-            </>
-          ) : (
-            filterPane
-          )}
-          <Gallery
-            items={items}
-            hasGoodFirstIssueChecked={filterState.hasGoodFirstIssueChecked}
-            hasHelpWantedIssueChecked={filterState.hasHelpWantedIssueChecked}
-            hasCodeOfConductChecked={filterState.hasCodeOfConductChecked}
-            selectedTopics={filterState.selectedTopics}
-            selectedLanguages={filterState.selectedLanguages}
-            selectedLicenses={filterState.selectedLicenses}
-            selectedOwners={filterState.selectedOwners}
-            selectedCategories={filterState.selectedCategories}
-            selectedFocusAreas={filterState.selectedFocusAreas}
-            selectedAudiences={filterState.selectedAudiences}
-            sortBy={filterState.sortBy}
-            onCategoriesChange={(value) => setFilterStateWithHistory((previous) => ({ ...previous, selectedCategories: value }))}
-            onFocusAreasChange={(value) => setFilterStateWithHistory((previous) => ({ ...previous, selectedFocusAreas: value }))}
-            onAudiencesChange={(value) => setFilterStateWithHistory((previous) => ({ ...previous, selectedAudiences: value }))}
-            onTopicsChange={(value) => setFilterStateWithHistory((previous) => ({ ...previous, selectedTopics: value }))}
-            onSortByChange={(value) => setFilterStateWithHistory((previous) => ({ ...previous, sortBy: value }))}
-            onClearAllFilters={handleClearAllFilters}
-          />
-        </div>
-      </main>
-    </FluentProvider>
+    <div className={styles.statCard}>
+      <div className={styles.statIcon}>{emoji}</div>
+      <div className={styles.statValue}>{value}</div>
+      <div className={styles.statLabel}>{label}</div>
+    </div>
   );
-};
+}
 
-export default function HomePage(): React.JSX.Element {
-  const { siteConfig } = useDocusaurusContext();
+interface PersonaCardProps {
+  emoji: string;
+  title: string;
+  description: string;
+}
+
+function PersonaCard({ emoji, title, description }: PersonaCardProps): React.JSX.Element {
+  return (
+    <div className={styles.personaCard}>
+      <div className={styles.personaIcon}>{emoji}</div>
+      <div className={styles.personaTitle}>{title}</div>
+      <p className={styles.personaDescription}>{description}</p>
+    </div>
+  );
+}
+
+export default function LandingPage(): React.JSX.Element {
+  const history = useHistory();
+  const galleryUrl = useBaseUrl('/gallery');
+
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    const params = new URLSearchParams(window.location.search);
+    const hasGalleryParams = galleryParams.some(p => params.has(p));
+    if (hasGalleryParams) {
+      history.replace(galleryUrl + window.location.search);
+    }
+  }, []);
 
   return (
     <Layout
-      title="Discover Open-Source Power Platform Projects"
-      description="Explore 200+ open-source projects for Microsoft Power Platform and Copilot Studio — Power Apps, Power Automate, Dataverse, and more. Searchable, filterable, and community-driven."
+      title="Power Platform Open-Source Hub"
+      description="Discover, contribute to, and maintain open-source projects for Microsoft Power Platform and Copilot Studio. Track hundreds of community repositories updated continuously from GitHub."
     >
-      <App />
+      <header className={styles.heroBanner}>
+        <div className="container">
+          <Heading as="h1" className={styles.heroTitle}>
+            Power Platform Open-Source Hub
+          </Heading>
+          <p className={styles.heroSubtitle}>
+            Discover, contribute to, and maintain open-source projects for Microsoft Power Platform and Copilot Studio.
+          </p>
+          <div className={styles.ctaSection}>
+            <Link to="/gallery" className="button button--primary button--lg">
+              Explore the Gallery →
+            </Link>
+            <Link
+              to="/docs/category/repository-onboarding"
+              className={`button button--secondary button--lg ${styles.ctaSecondary}`}
+            >
+              Add a Project
+            </Link>
+          </div>
+        </div>
+      </header>
+
+      <main>
+        <div className="container">
+          <Heading as="h2" className={styles.sectionTitle}>Key Insights</Heading>
+          <div data-testid="stats-row" className={styles.statsRow}>
+            <StatCard
+              emoji="🗂"
+              value={numberFormatter.format(totalRepos)}
+              label="Tracked Repositories"
+            />
+            <StatCard
+              emoji="⚡"
+              value={numberFormatter.format(activeRepos)}
+              label="Active in Last 30 Days"
+            />
+            <StatCard
+              emoji="🤝"
+              value={`${numberFormatter.format(contributions.issueCount)} issues across ${numberFormatter.format(contributions.repoCount)} repos`}
+              label="Open to Contributions"
+            />
+            <StatCard
+              emoji="⭐"
+              value={numberFormatter.format(totalStars)}
+              label="Stars Across the Ecosystem"
+            />
+            {momentum.snapshotTakenAt && (
+              <StatCard
+                emoji="📈"
+                value={`${momentum.delta >= 0 ? '+' : ''}${numberFormatter.format(momentum.delta)}`}
+                label="Stars+Watchers Since Last Snapshot"
+              />
+            )}
+          </div>
+
+          <section className={styles.personasSection}>
+            <Heading as="h2" className={styles.personasSectionTitle}>Who is this for?</Heading>
+            <p className={styles.personasSectionSubtitle}>
+              The hub serves every role in the Power Platform open-source community.
+            </p>
+            <div className={styles.personaGrid}>
+              <PersonaCard
+                emoji="🛠️"
+                title="Maintainers"
+                description="You own or are a core contributor to an open-source Power Platform project. Get your project listed, grow your community, and track your ecosystem momentum over time."
+              />
+              <PersonaCard
+                emoji="🤝"
+                title="Contributors"
+                description="You occasionally contribute to open-source projects. Browse projects actively looking for help — filter by good-first-issue and help-wanted labels to find your next contribution."
+              />
+              <PersonaCard
+                emoji="👤"
+                title="Users"
+                description="You use Power Platform and are looking for community-built tools, templates, and solutions. Discover hundreds of open-source projects ready to accelerate your work."
+              />
+            </div>
+          </section>
+        </div>
+      </main>
     </Layout>
   );
 }

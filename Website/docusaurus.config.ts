@@ -74,7 +74,12 @@ const config: Config = {
     image: 'img/docusaurus-social-card.jpg',
     metadata: [
       { property: 'og:type', content: 'website' },
+      { property: 'og:url', content: 'https://rpothin.github.io/PowerPlatform-OpenSource-Hub/' },
+      { property: 'og:title', content: 'Power Platform Open-Source Hub' },
+      { property: 'og:description', content: 'Discover, contribute to, and maintain open-source projects for Microsoft Power Platform and Copilot Studio. Track hundreds of community repositories updated continuously from GitHub.' },
       { name: 'twitter:card', content: 'summary_large_image' },
+      { name: 'twitter:title', content: 'Power Platform Open-Source Hub' },
+      { name: 'twitter:description', content: 'Discover open-source Power Platform projects — Power Apps, Power Automate, Dataverse, and more. Searchable and community-driven.' },
     ],
     navbar: {
       title: 'Power Platform OSS Hub',
@@ -83,6 +88,8 @@ const config: Config = {
         src: 'img/PowerPlatform_scalable.svg',
       },
       items: [
+        { to: '/', label: 'Home', position: 'left' },
+        { to: '/gallery', label: 'Gallery', position: 'left' },
         {
           type: 'docSidebar',
           sidebarId: 'tutorialSidebar',
