@@ -102,15 +102,6 @@ export default function LandingPage(): React.JSX.Element {
           <p className={styles.heroSubtitle}>
             Discover, contribute to, and maintain open-source projects for Microsoft Power Platform and Copilot Studio.
           </p>
-          <p className={styles.heroBody}>
-            The hub tracks <strong>{numberFormatter.format(totalRepos)}</strong> open-source repositories — from Power Apps components and connectors
-            to Dataverse tools and governance frameworks. Updated continuously from GitHub.
-          </p>
-        </div>
-      </header>
-
-      <main>
-        <div className="container">
           <div className={styles.ctaSection}>
             <Link to="/gallery" className="button button--primary button--lg">
               Explore the Gallery →
@@ -122,7 +113,11 @@ export default function LandingPage(): React.JSX.Element {
               Add a Project
             </Link>
           </div>
+        </div>
+      </header>
 
+      <main>
+        <div className="container">
           <Heading as="h2" className={styles.sectionTitle}>Key Insights</Heading>
           <div data-testid="stats-row" className={styles.statsRow}>
             <StatCard
