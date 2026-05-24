@@ -60,6 +60,22 @@ function StatCard({ emoji, value, label }: StatCardProps): React.JSX.Element {
   );
 }
 
+interface PersonaCardProps {
+  emoji: string;
+  title: string;
+  description: string;
+}
+
+function PersonaCard({ emoji, title, description }: PersonaCardProps): React.JSX.Element {
+  return (
+    <div className={styles.personaCard}>
+      <div className={styles.personaIcon}>{emoji}</div>
+      <div className={styles.personaTitle}>{title}</div>
+      <p className={styles.personaDescription}>{description}</p>
+    </div>
+  );
+}
+
 export default function LandingPage(): React.JSX.Element {
   const history = useHistory();
   const galleryUrl = useBaseUrl('/gallery');
@@ -124,6 +140,40 @@ export default function LandingPage(): React.JSX.Element {
               />
             )}
           </div>
+
+          <section className={styles.personasSection}>
+            <Heading as="h2" className={styles.personasSectionTitle}>Who is this for?</Heading>
+            <p className={styles.personasSectionSubtitle}>
+              The hub serves every role in the Power Platform open-source community.
+            </p>
+            <div className={styles.personaGrid}>
+              <PersonaCard
+                emoji="🎨"
+                title="Makers"
+                description="You build apps, flows, and automations with Power Platform. Discover ready-made templates, components, and connectors that accelerate your work — no need to start from scratch."
+              />
+              <PersonaCard
+                emoji="🧑‍💻"
+                title="Developers"
+                description="You extend Power Platform with code — PCF controls, custom connectors, plugins, and SDKs. Find open-source building blocks and libraries maintained by the community."
+              />
+              <PersonaCard
+                emoji="🤝"
+                title="Contributors"
+                description="You want to give back. Browse projects actively looking for help — filter by good-first-issue and help-wanted labels to find your first (or next) open-source contribution."
+              />
+              <PersonaCard
+                emoji="🛠️"
+                title="Maintainers"
+                description="You own or want to start an open-source Power Platform project. Get your project listed, grow your community, and track your ecosystem momentum over time."
+              />
+              <PersonaCard
+                emoji="⚙️"
+                title="Admins"
+                description="You govern and manage Power Platform environments. Discover community-built ALM pipelines, CoE toolkits, governance frameworks, and security utilities."
+              />
+            </div>
+          </section>
 
           <div className={styles.ctaSection}>
             <Link to="/gallery" className="button button--primary button--lg">
