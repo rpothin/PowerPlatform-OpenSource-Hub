@@ -130,7 +130,7 @@ export default function LandingPage(): React.JSX.Element {
               Explore the Gallery →
             </Link>
             <Link
-              to="/docs/repository-onboarding/"
+              to="/docs/category/repository-onboarding"
               className={`button button--secondary button--lg ${styles.ctaSecondary}`}
             >
               Add a Project
