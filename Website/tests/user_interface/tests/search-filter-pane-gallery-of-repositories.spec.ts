@@ -2,6 +2,7 @@ import { test, expect, type Locator, type Page } from '@playwright/test';
 
 // Full path required because Docusaurus serves under baseUrl /PowerPlatform-OpenSource-Hub/
 const GALLERY_PATH = '/PowerPlatform-OpenSource-Hub/gallery';
+const LANDING_PATH = '/PowerPlatform-OpenSource-Hub/';
 
 const sortOptions = [
   'Stars (Descending)',
@@ -906,14 +907,14 @@ test('Validate that when I click on the "See more..." button in a random card of
 // #region Landing page smoke tests
 
 test('Landing page has CTA linking to gallery', async ({ page }) => {
-  await page.goto('/');
+  await page.goto(LANDING_PATH);
   const cta = page.getByRole('link', { name: /explore the gallery/i });
   await expect(cta).toBeVisible();
   await expect(cta).toHaveAttribute('href', /\/gallery/);
 });
 
 test('Landing page shows stat cards', async ({ page }) => {
-  await page.goto('/');
+  await page.goto(LANDING_PATH);
   const statsSection = page.locator('[data-testid="stats-row"]');
   await expect(statsSection).toBeVisible();
 });

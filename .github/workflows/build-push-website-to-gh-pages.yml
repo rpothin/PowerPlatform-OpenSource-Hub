@@ -9,6 +9,7 @@ on:
   workflow_run:
     workflows: ["3-snapshot-github-repositories-popularity-score"]
     types: [completed]
+    branches: [main]
   push:
     branches:
       - main
@@ -129,7 +130,9 @@ jobs:
       # Deploy website to GitHub Pages
       #   Docs: https://github.com/peaceiris/actions-gh-pages#%EF%B8%8F-docusaurus
       - name: Deploy to GitHub Pages
-        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        if: >
+          (github.event_name == 'push' && github.ref == 'refs/heads/main') ||
+          (github.event_name == 'workflow_run' && github.event.workflow_run.head_branch == 'main')
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
