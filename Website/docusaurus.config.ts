@@ -83,13 +83,14 @@ const config: Config = {
         src: 'img/PowerPlatform_scalable.svg',
       },
       items: [
+        { to: '/', label: 'Home', position: 'left' },
+        { to: '/gallery', label: 'Gallery', position: 'left' },
         {
           type: 'docSidebar',
           sidebarId: 'tutorialSidebar',
           position: 'left',
           label: 'Docs',
         },
-        { to: '/gallery', label: 'Gallery', position: 'left' },
         /*{to: '/blog', label: 'Blog', position: 'left'},*/
         {
           href: 'https://github.com/rpothin/PowerPlatform-OpenSource-Hub',

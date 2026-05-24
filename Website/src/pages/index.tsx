@@ -53,7 +53,8 @@ interface StatCardProps {
 function StatCard({ emoji, value, label }: StatCardProps): React.JSX.Element {
   return (
     <div className={styles.statCard}>
-      <div className={styles.statValue}>{emoji} {value}</div>
+      <div className={styles.statIcon}>{emoji}</div>
+      <div className={styles.statValue}>{value}</div>
       <div className={styles.statLabel}>{label}</div>
     </div>
   );
