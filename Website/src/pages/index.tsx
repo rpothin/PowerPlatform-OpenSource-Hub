@@ -130,7 +130,7 @@ export default function LandingPage(): React.JSX.Element {
               Explore the Gallery →
             </Link>
             <Link
-              to="https://github.com/rpothin/PowerPlatform-OpenSource-Hub#-how-to-add-a-new-project-in-this-repository"
+              to="/docs/repository-onboarding/"
               className={`button button--secondary button--lg ${styles.ctaSecondary}`}
             >
               Add a Project
