@@ -30,7 +30,7 @@
   },
   "forkCount": 354,
   "fundingLinks": [],
-  "isSecurityPolicyEnabled": true,
+  "isSecurityPolicyEnabled": false,
   "isTemplate": false,
   "latestRelease": {
     "name": "1.2.0 Release",
@@ -41,7 +41,7 @@
   "primaryLanguage": {
     "name": "C#"
   },
-  "securityPolicyUrl": "https://github.com/microsoft/Power-Fx/security/policy",
+  "securityPolicyUrl": null,
   "stargazerCount": 3352,
   "watchers": {
     "totalCount": 112
@@ -62,6 +62,6 @@
   "openedToContributionsIssues": 9,
   "popularityScore": 3464,
   "_schemaVersion": "1.0.0",
-  "_generatedAt": "2026-05-24T11:32:43.398Z",
-  "_workflowRunId": "26360071208"
+  "_generatedAt": "2026-05-25T12:10:49.819Z",
+  "_workflowRunId": "26399809954"
 }
