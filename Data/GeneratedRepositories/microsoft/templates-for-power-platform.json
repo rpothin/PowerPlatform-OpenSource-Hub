@@ -30,7 +30,7 @@
   },
   "forkCount": 17,
   "fundingLinks": [],
-  "isSecurityPolicyEnabled": true,
+  "isSecurityPolicyEnabled": false,
   "isTemplate": false,
   "latestRelease": {
     "name": "SAP Procurement Template 2.0",
@@ -41,7 +41,7 @@
   "primaryLanguage": {
     "name": "C#"
   },
-  "securityPolicyUrl": "https://github.com/microsoft/Templates-for-Power-Platform/security/policy",
+  "securityPolicyUrl": null,
   "stargazerCount": 80,
   "watchers": {
     "totalCount": 10
@@ -64,6 +64,6 @@
   "openedToContributionsIssues": 0,
   "popularityScore": 90,
   "_schemaVersion": "1.0.0",
-  "_generatedAt": "2026-05-25T12:10:49.819Z",
-  "_workflowRunId": "26399809954"
+  "_generatedAt": "2026-05-27T12:06:18.274Z",
+  "_workflowRunId": "26510012152"
 }
