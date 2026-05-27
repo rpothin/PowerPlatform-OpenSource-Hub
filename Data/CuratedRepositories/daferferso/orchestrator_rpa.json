@@ -1,0 +1,7 @@
+{
+  "repositoryId": 683890843,
+  "fullName": "daferferso/orchestrator_rpa",
+  "exclude": true,
+  "curationStatus": "reviewed",
+  "maintainerNotes": "False positive (Category B): Generic Django/Celery RPA task orchestrator that lists Power Automate as one of many compatible bot clients (alongside UiPath, AA360). Not a Power Automate tool."
+}
