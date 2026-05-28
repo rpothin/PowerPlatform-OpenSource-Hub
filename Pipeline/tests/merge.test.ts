@@ -106,6 +106,24 @@ describe("mergeRepositoryDetails", () => {
     await expect(mergeRepositoryDetails(paths)).rejects.toThrow("unknown repositoryId '2'");
   });
 
+  it("skips orphaned exclusion overlays with a warning instead of throwing", async () => {
+    const paths = await createFixturePaths("orphaned-exclusion");
+    await writeGenerated(paths.generatedDirPath, generatedRecord({ repositoryId: 1, fullName: "owner/alpha" }));
+    // Exclusion overlay for repositoryId 99 which does not exist in generated data.
+    await writeOverlay(paths.overlayDirPath, { repositoryId: 99, fullName: "owner/orphan", exclude: true });
+    await writeSentinels(paths.sentinelsPath, []);
+
+    const result = await mergeRepositoryDetails(paths);
+    const output = JSON.parse(await readFile(paths.outputPath, "utf8")) as MergedRepositoryRecord[];
+
+    expect(result.metrics.warnings).toEqual([
+      expect.stringContaining("unknown repositoryId '99'")
+    ]);
+    expect(result.metrics.warnings[0]).toContain("Overlay skipped");
+    expect(result.metrics.excludedRepositories).toBe(0);
+    expect(output.map((r) => r.fullName)).toEqual(["owner/alpha"]);
+  });
+
   it("warns when an overlay repository id matches but fullName points to a renamed repository", async () => {
     const paths = await createFixturePaths("mismatched-full-name");
     await writeGenerated(paths.generatedDirPath, generatedRecord({ repositoryId: 1, fullName: "owner/current" }));
