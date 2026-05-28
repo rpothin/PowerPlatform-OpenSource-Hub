@@ -30,13 +30,13 @@
   },
   "forkCount": 12,
   "fundingLinks": [],
-  "isSecurityPolicyEnabled": false,
+  "isSecurityPolicyEnabled": true,
   "isTemplate": false,
   "latestRelease": null,
   "primaryLanguage": {
     "name": "TypeScript"
   },
-  "securityPolicyUrl": null,
+  "securityPolicyUrl": "https://github.com/microsoft/powerplatform-vscode-lab/security/policy",
   "stargazerCount": 25,
   "watchers": {
     "totalCount": 9
@@ -57,6 +57,6 @@
   "openedToContributionsIssues": 0,
   "popularityScore": 34,
   "_schemaVersion": "1.0.0",
-  "_generatedAt": "2026-05-27T12:06:18.274Z",
-  "_workflowRunId": "26510012152"
+  "_generatedAt": "2026-05-28T02:18:10.775Z",
+  "_workflowRunId": "26550575244"
 }

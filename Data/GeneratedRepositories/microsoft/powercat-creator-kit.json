@@ -30,7 +30,7 @@
   },
   "forkCount": 69,
   "fundingLinks": [],
-  "isSecurityPolicyEnabled": false,
+  "isSecurityPolicyEnabled": true,
   "isTemplate": false,
   "latestRelease": {
     "name": "Creator Kit March 2025",
@@ -41,7 +41,7 @@
   "primaryLanguage": {
     "name": "CSS"
   },
-  "securityPolicyUrl": null,
+  "securityPolicyUrl": "https://github.com/microsoft/powercat-creator-kit/security/policy",
   "stargazerCount": 405,
   "watchers": {
     "totalCount": 35
@@ -62,6 +62,6 @@
   "openedToContributionsIssues": 2,
   "popularityScore": 440,
   "_schemaVersion": "1.0.0",
-  "_generatedAt": "2026-05-27T12:06:18.274Z",
-  "_workflowRunId": "26510012152"
+  "_generatedAt": "2026-05-28T02:18:10.775Z",
+  "_workflowRunId": "26550575244"
 }

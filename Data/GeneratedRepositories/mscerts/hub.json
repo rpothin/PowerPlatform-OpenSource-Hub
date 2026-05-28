@@ -13,7 +13,7 @@
     "url": "https://api.github.com/licenses/mit"
   },
   "name": "hub",
-  "openIssuesCount": 0,
+  "openIssuesCount": 1,
   "owner": {
     "id": "138674662",
     "is_bot": false,
@@ -21,11 +21,16 @@
     "type": "Organization",
     "url": "https://github.com/mscerts"
   },
-  "updatedAt": "2026-05-26T15:19:05Z",
+  "updatedAt": "2026-05-27T20:03:20Z",
   "url": "https://github.com/mscerts/hub",
   "codeOfConduct": null,
-  "forkCount": 31,
-  "fundingLinks": [],
+  "forkCount": 32,
+  "fundingLinks": [
+    {
+      "platform": "GITHUB",
+      "url": "https://github.com/teriaavibes"
+    }
+  ],
   "isSecurityPolicyEnabled": false,
   "isTemplate": false,
   "latestRelease": null,
@@ -33,7 +38,7 @@
     "name": "MDX"
   },
   "securityPolicyUrl": null,
-  "stargazerCount": 179,
+  "stargazerCount": 180,
   "watchers": {
     "totalCount": 8
   },
@@ -60,8 +65,8 @@
   "openedHelpWantedIssues": 0,
   "hasHelpWantedIssues": false,
   "openedToContributionsIssues": 0,
-  "popularityScore": 187,
+  "popularityScore": 188,
   "_schemaVersion": "1.0.0",
-  "_generatedAt": "2026-05-27T12:06:18.274Z",
-  "_workflowRunId": "26510012152"
+  "_generatedAt": "2026-05-28T02:18:10.775Z",
+  "_workflowRunId": "26550575244"
 }

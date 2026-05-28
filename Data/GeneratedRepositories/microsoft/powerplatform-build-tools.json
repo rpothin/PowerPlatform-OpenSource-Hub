@@ -13,7 +13,7 @@
     "url": "https://api.github.com/licenses/mit"
   },
   "name": "powerplatform-build-tools",
-  "openIssuesCount": 184,
+  "openIssuesCount": 185,
   "owner": {
     "id": "6154722",
     "is_bot": false,
@@ -28,20 +28,20 @@
     "name": "Other",
     "url": "https://github.com/microsoft/powerplatform-build-tools/blob/main/CODE_OF_CONDUCT.md"
   },
-  "forkCount": 68,
+  "forkCount": 69,
   "fundingLinks": [],
-  "isSecurityPolicyEnabled": false,
+  "isSecurityPolicyEnabled": true,
   "isTemplate": false,
   "latestRelease": {
-    "name": "V2.0.136",
-    "tagName": "v2.0.136",
-    "url": "https://github.com/microsoft/powerplatform-build-tools/releases/tag/v2.0.136",
-    "publishedAt": "2026-04-27T20:24:00Z"
+    "name": "V2.0.140",
+    "tagName": "v2.0.140",
+    "url": "https://github.com/microsoft/powerplatform-build-tools/releases/tag/v2.0.140",
+    "publishedAt": "2026-05-28T00:21:34Z"
   },
   "primaryLanguage": {
     "name": "TypeScript"
   },
-  "securityPolicyUrl": null,
+  "securityPolicyUrl": "https://github.com/microsoft/powerplatform-build-tools/security/policy",
   "stargazerCount": 286,
   "watchers": {
     "totalCount": 31
@@ -67,6 +67,6 @@
   "openedToContributionsIssues": 0,
   "popularityScore": 317,
   "_schemaVersion": "1.0.0",
-  "_generatedAt": "2026-05-27T12:06:18.274Z",
-  "_workflowRunId": "26510012152"
+  "_generatedAt": "2026-05-28T02:18:10.775Z",
+  "_workflowRunId": "26550575244"
 }
