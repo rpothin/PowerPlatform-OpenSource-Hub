@@ -132,7 +132,8 @@ jobs:
       - name: Deploy to GitHub Pages
         if: >
           (github.event_name == 'push' && github.ref == 'refs/heads/main') ||
-          (github.event_name == 'workflow_run' && github.event.workflow_run.head_branch == 'main')
+          (github.event_name == 'workflow_run' && github.event.workflow_run.head_branch == 'main') ||
+          github.event_name == 'workflow_dispatch'
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
