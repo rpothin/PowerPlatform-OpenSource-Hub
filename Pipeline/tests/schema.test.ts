@@ -9,6 +9,7 @@ const repositoryRoot = path.resolve(packageRoot, "..");
 const schemaRoot = path.join(repositoryRoot, "Configuration", "Schemas");
 const taxonomyRoot = path.join(repositoryRoot, "Configuration", "Taxonomy");
 const overlayRoot = path.join(repositoryRoot, "Data", "CuratedRepositories");
+const generatedRoot = path.join(repositoryRoot, "Data", "GeneratedRepositories");
 
 type TaxonomyDefinitionName = "repositoryCategory" | "repositoryFocusArea" | "repositoryAudience";
 
@@ -210,9 +211,9 @@ describe("repository schemas", () => {
 
   it("validates curated overlay examples and sentinel safeguards", async () => {
     const validate = compileSchema("GitHubRepositoryOverlay.schema.json");
-    const overlayFiles = await listJsonFiles(overlayRoot);
-    const currentData = loadJson<RepositoryDetailsRecord[]>(path.join(repositoryRoot, "Data", "GitHubRepositoriesDetails.json"));
-    const currentByFullName = new Map(currentData.map((record) => [normalizeFullName(record.fullName ?? ""), record]));
+    const [overlayFiles, generatedFiles] = await Promise.all([listJsonFiles(overlayRoot), listJsonFiles(generatedRoot)]);
+    const generatedData = generatedFiles.map((filePath) => loadJson<RepositoryDetailsRecord>(filePath));
+    const generatedByRepositoryId = new Map(generatedData.map((record) => [String(record.repositoryId ?? ""), record]));
     const sentinelConfig = loadJson<{ repositories: SentinelRepository[] }>(path.join(repositoryRoot, "Configuration", "SentinelRepositories.json"));
     const sentinelFullNames = new Set(sentinelConfig.repositories.map((repository) => normalizeFullName(repository.fullName)));
     const repositoryIds = new Set<string>();
@@ -233,14 +234,15 @@ describe("repository schemas", () => {
       expect(fullNameParts).toHaveLength(2);
       const owner = fullNameParts[0] ?? "";
       const repositoryName = fullNameParts[1] ?? "";
-      expect(relativePath).toBe(path.join(owner.toLowerCase(), `${repositoryName.toLowerCase()}.json`));
+      const normalizedRelativePath = relativePath.split(path.sep).join("/").toLowerCase();
+      expect(normalizedRelativePath).toBe(`${owner.toLowerCase()}/${repositoryName.toLowerCase()}.json`);
 
       const normalizedFullName = normalizeFullName(overlay.fullName);
-      const currentRecord = currentByFullName.get(normalizedFullName);
-      expect(currentRecord).toBeDefined();
+      const generatedRecord = generatedByRepositoryId.get(String(overlay.repositoryId));
+      expect(generatedRecord).toBeDefined();
 
-      if (currentRecord?.repositoryId !== undefined) {
-        expect(String(currentRecord.repositoryId)).toBe(String(overlay.repositoryId));
+      if (generatedRecord?.fullName !== undefined) {
+        expect(normalizeFullName(generatedRecord.fullName)).toBe(normalizedFullName);
       }
 
       expect(repositoryIds.has(String(overlay.repositoryId))).toBe(false);
