@@ -5,6 +5,7 @@
     "resolveJsonModule": true,
     "jsx": "react",
     "ignoreDeprecations": "6.0",
+    "noEmit": true,
     "types": ["jest", "react"]
   },
   "include": [
