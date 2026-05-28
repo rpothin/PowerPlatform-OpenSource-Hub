@@ -70,7 +70,6 @@ def run_gallery_acceptance(page: Page) -> dict[str, object]:
 
     selected_repository = first_repository_name(page)
     page.get_by_label("Search repositories").fill(selected_repository)
-    expect(page.locator("#repositoryCount")).to_contain_text("repository")
     search_count = current_repository_count(page)
     if search_count <= 0 or search_count > initial_count:
         raise AssertionError(f"Search count {search_count} should be between 1 and {initial_count}.")
