@@ -13,7 +13,7 @@
     "url": "https://api.github.com/licenses/mit"
   },
   "name": "Power-CAT-Tools",
-  "openIssuesCount": 69,
+  "openIssuesCount": 70,
   "owner": {
     "id": "6154722",
     "is_bot": false,
@@ -30,7 +30,7 @@
   },
   "forkCount": 17,
   "fundingLinks": [],
-  "isSecurityPolicyEnabled": true,
+  "isSecurityPolicyEnabled": false,
   "isTemplate": false,
   "latestRelease": {
     "name": "PowerCATToolkit April 2025 - Risk Assessment Update",
@@ -41,7 +41,7 @@
   "primaryLanguage": {
     "name": "C#"
   },
-  "securityPolicyUrl": "https://github.com/microsoft/Power-CAT-Tools/security/policy",
+  "securityPolicyUrl": null,
   "stargazerCount": 101,
   "watchers": {
     "totalCount": 6
@@ -63,6 +63,6 @@
   "openedToContributionsIssues": 0,
   "popularityScore": 107,
   "_schemaVersion": "1.0.0",
-  "_generatedAt": "2026-05-28T02:18:10.775Z",
-  "_workflowRunId": "26550575244"
+  "_generatedAt": "2026-05-28T12:11:41.193Z",
+  "_workflowRunId": "26573850466"
 }
