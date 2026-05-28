@@ -223,6 +223,12 @@ function indexOverlays(
 
     const generated = generatedById.get(key);
     if (generated === undefined) {
+      if (overlay.exclude === true) {
+        // Orphaned exclusion overlay — repository no longer in generated data.
+        // This is harmless: nothing to exclude. Emit a warning and skip.
+        warnings.push(`Curated overlay '${overlayFile.filePath}' references unknown repositoryId '${key}' (${overlay.fullName}) — repository not in generated data. Overlay skipped.`);
+        continue;
+      }
       throw new Error(`Curated overlay '${overlayFile.filePath}' references unknown repositoryId '${key}' (${overlay.fullName}).`);
     }
 
