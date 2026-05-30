@@ -13,7 +13,7 @@
     "url": "https://api.github.com/licenses/mit"
   },
   "name": "power-platform-skills",
-  "openIssuesCount": 31,
+  "openIssuesCount": 33,
   "owner": {
     "id": "6154722",
     "is_bot": false,
@@ -21,23 +21,23 @@
     "type": "Organization",
     "url": "https://github.com/microsoft"
   },
-  "updatedAt": "2026-05-28T10:48:59Z",
+  "updatedAt": "2026-05-30T09:05:07Z",
   "url": "https://github.com/microsoft/power-platform-skills",
   "codeOfConduct": {
     "key": "other",
     "name": "Other",
     "url": "https://github.com/microsoft/power-platform-skills/blob/main/CODE_OF_CONDUCT.md"
   },
-  "forkCount": 58,
+  "forkCount": 62,
   "fundingLinks": [],
-  "isSecurityPolicyEnabled": false,
+  "isSecurityPolicyEnabled": true,
   "isTemplate": false,
   "latestRelease": null,
   "primaryLanguage": {
     "name": "JavaScript"
   },
-  "securityPolicyUrl": null,
-  "stargazerCount": 312,
+  "securityPolicyUrl": "https://github.com/microsoft/power-platform-skills/security/policy",
+  "stargazerCount": 315,
   "watchers": {
     "totalCount": 6
   },
@@ -63,8 +63,8 @@
   "openedHelpWantedIssues": 0,
   "hasHelpWantedIssues": false,
   "openedToContributionsIssues": 0,
-  "popularityScore": 318,
+  "popularityScore": 321,
   "_schemaVersion": "1.0.0",
-  "_generatedAt": "2026-05-28T12:11:41.193Z",
-  "_workflowRunId": "26573850466"
+  "_generatedAt": "2026-05-30T11:33:48.138Z",
+  "_workflowRunId": "26682752987"
 }

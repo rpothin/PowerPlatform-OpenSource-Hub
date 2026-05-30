@@ -13,7 +13,7 @@
     "url": "https://api.github.com/licenses/mit"
   },
   "name": "Dataverse-skills",
-  "openIssuesCount": 8,
+  "openIssuesCount": 10,
   "owner": {
     "id": "6154722",
     "is_bot": false,
@@ -21,21 +21,21 @@
     "type": "Organization",
     "url": "https://github.com/microsoft"
   },
-  "updatedAt": "2026-05-27T23:51:51Z",
+  "updatedAt": "2026-05-28T19:39:20Z",
   "url": "https://github.com/microsoft/Dataverse-skills",
   "codeOfConduct": {
     "key": "other",
     "name": "Other",
     "url": "https://github.com/microsoft/Dataverse-skills/blob/main/CODE_OF_CONDUCT.md"
   },
-  "forkCount": 28,
+  "forkCount": 29,
   "fundingLinks": [],
-  "isSecurityPolicyEnabled": false,
+  "isSecurityPolicyEnabled": true,
   "isTemplate": false,
   "latestRelease": null,
   "primaryLanguage": null,
-  "securityPolicyUrl": null,
-  "stargazerCount": 108,
+  "securityPolicyUrl": "https://github.com/microsoft/Dataverse-skills/security/policy",
+  "stargazerCount": 109,
   "watchers": {
     "totalCount": 3
   },
@@ -55,8 +55,8 @@
   "openedHelpWantedIssues": 0,
   "hasHelpWantedIssues": false,
   "openedToContributionsIssues": 0,
-  "popularityScore": 111,
+  "popularityScore": 112,
   "_schemaVersion": "1.0.0",
-  "_generatedAt": "2026-05-28T12:11:41.193Z",
-  "_workflowRunId": "26573850466"
+  "_generatedAt": "2026-05-30T11:33:48.138Z",
+  "_workflowRunId": "26682752987"
 }

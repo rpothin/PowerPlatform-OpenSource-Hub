@@ -14,7 +14,7 @@
       "url": "https://api.github.com/licenses/mit"
     },
     "name": "Power-Fx",
-    "openIssuesCount": 366,
+    "openIssuesCount": 365,
     "owner": {
       "id": "6154722",
       "is_bot": false,
@@ -22,7 +22,7 @@
       "type": "Organization",
       "url": "https://github.com/microsoft"
     },
-    "updatedAt": "2026-05-26T17:34:35Z",
+    "updatedAt": "2026-05-29T16:07:49Z",
     "url": "https://github.com/microsoft/Power-Fx",
     "codeOfConduct": {
       "key": "other",
@@ -31,7 +31,7 @@
     },
     "forkCount": 354,
     "fundingLinks": [],
-    "isSecurityPolicyEnabled": false,
+    "isSecurityPolicyEnabled": true,
     "isTemplate": false,
     "latestRelease": {
       "name": "1.2.0 Release",
@@ -42,7 +42,7 @@
     "primaryLanguage": {
       "name": "C#"
     },
-    "securityPolicyUrl": null,
+    "securityPolicyUrl": "https://github.com/microsoft/Power-Fx/security/policy",
     "stargazerCount": 3354,
     "watchers": {
       "totalCount": 112
@@ -63,8 +63,8 @@
     "openedToContributionsIssues": 9,
     "popularityScore": 3466,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2018-11-21T16:54:50Z",
@@ -81,7 +81,7 @@
       "url": "https://api.github.com/licenses/mit"
     },
     "name": "Microsoft365DSC",
-    "openIssuesCount": 118,
+    "openIssuesCount": 117,
     "owner": {
       "id": "270493417",
       "is_bot": false,
@@ -89,7 +89,7 @@
       "type": "Organization",
       "url": "https://github.com/Microsoft365DSC"
     },
-    "updatedAt": "2026-05-28T08:52:49Z",
+    "updatedAt": "2026-05-29T20:33:27Z",
     "url": "https://github.com/Microsoft365DSC/Microsoft365DSC",
     "codeOfConduct": {
       "key": "contributor_covenant",
@@ -98,19 +98,19 @@
     },
     "forkCount": 656,
     "fundingLinks": [],
-    "isSecurityPolicyEnabled": false,
+    "isSecurityPolicyEnabled": true,
     "isTemplate": false,
     "latestRelease": {
-      "name": "Release 1.26.520.1",
-      "tagName": "1.26.520.1",
-      "url": "https://github.com/Microsoft365DSC/Microsoft365DSC/releases/tag/1.26.520.1",
-      "publishedAt": "2026-05-20T21:13:17Z"
+      "name": "Release 1.26.527.1",
+      "tagName": "1.26.527.1",
+      "url": "https://github.com/Microsoft365DSC/Microsoft365DSC/releases/tag/1.26.527.1",
+      "publishedAt": "2026-05-30T09:16:14Z"
     },
     "primaryLanguage": {
       "name": "PowerShell"
     },
-    "securityPolicyUrl": null,
-    "stargazerCount": 2295,
+    "securityPolicyUrl": "https://github.com/Microsoft365DSC/Microsoft365DSC/security/policy",
+    "stargazerCount": 2296,
     "watchers": {
       "totalCount": 94
     },
@@ -147,10 +147,10 @@
     "openedHelpWantedIssues": 2,
     "hasHelpWantedIssues": true,
     "openedToContributionsIssues": 2,
-    "popularityScore": 2389,
+    "popularityScore": 2390,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2018-03-26T22:41:09Z",
@@ -175,16 +175,16 @@
       "type": "Organization",
       "url": "https://github.com/microsoft"
     },
-    "updatedAt": "2026-05-28T05:01:47Z",
+    "updatedAt": "2026-05-28T22:33:58Z",
     "url": "https://github.com/microsoft/PowerApps-Samples",
     "codeOfConduct": {
       "key": "other",
       "name": "Other",
       "url": "https://github.com/microsoft/.github/blob/main/CODE_OF_CONDUCT.md"
     },
-    "forkCount": 1812,
+    "forkCount": 1814,
     "fundingLinks": [],
-    "isSecurityPolicyEnabled": false,
+    "isSecurityPolicyEnabled": true,
     "isTemplate": false,
     "latestRelease": {
       "name": "Metadata Browser",
@@ -195,8 +195,8 @@
     "primaryLanguage": {
       "name": "C#"
     },
-    "securityPolicyUrl": null,
-    "stargazerCount": 1936,
+    "securityPolicyUrl": "https://github.com/microsoft/PowerApps-Samples/security/policy",
+    "stargazerCount": 1937,
     "watchers": {
       "totalCount": 116
     },
@@ -229,10 +229,10 @@
     "openedHelpWantedIssues": 0,
     "hasHelpWantedIssues": false,
     "openedToContributionsIssues": 0,
-    "popularityScore": 2052,
+    "popularityScore": 2053,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466",
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987",
     "category": "samples-templates",
     "featured": false,
     "customDescription": "Starter curation overlay for official Microsoft Power Apps and Dataverse samples.",
@@ -328,8 +328,8 @@
     "openedToContributionsIssues": 0,
     "popularityScore": 1643,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2018-12-13T05:33:24Z",
@@ -346,7 +346,7 @@
       "url": "https://api.github.com/licenses/mit"
     },
     "name": "PowerPlatformConnectors",
-    "openIssuesCount": 337,
+    "openIssuesCount": 336,
     "owner": {
       "id": "6154722",
       "is_bot": false,
@@ -354,23 +354,23 @@
       "type": "Organization",
       "url": "https://github.com/microsoft"
     },
-    "updatedAt": "2026-05-26T10:43:33Z",
+    "updatedAt": "2026-05-30T09:38:54Z",
     "url": "https://github.com/microsoft/PowerPlatformConnectors",
     "codeOfConduct": {
       "key": "other",
       "name": "Other",
       "url": "https://github.com/microsoft/.github/blob/main/CODE_OF_CONDUCT.md"
     },
-    "forkCount": 1426,
+    "forkCount": 1428,
     "fundingLinks": [],
-    "isSecurityPolicyEnabled": false,
+    "isSecurityPolicyEnabled": true,
     "isTemplate": false,
     "latestRelease": null,
     "primaryLanguage": {
       "name": "C#"
     },
-    "securityPolicyUrl": null,
-    "stargazerCount": 1257,
+    "securityPolicyUrl": "https://github.com/microsoft/PowerPlatformConnectors/security/policy",
+    "stargazerCount": 1259,
     "watchers": {
       "totalCount": 56
     },
@@ -395,10 +395,10 @@
     "openedHelpWantedIssues": 0,
     "hasHelpWantedIssues": false,
     "openedToContributionsIssues": 0,
-    "popularityScore": 1313,
+    "popularityScore": 1315,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466",
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987",
     "category": "connectors",
     "featured": false,
     "customDescription": "Starter curation overlay for the canonical Power Platform connector samples and certification assets.",
@@ -443,7 +443,7 @@
       "type": "User",
       "url": "https://github.com/mbrg"
     },
-    "updatedAt": "2026-05-28T08:15:34Z",
+    "updatedAt": "2026-05-28T19:02:56Z",
     "url": "https://github.com/mbrg/power-pwn",
     "codeOfConduct": null,
     "forkCount": 126,
@@ -460,7 +460,7 @@
       "name": "Python"
     },
     "securityPolicyUrl": null,
-    "stargazerCount": 1155,
+    "stargazerCount": 1156,
     "watchers": {
       "totalCount": 19
     },
@@ -498,10 +498,10 @@
     "openedHelpWantedIssues": 0,
     "hasHelpWantedIssues": false,
     "openedToContributionsIssues": 0,
-    "popularityScore": 1174,
+    "popularityScore": 1175,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2024-11-04T18:46:37Z",
@@ -518,7 +518,7 @@
       "url": "https://api.github.com/licenses/mit"
     },
     "name": "Agents",
-    "openIssuesCount": 123,
+    "openIssuesCount": 126,
     "owner": {
       "id": "6154722",
       "is_bot": false,
@@ -526,7 +526,7 @@
       "type": "Organization",
       "url": "https://github.com/microsoft"
     },
-    "updatedAt": "2026-05-28T02:37:44Z",
+    "updatedAt": "2026-05-29T20:42:03Z",
     "url": "https://github.com/microsoft/Agents",
     "codeOfConduct": {
       "key": "other",
@@ -542,9 +542,9 @@
       "name": "PowerShell"
     },
     "securityPolicyUrl": "https://github.com/microsoft/Agents/security/policy",
-    "stargazerCount": 935,
+    "stargazerCount": 937,
     "watchers": {
-      "totalCount": 29
+      "totalCount": 30
     },
     "topics": [
       "agents",
@@ -568,10 +568,10 @@
     "openedHelpWantedIssues": 0,
     "hasHelpWantedIssues": false,
     "openedToContributionsIssues": 0,
-    "popularityScore": 964,
+    "popularityScore": 967,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466",
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987",
     "category": "copilot-studio",
     "featured": false,
     "customDescription": "Starter curation overlay for Microsoft agent SDK scenarios that overlap with Copilot Studio and extensibility.",
@@ -607,7 +607,7 @@
       "url": "https://api.github.com/licenses/mit"
     },
     "name": "AL",
-    "openIssuesCount": 135,
+    "openIssuesCount": 137,
     "owner": {
       "id": "6154722",
       "is_bot": false,
@@ -654,8 +654,8 @@
     "openedToContributionsIssues": 0,
     "popularityScore": 1017,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2018-11-15T09:56:08Z",
@@ -687,7 +687,7 @@
       "name": "Other",
       "url": "https://github.com/microsoft/.github/blob/main/CODE_OF_CONDUCT.md"
     },
-    "forkCount": 381,
+    "forkCount": 382,
     "fundingLinks": [],
     "isSecurityPolicyEnabled": true,
     "isTemplate": false,
@@ -722,8 +722,8 @@
     "openedToContributionsIssues": 0,
     "popularityScore": 846,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2015-02-05T20:58:06Z",
@@ -752,7 +752,16 @@
     "url": "https://github.com/MscrmTools/XrmToolBox",
     "codeOfConduct": null,
     "forkCount": 231,
-    "fundingLinks": [],
+    "fundingLinks": [
+      {
+        "platform": "GITHUB",
+        "url": "https://github.com/MscrmTools"
+      },
+      {
+        "platform": "CUSTOM",
+        "url": "https://paypal.me/tanguytouzard"
+      }
+    ],
     "isSecurityPolicyEnabled": false,
     "isTemplate": false,
     "latestRelease": {
@@ -788,8 +797,8 @@
     "openedToContributionsIssues": 1,
     "popularityScore": 714,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2021-10-21T07:12:03Z",
@@ -806,7 +815,7 @@
       "url": "https://api.github.com/licenses/mit"
     },
     "name": "PowerDocu",
-    "openIssuesCount": 59,
+    "openIssuesCount": 60,
     "owner": {
       "id": "15896715",
       "is_bot": false,
@@ -817,7 +826,7 @@
     "updatedAt": "2026-05-26T19:03:14Z",
     "url": "https://github.com/modery/PowerDocu",
     "codeOfConduct": null,
-    "forkCount": 118,
+    "forkCount": 119,
     "fundingLinks": [],
     "isSecurityPolicyEnabled": false,
     "isTemplate": false,
@@ -853,8 +862,8 @@
     "openedToContributionsIssues": 0,
     "popularityScore": 653,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2017-12-06T03:33:42Z",
@@ -906,8 +915,8 @@
     "openedToContributionsIssues": 0,
     "popularityScore": 598,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2021-02-24T22:16:04Z",
@@ -963,8 +972,8 @@
     "openedToContributionsIssues": 0,
     "popularityScore": 563,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2017-04-01T23:36:13Z",
@@ -1037,8 +1046,8 @@
     "openedToContributionsIssues": 0,
     "popularityScore": 573,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2020-11-03T17:49:34Z",
@@ -1108,8 +1117,8 @@
     "openedToContributionsIssues": 0,
     "popularityScore": 434,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2020-06-30T21:48:13Z",
@@ -1126,7 +1135,7 @@
       "url": "https://api.github.com/licenses/mit"
     },
     "name": "PowerApps-Tooling",
-    "openIssuesCount": 12,
+    "openIssuesCount": 4,
     "owner": {
       "id": "6154722",
       "is_bot": false,
@@ -1134,7 +1143,7 @@
       "type": "Organization",
       "url": "https://github.com/microsoft"
     },
-    "updatedAt": "2026-05-27T18:55:57Z",
+    "updatedAt": "2026-05-30T10:15:32Z",
     "url": "https://github.com/microsoft/PowerApps-Tooling",
     "codeOfConduct": {
       "key": "other",
@@ -1143,13 +1152,13 @@
     },
     "forkCount": 118,
     "fundingLinks": [],
-    "isSecurityPolicyEnabled": false,
+    "isSecurityPolicyEnabled": true,
     "isTemplate": false,
     "latestRelease": null,
     "primaryLanguage": {
       "name": "C#"
     },
-    "securityPolicyUrl": null,
+    "securityPolicyUrl": "https://github.com/microsoft/PowerApps-Tooling/security/policy",
     "stargazerCount": 427,
     "watchers": {
       "totalCount": 48
@@ -1174,8 +1183,8 @@
     "openedToContributionsIssues": 0,
     "popularityScore": 475,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2021-01-20T18:46:59Z",
@@ -1231,8 +1240,8 @@
     "openedToContributionsIssues": 0,
     "popularityScore": 440,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2022-02-03T00:22:40Z",
@@ -1266,7 +1275,7 @@
     },
     "forkCount": 69,
     "fundingLinks": [],
-    "isSecurityPolicyEnabled": false,
+    "isSecurityPolicyEnabled": true,
     "isTemplate": false,
     "latestRelease": {
       "name": "Creator Kit March 2025",
@@ -1277,7 +1286,7 @@
     "primaryLanguage": {
       "name": "CSS"
     },
-    "securityPolicyUrl": null,
+    "securityPolicyUrl": "https://github.com/microsoft/powercat-creator-kit/security/policy",
     "stargazerCount": 405,
     "watchers": {
       "totalCount": 35
@@ -1298,8 +1307,8 @@
     "openedToContributionsIssues": 2,
     "popularityScore": 440,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2020-07-20T18:51:25Z",
@@ -1370,8 +1379,8 @@
     "openedToContributionsIssues": 0,
     "popularityScore": 423,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2026-02-03T18:25:30Z",
@@ -1396,7 +1405,7 @@
       "type": "User",
       "url": "https://github.com/kesslernity"
     },
-    "updatedAt": "2026-05-28T04:21:13Z",
+    "updatedAt": "2026-05-29T07:41:43Z",
     "url": "https://github.com/kesslernity/awesome-microsoft-copilot-prompts",
     "codeOfConduct": null,
     "forkCount": 49,
@@ -1406,7 +1415,7 @@
     "latestRelease": null,
     "primaryLanguage": null,
     "securityPolicyUrl": null,
-    "stargazerCount": 375,
+    "stargazerCount": 378,
     "watchers": {
       "totalCount": 7
     },
@@ -1430,10 +1439,10 @@
     "openedHelpWantedIssues": 0,
     "hasHelpWantedIssues": false,
     "openedToContributionsIssues": 0,
-    "popularityScore": 382,
+    "popularityScore": 385,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2026-03-24T11:05:53Z",
@@ -1454,7 +1463,7 @@
       "type": "User",
       "url": "https://github.com/kesslernity"
     },
-    "updatedAt": "2026-05-28T10:29:18Z",
+    "updatedAt": "2026-05-28T14:04:38Z",
     "url": "https://github.com/kesslernity/awesome-copilot-studio-agents",
     "codeOfConduct": null,
     "forkCount": 29,
@@ -1464,7 +1473,7 @@
     "latestRelease": null,
     "primaryLanguage": null,
     "securityPolicyUrl": null,
-    "stargazerCount": 350,
+    "stargazerCount": 353,
     "watchers": {
       "totalCount": 12
     },
@@ -1489,10 +1498,10 @@
     "openedHelpWantedIssues": 0,
     "hasHelpWantedIssues": false,
     "openedToContributionsIssues": 0,
-    "popularityScore": 362,
+    "popularityScore": 365,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2021-04-19T05:18:05Z",
@@ -1548,8 +1557,8 @@
     "openedToContributionsIssues": 0,
     "popularityScore": 365,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2026-01-21T18:25:14Z",
@@ -1566,7 +1575,7 @@
       "url": "https://api.github.com/licenses/mit"
     },
     "name": "power-platform-skills",
-    "openIssuesCount": 31,
+    "openIssuesCount": 33,
     "owner": {
       "id": "6154722",
       "is_bot": false,
@@ -1574,23 +1583,23 @@
       "type": "Organization",
       "url": "https://github.com/microsoft"
     },
-    "updatedAt": "2026-05-28T10:48:59Z",
+    "updatedAt": "2026-05-30T09:05:07Z",
     "url": "https://github.com/microsoft/power-platform-skills",
     "codeOfConduct": {
       "key": "other",
       "name": "Other",
       "url": "https://github.com/microsoft/power-platform-skills/blob/main/CODE_OF_CONDUCT.md"
     },
-    "forkCount": 58,
+    "forkCount": 62,
     "fundingLinks": [],
-    "isSecurityPolicyEnabled": false,
+    "isSecurityPolicyEnabled": true,
     "isTemplate": false,
     "latestRelease": null,
     "primaryLanguage": {
       "name": "JavaScript"
     },
-    "securityPolicyUrl": null,
-    "stargazerCount": 312,
+    "securityPolicyUrl": "https://github.com/microsoft/power-platform-skills/security/policy",
+    "stargazerCount": 315,
     "watchers": {
       "totalCount": 6
     },
@@ -1616,10 +1625,10 @@
     "openedHelpWantedIssues": 0,
     "hasHelpWantedIssues": false,
     "openedToContributionsIssues": 0,
-    "popularityScore": 318,
+    "popularityScore": 321,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2020-03-05T00:58:17Z",
@@ -1653,7 +1662,7 @@
     },
     "forkCount": 56,
     "fundingLinks": [],
-    "isSecurityPolicyEnabled": false,
+    "isSecurityPolicyEnabled": true,
     "isTemplate": false,
     "latestRelease": {
       "name": "1.2.9",
@@ -1664,7 +1673,7 @@
     "primaryLanguage": {
       "name": "C#"
     },
-    "securityPolicyUrl": null,
+    "securityPolicyUrl": "https://github.com/microsoft/PowerPlatform-DataverseServiceClient/security/policy",
     "stargazerCount": 312,
     "watchers": {
       "totalCount": 52
@@ -1689,8 +1698,8 @@
     "openedToContributionsIssues": 0,
     "popularityScore": 364,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2022-11-16T18:09:18Z",
@@ -1722,9 +1731,9 @@
       "name": "Other",
       "url": "https://github.com/microsoft/teams-powerapps-app-templates/blob/main/CODE_OF_CONDUCT.md"
     },
-    "forkCount": 204,
+    "forkCount": 203,
     "fundingLinks": [],
-    "isSecurityPolicyEnabled": false,
+    "isSecurityPolicyEnabled": true,
     "isTemplate": false,
     "latestRelease": {
       "name": "Upload .cab solution",
@@ -1733,7 +1742,7 @@
       "publishedAt": "2024-03-29T20:25:37Z"
     },
     "primaryLanguage": null,
-    "securityPolicyUrl": null,
+    "securityPolicyUrl": "https://github.com/microsoft/teams-powerapps-app-templates/security/policy",
     "stargazerCount": 312,
     "watchers": {
       "totalCount": 18
@@ -1750,8 +1759,8 @@
     "openedToContributionsIssues": 0,
     "popularityScore": 330,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2016-10-31T17:00:14Z",
@@ -1827,8 +1836,8 @@
     "openedToContributionsIssues": 1,
     "popularityScore": 337,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2020-08-06T19:28:51Z",
@@ -1862,7 +1871,7 @@
     },
     "forkCount": 86,
     "fundingLinks": [],
-    "isSecurityPolicyEnabled": false,
+    "isSecurityPolicyEnabled": true,
     "isTemplate": false,
     "latestRelease": {
       "name": "Updated pac cli to 2.7, node to V24",
@@ -1873,7 +1882,7 @@
     "primaryLanguage": {
       "name": "TypeScript"
     },
-    "securityPolicyUrl": null,
+    "securityPolicyUrl": "https://github.com/microsoft/powerplatform-actions/security/policy",
     "stargazerCount": 289,
     "watchers": {
       "totalCount": 29
@@ -1895,8 +1904,8 @@
     "openedToContributionsIssues": 0,
     "popularityScore": 318,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466",
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987",
     "category": "alm-devops",
     "featured": false,
     "customDescription": "Starter curation overlay for Power Platform GitHub Actions used in ALM and CI/CD workflows.",
@@ -1987,8 +1996,8 @@
     "openedToContributionsIssues": 0,
     "popularityScore": 313,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2020-11-04T00:21:18Z",
@@ -2005,7 +2014,7 @@
       "url": "https://api.github.com/licenses/mit"
     },
     "name": "powerplatform-build-tools",
-    "openIssuesCount": 186,
+    "openIssuesCount": 187,
     "owner": {
       "id": "6154722",
       "is_bot": false,
@@ -2022,7 +2031,7 @@
     },
     "forkCount": 69,
     "fundingLinks": [],
-    "isSecurityPolicyEnabled": false,
+    "isSecurityPolicyEnabled": true,
     "isTemplate": false,
     "latestRelease": {
       "name": "V2.0.140",
@@ -2033,7 +2042,7 @@
     "primaryLanguage": {
       "name": "TypeScript"
     },
-    "securityPolicyUrl": null,
+    "securityPolicyUrl": "https://github.com/microsoft/powerplatform-build-tools/security/policy",
     "stargazerCount": 286,
     "watchers": {
       "totalCount": 31
@@ -2059,8 +2068,8 @@
     "openedToContributionsIssues": 0,
     "popularityScore": 317,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2020-11-03T23:59:14Z",
@@ -2094,7 +2103,7 @@
     },
     "forkCount": 56,
     "fundingLinks": [],
-    "isSecurityPolicyEnabled": false,
+    "isSecurityPolicyEnabled": true,
     "isTemplate": false,
     "latestRelease": {
       "name": "v2.0.143",
@@ -2105,7 +2114,7 @@
     "primaryLanguage": {
       "name": "TypeScript"
     },
-    "securityPolicyUrl": null,
+    "securityPolicyUrl": "https://github.com/microsoft/powerplatform-vscode/security/policy",
     "stargazerCount": 267,
     "watchers": {
       "totalCount": 21
@@ -2129,8 +2138,8 @@
     "openedToContributionsIssues": 0,
     "popularityScore": 288,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2016-05-20T12:32:41Z",
@@ -2197,8 +2206,8 @@
     "openedToContributionsIssues": 0,
     "popularityScore": 284,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2024-10-13T22:22:46Z",
@@ -2219,7 +2228,7 @@
       "type": "User",
       "url": "https://github.com/loryanstrant"
     },
-    "updatedAt": "2026-05-27T10:49:39Z",
+    "updatedAt": "2026-05-29T07:18:00Z",
     "url": "https://github.com/loryanstrant/MicrosoftCloudLogos",
     "codeOfConduct": null,
     "forkCount": 47,
@@ -2231,7 +2240,7 @@
       "name": "Python"
     },
     "securityPolicyUrl": null,
-    "stargazerCount": 249,
+    "stargazerCount": 250,
     "watchers": {
       "totalCount": 17
     },
@@ -2264,10 +2273,10 @@
     "openedHelpWantedIssues": 0,
     "hasHelpWantedIssues": false,
     "openedToContributionsIssues": 0,
-    "popularityScore": 266,
+    "popularityScore": 267,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2020-04-20T17:58:04Z",
@@ -2335,8 +2344,8 @@
     "openedToContributionsIssues": 47,
     "popularityScore": 282,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2022-07-28T15:54:59Z",
@@ -2387,8 +2396,8 @@
     "openedToContributionsIssues": 0,
     "popularityScore": 244,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2023-12-14T17:29:41Z",
@@ -2449,8 +2458,8 @@
     "openedToContributionsIssues": 0,
     "popularityScore": 243,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2021-06-15T02:54:34Z",
@@ -2475,23 +2484,23 @@
       "type": "Organization",
       "url": "https://github.com/microsoft"
     },
-    "updatedAt": "2026-04-20T17:56:08Z",
+    "updatedAt": "2026-05-29T23:26:34Z",
     "url": "https://github.com/microsoft/Federal-Business-Applications",
     "codeOfConduct": {
       "key": "other",
       "name": "Other",
       "url": "https://github.com/microsoft/Federal-Business-Applications/blob/main/CODE_OF_CONDUCT.md"
     },
-    "forkCount": 78,
+    "forkCount": 79,
     "fundingLinks": [],
-    "isSecurityPolicyEnabled": false,
+    "isSecurityPolicyEnabled": true,
     "isTemplate": false,
     "latestRelease": null,
     "primaryLanguage": {
       "name": "PowerShell"
     },
-    "securityPolicyUrl": null,
-    "stargazerCount": 217,
+    "securityPolicyUrl": "https://github.com/microsoft/Federal-Business-Applications/security/policy",
+    "stargazerCount": 216,
     "watchers": {
       "totalCount": 40
     },
@@ -2512,10 +2521,10 @@
     "openedHelpWantedIssues": 0,
     "hasHelpWantedIssues": false,
     "openedToContributionsIssues": 0,
-    "popularityScore": 257,
+    "popularityScore": 256,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2015-06-22T20:24:09Z",
@@ -2590,8 +2599,8 @@
     "openedToContributionsIssues": 11,
     "popularityScore": 244,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2022-08-12T16:05:07Z",
@@ -2616,7 +2625,7 @@
       "type": "Organization",
       "url": "https://github.com/microsoft"
     },
-    "updatedAt": "2026-05-17T23:50:36Z",
+    "updatedAt": "2026-05-28T16:47:50Z",
     "url": "https://github.com/microsoft/PowerPlatformAdvocates",
     "codeOfConduct": {
       "key": "other",
@@ -2625,12 +2634,12 @@
     },
     "forkCount": 48,
     "fundingLinks": [],
-    "isSecurityPolicyEnabled": false,
+    "isSecurityPolicyEnabled": true,
     "isTemplate": false,
     "latestRelease": null,
     "primaryLanguage": null,
-    "securityPolicyUrl": null,
-    "stargazerCount": 192,
+    "securityPolicyUrl": "https://github.com/microsoft/PowerPlatformAdvocates/security/policy",
+    "stargazerCount": 193,
     "watchers": {
       "totalCount": 12
     },
@@ -2647,10 +2656,10 @@
     "openedHelpWantedIssues": 0,
     "hasHelpWantedIssues": false,
     "openedToContributionsIssues": 0,
-    "popularityScore": 204,
+    "popularityScore": 205,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2024-01-15T05:58:49Z",
@@ -2721,73 +2730,8 @@
     "openedToContributionsIssues": 0,
     "popularityScore": 190,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
-  },
-  {
-    "createdAt": "2022-07-15T17:14:24Z",
-    "description": "30 Day of Learning Resources, Samples and Curricula",
-    "fullName": "microsoft/30daysof",
-    "repositoryId": 514348074,
-    "hasIssues": true,
-    "homepage": "https://aka.ms/30DaysOf",
-    "isArchived": false,
-    "language": "JavaScript",
-    "license": {
-      "key": "mit",
-      "name": "MIT License",
-      "url": "https://api.github.com/licenses/mit"
-    },
-    "name": "30daysof",
-    "openIssuesCount": 25,
-    "owner": {
-      "id": "6154722",
-      "is_bot": false,
-      "login": "microsoft",
-      "type": "Organization",
-      "url": "https://github.com/microsoft"
-    },
-    "updatedAt": "2026-03-11T05:57:56Z",
-    "url": "https://github.com/microsoft/30daysof",
-    "codeOfConduct": {
-      "key": "other",
-      "name": "Other",
-      "url": "https://github.com/microsoft/30daysof/blob/main/CODE_OF_CONDUCT.md"
-    },
-    "forkCount": 60,
-    "fundingLinks": [],
-    "isSecurityPolicyEnabled": true,
-    "isTemplate": false,
-    "latestRelease": null,
-    "primaryLanguage": {
-      "name": "JavaScript"
-    },
-    "securityPolicyUrl": "https://github.com/microsoft/30daysof/security/policy",
-    "stargazerCount": 182,
-    "watchers": {
-      "totalCount": 26
-    },
-    "topics": [
-      "azure",
-      "data-science",
-      "powerapps",
-      "pwa",
-      "serverless",
-      "staticwebapp"
-    ],
-    "languages": [
-      "JavaScript",
-      "CSS"
-    ],
-    "openedGoodFirstIssues": 0,
-    "hasGoodFirstIssues": false,
-    "openedHelpWantedIssues": 0,
-    "hasHelpWantedIssues": false,
-    "openedToContributionsIssues": 0,
-    "popularityScore": 208,
-    "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2022-11-28T22:58:45Z",
@@ -2821,13 +2765,13 @@
     },
     "forkCount": 39,
     "fundingLinks": [],
-    "isSecurityPolicyEnabled": false,
+    "isSecurityPolicyEnabled": true,
     "isTemplate": false,
     "latestRelease": null,
     "primaryLanguage": {
       "name": "JavaScript"
     },
-    "securityPolicyUrl": null,
+    "securityPolicyUrl": "https://github.com/microsoft/Low-Code/security/policy",
     "stargazerCount": 182,
     "watchers": {
       "totalCount": 7
@@ -2855,8 +2799,73 @@
     "openedToContributionsIssues": 0,
     "popularityScore": 189,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
+  },
+  {
+    "createdAt": "2022-07-15T17:14:24Z",
+    "description": "30 Day of Learning Resources, Samples and Curricula",
+    "fullName": "microsoft/30daysof",
+    "repositoryId": 514348074,
+    "hasIssues": true,
+    "homepage": "https://aka.ms/30DaysOf",
+    "isArchived": false,
+    "language": "JavaScript",
+    "license": {
+      "key": "mit",
+      "name": "MIT License",
+      "url": "https://api.github.com/licenses/mit"
+    },
+    "name": "30daysof",
+    "openIssuesCount": 25,
+    "owner": {
+      "id": "6154722",
+      "is_bot": false,
+      "login": "microsoft",
+      "type": "Organization",
+      "url": "https://github.com/microsoft"
+    },
+    "updatedAt": "2026-05-29T23:26:31Z",
+    "url": "https://github.com/microsoft/30daysof",
+    "codeOfConduct": {
+      "key": "other",
+      "name": "Other",
+      "url": "https://github.com/microsoft/30daysof/blob/main/CODE_OF_CONDUCT.md"
+    },
+    "forkCount": 60,
+    "fundingLinks": [],
+    "isSecurityPolicyEnabled": true,
+    "isTemplate": false,
+    "latestRelease": null,
+    "primaryLanguage": {
+      "name": "JavaScript"
+    },
+    "securityPolicyUrl": "https://github.com/microsoft/30daysof/security/policy",
+    "stargazerCount": 181,
+    "watchers": {
+      "totalCount": 26
+    },
+    "topics": [
+      "azure",
+      "data-science",
+      "powerapps",
+      "pwa",
+      "serverless",
+      "staticwebapp"
+    ],
+    "languages": [
+      "JavaScript",
+      "CSS"
+    ],
+    "openedGoodFirstIssues": 0,
+    "hasGoodFirstIssues": false,
+    "openedHelpWantedIssues": 0,
+    "hasHelpWantedIssues": false,
+    "openedToContributionsIssues": 0,
+    "popularityScore": 207,
+    "_schemaVersion": "1.0.0",
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2023-06-17T00:14:15Z",
@@ -2881,11 +2890,16 @@
       "type": "Organization",
       "url": "https://github.com/mscerts"
     },
-    "updatedAt": "2026-05-28T05:36:00Z",
+    "updatedAt": "2026-05-29T19:20:14Z",
     "url": "https://github.com/mscerts/hub",
     "codeOfConduct": null,
     "forkCount": 32,
-    "fundingLinks": [],
+    "fundingLinks": [
+      {
+        "platform": "GITHUB",
+        "url": "https://github.com/teriaavibes"
+      }
+    ],
     "isSecurityPolicyEnabled": false,
     "isTemplate": false,
     "latestRelease": null,
@@ -2922,8 +2936,8 @@
     "openedToContributionsIssues": 0,
     "popularityScore": 188,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2020-08-06T19:25:30Z",
@@ -2948,7 +2962,7 @@
       "type": "Organization",
       "url": "https://github.com/microsoft"
     },
-    "updatedAt": "2026-04-29T14:16:19Z",
+    "updatedAt": "2026-05-29T23:26:35Z",
     "url": "https://github.com/microsoft/powerplatform-actions-lab",
     "codeOfConduct": {
       "key": "other",
@@ -2957,7 +2971,7 @@
     },
     "forkCount": 188,
     "fundingLinks": [],
-    "isSecurityPolicyEnabled": false,
+    "isSecurityPolicyEnabled": true,
     "isTemplate": false,
     "latestRelease": {
       "name": "Add new sample workflows",
@@ -2966,8 +2980,8 @@
       "publishedAt": "2023-04-07T04:35:44Z"
     },
     "primaryLanguage": null,
-    "securityPolicyUrl": null,
-    "stargazerCount": 178,
+    "securityPolicyUrl": "https://github.com/microsoft/powerplatform-actions-lab/security/policy",
+    "stargazerCount": 177,
     "watchers": {
       "totalCount": 25
     },
@@ -2981,10 +2995,10 @@
     "openedHelpWantedIssues": 0,
     "hasHelpWantedIssues": false,
     "openedToContributionsIssues": 0,
-    "popularityScore": 203,
+    "popularityScore": 202,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2018-07-26T00:10:24Z",
@@ -3050,8 +3064,8 @@
     "openedToContributionsIssues": 0,
     "popularityScore": 170,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2019-08-08T22:11:40Z",
@@ -3109,8 +3123,8 @@
     "openedToContributionsIssues": 0,
     "popularityScore": 197,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2015-09-30T11:52:00Z",
@@ -3176,8 +3190,8 @@
     "openedToContributionsIssues": 0,
     "popularityScore": 175,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2021-02-24T21:49:48Z",
@@ -3233,8 +3247,8 @@
     "openedToContributionsIssues": 0,
     "popularityScore": 162,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2019-07-20T16:57:40Z",
@@ -3286,8 +3300,8 @@
     "openedToContributionsIssues": 1,
     "popularityScore": 176,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2021-10-27T11:17:08Z",
@@ -3355,8 +3369,8 @@
     "openedToContributionsIssues": 0,
     "popularityScore": 131,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2018-03-04T17:10:30Z",
@@ -3427,8 +3441,8 @@
     "openedToContributionsIssues": 32,
     "popularityScore": 152,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2021-05-02T08:44:47Z",
@@ -3456,7 +3470,7 @@
     "updatedAt": "2026-05-20T15:56:58Z",
     "url": "https://github.com/DamoBird365/PowerAutomate",
     "codeOfConduct": null,
-    "forkCount": 38,
+    "forkCount": 39,
     "fundingLinks": [],
     "isSecurityPolicyEnabled": false,
     "isTemplate": false,
@@ -3483,8 +3497,8 @@
     "openedToContributionsIssues": 0,
     "popularityScore": 124,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2023-05-25T11:08:38Z",
@@ -3558,8 +3572,8 @@
     "openedToContributionsIssues": 2,
     "popularityScore": 132,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2020-09-03T14:58:25Z",
@@ -3617,8 +3631,8 @@
     "openedToContributionsIssues": 0,
     "popularityScore": 122,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2020-09-08T19:35:34Z",
@@ -3680,8 +3694,8 @@
     "openedToContributionsIssues": 0,
     "popularityScore": 118,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2024-04-15T07:00:43Z",
@@ -3744,8 +3758,8 @@
     "openedToContributionsIssues": 0,
     "popularityScore": 130,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2017-04-04T00:58:26Z",
@@ -3815,8 +3829,8 @@
     "openedToContributionsIssues": 0,
     "popularityScore": 135,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2026-03-11T23:00:58Z",
@@ -3833,7 +3847,7 @@
       "url": "https://api.github.com/licenses/mit"
     },
     "name": "Dataverse-skills",
-    "openIssuesCount": 8,
+    "openIssuesCount": 10,
     "owner": {
       "id": "6154722",
       "is_bot": false,
@@ -3841,21 +3855,21 @@
       "type": "Organization",
       "url": "https://github.com/microsoft"
     },
-    "updatedAt": "2026-05-27T23:51:51Z",
+    "updatedAt": "2026-05-28T19:39:20Z",
     "url": "https://github.com/microsoft/Dataverse-skills",
     "codeOfConduct": {
       "key": "other",
       "name": "Other",
       "url": "https://github.com/microsoft/Dataverse-skills/blob/main/CODE_OF_CONDUCT.md"
     },
-    "forkCount": 28,
+    "forkCount": 29,
     "fundingLinks": [],
-    "isSecurityPolicyEnabled": false,
+    "isSecurityPolicyEnabled": true,
     "isTemplate": false,
     "latestRelease": null,
     "primaryLanguage": null,
-    "securityPolicyUrl": null,
-    "stargazerCount": 108,
+    "securityPolicyUrl": "https://github.com/microsoft/Dataverse-skills/security/policy",
+    "stargazerCount": 109,
     "watchers": {
       "totalCount": 3
     },
@@ -3875,10 +3889,10 @@
     "openedHelpWantedIssues": 0,
     "hasHelpWantedIssues": false,
     "openedToContributionsIssues": 0,
-    "popularityScore": 111,
+    "popularityScore": 112,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2024-06-23T22:52:29Z",
@@ -3912,11 +3926,11 @@
     },
     "forkCount": 12,
     "fundingLinks": [],
-    "isSecurityPolicyEnabled": false,
+    "isSecurityPolicyEnabled": true,
     "isTemplate": false,
     "latestRelease": null,
     "primaryLanguage": null,
-    "securityPolicyUrl": null,
+    "securityPolicyUrl": "https://github.com/microsoft/powerplatform/security/policy",
     "stargazerCount": 108,
     "watchers": {
       "totalCount": 22
@@ -3932,8 +3946,8 @@
     "openedToContributionsIssues": 0,
     "popularityScore": 130,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2016-08-01T12:35:15Z",
@@ -3994,8 +4008,8 @@
     "openedToContributionsIssues": 0,
     "popularityScore": 117,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2016-10-14T17:43:27Z",
@@ -4063,8 +4077,8 @@
     "openedToContributionsIssues": 0,
     "popularityScore": 127,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2021-06-10T14:08:58Z",
@@ -4134,8 +4148,8 @@
     "openedToContributionsIssues": 5,
     "popularityScore": 109,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2024-10-15T10:18:48Z",
@@ -4169,7 +4183,7 @@
     },
     "forkCount": 17,
     "fundingLinks": [],
-    "isSecurityPolicyEnabled": false,
+    "isSecurityPolicyEnabled": true,
     "isTemplate": false,
     "latestRelease": {
       "name": "PowerCATToolkit April 2025 - Risk Assessment Update",
@@ -4180,7 +4194,7 @@
     "primaryLanguage": {
       "name": "C#"
     },
-    "securityPolicyUrl": null,
+    "securityPolicyUrl": "https://github.com/microsoft/Power-CAT-Tools/security/policy",
     "stargazerCount": 101,
     "watchers": {
       "totalCount": 6
@@ -4202,8 +4216,70 @@
     "openedToContributionsIssues": 0,
     "popularityScore": 107,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
+  },
+  {
+    "createdAt": "2026-03-19T15:10:51Z",
+    "description": "AI skills for Power Apps Canvas Apps - Generate paste-ready Power Apps Canvas App YAML from screenshots, mockups, or text descriptions",
+    "fullName": "ToluVictor/canvas-apps-tools",
+    "repositoryId": 1186383517,
+    "hasIssues": true,
+    "homepage": "",
+    "isArchived": false,
+    "language": "",
+    "license": {
+      "key": "mit",
+      "name": "MIT License",
+      "url": "https://api.github.com/licenses/mit"
+    },
+    "name": "canvas-apps-tools",
+    "openIssuesCount": 0,
+    "owner": {
+      "id": "44398268",
+      "is_bot": false,
+      "login": "ToluVictor",
+      "type": "User",
+      "url": "https://github.com/ToluVictor"
+    },
+    "updatedAt": "2026-05-30T11:29:38Z",
+    "url": "https://github.com/ToluVictor/canvas-apps-tools",
+    "codeOfConduct": null,
+    "forkCount": 25,
+    "fundingLinks": [],
+    "isSecurityPolicyEnabled": false,
+    "isTemplate": false,
+    "latestRelease": {
+      "name": "v1.0.3 - Layout fixes, troubleshooting docs & README refresh",
+      "tagName": "v1.0.3",
+      "url": "https://github.com/ToluVictor/canvas-apps-tools/releases/tag/v1.0.3",
+      "publishedAt": "2026-03-23T15:29:38Z"
+    },
+    "primaryLanguage": null,
+    "securityPolicyUrl": null,
+    "stargazerCount": 101,
+    "watchers": {
+      "totalCount": 8
+    },
+    "topics": [
+      "canvas-apps",
+      "claude-code",
+      "claude-code-plugin",
+      "claude-code-skills",
+      "power-apps",
+      "power-platform",
+      "skills-sh"
+    ],
+    "languages": [],
+    "openedGoodFirstIssues": 0,
+    "hasGoodFirstIssues": false,
+    "openedHelpWantedIssues": 0,
+    "hasHelpWantedIssues": false,
+    "openedToContributionsIssues": 0,
+    "popularityScore": 109,
+    "_schemaVersion": "1.0.0",
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2019-12-05T17:07:15Z",
@@ -4270,70 +4346,8 @@
     "openedToContributionsIssues": 0,
     "popularityScore": 113,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
-  },
-  {
-    "createdAt": "2026-03-19T15:10:51Z",
-    "description": "AI skills for Power Apps Canvas Apps - Generate paste-ready Power Apps Canvas App YAML from screenshots, mockups, or text descriptions",
-    "fullName": "ToluVictor/canvas-apps-tools",
-    "repositoryId": 1186383517,
-    "hasIssues": true,
-    "homepage": "",
-    "isArchived": false,
-    "language": "",
-    "license": {
-      "key": "mit",
-      "name": "MIT License",
-      "url": "https://api.github.com/licenses/mit"
-    },
-    "name": "canvas-apps-tools",
-    "openIssuesCount": 0,
-    "owner": {
-      "id": "44398268",
-      "is_bot": false,
-      "login": "ToluVictor",
-      "type": "User",
-      "url": "https://github.com/ToluVictor"
-    },
-    "updatedAt": "2026-05-25T14:16:38Z",
-    "url": "https://github.com/ToluVictor/canvas-apps-tools",
-    "codeOfConduct": null,
-    "forkCount": 25,
-    "fundingLinks": [],
-    "isSecurityPolicyEnabled": false,
-    "isTemplate": false,
-    "latestRelease": {
-      "name": "v1.0.3 - Layout fixes, troubleshooting docs & README refresh",
-      "tagName": "v1.0.3",
-      "url": "https://github.com/ToluVictor/canvas-apps-tools/releases/tag/v1.0.3",
-      "publishedAt": "2026-03-23T15:29:38Z"
-    },
-    "primaryLanguage": null,
-    "securityPolicyUrl": null,
-    "stargazerCount": 99,
-    "watchers": {
-      "totalCount": 8
-    },
-    "topics": [
-      "canvas-apps",
-      "claude-code",
-      "claude-code-plugin",
-      "claude-code-skills",
-      "power-apps",
-      "power-platform",
-      "skills-sh"
-    ],
-    "languages": [],
-    "openedGoodFirstIssues": 0,
-    "hasGoodFirstIssues": false,
-    "openedHelpWantedIssues": 0,
-    "hasHelpWantedIssues": false,
-    "openedToContributionsIssues": 0,
-    "popularityScore": 107,
-    "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2017-07-05T21:21:31Z",
@@ -4409,8 +4423,8 @@
     "openedToContributionsIssues": 0,
     "popularityScore": 114,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2026-01-20T12:39:14Z",
@@ -4427,7 +4441,7 @@
       "url": "https://api.github.com/licenses/mit"
     },
     "name": "d365fo-mcp-server",
-    "openIssuesCount": 0,
+    "openIssuesCount": 3,
     "owner": {
       "id": "185773331",
       "is_bot": false,
@@ -4435,10 +4449,10 @@
       "type": "User",
       "url": "https://github.com/dynamics365ninja"
     },
-    "updatedAt": "2026-05-28T12:06:26Z",
+    "updatedAt": "2026-05-30T09:04:17Z",
     "url": "https://github.com/dynamics365ninja/d365fo-mcp-server",
     "codeOfConduct": null,
-    "forkCount": 30,
+    "forkCount": 33,
     "fundingLinks": [],
     "isSecurityPolicyEnabled": false,
     "isTemplate": false,
@@ -4447,7 +4461,7 @@
       "name": "TypeScript"
     },
     "securityPolicyUrl": null,
-    "stargazerCount": 87,
+    "stargazerCount": 88,
     "watchers": {
       "totalCount": 10
     },
@@ -4473,10 +4487,10 @@
     "openedHelpWantedIssues": 0,
     "hasHelpWantedIssues": false,
     "openedToContributionsIssues": 0,
-    "popularityScore": 97,
+    "popularityScore": 98,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2017-12-25T03:40:06Z",
@@ -4547,8 +4561,8 @@
     "openedToContributionsIssues": 0,
     "popularityScore": 121,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2021-09-01T15:32:37Z",
@@ -4633,8 +4647,8 @@
     "openedToContributionsIssues": 7,
     "popularityScore": 95,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2018-10-31T15:56:06Z",
@@ -4695,8 +4709,8 @@
     "openedToContributionsIssues": 0,
     "popularityScore": 93,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2021-07-16T19:43:59Z",
@@ -4728,7 +4742,7 @@
       "name": "Contributor Covenant",
       "url": "https://github.com/Power-Maverick/DataverseDevTools-VSCode/blob/main/CODE_OF_CONDUCT.md"
     },
-    "forkCount": 21,
+    "forkCount": 20,
     "fundingLinks": [
       {
         "platform": "GITHUB",
@@ -4773,8 +4787,8 @@
     "openedToContributionsIssues": 0,
     "popularityScore": 90,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2021-10-01T08:06:29Z",
@@ -4832,8 +4846,8 @@
     "openedToContributionsIssues": 0,
     "popularityScore": 94,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2017-05-30T14:31:45Z",
@@ -4897,8 +4911,8 @@
     "openedToContributionsIssues": 0,
     "popularityScore": 95,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2017-05-24T08:56:02Z",
@@ -4969,8 +4983,8 @@
     "openedToContributionsIssues": 0,
     "popularityScore": 103,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2023-05-05T17:58:32Z",
@@ -5004,7 +5018,7 @@
     },
     "forkCount": 17,
     "fundingLinks": [],
-    "isSecurityPolicyEnabled": false,
+    "isSecurityPolicyEnabled": true,
     "isTemplate": false,
     "latestRelease": {
       "name": "SAP Procurement Template 2.0",
@@ -5015,7 +5029,7 @@
     "primaryLanguage": {
       "name": "C#"
     },
-    "securityPolicyUrl": null,
+    "securityPolicyUrl": "https://github.com/microsoft/Templates-for-Power-Platform/security/policy",
     "stargazerCount": 80,
     "watchers": {
       "totalCount": 10
@@ -5038,8 +5052,8 @@
     "openedToContributionsIssues": 0,
     "popularityScore": 90,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2016-04-18T10:30:56Z",
@@ -5102,8 +5116,8 @@
     "openedToContributionsIssues": 1,
     "popularityScore": 87,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2018-03-02T09:47:37Z",
@@ -5174,8 +5188,8 @@
     "openedToContributionsIssues": 0,
     "popularityScore": 87,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2020-04-21T19:12:20Z",
@@ -5240,8 +5254,8 @@
     "openedToContributionsIssues": 0,
     "popularityScore": 86,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2019-09-25T15:20:07Z",
@@ -5296,8 +5310,8 @@
     "openedToContributionsIssues": 0,
     "popularityScore": 77,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2018-04-03T10:12:11Z",
@@ -5365,74 +5379,8 @@
     "openedToContributionsIssues": 0,
     "popularityScore": 79,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
-  },
-  {
-    "createdAt": "2019-04-29T14:52:32Z",
-    "description": "마이크로소프트 기술 블로그 한국어판 | Microsoft tech blogs in Korean",
-    "fullName": "microsoft/developerkorea",
-    "repositoryId": 184090668,
-    "hasIssues": true,
-    "homepage": "https://microsoft.github.io/developerkorea",
-    "isArchived": false,
-    "language": "C#",
-    "license": {
-      "key": "mit",
-      "name": "MIT License",
-      "url": "https://api.github.com/licenses/mit"
-    },
-    "name": "developerkorea",
-    "openIssuesCount": 1,
-    "owner": {
-      "id": "6154722",
-      "is_bot": false,
-      "login": "microsoft",
-      "type": "Organization",
-      "url": "https://github.com/microsoft"
-    },
-    "updatedAt": "2025-11-30T03:43:25Z",
-    "url": "https://github.com/microsoft/developerkorea",
-    "codeOfConduct": {
-      "key": "other",
-      "name": "Other",
-      "url": "https://github.com/microsoft/.github/blob/main/CODE_OF_CONDUCT.md"
-    },
-    "forkCount": 12,
-    "fundingLinks": [],
-    "isSecurityPolicyEnabled": false,
-    "isTemplate": false,
-    "latestRelease": null,
-    "primaryLanguage": {
-      "name": "C#"
-    },
-    "securityPolicyUrl": null,
-    "stargazerCount": 68,
-    "watchers": {
-      "totalCount": 4
-    },
-    "topics": [
-      "microsoft",
-      "azure",
-      "microsoft365",
-      "power-platform"
-    ],
-    "languages": [
-      "C#",
-      "CSS",
-      "HTML",
-      "Shell",
-      "Dockerfile"
-    ],
-    "openedGoodFirstIssues": 0,
-    "hasGoodFirstIssues": false,
-    "openedHelpWantedIssues": 0,
-    "hasHelpWantedIssues": false,
-    "openedToContributionsIssues": 0,
-    "popularityScore": 72,
-    "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2022-11-03T19:09:28Z",
@@ -5492,8 +5440,8 @@
     "openedToContributionsIssues": 0,
     "popularityScore": 71,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2019-09-17T00:42:05Z",
@@ -5570,8 +5518,8 @@
     "openedToContributionsIssues": 0,
     "popularityScore": 72,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2016-01-30T15:46:16Z",
@@ -5643,8 +5591,8 @@
     "openedToContributionsIssues": 0,
     "popularityScore": 70,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2020-09-05T13:48:00Z",
@@ -5708,8 +5656,8 @@
     "openedToContributionsIssues": 0,
     "popularityScore": 71,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2024-07-21T19:05:22Z",
@@ -5789,8 +5737,8 @@
     "openedToContributionsIssues": 0,
     "popularityScore": 70,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2022-11-30T02:44:47Z",
@@ -5846,8 +5794,8 @@
     "openedToContributionsIssues": 0,
     "popularityScore": 117,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2024-11-27T11:47:16Z",
@@ -5916,8 +5864,8 @@
     "openedToContributionsIssues": 0,
     "popularityScore": 77,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2022-04-25T19:27:15Z",
@@ -5973,8 +5921,8 @@
     "openedToContributionsIssues": 0,
     "popularityScore": 59,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2025-12-16T09:08:22Z",
@@ -6046,8 +5994,8 @@
     "openedToContributionsIssues": 0,
     "popularityScore": 56,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2019-11-01T03:58:16Z",
@@ -6081,13 +6029,13 @@
     },
     "forkCount": 34,
     "fundingLinks": [],
-    "isSecurityPolicyEnabled": false,
+    "isSecurityPolicyEnabled": true,
     "isTemplate": false,
     "latestRelease": null,
     "primaryLanguage": {
       "name": "C#"
     },
-    "securityPolicyUrl": null,
+    "securityPolicyUrl": "https://github.com/microsoft/PowerApps-Azure-Lab/security/policy",
     "stargazerCount": 54,
     "watchers": {
       "totalCount": 7
@@ -6108,8 +6056,8 @@
     "openedToContributionsIssues": 0,
     "popularityScore": 61,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2023-01-26T17:21:48Z",
@@ -6143,7 +6091,7 @@
     },
     "forkCount": 17,
     "fundingLinks": [],
-    "isSecurityPolicyEnabled": false,
+    "isSecurityPolicyEnabled": true,
     "isTemplate": false,
     "latestRelease": {
       "name": "v4.1.0",
@@ -6154,7 +6102,7 @@
     "primaryLanguage": {
       "name": "Go"
     },
-    "securityPolicyUrl": null,
+    "securityPolicyUrl": "https://github.com/microsoft/terraform-provider-power-platform/security/policy",
     "stargazerCount": 54,
     "watchers": {
       "totalCount": 16
@@ -6177,8 +6125,8 @@
     "openedToContributionsIssues": 0,
     "popularityScore": 70,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2015-12-18T12:25:02Z",
@@ -6244,8 +6192,8 @@
     "openedToContributionsIssues": 0,
     "popularityScore": 78,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2017-08-17T23:56:41Z",
@@ -6314,8 +6262,8 @@
     "openedToContributionsIssues": 0,
     "popularityScore": 64,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2020-09-30T15:44:45Z",
@@ -6376,8 +6324,8 @@
     "openedToContributionsIssues": 0,
     "popularityScore": 54,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2019-01-23T20:47:13Z",
@@ -6450,8 +6398,8 @@
     "openedToContributionsIssues": 4,
     "popularityScore": 59,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2023-03-27T10:28:05Z",
@@ -6510,8 +6458,8 @@
     "openedToContributionsIssues": 0,
     "popularityScore": 53,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2020-02-17T17:41:16Z",
@@ -6586,8 +6534,8 @@
     "openedToContributionsIssues": 2,
     "popularityScore": 50,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2018-01-26T15:25:57Z",
@@ -6649,8 +6597,8 @@
     "openedToContributionsIssues": 0,
     "popularityScore": 50,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2016-02-07T09:35:47Z",
@@ -6716,8 +6664,8 @@
     "openedToContributionsIssues": 0,
     "popularityScore": 67,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2019-01-31T12:24:00Z",
@@ -6782,8 +6730,8 @@
     "openedToContributionsIssues": 0,
     "popularityScore": 52,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2020-01-22T10:19:37Z",
@@ -6848,8 +6796,8 @@
     "openedToContributionsIssues": 0,
     "popularityScore": 47,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2023-05-15T19:46:01Z",
@@ -6917,8 +6865,8 @@
     "openedToContributionsIssues": 0,
     "popularityScore": 44,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2020-12-18T04:10:17Z",
@@ -6943,7 +6891,7 @@
       "type": "User",
       "url": "https://github.com/AymericM78"
     },
-    "updatedAt": "2026-05-27T20:49:18Z",
+    "updatedAt": "2026-05-29T10:11:50Z",
     "url": "https://github.com/AymericM78/PowerDataOps",
     "codeOfConduct": null,
     "forkCount": 7,
@@ -6979,8 +6927,8 @@
     "openedToContributionsIssues": 0,
     "popularityScore": 42,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2026-04-13T13:08:17Z",
@@ -7032,8 +6980,8 @@
     "openedToContributionsIssues": 0,
     "popularityScore": 39,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2024-04-15T12:17:31Z",
@@ -7067,7 +7015,7 @@
     },
     "forkCount": 22,
     "fundingLinks": [],
-    "isSecurityPolicyEnabled": false,
+    "isSecurityPolicyEnabled": true,
     "isTemplate": false,
     "latestRelease": {
       "name": "Code Apps Deck",
@@ -7076,7 +7024,7 @@
       "publishedAt": "2026-05-01T13:33:32Z"
     },
     "primaryLanguage": null,
-    "securityPolicyUrl": null,
+    "securityPolicyUrl": "https://github.com/microsoft/SLG-Business-Applications/security/policy",
     "stargazerCount": 37,
     "watchers": {
       "totalCount": 9
@@ -7096,8 +7044,8 @@
     "openedToContributionsIssues": 0,
     "popularityScore": 46,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2024-03-01T08:06:32Z",
@@ -7158,8 +7106,8 @@
     "openedToContributionsIssues": 0,
     "popularityScore": 37,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2020-08-22T12:15:19Z",
@@ -7220,8 +7168,8 @@
     "openedToContributionsIssues": 0,
     "popularityScore": 40,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2020-04-12T20:03:47Z",
@@ -7283,8 +7231,8 @@
     "openedToContributionsIssues": 0,
     "popularityScore": 38,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2019-11-23T11:08:03Z",
@@ -7344,8 +7292,8 @@
     "openedToContributionsIssues": 0,
     "popularityScore": 48,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2019-01-30T18:18:46Z",
@@ -7414,8 +7362,8 @@
     "openedToContributionsIssues": 0,
     "popularityScore": 40,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2021-01-25T13:45:51Z",
@@ -7485,8 +7433,8 @@
     "openedToContributionsIssues": 3,
     "popularityScore": 51,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2022-06-17T15:28:25Z",
@@ -7520,13 +7468,13 @@
     },
     "forkCount": 13,
     "fundingLinks": [],
-    "isSecurityPolicyEnabled": false,
+    "isSecurityPolicyEnabled": true,
     "isTemplate": false,
     "latestRelease": null,
     "primaryLanguage": {
       "name": "TypeScript"
     },
-    "securityPolicyUrl": null,
+    "securityPolicyUrl": "https://github.com/microsoft/shapeshifter/security/policy",
     "stargazerCount": 33,
     "watchers": {
       "totalCount": 2
@@ -7548,8 +7496,8 @@
     "openedToContributionsIssues": 0,
     "popularityScore": 35,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2019-02-20T02:08:54Z",
@@ -7601,8 +7549,8 @@
     "openedToContributionsIssues": 1,
     "popularityScore": 42,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2023-02-19T01:19:03Z",
@@ -7653,8 +7601,8 @@
     "openedToContributionsIssues": 0,
     "popularityScore": 36,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2023-05-15T19:39:00Z",
@@ -7722,8 +7670,8 @@
     "openedToContributionsIssues": 0,
     "popularityScore": 37,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2019-03-25T23:36:18Z",
@@ -7778,8 +7726,8 @@
     "openedToContributionsIssues": 0,
     "popularityScore": 31,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2019-06-11T20:48:35Z",
@@ -7840,8 +7788,8 @@
     "openedToContributionsIssues": 0,
     "popularityScore": 34,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2025-10-09T02:19:34Z",
@@ -7906,8 +7854,8 @@
     "openedToContributionsIssues": 0,
     "popularityScore": 44,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2023-09-08T01:41:12Z",
@@ -7932,7 +7880,7 @@
       "type": "User",
       "url": "https://github.com/rpothin"
     },
-    "updatedAt": "2026-05-28T02:20:58Z",
+    "updatedAt": "2026-05-28T12:20:24Z",
     "url": "https://github.com/rpothin/PowerPlatform-OpenSource-Hub",
     "codeOfConduct": {
       "key": "contributor_covenant",
@@ -7970,8 +7918,8 @@
     "openedToContributionsIssues": 0,
     "popularityScore": 34,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2023-05-28T23:09:28Z",
@@ -7984,7 +7932,7 @@
     "language": "",
     "license": null,
     "name": "Power-Platform-Samples",
-    "openIssuesCount": 3,
+    "openIssuesCount": 4,
     "owner": {
       "id": "39318272",
       "is_bot": false,
@@ -8018,8 +7966,8 @@
     "openedToContributionsIssues": 0,
     "popularityScore": 33,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2019-03-11T22:07:28Z",
@@ -8044,7 +7992,7 @@
       "type": "Organization",
       "url": "https://github.com/Dimsi-BS"
     },
-    "updatedAt": "2026-05-25T09:47:37Z",
+    "updatedAt": "2026-05-30T05:14:32Z",
     "url": "https://github.com/Dimsi-BS/XrmFramework",
     "codeOfConduct": {
       "key": "contributor_covenant",
@@ -8090,8 +8038,8 @@
     "openedToContributionsIssues": 0,
     "popularityScore": 31,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2022-09-28T19:47:05Z",
@@ -8116,7 +8064,7 @@
       "type": "Organization",
       "url": "https://github.com/fscpscollaborative"
     },
-    "updatedAt": "2026-05-26T00:26:24Z",
+    "updatedAt": "2026-05-30T00:28:57Z",
     "url": "https://github.com/fscpscollaborative/fscps",
     "codeOfConduct": null,
     "forkCount": 6,
@@ -8159,8 +8107,8 @@
     "openedToContributionsIssues": 0,
     "popularityScore": 33,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2019-04-25T20:48:20Z",
@@ -8221,8 +8169,8 @@
     "openedToContributionsIssues": 0,
     "popularityScore": 31,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2019-11-11T19:28:22Z",
@@ -8282,8 +8230,8 @@
     "openedToContributionsIssues": 0,
     "popularityScore": 31,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2024-06-02T16:16:16Z",
@@ -8300,7 +8248,7 @@
       "url": ""
     },
     "name": "erpl-web",
-    "openIssuesCount": 3,
+    "openIssuesCount": 2,
     "owner": {
       "id": "136052936",
       "is_bot": false,
@@ -8308,7 +8256,7 @@
       "type": "Organization",
       "url": "https://github.com/DataZooDE"
     },
-    "updatedAt": "2026-05-21T03:21:35Z",
+    "updatedAt": "2026-05-30T04:59:58Z",
     "url": "https://github.com/DataZooDE/erpl-web",
     "codeOfConduct": null,
     "forkCount": 3,
@@ -8351,8 +8299,8 @@
     "openedToContributionsIssues": 0,
     "popularityScore": 30,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2016-09-01T18:57:59Z",
@@ -8417,8 +8365,8 @@
     "openedToContributionsIssues": 0,
     "popularityScore": 33,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2026-03-15T05:35:27Z",
@@ -8500,8 +8448,8 @@
     "openedToContributionsIssues": 0,
     "popularityScore": 28,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2023-06-26T12:27:34Z",
@@ -8558,8 +8506,8 @@
     "openedToContributionsIssues": 0,
     "popularityScore": 32,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2017-12-13T18:39:37Z",
@@ -8616,8 +8564,8 @@
     "openedToContributionsIssues": 0,
     "popularityScore": 26,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2025-04-11T17:50:45Z",
@@ -8690,8 +8638,8 @@
     "openedToContributionsIssues": 3,
     "popularityScore": 39,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2024-07-24T08:13:03Z",
@@ -8756,8 +8704,8 @@
     "openedToContributionsIssues": 1,
     "popularityScore": 32,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2020-05-03T23:27:27Z",
@@ -8824,8 +8772,8 @@
     "openedToContributionsIssues": 0,
     "popularityScore": 28,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2020-04-21T19:04:24Z",
@@ -8889,8 +8837,8 @@
     "openedToContributionsIssues": 2,
     "popularityScore": 29,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2015-04-12T03:05:39Z",
@@ -8954,8 +8902,8 @@
     "openedToContributionsIssues": 0,
     "popularityScore": 27,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2021-03-11T16:10:28Z",
@@ -8987,9 +8935,9 @@
       "name": "Other",
       "url": "https://github.com/microsoft/powerplatform-cli-wrapper/blob/main/CODE_OF_CONDUCT.md"
     },
-    "forkCount": 8,
+    "forkCount": 9,
     "fundingLinks": [],
-    "isSecurityPolicyEnabled": false,
+    "isSecurityPolicyEnabled": true,
     "isTemplate": false,
     "latestRelease": {
       "name": "v1.43.6.2 Publish",
@@ -9000,7 +8948,7 @@
     "primaryLanguage": {
       "name": "TypeScript"
     },
-    "securityPolicyUrl": null,
+    "securityPolicyUrl": "https://github.com/microsoft/powerplatform-cli-wrapper/security/policy",
     "stargazerCount": 25,
     "watchers": {
       "totalCount": 10
@@ -9021,8 +8969,8 @@
     "openedToContributionsIssues": 0,
     "popularityScore": 35,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2022-03-03T16:33:55Z",
@@ -9056,13 +9004,13 @@
     },
     "forkCount": 12,
     "fundingLinks": [],
-    "isSecurityPolicyEnabled": false,
+    "isSecurityPolicyEnabled": true,
     "isTemplate": false,
     "latestRelease": null,
     "primaryLanguage": {
       "name": "TypeScript"
     },
-    "securityPolicyUrl": null,
+    "securityPolicyUrl": "https://github.com/microsoft/powerplatform-vscode-lab/security/policy",
     "stargazerCount": 25,
     "watchers": {
       "totalCount": 9
@@ -9083,8 +9031,8 @@
     "openedToContributionsIssues": 0,
     "popularityScore": 34,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2020-11-12T06:23:14Z",
@@ -9143,8 +9091,8 @@
     "openedToContributionsIssues": 0,
     "popularityScore": 26,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2024-08-14T09:38:02Z",
@@ -9169,7 +9117,7 @@
       "type": "User",
       "url": "https://github.com/rezanid"
     },
-    "updatedAt": "2026-05-28T10:07:06Z",
+    "updatedAt": "2026-05-28T20:23:06Z",
     "url": "https://github.com/rezanid/xrmtools",
     "codeOfConduct": null,
     "forkCount": 3,
@@ -9212,8 +9160,8 @@
     "openedToContributionsIssues": 2,
     "popularityScore": 29,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2021-03-18T15:03:03Z",
@@ -9275,8 +9223,8 @@
     "openedToContributionsIssues": 0,
     "popularityScore": 31,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2022-10-03T07:45:09Z",
@@ -9346,8 +9294,8 @@
     "openedToContributionsIssues": 0,
     "popularityScore": 24,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2025-11-20T20:56:22Z",
@@ -9422,8 +9370,8 @@
     "openedToContributionsIssues": 0,
     "popularityScore": 24,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2016-09-30T10:10:46Z",
@@ -9490,73 +9438,8 @@
     "openedToContributionsIssues": 0,
     "popularityScore": 26,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
-  },
-  {
-    "createdAt": "2023-05-13T13:46:12Z",
-    "description": "Materiais, tutoriais e dicas sobre Power Platform criados pela equipe de especialistas em Power Platform da Microsoft Brasil.",
-    "fullName": "microsoft/powerplatformconnect",
-    "repositoryId": 640256290,
-    "hasIssues": false,
-    "homepage": "https://microsoft.github.io/powerplatformconnect/",
-    "isArchived": false,
-    "language": "HTML",
-    "license": {
-      "key": "mit",
-      "name": "MIT License",
-      "url": "https://api.github.com/licenses/mit"
-    },
-    "name": "powerplatformconnect",
-    "openIssuesCount": 5,
-    "owner": {
-      "id": "6154722",
-      "is_bot": false,
-      "login": "microsoft",
-      "type": "Organization",
-      "url": "https://github.com/microsoft"
-    },
-    "updatedAt": "2026-04-18T07:18:03Z",
-    "url": "https://github.com/microsoft/powerplatformconnect",
-    "codeOfConduct": {
-      "key": "other",
-      "name": "Other",
-      "url": "https://github.com/microsoft/.github/blob/main/CODE_OF_CONDUCT.md"
-    },
-    "forkCount": 6,
-    "fundingLinks": [],
-    "isSecurityPolicyEnabled": false,
-    "isTemplate": false,
-    "latestRelease": null,
-    "primaryLanguage": {
-      "name": "HTML"
-    },
-    "securityPolicyUrl": null,
-    "stargazerCount": 22,
-    "watchers": {
-      "totalCount": 3
-    },
-    "topics": [
-      "powerplatform",
-      "powerapps",
-      "powerautomate",
-      "powerpages",
-      "powervirtualagent"
-    ],
-    "languages": [
-      "HTML",
-      "SCSS",
-      "Ruby"
-    ],
-    "openedGoodFirstIssues": 0,
-    "hasGoodFirstIssues": false,
-    "openedHelpWantedIssues": 0,
-    "hasHelpWantedIssues": false,
-    "openedToContributionsIssues": 0,
-    "popularityScore": 25,
-    "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2020-08-28T20:37:56Z",
@@ -9625,8 +9508,8 @@
     "openedToContributionsIssues": 0,
     "popularityScore": 27,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2019-02-19T14:51:49Z",
@@ -9681,8 +9564,8 @@
     "openedToContributionsIssues": 0,
     "popularityScore": 27,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2026-02-20T17:21:17Z",
@@ -9716,11 +9599,11 @@
     },
     "forkCount": 8,
     "fundingLinks": [],
-    "isSecurityPolicyEnabled": false,
+    "isSecurityPolicyEnabled": true,
     "isTemplate": false,
     "latestRelease": null,
     "primaryLanguage": null,
-    "securityPolicyUrl": null,
+    "securityPolicyUrl": "https://github.com/microsoft/copilot-agent-inventory-samples/security/policy",
     "stargazerCount": 21,
     "watchers": {
       "totalCount": 2
@@ -9744,8 +9627,8 @@
     "openedToContributionsIssues": 0,
     "popularityScore": 23,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2023-07-03T18:13:25Z",
@@ -9779,7 +9662,7 @@
     },
     "forkCount": 9,
     "fundingLinks": [],
-    "isSecurityPolicyEnabled": false,
+    "isSecurityPolicyEnabled": true,
     "isTemplate": false,
     "latestRelease": {
       "name": "2.0.11 Nuget Release",
@@ -9790,7 +9673,7 @@
     "primaryLanguage": {
       "name": "C#"
     },
-    "securityPolicyUrl": null,
+    "securityPolicyUrl": "https://github.com/microsoft/PowerPlatform-DataverseModelBuilder/security/policy",
     "stargazerCount": 21,
     "watchers": {
       "totalCount": 13
@@ -9809,8 +9692,73 @@
     "openedToContributionsIssues": 0,
     "popularityScore": 34,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
+  },
+  {
+    "createdAt": "2023-05-13T13:46:12Z",
+    "description": "Materiais, tutoriais e dicas sobre Power Platform criados pela equipe de especialistas em Power Platform da Microsoft Brasil.",
+    "fullName": "microsoft/powerplatformconnect",
+    "repositoryId": 640256290,
+    "hasIssues": false,
+    "homepage": "https://microsoft.github.io/powerplatformconnect/",
+    "isArchived": false,
+    "language": "HTML",
+    "license": {
+      "key": "mit",
+      "name": "MIT License",
+      "url": "https://api.github.com/licenses/mit"
+    },
+    "name": "powerplatformconnect",
+    "openIssuesCount": 5,
+    "owner": {
+      "id": "6154722",
+      "is_bot": false,
+      "login": "microsoft",
+      "type": "Organization",
+      "url": "https://github.com/microsoft"
+    },
+    "updatedAt": "2026-05-29T23:26:32Z",
+    "url": "https://github.com/microsoft/powerplatformconnect",
+    "codeOfConduct": {
+      "key": "other",
+      "name": "Other",
+      "url": "https://github.com/microsoft/.github/blob/main/CODE_OF_CONDUCT.md"
+    },
+    "forkCount": 6,
+    "fundingLinks": [],
+    "isSecurityPolicyEnabled": true,
+    "isTemplate": false,
+    "latestRelease": null,
+    "primaryLanguage": {
+      "name": "HTML"
+    },
+    "securityPolicyUrl": "https://github.com/microsoft/powerplatformconnect/security/policy",
+    "stargazerCount": 21,
+    "watchers": {
+      "totalCount": 3
+    },
+    "topics": [
+      "powerplatform",
+      "powerapps",
+      "powerautomate",
+      "powerpages",
+      "powervirtualagent"
+    ],
+    "languages": [
+      "HTML",
+      "SCSS",
+      "Ruby"
+    ],
+    "openedGoodFirstIssues": 0,
+    "hasGoodFirstIssues": false,
+    "openedHelpWantedIssues": 0,
+    "hasHelpWantedIssues": false,
+    "openedToContributionsIssues": 0,
+    "popularityScore": 24,
+    "_schemaVersion": "1.0.0",
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2024-06-03T01:28:00Z",
@@ -9876,8 +9824,8 @@
     "openedToContributionsIssues": 0,
     "popularityScore": 24,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2023-06-03T13:34:00Z",
@@ -9941,8 +9889,8 @@
     "openedToContributionsIssues": 0,
     "popularityScore": 23,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2024-11-11T14:58:51Z",
@@ -9995,8 +9943,8 @@
     "openedToContributionsIssues": 0,
     "popularityScore": 21,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2025-09-25T21:56:39Z",
@@ -10058,8 +10006,8 @@
     "openedToContributionsIssues": 0,
     "popularityScore": 21,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2021-11-12T13:57:03Z",
@@ -10119,8 +10067,8 @@
     "openedToContributionsIssues": 0,
     "popularityScore": 20,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2017-06-10T23:18:47Z",
@@ -10185,8 +10133,8 @@
     "openedToContributionsIssues": 0,
     "popularityScore": 20,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2019-04-16T08:34:05Z",
@@ -10250,8 +10198,8 @@
     "openedToContributionsIssues": 0,
     "popularityScore": 35,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2019-06-03T20:37:00Z",
@@ -10314,8 +10262,8 @@
     "openedToContributionsIssues": 0,
     "popularityScore": 22,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2021-06-12T00:09:08Z",
@@ -10367,8 +10315,8 @@
     "openedToContributionsIssues": 0,
     "popularityScore": 21,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2020-12-29T12:06:34Z",
@@ -10424,8 +10372,8 @@
     "openedToContributionsIssues": 0,
     "popularityScore": 21,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2025-12-04T13:04:57Z",
@@ -10497,8 +10445,8 @@
     "openedToContributionsIssues": 0,
     "popularityScore": 22,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2023-04-09T04:19:37Z",
@@ -10580,8 +10528,8 @@
     "openedToContributionsIssues": 0,
     "popularityScore": 40,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2024-03-19T22:01:25Z",
@@ -10646,8 +10594,8 @@
     "openedToContributionsIssues": 0,
     "popularityScore": 19,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2025-11-04T11:05:22Z",
@@ -10705,8 +10653,8 @@
     "openedToContributionsIssues": 0,
     "popularityScore": 19,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2023-05-19T18:54:08Z",
@@ -10779,8 +10727,8 @@
     "openedToContributionsIssues": 0,
     "popularityScore": 18,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2025-07-25T13:58:04Z",
@@ -10843,8 +10791,8 @@
     "openedToContributionsIssues": 0,
     "popularityScore": 18,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2022-12-19T16:46:09Z",
@@ -10908,8 +10856,8 @@
     "openedToContributionsIssues": 0,
     "popularityScore": 21,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2020-12-05T05:05:01Z",
@@ -10971,8 +10919,8 @@
     "openedToContributionsIssues": 0,
     "popularityScore": 19,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2025-04-14T03:39:57Z",
@@ -11038,8 +10986,8 @@
     "openedToContributionsIssues": 0,
     "popularityScore": 28,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2022-04-03T14:57:15Z",
@@ -11119,8 +11067,8 @@
     "openedToContributionsIssues": 0,
     "popularityScore": 20,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2023-01-08T07:15:32Z",
@@ -11154,13 +11102,13 @@
     },
     "forkCount": 42,
     "fundingLinks": [],
-    "isSecurityPolicyEnabled": false,
+    "isSecurityPolicyEnabled": true,
     "isTemplate": false,
     "latestRelease": null,
     "primaryLanguage": {
       "name": "Bicep"
     },
-    "securityPolicyUrl": null,
+    "securityPolicyUrl": "https://github.com/microsoft/Power-Platform-App-Dev-in-a-Day-KR/security/policy",
     "stargazerCount": 17,
     "watchers": {
       "totalCount": 2
@@ -11185,8 +11133,8 @@
     "openedToContributionsIssues": 0,
     "popularityScore": 19,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2020-02-03T13:02:58Z",
@@ -11249,8 +11197,8 @@
     "openedToContributionsIssues": 0,
     "popularityScore": 20,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2024-10-22T17:08:05Z",
@@ -11321,8 +11269,87 @@
     "openedToContributionsIssues": 0,
     "popularityScore": 24,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
+  },
+  {
+    "createdAt": "2025-11-14T19:46:18Z",
+    "description": "AB-900 exam prep + AI study buddy | O'Reilly Live Learning course materials, distilled Microsoft Learn content, and a GitHub Copilot agent that generates practice questions, scenario walkthroughs, and personalized study plans",
+    "fullName": "timothywarner-org/ab900",
+    "repositoryId": 1096685270,
+    "hasIssues": true,
+    "homepage": "https://techtrainertim.com",
+    "isArchived": false,
+    "language": "JavaScript",
+    "license": {
+      "key": "mit",
+      "name": "MIT License",
+      "url": "https://api.github.com/licenses/mit"
+    },
+    "name": "ab900",
+    "openIssuesCount": 0,
+    "owner": {
+      "id": "156375582",
+      "is_bot": false,
+      "login": "timothywarner-org",
+      "type": "Organization",
+      "url": "https://github.com/timothywarner-org"
+    },
+    "updatedAt": "2026-05-28T23:43:55Z",
+    "url": "https://github.com/timothywarner-org/ab900",
+    "codeOfConduct": {
+      "key": "other",
+      "name": "Other",
+      "url": "https://github.com/timothywarner-org/.github/blob/main/CODE_OF_CONDUCT.md"
+    },
+    "forkCount": 8,
+    "fundingLinks": [
+      {
+        "platform": "CUSTOM",
+        "url": "https://www.example.com/donate"
+      }
+    ],
+    "isSecurityPolicyEnabled": true,
+    "isTemplate": false,
+    "latestRelease": null,
+    "primaryLanguage": {
+      "name": "JavaScript"
+    },
+    "securityPolicyUrl": "https://github.com/timothywarner-org/ab900/security/policy",
+    "stargazerCount": 17,
+    "watchers": {
+      "totalCount": 2
+    },
+    "topics": [
+      "certification",
+      "exam-prep",
+      "microsoft",
+      "ab900",
+      "ai-agents",
+      "copilot-studio",
+      "fundamentals",
+      "github-copilot-agent",
+      "mcp-server",
+      "microsoft-365",
+      "microsoft-copilot",
+      "microsoft-entra-id",
+      "microsoft-purview",
+      "study-guide",
+      "oreilly-live-learning"
+    ],
+    "languages": [
+      "JavaScript",
+      "PowerShell"
+    ],
+    "openedGoodFirstIssues": 0,
+    "hasGoodFirstIssues": false,
+    "openedHelpWantedIssues": 0,
+    "hasHelpWantedIssues": false,
+    "openedToContributionsIssues": 0,
+    "popularityScore": 19,
+    "_schemaVersion": "1.0.0",
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2017-01-15T02:02:48Z",
@@ -11390,8 +11417,8 @@
     "openedToContributionsIssues": 0,
     "popularityScore": 21,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2020-09-15T20:35:49Z",
@@ -11445,8 +11472,8 @@
     "openedToContributionsIssues": 0,
     "popularityScore": 19,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2026-04-07T18:48:57Z",
@@ -11500,8 +11527,8 @@
     "openedToContributionsIssues": 0,
     "popularityScore": 16,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2024-04-03T06:56:18Z",
@@ -11535,11 +11562,11 @@
     },
     "forkCount": 1,
     "fundingLinks": [],
-    "isSecurityPolicyEnabled": false,
+    "isSecurityPolicyEnabled": true,
     "isTemplate": false,
     "latestRelease": null,
     "primaryLanguage": null,
-    "securityPolicyUrl": null,
+    "securityPolicyUrl": "https://github.com/microsoft/global-copilot-summit/security/policy",
     "stargazerCount": 16,
     "watchers": {
       "totalCount": 18
@@ -11563,8 +11590,8 @@
     "openedToContributionsIssues": 0,
     "popularityScore": 34,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2020-05-12T15:46:33Z",
@@ -11634,8 +11661,8 @@
     "openedToContributionsIssues": 0,
     "popularityScore": 20,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2021-01-05T23:03:53Z",
@@ -11702,87 +11729,8 @@
     "openedToContributionsIssues": 2,
     "popularityScore": 17,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
-  },
-  {
-    "createdAt": "2025-11-14T19:46:18Z",
-    "description": "AB-900 exam prep + AI study buddy | O'Reilly Live Learning course materials, distilled Microsoft Learn content, and a GitHub Copilot agent that generates practice questions, scenario walkthroughs, and personalized study plans",
-    "fullName": "timothywarner-org/ab900",
-    "repositoryId": 1096685270,
-    "hasIssues": true,
-    "homepage": "https://techtrainertim.com",
-    "isArchived": false,
-    "language": "JavaScript",
-    "license": {
-      "key": "mit",
-      "name": "MIT License",
-      "url": "https://api.github.com/licenses/mit"
-    },
-    "name": "ab900",
-    "openIssuesCount": 0,
-    "owner": {
-      "id": "156375582",
-      "is_bot": false,
-      "login": "timothywarner-org",
-      "type": "Organization",
-      "url": "https://github.com/timothywarner-org"
-    },
-    "updatedAt": "2026-05-23T01:09:11Z",
-    "url": "https://github.com/timothywarner-org/ab900",
-    "codeOfConduct": {
-      "key": "other",
-      "name": "Other",
-      "url": "https://github.com/timothywarner-org/.github/blob/main/CODE_OF_CONDUCT.md"
-    },
-    "forkCount": 8,
-    "fundingLinks": [
-      {
-        "platform": "CUSTOM",
-        "url": "https://www.example.com/donate"
-      }
-    ],
-    "isSecurityPolicyEnabled": true,
-    "isTemplate": false,
-    "latestRelease": null,
-    "primaryLanguage": {
-      "name": "JavaScript"
-    },
-    "securityPolicyUrl": "https://github.com/timothywarner-org/ab900/security/policy",
-    "stargazerCount": 16,
-    "watchers": {
-      "totalCount": 2
-    },
-    "topics": [
-      "certification",
-      "exam-prep",
-      "microsoft",
-      "ab900",
-      "ai-agents",
-      "copilot-studio",
-      "fundamentals",
-      "github-copilot-agent",
-      "mcp-server",
-      "microsoft-365",
-      "microsoft-copilot",
-      "microsoft-entra-id",
-      "microsoft-purview",
-      "study-guide",
-      "oreilly-live-learning"
-    ],
-    "languages": [
-      "JavaScript",
-      "PowerShell"
-    ],
-    "openedGoodFirstIssues": 0,
-    "hasGoodFirstIssues": false,
-    "openedHelpWantedIssues": 0,
-    "hasHelpWantedIssues": false,
-    "openedToContributionsIssues": 0,
-    "popularityScore": 18,
-    "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2020-08-24T08:31:38Z",
@@ -11840,8 +11788,8 @@
     "openedToContributionsIssues": 0,
     "popularityScore": 17,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2021-11-06T17:33:36Z",
@@ -11913,8 +11861,8 @@
     "openedToContributionsIssues": 0,
     "popularityScore": 16,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2017-12-25T00:00:23Z",
@@ -11972,8 +11920,8 @@
     "openedToContributionsIssues": 0,
     "popularityScore": 20,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2024-06-10T14:37:52Z",
@@ -12035,8 +11983,8 @@
     "openedToContributionsIssues": 0,
     "popularityScore": 25,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2023-02-12T05:15:31Z",
@@ -12102,8 +12050,8 @@
     "openedToContributionsIssues": 0,
     "popularityScore": 16,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2024-10-24T15:49:25Z",
@@ -12178,8 +12126,8 @@
     "openedToContributionsIssues": 0,
     "popularityScore": 17,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2021-11-16T12:57:08Z",
@@ -12243,8 +12191,8 @@
     "openedToContributionsIssues": 0,
     "popularityScore": 14,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2021-01-04T11:41:03Z",
@@ -12307,8 +12255,8 @@
     "openedToContributionsIssues": 0,
     "popularityScore": 16,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2024-10-21T06:50:47Z",
@@ -12370,8 +12318,8 @@
     "openedToContributionsIssues": 0,
     "popularityScore": 19,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2024-08-21T14:53:53Z",
@@ -12445,8 +12393,8 @@
     "openedToContributionsIssues": 0,
     "popularityScore": 14,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2020-04-19T13:37:13Z",
@@ -12508,8 +12456,8 @@
     "openedToContributionsIssues": 0,
     "popularityScore": 19,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2026-03-14T08:50:09Z",
@@ -12564,8 +12512,8 @@
     "openedToContributionsIssues": 0,
     "popularityScore": 13,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2023-01-03T13:08:28Z",
@@ -12615,8 +12563,8 @@
     "openedToContributionsIssues": 0,
     "popularityScore": 15,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2024-04-08T07:37:46Z",
@@ -12674,8 +12622,8 @@
     "openedToContributionsIssues": 0,
     "popularityScore": 14,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2022-08-04T03:27:28Z",
@@ -12725,8 +12673,8 @@
     "openedToContributionsIssues": 0,
     "popularityScore": 16,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2024-05-01T08:53:05Z",
@@ -12790,8 +12738,8 @@
     "openedToContributionsIssues": 0,
     "popularityScore": 15,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2020-01-07T09:10:34Z",
@@ -12851,8 +12799,8 @@
     "openedToContributionsIssues": 0,
     "popularityScore": 14,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2024-01-14T22:51:00Z",
@@ -12906,8 +12854,72 @@
     "openedToContributionsIssues": 0,
     "popularityScore": 13,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
+  },
+  {
+    "createdAt": "2026-03-31T15:17:32Z",
+    "description": "Local Power Automate MCP server, browser extension, and installable Codex skill.",
+    "fullName": "kaael1/mcp-power-automate",
+    "repositoryId": 1197430189,
+    "hasIssues": true,
+    "homepage": "",
+    "isArchived": false,
+    "language": "TypeScript",
+    "license": {
+      "key": "mit",
+      "name": "MIT License",
+      "url": "https://api.github.com/licenses/mit"
+    },
+    "name": "mcp-power-automate",
+    "openIssuesCount": 2,
+    "owner": {
+      "id": "51300642",
+      "is_bot": false,
+      "login": "kaael1",
+      "type": "User",
+      "url": "https://github.com/kaael1"
+    },
+    "updatedAt": "2026-05-30T10:15:24Z",
+    "url": "https://github.com/kaael1/mcp-power-automate",
+    "codeOfConduct": null,
+    "forkCount": 5,
+    "fundingLinks": [],
+    "isSecurityPolicyEnabled": false,
+    "isTemplate": false,
+    "latestRelease": null,
+    "primaryLanguage": {
+      "name": "TypeScript"
+    },
+    "securityPolicyUrl": null,
+    "stargazerCount": 12,
+    "watchers": {
+      "totalCount": 1
+    },
+    "topics": [
+      "automation",
+      "browser-extension",
+      "codex",
+      "mcp",
+      "model-context-protocol",
+      "power-automate",
+      "skills"
+    ],
+    "languages": [
+      "TypeScript",
+      "JavaScript",
+      "CSS",
+      "HTML"
+    ],
+    "openedGoodFirstIssues": 0,
+    "hasGoodFirstIssues": false,
+    "openedHelpWantedIssues": 0,
+    "hasHelpWantedIssues": false,
+    "openedToContributionsIssues": 0,
+    "popularityScore": 13,
+    "_schemaVersion": "1.0.0",
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2020-08-16T17:04:07Z",
@@ -12966,8 +12978,8 @@
     "openedToContributionsIssues": 0,
     "popularityScore": 13,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2022-05-03T04:20:59Z",
@@ -13028,8 +13040,8 @@
     "openedToContributionsIssues": 0,
     "popularityScore": 15,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2020-09-09T17:49:17Z",
@@ -13087,8 +13099,8 @@
     "openedToContributionsIssues": 0,
     "popularityScore": 12,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2025-12-01T20:25:19Z",
@@ -13146,8 +13158,73 @@
     "openedToContributionsIssues": 0,
     "popularityScore": 11,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
+  },
+  {
+    "createdAt": "2026-05-27T12:46:48Z",
+    "description": "52 ready-to-deploy Microsoft Copilot Chat agents — paste the instruction block into Copilot Studio and you're live. Writing, HR, PM, IT ops, Sales, Finance, Engineering & more. RAI reviewed, source-quality labelled, tested. No coding required.",
+    "fullName": "kesslernity/awesome-copilot-chat-agents",
+    "repositoryId": 1251297383,
+    "hasIssues": true,
+    "homepage": "https://kesslernity.com",
+    "isArchived": false,
+    "language": "",
+    "license": null,
+    "name": "awesome-copilot-chat-agents",
+    "openIssuesCount": 0,
+    "owner": {
+      "id": "259168132",
+      "is_bot": false,
+      "login": "kesslernity",
+      "type": "User",
+      "url": "https://github.com/kesslernity"
+    },
+    "updatedAt": "2026-05-29T11:46:34Z",
+    "url": "https://github.com/kesslernity/awesome-copilot-chat-agents",
+    "codeOfConduct": null,
+    "forkCount": 2,
+    "fundingLinks": [],
+    "isSecurityPolicyEnabled": false,
+    "isTemplate": false,
+    "latestRelease": null,
+    "primaryLanguage": null,
+    "securityPolicyUrl": null,
+    "stargazerCount": 11,
+    "watchers": {
+      "totalCount": 0
+    },
+    "topics": [
+      "ai-agents",
+      "ai-governance",
+      "copilot-chat",
+      "copilot-studio",
+      "declarative-agents",
+      "engineering",
+      "enterprise-ai",
+      "finance",
+      "generative-ai",
+      "hr",
+      "m365-copilot",
+      "microsoft-365",
+      "microsoft-copilot",
+      "productivity",
+      "project-management",
+      "prompt-engineering",
+      "prompt-library",
+      "responsible-ai",
+      "sales"
+    ],
+    "languages": [],
+    "openedGoodFirstIssues": 0,
+    "hasGoodFirstIssues": false,
+    "openedHelpWantedIssues": 0,
+    "hasHelpWantedIssues": false,
+    "openedToContributionsIssues": 0,
+    "popularityScore": 11,
+    "_schemaVersion": "1.0.0",
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2019-03-03T01:45:15Z",
@@ -13198,8 +13275,8 @@
     "openedToContributionsIssues": 0,
     "popularityScore": 13,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2021-05-09T17:53:52Z",
@@ -13264,8 +13341,8 @@
     "openedToContributionsIssues": 0,
     "popularityScore": 12,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2026-03-15T13:39:51Z",
@@ -13334,8 +13411,8 @@
     "openedToContributionsIssues": 0,
     "popularityScore": 11,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2024-04-08T23:42:55Z",
@@ -13393,8 +13470,8 @@
     "openedToContributionsIssues": 0,
     "popularityScore": 13,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2025-10-01T14:00:03Z",
@@ -13459,8 +13536,8 @@
     "openedToContributionsIssues": 0,
     "popularityScore": 11,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2019-04-08T06:29:11Z",
@@ -13520,8 +13597,8 @@
     "openedToContributionsIssues": 0,
     "popularityScore": 27,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2025-06-05T08:59:57Z",
@@ -13585,8 +13662,8 @@
     "openedToContributionsIssues": 0,
     "popularityScore": 12,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2024-10-16T06:23:10Z",
@@ -13647,8 +13724,8 @@
     "openedToContributionsIssues": 0,
     "popularityScore": 11,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2021-05-01T11:15:44Z",
@@ -13706,8 +13783,8 @@
     "openedToContributionsIssues": 0,
     "popularityScore": 11,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2024-12-06T16:02:08Z",
@@ -13769,8 +13846,8 @@
     "openedToContributionsIssues": 0,
     "popularityScore": 11,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2025-04-03T02:44:39Z",
@@ -13828,8 +13905,8 @@
     "openedToContributionsIssues": 0,
     "popularityScore": 11,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2021-12-15T10:35:40Z",
@@ -13880,8 +13957,8 @@
     "openedToContributionsIssues": 0,
     "popularityScore": 11,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   },
   {
     "createdAt": "2019-10-17T21:34:38Z",
@@ -13934,7 +14011,7 @@
     "openedToContributionsIssues": 0,
     "popularityScore": 16,
     "_schemaVersion": "1.0.0",
-    "_generatedAt": "2026-05-28T12:11:41.193Z",
-    "_workflowRunId": "26573850466"
+    "_generatedAt": "2026-05-30T11:33:48.138Z",
+    "_workflowRunId": "26682752987"
   }
 ]
