@@ -30,7 +30,7 @@
   },
   "forkCount": 9,
   "fundingLinks": [],
-  "isSecurityPolicyEnabled": true,
+  "isSecurityPolicyEnabled": false,
   "isTemplate": false,
   "latestRelease": {
     "name": "v1.43.6.2 Publish",
@@ -41,7 +41,7 @@
   "primaryLanguage": {
     "name": "TypeScript"
   },
-  "securityPolicyUrl": "https://github.com/microsoft/powerplatform-cli-wrapper/security/policy",
+  "securityPolicyUrl": null,
   "stargazerCount": 25,
   "watchers": {
     "totalCount": 10
@@ -62,6 +62,6 @@
   "openedToContributionsIssues": 0,
   "popularityScore": 35,
   "_schemaVersion": "1.0.0",
-  "_generatedAt": "2026-05-31T11:36:31.472Z",
-  "_workflowRunId": "26711509781"
+  "_generatedAt": "2026-06-01T12:56:09.360Z",
+  "_workflowRunId": "26756224148"
 }
