@@ -22,15 +22,15 @@
     "@docusaurus/plugin-content-docs": "^3.10.1",
     "@docusaurus/preset-classic": "^3.10.1",
     "@docusaurus/theme-common": "^3.10.1",
-    "@fluentui/react-components": "^9.74.0",
+    "@fluentui/react-components": "^9.74.1",
     "@fluentui/react-icons": "^2.0.328",
     "@types/date-fns": "^2.6.3",
     "clsx": "^2.1.1",
-    "date-fns": "^4.3.0",
-    "fuse.js": "^7.3.0",
+    "date-fns": "^4.4.0",
+    "fuse.js": "^7.4.1",
     "prism-react-renderer": "^2.4.1",
-    "react": "^19.2.6",
-    "react-dom": "^19.2.6"
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7"
   },
   "devDependencies": {
     "@docusaurus/tsconfig": "^3.10.1",
