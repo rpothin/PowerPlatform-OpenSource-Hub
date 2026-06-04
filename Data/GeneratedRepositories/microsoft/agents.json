@@ -6,14 +6,14 @@
   "hasIssues": true,
   "homepage": "https://aka.ms/agentsdkdocs",
   "isArchived": false,
-  "language": "PowerShell",
+  "language": "TypeSpec",
   "license": {
     "key": "mit",
     "name": "MIT License",
     "url": "https://api.github.com/licenses/mit"
   },
   "name": "Agents",
-  "openIssuesCount": 128,
+  "openIssuesCount": 125,
   "owner": {
     "id": "6154722",
     "is_bot": false,
@@ -21,23 +21,23 @@
     "type": "Organization",
     "url": "https://github.com/microsoft"
   },
-  "updatedAt": "2026-06-03T00:31:42Z",
+  "updatedAt": "2026-06-03T18:17:09Z",
   "url": "https://github.com/microsoft/Agents",
   "codeOfConduct": {
     "key": "other",
     "name": "Other",
     "url": "https://github.com/microsoft/Agents/blob/main/CODE_OF_CONDUCT.md"
   },
-  "forkCount": 306,
+  "forkCount": 308,
   "fundingLinks": [],
   "isSecurityPolicyEnabled": true,
   "isTemplate": false,
   "latestRelease": null,
   "primaryLanguage": {
-    "name": "PowerShell"
+    "name": "TypeSpec"
   },
   "securityPolicyUrl": "https://github.com/microsoft/Agents/security/policy",
-  "stargazerCount": 944,
+  "stargazerCount": 945,
   "watchers": {
     "totalCount": 30
   },
@@ -51,6 +51,7 @@
     "teams"
   ],
   "languages": [
+    "TypeSpec",
     "PowerShell",
     "Bicep",
     "C#",
@@ -63,8 +64,8 @@
   "openedHelpWantedIssues": 0,
   "hasHelpWantedIssues": false,
   "openedToContributionsIssues": 0,
-  "popularityScore": 974,
+  "popularityScore": 975,
   "_schemaVersion": "1.0.0",
-  "_generatedAt": "2026-06-03T12:34:37.022Z",
-  "_workflowRunId": "26885029421"
+  "_generatedAt": "2026-06-04T12:02:20.113Z",
+  "_workflowRunId": "26950451154"
 }
