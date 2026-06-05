@@ -13,7 +13,7 @@
     "url": "https://api.github.com/licenses/gpl-3.0"
   },
   "name": "XrmToolBox",
-  "openIssuesCount": 119,
+  "openIssuesCount": 120,
   "owner": {
     "id": "10774317",
     "is_bot": false,
@@ -25,7 +25,16 @@
   "url": "https://github.com/MscrmTools/XrmToolBox",
   "codeOfConduct": null,
   "forkCount": 231,
-  "fundingLinks": [],
+  "fundingLinks": [
+    {
+      "platform": "GITHUB",
+      "url": "https://github.com/MscrmTools"
+    },
+    {
+      "platform": "CUSTOM",
+      "url": "https://paypal.me/tanguytouzard"
+    }
+  ],
   "isSecurityPolicyEnabled": false,
   "isTemplate": false,
   "latestRelease": {
@@ -61,6 +70,6 @@
   "openedToContributionsIssues": 1,
   "popularityScore": 716,
   "_schemaVersion": "1.0.0",
-  "_generatedAt": "2026-06-04T12:02:20.113Z",
-  "_workflowRunId": "26950451154"
+  "_generatedAt": "2026-06-05T12:04:00.194Z",
+  "_workflowRunId": "27013742053"
 }

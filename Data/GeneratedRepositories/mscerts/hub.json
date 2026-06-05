@@ -21,11 +21,16 @@
     "type": "Organization",
     "url": "https://github.com/mscerts"
   },
-  "updatedAt": "2026-06-03T12:53:38Z",
+  "updatedAt": "2026-06-05T05:40:55Z",
   "url": "https://github.com/mscerts/hub",
   "codeOfConduct": null,
   "forkCount": 33,
-  "fundingLinks": [],
+  "fundingLinks": [
+    {
+      "platform": "GITHUB",
+      "url": "https://github.com/teriaavibes"
+    }
+  ],
   "isSecurityPolicyEnabled": false,
   "isTemplate": false,
   "latestRelease": null,
@@ -62,6 +67,6 @@
   "openedToContributionsIssues": 0,
   "popularityScore": 189,
   "_schemaVersion": "1.0.0",
-  "_generatedAt": "2026-06-04T12:02:20.113Z",
-  "_workflowRunId": "26950451154"
+  "_generatedAt": "2026-06-05T12:04:00.194Z",
+  "_workflowRunId": "27013742053"
 }

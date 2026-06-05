@@ -13,7 +13,7 @@
     "url": "https://api.github.com/licenses/mit"
   },
   "name": "terraform-provider-power-platform",
-  "openIssuesCount": 39,
+  "openIssuesCount": 40,
   "owner": {
     "id": "6154722",
     "is_bot": false,
@@ -30,7 +30,7 @@
   },
   "forkCount": 17,
   "fundingLinks": [],
-  "isSecurityPolicyEnabled": false,
+  "isSecurityPolicyEnabled": true,
   "isTemplate": false,
   "latestRelease": {
     "name": "v4.1.0",
@@ -41,7 +41,7 @@
   "primaryLanguage": {
     "name": "Go"
   },
-  "securityPolicyUrl": null,
+  "securityPolicyUrl": "https://github.com/microsoft/terraform-provider-power-platform/security/policy",
   "stargazerCount": 54,
   "watchers": {
     "totalCount": 16
@@ -64,6 +64,6 @@
   "openedToContributionsIssues": 0,
   "popularityScore": 70,
   "_schemaVersion": "1.0.0",
-  "_generatedAt": "2026-06-04T12:02:20.113Z",
-  "_workflowRunId": "26950451154"
+  "_generatedAt": "2026-06-05T12:04:00.194Z",
+  "_workflowRunId": "27013742053"
 }
