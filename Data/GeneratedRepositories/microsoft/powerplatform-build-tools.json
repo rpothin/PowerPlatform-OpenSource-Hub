@@ -21,27 +21,27 @@
     "type": "Organization",
     "url": "https://github.com/microsoft"
   },
-  "updatedAt": "2026-06-05T07:50:58Z",
+  "updatedAt": "2026-06-05T16:45:36Z",
   "url": "https://github.com/microsoft/powerplatform-build-tools",
   "codeOfConduct": {
     "key": "other",
     "name": "Other",
     "url": "https://github.com/microsoft/powerplatform-build-tools/blob/main/CODE_OF_CONDUCT.md"
   },
-  "forkCount": 70,
+  "forkCount": 69,
   "fundingLinks": [],
-  "isSecurityPolicyEnabled": false,
+  "isSecurityPolicyEnabled": true,
   "isTemplate": false,
   "latestRelease": {
-    "name": "V2.0.145",
-    "tagName": "v2.0.145",
-    "url": "https://github.com/microsoft/powerplatform-build-tools/releases/tag/v2.0.145",
-    "publishedAt": "2026-06-05T01:57:56Z"
+    "name": "V2.0.146",
+    "tagName": "v2.0.146",
+    "url": "https://github.com/microsoft/powerplatform-build-tools/releases/tag/v2.0.146",
+    "publishedAt": "2026-06-05T18:16:07Z"
   },
   "primaryLanguage": {
     "name": "TypeScript"
   },
-  "securityPolicyUrl": null,
+  "securityPolicyUrl": "https://github.com/microsoft/powerplatform-build-tools/security/policy",
   "stargazerCount": 289,
   "watchers": {
     "totalCount": 31
@@ -67,6 +67,6 @@
   "openedToContributionsIssues": 0,
   "popularityScore": 320,
   "_schemaVersion": "1.0.0",
-  "_generatedAt": "2026-06-05T12:04:00.194Z",
-  "_workflowRunId": "27013742053"
+  "_generatedAt": "2026-06-06T11:34:51.847Z",
+  "_workflowRunId": "27061182803"
 }
