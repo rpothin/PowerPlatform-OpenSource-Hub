@@ -13,7 +13,7 @@
     "url": "https://api.github.com/licenses/mit"
   },
   "name": "powercat-creator-kit",
-  "openIssuesCount": 126,
+  "openIssuesCount": 127,
   "owner": {
     "id": "6154722",
     "is_bot": false,
@@ -30,7 +30,7 @@
   },
   "forkCount": 69,
   "fundingLinks": [],
-  "isSecurityPolicyEnabled": true,
+  "isSecurityPolicyEnabled": false,
   "isTemplate": false,
   "latestRelease": {
     "name": "Creator Kit March 2025",
@@ -41,10 +41,10 @@
   "primaryLanguage": {
     "name": "CSS"
   },
-  "securityPolicyUrl": "https://github.com/microsoft/powercat-creator-kit/security/policy",
+  "securityPolicyUrl": null,
   "stargazerCount": 406,
   "watchers": {
-    "totalCount": 35
+    "totalCount": 34
   },
   "topics": [
     "pcf",
@@ -60,8 +60,8 @@
   "openedHelpWantedIssues": 0,
   "hasHelpWantedIssues": false,
   "openedToContributionsIssues": 2,
-  "popularityScore": 441,
+  "popularityScore": 440,
   "_schemaVersion": "1.0.0",
-  "_generatedAt": "2026-06-07T11:37:48.858Z",
-  "_workflowRunId": "27091433330"
+  "_generatedAt": "2026-06-08T12:33:00.013Z",
+  "_workflowRunId": "27137853273"
 }
