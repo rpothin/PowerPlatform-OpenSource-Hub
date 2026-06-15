@@ -13,7 +13,7 @@
     "url": "https://api.github.com/licenses/mit"
   },
   "name": "powerplatform-actions",
-  "openIssuesCount": 57,
+  "openIssuesCount": 58,
   "owner": {
     "id": "6154722",
     "is_bot": false,
@@ -30,7 +30,7 @@
   },
   "forkCount": 87,
   "fundingLinks": [],
-  "isSecurityPolicyEnabled": true,
+  "isSecurityPolicyEnabled": false,
   "isTemplate": false,
   "latestRelease": {
     "name": "Updated pac cli to 2.7, node to V24",
@@ -41,7 +41,7 @@
   "primaryLanguage": {
     "name": "TypeScript"
   },
-  "securityPolicyUrl": "https://github.com/microsoft/powerplatform-actions/security/policy",
+  "securityPolicyUrl": null,
   "stargazerCount": 291,
   "watchers": {
     "totalCount": 29
@@ -63,6 +63,6 @@
   "openedToContributionsIssues": 0,
   "popularityScore": 320,
   "_schemaVersion": "1.0.0",
-  "_generatedAt": "2026-06-14T11:43:52.671Z",
-  "_workflowRunId": "27497751514"
+  "_generatedAt": "2026-06-15T13:06:25.287Z",
+  "_workflowRunId": "27548303109"
 }

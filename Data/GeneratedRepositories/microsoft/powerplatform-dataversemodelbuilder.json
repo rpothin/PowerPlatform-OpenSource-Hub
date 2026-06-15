@@ -30,7 +30,7 @@
   },
   "forkCount": 9,
   "fundingLinks": [],
-  "isSecurityPolicyEnabled": true,
+  "isSecurityPolicyEnabled": false,
   "isTemplate": false,
   "latestRelease": {
     "name": "2.0.11 Nuget Release",
@@ -41,7 +41,7 @@
   "primaryLanguage": {
     "name": "C#"
   },
-  "securityPolicyUrl": "https://github.com/microsoft/PowerPlatform-DataverseModelBuilder/security/policy",
+  "securityPolicyUrl": null,
   "stargazerCount": 21,
   "watchers": {
     "totalCount": 13
@@ -60,6 +60,6 @@
   "openedToContributionsIssues": 0,
   "popularityScore": 34,
   "_schemaVersion": "1.0.0",
-  "_generatedAt": "2026-06-14T11:43:52.671Z",
-  "_workflowRunId": "27497751514"
+  "_generatedAt": "2026-06-15T13:06:25.287Z",
+  "_workflowRunId": "27548303109"
 }

@@ -30,7 +30,7 @@
   },
   "forkCount": 17,
   "fundingLinks": [],
-  "isSecurityPolicyEnabled": true,
+  "isSecurityPolicyEnabled": false,
   "isTemplate": false,
   "latestRelease": {
     "name": "PowerCATToolkit April 2025 - Risk Assessment Update",
@@ -41,7 +41,7 @@
   "primaryLanguage": {
     "name": "C#"
   },
-  "securityPolicyUrl": "https://github.com/microsoft/Power-CAT-Tools/security/policy",
+  "securityPolicyUrl": null,
   "stargazerCount": 101,
   "watchers": {
     "totalCount": 6
@@ -63,6 +63,6 @@
   "openedToContributionsIssues": 0,
   "popularityScore": 107,
   "_schemaVersion": "1.0.0",
-  "_generatedAt": "2026-06-14T11:43:52.671Z",
-  "_workflowRunId": "27497751514"
+  "_generatedAt": "2026-06-15T13:06:25.287Z",
+  "_workflowRunId": "27548303109"
 }
