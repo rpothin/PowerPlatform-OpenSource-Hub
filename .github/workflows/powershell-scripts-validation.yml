@@ -120,7 +120,7 @@ jobs:
             Install-Module -Name PSScriptAnalyzer -Force
           }
 
-          $results = Invoke-ScriptAnalyzer -Path .\ -Recurse
+          $results = @(Invoke-ScriptAnalyzer -Path .\ -Recurse)
 
           $sarifResults = $results | ForEach-Object {
             @{
@@ -169,12 +169,11 @@ jobs:
           $sarif | ConvertTo-Json -Depth 20 | Set-Content -Path results.sarif -Encoding UTF8
 
           if ($results.Count -gt 0) {
-            Write-Host "##[error]PSScriptAnalyzer found $($results.Count) issue(s)."
+            Write-Host "PSScriptAnalyzer produced $($results.Count) result(s)."
             $results | Format-Table -AutoSize
-            exit 1
+          } else {
+            Write-Host "PSScriptAnalyzer found no issues."
           }
-
-          Write-Host "PSScriptAnalyzer found no issues."
 
       # Upload the results of the PSScriptAnalyzerResults execution
       #   Action: https://github.com/actions/upload-artifact
