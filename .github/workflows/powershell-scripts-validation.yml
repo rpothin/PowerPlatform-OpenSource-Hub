@@ -123,6 +123,26 @@ jobs:
           $results = @(Invoke-ScriptAnalyzer -Path .\ -Recurse)
 
           $sarifResults = $results | ForEach-Object {
+            $physicalLocation = @{
+              artifactLocation = @{
+                uri       = ($_.ScriptPath -replace '\\', '/' -replace '^\./', '')
+                uriBaseId = '%SRCROOT%'
+              }
+            }
+
+            $region = @{}
+            if ($_.Line -is [int]) {
+              $region.startLine = [int]$_.Line
+            }
+
+            if ($_.Column -is [int]) {
+              $region.startColumn = [int]$_.Column
+            }
+
+            if ($region.Count -gt 0) {
+              $physicalLocation.region = $region
+            }
+
             @{
               ruleId    = $_.RuleName
               level     = switch ($_.Severity) {
@@ -134,16 +154,7 @@ jobs:
               message   = @{ text = $_.Message }
               locations = @(
                 @{
-                  physicalLocation = @{
-                    artifactLocation = @{
-                      uri       = ($_.ScriptPath -replace '\\', '/' -replace '^\./', '')
-                      uriBaseId = '%SRCROOT%'
-                    }
-                    region           = @{
-                      startLine   = $_.Line
-                      startColumn = $_.Column
-                    }
-                  }
+                  physicalLocation = $physicalLocation
                 }
               )
             }
