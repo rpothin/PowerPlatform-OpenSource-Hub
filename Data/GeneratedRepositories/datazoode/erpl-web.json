@@ -13,7 +13,7 @@
     "url": ""
   },
   "name": "erpl-web",
-  "openIssuesCount": 3,
+  "openIssuesCount": 2,
   "owner": {
     "id": "136052936",
     "is_bot": false,
@@ -21,14 +21,19 @@
     "type": "Organization",
     "url": "https://github.com/DataZooDE"
   },
-  "updatedAt": "2026-06-16T19:50:21Z",
+  "updatedAt": "2026-06-17T18:27:48Z",
   "url": "https://github.com/DataZooDE/erpl-web",
   "codeOfConduct": null,
   "forkCount": 2,
   "fundingLinks": [],
   "isSecurityPolicyEnabled": false,
   "isTemplate": false,
-  "latestRelease": null,
+  "latestRelease": {
+    "name": "v2026.06.17 — DuckDB 1.5.4 + 1.4.5 LTS support",
+    "tagName": "v2026.06.17",
+    "url": "https://github.com/DataZooDE/erpl-web/releases/tag/v2026.06.17",
+    "publishedAt": "2026-06-17T18:27:07Z"
+  },
   "primaryLanguage": {
     "name": "C++"
   },
@@ -52,8 +57,8 @@
   "languages": [
     "C++",
     "CMake",
-    "Shell",
     "Python",
+    "Shell",
     "Makefile",
     "ABAP"
   ],
@@ -64,6 +69,6 @@
   "openedToContributionsIssues": 0,
   "popularityScore": 31,
   "_schemaVersion": "1.0.0",
-  "_generatedAt": "2026-06-17T12:27:44.379Z",
-  "_workflowRunId": "27688860529"
+  "_generatedAt": "2026-06-18T13:33:09.623Z",
+  "_workflowRunId": "27763138478"
 }
