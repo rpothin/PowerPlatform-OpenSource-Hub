@@ -265,6 +265,21 @@ export class OctokitRepositoryProvider implements CandidateProvider {
           continue;
         }
 
+        // A silent empty response: HTTP 200 with no repo alias keys and no errors.
+        // GitHub's GraphQL API occasionally returns a well-formed but data-less response
+        // (all alias keys absent) with no error payload. Fall back to individual REST calls
+        // so repos are not incorrectly marked as inaccessible (which would fail sentinel checks).
+        if (!hasAnyRepoData) {
+          for (const repo of batch) {
+            try {
+              result.set(repo.fullName, await this.getRepositoryDetails(repo.fullName, repo));
+            } catch (restError) {
+              result.set(repo.fullName, restError instanceof Error ? restError : new Error(String(restError)));
+            }
+          }
+          continue;
+        }
+
         const rateLimit = responseData["rateLimit"] as GraphQLRateLimit | undefined;
         if (rateLimit !== undefined && rateLimit.remaining < 50) {
           const resetAt = new Date(rateLimit.resetAt).getTime();
