@@ -110,13 +110,71 @@ jobs:
         uses: actions/checkout@v6
 
       # Run PSScriptAnalyzer on all *.ps1 files
-      #  Community action: https://github.com/microsoft/psscriptanalyzer-action
+      # Note: microsoft/psscriptanalyzer-action@v1.1 requires ConvertToSARIF which is no longer
+      # available on PSGallery, so we run PSScriptAnalyzer directly with inline SARIF generation.
       - name: Run PSScriptAnalyzer
-        uses: microsoft/psscriptanalyzer-action@v1.1
-        with:
-          path: .\
-          recurse: true
-          output: results.sarif
+        shell: pwsh
+        run: |
+          $analyzerModule = Get-Module -ListAvailable -Name PSScriptAnalyzer
+          if ($null -eq $analyzerModule) {
+            Install-Module -Name PSScriptAnalyzer -Force
+          }
+
+          $results = Invoke-ScriptAnalyzer -Path .\ -Recurse
+
+          $sarifResults = $results | ForEach-Object {
+            @{
+              ruleId    = $_.RuleName
+              level     = switch ($_.Severity) {
+                'Error'       { 'error' }
+                'Warning'     { 'warning' }
+                'Information' { 'note' }
+                default       { 'warning' }
+              }
+              message   = @{ text = $_.Message }
+              locations = @(
+                @{
+                  physicalLocation = @{
+                    artifactLocation = @{
+                      uri       = ($_.ScriptPath -replace '\\', '/' -replace '^\./', '')
+                      uriBaseId = '%SRCROOT%'
+                    }
+                    region           = @{
+                      startLine   = $_.Line
+                      startColumn = $_.Column
+                    }
+                  }
+                }
+              )
+            }
+          }
+
+          $sarif = [ordered]@{
+            '$schema' = 'https://raw.githubusercontent.com/oasis-tcs/sarif-spec/master/Schemata/sarif-schema-2.1.0.json'
+            version   = '2.1.0'
+            runs      = @(
+              [ordered]@{
+                tool    = @{
+                  driver = @{
+                    name           = 'PSScriptAnalyzer'
+                    informationUri = 'https://github.com/PowerShell/PSScriptAnalyzer'
+                    rules          = @()
+                  }
+                }
+                results = @($sarifResults)
+              }
+            )
+          }
+
+          $sarif | ConvertTo-Json -Depth 20 | Set-Content -Path results.sarif -Encoding UTF8
+
+          if ($results.Count -gt 0) {
+            Write-Host "##[error]PSScriptAnalyzer found $($results.Count) issue(s)."
+            $results | Format-Table -AutoSize
+            exit 1
+          }
+
+          Write-Host "PSScriptAnalyzer found no issues."
 
       # Upload the results of the PSScriptAnalyzerResults execution
       #   Action: https://github.com/actions/upload-artifact
