@@ -467,23 +467,76 @@ describe("OctokitRepositoryProvider.batchGetRepositoryDetails", () => {
     }
   });
 
-  it("records a missing-alias error for an absent alias in the GraphQL response with no errors", async () => {
-    // repo0 key is completely absent from data (not null) and there are no errors.
-    // This indicates an unexpected/malformed response rather than a PAT restriction.
-    const client = makeClient([
-      {
-        data: { rateLimit: RATE_LIMIT_OK }, // no repo0 key at all
-        errors: []
+  it("falls back to REST when the GraphQL response has no repo aliases and no errors (silent empty response)", async () => {
+    // All repo alias keys are completely absent from data (not null) and there are no errors.
+    // GitHub's GraphQL API occasionally returns a well-formed but data-less response.
+    // The provider must fall back to REST rather than marking repos as inaccessible.
+    const client: GitHubClient = {
+      rest: {
+        repos: {
+          get: () =>
+            Promise.resolve({
+              data: { forks_count: 3, stargazers_count: 77, has_issues: true, is_template: false, subscribers_count: 2 }
+            }),
+          getAllTopics: () => Promise.resolve({ data: { names: ["powerplatform"] } }),
+          listLanguages: () => Promise.resolve({ data: { TypeScript: 1 } }),
+          getLatestRelease: () => Promise.reject(Object.assign(new Error("Not Found"), { status: 404 }))
+        },
+        search: {
+          repos: () => Promise.resolve({ data: { items: [] } }),
+          issuesAndPullRequests: () => Promise.resolve({ data: { total_count: 0 } })
+        }
+      } as unknown as GitHubClient["rest"],
+      request<T>(route: string): Promise<{ data: T }> {
+        if (route === "POST /graphql") {
+          // no repo0 key at all — simulates a silent empty response
+          return Promise.resolve({ data: { data: { rateLimit: RATE_LIMIT_OK }, errors: [] } as T });
+        }
+        return Promise.resolve({ data: {} as T });
       }
-    ]);
+    };
+
+    const provider = new OctokitRepositoryProvider(client);
+    const results = await provider.batchGetRepositoryDetails([repo("owner/a")]);
+
+    const r = results.get("owner/a");
+    expect(r).not.toBeInstanceOf(Error);
+    if (!(r instanceof Error) && r !== undefined) {
+      expect(r.stargazerCount).toBe(77);
+      expect(r.forkCount).toBe(3);
+      expect(r.topics).toEqual(["powerplatform"]);
+    }
+  });
+
+  it("records the REST fallback error when the GraphQL response is a silent empty response and REST also fails", async () => {
+    const restError = new Error("Repository not found");
+    const client: GitHubClient = {
+      rest: {
+        repos: {
+          get: () => Promise.reject(restError),
+          getAllTopics: () => Promise.resolve({ data: { names: [] } }),
+          listLanguages: () => Promise.resolve({ data: {} }),
+          getLatestRelease: () => Promise.reject(Object.assign(new Error("Not Found"), { status: 404 }))
+        },
+        search: {
+          repos: () => Promise.resolve({ data: { items: [] } }),
+          issuesAndPullRequests: () => Promise.resolve({ data: { total_count: 0 } })
+        }
+      } as unknown as GitHubClient["rest"],
+      request<T>(route: string): Promise<{ data: T }> {
+        if (route === "POST /graphql") {
+          return Promise.resolve({ data: { data: { rateLimit: RATE_LIMIT_OK }, errors: [] } as T });
+        }
+        return Promise.resolve({ data: {} as T });
+      }
+    };
 
     const provider = new OctokitRepositoryProvider(client);
     const results = await provider.batchGetRepositoryDetails([repo("owner/a")]);
 
     const r = results.get("owner/a");
     expect(r).toBeInstanceOf(Error);
-    expect((r as Error).message).toContain("missing alias");
-    expect((r as Error).message).not.toContain("Repository not found");
+    expect((r as Error).message).toBe("Repository not found");
   });
 });
 

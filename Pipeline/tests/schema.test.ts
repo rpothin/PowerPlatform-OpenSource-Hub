@@ -238,11 +238,15 @@ describe("repository schemas", () => {
       expect(normalizedRelativePath).toBe(`${owner.toLowerCase()}/${repositoryName.toLowerCase()}.json`);
 
       const normalizedFullName = normalizeFullName(overlay.fullName);
-      const generatedRecord = generatedByRepositoryId.get(String(overlay.repositoryId));
-      expect(generatedRecord).toBeDefined();
 
-      if (generatedRecord?.fullName !== undefined) {
-        expect(normalizeFullName(generatedRecord.fullName)).toBe(normalizedFullName);
+      // Excluded overlays intentionally have no generated record — the generator filters them out.
+      if (!overlay.exclude) {
+        const generatedRecord = generatedByRepositoryId.get(String(overlay.repositoryId));
+        expect(generatedRecord).toBeDefined();
+
+        if (generatedRecord?.fullName !== undefined) {
+          expect(normalizeFullName(generatedRecord.fullName)).toBe(normalizedFullName);
+        }
       }
 
       expect(repositoryIds.has(String(overlay.repositoryId))).toBe(false);
