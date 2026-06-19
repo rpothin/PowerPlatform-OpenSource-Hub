@@ -21,7 +21,7 @@
     "type": "Organization",
     "url": "https://github.com/microsoft"
   },
-  "updatedAt": "2026-06-17T00:08:17Z",
+  "updatedAt": "2026-06-18T18:23:48Z",
   "url": "https://github.com/microsoft/PowerApps-Samples",
   "codeOfConduct": {
     "key": "other",
@@ -30,7 +30,7 @@
   },
   "forkCount": 1815,
   "fundingLinks": [],
-  "isSecurityPolicyEnabled": false,
+  "isSecurityPolicyEnabled": true,
   "isTemplate": false,
   "latestRelease": {
     "name": "Metadata Browser",
@@ -41,10 +41,10 @@
   "primaryLanguage": {
     "name": "C#"
   },
-  "securityPolicyUrl": null,
-  "stargazerCount": 1949,
+  "securityPolicyUrl": "https://github.com/microsoft/PowerApps-Samples/security/policy",
+  "stargazerCount": 1951,
   "watchers": {
-    "totalCount": 117
+    "totalCount": 118
   },
   "topics": [
     "dataverse",
@@ -75,8 +75,8 @@
   "openedHelpWantedIssues": 0,
   "hasHelpWantedIssues": false,
   "openedToContributionsIssues": 0,
-  "popularityScore": 2066,
+  "popularityScore": 2069,
   "_schemaVersion": "1.0.0",
-  "_generatedAt": "2026-06-18T13:33:09.623Z",
-  "_workflowRunId": "27763138478"
+  "_generatedAt": "2026-06-19T12:23:14.097Z",
+  "_workflowRunId": "27825446542"
 }

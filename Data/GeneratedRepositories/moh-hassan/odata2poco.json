@@ -1,8 +1,8 @@
 {
-  "createdAt": "2019-12-05T17:07:15Z",
-  "description": "Dynamics 365 for Finance and Operations AOT Browser",
-  "fullName": "arganollc/aotbrowser",
-  "repositoryId": 226151083,
+  "createdAt": "2016-01-30T15:46:16Z",
+  "description": "generate POCO classes from OData service",
+  "fullName": "moh-hassan/odata2poco",
+  "repositoryId": 50731317,
   "hasIssues": true,
   "homepage": "",
   "isArchived": false,
@@ -12,56 +12,61 @@
     "name": "MIT License",
     "url": "https://api.github.com/licenses/mit"
   },
-  "name": "aotbrowser",
+  "name": "odata2poco",
   "openIssuesCount": 1,
   "owner": {
-    "id": "58529019",
+    "id": "16975310",
     "is_bot": false,
-    "login": "arganollc",
-    "type": "Organization",
-    "url": "https://github.com/arganollc"
+    "login": "moh-hassan",
+    "type": "User",
+    "url": "https://github.com/moh-hassan"
   },
-  "updatedAt": "2026-06-12T20:42:45Z",
-  "url": "https://github.com/arganollc/aotbrowser",
+  "updatedAt": "2026-06-18T17:49:29Z",
+  "url": "https://github.com/moh-hassan/odata2poco",
   "codeOfConduct": null,
-  "forkCount": 28,
+  "forkCount": 20,
   "fundingLinks": [],
   "isSecurityPolicyEnabled": false,
   "isTemplate": false,
   "latestRelease": {
-    "name": "AOTBrowser-863.0.5.25",
-    "tagName": "863.0.5.25",
-    "url": "https://github.com/arganollc/aotbrowser/releases/tag/863.0.5.25",
-    "publishedAt": "2026-04-10T12:57:04Z"
+    "name": "v6.4.0",
+    "tagName": "v6.4.0",
+    "url": "https://github.com/moh-hassan/odata2poco/releases/tag/v6.4.0",
+    "publishedAt": "2025-04-01T19:13:45Z"
   },
   "primaryLanguage": {
     "name": "C#"
   },
   "securityPolicyUrl": null,
-  "stargazerCount": 100,
+  "stargazerCount": 64,
   "watchers": {
-    "totalCount": 14
+    "totalCount": 5
   },
   "topics": [
-    "d365fo",
-    "xplusplus",
-    "aot-browser",
-    "dynamics",
+    "poco",
+    "metadata",
+    "csharp",
     "dynamics-365",
-    "morphx"
+    "odata",
+    "oauth2",
+    "linux",
+    "dto",
+    "netcore",
+    "typescript",
+    "webapi",
+    "code-generation"
   ],
   "languages": [
     "C#",
     "PowerShell",
-    "JavaScript",
-    "HTML"
+    "Shell"
   ],
   "openedGoodFirstIssues": 0,
   "hasGoodFirstIssues": false,
   "openedHelpWantedIssues": 0,
   "hasHelpWantedIssues": false,
   "openedToContributionsIssues": 0,
-  "popularityScore": 114,
+  "popularityScore": 69,
   "_schemaVersion": "1.0.0",
   "_generatedAt": "2026-06-19T12:23:14.097Z",
   "_workflowRunId": "27825446542"
