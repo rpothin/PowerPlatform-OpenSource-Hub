@@ -32,6 +32,9 @@ concurrency:
 jobs:
   update-github-repositories-details:
     runs-on: ubuntu-latest
+    concurrency:
+      group: main-repository-writers
+      cancel-in-progress: false
     env:
       RUNNER_DEBUG: 1
       PIPELINE: ${{ inputs.pipeline || 'typescript' }}
@@ -50,6 +53,9 @@ jobs:
       #   Community action: https://github.com/actions/checkout
       - name: Checkout
         uses: actions/checkout@v7
+        with:
+          ref: main
+          fetch-depth: 0
 
       - name: Validate production pipeline inputs
         run: |
@@ -466,24 +472,72 @@ jobs:
             Write-Host "No GitHub repositories details changes to commit."
             "has_changes=false" >> $env:GITHUB_OUTPUT
             "has_merged_artifact_changes=false" >> $env:GITHUB_OUTPUT
+            if ($env:GITHUB_STEP_SUMMARY) {
+              @(
+                "### Push changes"
+                ""
+                "- No repository details changes were detected, so commit and push were skipped."
+              ) | Add-Content -Path $env:GITHUB_STEP_SUMMARY
+            }
           } elseif ($gitDiffExitCode -eq 1) {
             git commit -m "GitHub repositories details updated - ${{ steps.current_date.outputs.NOW }}.${{ github.run_number }}"
-            git -c http.extraheader="AUTHORIZATION: Bearer ${{ secrets.GITHUB_TOKEN }}" push origin HEAD
+
+            $pushSucceeded = $false
+            $usedRetry = $false
+            for ($attempt = 1; $attempt -le 2; $attempt++) {
+              $pushOutput = & git -c http.extraheader="AUTHORIZATION: Bearer ${{ secrets.GITHUB_TOKEN }}" push origin HEAD:main 2>&1
+              $pushExitCode = $LASTEXITCODE
+              $pushOutput | ForEach-Object { Write-Host $_ }
+
+              if ($pushExitCode -eq 0) {
+                $pushSucceeded = $true
+                break
+              }
+
+              $isFastForwardConflict = ($pushOutput | Out-String) -match 'fetch first|non-fast-forward|failed to push some refs'
+              if ($attempt -eq 2 -or -not $isFastForwardConflict) {
+                throw "Unable to push repository details changes. git push exited with code $pushExitCode."
+              }
+
+              $usedRetry = $true
+              Write-Warning "Remote main moved during push attempt $attempt. Fetching origin/main, rebasing, and retrying once."
+              if ($env:GITHUB_STEP_SUMMARY) {
+                @(
+                  "### Push retry"
+                  ""
+                  "- Push attempt $attempt was rejected because `main` moved."
+                  "- Fetching `origin/main`, rebasing the generated commit, and retrying once."
+                ) | Add-Content -Path $env:GITHUB_STEP_SUMMARY
+              }
+
+              & git fetch origin main 2>&1 | ForEach-Object { Write-Host $_ }
+              if ($LASTEXITCODE -ne 0) {
+                throw "Unable to fetch origin/main before retrying the repository details push."
+              }
+
+              & git rebase origin/main 2>&1 | ForEach-Object { Write-Host $_ }
+              if ($LASTEXITCODE -ne 0) {
+                & git rebase --abort 2>&1 | ForEach-Object { Write-Host $_ }
+                throw "Unable to rebase repository details changes onto origin/main before retrying the push."
+              }
+            }
+
+            if (-not $pushSucceeded) {
+              throw "Unable to push repository details changes after retrying."
+            }
+
+            if ($usedRetry -and $env:GITHUB_STEP_SUMMARY) {
+              @(
+                "- The retry path completed successfully and the rebased repository details commit was pushed to `main`."
+              ) | Add-Content -Path $env:GITHUB_STEP_SUMMARY
+            }
+
             "has_changes=true" >> $env:GITHUB_OUTPUT
             "has_merged_artifact_changes=$($hasMergedArtifactChanges.ToString().ToLowerInvariant())" >> $env:GITHUB_OUTPUT
           } else {
             throw "Unable to check staged GitHub repositories details changes. git diff exited with code $gitDiffExitCode."
           }
         shell: pwsh
-
-      # Trigger the update-readme-with-github-repositories-details workflow in the current repository using GitHub CLI
-      - name: Trigger update-readme-with-github-repositories-details workflow
-        if: steps.push_changes.outputs.has_merged_artifact_changes == 'true'
-        run: |
-          gh workflow run update-readme-with-github-repositories-details.yml --ref main
-        shell: pwsh
-        env:
-          GITHUB_TOKEN: ${{ secrets.PAT_WORKFLOW_UPDATE }}
 
       # Triggere the build-push-website-to-gh-pages workflow in the current repository using GitHub CLI
       - name: Trigger build-push-website-to-gh-pages workflow
