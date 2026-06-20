@@ -1,9 +1,17 @@
 name: 2-update-readme-with-github-repositories-details
 # Update the README with the details of the GitHub repositories
 
-# Workflow triggered using GitHub CLI at the end of the execution of the update-gihub-repositories-details workflow - but can also be triggered manually without input parameters
+# Workflow triggered when the repository details workflow completes successfully on main - but can also be triggered manually without input parameters
 on:
   workflow_dispatch:
+  workflow_run:
+    workflows:
+      - 1-update-github-repositories-details
+    types:
+      - completed
+
+permissions:
+  contents: write
 
 # Concurrency configuration for the current workflow - Keep only the latest workflow queued for the considered group
 concurrency:
@@ -13,6 +21,10 @@ concurrency:
 jobs:
   update-readme-with-github-repositories-details:
     runs-on: ubuntu-latest
+    if: ${{ github.event_name == 'workflow_dispatch' || (github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.head_branch == 'main') }}
+    concurrency:
+      group: main-repository-writers
+      cancel-in-progress: false
     env:
       RUNNER_DEBUG: 1
     
@@ -21,6 +33,9 @@ jobs:
       #   Community action: https://github.com/actions/checkout
       - name: Checkout
         uses: actions/checkout@v7
+        with:
+          ref: main
+          fetch-depth: 0
 
       # Set a current date environment variable in the following format: YYYYMMDD
       - name: Set current date as env variable
@@ -111,16 +126,75 @@ jobs:
           git config --global user.name 'action@github.com'
           git config --global user.email 'GitHub Action'
 
-          git add --all
-          git commit -m "Information regarding referenced GitHub repositories updated in README - ${{ steps.current_date.outputs.NOW }}.${{ github.run_number }}"
-          git -c http.extraheader="AUTHORIZATION: Bearer ${{ secrets.GITHUB_TOKEN }}" push origin HEAD
-        shell: pwsh
+          git add -- README.md
+          git diff --cached --quiet
+          $gitDiffExitCode = $LASTEXITCODE
 
-      # If the current day in the week is Monday, trigger the snapshot-github-repositories-popularity-score workflow in the current repository using GitHub CLI
-      - name: Trigger snapshot-github-repositories-popularity-score workflow
-        if: ${{ steps.current_day_in_the_week.outputs.DAY == 'Monday' }}
-        run: |
-          gh workflow run snapshot-github-repositories-popularity-score.yml --ref main
+          if ($gitDiffExitCode -eq 0) {
+            Write-Host "README is already up to date."
+            if ($env:GITHUB_STEP_SUMMARY) {
+              @(
+                "### Push changes"
+                ""
+                "- README content did not change, so commit and push were skipped."
+              ) | Add-Content -Path $env:GITHUB_STEP_SUMMARY
+            }
+            exit 0
+          }
+
+          if ($gitDiffExitCode -ne 1) {
+            throw "Unable to check staged README changes. git diff exited with code $gitDiffExitCode."
+          }
+
+          git commit -m "Information regarding referenced GitHub repositories updated in README - ${{ steps.current_date.outputs.NOW }}.${{ github.run_number }}"
+
+          $pushSucceeded = $false
+          $usedRetry = $false
+          for ($attempt = 1; $attempt -le 2; $attempt++) {
+            $pushOutput = & git -c http.extraheader="AUTHORIZATION: Bearer ${{ secrets.GITHUB_TOKEN }}" push origin HEAD:main 2>&1
+            $pushExitCode = $LASTEXITCODE
+            $pushOutput | ForEach-Object { Write-Host $_ }
+
+            if ($pushExitCode -eq 0) {
+              $pushSucceeded = $true
+              break
+            }
+
+            $isFastForwardConflict = ($pushOutput | Out-String) -match 'fetch first|non-fast-forward|failed to push some refs'
+            if ($attempt -eq 2 -or -not $isFastForwardConflict) {
+              throw "Unable to push README changes. git push exited with code $pushExitCode."
+            }
+
+            $usedRetry = $true
+            Write-Warning "Remote main moved during push attempt $attempt. Fetching origin/main, rebasing, and retrying once."
+            if ($env:GITHUB_STEP_SUMMARY) {
+              @(
+                "### Push retry"
+                ""
+                "- Push attempt $attempt was rejected because `main` moved."
+                "- Fetching `origin/main`, rebasing the README commit, and retrying once."
+              ) | Add-Content -Path $env:GITHUB_STEP_SUMMARY
+            }
+
+            & git fetch origin main 2>&1 | ForEach-Object { Write-Host $_ }
+            if ($LASTEXITCODE -ne 0) {
+              throw "Unable to fetch origin/main before retrying the README push."
+            }
+
+            & git rebase origin/main 2>&1 | ForEach-Object { Write-Host $_ }
+            if ($LASTEXITCODE -ne 0) {
+              & git rebase --abort 2>&1 | ForEach-Object { Write-Host $_ }
+              throw "Unable to rebase README changes onto origin/main before retrying the push."
+            }
+          }
+
+          if (-not $pushSucceeded) {
+            throw "Unable to push README changes after retrying."
+          }
+
+          if ($usedRetry -and $env:GITHUB_STEP_SUMMARY) {
+            @(
+              "- The retry path completed successfully and the rebased README commit was pushed to `main`."
+            ) | Add-Content -Path $env:GITHUB_STEP_SUMMARY
+          }
         shell: pwsh
-        env:
-          GITHUB_TOKEN: ${{ secrets.PAT_WORKFLOW_UPDATE }}

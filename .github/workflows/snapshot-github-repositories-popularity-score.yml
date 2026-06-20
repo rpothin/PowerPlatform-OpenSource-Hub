@@ -1,9 +1,17 @@
 name: 3-snapshot-github-repositories-popularity-score
 # Save a snapshot of the referenced GitHub repositories popularity score (number of stars + number of watchers) to a dedicated JSON file
 
-# Workflow triggered using GitHub CLI at the end of the execution of the update-readme-with-github-repositories-details workflow if it is Monday - but can also be triggered manually without input parameters
+# Workflow triggered when the README workflow completes successfully on main - but can also be triggered manually without input parameters
 on:
   workflow_dispatch:
+  workflow_run:
+    workflows:
+      - 2-update-readme-with-github-repositories-details
+    types:
+      - completed
+
+permissions:
+  contents: write
 
 # Concurrency configuration for the current workflow - Keep only the latest workflow queued for the considered group
 concurrency:
@@ -13,14 +21,22 @@ concurrency:
 jobs:
   snapshot-github-repositories-popularity-score:
     runs-on: ubuntu-latest
+    if: ${{ github.event_name == 'workflow_dispatch' || (github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.head_branch == 'main') }}
+    concurrency:
+      group: main-repository-writers
+      cancel-in-progress: false
     env:
       RUNNER_DEBUG: 1
+      DATA_SNAPSHOT_METADATA_FILE_PATH: Data/GitHubRepositoriesPopularityScoresSnapshotMetadata.json
 
     steps:
       # Action used to checkout the main branch in the current repository
       #   Community action: https://github.com/actions/checkout
       - name: Checkout
         uses: actions/checkout@v7
+        with:
+          ref: main
+          fetch-depth: 0
 
       # Set a current date environment variable in the following format: YYYYMMDD
       - name: Set current date as env variable
@@ -47,7 +63,7 @@ jobs:
           $results = Export-GitHubRepositoriesPopularityScore `
             -InputFilePath "${{ vars.DATA_FILE_PATH }}" `
             -OutputFilePath "${{ vars.DATA_SNAPSHOT_FILE_PATH }}" `
-            -MetadataOutputFilePath ".\Data\GitHubRepositoriesPopularityScoresSnapshotMetadata.json"
+            -MetadataOutputFilePath ".\$env:DATA_SNAPSHOT_METADATA_FILE_PATH"
         shell: pwsh
 
       # Push the changes in the current repository
@@ -55,8 +71,76 @@ jobs:
         run: |
           git config --global user.name 'action@github.com'
           git config --global user.email 'GitHub Action'
-  
-          git add --all
+
+          git add -- "${{ vars.DATA_SNAPSHOT_FILE_PATH }}" "$env:DATA_SNAPSHOT_METADATA_FILE_PATH"
+          git diff --cached --quiet
+          $gitDiffExitCode = $LASTEXITCODE
+
+          if ($gitDiffExitCode -eq 0) {
+            Write-Host "No popularity snapshot changes to commit."
+            if ($env:GITHUB_STEP_SUMMARY) {
+              @(
+                "### Push changes"
+                ""
+                "- Snapshot files were unchanged, so commit and push were skipped."
+              ) | Add-Content -Path $env:GITHUB_STEP_SUMMARY
+            }
+            exit 0
+          }
+
+          if ($gitDiffExitCode -ne 1) {
+            throw "Unable to check staged snapshot changes. git diff exited with code $gitDiffExitCode."
+          }
+
           git commit -m "GitHub repositories popularity score updated - ${{ steps.current_date.outputs.NOW }}.${{ github.run_number }}"
-          git -c http.extraheader="AUTHORIZATION: Bearer ${{ secrets.GITHUB_TOKEN }}" push origin HEAD
+
+          $pushSucceeded = $false
+          $usedRetry = $false
+          for ($attempt = 1; $attempt -le 2; $attempt++) {
+            $pushOutput = & git -c http.extraheader="AUTHORIZATION: Bearer ${{ secrets.GITHUB_TOKEN }}" push origin HEAD:main 2>&1
+            $pushExitCode = $LASTEXITCODE
+            $pushOutput | ForEach-Object { Write-Host $_ }
+
+            if ($pushExitCode -eq 0) {
+              $pushSucceeded = $true
+              break
+            }
+
+            $isFastForwardConflict = ($pushOutput | Out-String) -match 'fetch first|non-fast-forward|failed to push some refs'
+            if ($attempt -eq 2 -or -not $isFastForwardConflict) {
+              throw "Unable to push snapshot changes. git push exited with code $pushExitCode."
+            }
+
+            $usedRetry = $true
+            Write-Warning "Remote main moved during push attempt $attempt. Fetching origin/main, rebasing, and retrying once."
+            if ($env:GITHUB_STEP_SUMMARY) {
+              @(
+                "### Push retry"
+                ""
+                "- Push attempt $attempt was rejected because `main` moved."
+                "- Fetching `origin/main`, rebasing the snapshot commit, and retrying once."
+              ) | Add-Content -Path $env:GITHUB_STEP_SUMMARY
+            }
+
+            & git fetch origin main 2>&1 | ForEach-Object { Write-Host $_ }
+            if ($LASTEXITCODE -ne 0) {
+              throw "Unable to fetch origin/main before retrying the snapshot push."
+            }
+
+            & git rebase origin/main 2>&1 | ForEach-Object { Write-Host $_ }
+            if ($LASTEXITCODE -ne 0) {
+              & git rebase --abort 2>&1 | ForEach-Object { Write-Host $_ }
+              throw "Unable to rebase snapshot changes onto origin/main before retrying the push."
+            }
+          }
+
+          if (-not $pushSucceeded) {
+            throw "Unable to push snapshot changes after retrying."
+          }
+
+          if ($usedRetry -and $env:GITHUB_STEP_SUMMARY) {
+            @(
+              "- The retry path completed successfully and the rebased snapshot commit was pushed to `main`."
+            ) | Add-Content -Path $env:GITHUB_STEP_SUMMARY
+          }
         shell: pwsh
