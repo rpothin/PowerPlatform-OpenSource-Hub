@@ -1,0 +1,67 @@
+{
+  "createdAt": "2018-11-23T19:05:08Z",
+  "description": "This library can serialize an Microsoft.Xrm.Sdk.Entity to Json and back using Newtonsoft.Json library.",
+  "fullName": "albanian-xrm/Xrm-Entity-Serializer",
+  "repositoryId": 158869103,
+  "hasIssues": true,
+  "homepage": "",
+  "isArchived": false,
+  "language": "C#",
+  "license": {
+    "key": "mit",
+    "name": "MIT License",
+    "url": "https://api.github.com/licenses/mit"
+  },
+  "name": "Xrm-Entity-Serializer",
+  "openIssuesCount": 3,
+  "owner": {
+    "id": "52622621",
+    "is_bot": false,
+    "login": "albanian-xrm",
+    "type": "Organization",
+    "url": "https://github.com/albanian-xrm"
+  },
+  "updatedAt": "2026-06-20T22:26:50Z",
+  "url": "https://github.com/albanian-xrm/Xrm-Entity-Serializer",
+  "codeOfConduct": null,
+  "forkCount": 5,
+  "fundingLinks": [],
+  "isSecurityPolicyEnabled": false,
+  "isTemplate": false,
+  "latestRelease": {
+    "name": "v1.2.0",
+    "tagName": "v1.2.0",
+    "url": "https://github.com/albanian-xrm/Xrm-Entity-Serializer/releases/tag/v1.2.0",
+    "publishedAt": "2019-05-06T23:16:56Z"
+  },
+  "primaryLanguage": {
+    "name": "C#"
+  },
+  "securityPolicyUrl": null,
+  "stargazerCount": 13,
+  "watchers": {
+    "totalCount": 3
+  },
+  "topics": [
+    "c-sharp",
+    "xrm-entity-serializer",
+    "newtonsoft-json",
+    "dynamics-crm",
+    "json",
+    "made-in-albania",
+    "dataverse"
+  ],
+  "languages": [
+    "C#",
+    "PowerShell"
+  ],
+  "openedGoodFirstIssues": 1,
+  "hasGoodFirstIssues": true,
+  "openedHelpWantedIssues": 1,
+  "hasHelpWantedIssues": true,
+  "openedToContributionsIssues": 2,
+  "popularityScore": 16,
+  "_schemaVersion": "1.0.0",
+  "_generatedAt": "2026-06-21T11:55:36.424Z",
+  "_workflowRunId": "27903506727"
+}
