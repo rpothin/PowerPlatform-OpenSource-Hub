@@ -1,0 +1,21 @@
+.facetCount {
+  font-variant-numeric: tabular-nums;
+  font-size: 0.875em;
+  animation: facetCountFade 0.18s ease-out;
+  display: inline-block;
+}
+
+.facetCountZero {
+  color: var(--ds-ink-muted, #9196B0);
+}
+
+@keyframes facetCountFade {
+  from { opacity: 0.3; }
+  to   { opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .facetCount {
+    animation: none;
+  }
+}
