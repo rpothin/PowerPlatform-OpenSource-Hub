@@ -1,0 +1,7 @@
+{
+  "files": ["Website/docusaurus.config.ts"],
+  "insertBefore": "headTags:",
+  "commentSyntax": "js",
+  "cspChecked": true,
+  "_note": "Docusaurus 3 project. The dev server generates HTML dynamically — scripts are injected via headTags in docusaurus.config.ts. When running /impeccable live, note that live.mjs may use a fallback agent-driven path for this framework."
+}
