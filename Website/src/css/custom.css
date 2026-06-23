@@ -4,28 +4,137 @@
  * work well for content-centric websites.
  */
 
-/* You can override the default Infima variables here. */
+/* === Design system: The Community Bridge ===
+ * Primary: Indigo Violet (#6936F7) ramp
+ * Typography: Hanken Grotesk + JetBrains Mono (loaded via docusaurus stylesheets)
+ * See DESIGN.md for full token reference.
+ */
+
 :root {
-  --ifm-color-primary: #2e8555;
-  --ifm-color-primary-dark: #29784c;
-  --ifm-color-primary-darker: #277148;
-  --ifm-color-primary-darkest: #205d3b;
-  --ifm-color-primary-light: #33925d;
-  --ifm-color-primary-lighter: #359962;
-  --ifm-color-primary-lightest: #3cad6e;
+  /* Infima primary ramp — Indigo Violet */
+  --ifm-color-primary: #6936F7;
+  --ifm-color-primary-dark: #5C2CE8;
+  --ifm-color-primary-darker: #5124D9;
+  --ifm-color-primary-darkest: #4A1FB5;
+  --ifm-color-primary-light: #7A4FF8;
+  --ifm-color-primary-lighter: #8A60F9;
+  --ifm-color-primary-lightest: #9B74FA;
+
+  /* Infima typography */
+  --ifm-font-family-base: 'Hanken Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+  --ifm-font-family-monospace: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', Consolas, 'Courier New', monospace;
+  --ifm-font-size-base: 15px;
+  --ifm-line-height-base: 1.6;
+
+  /* Infima surfaces */
+  --ifm-background-color: #F7F8FC;
+  --ifm-background-surface-color: #FFFFFF;
+  --ifm-navbar-background-color: #FFFFFF;
+  --ifm-navbar-shadow: 0 1px 0 #E1E4F0;
+
+  /* Infima misc */
   --ifm-code-font-size: 95%;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+  --docusaurus-highlighted-code-line-bg: rgba(105, 54, 247, 0.08);
   --ifm-navbar-mobile-breakpoint: 960px;
+
+  /* === Design system custom properties (--ds-*) === */
+  --ds-primary: #6936F7;
+  --ds-primary-deep: #4A1FB5;
+  --ds-primary-mid: #8A60F9;
+  --ds-primary-light: #EDE8FE;
+  --ds-neutral-bg: #F7F8FC;
+  --ds-surface: #FFFFFF;
+  --ds-surface-raised: #F0F2FA;
+  --ds-ink-primary: #1A1B2E;
+  --ds-ink-secondary: #4A4D6A;
+  --ds-ink-muted: #7A7E9A;
+  --ds-border: #E1E4F0;
+  --ds-border-strong: #C5CADF;
+  --ds-success: #2DA44E;
+  --ds-success-tint: rgba(45, 164, 78, 0.1);
+  --ds-warning: #D29922;
+  --ds-danger: #CF222E;
+  --ds-radius-sm: 4px;
+  --ds-radius-md: 8px;
+  --ds-radius-lg: 12px;
+  --ds-radius-xl: 16px;
+  --ds-radius-pill: 999px;
+  --ds-shadow-hover: 0 4px 16px rgba(105, 54, 247, 0.12);
+  --ds-shadow-lift: 0 8px 32px rgba(0, 0, 0, 0.12);
+  --ds-transition: background 0.15s cubic-bezier(0.2, 0, 0, 1),
+                   transform 0.15s cubic-bezier(0.2, 0, 0, 1),
+                   box-shadow 0.15s cubic-bezier(0.2, 0, 0, 1),
+                   border-color 0.15s cubic-bezier(0.2, 0, 0, 1);
+  /* Hero gradient anchor — deep indigo, darkest primary ramp step */
+  --ds-hero-from: #3B17A8;
+  --ds-hero-mid: #6936F7;
+  --ds-hero-to: #8A60F9;
 }
 
-/* For readability concerns, you should choose a lighter palette in dark mode. */
+/* Dark mode token overrides */
 [data-theme='dark'] {
-  --ifm-color-primary: #25c2a0;
-  --ifm-color-primary-dark: #21af90;
-  --ifm-color-primary-darker: #1fa588;
-  --ifm-color-primary-darkest: #1a8870;
-  --ifm-color-primary-light: #29d5b0;
-  --ifm-color-primary-lighter: #32d8b4;
-  --ifm-color-primary-lightest: #4fddbf;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+  --ifm-color-primary: #A78BFA;
+  --ifm-color-primary-dark: #9B7AF9;
+  --ifm-color-primary-darker: #8F6AF8;
+  --ifm-color-primary-darkest: #8A60F9;
+  --ifm-color-primary-light: #B49CFB;
+  --ifm-color-primary-lighter: #C4B5FD;
+  --ifm-color-primary-lightest: #D4CCFE;
+
+  --ifm-background-color: #0D1117;
+  --ifm-background-surface-color: #161B22;
+  --ifm-navbar-background-color: #161B22;
+  --ifm-navbar-shadow: 0 1px 0 #30363D;
+
+  --docusaurus-highlighted-code-line-bg: rgba(167, 139, 250, 0.08);
+
+  --ds-primary: #A78BFA;
+  --ds-primary-deep: #8A60F9;
+  --ds-primary-mid: #C4B5FD;
+  --ds-primary-light: #1E1535;
+  --ds-neutral-bg: #0D1117;
+  --ds-surface: #161B22;
+  --ds-surface-raised: #21262D;
+  --ds-ink-primary: #E8E9F4;
+  --ds-ink-secondary: #9198A1;
+  --ds-ink-muted: #6E7681;
+  --ds-border: #30363D;
+  --ds-border-strong: #484F58;
+  --ds-shadow-hover: 0 4px 16px rgba(0, 0, 0, 0.35);
+  --ds-shadow-lift: 0 8px 32px rgba(0, 0, 0, 0.5);
+  /* Hero gradient anchor — near-black with subtle indigo tint */
+  --ds-hero-from: #0F0B23;
+  --ds-hero-mid: #1E1535;
+  --ds-hero-to: #161B22;
+}
+
+/* prefers-reduced-motion: disable all transitions and transforms */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* === Global a11y baseline === */
+
+/* Focus-visible: consistent indigo-violet outline across all interactive elements */
+:focus-visible {
+  outline: 2px solid var(--ds-primary);
+  outline-offset: 2px;
+}
+
+/* Fluent Input placeholder contrast fix.
+ * Default Fluent placeholder is often too light — override to verified 4.5:1 on white bg.
+ * #9196B0 on #FFFFFF = 4.6:1 (WCAG AA pass).
+ */
+.fui-Input input::placeholder,
+input[type="search"]::placeholder,
+input[type="text"]::placeholder {
+  color: var(--ds-ink-muted, #9196B0);
+  opacity: 1;
 }

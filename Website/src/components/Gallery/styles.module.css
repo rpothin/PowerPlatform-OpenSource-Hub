@@ -31,24 +31,27 @@
     flex-direction: column; /* Set direction to column */
     flex: 1 1 300px; /* flex-grow | flex-shrink | flex-basis */
     max-width: 450px; /* Set max width */
-    max-height: 400px; /* Set max height */
+    /* max-height removed: fixed height clips badge-heavy repo cards */
+    overflow: hidden;
     margin: 10px; /* Add margin all around */
-    transition: box-shadow 0.15s ease, transform 0.1s ease;
+    transition: box-shadow 0.15s cubic-bezier(0.2, 0, 0, 1),
+                transform 0.15s cubic-bezier(0.2, 0, 0, 1),
+                border-color 0.15s cubic-bezier(0.2, 0, 0, 1);
     cursor: pointer;
 }
 
 .galleryItem:hover {
-    box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+    box-shadow: var(--ds-shadow-hover, 0 4px 16px rgba(105, 54, 247, 0.12));
     transform: translateY(-2px);
 }
 
 [data-theme="dark"] .galleryItem:hover {
-    box-shadow: 0 4px 16px rgba(0,0,0,0.4);
+    box-shadow: var(--ds-shadow-hover, 0 4px 16px rgba(0, 0, 0, 0.35));
 }
 
 /* Styling for the gallery item in dark theme */
 [data-theme="dark"] .galleryItem {
-    background-color: #333; /* Set background color */
+    background-color: var(--ds-surface, #161B22); /* GitHub-native dark surface */
 }
 
 /* Styling for the gallery item title */
@@ -73,11 +76,9 @@
     -webkit-box-orient: vertical;
 }
 
-/* Styling for the gallery item stars count */
+/* Styling for the gallery item stars count — kept for legacy test selectors but no longer positioned absolutely */
 .galleryItemStarsCount {
-    position: absolute; /* Positioning relative to the nearest positioned ancestor */
-    bottom: 0; /* Position at the bottom */
-    left: 0; /* Position at the left */
+    /* previously position: absolute — removed, star badge is now in the card header */
 }
 
 /* Styling for the gallery item stars count in dark theme */
@@ -97,11 +98,11 @@
 
 /* Keep for future change on light vs dark theme */
 .cardBreakLine {
-    border-top: 1px solid #f0f0f0;
+    border-top: 1px solid var(--ds-border, #E1E4F0);
 }
 
 [data-theme="dark"] .cardBreakLine {
-    border-top: 1px solid black;
+    border-top: 1px solid var(--ds-border, #30363D);
 }
 
 /* Styling for the card header and footer footer - flex row with space between */
@@ -167,7 +168,7 @@
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.5px;
-    color: var(--ifm-color-secondary-darkest);
+    color: var(--ds-ink-muted);
     margin-bottom: 6px;
     display: block;
 }
@@ -182,7 +183,7 @@
 }
 .dialogDetailsLabel {
     font-size: 13px;
-    color: var(--ifm-color-secondary-darkest);
+    color: var(--ds-ink-secondary);
     white-space: nowrap;
     font-weight: 500;
     display: inline-block;

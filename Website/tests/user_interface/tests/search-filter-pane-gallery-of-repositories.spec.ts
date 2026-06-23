@@ -134,7 +134,7 @@ test('Validate the filter pane default presentation', async ({ page }) => {
   const expectedSections = [
     'Contribution Signals',
     'Categories',
-    'Focus Areas',
+    'What It Covers',
     'Who It Helps',
     'Topics',
     'Languages',

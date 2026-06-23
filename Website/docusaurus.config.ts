@@ -4,6 +4,12 @@ import type * as Preset from '@docusaurus/preset-classic';
 
 const config: Config = {
   title: 'Power Platform Open-Source Hub',
+  stylesheets: [
+    {
+      href: 'https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap',
+      type: 'text/css',
+    },
+  ],
   tagline: 'Discover open-source projects for Microsoft Power Platform and Copilot Studio 🧳',
   favicon: 'img/PowerPlatform_scalable.svg', //'img/favicon.ico',
 

@@ -1,5 +1,6 @@
 import * as React from 'react';
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
+import styles from './styles.module.css';
 
 import {
   Accordion,
@@ -13,6 +14,7 @@ import {
 import type { CheckboxProps } from "@fluentui/react-components";
 
 import { countItemsByProperty, extractDistinctProperties, formatFacetLabel } from '../../utils/filterPaneUtils';
+import { filterItems } from '../../utils/galleryUtils';
 import { Repository } from '../../types/repository';
 
 type FilterPaneProps = {
@@ -78,6 +80,49 @@ const FilterPane = ({
   const [showAllFocusAreas, setShowAllFocusAreas] = useState(false);
   const [showAllAudiences, setShowAllAudiences] = useState(false);
 
+  // For each facet, compute a base filtered set that excludes ONLY that facet's selection.
+  // Counts drawn from this base reflect "given all other active filters, how many match this option?",
+  // which prevents misleading static totals when other filters are active.
+  const facetBase = useMemo(() => {
+    const base = {
+      hasGoodFirstIssueChecked,
+      hasHelpWantedIssueChecked,
+      hasCodeOfConductChecked,
+      selectedTopics,
+      selectedLanguages,
+      selectedLicenses,
+      selectedOwners,
+      selectedCategories,
+      selectedFocusAreas,
+      selectedAudiences,
+    };
+    return {
+      contribSignals: filterItems(items, { ...base, hasGoodFirstIssueChecked: false, hasHelpWantedIssueChecked: false, hasCodeOfConductChecked: false }),
+      topics:         filterItems(items, { ...base, selectedTopics: [] }),
+      languages:      filterItems(items, { ...base, selectedLanguages: [] }),
+      licenses:       filterItems(items, { ...base, selectedLicenses: [] }),
+      owners:         filterItems(items, { ...base, selectedOwners: [] }),
+      categories:     filterItems(items, { ...base, selectedCategories: [] }),
+      focusAreas:     filterItems(items, { ...base, selectedFocusAreas: [] }),
+      audiences:      filterItems(items, { ...base, selectedAudiences: [] }),
+    };
+  }, [
+    items,
+    hasGoodFirstIssueChecked, hasHelpWantedIssueChecked, hasCodeOfConductChecked,
+    selectedTopics, selectedLanguages, selectedLicenses, selectedOwners,
+    selectedCategories, selectedFocusAreas, selectedAudiences,
+  ]);
+
+  // Renders a count badge that re-mounts (and re-animates) when the count value changes.
+  const renderCount = (count: number) => (
+    <span
+      key={count}
+      className={count === 0 ? `${styles.facetCount} ${styles.facetCountZero}` : styles.facetCount}
+    >
+      ({count})
+    </span>
+  );
+
   const topics = extractDistinctProperties(items, 'topics');
   const languages = extractDistinctProperties(items, 'languages');
   const licenses = extractDistinctProperties(items, 'license.name');
@@ -86,9 +131,9 @@ const FilterPane = ({
   const focusAreas = extractDistinctProperties(items, 'focusAreas');
   const audiences = extractDistinctProperties(items, 'audiences');
 
-  const goodFirstIssueCount = countItemsByProperty(items, 'hasGoodFirstIssues', true);
-  const helpWantedIssueCount = countItemsByProperty(items, 'hasHelpWantedIssues', true);
-  const codeOfConductCount = countItemsByProperty(items, 'codeOfConduct', 'NotNull');
+  const goodFirstIssueCount = countItemsByProperty(facetBase.contribSignals, 'hasGoodFirstIssues', true);
+  const helpWantedIssueCount = countItemsByProperty(facetBase.contribSignals, 'hasHelpWantedIssues', true);
+  const codeOfConductCount = countItemsByProperty(facetBase.contribSignals, 'codeOfConduct', 'NotNull');
 
   const displayedTopics = showAllTopics ? topics : topics.slice(0, 10);
   const displayedLanguages = showAllLanguages ? languages : languages.slice(0, 10);
@@ -157,7 +202,7 @@ const FilterPane = ({
 
   return (
     <Accordion
-      defaultOpenItems="1"
+      defaultOpenItems={["1"]}
       multiple
       collapsible
       style={{
@@ -184,7 +229,7 @@ const FilterPane = ({
             <li style={{ minHeight: '44px', display: 'flex', alignItems: 'center' }}>
               <Checkbox 
                 id="checkbox-r-good-first-issue"
-                label={"Has good first issue (" + goodFirstIssueCount +  ")"}
+                label={<>Has good first issue {renderCount(goodFirstIssueCount)}</>}
                 checked={hasGoodFirstIssueChecked}
                 onChange={(_, data) => onGoodFirstIssueChange(data.checked === true)}
               />
@@ -192,7 +237,7 @@ const FilterPane = ({
             <li style={{ minHeight: '44px', display: 'flex', alignItems: 'center' }}>
               <Checkbox 
                 id="checkbox-r-help-wanted-issue"
-                label={"Has help wanted issue (" + helpWantedIssueCount + ")"} 
+                label={<>Has help wanted issue {renderCount(helpWantedIssueCount)}</>}
                 checked={hasHelpWantedIssueChecked}
                 onChange={(_, data) => onHelpWantedIssueChange(data.checked === true)}
               />
@@ -200,7 +245,7 @@ const FilterPane = ({
             <li style={{ minHeight: '44px', display: 'flex', alignItems: 'center' }}>
               <Checkbox 
                 id="checkbox-r-code-of-conduct"
-                label={"Has code of conduct (" + codeOfConductCount +  ")"} 
+                label={<>Has code of conduct {renderCount(codeOfConductCount)}</>}
                 checked={hasCodeOfConductChecked}
                 onChange={(_, data) => onCodeOfConductChange(data.checked === true)}
               />
@@ -219,7 +264,7 @@ const FilterPane = ({
                     <li key={index} style={{ minHeight: '44px', display: 'flex', alignItems: 'center' }}>
                       <Checkbox
                         id={`checkbox-r-category-${category.toLowerCase().replace(/[^a-z0-9]/g, '-')}`}
-                        label={formatFacetLabel(category) + " (" + countItemsByProperty(items, 'category', category) + ")"}
+                        label={<>{formatFacetLabel(category)} {renderCount(countItemsByProperty(facetBase.categories, 'category', category))}</>}
                         checked={selectedCategories.includes(category)}
                         onChange={(_, data) => handleCategoryChange(category, data.checked)}
                       />
@@ -238,7 +283,7 @@ const FilterPane = ({
       )}
       {focusAreas.length > 0 && (
         <AccordionItem value="7">
-          <AccordionHeader style={{ marginTop: '10px', marginBottom: '10px' }} size="large" expandIconPosition="end">Focus Areas</AccordionHeader>
+          <AccordionHeader style={{ marginTop: '10px', marginBottom: '10px' }} size="large" expandIconPosition="end">What It Covers</AccordionHeader>
           <AccordionPanel>
             <div style={{ display: 'flex', flexDirection: 'column' }}>
               <div style={{ display: 'flex', flexDirection: 'column', rowGap: '10px' }}>
@@ -247,7 +292,7 @@ const FilterPane = ({
                     <li key={index} style={{ minHeight: '44px', display: 'flex', alignItems: 'center' }}>
                       <Checkbox
                         id={`checkbox-r-focus-area-${focusArea.toLowerCase().replace(/[^a-z0-9]/g, '-')}`}
-                        label={formatFacetLabel(focusArea) + " (" + countItemsByProperty(items, 'focusAreas', focusArea) + ")"}
+                        label={<>{formatFacetLabel(focusArea)} {renderCount(countItemsByProperty(facetBase.focusAreas, 'focusAreas', focusArea))}</>}
                         checked={selectedFocusAreas.includes(focusArea)}
                         onChange={(_, data) => handleFocusAreaChange(focusArea, data.checked)}
                       />
@@ -275,7 +320,7 @@ const FilterPane = ({
                     <li key={index} style={{ minHeight: '44px', display: 'flex', alignItems: 'center' }}>
                       <Checkbox
                         id={`checkbox-r-audience-${audience.toLowerCase().replace(/[^a-z0-9]/g, '-')}`}
-                        label={formatFacetLabel(audience) + " (" + countItemsByProperty(items, 'audiences', audience) + ")"}
+                        label={<>{formatFacetLabel(audience)} {renderCount(countItemsByProperty(facetBase.audiences, 'audiences', audience))}</>}
                         checked={selectedAudiences.includes(audience)}
                         onChange={(_, data) => handleAudienceChange(audience, data.checked)}
                       />
@@ -314,7 +359,7 @@ const FilterPane = ({
                             <li key={index} style={{ minHeight: '44px', display: 'flex', alignItems: 'center' }}>
                               <Checkbox 
                                 id={`checkbox-r-topic-${topic.toLowerCase().replace(/[^a-z0-9]/g, '-')}`}
-                                label={topic + " (" + countItemsByProperty(items, 'topics', topic) + ")"}
+                                label={<>{topic} {renderCount(countItemsByProperty(facetBase.topics, 'topics', topic))}</>}
                                 checked={selectedTopics.includes(topic)}
                                 onChange={(_, data) => handleTopicChange(topic, data.checked)}
                               />
@@ -329,7 +374,7 @@ const FilterPane = ({
                       <li key={index} style={{ minHeight: '44px', display: 'flex', alignItems: 'center' }}>
                         <Checkbox 
                           id={`checkbox-r-topic-${topic.toLowerCase().replace(/[^a-z0-9]/g, '-')}`}
-                          label={topic + " (" + countItemsByProperty(items, 'topics', topic) + ")"}
+                          label={<>{topic} {renderCount(countItemsByProperty(facetBase.topics, 'topics', topic))}</>}
                           checked={selectedTopics.includes(topic)}
                           onChange={(_, data) => handleTopicChange(topic, data.checked)}
                         />
@@ -356,7 +401,7 @@ const FilterPane = ({
                   <li key={index} style={{ minHeight: '44px', display: 'flex', alignItems: 'center' }}>
                     <Checkbox 
                       id={`checkbox-r-language-${language.toLowerCase().replace(/[^a-z0-9]/g, '-')}`}
-                      label={language + " (" + countItemsByProperty(items, 'languages', language) + ")"} 
+                      label={<>{language} {renderCount(countItemsByProperty(facetBase.languages, 'languages', language))}</>}
                       checked={selectedLanguages.includes(language)}
                       onChange={(_, data) => handleLanguageChange(language, data.checked)}
                     />
@@ -382,7 +427,7 @@ const FilterPane = ({
                   <li key={index} style={{ minHeight: '44px', display: 'flex', alignItems: 'center' }}>
                     <Checkbox 
                       id={`checkbox-r-license-${license.toLowerCase().replace(/[^a-z0-9]/g, '-')}`}
-                      label={license + " (" + countItemsByProperty(items, 'license.name', license) + ")"} 
+                      label={<>{license} {renderCount(countItemsByProperty(facetBase.licenses, 'license.name', license))}</>}
                       checked={selectedLicenses.includes(license)}
                       onChange={(_, data) => handleLicenseChange(license, data.checked)}
                     />
@@ -420,7 +465,7 @@ const FilterPane = ({
                           <li key={index} style={{ minHeight: '44px', display: 'flex', alignItems: 'center' }}>
                             <Checkbox 
                               id={`checkbox-r-owner-${owner.toLowerCase().replace(/[^a-z0-9]/g, '-')}`}
-                              label={owner + " (" + countItemsByProperty(items, 'owner.login', owner) + ")"} 
+                              label={<>{owner} {renderCount(countItemsByProperty(facetBase.owners, 'owner.login', owner))}</>}
                               checked={selectedOwners.includes(owner)}
                               onChange={(_, data) => handleOwnerChange(owner, data.checked)}
                             />
@@ -435,7 +480,7 @@ const FilterPane = ({
                     <li key={index} style={{ minHeight: '44px', display: 'flex', alignItems: 'center' }}>
                       <Checkbox 
                         id={`checkbox-r-owner-${owner.toLowerCase().replace(/[^a-z0-9]/g, '-')}`}
-                        label={owner + " (" + countItemsByProperty(items, 'owner.login', owner) + ")"} 
+                        label={<>{owner} {renderCount(countItemsByProperty(facetBase.owners, 'owner.login', owner))}</>}
                         checked={selectedOwners.includes(owner)}
                         onChange={(_, data) => handleOwnerChange(owner, data.checked)}
                       />

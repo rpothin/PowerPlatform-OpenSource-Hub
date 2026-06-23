@@ -1,4 +1,3 @@
-import clsx from 'clsx';
 import * as React from 'react';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import {
@@ -10,14 +9,14 @@ import {
   DialogTitle,
   FluentProvider,
   Input,
-  webDarkTheme,
-  webLightTheme,
 } from '@fluentui/react-components';
-import { Filter16Regular } from '@fluentui/react-icons';
+import { Dismiss20Regular, Filter16Regular } from '@fluentui/react-icons';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import { useColorMode } from '@docusaurus/theme-common';
 import Layout from '@theme/Layout';
 import Heading from '@theme/Heading';
+
+import { hubLightTheme, hubDarkTheme } from '../theme/fluentTheme';
 
 import { Repository } from '../types/repository';
 import { filterItemsBasedOnSearchInput } from '../utils/filterItemsBasedOnSearchInput';
@@ -27,10 +26,11 @@ import {
   serializeFilterStateToSearch,
   UrlFilterState,
 } from '../utils/filterUrlState';
-import styles from './index.module.css';
+import styles from './gallery.module.css';
 import data from '../../../Data/GitHubRepositoriesDetails.json';
 import Gallery from '../components/Gallery';
 import FilterPane from '../components/FilterPane';
+import ActiveFilterBar from '../components/ActiveFilterBar';
 
 const App = () => {
   const { siteConfig } = useDocusaurusContext();
@@ -39,6 +39,7 @@ const App = () => {
   const [isFilterPaneOpen, setIsFilterPaneOpen] = useState(false);
   const [isFilterStateInitialized, setIsFilterStateInitialized] = useState(false);
   const [filterState, setFilterState] = useState<UrlFilterState>(defaultUrlFilterState);
+  const [searchFocused, setSearchFocused] = useState(false);
   const historyWriteModeRef = useRef<'replace' | 'push'>('replace');
 
   useEffect(() => {
@@ -93,6 +94,26 @@ const App = () => {
     }
     historyWriteModeRef.current = 'replace';
   }, [filterState, isFilterStateInitialized]);
+
+  // "/" shortcut: focus the gallery search bar, mirroring the GitHub convention.
+  // Skips when focus is already on an input, textarea, or contenteditable.
+  useEffect(() => {
+    if (typeof window === 'undefined') {
+      return;
+    }
+
+    const handleSlashKey = (e: KeyboardEvent) => {
+      if (e.key !== '/') return;
+      const target = e.target as HTMLElement;
+      const tag = target.tagName.toLowerCase();
+      if (tag === 'input' || tag === 'textarea' || target.isContentEditable) return;
+      e.preventDefault(); // prevent '/' appearing in the input on focus
+      document.getElementById('filterBar')?.focus();
+    };
+
+    window.addEventListener('keydown', handleSlashKey);
+    return () => window.removeEventListener('keydown', handleSlashKey);
+  }, []);
 
   const setFilterStateWithHistory = (
     updater: (previous: UrlFilterState) => UrlFilterState,
@@ -155,13 +176,13 @@ const App = () => {
   );
 
   return (
-    <FluentProvider theme={colorMode === 'dark' ? webDarkTheme : webLightTheme}>
-      <header className={clsx('hero hero--primary', styles.heroBanner)}>
+    <FluentProvider theme={colorMode === 'dark' ? hubDarkTheme : hubLightTheme}>
+      <header className={styles.galleryHero}>
         <div className="container" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column' }}>
-          <Heading as="h1" className={clsx('hero__title', styles.heroTitle)}>
+          <Heading as="h1" className={styles.galleryHeroTitle}>
             {siteConfig.title}
           </Heading>
-          <p className={clsx('hero__subtitle', styles.heroSubtitle)} style={{ padding: '10px 0 20px 0' }}>
+          <p className={styles.galleryHeroSubtitle}>
             {siteConfig.tagline}
           </p>
           <Input
@@ -170,14 +191,39 @@ const App = () => {
             size="large"
             placeholder="Search for a Power Platform GitHub repository..."
             aria-label="Search repositories"
+            aria-keyshortcuts="/"
             value={filterState.searchText}
             onChange={(_, data) => setFilterStateWithHistory((previous) => ({ ...previous, searchText: data.value }), 'replace')}
             style={{ width: '100%', maxWidth: '740px' }}
+            onFocus={() => setSearchFocused(true)}
+            onBlur={() => setSearchFocused(false)}
+            contentAfter={
+              filterState.searchText.length > 0 ? (
+                <Button
+                  appearance="subtle"
+                  size="small"
+                  icon={<Dismiss20Regular />}
+                  onClick={() => {
+                    setFilterStateWithHistory((previous) => ({ ...previous, searchText: '' }), 'push');
+                    // Return focus to the search input after clearing
+                    setTimeout(() => document.getElementById('filterBar')?.focus(), 0);
+                  }}
+                  aria-label="Clear search"
+                />
+              ) : !searchFocused ? (
+                <kbd aria-hidden="true" className={styles.kbdHint}>/</kbd>
+              ) : undefined
+            }
           />
         </div>
       </header>
       <main>
-        <div className={styles.filterPaneAndGallery}>
+        <ActiveFilterBar
+          filterState={filterState}
+          setFilterState={setFilterStateWithHistory}
+          onClearAllFilters={handleClearAllFilters}
+        />
+        <div className={styles.filterGalleryLayout}>
           {isMobile ? (
             <>
               <div style={{ marginBottom: '12px', width: '100%' }}>

@@ -1,0 +1,145 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-06-22T22:00:00.000Z",
+  "title": "Design System: Power Platform Open-Source Hub",
+  "extensions": {
+    "colorMeta": {
+      "primary":           { "role": "primary",   "displayName": "Indigo Violet",     "canonical": "oklch(47% 0.26 285)",  "tonalRamp": ["#EDE8FE", "#C4B5FD", "#A78BFA", "#8A60F9", "#6936F7", "#4A1FB5", "#321580"] },
+      "primary-deep":      { "role": "primary",   "displayName": "Deep Indigo",       "canonical": "oklch(36% 0.22 285)",  "tonalRamp": ["#321580", "#4A1FB5", "#6936F7"] },
+      "primary-mid":       { "role": "primary",   "displayName": "Soft Indigo",       "canonical": "oklch(58% 0.22 285)",  "tonalRamp": ["#8A60F9", "#A78BFA", "#C4B5FD"] },
+      "primary-light":     { "role": "primary",   "displayName": "Indigo Tint",       "canonical": "oklch(93% 0.06 285)",  "tonalRamp": ["#F5F0FF", "#EDE8FE", "#DDD5FD"] },
+      "neutral-bg":        { "role": "neutral",   "displayName": "Cool Near-White",   "canonical": "oklch(97% 0.008 285)", "tonalRamp": ["#FFFFFF", "#F7F8FC", "#F0F2FA", "#E1E4F0"] },
+      "surface":           { "role": "neutral",   "displayName": "Surface White",     "canonical": "oklch(100% 0 0)",      "tonalRamp": ["#FFFFFF"] },
+      "surface-raised":    { "role": "neutral",   "displayName": "Surface Raised",    "canonical": "oklch(94% 0.012 285)", "tonalRamp": ["#F0F2FA", "#E8EBF5"] },
+      "ink-primary":       { "role": "neutral",   "displayName": "Ink Primary",       "canonical": "oklch(17% 0.025 285)", "tonalRamp": ["#1A1B2E", "#2D2F4A", "#3F4265"] },
+      "ink-secondary":     { "role": "neutral",   "displayName": "Ink Secondary",     "canonical": "oklch(38% 0.04 285)",  "tonalRamp": ["#4A4D6A", "#5C6080", "#7A7E9A"] },
+      "ink-muted":         { "role": "neutral",   "displayName": "Ink Muted",         "canonical": "oklch(56% 0.035 285)", "tonalRamp": ["#7A7E9A", "#9196B0"] },
+      "border":            { "role": "neutral",   "displayName": "Border Subtle",     "canonical": "oklch(90% 0.015 285)", "tonalRamp": ["#E1E4F0", "#C5CADF"] },
+      "border-strong":     { "role": "neutral",   "displayName": "Border Strong",     "canonical": "oklch(83% 0.022 285)", "tonalRamp": ["#C5CADF", "#A9B0CC"] },
+      "success":           { "role": "semantic",  "displayName": "Success Green",     "canonical": "oklch(52% 0.17 148)",  "tonalRamp": ["#D3F8E0", "#A0E8BA", "#2DA44E", "#1A7035"] },
+      "warning":           { "role": "semantic",  "displayName": "Warning Amber",     "canonical": "oklch(72% 0.16 75)",   "tonalRamp": ["#FFF3C4", "#F5D574", "#D29922", "#8E6800"] },
+      "danger":            { "role": "semantic",  "displayName": "Danger Red",        "canonical": "oklch(47% 0.20 25)",   "tonalRamp": ["#FFEBE9", "#FFC1BA", "#CF222E", "#82071E"] },
+      "dark-bg":           { "role": "neutral",   "displayName": "Dark Background",   "canonical": "oklch(10% 0.008 255)", "tonalRamp": ["#0D1117", "#161B22", "#21262D"] },
+      "dark-surface":      { "role": "neutral",   "displayName": "Dark Surface",      "canonical": "oklch(14% 0.01 255)",  "tonalRamp": ["#161B22", "#21262D", "#30363D"] },
+      "dark-primary":      { "role": "primary",   "displayName": "Light Indigo",      "canonical": "oklch(72% 0.18 285)",  "tonalRamp": ["#EDE8FE", "#C4B5FD", "#A78BFA"] }
+    },
+    "typographyMeta": {
+      "display":  { "displayName": "Display",  "purpose": "Hero headlines on landing page only. One per screen." },
+      "headline": { "displayName": "Headline", "purpose": "Section titles (Key Insights, Who is this for?)." },
+      "title":    { "displayName": "Title",    "purpose": "Card headings, filter labels, dialog titles." },
+      "body":     { "displayName": "Body",     "purpose": "Primary reading text. Max 65–72ch line length." },
+      "label":    { "displayName": "Label",    "purpose": "Stat labels, filter headers. Uppercase only for stat cards." },
+      "mono":     { "displayName": "Mono",     "purpose": "Repository topic chips, code references, technical metadata." }
+    },
+    "shadows": [
+      { "name": "ambient-hover",      "value": "0 4px 16px rgba(105, 54, 247, 0.12)",  "purpose": "Card hover in light mode. Faint indigo tint reinforces brand." },
+      { "name": "ambient-lift",       "value": "0 8px 32px rgba(0, 0, 0, 0.12)",        "purpose": "Dialogs, dropdowns, floating filter panels." },
+      { "name": "dark-ambient-hover", "value": "0 4px 16px rgba(0, 0, 0, 0.35)",        "purpose": "Card hover in dark mode. Neutral, no tint." },
+      { "name": "focus-ring",         "value": "0 0 0 3px rgba(105, 54, 247, 0.15)",    "purpose": "Focus-visible outline supplement for inputs and buttons." }
+    ],
+    "motion": [
+      { "name": "ease-out-standard", "value": "cubic-bezier(0.2, 0, 0, 1)",    "purpose": "Default easing for state transitions (hover lift, filter panel slide)." },
+      { "name": "duration-fast",     "value": "150ms",                           "purpose": "Hover/focus state transitions." },
+      { "name": "duration-medium",   "value": "250ms",                           "purpose": "Panel open/close, dialog entrance." }
+    ],
+    "breakpoints": [
+      { "name": "mobile",  "value": "960px",  "purpose": "Docusaurus navbar collapse + gallery filter pane to dialog." },
+      { "name": "tablet",  "value": "768px",  "purpose": "Card grid reflow." },
+      { "name": "desktop", "value": "1200px", "purpose": "Max container width for reading comfort." }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Main CTA. Used for Explore Gallery, Add a Project, and primary form actions.",
+      "html": "<button class=\"ds-btn-primary\">Explore the Gallery →</button>",
+      "css": ".ds-btn-primary { display: inline-flex; align-items: center; gap: 6px; background: #6936F7; color: #fff; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', Arial, sans-serif; font-size: 0.9375rem; font-weight: 500; padding: 10px 20px; border: none; border-radius: 8px; cursor: pointer; text-decoration: none; transition: background 0.15s cubic-bezier(0.2,0,0,1), transform 0.15s cubic-bezier(0.2,0,0,1), box-shadow 0.15s cubic-bezier(0.2,0,0,1); } .ds-btn-primary:hover { background: #4A1FB5; transform: translateY(-1px); box-shadow: 0 4px 12px rgba(105,54,247,0.25); } .ds-btn-primary:focus-visible { outline: 2px solid #6936F7; outline-offset: 2px; } .ds-btn-primary:active { transform: translateY(0); } @media (prefers-reduced-motion: reduce) { .ds-btn-primary { transition: background 0.15s; } .ds-btn-primary:hover { transform: none; box-shadow: none; } }"
+    },
+    {
+      "name": "Secondary Button (Outlined)",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "Secondary CTA. Used alongside primary buttons (e.g. Add a Project next to Explore Gallery).",
+      "html": "<button class=\"ds-btn-secondary\">Add a Project</button>",
+      "css": ".ds-btn-secondary { display: inline-flex; align-items: center; background: transparent; color: #6936F7; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', Arial, sans-serif; font-size: 0.9375rem; font-weight: 500; padding: 9px 19px; border: 1px solid #6936F7; border-radius: 8px; cursor: pointer; text-decoration: none; transition: background 0.15s cubic-bezier(0.2,0,0,1); } .ds-btn-secondary:hover { background: #EDE8FE; } .ds-btn-secondary:focus-visible { outline: 2px solid #6936F7; outline-offset: 2px; } @media (prefers-reduced-motion: reduce) { .ds-btn-secondary { transition: none; } }"
+    },
+    {
+      "name": "Filter Chip (Unselected)",
+      "kind": "chip",
+      "refersTo": "button-ghost",
+      "description": "Filter pill in the gallery filter pane. Unselected state.",
+      "html": "<button class=\"ds-chip\">Power Apps</button>",
+      "css": ".ds-chip { display: inline-flex; align-items: center; gap: 4px; background: #F0F2FA; color: #4A4D6A; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', Arial, sans-serif; font-size: 0.8125rem; font-weight: 500; padding: 5px 12px; border: 1px solid #E1E4F0; border-radius: 999px; cursor: pointer; transition: border-color 0.15s, background 0.15s; } .ds-chip:hover { border-color: #8A60F9; background: rgba(237,232,254,0.5); } .ds-chip:focus-visible { outline: 2px solid #6936F7; outline-offset: 2px; } @media (prefers-reduced-motion: reduce) { .ds-chip { transition: none; } }"
+    },
+    {
+      "name": "Filter Chip (Selected)",
+      "kind": "chip",
+      "refersTo": "button-ghost",
+      "description": "Filter pill in the gallery filter pane. Selected/active state.",
+      "html": "<button class=\"ds-chip ds-chip--selected\">Power Apps <svg width='12' height='12' viewBox='0 0 12 12' fill='none'><path d='M9 3L3 9M3 3l6 6' stroke='#4A1FB5' stroke-width='1.5' stroke-linecap='round'/></svg></button>",
+      "css": ".ds-chip--selected { background: #EDE8FE; color: #4A1FB5; border-color: #8A60F9; } .ds-chip--selected:hover { background: #DDD5FD; border-color: #6936F7; }"
+    },
+    {
+      "name": "Stat Card",
+      "kind": "card",
+      "refersTo": "stat-card",
+      "description": "Key insight metric on the landing page. Shows emoji icon, big value, and uppercase label.",
+      "html": "<div class=\"ds-stat-card\"><div class=\"ds-stat-card__icon\">⭐</div><div class=\"ds-stat-card__value\">24,500</div><div class=\"ds-stat-card__label\">Stars Across the Ecosystem</div></div>",
+      "css": ".ds-stat-card { background: #FFFFFF; border: 1px solid #E1E4F0; border-radius: 12px; padding: 24px 20px; text-align: center; min-width: 160px; max-width: 220px; flex: 1 1 160px; display: flex; flex-direction: column; align-items: center; gap: 6px; box-shadow: none; transition: transform 0.15s cubic-bezier(0.2,0,0,1), box-shadow 0.15s cubic-bezier(0.2,0,0,1), border-color 0.15s; } .ds-stat-card:hover { transform: translateY(-3px); box-shadow: 0 4px 16px rgba(105,54,247,0.12); border-color: #C5CADF; } .ds-stat-card__icon { font-size: 1.75rem; line-height: 1; } .ds-stat-card__value { font-size: 1.75rem; font-weight: 700; color: #6936F7; line-height: 1.1; letter-spacing: -0.02em; } .ds-stat-card__label { font-size: 0.72rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: #7A7E9A; line-height: 1.35; } @media (prefers-reduced-motion: reduce) { .ds-stat-card { transition: none; } .ds-stat-card:hover { transform: none; box-shadow: none; } }"
+    },
+    {
+      "name": "Repository Card",
+      "kind": "card",
+      "refersTo": "repo-card",
+      "description": "The core unit of the gallery. Shows repo name, owner, description, topics, and stats.",
+      "html": "<div class=\"ds-repo-card\"><div class=\"ds-repo-card__header\"><span class=\"ds-repo-card__owner\">microsoft</span><span class=\"ds-repo-card__name\">PowerApps-Samples</span></div><p class=\"ds-repo-card__description\">Code samples for Power Apps</p><div class=\"ds-repo-card__chips\"><span class=\"ds-repo-chip\">powerapps</span><span class=\"ds-repo-chip\">typescript</span></div><div class=\"ds-repo-card__footer\"><span class=\"ds-repo-card__stars\">⭐ 1,240</span></div></div>",
+      "css": ".ds-repo-card { background: #FFFFFF; border: 1px solid #E1E4F0; border-radius: 12px; padding: 20px; display: flex; flex-direction: column; gap: 10px; transition: transform 0.15s cubic-bezier(0.2,0,0,1), box-shadow 0.15s cubic-bezier(0.2,0,0,1), border-color 0.15s; } .ds-repo-card:hover { transform: translateY(-2px); box-shadow: 0 4px 16px rgba(105,54,247,0.12); border-color: #C5CADF; } .ds-repo-card__header { display: flex; flex-direction: column; gap: 2px; } .ds-repo-card__owner { font-size: 0.75rem; color: #7A7E9A; } .ds-repo-card__name { font-size: 1rem; font-weight: 600; color: #1A1B2E; letter-spacing: -0.01em; } .ds-repo-card__description { font-size: 0.875rem; color: #4A4D6A; line-height: 1.5; margin: 0; } .ds-repo-card__chips { display: flex; flex-wrap: wrap; gap: 6px; } .ds-repo-chip { background: #F0F2FA; color: #4A4D6A; font-size: 0.75rem; font-weight: 500; padding: 3px 8px; border-radius: 999px; border: 1px solid #E1E4F0; font-family: 'JetBrains Mono', 'Fira Code', Consolas, monospace; } .ds-repo-card__footer { font-size: 0.8125rem; color: #7A7E9A; } @media (prefers-reduced-motion: reduce) { .ds-repo-card { transition: none; } .ds-repo-card:hover { transform: none; box-shadow: none; } }"
+    },
+    {
+      "name": "Search Input",
+      "kind": "input",
+      "refersTo": "input-search",
+      "description": "Gallery search bar. Prominent, full-width in the gallery header. Uses FluentUI Input with theme override.",
+      "html": "<div class=\"ds-search-wrap\"><svg class=\"ds-search-icon\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" fill=\"none\"><path d=\"M6.5 12a5.5 5.5 0 100-11 5.5 5.5 0 000 11zm4.248-1.252l3.5 3.5\" stroke=\"#7A7E9A\" stroke-width=\"1.5\" stroke-linecap=\"round\"/></svg><input class=\"ds-search-input\" type=\"search\" placeholder=\"Search for a Power Platform GitHub repository...\"></div>",
+      "css": ".ds-search-wrap { position: relative; display: flex; align-items: center; width: 100%; max-width: 740px; } .ds-search-icon { position: absolute; left: 14px; pointer-events: none; } .ds-search-input { width: 100%; background: #FFFFFF; color: #1A1B2E; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', Arial, sans-serif; font-size: 0.9375rem; padding: 10px 14px 10px 40px; border: 1px solid #C5CADF; border-radius: 8px; outline: none; transition: border-color 0.15s, box-shadow 0.15s; } .ds-search-input::placeholder { color: #9196B0; } .ds-search-input:focus { border-color: #6936F7; box-shadow: 0 0 0 3px rgba(105,54,247,0.15); } @media (prefers-reduced-motion: reduce) { .ds-search-input { transition: none; } }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Community Bridge",
+    "overview": "The Power Platform Open-Source Hub exists at the intersection of two worlds — Microsoft's ecosystem of makers and developers, and the open culture of GitHub contributors. The design system reflects that position: simultaneously familiar to Power Platform users who know Fluent, and comfortable for GitHub-native contributors who navigate repos, issues, and READMEs daily.\n\nDensity matters here. Users arrive with intent. The interface respects that intent by surfacing information directly, without ceremony or sales theatre.\n\nThe palette anchors on a deep indigo-violet — a color in the Power Platform purple family, but more vibrant and technically confident than any Docusaurus default. Against cool near-white in light mode, and GitHub-adjacent dark surfaces in dark mode, it reads as trustworthy and alive.",
+    "keyCharacteristics": [
+      "Dual-register fluency: brand warmth on landing page, product density in gallery",
+      "System-native typography: Inter system stack — fast, Fluent/GitHub-adjacent",
+      "Functional elevation: shadows serve state (hover, float), never decoration",
+      "Indigo-violet identity: distinct primary bridging Power Platform purple and GitHub indigo",
+      "Minimal but deliberate motion with prefers-reduced-motion support"
+    ],
+    "rules": [
+      { "name": "The One Accent Rule",       "body": "The indigo-violet primary appears on ≤15% of any given screen. Its rarity and consistency are what make it trustworthy.", "section": "colors" },
+      { "name": "The No-Warm-Default Rule",  "body": "Neutral backgrounds use a cool-violet tint, not warm/beige/sand. Warmth comes from the accent and content.", "section": "colors" },
+      { "name": "The One-Family Rule",       "body": "Inter only. No second typeface. Hierarchy is weight × size, not face contrast.", "section": "typography" },
+      { "name": "The Flat-By-Default Rule",  "body": "All surfaces rest flat. Shadows appear only as a response to state (hover, elevation, focus).", "section": "elevation" }
+    ],
+    "dos": [
+      "Do use #6936F7 for primary interactive elements and nowhere else.",
+      "Do verify body text contrast ≥4.5:1 against its background before shipping.",
+      "Do apply text-wrap: balance on h1–h3 and text-wrap: pretty on body paragraphs.",
+      "Do include prefers-reduced-motion alternatives for every animation.",
+      "Do use success/warning/danger in their semantic GitHub roles.",
+      "Do use tonal layering (surface → surface-raised → neutral-bg) for resting depth."
+    ],
+    "donts": [
+      "Don't use marketing or sales aesthetics. No hero-metric templates.",
+      "Don't use gradient text (background-clip: text + gradient).",
+      "Don't use border-left or border-right >1px as a colored accent stripe on cards.",
+      "Don't use glassmorphism decoratively.",
+      "Don't repeat uppercase tracked eyebrow labels on every section.",
+      "Don't use the warm-neutral background band (cream, sand, paper, parchment).",
+      "Don't ship placeholder text below 4.5:1 contrast.",
+      "Don't nest cards inside cards."
+    ]
+  }
+}
+

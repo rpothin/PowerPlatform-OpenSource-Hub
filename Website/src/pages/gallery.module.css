@@ -1,0 +1,99 @@
+/**
+ * Gallery page — scoped styles.
+ * Keeps gallery.tsx decoupled from index.module.css.
+ * Shared design tokens come from custom.css (--ds-* namespace).
+ */
+
+/* ===== Gallery hero ===== */
+.galleryHero {
+  padding: 3rem 0 2.5rem;
+  text-align: center;
+  position: relative;
+  /* Committed indigo-violet gradient — same as landing hero */
+  background: linear-gradient(135deg, var(--ds-hero-from) 0%, var(--ds-hero-mid) 55%, var(--ds-hero-to) 100%);
+}
+
+[data-theme="dark"] .galleryHero {
+  background: linear-gradient(135deg, var(--ds-hero-from) 0%, var(--ds-hero-mid) 55%, var(--ds-hero-to) 100%);
+}
+
+@media screen and (max-width: 996px) {
+  .galleryHero {
+    padding: 2rem 1.5rem 2rem;
+  }
+}
+
+/* Gallery hero title — white on indigo gradient (no !important needed since no Infima class conflict) */
+.galleryHeroTitle {
+  color: #FFFFFF;
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+  margin-bottom: 0.5rem;
+}
+
+.galleryHeroSubtitle {
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 1rem;
+  line-height: 1.6;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 0 1.25rem;
+}
+
+/* ===== Filter + gallery two-column layout ===== */
+.filterGalleryLayout {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 30px;
+  position: relative;
+  /* No overflow-x: hidden — FluentUI dropdowns use position:absolute and must not be clipped */
+}
+
+/* Both flex children need min-width: 0 to prevent overflow without hiding overflow */
+.filterGalleryLayout > * {
+  min-width: 0;
+}
+
+@media (max-width: 960px) {
+  .filterGalleryLayout {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
+[data-theme="dark"] .filterGalleryLayout {
+  background-color: var(--ds-neutral-bg);
+}
+
+/* ===== Keyboard shortcut hint badge ===== */
+.kbdHint {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 20px;
+  height: 20px;
+  padding: 0 5px;
+  border: 1px solid var(--ds-border);
+  border-radius: var(--ds-radius-sm);
+  background: var(--ds-surface-raised);
+  color: var(--ds-ink-muted);
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* Keyboard shortcuts don't apply on touch devices */
+@media (pointer: coarse) {
+  .kbdHint {
+    display: none;
+  }
+}
