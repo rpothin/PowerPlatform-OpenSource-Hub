@@ -13,7 +13,7 @@
     "url": "https://api.github.com/licenses/mit"
   },
   "name": "PowerApps-Samples",
-  "openIssuesCount": 36,
+  "openIssuesCount": 38,
   "owner": {
     "id": "6154722",
     "is_bot": false,
@@ -30,7 +30,7 @@
   },
   "forkCount": 1815,
   "fundingLinks": [],
-  "isSecurityPolicyEnabled": false,
+  "isSecurityPolicyEnabled": true,
   "isTemplate": false,
   "latestRelease": {
     "name": "Metadata Browser",
@@ -41,7 +41,7 @@
   "primaryLanguage": {
     "name": "C#"
   },
-  "securityPolicyUrl": null,
+  "securityPolicyUrl": "https://github.com/microsoft/PowerApps-Samples/security/policy",
   "stargazerCount": 1952,
   "watchers": {
     "totalCount": 118
@@ -77,6 +77,6 @@
   "openedToContributionsIssues": 0,
   "popularityScore": 2070,
   "_schemaVersion": "1.0.0",
-  "_generatedAt": "2026-06-22T13:00:41.866Z",
-  "_workflowRunId": "27954508073"
+  "_generatedAt": "2026-06-23T12:03:34.481Z",
+  "_workflowRunId": "28024761014"
 }

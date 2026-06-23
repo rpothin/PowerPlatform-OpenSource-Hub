@@ -13,7 +13,7 @@
     "url": "https://api.github.com/licenses/mit"
   },
   "name": "Power-Fx",
-  "openIssuesCount": 368,
+  "openIssuesCount": 367,
   "owner": {
     "id": "6154722",
     "is_bot": false,
@@ -21,7 +21,7 @@
     "type": "Organization",
     "url": "https://github.com/microsoft"
   },
-  "updatedAt": "2026-06-21T05:39:12Z",
+  "updatedAt": "2026-06-22T20:14:39Z",
   "url": "https://github.com/microsoft/Power-Fx",
   "codeOfConduct": {
     "key": "other",
@@ -30,7 +30,7 @@
   },
   "forkCount": 354,
   "fundingLinks": [],
-  "isSecurityPolicyEnabled": false,
+  "isSecurityPolicyEnabled": true,
   "isTemplate": false,
   "latestRelease": {
     "name": "1.2.0 Release",
@@ -41,7 +41,7 @@
   "primaryLanguage": {
     "name": "C#"
   },
-  "securityPolicyUrl": null,
+  "securityPolicyUrl": "https://github.com/microsoft/Power-Fx/security/policy",
   "stargazerCount": 3357,
   "watchers": {
     "totalCount": 112
@@ -62,6 +62,6 @@
   "openedToContributionsIssues": 9,
   "popularityScore": 3469,
   "_schemaVersion": "1.0.0",
-  "_generatedAt": "2026-06-22T13:00:41.866Z",
-  "_workflowRunId": "27954508073"
+  "_generatedAt": "2026-06-23T12:03:34.481Z",
+  "_workflowRunId": "28024761014"
 }
