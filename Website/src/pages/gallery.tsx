@@ -30,6 +30,7 @@ import styles from './gallery.module.css';
 import data from '../../../Data/GitHubRepositoriesDetails.json';
 import Gallery from '../components/Gallery';
 import FilterPane from '../components/FilterPane';
+import ActiveFilterBar from '../components/ActiveFilterBar';
 
 const App = () => {
   const { siteConfig } = useDocusaurusContext();
@@ -176,6 +177,11 @@ const App = () => {
         </div>
       </header>
       <main>
+        <ActiveFilterBar
+          filterState={filterState}
+          setFilterState={setFilterStateWithHistory}
+          onClearAllFilters={handleClearAllFilters}
+        />
         <div className={styles.filterGalleryLayout}>
           {isMobile ? (
             <>
