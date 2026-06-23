@@ -94,6 +94,26 @@ const App = () => {
     historyWriteModeRef.current = 'replace';
   }, [filterState, isFilterStateInitialized]);
 
+  // "/" shortcut: focus the gallery search bar, mirroring the GitHub convention.
+  // Skips when focus is already on an input, textarea, or contenteditable.
+  useEffect(() => {
+    if (typeof window === 'undefined') {
+      return;
+    }
+
+    const handleSlashKey = (e: KeyboardEvent) => {
+      if (e.key !== '/') return;
+      const target = e.target as HTMLElement;
+      const tag = target.tagName.toLowerCase();
+      if (tag === 'input' || tag === 'textarea' || target.isContentEditable) return;
+      e.preventDefault(); // prevent '/' appearing in the input on focus
+      document.getElementById('filterBar')?.focus();
+    };
+
+    window.addEventListener('keydown', handleSlashKey);
+    return () => window.removeEventListener('keydown', handleSlashKey);
+  }, []);
+
   const setFilterStateWithHistory = (
     updater: (previous: UrlFilterState) => UrlFilterState,
     historyMode: 'replace' | 'push' = 'push',
@@ -170,6 +190,7 @@ const App = () => {
             size="large"
             placeholder="Search for a Power Platform GitHub repository..."
             aria-label="Search repositories"
+            aria-keyshortcuts="/"
             value={filterState.searchText}
             onChange={(_, data) => setFilterStateWithHistory((previous) => ({ ...previous, searchText: data.value }), 'replace')}
             style={{ width: '100%', maxWidth: '740px' }}
