@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { Dismiss16Regular } from '@fluentui/react-icons';
 import { UrlFilterState } from '../../utils/filterUrlState';
+import { formatFacetLabel } from '../../utils/filterPaneUtils';
 import styles from './styles.module.css';
 
 type SetFilterState = (
@@ -98,7 +99,7 @@ const ActiveFilterBar: React.FC<ActiveFilterBarProps> = ({
   filterState.selectedCategories.forEach((v) =>
     chips.push({
       id: `cat-${v}`,
-      label: v,
+      label: formatFacetLabel(v),
       onRemove: () =>
         setFilterState((prev) => ({ ...prev, selectedCategories: prev.selectedCategories.filter((t) => t !== v) }), 'push'),
     }),
@@ -106,7 +107,7 @@ const ActiveFilterBar: React.FC<ActiveFilterBarProps> = ({
   filterState.selectedFocusAreas.forEach((v) =>
     chips.push({
       id: `focus-${v}`,
-      label: v,
+      label: formatFacetLabel(v),
       onRemove: () =>
         setFilterState((prev) => ({ ...prev, selectedFocusAreas: prev.selectedFocusAreas.filter((t) => t !== v) }), 'push'),
     }),
@@ -114,7 +115,7 @@ const ActiveFilterBar: React.FC<ActiveFilterBarProps> = ({
   filterState.selectedAudiences.forEach((v) =>
     chips.push({
       id: `audience-${v}`,
-      label: v,
+      label: formatFacetLabel(v),
       onRemove: () =>
         setFilterState((prev) => ({ ...prev, selectedAudiences: prev.selectedAudiences.filter((t) => t !== v) }), 'push'),
     }),

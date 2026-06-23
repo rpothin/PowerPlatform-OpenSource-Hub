@@ -283,7 +283,7 @@ const FilterPane = ({
       )}
       {focusAreas.length > 0 && (
         <AccordionItem value="7">
-          <AccordionHeader style={{ marginTop: '10px', marginBottom: '10px' }} size="large" expandIconPosition="end">Focus Areas</AccordionHeader>
+          <AccordionHeader style={{ marginTop: '10px', marginBottom: '10px' }} size="large" expandIconPosition="end">What It Covers</AccordionHeader>
           <AccordionPanel>
             <div style={{ display: 'flex', flexDirection: 'column' }}>
               <div style={{ display: 'flex', flexDirection: 'column', rowGap: '10px' }}>
