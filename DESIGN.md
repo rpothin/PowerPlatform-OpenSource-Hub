@@ -1,6 +1,7 @@
 ---
 name: Power Platform Open-Source Hub
 description: Community-driven discovery hub for open-source Power Platform and Copilot Studio projects.
+_typography-note: "Hanken Grotesk replaces Inter (brand.md reflex-reject). Geist Mono is available; JetBrains Mono chosen for developer-tool familiarity."
 colors:
   primary: "#6936F7"
   primary-deep: "#4A1FB5"
@@ -26,31 +27,31 @@ colors:
   dark-primary: "#A78BFA"
 typography:
   display:
-    fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif"
+    fontFamily: "'Hanken Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif"
     fontSize: "clamp(2rem, 5vw, 3.25rem)"
     fontWeight: 700
     lineHeight: 1.1
     letterSpacing: "-0.02em"
   headline:
-    fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif"
+    fontFamily: "'Hanken Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif"
     fontSize: "clamp(1.4rem, 3vw, 2rem)"
     fontWeight: 600
     lineHeight: 1.25
     letterSpacing: "-0.015em"
   title:
-    fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif"
+    fontFamily: "'Hanken Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif"
     fontSize: "1.125rem"
     fontWeight: 600
     lineHeight: 1.4
     letterSpacing: "-0.01em"
   body:
-    fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', Helvetica, Arial, sans-serif"
+    fontFamily: "'Hanken Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif"
     fontSize: "0.9375rem"
     fontWeight: 400
     lineHeight: 1.6
     letterSpacing: "normal"
   label:
-    fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', Helvetica, Arial, sans-serif"
+    fontFamily: "'Hanken Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif"
     fontSize: "0.75rem"
     fontWeight: 600
     lineHeight: 1.35
@@ -166,10 +167,10 @@ A single primary accent (indigo-violet) against cool neutral surfaces, supported
 
 ## 3. Typography
 
-**Body / UI Font:** Inter (preferred, loaded from Google Fonts) falling back to `-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif`  
+**Body / UI Font:** Hanken Grotesk (preferred, loaded from Google Fonts) falling back to `-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif`  
 **Mono Font:** JetBrains Mono → Fira Code → Cascadia Code → Consolas (for code blocks, repo topics as chips)
 
-**Character:** A single humanist sans-serif family across all weights. Inter is the shared language between Microsoft Fluent and GitHub UI — it bridges both worlds without favouring either. No display/serif contrast pairing; the hierarchy is built through weight and size alone, which is appropriate for a data-dense utility surface.
+**Character:** A single humanist grotesque family across all weights. Hanken Grotesk is a contemporary, legible sans-serif that reads as technical and trustworthy without the overexposure of Inter. It bridges Microsoft Fluent's Segoe UI sensibility and GitHub's clean utility aesthetic. No display/serif contrast pairing; the hierarchy is built through weight and size alone, which is appropriate for a data-dense community surface.
 
 ### Hierarchy
 - **Display** (700, clamp(2rem → 3.25rem), line-height 1.1, -0.02em): Hero headline on the landing page only. One per screen. `text-wrap: balance`.
@@ -180,7 +181,7 @@ A single primary accent (indigo-violet) against cool neutral surfaces, supported
 - **Mono** (400, 0.875rem, line-height 1.5): Repository topic tags, code references, technical metadata.
 
 ### Named Rules
-**The One-Family Rule.** Inter only. Do not introduce a second face. Hierarchy is weight × size, not face contrast.
+**The One-Family Rule.** Hanken Grotesk only. Do not introduce a second face. Hierarchy is weight × size, not face contrast.
 
 ## 4. Elevation
 

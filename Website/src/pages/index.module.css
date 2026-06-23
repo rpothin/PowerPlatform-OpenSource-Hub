@@ -3,55 +3,255 @@
  * and scoped locally.
  */
 
-/* Styling for the hero banner */
+/* ===== Hero banner ===== */
 .heroBanner {
-  padding: 4rem 0; /* Padding top and bottom */
-  text-align: center; /* Center text */
-  position: relative; /* Positioning relative to the nearest positioned ancestor */
-  overflow: hidden; /* Hide content that overflows the container */
-  /* Lighter gradient background for light mode */
-  background: linear-gradient(90deg, rgba(44,142,75,0.8) 0%, rgba(185,228,247,0.8) 35%, rgba(10,110,159,0.8) 100%);
+  padding: 5rem 0;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  /* Committed indigo-violet gradient — "The Community Bridge" */
+  background: linear-gradient(135deg, var(--ds-hero-from) 0%, var(--ds-hero-mid) 55%, var(--ds-hero-to) 100%);
 }
 
-/* Styling for the hero banner in dark theme */
 [data-theme="dark"] .heroBanner {
-  /* Darker gradient for dark mode — deep green to deep navy */
-  background: linear-gradient(90deg, rgba(12, 50, 28, 1) 0%, rgba(8, 35, 55, 1) 50%, rgba(5, 30, 60, 1) 100%);
+  background: linear-gradient(135deg, var(--ds-hero-from) 0%, var(--ds-hero-mid) 55%, var(--ds-hero-to) 100%);
 }
 
-/* Media query for screens with max width of 996px */
 @media screen and (max-width: 996px) {
   .heroBanner {
-    padding: 2rem; /* Reduce padding for smaller screens */
+    padding: 3rem 1.5rem;
   }
 }
 
-.heroBar {
-  max-width: 740px;
+/* Hero title — white on the indigo gradient */
+.heroTitle {
+  color: #FFFFFF !important;
+  background: none !important;
+  -webkit-background-clip: unset !important;
+  -webkit-text-fill-color: unset !important;
+  font-size: clamp(2rem, 5vw, 3.25rem);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+}
+
+.heroSubtitle {
+  color: rgba(255, 255, 255, 0.88) !important;
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ===== CTA section ===== */
+.ctaSection {
+  margin: 2.5rem 0 1rem;
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.ctaSecondary {
+  white-space: nowrap;
+  background: rgba(255, 255, 255, 0.12) !important;
+  color: #FFFFFF !important;
+  border-color: rgba(255, 255, 255, 0.35) !important;
+}
+
+.ctaSecondary:hover {
+  background: rgba(255, 255, 255, 0.2) !important;
+  border-color: rgba(255, 255, 255, 0.6) !important;
+}
+
+/* ===== Stats row ===== */
+.statsRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  margin: 2.5rem 0;
+}
+
+/* Stat card — flat at rest, lifts on hover. No border-top accent stripe. */
+.statCard {
+  background: var(--ds-surface);
+  border: 1px solid var(--ds-border);
+  border-radius: var(--ds-radius-lg);
+  padding: 1.5rem 1.25rem 1.25rem;
+  text-align: center;
+  min-width: 160px;
+  flex: 1 1 160px;
+  max-width: 220px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3rem;
+  transition: var(--ds-transition);
+  cursor: default;
+}
+
+.statCard:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--ds-shadow-hover);
+  border-color: var(--ds-border-strong);
+}
+
+.statIcon {
+  font-size: 1.75rem;
+  line-height: 1;
+  margin-bottom: 0.25rem;
+}
+
+.statValue {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--ds-primary);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.statLabel {
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--ds-ink-muted);
+  margin-top: 0.15rem;
+  line-height: 1.35;
+}
+
+/* ===== Section titles ===== */
+.sectionTitle {
+  font-size: clamp(1.2rem, 3vw, 1.5rem);
+  font-weight: 600;
+  text-align: center;
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+  letter-spacing: -0.015em;
+  text-wrap: balance;
+}
+
+/* ===== Personas section ===== */
+.personasSection {
+  margin: 3rem 0 2.5rem;
   text-align: center;
 }
 
-/* Styling for buttons */
-.buttons {
-  display: flex; /* Use flexbox for layout */
-  align-items: center; /* Center items vertically */
-  justify-content: center; /* Center items horizontally */
+.personasSectionTitle {
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.015em;
+  text-wrap: balance;
 }
 
-/* Styling for the search box */
-.searchBox {
-  display: flex; /* Use flexbox for layout */
-  align-items: center; /* Center items vertically */
-  justify-content: center; /* Center items horizontally */
-  width: 100%; /* Full width */
+.personasSectionSubtitle {
+  color: var(--ds-ink-secondary);
+  font-size: 0.9375rem;
+  margin-bottom: 2rem;
+  max-width: 540px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
 }
 
-/* Styling for the filter pane and gallery */
+.personaGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.25rem;
+  text-align: left;
+}
+
+/* Base persona card */
+.personaCard {
+  background: var(--ds-surface);
+  border: 1px solid var(--ds-border);
+  border-radius: var(--ds-radius-lg);
+  padding: 1.5rem 1.25rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  transition: var(--ds-transition);
+}
+
+.personaCard:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--ds-shadow-hover);
+  border-color: var(--ds-border-strong);
+}
+
+/* Icon containers — differentiated per persona, no side-stripe */
+.personaIconWrap {
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: var(--ds-radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  line-height: 1;
+  margin-bottom: 0.5rem;
+  flex-shrink: 0;
+}
+
+/* Maintainers: indigo tint */
+.personaIconWrap--maintainer {
+  background: var(--ds-primary-light);
+}
+
+/* Contributors: success-green tint */
+.personaIconWrap--contributor {
+  background: rgba(45, 164, 78, 0.1);
+}
+
+/* Users: neutral surface-raised */
+.personaIconWrap--user {
+  background: var(--ds-surface-raised);
+}
+
+.personaTitle {
+  font-size: 1.0625rem;
+  font-weight: 600;
+  color: var(--ds-ink-primary);
+  letter-spacing: -0.01em;
+}
+
+.personaDescription {
+  font-size: 0.875rem;
+  color: var(--ds-ink-secondary);
+  line-height: 1.55;
+  margin: 0;
+  flex: 1;
+}
+
+.personaAction {
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--ds-primary);
+  text-decoration: none;
+  margin-top: 0.75rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.2rem;
+  transition: gap 0.15s cubic-bezier(0.2, 0, 0, 1);
+}
+
+.personaAction:hover {
+  gap: 0.4rem;
+  text-decoration: none;
+  color: var(--ds-primary-deep);
+}
+
+/* ===== Filter pane + gallery layout ===== */
 .filterPaneAndGallery {
   display: flex;
   flex-direction: row;
-  justify-content: space-between; /* Change this line */
-  align-items: flex-start; /* Change this line */
+  justify-content: space-between;
+  align-items: flex-start;
   padding: 30px;
   position: relative;
   overflow-x: hidden;
@@ -64,189 +264,25 @@
   }
 }
 
-/* Styling for the filter pane and gallery in dark theme */
 [data-theme="dark"] .filterPaneAndGallery {
-  background-color: #1f1f1f; /* Dark background color */
+  background-color: var(--ds-neutral-bg);
 }
 
-/* Hero title — solid accessible color per theme */
-.heroTitle {
-  color: #1b1b1b !important;
-  background: none !important;
-  -webkit-background-clip: unset !important;
-  -webkit-text-fill-color: unset !important;
-}
-
-[data-theme="dark"] .heroTitle {
-  color: #f5f5f5 !important;
-}
-
-/* Hero subtitle — accessible color per theme */
-.heroSubtitle {
-  color: #1b1b1b !important;
-}
-
-[data-theme="dark"] .heroSubtitle {
-  color: #e8e8e8 !important;
-}
-
-/* Hero body text */
-.heroBody {
-  color: #1b1b1b;
-  font-size: 1rem;
-  margin-top: 0.75rem;
-  max-width: 700px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-[data-theme="dark"] .heroBody {
-  color: #e8e8e8;
-}
-
-.statsRow {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1.25rem;
-  justify-content: center;
-  margin: 2.5rem 0;
-}
-
-.statCard {
-  background: var(--ifm-card-background-color);
-  border: 1px solid var(--ifm-color-emphasis-200);
-  border-top: 3px solid var(--ifm-color-primary);
-  border-radius: 10px;
-  padding: 1.5rem 1.25rem 1.25rem;
+/* ===== Legacy compat (unused fields kept for safety) ===== */
+.heroBar {
+  max-width: 740px;
   text-align: center;
-  min-width: 160px;
-  flex: 1 1 160px;
-  max-width: 220px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+}
+
+.buttons {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  gap: 0.3rem;
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
-}
-
-.statCard:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.13);
-}
-
-[data-theme="dark"] .statCard:hover {
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
-}
-
-.statIcon {
-  font-size: 1.9rem;
-  line-height: 1;
-  margin-bottom: 0.35rem;
-}
-
-.statValue {
-  font-size: 1.8rem;
-  font-weight: 700;
-  color: var(--ifm-color-primary);
-  line-height: 1.1;
-}
-
-.statLabel {
-  font-size: 0.72rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--ifm-color-emphasis-600);
-  margin-top: 0.2rem;
-  line-height: 1.35;
-}
-
-.ctaSection {
-  margin: 2.5rem 0 1.5rem;
-  display: flex;
-  gap: 1rem;
-  flex-wrap: wrap;
   justify-content: center;
-  align-items: center;
 }
 
-.ctaSecondary {
-  white-space: nowrap;
-}
-
-/* Personas section */
-.sectionTitle {
-  font-size: 1.4rem;
-  font-weight: 700;
-  text-align: center;
-  margin-top: 3rem;
-  margin-bottom: 1.25rem;
-}
-
-/* Personas section */
-.personasSection {
-  margin: 3rem 0 2rem;
-  text-align: center;
-}
-
-.personasSectionTitle {
-  font-size: 1.6rem;
-  font-weight: 700;
-  margin-bottom: 0.5rem;
-}
-
-.personasSectionSubtitle {
-  color: var(--ifm-color-emphasis-700);
-  font-size: 0.95rem;
-  margin-bottom: 2rem;
-  max-width: 560px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.personaGrid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 1.25rem;
-  text-align: left;
-}
-
-.personaCard {
-  background: var(--ifm-card-background-color);
-  border: 1px solid var(--ifm-color-emphasis-200);
-  border-radius: 10px;
-  padding: 1.5rem 1.25rem;
+.searchBox {
   display: flex;
-  flex-direction: column;
-  gap: 0.4rem;
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
-}
-
-.personaCard:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
-}
-
-[data-theme="dark"] .personaCard:hover {
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
-}
-
-.personaIcon {
-  font-size: 2rem;
-  line-height: 1;
-  margin-bottom: 0.25rem;
-}
-
-.personaTitle {
-  font-size: 1.05rem;
-  font-weight: 700;
-  color: var(--ifm-heading-color);
-}
-
-.personaDescription {
-  font-size: 0.88rem;
-  color: var(--ifm-color-emphasis-700);
-  line-height: 1.55;
-  margin: 0;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
 }

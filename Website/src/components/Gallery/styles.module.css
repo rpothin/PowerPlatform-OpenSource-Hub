@@ -33,22 +33,24 @@
     max-width: 450px; /* Set max width */
     max-height: 400px; /* Set max height */
     margin: 10px; /* Add margin all around */
-    transition: box-shadow 0.15s ease, transform 0.1s ease;
+    transition: box-shadow 0.15s cubic-bezier(0.2, 0, 0, 1),
+                transform 0.15s cubic-bezier(0.2, 0, 0, 1),
+                border-color 0.15s cubic-bezier(0.2, 0, 0, 1);
     cursor: pointer;
 }
 
 .galleryItem:hover {
-    box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+    box-shadow: var(--ds-shadow-hover, 0 4px 16px rgba(105, 54, 247, 0.12));
     transform: translateY(-2px);
 }
 
 [data-theme="dark"] .galleryItem:hover {
-    box-shadow: 0 4px 16px rgba(0,0,0,0.4);
+    box-shadow: var(--ds-shadow-hover, 0 4px 16px rgba(0, 0, 0, 0.35));
 }
 
 /* Styling for the gallery item in dark theme */
 [data-theme="dark"] .galleryItem {
-    background-color: #333; /* Set background color */
+    background-color: var(--ds-surface, #161B22); /* GitHub-native dark surface */
 }
 
 /* Styling for the gallery item title */
@@ -97,11 +99,11 @@
 
 /* Keep for future change on light vs dark theme */
 .cardBreakLine {
-    border-top: 1px solid #f0f0f0;
+    border-top: 1px solid var(--ds-border, #E1E4F0);
 }
 
 [data-theme="dark"] .cardBreakLine {
-    border-top: 1px solid black;
+    border-top: 1px solid var(--ds-border, #30363D);
 }
 
 /* Styling for the card header and footer footer - flex row with space between */

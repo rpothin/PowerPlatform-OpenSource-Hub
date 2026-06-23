@@ -10,14 +10,14 @@ import {
   DialogTitle,
   FluentProvider,
   Input,
-  webDarkTheme,
-  webLightTheme,
 } from '@fluentui/react-components';
 import { Filter16Regular } from '@fluentui/react-icons';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import { useColorMode } from '@docusaurus/theme-common';
 import Layout from '@theme/Layout';
 import Heading from '@theme/Heading';
+
+import { hubLightTheme, hubDarkTheme } from '../theme/fluentTheme';
 
 import { Repository } from '../types/repository';
 import { filterItemsBasedOnSearchInput } from '../utils/filterItemsBasedOnSearchInput';
@@ -155,7 +155,7 @@ const App = () => {
   );
 
   return (
-    <FluentProvider theme={colorMode === 'dark' ? webDarkTheme : webLightTheme}>
+    <FluentProvider theme={colorMode === 'dark' ? hubDarkTheme : hubLightTheme}>
       <header className={clsx('hero hero--primary', styles.heroBanner)}>
         <div className="container" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column' }}>
           <Heading as="h1" className={clsx('hero__title', styles.heroTitle)}>

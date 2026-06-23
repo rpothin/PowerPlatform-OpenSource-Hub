@@ -64,14 +64,18 @@ interface PersonaCardProps {
   emoji: string;
   title: string;
   description: string;
+  variant: 'maintainer' | 'contributor' | 'user';
+  actionLabel: string;
+  actionHref: string;
 }
 
-function PersonaCard({ emoji, title, description }: PersonaCardProps): React.JSX.Element {
+function PersonaCard({ emoji, title, description, variant, actionLabel, actionHref }: PersonaCardProps): React.JSX.Element {
   return (
     <div className={styles.personaCard}>
-      <div className={styles.personaIcon}>{emoji}</div>
+      <div className={`${styles.personaIconWrap} ${styles[`personaIconWrap--${variant}`]}`}>{emoji}</div>
       <div className={styles.personaTitle}>{title}</div>
       <p className={styles.personaDescription}>{description}</p>
+      <Link to={actionHref} className={styles.personaAction}>{actionLabel} →</Link>
     </div>
   );
 }
@@ -159,16 +163,25 @@ export default function LandingPage(): React.JSX.Element {
                 emoji="🛠️"
                 title="Maintainers"
                 description="You own or are a core contributor to an open-source Power Platform project. Get your project listed, grow your community, and track your ecosystem momentum over time."
+                variant="maintainer"
+                actionLabel="Submit your project"
+                actionHref="/docs/category/repository-onboarding"
               />
               <PersonaCard
                 emoji="🤝"
                 title="Contributors"
                 description="You occasionally contribute to open-source projects. Browse projects actively looking for help — filter by good-first-issue and help-wanted labels to find your next contribution."
+                variant="contributor"
+                actionLabel="Find issues to fix"
+                actionHref="/gallery?goodFirstIssue=true"
               />
               <PersonaCard
                 emoji="👤"
                 title="Users"
                 description="You use Power Platform and are looking for community-built tools, templates, and solutions. Discover hundreds of open-source projects ready to accelerate your work."
+                variant="user"
+                actionLabel="Browse the gallery"
+                actionHref="/gallery"
               />
             </div>
           </section>
