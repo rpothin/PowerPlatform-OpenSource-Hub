@@ -333,7 +333,7 @@ const Gallery = ({
                     padding: '80px 20px 60px',
                     width: '100%',
                 }}>
-                    <span role="img" aria-hidden style={{ fontSize: '3rem', lineHeight: 1, marginBottom: '1rem' }}>🔍</span>
+                    <span aria-hidden="true" style={{ fontSize: '3rem', lineHeight: 1, marginBottom: '1rem' }}>🔍</span>
                     <Text size={500} style={{ display: 'block', marginBottom: '0.5rem', fontWeight: 600, color: 'var(--ds-ink-primary)' }}>
                         No repositories match these filters
                     </Text>
