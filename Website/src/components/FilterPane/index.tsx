@@ -157,7 +157,7 @@ const FilterPane = ({
 
   return (
     <Accordion
-      defaultOpenItems="1"
+      defaultOpenItems={["1", "2", "3"]}
       multiple
       collapsible
       style={{
