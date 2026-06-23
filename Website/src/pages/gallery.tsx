@@ -10,7 +10,7 @@ import {
   FluentProvider,
   Input,
 } from '@fluentui/react-components';
-import { Filter16Regular } from '@fluentui/react-icons';
+import { Dismiss20Regular, Filter16Regular } from '@fluentui/react-icons';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import { useColorMode } from '@docusaurus/theme-common';
 import Layout from '@theme/Layout';
@@ -173,6 +173,21 @@ const App = () => {
             value={filterState.searchText}
             onChange={(_, data) => setFilterStateWithHistory((previous) => ({ ...previous, searchText: data.value }), 'replace')}
             style={{ width: '100%', maxWidth: '740px' }}
+            contentAfter={
+              filterState.searchText.length > 0 ? (
+                <Button
+                  appearance="subtle"
+                  size="small"
+                  icon={<Dismiss20Regular />}
+                  onClick={() => {
+                    setFilterStateWithHistory((previous) => ({ ...previous, searchText: '' }), 'push');
+                    // Return focus to the search input after clearing
+                    setTimeout(() => document.getElementById('filterBar')?.focus(), 0);
+                  }}
+                  aria-label="Clear search"
+                />
+              ) : undefined
+            }
           />
         </div>
       </header>
