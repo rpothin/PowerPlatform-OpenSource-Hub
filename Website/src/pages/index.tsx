@@ -122,37 +122,6 @@ export default function LandingPage(): React.JSX.Element {
 
       <main>
         <div className="container">
-          <Heading as="h2" className={styles.sectionTitle}>Key Insights</Heading>
-          <div data-testid="stats-row" className={styles.statsRow}>
-            <StatCard
-              emoji="🗂"
-              value={numberFormatter.format(totalRepos)}
-              label="Tracked Repositories"
-            />
-            <StatCard
-              emoji="⚡"
-              value={numberFormatter.format(activeRepos)}
-              label="Active in Last 30 Days"
-            />
-            <StatCard
-              emoji="🤝"
-              value={`${numberFormatter.format(contributions.issueCount)} issues across ${numberFormatter.format(contributions.repoCount)} repos`}
-              label="Open to Contributions"
-            />
-            <StatCard
-              emoji="⭐"
-              value={numberFormatter.format(totalStars)}
-              label="Stars Across the Ecosystem"
-            />
-            {momentum.snapshotTakenAt && (
-              <StatCard
-                emoji="📈"
-                value={`${momentum.delta >= 0 ? '+' : ''}${numberFormatter.format(momentum.delta)}`}
-                label="Stars+Watchers Since Last Snapshot"
-              />
-            )}
-          </div>
-
           <section className={styles.personasSection}>
             <Heading as="h2" className={styles.personasSectionTitle}>Who is this for?</Heading>
             <p className={styles.personasSectionSubtitle}>
@@ -185,6 +154,37 @@ export default function LandingPage(): React.JSX.Element {
               />
             </div>
           </section>
+
+          <Heading as="h2" className={styles.sectionTitle}>Ecosystem at a Glance</Heading>
+          <div data-testid="stats-row" className={styles.statsRow}>
+            <StatCard
+              emoji="🗂"
+              value={numberFormatter.format(totalRepos)}
+              label="Tracked Repositories"
+            />
+            <StatCard
+              emoji="⚡"
+              value={numberFormatter.format(activeRepos)}
+              label="Active in Last 30 Days"
+            />
+            <StatCard
+              emoji="🤝"
+              value={`${numberFormatter.format(contributions.issueCount)} issues across ${numberFormatter.format(contributions.repoCount)} repos`}
+              label="Open to Contributions"
+            />
+            <StatCard
+              emoji="⭐"
+              value={numberFormatter.format(totalStars)}
+              label="Stars Across the Ecosystem"
+            />
+            {momentum.snapshotTakenAt && (
+              <StatCard
+                emoji="📈"
+                value={`${momentum.delta >= 0 ? '+' : ''}${numberFormatter.format(momentum.delta)}`}
+                label="Stars+Watchers Since Last Snapshot"
+              />
+            )}
+          </div>
         </div>
       </main>
     </Layout>

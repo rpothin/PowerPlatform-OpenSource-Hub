@@ -119,14 +119,14 @@
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  color: var(--ds-ink-muted);
+  color: var(--ds-ink-secondary);
   margin-top: 0.15rem;
   line-height: 1.35;
 }
 
 /* ===== Section titles ===== */
 .sectionTitle {
-  font-size: clamp(1.2rem, 3vw, 1.5rem);
+  font-size: clamp(1.4rem, 3vw, 2rem);
   font-weight: 600;
   text-align: center;
   margin-top: 3rem;
@@ -203,9 +203,9 @@
   background: var(--ds-primary-light);
 }
 
-/* Contributors: success-green tint */
+/* Contributors: success-green tint — uses design token */
 .personaIconWrap--contributor {
-  background: rgba(45, 164, 78, 0.1);
+  background: var(--ds-success-tint);
 }
 
 /* Users: neutral surface-raised */

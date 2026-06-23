@@ -1,4 +1,3 @@
-import clsx from 'clsx';
 import * as React from 'react';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import {
@@ -27,7 +26,7 @@ import {
   serializeFilterStateToSearch,
   UrlFilterState,
 } from '../utils/filterUrlState';
-import styles from './index.module.css';
+import styles from './gallery.module.css';
 import data from '../../../Data/GitHubRepositoriesDetails.json';
 import Gallery from '../components/Gallery';
 import FilterPane from '../components/FilterPane';
@@ -156,12 +155,12 @@ const App = () => {
 
   return (
     <FluentProvider theme={colorMode === 'dark' ? hubDarkTheme : hubLightTheme}>
-      <header className={clsx('hero hero--primary', styles.heroBanner)}>
+      <header className={styles.galleryHero}>
         <div className="container" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column' }}>
-          <Heading as="h1" className={clsx('hero__title', styles.heroTitle)}>
+          <Heading as="h1" className={styles.galleryHeroTitle}>
             {siteConfig.title}
           </Heading>
-          <p className={clsx('hero__subtitle', styles.heroSubtitle)} style={{ padding: '10px 0 20px 0' }}>
+          <p className={styles.galleryHeroSubtitle}>
             {siteConfig.tagline}
           </p>
           <Input
@@ -177,7 +176,7 @@ const App = () => {
         </div>
       </header>
       <main>
-        <div className={styles.filterPaneAndGallery}>
+        <div className={styles.filterGalleryLayout}>
           {isMobile ? (
             <>
               <div style={{ marginBottom: '12px', width: '100%' }}>

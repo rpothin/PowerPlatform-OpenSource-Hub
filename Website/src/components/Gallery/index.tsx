@@ -325,13 +325,25 @@ const Gallery = ({
                 </section>
             )}
             {filteredItems.length === 0 ? (
-                <div style={{ textAlign: 'center', padding: '60px 20px', width: '100%' }}>
-                    <Text size={500} style={{ display: 'block', marginBottom: '8px', fontWeight: 600 }}>No repositories found</Text>
-                    <Text size={300} style={{ display: 'block', marginBottom: '20px', color: 'var(--ifm-color-secondary-darkest)' }}>
-                        Try adjusting your search or filters.
+                <div style={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'center',
+                    textAlign: 'center',
+                    padding: '80px 20px 60px',
+                    width: '100%',
+                }}>
+                    <span role="img" aria-hidden style={{ fontSize: '3rem', lineHeight: 1, marginBottom: '1rem' }}>🔍</span>
+                    <Text size={500} style={{ display: 'block', marginBottom: '0.5rem', fontWeight: 600, color: 'var(--ds-ink-primary)' }}>
+                        No repositories match these filters
+                    </Text>
+                    <Text size={300} style={{ display: 'block', marginBottom: '1.5rem', color: 'var(--ds-ink-secondary)', maxWidth: '360px', lineHeight: 1.6 }}>
+                        Try removing a filter or broadening your search — there are hundreds of projects across every area of the Power Platform ecosystem.
                     </Text>
                     {onClearAllFilters && (
-                        <Button appearance="primary" onClick={onClearAllFilters}>Clear all filters</Button>
+                        <Button appearance="primary" onClick={onClearAllFilters}>
+                            Clear all filters
+                        </Button>
                     )}
                 </div>
             ) : (

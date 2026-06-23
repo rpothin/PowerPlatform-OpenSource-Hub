@@ -31,7 +31,8 @@
     flex-direction: column; /* Set direction to column */
     flex: 1 1 300px; /* flex-grow | flex-shrink | flex-basis */
     max-width: 450px; /* Set max width */
-    max-height: 400px; /* Set max height */
+    /* max-height removed: fixed height clips badge-heavy repo cards */
+    overflow: hidden;
     margin: 10px; /* Add margin all around */
     transition: box-shadow 0.15s cubic-bezier(0.2, 0, 0, 1),
                 transform 0.15s cubic-bezier(0.2, 0, 0, 1),
@@ -75,11 +76,9 @@
     -webkit-box-orient: vertical;
 }
 
-/* Styling for the gallery item stars count */
+/* Styling for the gallery item stars count — kept for legacy test selectors but no longer positioned absolutely */
 .galleryItemStarsCount {
-    position: absolute; /* Positioning relative to the nearest positioned ancestor */
-    bottom: 0; /* Position at the bottom */
-    left: 0; /* Position at the left */
+    /* previously position: absolute — removed, star badge is now in the card header */
 }
 
 /* Styling for the gallery item stars count in dark theme */
@@ -169,7 +168,7 @@
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.5px;
-    color: var(--ifm-color-secondary-darkest);
+    color: var(--ds-ink-muted);
     margin-bottom: 6px;
     display: block;
 }
@@ -184,7 +183,7 @@
 }
 .dialogDetailsLabel {
     font-size: 13px;
-    color: var(--ifm-color-secondary-darkest);
+    color: var(--ds-ink-secondary);
     white-space: nowrap;
     font-weight: 500;
     display: inline-block;
