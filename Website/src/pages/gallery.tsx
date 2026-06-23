@@ -39,6 +39,7 @@ const App = () => {
   const [isFilterPaneOpen, setIsFilterPaneOpen] = useState(false);
   const [isFilterStateInitialized, setIsFilterStateInitialized] = useState(false);
   const [filterState, setFilterState] = useState<UrlFilterState>(defaultUrlFilterState);
+  const [searchFocused, setSearchFocused] = useState(false);
   const historyWriteModeRef = useRef<'replace' | 'push'>('replace');
 
   useEffect(() => {
@@ -194,6 +195,8 @@ const App = () => {
             value={filterState.searchText}
             onChange={(_, data) => setFilterStateWithHistory((previous) => ({ ...previous, searchText: data.value }), 'replace')}
             style={{ width: '100%', maxWidth: '740px' }}
+            onFocus={() => setSearchFocused(true)}
+            onBlur={() => setSearchFocused(false)}
             contentAfter={
               filterState.searchText.length > 0 ? (
                 <Button
@@ -207,6 +210,8 @@ const App = () => {
                   }}
                   aria-label="Clear search"
                 />
+              ) : !searchFocused ? (
+                <kbd aria-hidden="true" className={styles.kbdHint}>/</kbd>
               ) : undefined
             }
           />

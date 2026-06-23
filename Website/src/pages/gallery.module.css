@@ -70,3 +70,30 @@
 [data-theme="dark"] .filterGalleryLayout {
   background-color: var(--ds-neutral-bg);
 }
+
+/* ===== Keyboard shortcut hint badge ===== */
+.kbdHint {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 20px;
+  height: 20px;
+  padding: 0 5px;
+  border: 1px solid var(--ds-border);
+  border-radius: var(--ds-radius-sm);
+  background: var(--ds-surface-raised);
+  color: var(--ds-ink-muted);
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* Keyboard shortcuts don't apply on touch devices */
+@media (pointer: coarse) {
+  .kbdHint {
+    display: none;
+  }
+}
