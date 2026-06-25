@@ -13,7 +13,7 @@
     "url": "https://api.github.com/licenses/mit"
   },
   "name": "PowerPlatformConnectors",
-  "openIssuesCount": 336,
+  "openIssuesCount": 337,
   "owner": {
     "id": "6154722",
     "is_bot": false,
@@ -21,7 +21,7 @@
     "type": "Organization",
     "url": "https://github.com/microsoft"
   },
-  "updatedAt": "2026-06-24T08:55:23Z",
+  "updatedAt": "2026-06-24T14:51:44Z",
   "url": "https://github.com/microsoft/PowerPlatformConnectors",
   "codeOfConduct": {
     "key": "other",
@@ -30,14 +30,14 @@
   },
   "forkCount": 1429,
   "fundingLinks": [],
-  "isSecurityPolicyEnabled": false,
+  "isSecurityPolicyEnabled": true,
   "isTemplate": false,
   "latestRelease": null,
   "primaryLanguage": {
     "name": "C#"
   },
-  "securityPolicyUrl": null,
-  "stargazerCount": 1264,
+  "securityPolicyUrl": "https://github.com/microsoft/PowerPlatformConnectors/security/policy",
+  "stargazerCount": 1265,
   "watchers": {
     "totalCount": 56
   },
@@ -62,8 +62,8 @@
   "openedHelpWantedIssues": 0,
   "hasHelpWantedIssues": false,
   "openedToContributionsIssues": 0,
-  "popularityScore": 1320,
+  "popularityScore": 1321,
   "_schemaVersion": "1.0.0",
-  "_generatedAt": "2026-06-24T11:57:37.954Z",
-  "_workflowRunId": "28096733932"
+  "_generatedAt": "2026-06-25T11:54:56.972Z",
+  "_workflowRunId": "28168230614"
 }

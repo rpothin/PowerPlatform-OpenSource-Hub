@@ -30,7 +30,7 @@
   },
   "forkCount": 22,
   "fundingLinks": [],
-  "isSecurityPolicyEnabled": false,
+  "isSecurityPolicyEnabled": true,
   "isTemplate": false,
   "latestRelease": {
     "name": "Code Apps Deck",
@@ -39,7 +39,7 @@
     "publishedAt": "2026-05-01T13:33:32Z"
   },
   "primaryLanguage": null,
-  "securityPolicyUrl": null,
+  "securityPolicyUrl": "https://github.com/microsoft/SLG-Business-Applications/security/policy",
   "stargazerCount": 37,
   "watchers": {
     "totalCount": 9
@@ -59,6 +59,6 @@
   "openedToContributionsIssues": 0,
   "popularityScore": 46,
   "_schemaVersion": "1.0.0",
-  "_generatedAt": "2026-06-24T11:57:37.954Z",
-  "_workflowRunId": "28096733932"
+  "_generatedAt": "2026-06-25T11:54:56.972Z",
+  "_workflowRunId": "28168230614"
 }

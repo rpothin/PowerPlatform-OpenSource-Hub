@@ -30,7 +30,7 @@
   },
   "forkCount": 55,
   "fundingLinks": [],
-  "isSecurityPolicyEnabled": false,
+  "isSecurityPolicyEnabled": true,
   "isTemplate": false,
   "latestRelease": {
     "name": "1.2.9",
@@ -41,7 +41,7 @@
   "primaryLanguage": {
     "name": "C#"
   },
-  "securityPolicyUrl": null,
+  "securityPolicyUrl": "https://github.com/microsoft/PowerPlatform-DataverseServiceClient/security/policy",
   "stargazerCount": 314,
   "watchers": {
     "totalCount": 52
@@ -66,6 +66,6 @@
   "openedToContributionsIssues": 0,
   "popularityScore": 366,
   "_schemaVersion": "1.0.0",
-  "_generatedAt": "2026-06-24T11:57:37.954Z",
-  "_workflowRunId": "28096733932"
+  "_generatedAt": "2026-06-25T11:54:56.972Z",
+  "_workflowRunId": "28168230614"
 }

@@ -30,11 +30,11 @@
   },
   "forkCount": 12,
   "fundingLinks": [],
-  "isSecurityPolicyEnabled": false,
+  "isSecurityPolicyEnabled": true,
   "isTemplate": false,
   "latestRelease": null,
   "primaryLanguage": null,
-  "securityPolicyUrl": null,
+  "securityPolicyUrl": "https://github.com/microsoft/powerplatform/security/policy",
   "stargazerCount": 108,
   "watchers": {
     "totalCount": 22
@@ -50,6 +50,6 @@
   "openedToContributionsIssues": 0,
   "popularityScore": 130,
   "_schemaVersion": "1.0.0",
-  "_generatedAt": "2026-06-24T11:57:37.954Z",
-  "_workflowRunId": "28096733932"
+  "_generatedAt": "2026-06-25T11:54:56.972Z",
+  "_workflowRunId": "28168230614"
 }
