@@ -1,6 +1,6 @@
 {
   "createdAt": "2026-01-20T12:39:14Z",
-  "description": "🚀 MCP server for Dynamics 365 Finance & Operations with standard and custom indexed X++ objects. Provides IntelliSense-like code navigation, intelligent EDT suggestions, AI-driven table/form generation, and pattern-based code completion for GitHub Copilot integration.",
+  "description": "🚀 Grounded AI development for Dynamics 365 Finance & Operations. Indexes 580K+ X++ symbols (standard, ISV, custom) and exposes 26 MCP tools that prove every method, field, label and form pattern against your real metadata before the AI writes code. Works with GitHub Copilot, Claude Code, Cursor & Visual Studio.",
   "fullName": "dynamics365ninja/d365fo-mcp-server",
   "repositoryId": 1138251114,
   "hasIssues": true,
@@ -21,7 +21,7 @@
     "type": "User",
     "url": "https://github.com/dynamics365ninja"
   },
-  "updatedAt": "2026-06-30T09:39:05Z",
+  "updatedAt": "2026-07-01T05:21:42Z",
   "url": "https://github.com/dynamics365ninja/d365fo-mcp-server",
   "codeOfConduct": null,
   "forkCount": 39,
@@ -44,7 +44,9 @@
     "mcp",
     "azure",
     "erp",
-    "github-copilot"
+    "github-copilot",
+    "claude-code",
+    "dynamics-365-finance-operations"
   ],
   "languages": [
     "TypeScript",
@@ -61,6 +63,6 @@
   "openedToContributionsIssues": 0,
   "popularityScore": 117,
   "_schemaVersion": "1.0.0",
-  "_generatedAt": "2026-06-30T11:53:46.071Z",
-  "_workflowRunId": "28442268189"
+  "_generatedAt": "2026-07-01T12:03:50.949Z",
+  "_workflowRunId": "28516101867"
 }
