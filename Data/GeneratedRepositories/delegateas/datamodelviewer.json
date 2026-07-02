@@ -1,0 +1,65 @@
+{
+  "createdAt": "2024-11-30T19:34:25Z",
+  "description": "Browser-based visualizer for Microsoft Dataverse / Dynamics 365 data models — entities, relationships, and dependencies.",
+  "fullName": "delegateas/DataModelViewer",
+  "repositoryId": 896596087,
+  "hasIssues": true,
+  "homepage": "",
+  "isArchived": false,
+  "language": "TypeScript",
+  "license": null,
+  "name": "DataModelViewer",
+  "openIssuesCount": 2,
+  "owner": {
+    "id": "7015300",
+    "is_bot": false,
+    "login": "delegateas",
+    "type": "Organization",
+    "url": "https://github.com/delegateas"
+  },
+  "updatedAt": "2026-07-02T11:41:33Z",
+  "url": "https://github.com/delegateas/DataModelViewer",
+  "codeOfConduct": null,
+  "forkCount": 2,
+  "fundingLinks": [],
+  "isSecurityPolicyEnabled": false,
+  "isTemplate": false,
+  "latestRelease": {
+    "name": "Release 2.3.5",
+    "tagName": "website-v2.3.5",
+    "url": "https://github.com/delegateas/DataModelViewer/releases/tag/website-v2.3.5",
+    "publishedAt": "2026-06-05T19:32:23Z"
+  },
+  "primaryLanguage": {
+    "name": "TypeScript"
+  },
+  "securityPolicyUrl": null,
+  "stargazerCount": 6,
+  "watchers": {
+    "totalCount": 11
+  },
+  "topics": [
+    "data-model",
+    "dataverse",
+    "dynamics-365",
+    "typescript",
+    "viewer"
+  ],
+  "languages": [
+    "TypeScript",
+    "C#",
+    "Python",
+    "JavaScript",
+    "CSS",
+    "Bicep"
+  ],
+  "openedGoodFirstIssues": 0,
+  "hasGoodFirstIssues": false,
+  "openedHelpWantedIssues": 0,
+  "hasHelpWantedIssues": false,
+  "openedToContributionsIssues": 0,
+  "popularityScore": 17,
+  "_schemaVersion": "1.0.0",
+  "_generatedAt": "2026-07-02T11:49:54.267Z",
+  "_workflowRunId": "28587703546"
+}
