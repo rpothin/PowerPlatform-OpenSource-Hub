@@ -1,26 +1,26 @@
 {
-  "createdAt": "2020-12-29T12:06:34Z",
-  "description": "Solution based on either Powershell or Power Automate (Flow) to consume the recently released Power BI Asynchronous Unified Scanning API",
-  "fullName": "ferrybouwman/Power-BI-Read-Only-REST-API",
-  "repositoryId": 325276314,
+  "createdAt": "2020-12-05T15:58:03Z",
+  "description": "Welcome the the script repository of Customer Engineer (PFE) Russ Rimmerman.  ",
+  "fullName": "russrimm/CollectAllLogs",
+  "repositoryId": 318828411,
   "hasIssues": true,
   "homepage": "",
   "isArchived": false,
   "language": "PowerShell",
   "license": null,
-  "name": "Power-BI-Read-Only-REST-API",
+  "name": "CollectAllLogs",
   "openIssuesCount": 3,
   "owner": {
-    "id": "25588460",
+    "id": "10841574",
     "is_bot": false,
-    "login": "ferrybouwman",
+    "login": "russrimm",
     "type": "User",
-    "url": "https://github.com/ferrybouwman"
+    "url": "https://github.com/russrimm"
   },
-  "updatedAt": "2026-01-21T10:10:19Z",
-  "url": "https://github.com/ferrybouwman/Power-BI-Read-Only-REST-API",
+  "updatedAt": "2026-07-04T12:49:35Z",
+  "url": "https://github.com/russrimm/CollectAllLogs",
   "codeOfConduct": null,
-  "forkCount": 7,
+  "forkCount": 5,
   "fundingLinks": [],
   "isSecurityPolicyEnabled": false,
   "isTemplate": false,
@@ -29,18 +29,22 @@
     "name": "PowerShell"
   },
   "securityPolicyUrl": null,
-  "stargazerCount": 19,
+  "stargazerCount": 10,
   "watchers": {
     "totalCount": 2
   },
   "topics": [
-    "powershell",
-    "powerbi",
-    "pbi",
-    "powerautomate",
-    "flow",
-    "microsoft-flow",
-    "rest-api"
+    "sccm",
+    "mecm",
+    "configmgr",
+    "microsoft",
+    "endpoint",
+    "manager",
+    "configuration",
+    "automation",
+    "powerapps",
+    "power",
+    "automate"
   ],
   "languages": [
     "PowerShell"
@@ -50,7 +54,7 @@
   "openedHelpWantedIssues": 0,
   "hasHelpWantedIssues": false,
   "openedToContributionsIssues": 0,
-  "popularityScore": 21,
+  "popularityScore": 12,
   "_schemaVersion": "1.0.0",
   "_generatedAt": "2026-07-05T11:33:21.535Z",
   "_workflowRunId": "28739358484"
