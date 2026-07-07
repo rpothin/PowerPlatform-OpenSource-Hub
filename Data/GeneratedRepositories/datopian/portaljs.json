@@ -21,7 +21,7 @@
     "type": "Organization",
     "url": "https://github.com/datopian"
   },
-  "updatedAt": "2026-07-06T10:51:38Z",
+  "updatedAt": "2026-07-07T10:56:28Z",
   "url": "https://github.com/datopian/portaljs",
   "codeOfConduct": null,
   "forkCount": 333,
@@ -44,11 +44,7 @@
   },
   "topics": [
     "data-portal",
-    "data-portals",
     "ckan",
-    "data-portal-frontends",
-    "data-fabric",
-    "data-management-platform",
     "nextjs",
     "open-data-portal",
     "data-mesh",
@@ -60,7 +56,11 @@
     "opendatasoft",
     "socrata",
     "ai",
-    "ai-agents"
+    "ai-agents",
+    "agent-skills",
+    "claude-code",
+    "mcp",
+    "skills"
   ],
   "languages": [
     "TypeScript",
@@ -78,6 +78,6 @@
   "openedToContributionsIssues": 10,
   "popularityScore": 2399,
   "_schemaVersion": "1.0.0",
-  "_generatedAt": "2026-07-06T12:19:52.179Z",
-  "_workflowRunId": "28791003665"
+  "_generatedAt": "2026-07-07T12:01:49.364Z",
+  "_workflowRunId": "28864530609"
 }

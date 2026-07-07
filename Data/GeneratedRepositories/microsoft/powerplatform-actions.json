@@ -28,9 +28,9 @@
     "name": "Other",
     "url": "https://github.com/microsoft/powerplatform-actions/blob/main/CODE_OF_CONDUCT.md"
   },
-  "forkCount": 87,
+  "forkCount": 88,
   "fundingLinks": [],
-  "isSecurityPolicyEnabled": false,
+  "isSecurityPolicyEnabled": true,
   "isTemplate": false,
   "latestRelease": {
     "name": "Updated pac cli to 2.7, node to V24",
@@ -41,7 +41,7 @@
   "primaryLanguage": {
     "name": "TypeScript"
   },
-  "securityPolicyUrl": null,
+  "securityPolicyUrl": "https://github.com/microsoft/powerplatform-actions/security/policy",
   "stargazerCount": 292,
   "watchers": {
     "totalCount": 29
@@ -63,6 +63,6 @@
   "openedToContributionsIssues": 0,
   "popularityScore": 321,
   "_schemaVersion": "1.0.0",
-  "_generatedAt": "2026-07-06T12:19:52.179Z",
-  "_workflowRunId": "28791003665"
+  "_generatedAt": "2026-07-07T12:01:49.364Z",
+  "_workflowRunId": "28864530609"
 }
