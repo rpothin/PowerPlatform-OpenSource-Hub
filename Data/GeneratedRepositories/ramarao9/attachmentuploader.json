@@ -1,8 +1,8 @@
 {
-  "createdAt": "2024-10-16T06:23:10Z",
-  "description": "A Set of Multilingual PCF components for model-driven apps",
-  "fullName": "kkazala/Multilingual-PCF-React-components",
-  "repositoryId": 873420697,
+  "createdAt": "2020-01-09T05:00:17Z",
+  "description": "A Power App code component to easily upload one or more attachments on Dynamics365 records.",
+  "fullName": "ramarao9/AttachmentUploader",
+  "repositoryId": 232726082,
   "hasIssues": true,
   "homepage": "",
   "isArchived": false,
@@ -12,50 +12,52 @@
     "name": "MIT License",
     "url": "https://api.github.com/licenses/mit"
   },
-  "name": "Multilingual-PCF-React-components",
-  "openIssuesCount": 3,
+  "name": "AttachmentUploader",
+  "openIssuesCount": 7,
   "owner": {
-    "id": "22429087",
+    "id": "37280856",
     "is_bot": false,
-    "login": "kkazala",
+    "login": "ramarao9",
     "type": "User",
-    "url": "https://github.com/kkazala"
+    "url": "https://github.com/ramarao9"
   },
-  "updatedAt": "2026-03-25T22:35:12Z",
-  "url": "https://github.com/kkazala/Multilingual-PCF-React-components",
+  "updatedAt": "2026-07-12T20:24:14Z",
+  "url": "https://github.com/ramarao9/AttachmentUploader",
   "codeOfConduct": null,
-  "forkCount": 4,
+  "forkCount": 14,
   "fundingLinks": [],
   "isSecurityPolicyEnabled": false,
   "isTemplate": false,
   "latestRelease": {
-    "name": "Multilingual PCF Controls v1.1.3",
-    "tagName": "v1.1.3",
-    "url": "https://github.com/kkazala/Multilingual-PCF-React-components/releases/tag/v1.1.3",
-    "publishedAt": "2025-04-17T15:39:33Z"
+    "name": "AttachmentDragAndDrop v1.2.1.0",
+    "tagName": "1.2.1",
+    "url": "https://github.com/ramarao9/AttachmentUploader/releases/tag/1.2.1",
+    "publishedAt": "2025-01-29T17:43:19Z"
   },
   "primaryLanguage": {
     "name": "TypeScript"
   },
   "securityPolicyUrl": null,
-  "stargazerCount": 10,
+  "stargazerCount": 21,
   "watchers": {
-    "totalCount": 1
+    "totalCount": 3
   },
   "topics": [
-    "modeldriven",
     "pcf",
+    "powerapps",
+    "powerappscomponentframework",
     "powerplatform"
   ],
   "languages": [
-    "TypeScript"
+    "TypeScript",
+    "CSS"
   ],
   "openedGoodFirstIssues": 0,
   "hasGoodFirstIssues": false,
   "openedHelpWantedIssues": 0,
   "hasHelpWantedIssues": false,
   "openedToContributionsIssues": 0,
-  "popularityScore": 11,
+  "popularityScore": 24,
   "_schemaVersion": "1.0.0",
   "_generatedAt": "2026-07-13T12:03:12.658Z",
   "_workflowRunId": "29248379244"
