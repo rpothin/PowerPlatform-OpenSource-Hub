@@ -1,8 +1,8 @@
 {
-  "createdAt": "2020-01-09T05:00:17Z",
-  "description": "A Power App code component to easily upload one or more attachments on Dynamics365 records.",
-  "fullName": "ramarao9/AttachmentUploader",
-  "repositoryId": 232726082,
+  "createdAt": "2024-03-19T22:01:25Z",
+  "description": "Power Apps Canvas PCF based on vis-timeline",
+  "fullName": "Belleye/CanvasTimelinePCF",
+  "repositoryId": 774625580,
   "hasIssues": true,
   "homepage": "",
   "isArchived": false,
@@ -12,52 +12,54 @@
     "name": "MIT License",
     "url": "https://api.github.com/licenses/mit"
   },
-  "name": "AttachmentUploader",
-  "openIssuesCount": 7,
+  "name": "CanvasTimelinePCF",
+  "openIssuesCount": 1,
   "owner": {
-    "id": "37280856",
+    "id": "22784264",
     "is_bot": false,
-    "login": "ramarao9",
+    "login": "Belleye",
     "type": "User",
-    "url": "https://github.com/ramarao9"
+    "url": "https://github.com/Belleye"
   },
-  "updatedAt": "2026-07-12T20:24:14Z",
-  "url": "https://github.com/ramarao9/AttachmentUploader",
+  "updatedAt": "2026-07-13T15:17:33Z",
+  "url": "https://github.com/Belleye/CanvasTimelinePCF",
   "codeOfConduct": null,
-  "forkCount": 14,
+  "forkCount": 7,
   "fundingLinks": [],
   "isSecurityPolicyEnabled": false,
   "isTemplate": false,
   "latestRelease": {
-    "name": "AttachmentDragAndDrop v1.2.1.0",
-    "tagName": "1.2.1",
-    "url": "https://github.com/ramarao9/AttachmentUploader/releases/tag/1.2.1",
-    "publishedAt": "2025-01-29T17:43:19Z"
+    "name": "Updated logic selectedItems and removedItems",
+    "tagName": "2",
+    "url": "https://github.com/Belleye/CanvasTimelinePCF/releases/tag/2",
+    "publishedAt": "2025-03-31T07:11:39Z"
   },
   "primaryLanguage": {
     "name": "TypeScript"
   },
   "securityPolicyUrl": null,
-  "stargazerCount": 21,
+  "stargazerCount": 19,
   "watchers": {
-    "totalCount": 3
+    "totalCount": 1
   },
   "topics": [
     "pcf",
     "powerapps",
-    "powerappscomponentframework",
-    "powerplatform"
+    "vis-timeline",
+    "powerapps-component-framework",
+    "powerappscomponentframework"
   ],
   "languages": [
     "TypeScript",
-    "CSS"
+    "CSS",
+    "JavaScript"
   ],
   "openedGoodFirstIssues": 0,
   "hasGoodFirstIssues": false,
   "openedHelpWantedIssues": 0,
   "hasHelpWantedIssues": false,
   "openedToContributionsIssues": 0,
-  "popularityScore": 24,
+  "popularityScore": 20,
   "_schemaVersion": "1.0.0",
   "_generatedAt": "2026-07-14T11:33:22.140Z",
   "_workflowRunId": "29329282907"
