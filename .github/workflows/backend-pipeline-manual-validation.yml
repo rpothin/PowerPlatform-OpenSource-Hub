@@ -76,7 +76,7 @@ jobs:
 
       - name: Set up Node.js
         if: ${{ inputs.typescript_mode != 'skip' || inputs.compare_with_baseline }}
-        uses: actions/setup-node@v6
+        uses: actions/setup-node@v7
         with:
           node-version: 20
           cache: npm
