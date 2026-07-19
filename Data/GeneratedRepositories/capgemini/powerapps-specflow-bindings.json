@@ -1,8 +1,8 @@
 {
-  "createdAt": "2021-01-25T13:45:51Z",
-  "description": "A Yeoman generator for scaffolding Power Apps projects based on our tooling and best practices.",
-  "fullName": "Capgemini/powerapps-project-template",
-  "repositoryId": 332761120,
+  "createdAt": "2019-04-08T06:28:20Z",
+  "description": "A SpecFlow bindings library for model-driven Power Apps.",
+  "fullName": "Capgemini/powerapps-specflow-bindings",
+  "repositoryId": 180084107,
   "hasIssues": true,
   "homepage": "",
   "isArchived": false,
@@ -12,8 +12,8 @@
     "name": "MIT License",
     "url": "https://api.github.com/licenses/mit"
   },
-  "name": "powerapps-project-template",
-  "openIssuesCount": 46,
+  "name": "powerapps-specflow-bindings",
+  "openIssuesCount": 72,
   "owner": {
     "id": "1049773",
     "is_bot": false,
@@ -21,50 +21,56 @@
     "type": "Organization",
     "url": "https://github.com/Capgemini"
   },
-  "updatedAt": "2026-04-14T10:52:35Z",
-  "url": "https://github.com/Capgemini/powerapps-project-template",
+  "updatedAt": "2026-07-19T03:34:32Z",
+  "url": "https://github.com/Capgemini/powerapps-specflow-bindings",
   "codeOfConduct": null,
-  "forkCount": 9,
+  "forkCount": 27,
   "fundingLinks": [],
   "isSecurityPolicyEnabled": false,
   "isTemplate": false,
-  "latestRelease": {
-    "name": "v0.6.6 build: update Nuke project framework to NET 7.0 (#102)",
-    "tagName": "v0.6.6",
-    "url": "https://github.com/Capgemini/powerapps-project-template/releases/tag/v0.6.6",
-    "publishedAt": "2023-07-10T10:15:38Z"
-  },
+  "latestRelease": null,
   "primaryLanguage": {
     "name": "C#"
   },
   "securityPolicyUrl": null,
-  "stargazerCount": 33,
+  "stargazerCount": 44,
   "watchers": {
-    "totalCount": 18
+    "totalCount": 22
   },
   "topics": [
-    "powerapps",
-    "power-apps",
     "dynamics-365",
     "dynamics",
     "dynamics-crm",
-    "powerplatform",
+    "specflow",
+    "automated-testing",
+    "automated-tests",
+    "ui-testing",
+    "xrm",
+    "powerapps",
+    "cds",
+    "bindings",
+    "specflow-steps",
+    "test-automation",
+    "testing",
+    "specflow-bindings",
+    "uci",
+    "power-apps",
     "power-platform",
-    "yeoman-generator",
     "microsoft"
   ],
   "languages": [
     "C#",
     "TypeScript",
+    "Gherkin",
     "PowerShell",
     "JavaScript"
   ],
-  "openedGoodFirstIssues": 3,
+  "openedGoodFirstIssues": 4,
   "hasGoodFirstIssues": true,
   "openedHelpWantedIssues": 0,
   "hasHelpWantedIssues": false,
-  "openedToContributionsIssues": 3,
-  "popularityScore": 51,
+  "openedToContributionsIssues": 4,
+  "popularityScore": 66,
   "_schemaVersion": "1.0.0",
   "_generatedAt": "2026-07-19T11:26:30.397Z",
   "_workflowRunId": "29685116975"
