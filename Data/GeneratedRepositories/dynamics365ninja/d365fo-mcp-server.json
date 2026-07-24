@@ -13,7 +13,7 @@
     "url": "https://api.github.com/licenses/mit"
   },
   "name": "d365fo-mcp-server",
-  "openIssuesCount": 1,
+  "openIssuesCount": 0,
   "owner": {
     "id": "185773331",
     "is_bot": false,
@@ -21,7 +21,7 @@
     "type": "User",
     "url": "https://github.com/dynamics365ninja"
   },
-  "updatedAt": "2026-07-23T10:10:34Z",
+  "updatedAt": "2026-07-24T06:43:37Z",
   "url": "https://github.com/dynamics365ninja/d365fo-mcp-server",
   "codeOfConduct": null,
   "forkCount": 46,
@@ -29,16 +29,16 @@
   "isSecurityPolicyEnabled": false,
   "isTemplate": false,
   "latestRelease": {
-    "name": "v1.3.0",
-    "tagName": "v1.3.0",
-    "url": "https://github.com/dynamics365ninja/d365fo-mcp-server/releases/tag/v1.3.0",
-    "publishedAt": "2026-07-22T08:44:58Z"
+    "name": "v1.4.0",
+    "tagName": "v1.4.0",
+    "url": "https://github.com/dynamics365ninja/d365fo-mcp-server/releases/tag/v1.4.0",
+    "publishedAt": "2026-07-23T13:39:07Z"
   },
   "primaryLanguage": {
     "name": "TypeScript"
   },
   "securityPolicyUrl": null,
-  "stargazerCount": 119,
+  "stargazerCount": 121,
   "watchers": {
     "totalCount": 10
   },
@@ -56,8 +56,8 @@
   "languages": [
     "TypeScript",
     "C#",
-    "PowerShell",
     "JavaScript",
+    "PowerShell",
     "Bicep",
     "Shell"
   ],
@@ -66,8 +66,8 @@
   "openedHelpWantedIssues": 0,
   "hasHelpWantedIssues": false,
   "openedToContributionsIssues": 0,
-  "popularityScore": 129,
+  "popularityScore": 131,
   "_schemaVersion": "1.0.0",
-  "_generatedAt": "2026-07-23T11:40:01.249Z",
-  "_workflowRunId": "30003961881"
+  "_generatedAt": "2026-07-24T11:35:27.735Z",
+  "_workflowRunId": "30090064143"
 }
