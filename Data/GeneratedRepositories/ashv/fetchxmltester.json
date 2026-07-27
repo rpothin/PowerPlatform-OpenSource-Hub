@@ -1,24 +1,24 @@
 {
-  "createdAt": "2026-04-07T18:48:57Z",
-  "description": "An MCP server for Dataverse people who know where this thing is coming from.",
-  "fullName": "jukkan/xrm-mcp",
-  "repositoryId": 1204164543,
+  "createdAt": "2017-12-13T18:39:37Z",
+  "description": "Test FetchXml Online without providing credentials using WebAPI GET Call",
+  "fullName": "AshV/FetchXmlTester",
+  "repositoryId": 114156125,
   "hasIssues": true,
-  "homepage": "",
+  "homepage": "https://www.ashishvishwakarma.com/FetchXmlTester//",
   "isArchived": false,
-  "language": "Python",
+  "language": "JavaScript",
   "license": null,
-  "name": "xrm-mcp",
-  "openIssuesCount": 0,
+  "name": "FetchXmlTester",
+  "openIssuesCount": 1,
   "owner": {
-    "id": "10254155",
+    "id": "7019016",
     "is_bot": false,
-    "login": "jukkan",
+    "login": "AshV",
     "type": "User",
-    "url": "https://github.com/jukkan"
+    "url": "https://github.com/AshV"
   },
-  "updatedAt": "2026-07-20T11:53:33Z",
-  "url": "https://github.com/jukkan/xrm-mcp",
+  "updatedAt": "2026-07-27T11:11:03Z",
+  "url": "https://github.com/AshV/FetchXmlTester",
   "codeOfConduct": null,
   "forkCount": 0,
   "fundingLinks": [],
@@ -26,29 +26,32 @@
   "isTemplate": false,
   "latestRelease": null,
   "primaryLanguage": {
-    "name": "Python"
+    "name": "JavaScript"
   },
   "securityPolicyUrl": null,
-  "stargazerCount": 18,
+  "stargazerCount": 26,
   "watchers": {
     "totalCount": 0
   },
   "topics": [
-    "dataverse",
+    "fetchxml",
     "dynamics-365",
-    "mcp-server",
     "power-platform",
-    "xrm"
+    "microsoft-dataverse",
+    "powerapps"
   ],
   "languages": [
-    "Python"
+    "JavaScript",
+    "HTML",
+    "CSS",
+    "Batchfile"
   ],
   "openedGoodFirstIssues": 0,
   "hasGoodFirstIssues": false,
   "openedHelpWantedIssues": 0,
   "hasHelpWantedIssues": false,
   "openedToContributionsIssues": 0,
-  "popularityScore": 18,
+  "popularityScore": 26,
   "_schemaVersion": "1.0.0",
   "_generatedAt": "2026-07-27T12:05:47.585Z",
   "_workflowRunId": "30264469348"
