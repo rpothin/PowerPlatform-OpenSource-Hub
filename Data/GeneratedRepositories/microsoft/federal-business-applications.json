@@ -13,7 +13,7 @@
     "url": "https://api.github.com/licenses/mit"
   },
   "name": "Federal-Business-Applications",
-  "openIssuesCount": 7,
+  "openIssuesCount": 2,
   "owner": {
     "id": "6154722",
     "is_bot": false,
@@ -21,7 +21,7 @@
     "type": "Organization",
     "url": "https://github.com/microsoft"
   },
-  "updatedAt": "2026-07-27T09:55:06Z",
+  "updatedAt": "2026-07-27T19:59:09Z",
   "url": "https://github.com/microsoft/Federal-Business-Applications",
   "codeOfConduct": {
     "key": "other",
@@ -30,13 +30,13 @@
   },
   "forkCount": 80,
   "fundingLinks": [],
-  "isSecurityPolicyEnabled": false,
+  "isSecurityPolicyEnabled": true,
   "isTemplate": false,
   "latestRelease": null,
   "primaryLanguage": {
     "name": "PowerShell"
   },
-  "securityPolicyUrl": null,
+  "securityPolicyUrl": "https://github.com/microsoft/Federal-Business-Applications/security/policy",
   "stargazerCount": 218,
   "watchers": {
     "totalCount": 40
@@ -60,6 +60,6 @@
   "openedToContributionsIssues": 0,
   "popularityScore": 258,
   "_schemaVersion": "1.0.0",
-  "_generatedAt": "2026-07-27T12:05:47.585Z",
-  "_workflowRunId": "30264469348"
+  "_generatedAt": "2026-07-28T11:42:43.654Z",
+  "_workflowRunId": "30355854618"
 }

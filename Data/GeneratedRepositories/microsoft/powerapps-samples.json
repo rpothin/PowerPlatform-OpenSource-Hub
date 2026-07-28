@@ -30,7 +30,7 @@
   },
   "forkCount": 1822,
   "fundingLinks": [],
-  "isSecurityPolicyEnabled": false,
+  "isSecurityPolicyEnabled": true,
   "isTemplate": false,
   "latestRelease": {
     "name": "Metadata Browser",
@@ -41,7 +41,7 @@
   "primaryLanguage": {
     "name": "C#"
   },
-  "securityPolicyUrl": null,
+  "securityPolicyUrl": "https://github.com/microsoft/PowerApps-Samples/security/policy",
   "stargazerCount": 1965,
   "watchers": {
     "totalCount": 119
@@ -77,6 +77,6 @@
   "openedToContributionsIssues": 0,
   "popularityScore": 2084,
   "_schemaVersion": "1.0.0",
-  "_generatedAt": "2026-07-27T12:05:47.585Z",
-  "_workflowRunId": "30264469348"
+  "_generatedAt": "2026-07-28T11:42:43.654Z",
+  "_workflowRunId": "30355854618"
 }

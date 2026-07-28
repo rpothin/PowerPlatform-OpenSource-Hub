@@ -30,7 +30,7 @@
   },
   "forkCount": 72,
   "fundingLinks": [],
-  "isSecurityPolicyEnabled": false,
+  "isSecurityPolicyEnabled": true,
   "isTemplate": false,
   "latestRelease": {
     "name": "V2.0.150",
@@ -41,7 +41,7 @@
   "primaryLanguage": {
     "name": "TypeScript"
   },
-  "securityPolicyUrl": null,
+  "securityPolicyUrl": "https://github.com/microsoft/powerplatform-build-tools/security/policy",
   "stargazerCount": 293,
   "watchers": {
     "totalCount": 32
@@ -67,6 +67,6 @@
   "openedToContributionsIssues": 0,
   "popularityScore": 325,
   "_schemaVersion": "1.0.0",
-  "_generatedAt": "2026-07-27T12:05:47.585Z",
-  "_workflowRunId": "30264469348"
+  "_generatedAt": "2026-07-28T11:42:43.654Z",
+  "_workflowRunId": "30355854618"
 }
