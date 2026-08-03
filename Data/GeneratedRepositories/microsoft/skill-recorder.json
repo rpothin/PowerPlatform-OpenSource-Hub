@@ -1,0 +1,79 @@
+{
+  "createdAt": "2026-07-29T18:16:14Z",
+  "description": "Desktop app that records your on-screen work session and uses the GitHub Copilot CLI to reconstruct it as an intent + ordered steps, then builds a reusable Skill or Automation for Microsoft Scout, Microsoft Copilot Cowork, or Copilot Studio.",
+  "fullName": "microsoft/skill-recorder",
+  "repositoryId": 1316443307,
+  "hasIssues": true,
+  "homepage": "",
+  "isArchived": false,
+  "language": "TypeScript",
+  "license": {
+    "key": "mit",
+    "name": "MIT License",
+    "url": "https://api.github.com/licenses/mit"
+  },
+  "name": "skill-recorder",
+  "openIssuesCount": 24,
+  "owner": {
+    "id": "6154722",
+    "is_bot": false,
+    "login": "microsoft",
+    "type": "Organization",
+    "url": "https://github.com/microsoft"
+  },
+  "updatedAt": "2026-08-03T12:04:38Z",
+  "url": "https://github.com/microsoft/skill-recorder",
+  "codeOfConduct": {
+    "key": "other",
+    "name": "Other",
+    "url": "https://github.com/microsoft/skill-recorder/blob/main/CODE_OF_CONDUCT.md"
+  },
+  "forkCount": 124,
+  "fundingLinks": [],
+  "isSecurityPolicyEnabled": true,
+  "isTemplate": false,
+  "latestRelease": {
+    "name": "Skill Recorder v0.3.1",
+    "tagName": "v0.3.1",
+    "url": "https://github.com/microsoft/skill-recorder/releases/tag/v0.3.1",
+    "publishedAt": "2026-07-30T16:34:33Z"
+  },
+  "primaryLanguage": {
+    "name": "TypeScript"
+  },
+  "securityPolicyUrl": "https://github.com/microsoft/skill-recorder/security/policy",
+  "stargazerCount": 1216,
+  "watchers": {
+    "totalCount": 4
+  },
+  "topics": [
+    "agent-skills",
+    "ai-agents",
+    "automation",
+    "copilot",
+    "copilot-cli",
+    "copilot-cowork",
+    "copilot-studio",
+    "electron",
+    "microsoft-scout",
+    "screen-recording"
+  ],
+  "languages": [
+    "TypeScript",
+    "JavaScript",
+    "CSS",
+    "PowerShell",
+    "Shell",
+    "HTML",
+    "NSIS"
+  ],
+  "openedGoodFirstIssues": 0,
+  "hasGoodFirstIssues": false,
+  "openedHelpWantedIssues": 0,
+  "hasHelpWantedIssues": false,
+  "openedToContributionsIssues": 0,
+  "popularityScore": 1220,
+  "_schemaVersion": "1.0.0",
+  "_generatedAt": "2026-08-03T12:06:28.778Z",
+  "_workflowRunId": "30812156474"
+}
