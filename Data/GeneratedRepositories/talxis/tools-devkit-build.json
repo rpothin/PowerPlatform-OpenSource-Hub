@@ -1,10 +1,10 @@
 {
-  "createdAt": "2025-06-05T08:59:57Z",
-  "description": "Connection to Microsoft Dataverse using managed authentication",
-  "fullName": "delegateas/DataverseConnection",
-  "repositoryId": 996651064,
+  "createdAt": "2023-08-14T17:24:20Z",
+  "description": "Automate continuous integration and ensure code changes are valid using MSBuild SDK for Power Platform projects.",
+  "fullName": "TALXIS/tools-devkit-build",
+  "repositoryId": 678495273,
   "hasIssues": true,
-  "homepage": "",
+  "homepage": "https://www.nuget.org/packages?q=TALXIS.DevKit.Build.Dataverse.*",
   "isArchived": false,
   "language": "C#",
   "license": {
@@ -12,27 +12,27 @@
     "name": "MIT License",
     "url": "https://api.github.com/licenses/mit"
   },
-  "name": "DataverseConnection",
-  "openIssuesCount": 0,
+  "name": "tools-devkit-build",
+  "openIssuesCount": 24,
   "owner": {
-    "id": "7015300",
+    "id": "72007852",
     "is_bot": false,
-    "login": "delegateas",
+    "login": "TALXIS",
     "type": "Organization",
-    "url": "https://github.com/delegateas"
+    "url": "https://github.com/TALXIS"
   },
-  "updatedAt": "2026-07-01T14:07:21Z",
-  "url": "https://github.com/delegateas/DataverseConnection",
+  "updatedAt": "2026-08-03T13:57:00Z",
+  "url": "https://github.com/TALXIS/tools-devkit-build",
   "codeOfConduct": null,
-  "forkCount": 2,
+  "forkCount": 6,
   "fundingLinks": [],
   "isSecurityPolicyEnabled": false,
   "isTemplate": false,
   "latestRelease": {
-    "name": "Added new extensions and caching",
-    "tagName": "v1.1.1",
-    "url": "https://github.com/delegateas/DataverseConnection/releases/tag/v1.1.1",
-    "publishedAt": "2025-06-05T20:22:30Z"
+    "name": "v1.8.0",
+    "tagName": "v1.8.0",
+    "url": "https://github.com/TALXIS/tools-devkit-build/releases/tag/v1.8.0",
+    "publishedAt": "2026-07-29T13:42:47Z"
   },
   "primaryLanguage": {
     "name": "C#"
@@ -43,12 +43,14 @@
     "totalCount": 2
   },
   "topics": [
-    "authentication",
-    "csharp",
+    "alm",
+    "build-system",
+    "ci-cd",
+    "code-first",
     "dataverse",
     "dotnet",
-    "dynamics-365",
-    "library"
+    "msbuild",
+    "power-platform"
   ],
   "languages": [
     "C#"
