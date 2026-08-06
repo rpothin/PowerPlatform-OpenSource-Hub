@@ -1,8 +1,8 @@
 {
-  "createdAt": "2019-04-25T20:48:20Z",
-  "description": "D365 Finance and operations EDMX trimmer",
-  "fullName": "shashisadasivan/EDMXTrimmer",
-  "repositoryId": 183507589,
+  "createdAt": "2020-11-24T15:33:34Z",
+  "description": "Skeleton to run Power Automate Flows from their JSON descriptions.",
+  "fullName": "thygesteffensen/PowerAutomateMockUp",
+  "repositoryId": 315675439,
   "hasIssues": true,
   "homepage": "",
   "isArchived": false,
@@ -12,40 +12,39 @@
     "name": "MIT License",
     "url": "https://api.github.com/licenses/mit"
   },
-  "name": "EDMXTrimmer",
-  "openIssuesCount": 1,
+  "name": "PowerAutomateMockUp",
+  "openIssuesCount": 5,
   "owner": {
-    "id": "2977255",
+    "id": "31892312",
     "is_bot": false,
-    "login": "shashisadasivan",
+    "login": "thygesteffensen",
     "type": "User",
-    "url": "https://github.com/shashisadasivan"
+    "url": "https://github.com/thygesteffensen"
   },
-  "updatedAt": "2026-07-21T06:55:04Z",
-  "url": "https://github.com/shashisadasivan/EDMXTrimmer",
+  "updatedAt": "2026-08-05T19:14:10Z",
+  "url": "https://github.com/thygesteffensen/PowerAutomateMockUp",
   "codeOfConduct": null,
-  "forkCount": 12,
+  "forkCount": 2,
   "fundingLinks": [],
   "isSecurityPolicyEnabled": false,
   "isTemplate": false,
   "latestRelease": {
-    "name": "v0.2.3",
-    "tagName": "0.2.3.20231126",
-    "url": "https://github.com/shashisadasivan/EDMXTrimmer/releases/tag/0.2.3.20231126",
-    "publishedAt": "2023-11-26T15:03:49Z"
+    "name": "v2.0.0",
+    "tagName": "v2.0.0",
+    "url": "https://github.com/thygesteffensen/PowerAutomateMockUp/releases/tag/v2.0.0",
+    "publishedAt": "2022-12-14T14:42:34Z"
   },
   "primaryLanguage": {
     "name": "C#"
   },
   "securityPolicyUrl": null,
-  "stargazerCount": 29,
+  "stargazerCount": 11,
   "watchers": {
-    "totalCount": 3
+    "totalCount": 2
   },
   "topics": [
-    "d365fo",
-    "dynamics-365",
-    "hacktoberfest"
+    "mock",
+    "power-automate"
   ],
   "languages": [
     "C#"
@@ -55,7 +54,7 @@
   "openedHelpWantedIssues": 0,
   "hasHelpWantedIssues": false,
   "openedToContributionsIssues": 0,
-  "popularityScore": 32,
+  "popularityScore": 13,
   "_schemaVersion": "1.0.0",
   "_generatedAt": "2026-08-06T11:46:59.109Z",
   "_workflowRunId": "31098626828"
