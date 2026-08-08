@@ -1,58 +1,60 @@
 {
-  "createdAt": "2020-08-24T08:31:38Z",
-  "description": "Handling SharePoint Documents in Business Central",
-  "fullName": "msnraju/sp-document-explorer",
-  "repositoryId": 289871765,
+  "createdAt": "2016-11-14T05:07:34Z",
+  "description": "Tools for Dynamics CRM",
+  "fullName": "deepakkumar1984/XrmToolBoxPlugins",
+  "repositoryId": 73668820,
   "hasIssues": true,
   "homepage": "",
   "isArchived": false,
-  "language": "Perl",
+  "language": "C#",
   "license": {
     "key": "mit",
     "name": "MIT License",
     "url": "https://api.github.com/licenses/mit"
   },
-  "name": "sp-document-explorer",
-  "openIssuesCount": 0,
+  "name": "XrmToolBoxPlugins",
+  "openIssuesCount": 7,
   "owner": {
-    "id": "17784259",
+    "id": "6328361",
     "is_bot": false,
-    "login": "msnraju",
+    "login": "deepakkumar1984",
     "type": "User",
-    "url": "https://github.com/msnraju"
+    "url": "https://github.com/deepakkumar1984"
   },
-  "updatedAt": "2026-03-10T06:01:10Z",
-  "url": "https://github.com/msnraju/sp-document-explorer",
+  "updatedAt": "2026-08-08T09:27:36Z",
+  "url": "https://github.com/deepakkumar1984/XrmToolBoxPlugins",
   "codeOfConduct": null,
-  "forkCount": 11,
+  "forkCount": 32,
   "fundingLinks": [],
   "isSecurityPolicyEnabled": false,
   "isTemplate": false,
   "latestRelease": null,
   "primaryLanguage": {
-    "name": "Perl"
+    "name": "C#"
   },
   "securityPolicyUrl": null,
-  "stargazerCount": 15,
+  "stargazerCount": 34,
   "watchers": {
-    "totalCount": 2
+    "totalCount": 6
   },
   "topics": [
-    "sharepoint",
-    "business-central",
-    "al-language",
-    "oauth2-client",
-    "dynamics-365"
+    "dynamics-365",
+    "dynamics-crm",
+    "xrmtoolbox",
+    "xrm",
+    "recycle-bin",
+    "user-audit-trail",
+    "storage-manager"
   ],
   "languages": [
-    "Perl"
+    "C#"
   ],
   "openedGoodFirstIssues": 0,
   "hasGoodFirstIssues": false,
   "openedHelpWantedIssues": 0,
   "hasHelpWantedIssues": false,
   "openedToContributionsIssues": 0,
-  "popularityScore": 17,
+  "popularityScore": 40,
   "_schemaVersion": "1.0.0",
   "_generatedAt": "2026-08-08T11:10:38.196Z",
   "_workflowRunId": "31254374767"
