@@ -21,12 +21,12 @@
     "type": "User",
     "url": "https://github.com/dynamics365ninja"
   },
-  "updatedAt": "2026-08-11T07:41:18Z",
+  "updatedAt": "2026-08-12T11:10:47Z",
   "url": "https://github.com/dynamics365ninja/d365fo-mcp-server",
   "codeOfConduct": null,
   "forkCount": 46,
   "fundingLinks": [],
-  "isSecurityPolicyEnabled": false,
+  "isSecurityPolicyEnabled": true,
   "isTemplate": false,
   "latestRelease": {
     "name": "v1.10.1",
@@ -37,7 +37,7 @@
   "primaryLanguage": {
     "name": "TypeScript"
   },
-  "securityPolicyUrl": null,
+  "securityPolicyUrl": "https://github.com/dynamics365ninja/d365fo-mcp-server/security/policy",
   "stargazerCount": 128,
   "watchers": {
     "totalCount": 11
@@ -68,6 +68,6 @@
   "openedToContributionsIssues": 0,
   "popularityScore": 139,
   "_schemaVersion": "1.0.0",
-  "_generatedAt": "2026-08-11T11:18:09.578Z",
-  "_workflowRunId": "31485984273"
+  "_generatedAt": "2026-08-12T11:19:04.511Z",
+  "_workflowRunId": "31591265983"
 }

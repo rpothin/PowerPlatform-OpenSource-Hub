@@ -1,8 +1,8 @@
 {
-  "createdAt": "2021-11-01T18:00:42Z",
-  "description": "GitHub Action to publish repository content on Dataverse",
-  "fullName": "IQSS/dataverse-uploader",
-  "repositoryId": 423565642,
+  "createdAt": "2026-06-26T17:58:32Z",
+  "description": "A Claude Code suite for Microsoft Power Automate development — Agent Skills + a local CLI (Dataverse/Power Platform APIs, Azure CLI auth, no stored secrets). Beta.",
+  "fullName": "Wals-pro/claude-power-automate",
+  "repositoryId": 1281591173,
   "hasIssues": true,
   "homepage": "",
   "isArchived": false,
@@ -12,40 +12,41 @@
     "name": "MIT License",
     "url": "https://api.github.com/licenses/mit"
   },
-  "name": "dataverse-uploader",
-  "openIssuesCount": 11,
+  "name": "claude-power-automate",
+  "openIssuesCount": 1,
   "owner": {
-    "id": "675237",
+    "id": "64147765",
     "is_bot": false,
-    "login": "IQSS",
+    "login": "Wals-pro",
     "type": "Organization",
-    "url": "https://github.com/IQSS"
+    "url": "https://github.com/Wals-pro"
   },
-  "updatedAt": "2026-08-05T19:50:14Z",
-  "url": "https://github.com/IQSS/dataverse-uploader",
+  "updatedAt": "2026-08-11T14:10:08Z",
+  "url": "https://github.com/Wals-pro/claude-power-automate",
   "codeOfConduct": null,
-  "forkCount": 11,
+  "forkCount": 0,
   "fundingLinks": [],
   "isSecurityPolicyEnabled": false,
   "isTemplate": false,
-  "latestRelease": {
-    "name": "Dataverse Uploader Action",
-    "tagName": "v1.7",
-    "url": "https://github.com/IQSS/dataverse-uploader/releases/tag/v1.7",
-    "publishedAt": "2026-01-30T21:14:22Z"
-  },
+  "latestRelease": null,
   "primaryLanguage": {
     "name": "Python"
   },
   "securityPolicyUrl": null,
-  "stargazerCount": 22,
+  "stargazerCount": 10,
   "watchers": {
-    "totalCount": 2
+    "totalCount": 0
   },
   "topics": [
-    "data-repository",
+    "agent-skills",
+    "azure-cli",
+    "claude",
+    "claude-code",
+    "cli",
+    "cloud-flows",
     "dataverse",
-    "dataverse-api"
+    "power-automate",
+    "power-platform"
   ],
   "languages": [
     "Python"
@@ -55,7 +56,7 @@
   "openedHelpWantedIssues": 0,
   "hasHelpWantedIssues": false,
   "openedToContributionsIssues": 0,
-  "popularityScore": 24,
+  "popularityScore": 10,
   "_schemaVersion": "1.0.0",
   "_generatedAt": "2026-08-12T11:19:04.511Z",
   "_workflowRunId": "31591265983"

@@ -30,7 +30,7 @@
   },
   "forkCount": 13,
   "fundingLinks": [],
-  "isSecurityPolicyEnabled": false,
+  "isSecurityPolicyEnabled": true,
   "isTemplate": false,
   "latestRelease": {
     "name": "(preview) 1.2.0",
@@ -41,7 +41,7 @@
   "primaryLanguage": {
     "name": "AL"
   },
-  "securityPolicyUrl": null,
+  "securityPolicyUrl": "https://github.com/microsoft/bcsamples-takeorder/security/policy",
   "stargazerCount": 39,
   "watchers": {
     "totalCount": 5
@@ -64,6 +64,6 @@
   "openedToContributionsIssues": 0,
   "popularityScore": 44,
   "_schemaVersion": "1.0.0",
-  "_generatedAt": "2026-08-11T11:18:09.578Z",
-  "_workflowRunId": "31485984273"
+  "_generatedAt": "2026-08-12T11:19:04.511Z",
+  "_workflowRunId": "31591265983"
 }
