@@ -7,7 +7,11 @@
   "homepage": "https://www.kesslernity.com",
   "isArchived": false,
   "language": "",
-  "license": null,
+  "license": {
+    "key": "cc-by-sa-4.0",
+    "name": "Creative Commons Attribution Share Alike 4.0 International",
+    "url": "https://api.github.com/licenses/cc-by-sa-4.0"
+  },
   "name": "awesome-copilot-studio-agents",
   "openIssuesCount": 2,
   "owner": {
@@ -17,7 +21,7 @@
     "type": "User",
     "url": "https://github.com/kesslernity"
   },
-  "updatedAt": "2026-08-12T09:42:01Z",
+  "updatedAt": "2026-08-13T06:00:16Z",
   "url": "https://github.com/kesslernity/awesome-copilot-studio-agents",
   "codeOfConduct": null,
   "forkCount": 42,
@@ -27,7 +31,7 @@
   "latestRelease": null,
   "primaryLanguage": null,
   "securityPolicyUrl": null,
-  "stargazerCount": 461,
+  "stargazerCount": 464,
   "watchers": {
     "totalCount": 16
   },
@@ -53,8 +57,8 @@
   "openedHelpWantedIssues": 0,
   "hasHelpWantedIssues": false,
   "openedToContributionsIssues": 0,
-  "popularityScore": 477,
+  "popularityScore": 480,
   "_schemaVersion": "1.0.0",
-  "_generatedAt": "2026-08-12T11:19:04.511Z",
-  "_workflowRunId": "31591265983"
+  "_generatedAt": "2026-08-13T11:19:22.016Z",
+  "_workflowRunId": "31694943208"
 }

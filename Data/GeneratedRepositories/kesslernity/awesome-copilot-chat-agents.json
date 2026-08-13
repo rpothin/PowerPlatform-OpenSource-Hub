@@ -7,7 +7,11 @@
   "homepage": "https://www.kesslernity.com",
   "isArchived": false,
   "language": "",
-  "license": null,
+  "license": {
+    "key": "cc-by-sa-4.0",
+    "name": "Creative Commons Attribution Share Alike 4.0 International",
+    "url": "https://api.github.com/licenses/cc-by-sa-4.0"
+  },
   "name": "awesome-copilot-chat-agents",
   "openIssuesCount": 0,
   "owner": {
@@ -17,7 +21,7 @@
     "type": "User",
     "url": "https://github.com/kesslernity"
   },
-  "updatedAt": "2026-08-12T10:30:01Z",
+  "updatedAt": "2026-08-12T14:56:18Z",
   "url": "https://github.com/kesslernity/awesome-copilot-chat-agents",
   "codeOfConduct": null,
   "forkCount": 13,
@@ -60,6 +64,6 @@
   "openedToContributionsIssues": 0,
   "popularityScore": 95,
   "_schemaVersion": "1.0.0",
-  "_generatedAt": "2026-08-12T11:19:04.511Z",
-  "_workflowRunId": "31591265983"
+  "_generatedAt": "2026-08-13T11:19:22.016Z",
+  "_workflowRunId": "31694943208"
 }

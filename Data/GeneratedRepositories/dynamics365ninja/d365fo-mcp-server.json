@@ -1,6 +1,6 @@
 {
   "createdAt": "2026-01-20T12:39:14Z",
-  "description": "Exposes 26 MCP tools that prove every method, field, label and form pattern against your real metadata before the AI writes code.",
+  "description": "Exposes MCP tools that prove every method, field, label and form pattern against your real metadata before the AI writes code.",
   "fullName": "dynamics365ninja/d365fo-mcp-server",
   "repositoryId": 1138251114,
   "hasIssues": true,
@@ -13,7 +13,7 @@
     "url": "https://api.github.com/licenses/mit"
   },
   "name": "d365fo-mcp-server",
-  "openIssuesCount": 0,
+  "openIssuesCount": 1,
   "owner": {
     "id": "185773331",
     "is_bot": false,
@@ -21,24 +21,24 @@
     "type": "User",
     "url": "https://github.com/dynamics365ninja"
   },
-  "updatedAt": "2026-08-12T11:10:47Z",
+  "updatedAt": "2026-08-13T11:18:10Z",
   "url": "https://github.com/dynamics365ninja/d365fo-mcp-server",
   "codeOfConduct": null,
-  "forkCount": 46,
+  "forkCount": 48,
   "fundingLinks": [],
   "isSecurityPolicyEnabled": true,
   "isTemplate": false,
   "latestRelease": {
-    "name": "v1.10.1",
-    "tagName": "v1.10.1",
-    "url": "https://github.com/dynamics365ninja/d365fo-mcp-server/releases/tag/v1.10.1",
-    "publishedAt": "2026-08-11T07:41:59Z"
+    "name": "v1.11.0",
+    "tagName": "v1.11.0",
+    "url": "https://github.com/dynamics365ninja/d365fo-mcp-server/releases/tag/v1.11.0",
+    "publishedAt": "2026-08-13T09:04:39Z"
   },
   "primaryLanguage": {
     "name": "TypeScript"
   },
   "securityPolicyUrl": "https://github.com/dynamics365ninja/d365fo-mcp-server/security/policy",
-  "stargazerCount": 128,
+  "stargazerCount": 129,
   "watchers": {
     "totalCount": 11
   },
@@ -66,8 +66,8 @@
   "openedHelpWantedIssues": 0,
   "hasHelpWantedIssues": false,
   "openedToContributionsIssues": 0,
-  "popularityScore": 139,
+  "popularityScore": 140,
   "_schemaVersion": "1.0.0",
-  "_generatedAt": "2026-08-12T11:19:04.511Z",
-  "_workflowRunId": "31591265983"
+  "_generatedAt": "2026-08-13T11:19:22.016Z",
+  "_workflowRunId": "31694943208"
 }
