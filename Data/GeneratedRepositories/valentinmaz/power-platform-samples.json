@@ -6,7 +6,7 @@
   "hasIssues": true,
   "homepage": "https://powertricks.io/",
   "isArchived": false,
-  "language": "",
+  "language": "C#",
   "license": null,
   "name": "Power-Platform-Samples",
   "openIssuesCount": 5,
@@ -17,7 +17,7 @@
     "type": "User",
     "url": "https://github.com/ValentinMaz"
   },
-  "updatedAt": "2026-08-12T12:56:45Z",
+  "updatedAt": "2026-08-13T18:53:54Z",
   "url": "https://github.com/ValentinMaz/Power-Platform-Samples",
   "codeOfConduct": null,
   "forkCount": 8,
@@ -25,7 +25,9 @@
   "isSecurityPolicyEnabled": false,
   "isTemplate": false,
   "latestRelease": null,
-  "primaryLanguage": null,
+  "primaryLanguage": {
+    "name": "C#"
+  },
   "securityPolicyUrl": null,
   "stargazerCount": 36,
   "watchers": {
@@ -35,7 +37,9 @@
     "governance",
     "powerplatform"
   ],
-  "languages": [],
+  "languages": [
+    "C#"
+  ],
   "openedGoodFirstIssues": 0,
   "hasGoodFirstIssues": false,
   "openedHelpWantedIssues": 0,
@@ -43,6 +47,6 @@
   "openedToContributionsIssues": 0,
   "popularityScore": 40,
   "_schemaVersion": "1.0.0",
-  "_generatedAt": "2026-08-13T11:19:22.016Z",
-  "_workflowRunId": "31694943208"
+  "_generatedAt": "2026-08-14T11:18:06.813Z",
+  "_workflowRunId": "31795631803"
 }
