@@ -1,8 +1,8 @@
 {
-  "createdAt": "2026-03-31T15:17:32Z",
-  "description": "Local Power Automate MCP server, browser extension, and installable Codex skill.",
-  "fullName": "kaael1/mcp-power-automate",
-  "repositoryId": 1197430189,
+  "createdAt": "2026-01-21T02:00:38Z",
+  "description": "MCP server for Microsoft Dynamics 365 Finance & Operations - enables AI assistants to explore metadata, query data, and execute sandboxed code",
+  "fullName": "zhound420/D365FO-claude-connector",
+  "repositoryId": 1138691660,
   "hasIssues": true,
   "homepage": "",
   "isArchived": false,
@@ -12,19 +12,19 @@
     "name": "MIT License",
     "url": "https://api.github.com/licenses/mit"
   },
-  "name": "mcp-power-automate",
-  "openIssuesCount": 3,
+  "name": "D365FO-claude-connector",
+  "openIssuesCount": 0,
   "owner": {
-    "id": "51300642",
+    "id": "34777398",
     "is_bot": false,
-    "login": "kaael1",
+    "login": "zhound420",
     "type": "User",
-    "url": "https://github.com/kaael1"
+    "url": "https://github.com/zhound420"
   },
-  "updatedAt": "2026-07-31T14:16:35Z",
-  "url": "https://github.com/kaael1/mcp-power-automate",
+  "updatedAt": "2026-08-17T18:15:28Z",
+  "url": "https://github.com/zhound420/D365FO-claude-connector",
   "codeOfConduct": null,
-  "forkCount": 11,
+  "forkCount": 0,
   "fundingLinks": [],
   "isSecurityPolicyEnabled": false,
   "isTemplate": false,
@@ -33,31 +33,32 @@
     "name": "TypeScript"
   },
   "securityPolicyUrl": null,
-  "stargazerCount": 22,
+  "stargazerCount": 10,
   "watchers": {
-    "totalCount": 1
+    "totalCount": 0
   },
   "topics": [
-    "automation",
-    "browser-extension",
-    "codex",
+    "ai",
+    "claude",
+    "d365",
+    "dynamics-365",
+    "erp",
+    "finance-operations",
     "mcp",
     "model-context-protocol",
-    "power-automate",
-    "skills"
+    "odata"
   ],
   "languages": [
     "TypeScript",
     "JavaScript",
-    "CSS",
-    "HTML"
+    "Shell"
   ],
   "openedGoodFirstIssues": 0,
   "hasGoodFirstIssues": false,
   "openedHelpWantedIssues": 0,
   "hasHelpWantedIssues": false,
   "openedToContributionsIssues": 0,
-  "popularityScore": 23,
+  "popularityScore": 10,
   "_schemaVersion": "1.0.0",
   "_generatedAt": "2026-08-18T11:08:35.047Z",
   "_workflowRunId": "32130226727"
