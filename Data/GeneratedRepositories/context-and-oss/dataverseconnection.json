@@ -1,7 +1,7 @@
 {
   "createdAt": "2025-06-05T08:59:57Z",
   "description": "Connection to Microsoft Dataverse using managed authentication",
-  "fullName": "delegateas/DataverseConnection",
+  "fullName": "context-and-oss/DataverseConnection",
   "repositoryId": 996651064,
   "hasIssues": true,
   "homepage": "",
@@ -15,14 +15,14 @@
   "name": "DataverseConnection",
   "openIssuesCount": 0,
   "owner": {
-    "id": "7015300",
+    "id": "310983946",
     "is_bot": false,
-    "login": "delegateas",
+    "login": "context-and-oss",
     "type": "Organization",
-    "url": "https://github.com/delegateas"
+    "url": "https://github.com/context-and-oss"
   },
-  "updatedAt": "2026-08-14T13:14:25Z",
-  "url": "https://github.com/delegateas/DataverseConnection",
+  "updatedAt": "2026-08-20T19:33:28Z",
+  "url": "https://github.com/context-and-oss/DataverseConnection",
   "codeOfConduct": null,
   "forkCount": 2,
   "fundingLinks": [],
@@ -31,7 +31,7 @@
   "latestRelease": {
     "name": "Release 1.2.4",
     "tagName": "v1.2.4",
-    "url": "https://github.com/delegateas/DataverseConnection/releases/tag/v1.2.4",
+    "url": "https://github.com/context-and-oss/DataverseConnection/releases/tag/v1.2.4",
     "publishedAt": "2026-08-14T13:13:16Z"
   },
   "primaryLanguage": {
@@ -60,6 +60,6 @@
   "openedToContributionsIssues": 0,
   "popularityScore": 13,
   "_schemaVersion": "1.0.0",
-  "_generatedAt": "2026-08-20T11:09:11.782Z",
-  "_workflowRunId": "32362364380"
+  "_generatedAt": "2026-08-21T11:08:59.717Z",
+  "_workflowRunId": "32475844846"
 }

@@ -1,7 +1,7 @@
 {
   "createdAt": "2024-11-30T19:34:25Z",
   "description": "Browser-based visualizer for Microsoft Dataverse / Dynamics 365 data models — entities, relationships, and dependencies.",
-  "fullName": "delegateas/DataModelViewer",
+  "fullName": "context-and-oss/DataModelViewer",
   "repositoryId": 896596087,
   "hasIssues": true,
   "homepage": "",
@@ -11,14 +11,14 @@
   "name": "DataModelViewer",
   "openIssuesCount": 2,
   "owner": {
-    "id": "7015300",
+    "id": "310983946",
     "is_bot": false,
-    "login": "delegateas",
+    "login": "context-and-oss",
     "type": "Organization",
-    "url": "https://github.com/delegateas"
+    "url": "https://github.com/context-and-oss"
   },
-  "updatedAt": "2026-07-02T11:41:33Z",
-  "url": "https://github.com/delegateas/DataModelViewer",
+  "updatedAt": "2026-08-20T19:37:47Z",
+  "url": "https://github.com/context-and-oss/DataModelViewer",
   "codeOfConduct": null,
   "forkCount": 2,
   "fundingLinks": [],
@@ -27,7 +27,7 @@
   "latestRelease": {
     "name": "Release 2.3.5",
     "tagName": "website-v2.3.5",
-    "url": "https://github.com/delegateas/DataModelViewer/releases/tag/website-v2.3.5",
+    "url": "https://github.com/context-and-oss/DataModelViewer/releases/tag/website-v2.3.5",
     "publishedAt": "2026-06-05T19:32:23Z"
   },
   "primaryLanguage": {
@@ -60,6 +60,6 @@
   "openedToContributionsIssues": 0,
   "popularityScore": 17,
   "_schemaVersion": "1.0.0",
-  "_generatedAt": "2026-08-20T11:09:11.782Z",
-  "_workflowRunId": "32362364380"
+  "_generatedAt": "2026-08-21T11:08:59.717Z",
+  "_workflowRunId": "32475844846"
 }

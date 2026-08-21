@@ -13,7 +13,7 @@
     "url": "https://api.github.com/licenses/mit"
   },
   "name": "Microsoft365DSC",
-  "openIssuesCount": 70,
+  "openIssuesCount": 68,
   "owner": {
     "id": "270493417",
     "is_bot": false,
@@ -21,7 +21,7 @@
     "type": "Organization",
     "url": "https://github.com/Microsoft365DSC"
   },
-  "updatedAt": "2026-08-20T07:20:42Z",
+  "updatedAt": "2026-08-20T19:43:08Z",
   "url": "https://github.com/Microsoft365DSC/Microsoft365DSC",
   "codeOfConduct": {
     "key": "contributor_covenant",
@@ -30,18 +30,18 @@
   },
   "forkCount": 675,
   "fundingLinks": [],
-  "isSecurityPolicyEnabled": true,
+  "isSecurityPolicyEnabled": false,
   "isTemplate": false,
   "latestRelease": {
-    "name": "Release 1.26.812.1",
-    "tagName": "1.26.812.1",
-    "url": "https://github.com/Microsoft365DSC/Microsoft365DSC/releases/tag/1.26.812.1",
-    "publishedAt": "2026-08-13T05:10:16Z"
+    "name": "Release 1.26.819.1",
+    "tagName": "1.26.819.1",
+    "url": "https://github.com/Microsoft365DSC/Microsoft365DSC/releases/tag/1.26.819.1",
+    "publishedAt": "2026-08-20T20:46:29Z"
   },
   "primaryLanguage": {
     "name": "PowerShell"
   },
-  "securityPolicyUrl": "https://github.com/Microsoft365DSC/Microsoft365DSC/security/policy",
+  "securityPolicyUrl": null,
   "stargazerCount": 2371,
   "watchers": {
     "totalCount": 106
@@ -81,6 +81,6 @@
   "openedToContributionsIssues": 2,
   "popularityScore": 2477,
   "_schemaVersion": "1.0.0",
-  "_generatedAt": "2026-08-20T11:09:11.782Z",
-  "_workflowRunId": "32362364380"
+  "_generatedAt": "2026-08-21T11:08:59.717Z",
+  "_workflowRunId": "32475844846"
 }

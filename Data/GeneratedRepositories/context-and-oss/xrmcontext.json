@@ -1,7 +1,7 @@
 {
   "createdAt": "2015-12-18T12:25:02Z",
   "description": "Tool to generate early-bound .NET classes and enumerations for MS Dynamics 365/CRM server-side coding.",
-  "fullName": "delegateas/XrmContext",
+  "fullName": "context-and-oss/XrmContext",
   "repositoryId": 48234066,
   "hasIssues": true,
   "homepage": "http://delegateas.github.io/Delegate.XrmContext/",
@@ -15,14 +15,14 @@
   "name": "XrmContext",
   "openIssuesCount": 12,
   "owner": {
-    "id": "7015300",
+    "id": "310983946",
     "is_bot": false,
-    "login": "delegateas",
+    "login": "context-and-oss",
     "type": "Organization",
-    "url": "https://github.com/delegateas"
+    "url": "https://github.com/context-and-oss"
   },
-  "updatedAt": "2026-08-03T20:19:10Z",
-  "url": "https://github.com/delegateas/XrmContext",
+  "updatedAt": "2026-08-20T19:34:40Z",
+  "url": "https://github.com/context-and-oss/XrmContext",
   "codeOfConduct": null,
   "forkCount": 16,
   "fundingLinks": [],
@@ -62,6 +62,6 @@
   "openedToContributionsIssues": 0,
   "popularityScore": 77,
   "_schemaVersion": "1.0.0",
-  "_generatedAt": "2026-08-20T11:09:11.782Z",
-  "_workflowRunId": "32362364380"
+  "_generatedAt": "2026-08-21T11:08:59.717Z",
+  "_workflowRunId": "32475844846"
 }
