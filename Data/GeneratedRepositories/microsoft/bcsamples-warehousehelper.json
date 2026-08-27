@@ -30,7 +30,7 @@
   },
   "forkCount": 21,
   "fundingLinks": [],
-  "isSecurityPolicyEnabled": true,
+  "isSecurityPolicyEnabled": false,
   "isTemplate": false,
   "latestRelease": {
     "name": "(preview) Warehouse Helper sample",
@@ -41,7 +41,7 @@
   "primaryLanguage": {
     "name": "AL"
   },
-  "securityPolicyUrl": "https://github.com/microsoft/bcsamples-warehousehelper/security/policy",
+  "securityPolicyUrl": null,
   "stargazerCount": 34,
   "watchers": {
     "totalCount": 6
@@ -64,6 +64,6 @@
   "openedToContributionsIssues": 0,
   "popularityScore": 40,
   "_schemaVersion": "1.0.0",
-  "_generatedAt": "2026-08-26T11:10:37.625Z",
-  "_workflowRunId": "32961954448"
+  "_generatedAt": "2026-08-27T14:44:29.910Z",
+  "_workflowRunId": "33083869819"
 }
