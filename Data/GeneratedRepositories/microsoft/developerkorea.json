@@ -1,18 +1,18 @@
 {
-  "createdAt": "2024-06-23T22:52:29Z",
-  "description": "The official repository for Power Platform tools and resources.",
-  "fullName": "microsoft/powerplatform",
-  "repositoryId": 819145531,
-  "hasIssues": false,
-  "homepage": "",
+  "createdAt": "2019-04-29T14:52:32Z",
+  "description": "마이크로소프트 기술 블로그 한국어판 | Microsoft tech blogs in Korean",
+  "fullName": "microsoft/developerkorea",
+  "repositoryId": 184090668,
+  "hasIssues": true,
+  "homepage": "https://microsoft.github.io/developerkorea",
   "isArchived": false,
-  "language": "",
+  "language": "C#",
   "license": {
     "key": "mit",
     "name": "MIT License",
     "url": "https://api.github.com/licenses/mit"
   },
-  "name": "powerplatform",
+  "name": "developerkorea",
   "openIssuesCount": 0,
   "owner": {
     "id": "6154722",
@@ -21,34 +21,45 @@
     "type": "Organization",
     "url": "https://github.com/microsoft"
   },
-  "updatedAt": "2026-08-25T05:34:58Z",
-  "url": "https://github.com/microsoft/powerplatform",
+  "updatedAt": "2026-08-31T06:52:22Z",
+  "url": "https://github.com/microsoft/developerkorea",
   "codeOfConduct": {
     "key": "other",
     "name": "Other",
     "url": "https://github.com/microsoft/.github/blob/main/CODE_OF_CONDUCT.md"
   },
-  "forkCount": 16,
+  "forkCount": 15,
   "fundingLinks": [],
   "isSecurityPolicyEnabled": true,
   "isTemplate": false,
   "latestRelease": null,
-  "primaryLanguage": null,
-  "securityPolicyUrl": "https://github.com/microsoft/powerplatform/security/policy",
-  "stargazerCount": 112,
+  "primaryLanguage": {
+    "name": "C#"
+  },
+  "securityPolicyUrl": "https://github.com/microsoft/developerkorea/security/policy",
+  "stargazerCount": 68,
   "watchers": {
-    "totalCount": 23
+    "totalCount": 4
   },
   "topics": [
-    "powerplatform"
+    "microsoft",
+    "azure",
+    "microsoft365",
+    "power-platform"
   ],
-  "languages": [],
+  "languages": [
+    "C#",
+    "CSS",
+    "HTML",
+    "Shell",
+    "Dockerfile"
+  ],
   "openedGoodFirstIssues": 0,
   "hasGoodFirstIssues": false,
   "openedHelpWantedIssues": 0,
   "hasHelpWantedIssues": false,
   "openedToContributionsIssues": 0,
-  "popularityScore": 135,
+  "popularityScore": 72,
   "_schemaVersion": "1.0.0",
   "_generatedAt": "2026-08-31T11:14:27.054Z",
   "_workflowRunId": "33386008326"
