@@ -1,19 +1,19 @@
 {
-  "createdAt": "2020-05-03T23:27:27Z",
-  "description": "Build your Power Apps Component Framework custom controls faster. No need to remember the PCF CLI commands. All commands provided in one selection list for you to execute. https://marketplace.visualstudio.com/items?itemName=danish-naglekar.pcf-builder",
-  "fullName": "Power-Maverick/PCF-Builder-VSCode",
-  "repositoryId": 261040329,
+  "createdAt": "2019-06-23T05:07:12Z",
+  "description": "XrmToolBox Plugin for building and deploying custom control using PCF",
+  "fullName": "Power-Maverick/PCF-CustomControlBuilder",
+  "repositoryId": 193308652,
   "hasIssues": true,
   "homepage": "",
   "isArchived": false,
-  "language": "JavaScript",
+  "language": "C#",
   "license": {
     "key": "mit",
     "name": "MIT License",
     "url": "https://api.github.com/licenses/mit"
   },
-  "name": "PCF-Builder-VSCode",
-  "openIssuesCount": 14,
+  "name": "PCF-CustomControlBuilder",
+  "openIssuesCount": 8,
   "owner": {
     "id": "36135520",
     "is_bot": false,
@@ -21,10 +21,10 @@
     "type": "User",
     "url": "https://github.com/Power-Maverick"
   },
-  "updatedAt": "2026-08-20T12:58:52Z",
-  "url": "https://github.com/Power-Maverick/PCF-Builder-VSCode",
+  "updatedAt": "2026-09-02T14:45:39Z",
+  "url": "https://github.com/Power-Maverick/PCF-CustomControlBuilder",
   "codeOfConduct": null,
-  "forkCount": 7,
+  "forkCount": 6,
   "fundingLinks": [
     {
       "platform": "GITHUB",
@@ -33,35 +33,40 @@
   ],
   "isSecurityPolicyEnabled": false,
   "isTemplate": false,
-  "latestRelease": null,
+  "latestRelease": {
+    "name": "2.2025.10.045",
+    "tagName": "2.2025.10.045",
+    "url": "https://github.com/Power-Maverick/PCF-CustomControlBuilder/releases/tag/2.2025.10.045",
+    "publishedAt": "2025-10-04T17:53:36Z"
+  },
   "primaryLanguage": {
-    "name": "JavaScript"
+    "name": "C#"
   },
   "securityPolicyUrl": null,
-  "stargazerCount": 27,
+  "stargazerCount": 43,
   "watchers": {
-    "totalCount": 2
+    "totalCount": 3
   },
   "topics": [
-    "powerapps",
-    "powerapps-component-framework",
-    "custom-controls",
+    "xrmtoolbox",
     "cds",
+    "powerapps",
     "dynamics-365",
-    "vscode-extension",
-    "vscode",
-    "visual-studio-code"
+    "pcf",
+    "custom-controls",
+    "powerappscomponentframework"
   ],
   "languages": [
-    "JavaScript",
-    "TypeScript"
+    "C#",
+    "PowerShell",
+    "CSS"
   ],
   "openedGoodFirstIssues": 0,
   "hasGoodFirstIssues": false,
   "openedHelpWantedIssues": 0,
   "hasHelpWantedIssues": false,
   "openedToContributionsIssues": 0,
-  "popularityScore": 29,
+  "popularityScore": 46,
   "_schemaVersion": "1.0.0",
   "_generatedAt": "2026-09-03T11:13:51.777Z",
   "_workflowRunId": "33748506528"

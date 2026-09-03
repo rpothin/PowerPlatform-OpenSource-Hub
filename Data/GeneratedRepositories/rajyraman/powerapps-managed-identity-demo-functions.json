@@ -1,56 +1,52 @@
 {
-  "createdAt": "2019-04-16T08:34:05Z",
-  "description": "A project structure for any CDS/D365 development project",
-  "fullName": "delegateas/XrmFramework",
-  "repositoryId": 181648568,
+  "createdAt": "2021-11-12T13:57:03Z",
+  "description": "Demo repository to show how to use Managed Identity on Azure Functions to connect to Power Apps Web API.",
+  "fullName": "rajyraman/PowerApps-Managed-Identity-Demo-Functions",
+  "repositoryId": 427378322,
   "hasIssues": true,
   "homepage": "",
   "isArchived": false,
-  "language": "JavaScript",
+  "language": "Bicep",
   "license": {
     "key": "mit",
     "name": "MIT License",
     "url": "https://api.github.com/licenses/mit"
   },
-  "name": "XrmFramework",
-  "openIssuesCount": 6,
+  "name": "PowerApps-Managed-Identity-Demo-Functions",
+  "openIssuesCount": 3,
   "owner": {
-    "id": "7015300",
+    "id": "5035266",
     "is_bot": false,
-    "login": "delegateas",
-    "type": "Organization",
-    "url": "https://github.com/delegateas"
+    "login": "rajyraman",
+    "type": "User",
+    "url": "https://github.com/rajyraman"
   },
-  "updatedAt": "2026-06-18T06:28:50Z",
-  "url": "https://github.com/delegateas/XrmFramework",
+  "updatedAt": "2026-09-02T14:44:48Z",
+  "url": "https://github.com/rajyraman/PowerApps-Managed-Identity-Demo-Functions",
   "codeOfConduct": null,
-  "forkCount": 9,
+  "forkCount": 5,
   "fundingLinks": [],
   "isSecurityPolicyEnabled": false,
   "isTemplate": false,
   "latestRelease": null,
   "primaryLanguage": {
-    "name": "JavaScript"
+    "name": "Bicep"
   },
   "securityPolicyUrl": null,
   "stargazerCount": 19,
   "watchers": {
-    "totalCount": 15
+    "totalCount": 0
   },
   "topics": [
-    "dataverse",
-    "dynamics-365",
-    "framework",
-    "javascript",
-    "template",
-    "xrm"
+    "azure",
+    "azure-functions",
+    "powerapps",
+    "azd",
+    "bicep"
   ],
   "languages": [
-    "JavaScript",
+    "Bicep",
     "C#",
-    "F#",
-    "Batchfile",
-    "TypeScript",
     "PowerShell"
   ],
   "openedGoodFirstIssues": 0,
@@ -58,7 +54,7 @@
   "openedHelpWantedIssues": 0,
   "hasHelpWantedIssues": false,
   "openedToContributionsIssues": 0,
-  "popularityScore": 34,
+  "popularityScore": 19,
   "_schemaVersion": "1.0.0",
   "_generatedAt": "2026-09-03T11:13:51.777Z",
   "_workflowRunId": "33748506528"

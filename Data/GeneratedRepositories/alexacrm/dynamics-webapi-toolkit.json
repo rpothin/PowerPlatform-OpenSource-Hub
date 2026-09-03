@@ -1,60 +1,60 @@
 {
-  "createdAt": "2019-11-23T11:08:03Z",
-  "description": "Examples from my blog",
-  "fullName": "srenders/blog",
-  "repositoryId": 223575180,
+  "createdAt": "2018-04-23T11:14:20Z",
+  "description": "Dynamics 365 Web API Toolkit for PHP",
+  "fullName": "AlexaCRM/dynamics-webapi-toolkit",
+  "repositoryId": 130684760,
   "hasIssues": true,
   "homepage": "",
   "isArchived": false,
-  "language": "AL",
+  "language": "PHP",
   "license": {
     "key": "mit",
     "name": "MIT License",
     "url": "https://api.github.com/licenses/mit"
   },
-  "name": "blog",
-  "openIssuesCount": 0,
+  "name": "dynamics-webapi-toolkit",
+  "openIssuesCount": 5,
   "owner": {
-    "id": "17511254",
+    "id": "20656309",
     "is_bot": false,
-    "login": "srenders",
-    "type": "User",
-    "url": "https://github.com/srenders"
+    "login": "AlexaCRM",
+    "type": "Organization",
+    "url": "https://github.com/AlexaCRM"
   },
-  "updatedAt": "2026-08-24T09:29:17Z",
-  "url": "https://github.com/srenders/blog",
-  "codeOfConduct": {
-    "key": "contributor_covenant",
-    "name": "Contributor Covenant",
-    "url": "https://github.com/srenders/blog/blob/master/CODE_OF_CONDUCT.md"
-  },
-  "forkCount": 25,
+  "updatedAt": "2026-09-03T04:12:58Z",
+  "url": "https://github.com/AlexaCRM/dynamics-webapi-toolkit",
+  "codeOfConduct": null,
+  "forkCount": 61,
   "fundingLinks": [],
   "isSecurityPolicyEnabled": false,
   "isTemplate": false,
   "latestRelease": null,
   "primaryLanguage": {
-    "name": "AL"
+    "name": "PHP"
   },
   "securityPolicyUrl": null,
-  "stargazerCount": 36,
+  "stargazerCount": 81,
   "watchers": {
-    "totalCount": 13
+    "totalCount": 7
   },
   "topics": [
     "dynamics-365",
-    "rdlc",
-    "powerbi"
+    "dynamics365",
+    "dynamics-crm",
+    "dynamics-crm-online",
+    "odata-client",
+    "cds",
+    "powerapps"
   ],
   "languages": [
-    "AL"
+    "PHP"
   ],
   "openedGoodFirstIssues": 0,
   "hasGoodFirstIssues": false,
   "openedHelpWantedIssues": 0,
   "hasHelpWantedIssues": false,
   "openedToContributionsIssues": 0,
-  "popularityScore": 49,
+  "popularityScore": 88,
   "_schemaVersion": "1.0.0",
   "_generatedAt": "2026-09-03T11:13:51.777Z",
   "_workflowRunId": "33748506528"
