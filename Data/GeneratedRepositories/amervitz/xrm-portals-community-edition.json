@@ -1,6 +1,6 @@
 {
   "createdAt": "2017-06-28T15:40:23Z",
-  "description": "The definitive edition of Microsoft Open Source Portals, supported by the experts in portals.",
+  "description": "An open source portal framework for Microsoft Power Platform, built on Dataverse.",
   "fullName": "amervitz/xRM-Portals-Community-Edition",
   "repositoryId": 95685529,
   "hasIssues": true,
@@ -13,7 +13,7 @@
     "url": "https://api.github.com/licenses/mit"
   },
   "name": "xRM-Portals-Community-Edition",
-  "openIssuesCount": 37,
+  "openIssuesCount": 36,
   "owner": {
     "id": "10599498",
     "is_bot": false,
@@ -21,7 +21,7 @@
     "type": "User",
     "url": "https://github.com/amervitz"
   },
-  "updatedAt": "2026-09-06T07:05:58Z",
+  "updatedAt": "2026-09-07T05:26:35Z",
   "url": "https://github.com/amervitz/xRM-Portals-Community-Edition",
   "codeOfConduct": null,
   "forkCount": 63,
@@ -39,7 +39,9 @@
   },
   "topics": [
     "dynamics-365",
-    "cms"
+    "cms",
+    "dataverse",
+    "powerpages"
   ],
   "languages": [
     "C#",
@@ -58,6 +60,6 @@
   "openedToContributionsIssues": 19,
   "popularityScore": 114,
   "_schemaVersion": "1.0.0",
-  "_generatedAt": "2026-09-06T11:12:19.877Z",
-  "_workflowRunId": "34029541777"
+  "_generatedAt": "2026-09-07T11:15:15.307Z",
+  "_workflowRunId": "34115627273"
 }
