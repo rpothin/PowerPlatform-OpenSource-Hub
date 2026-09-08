@@ -78,7 +78,9 @@ export default defineConfig({
 
   /* Run your local dev server before starting the tests */
   webServer: {
-    command: process.env.CI ? 'cd ../../ && npm run serve' : 'cd ../../ && npm run build && npm run serve',
+    command: process.env.CI
+      ? 'cd ../../ && npm run serve -- --host 0.0.0.0'
+      : 'cd ../../ && npm run build && npm run serve -- --host 0.0.0.0',
     url: 'http://127.0.0.1:3000',
     reuseExistingServer: !process.env.CI,
     /* Allow up to 3 minutes for build + serve to become ready. */
