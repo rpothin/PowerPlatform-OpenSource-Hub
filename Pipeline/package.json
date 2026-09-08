@@ -16,7 +16,7 @@
     "generate:live": "npm run build --silent && node dist/cli.js generate --live --output .\\Output\\GitHubRepositoriesDetails.json --metrics .\\Output\\metrics.json"
   },
   "dependencies": {
-    "@octokit/plugin-retry": "^8.0.1",
+    "@octokit/plugin-retry": "^8.1.1",
     "@octokit/plugin-throttling": "^11.0.1",
     "@octokit/rest": "^22.0.0",
     "ajv": "^8.17.1"
