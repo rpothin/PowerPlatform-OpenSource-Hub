@@ -22,7 +22,27 @@ updates:
 
   # Enable version updates for package.json files of the Website
   - package-ecosystem: "npm"
-    directory: "/"
+    directory: "/Website"
+    schedule:
+      interval: "daily"
+    assignees:
+      - "rpothin"
+    commit-message:
+      prefix: "npm-version-update"
+
+  # Enable version updates for the TypeScript pipeline
+  - package-ecosystem: "npm"
+    directory: "/Pipeline"
+    schedule:
+      interval: "daily"
+    assignees:
+      - "rpothin"
+    commit-message:
+      prefix: "npm-version-update"
+
+  # Enable version updates for the Playwright UI test project
+  - package-ecosystem: "npm"
+    directory: "/Website/tests/user_interface"
     schedule:
       interval: "daily"
     assignees:

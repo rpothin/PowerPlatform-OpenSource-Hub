@@ -44,6 +44,10 @@ on:
       - '!README.md'
   workflow_dispatch:
 
+permissions:
+  contents: read
+  security-events: write
+
 # Concurrency configuration for the current workflow - Keep only the latest workflow queued for the considered group and the considered issue
 concurrency:
   group: build-deploy-website-${{ github.event.pull_request.number || github.ref }}
@@ -52,6 +56,8 @@ concurrency:
 jobs:
   build-deploy-website:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
     env:
       RUNNER_DEBUG: 1
@@ -59,11 +65,13 @@ jobs:
     steps:
       # Checkout the repository content
       #   Action: https://github.com/actions/checkout
-      - uses: actions/checkout@v7
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          persist-credentials: false
       
       # Setup Node.js
       #  Action: https://github.com/actions/setup-node
-      - uses: actions/setup-node@v7
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7
         with:
           node-version: 20
           cache: npm
@@ -73,7 +81,7 @@ jobs:
       - name: Install dependencies
         working-directory: Website
         run: |
-          npm ci
+          npm ci --ignore-scripts
 
       # Type-check the website code
       - name: Type-check website
@@ -97,7 +105,7 @@ jobs:
       - name: Install Playwright test dependencies
         working-directory: Website/tests/user_interface
         run: |
-          npm ci
+          npm ci --ignore-scripts
 
       # Install Playwright Browsers
       - name: Install Playwright Browsers
@@ -113,7 +121,7 @@ jobs:
 
       # Upload Playwright test results to workflow run artifacts
       - name: Upload user interface tests report
-        uses: actions/upload-artifact@v7
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
         if: always()
         with:
           name: UserInterfaceTestsReport
@@ -122,27 +130,16 @@ jobs:
       # Push the built website to the workflow artifacts
       #   Action: https://docs.github.com/en/free-pro-team@latest/actions/guides/storing-workflow-data-as-artifacts
       - name: Upload website
-        uses: actions/upload-artifact@v7
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
         with:
           name: Website
           path: Website/build
 
-      # Deploy website to GitHub Pages
-      #   Docs: https://github.com/peaceiris/actions-gh-pages#%EF%B8%8F-docusaurus
-      - name: Deploy to GitHub Pages
-        if: >
-          (github.event_name == 'push' && github.ref == 'refs/heads/main') ||
-          (github.event_name == 'workflow_run' && github.event.workflow_run.head_branch == 'main') ||
-          github.event_name == 'workflow_dispatch'
-        uses: peaceiris/actions-gh-pages@v4
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./Website/build
-          user_name: 'github-actions[bot]'
-          user_email: 'github-actions[bot]@users.noreply.github.com'
-
   codeql-analysis:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      security-events: write
     env:
       RUNNER_DEBUG: 1
         
@@ -150,12 +147,14 @@ jobs:
       # Checkout the repository content
       #   Action: https://github.com/actions/checkout
       - name: Checkout repository
-        uses: actions/checkout@v7
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          persist-credentials: false
         
       # Initializes the CodeQL tools for scanning.
       #   Action: https://github.com/github/codeql-action
       - name: Initialize CodeQL
-        uses: github/codeql-action/init@v4.37.9
+        uses: github/codeql-action/init@cdf488f595d80d6e07e03d4674febd5ab45fa938 # v4.37.9
         with:
           languages: 'javascript' # Set the language of your project here
 
@@ -163,9 +162,34 @@ jobs:
       # If this step fails, then you should remove it and run the build manually (see below)
       #   Action: https://github.com/github/codeql-action
       - name: Autobuild
-        uses: github/codeql-action/autobuild@v4.37.9
+        uses: github/codeql-action/autobuild@cdf488f595d80d6e07e03d4674febd5ab45fa938 # v4.37.9
         
       # Perform CodeQL Analysis
       #   Action: https://github.com/github/codeql-action
       - name: Perform CodeQL Analysis
-        uses: github/codeql-action/analyze@v4.37.9
+        uses: github/codeql-action/analyze@cdf488f595d80d6e07e03d4674febd5ab45fa938 # v4.37.9
+
+  deploy-website:
+    needs: build-deploy-website
+    if: >
+      (github.event_name == 'push' && github.ref == 'refs/heads/main') ||
+      (github.event_name == 'workflow_run' && github.event.workflow_run.head_branch == 'main') ||
+      (github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/main')
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Download website artifact
+        uses: actions/download-artifact@37930b1c2abaa49bbe596cd826c3c89aef350131 # v7
+        with:
+          name: Website
+          path: Website/build
+
+      # Deploy website to GitHub Pages from a trusted, write-capable job.
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@84c30a85c19949d7eee79c4ff27748b70285e453 # v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./Website/build
+          user_name: 'github-actions[bot]'
+          user_email: 'github-actions[bot]@users.noreply.github.com'

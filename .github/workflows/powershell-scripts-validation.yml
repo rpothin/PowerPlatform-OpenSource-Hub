@@ -39,7 +39,9 @@ jobs:
       # Action used to checkout the main branch in the current repository
       #   Community action: https://github.com/actions/checkout
       - name: Checkout
-        uses: actions/checkout@v7
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          persist-credentials: false
 
       - name: Validate repository details data
         run: |
@@ -95,8 +97,6 @@ jobs:
             Invoke-Pester -EnableExit
           }
         shell: pwsh
-        env:
-          GITHUB_TOKEN: ${{ secrets.PAT_ACCESS_PUBLIC_GITHUB_REPOSITORIES }}
 
   PSScriptAnalyzer:
     runs-on: ubuntu-latest
@@ -107,7 +107,9 @@ jobs:
       # Action used to checkout the main branch in the current repository
       #   Community action: https://github.com/actions/checkout
       - name: Checkout
-        uses: actions/checkout@v7
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          persist-credentials: false
 
       # Run PSScriptAnalyzer on all *.ps1 files
       # Note: microsoft/psscriptanalyzer-action@v1.1 requires ConvertToSARIF which is no longer
@@ -120,7 +122,15 @@ jobs:
             Install-Module -Name PSScriptAnalyzer -Force
           }
 
-          $results = @(Invoke-ScriptAnalyzer -Path .\ -Recurse)
+          # Keep SARIF focused on actionable script defects; these style rules
+          # are tracked separately and otherwise overwhelm security findings.
+          $excludedRules = @(
+            'PSAvoidGlobalVars',
+            'PSUseDeclaredVarsMoreThanAssignments',
+            'PSUseSingularNouns',
+            'PSUseBOMForUnicodeEncodedFile'
+          )
+          $results = @(Invoke-ScriptAnalyzer -Path .\ -Recurse -ExcludeRule $excludedRules)
 
           $sarifResults = $results | ForEach-Object {
             $physicalLocation = @{
@@ -189,7 +199,7 @@ jobs:
       # Upload the results of the PSScriptAnalyzerResults execution
       #   Action: https://github.com/actions/upload-artifact
       - name: Upload PSScriptAnalyzer Results
-        uses: actions/upload-artifact@v7
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
         with:
           name: PSScriptAnalyzerResults
           path: results.sarif
@@ -197,6 +207,6 @@ jobs:
       # Upload the SARIF file generated in the previous step
       #   Community action: https://github.com/github/codeql-action
       - name: Upload SARIF results file
-        uses: github/codeql-action/upload-sarif@v4.37.9
+        uses: github/codeql-action/upload-sarif@cdf488f595d80d6e07e03d4674febd5ab45fa938 # v4.37.9
         with:
           sarif_file: results.sarif

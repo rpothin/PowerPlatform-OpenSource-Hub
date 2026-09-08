@@ -8,6 +8,9 @@ on:
       - cron: '0 15 * * 2' # Every Tuesday at 11:00 AM EST
     workflow_dispatch:
 
+permissions:
+  contents: write
+
 # Concurrency configuration for the current workflow - Keep only the latest workflow queued for the considered group
 concurrency:
   group: update-clean-website-dependencies
@@ -23,7 +26,9 @@ jobs:
             # Action used to checkout the main branch in the current repository
             #   Community action: https://github.com/actions/checkout
             - name: Checkout
-              uses: actions/checkout@v7
+              uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+              with:
+                persist-credentials: false
 
             # Set a current date environment variable in the following format: YYYYMMDD
             - name: Set current date as env variable
@@ -33,7 +38,7 @@ jobs:
 
             # Setup Node.js
             #  Action: https://github.com/actions/setup-node
-            - uses: actions/setup-node@v7
+            - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7
               with:
                 node-version: 20
 
@@ -41,16 +46,16 @@ jobs:
             - name: Install dependencies and update dependencies
               working-directory: Website
               run: |
-                npm install -g npm-check-updates
-                npm ci
+                npm install --global --ignore-scripts npm-check-updates@23.1.0
+                npm ci --ignore-scripts
                 ncu -u
-                npm install
+                npm install --ignore-scripts
 
             # Remove unused dependencies
             - name: Remove unused dependencies
               working-directory: Website
               run: |
-                npm install -g depcheck
+                npm install --global --ignore-scripts depcheck@1.4.7
                 depcheck || true
                 unused=$(depcheck --json | jq -r '.dependencies[]')
                 if [ -z "$unused" ]; then
@@ -79,7 +84,7 @@ jobs:
                 if git diff --quiet && git diff --staged --quiet; then
                     echo "No changes to commit"
                 else
-                    git add .
+                    git add Website/package.json Website/package-lock.json
                     git commit -m "Automated update of dependencies, removal of unused dependencies and tests - ${{ steps.current_date.outputs.NOW }}.${{ github.run_number }}"
-                    git push
+                    git -c http.extraheader="AUTHORIZATION: bearer ${{ secrets.GITHUB_TOKEN }}" push
                 fi
