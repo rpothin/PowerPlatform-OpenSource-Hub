@@ -47,7 +47,9 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v7
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          persist-credentials: false
 
       - name: Validate shadow-run inputs
         run: |
@@ -55,6 +57,10 @@ jobs:
           normalized_baseline="${BASELINE_PATH//\\//}"
           if [[ "$normalized_baseline" == /* || "$normalized_baseline" == *".."* ]]; then
             echo "::error::baseline_path must stay within the checked-out repository."
+            exit 1
+          fi
+          if [[ "$TYPESCRIPT_MODE" == "live" && "$GITHUB_REF" != "refs/heads/main" ]]; then
+            echo "::error::Live TypeScript generation is only permitted from the main branch."
             exit 1
           fi
           echo "BASELINE_PATH=$normalized_baseline" >> "$GITHUB_ENV"
@@ -76,7 +82,7 @@ jobs:
 
       - name: Set up Node.js
         if: ${{ inputs.typescript_mode != 'skip' || inputs.compare_with_baseline }}
-        uses: actions/setup-node@v7
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7
         with:
           node-version: 20
           cache: npm
@@ -85,7 +91,7 @@ jobs:
       - name: Install TypeScript candidate dependencies
         if: ${{ inputs.typescript_mode != 'skip' || inputs.compare_with_baseline }}
         working-directory: Pipeline
-        run: npm ci
+        run: npm ci --ignore-scripts
 
       - name: Build TypeScript candidate CLI
         if: ${{ inputs.typescript_mode != 'skip' || inputs.compare_with_baseline }}
@@ -93,10 +99,10 @@ jobs:
         run: npm run build
 
       - name: Run TypeScript candidate shadow generation
-        if: ${{ inputs.typescript_mode != 'skip' }}
+        if: ${{ inputs.typescript_mode != 'skip' && (inputs.typescript_mode != 'live' || github.ref == 'refs/heads/main') }}
         working-directory: Pipeline
         env:
-          GITHUB_TOKEN: ${{ secrets.PAT_ACCESS_PUBLIC_GITHUB_REPOSITORIES || github.token }}
+          GITHUB_TOKEN: ${{ inputs.typescript_mode == 'live' && secrets.PAT_ACCESS_PUBLIC_GITHUB_REPOSITORIES || '' }}
         run: |
           set -euo pipefail
           mkdir -p Output/shadow/GeneratedRepositories Output/shadow/CuratedRepositories
@@ -239,7 +245,7 @@ jobs:
 
       - name: Upload shadow validation artifacts
         if: ${{ always() }}
-        uses: actions/upload-artifact@v7
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
         with:
           name: backend-pipeline-manual-validation-${{ github.run_id }}
           path: |
