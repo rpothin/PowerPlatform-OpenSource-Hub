@@ -61,6 +61,7 @@
     "node": ">=18.0"
   },
   "overrides": {
+    "image-size": "npm:image-size-next@2.1.1",
     "qs": "6.16.0",
     "serialize-javascript": ">=7.0.5",
     "uuid": ">=11.1.1"
