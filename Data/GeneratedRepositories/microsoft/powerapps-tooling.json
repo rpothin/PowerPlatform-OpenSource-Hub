@@ -13,7 +13,7 @@
     "url": "https://api.github.com/licenses/mit"
   },
   "name": "PowerApps-Tooling",
-  "openIssuesCount": 3,
+  "openIssuesCount": 4,
   "owner": {
     "id": "6154722",
     "is_bot": false,
@@ -28,15 +28,15 @@
     "name": "Other",
     "url": "https://github.com/microsoft/PowerApps-Tooling/blob/master/CODE_OF_CONDUCT.md"
   },
-  "forkCount": 123,
+  "forkCount": 124,
   "fundingLinks": [],
-  "isSecurityPolicyEnabled": true,
+  "isSecurityPolicyEnabled": false,
   "isTemplate": false,
   "latestRelease": null,
   "primaryLanguage": {
     "name": "C#"
   },
-  "securityPolicyUrl": "https://github.com/microsoft/PowerApps-Tooling/security/policy",
+  "securityPolicyUrl": null,
   "stargazerCount": 442,
   "watchers": {
     "totalCount": 50
@@ -61,6 +61,6 @@
   "openedToContributionsIssues": 0,
   "popularityScore": 492,
   "_schemaVersion": "1.0.0",
-  "_generatedAt": "2026-09-16T11:15:08.994Z",
-  "_workflowRunId": "35089279105"
+  "_generatedAt": "2026-09-17T11:14:59.906Z",
+  "_workflowRunId": "35214658242"
 }
