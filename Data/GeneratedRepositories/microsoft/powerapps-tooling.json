@@ -13,7 +13,7 @@
     "url": "https://api.github.com/licenses/mit"
   },
   "name": "PowerApps-Tooling",
-  "openIssuesCount": 4,
+  "openIssuesCount": 3,
   "owner": {
     "id": "6154722",
     "is_bot": false,
@@ -21,7 +21,7 @@
     "type": "Organization",
     "url": "https://github.com/microsoft"
   },
-  "updatedAt": "2026-09-16T08:53:45Z",
+  "updatedAt": "2026-09-17T16:10:40Z",
   "url": "https://github.com/microsoft/PowerApps-Tooling",
   "codeOfConduct": {
     "key": "other",
@@ -30,13 +30,13 @@
   },
   "forkCount": 124,
   "fundingLinks": [],
-  "isSecurityPolicyEnabled": false,
+  "isSecurityPolicyEnabled": true,
   "isTemplate": false,
   "latestRelease": null,
   "primaryLanguage": {
     "name": "C#"
   },
-  "securityPolicyUrl": null,
+  "securityPolicyUrl": "https://github.com/microsoft/PowerApps-Tooling/security/policy",
   "stargazerCount": 442,
   "watchers": {
     "totalCount": 50
@@ -61,6 +61,6 @@
   "openedToContributionsIssues": 0,
   "popularityScore": 492,
   "_schemaVersion": "1.0.0",
-  "_generatedAt": "2026-09-17T11:14:59.906Z",
-  "_workflowRunId": "35214658242"
+  "_generatedAt": "2026-09-18T11:14:27.465Z",
+  "_workflowRunId": "35338595125"
 }

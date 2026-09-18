@@ -30,7 +30,7 @@
   },
   "forkCount": 88,
   "fundingLinks": [],
-  "isSecurityPolicyEnabled": false,
+  "isSecurityPolicyEnabled": true,
   "isTemplate": false,
   "latestRelease": {
     "name": "Updated pac cli to 2.7, node to V24",
@@ -41,7 +41,7 @@
   "primaryLanguage": {
     "name": "TypeScript"
   },
-  "securityPolicyUrl": null,
+  "securityPolicyUrl": "https://github.com/microsoft/powerplatform-actions/security/policy",
   "stargazerCount": 301,
   "watchers": {
     "totalCount": 30
@@ -63,6 +63,6 @@
   "openedToContributionsIssues": 0,
   "popularityScore": 331,
   "_schemaVersion": "1.0.0",
-  "_generatedAt": "2026-09-17T11:14:59.906Z",
-  "_workflowRunId": "35214658242"
+  "_generatedAt": "2026-09-18T11:14:27.465Z",
+  "_workflowRunId": "35338595125"
 }
