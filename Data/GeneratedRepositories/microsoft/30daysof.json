@@ -13,7 +13,7 @@
     "url": "https://api.github.com/licenses/mit"
   },
   "name": "30daysof",
-  "openIssuesCount": 36,
+  "openIssuesCount": 37,
   "owner": {
     "id": "6154722",
     "is_bot": false,
@@ -30,13 +30,13 @@
   },
   "forkCount": 62,
   "fundingLinks": [],
-  "isSecurityPolicyEnabled": true,
+  "isSecurityPolicyEnabled": false,
   "isTemplate": false,
   "latestRelease": null,
   "primaryLanguage": {
     "name": "JavaScript"
   },
-  "securityPolicyUrl": "https://github.com/microsoft/30daysof/security/policy",
+  "securityPolicyUrl": null,
   "stargazerCount": 183,
   "watchers": {
     "totalCount": 26
@@ -60,6 +60,6 @@
   "openedToContributionsIssues": 0,
   "popularityScore": 209,
   "_schemaVersion": "1.0.0",
-  "_generatedAt": "2026-09-24T11:15:24.766Z",
-  "_workflowRunId": "35991896654"
+  "_generatedAt": "2026-09-25T11:15:17.685Z",
+  "_workflowRunId": "36128345688"
 }

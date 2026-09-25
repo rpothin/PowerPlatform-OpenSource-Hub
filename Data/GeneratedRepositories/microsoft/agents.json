@@ -13,7 +13,7 @@
     "url": "https://api.github.com/licenses/mit"
   },
   "name": "Agents",
-  "openIssuesCount": 114,
+  "openIssuesCount": 115,
   "owner": {
     "id": "6154722",
     "is_bot": false,
@@ -21,23 +21,23 @@
     "type": "Organization",
     "url": "https://github.com/microsoft"
   },
-  "updatedAt": "2026-09-23T10:32:52Z",
+  "updatedAt": "2026-09-25T04:19:11Z",
   "url": "https://github.com/microsoft/Agents",
   "codeOfConduct": {
     "key": "other",
     "name": "Other",
     "url": "https://github.com/microsoft/Agents/blob/main/CODE_OF_CONDUCT.md"
   },
-  "forkCount": 341,
+  "forkCount": 343,
   "fundingLinks": [],
-  "isSecurityPolicyEnabled": true,
+  "isSecurityPolicyEnabled": false,
   "isTemplate": false,
   "latestRelease": null,
   "primaryLanguage": {
     "name": "TypeSpec"
   },
-  "securityPolicyUrl": "https://github.com/microsoft/Agents/security/policy",
-  "stargazerCount": 1072,
+  "securityPolicyUrl": null,
+  "stargazerCount": 1073,
   "watchers": {
     "totalCount": 29
   },
@@ -64,8 +64,8 @@
   "openedHelpWantedIssues": 0,
   "hasHelpWantedIssues": false,
   "openedToContributionsIssues": 0,
-  "popularityScore": 1101,
+  "popularityScore": 1102,
   "_schemaVersion": "1.0.0",
-  "_generatedAt": "2026-09-24T11:15:24.766Z",
-  "_workflowRunId": "35991896654"
+  "_generatedAt": "2026-09-25T11:15:17.685Z",
+  "_workflowRunId": "36128345688"
 }
