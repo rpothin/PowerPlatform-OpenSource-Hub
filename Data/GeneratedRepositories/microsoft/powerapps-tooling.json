@@ -30,13 +30,13 @@
   },
   "forkCount": 124,
   "fundingLinks": [],
-  "isSecurityPolicyEnabled": false,
+  "isSecurityPolicyEnabled": true,
   "isTemplate": false,
   "latestRelease": null,
   "primaryLanguage": {
     "name": "C#"
   },
-  "securityPolicyUrl": null,
+  "securityPolicyUrl": "https://github.com/microsoft/PowerApps-Tooling/security/policy",
   "stargazerCount": 444,
   "watchers": {
     "totalCount": 50
@@ -61,6 +61,6 @@
   "openedToContributionsIssues": 0,
   "popularityScore": 494,
   "_schemaVersion": "1.0.0",
-  "_generatedAt": "2026-09-25T11:15:17.685Z",
-  "_workflowRunId": "36128345688"
+  "_generatedAt": "2026-09-26T11:12:53.132Z",
+  "_workflowRunId": "36238107206"
 }
