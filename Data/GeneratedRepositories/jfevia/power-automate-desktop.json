@@ -6,7 +6,7 @@
   "hasIssues": false,
   "homepage": "",
   "isArchived": false,
-  "language": "",
+  "language": "PowerShell",
   "license": null,
   "name": "Power-Automate-Desktop",
   "openIssuesCount": 1,
@@ -17,7 +17,7 @@
     "type": "User",
     "url": "https://github.com/jfevia"
   },
-  "updatedAt": "2026-06-29T08:47:51Z",
+  "updatedAt": "2026-09-26T16:21:18Z",
   "url": "https://github.com/jfevia/Power-Automate-Desktop",
   "codeOfConduct": null,
   "forkCount": 1,
@@ -30,7 +30,9 @@
     "url": "https://github.com/jfevia/Power-Automate-Desktop/releases/tag/v2.72.00183.26250",
     "publishedAt": "2026-09-18T01:42:24Z"
   },
-  "primaryLanguage": null,
+  "primaryLanguage": {
+    "name": "PowerShell"
+  },
   "securityPolicyUrl": null,
   "stargazerCount": 12,
   "watchers": {
@@ -42,7 +44,9 @@
     "power-platform",
     "releases"
   ],
-  "languages": [],
+  "languages": [
+    "PowerShell"
+  ],
   "openedGoodFirstIssues": 0,
   "hasGoodFirstIssues": false,
   "openedHelpWantedIssues": 0,
@@ -50,6 +54,6 @@
   "openedToContributionsIssues": 0,
   "popularityScore": 13,
   "_schemaVersion": "1.0.0",
-  "_generatedAt": "2026-09-26T11:12:53.132Z",
-  "_workflowRunId": "36238107206"
+  "_generatedAt": "2026-09-27T11:13:31.486Z",
+  "_workflowRunId": "36315023498"
 }
