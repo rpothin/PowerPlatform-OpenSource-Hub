@@ -1,6 +1,6 @@
 {
   "createdAt": "2026-01-21T18:25:14Z",
-  "description": "A plugin marketplace for Claude Code/GitHub Copilot that provides Power Platform development plugins, including reusable skills, agents, and commands for building and deploying solutions.",
+  "description": "A plugin marketplace for GitHub Copilot and other AI agents that provides Power Platform development plugins, including reusable skills, agents, and commands for building and deploying solutions.",
   "fullName": "microsoft/power-platform-skills",
   "repositoryId": 1139262569,
   "hasIssues": true,
@@ -13,7 +13,7 @@
     "url": "https://api.github.com/licenses/mit"
   },
   "name": "power-platform-skills",
-  "openIssuesCount": 150,
+  "openIssuesCount": 146,
   "owner": {
     "id": "6154722",
     "is_bot": false,
@@ -21,7 +21,7 @@
     "type": "Organization",
     "url": "https://github.com/microsoft"
   },
-  "updatedAt": "2026-09-28T07:50:57Z",
+  "updatedAt": "2026-09-29T08:11:47Z",
   "url": "https://github.com/microsoft/power-platform-skills",
   "codeOfConduct": {
     "key": "other",
@@ -30,14 +30,14 @@
   },
   "forkCount": 191,
   "fundingLinks": [],
-  "isSecurityPolicyEnabled": false,
+  "isSecurityPolicyEnabled": true,
   "isTemplate": false,
   "latestRelease": null,
   "primaryLanguage": {
     "name": "JavaScript"
   },
-  "securityPolicyUrl": null,
-  "stargazerCount": 940,
+  "securityPolicyUrl": "https://github.com/microsoft/power-platform-skills/security/policy",
+  "stargazerCount": 941,
   "watchers": {
     "totalCount": 12
   },
@@ -64,8 +64,8 @@
   "openedHelpWantedIssues": 0,
   "hasHelpWantedIssues": false,
   "openedToContributionsIssues": 0,
-  "popularityScore": 952,
+  "popularityScore": 953,
   "_schemaVersion": "1.0.0",
-  "_generatedAt": "2026-09-28T11:16:05.458Z",
-  "_workflowRunId": "36414596764"
+  "_generatedAt": "2026-09-29T11:15:51.632Z",
+  "_workflowRunId": "36560604195"
 }
