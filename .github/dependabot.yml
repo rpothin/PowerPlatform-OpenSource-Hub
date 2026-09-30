@@ -29,6 +29,10 @@ updates:
       - "rpothin"
     commit-message:
       prefix: "npm-version-update"
+    groups:
+      babel:
+        patterns:
+          - "@babel/*"
 
   # Enable version updates for the TypeScript pipeline
   - package-ecosystem: "npm"
@@ -39,6 +43,10 @@ updates:
       - "rpothin"
     commit-message:
       prefix: "npm-version-update"
+    groups:
+      babel:
+        patterns:
+          - "@babel/*"
 
   # Enable version updates for the Playwright UI test project
   - package-ecosystem: "npm"
