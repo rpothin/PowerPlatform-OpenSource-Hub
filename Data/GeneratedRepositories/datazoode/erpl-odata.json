@@ -1,7 +1,7 @@
 {
   "createdAt": "2024-06-02T16:16:16Z",
   "description": "ERPL is a DuckDB extension to connect to API based ecosystems via standard interfaces like OData, GraphQL and REST. This works e.g. for SAP ERP, SAP Ariba, SAP C4C, Microsoft Dynamics and many more.",
-  "fullName": "DataZooDE/erpl-web",
+  "fullName": "DataZooDE/erpl-odata",
   "repositoryId": 809415290,
   "hasIssues": true,
   "homepage": "https://erpl.io",
@@ -12,7 +12,7 @@
     "name": "Other",
     "url": ""
   },
-  "name": "erpl-web",
+  "name": "erpl-odata",
   "openIssuesCount": 6,
   "owner": {
     "id": "136052936",
@@ -21,8 +21,8 @@
     "type": "Organization",
     "url": "https://github.com/DataZooDE"
   },
-  "updatedAt": "2026-09-25T03:25:24Z",
-  "url": "https://github.com/DataZooDE/erpl-web",
+  "updatedAt": "2026-09-30T03:48:58Z",
+  "url": "https://github.com/DataZooDE/erpl-odata",
   "codeOfConduct": null,
   "forkCount": 4,
   "fundingLinks": [],
@@ -31,7 +31,7 @@
   "latestRelease": {
     "name": "v2026.09.24",
     "tagName": "v2026.09.24",
-    "url": "https://github.com/DataZooDE/erpl-web/releases/tag/v2026.09.24",
+    "url": "https://github.com/DataZooDE/erpl-odata/releases/tag/v2026.09.24",
     "publishedAt": "2026-09-24T06:44:04Z"
   },
   "primaryLanguage": {
@@ -69,6 +69,6 @@
   "openedToContributionsIssues": 0,
   "popularityScore": 33,
   "_schemaVersion": "1.0.0",
-  "_generatedAt": "2026-09-29T11:15:51.632Z",
-  "_workflowRunId": "36560604195"
+  "_generatedAt": "2026-09-30T11:14:55.629Z",
+  "_workflowRunId": "36707315322"
 }

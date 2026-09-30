@@ -13,7 +13,7 @@
     "url": "https://api.github.com/licenses/mit"
   },
   "name": "power-platform-skills",
-  "openIssuesCount": 146,
+  "openIssuesCount": 152,
   "owner": {
     "id": "6154722",
     "is_bot": false,
@@ -21,7 +21,7 @@
     "type": "Organization",
     "url": "https://github.com/microsoft"
   },
-  "updatedAt": "2026-09-29T08:11:47Z",
+  "updatedAt": "2026-09-30T00:14:37Z",
   "url": "https://github.com/microsoft/power-platform-skills",
   "codeOfConduct": {
     "key": "other",
@@ -30,16 +30,16 @@
   },
   "forkCount": 191,
   "fundingLinks": [],
-  "isSecurityPolicyEnabled": true,
+  "isSecurityPolicyEnabled": false,
   "isTemplate": false,
   "latestRelease": null,
   "primaryLanguage": {
     "name": "JavaScript"
   },
-  "securityPolicyUrl": "https://github.com/microsoft/power-platform-skills/security/policy",
-  "stargazerCount": 941,
+  "securityPolicyUrl": null,
+  "stargazerCount": 945,
   "watchers": {
-    "totalCount": 12
+    "totalCount": 13
   },
   "topics": [
     "claude-code-plugin",
@@ -64,8 +64,8 @@
   "openedHelpWantedIssues": 0,
   "hasHelpWantedIssues": false,
   "openedToContributionsIssues": 0,
-  "popularityScore": 953,
+  "popularityScore": 958,
   "_schemaVersion": "1.0.0",
-  "_generatedAt": "2026-09-29T11:15:51.632Z",
-  "_workflowRunId": "36560604195"
+  "_generatedAt": "2026-09-30T11:14:55.629Z",
+  "_workflowRunId": "36707315322"
 }
