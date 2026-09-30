@@ -1,5 +1,7 @@
 # TypeScript candidate pipeline
 
+<!-- CI validation coverage: this documentation path exercises the backend pipeline checks. -->
+
 This standalone package is the retained Phase 2 TypeScript + Octokit pipeline for generating `Data/GitHubRepositoriesDetails.json`-shaped records.
 
 ## Stack decision
