@@ -13,7 +13,7 @@
     "url": "https://api.github.com/licenses/mit"
   },
   "name": "Agents",
-  "openIssuesCount": 118,
+  "openIssuesCount": 121,
   "owner": {
     "id": "6154722",
     "is_bot": false,
@@ -30,13 +30,13 @@
   },
   "forkCount": 343,
   "fundingLinks": [],
-  "isSecurityPolicyEnabled": false,
+  "isSecurityPolicyEnabled": true,
   "isTemplate": false,
   "latestRelease": null,
   "primaryLanguage": {
     "name": "TypeScript"
   },
-  "securityPolicyUrl": null,
+  "securityPolicyUrl": "https://github.com/microsoft/Agents/security/policy",
   "stargazerCount": 1076,
   "watchers": {
     "totalCount": 29
@@ -67,6 +67,6 @@
   "openedToContributionsIssues": 0,
   "popularityScore": 1105,
   "_schemaVersion": "1.0.0",
-  "_generatedAt": "2026-10-01T11:15:30.636Z",
-  "_workflowRunId": "36854187105"
+  "_generatedAt": "2026-10-02T11:15:40.935Z",
+  "_workflowRunId": "36999981215"
 }

@@ -13,7 +13,7 @@
     "url": "https://api.github.com/licenses/mit"
   },
   "name": "AL",
-  "openIssuesCount": 143,
+  "openIssuesCount": 144,
   "owner": {
     "id": "6154722",
     "is_bot": false,
@@ -30,13 +30,13 @@
   },
   "forkCount": 284,
   "fundingLinks": [],
-  "isSecurityPolicyEnabled": false,
+  "isSecurityPolicyEnabled": true,
   "isTemplate": false,
   "latestRelease": null,
   "primaryLanguage": {
     "name": "PowerShell"
   },
-  "securityPolicyUrl": null,
+  "securityPolicyUrl": "https://github.com/microsoft/AL/security/policy",
   "stargazerCount": 882,
   "watchers": {
     "totalCount": 158
@@ -60,6 +60,6 @@
   "openedToContributionsIssues": 0,
   "popularityScore": 1040,
   "_schemaVersion": "1.0.0",
-  "_generatedAt": "2026-10-01T11:15:30.636Z",
-  "_workflowRunId": "36854187105"
+  "_generatedAt": "2026-10-02T11:15:40.935Z",
+  "_workflowRunId": "36999981215"
 }

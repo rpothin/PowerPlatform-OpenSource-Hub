@@ -13,7 +13,7 @@
     "url": "https://api.github.com/licenses/mit"
   },
   "name": "BCTech",
-  "openIssuesCount": 87,
+  "openIssuesCount": 88,
   "owner": {
     "id": "6154722",
     "is_bot": false,
@@ -21,7 +21,7 @@
     "type": "Organization",
     "url": "https://github.com/microsoft"
   },
-  "updatedAt": "2026-09-30T13:04:26Z",
+  "updatedAt": "2026-10-02T09:58:11Z",
   "url": "https://github.com/microsoft/BCTech",
   "codeOfConduct": {
     "key": "other",
@@ -30,7 +30,7 @@
   },
   "forkCount": 384,
   "fundingLinks": [],
-  "isSecurityPolicyEnabled": false,
+  "isSecurityPolicyEnabled": true,
   "isTemplate": false,
   "latestRelease": {
     "name": "D365BC Troubleshooting Guides (TSG)",
@@ -41,8 +41,8 @@
   "primaryLanguage": {
     "name": "AL"
   },
-  "securityPolicyUrl": null,
-  "stargazerCount": 743,
+  "securityPolicyUrl": "https://github.com/microsoft/BCTech/security/policy",
+  "stargazerCount": 744,
   "watchers": {
     "totalCount": 120
   },
@@ -62,8 +62,8 @@
   "openedHelpWantedIssues": 0,
   "hasHelpWantedIssues": false,
   "openedToContributionsIssues": 0,
-  "popularityScore": 863,
+  "popularityScore": 864,
   "_schemaVersion": "1.0.0",
-  "_generatedAt": "2026-10-01T11:15:30.636Z",
-  "_workflowRunId": "36854187105"
+  "_generatedAt": "2026-10-02T11:15:40.935Z",
+  "_workflowRunId": "36999981215"
 }
