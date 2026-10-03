@@ -1,58 +1,52 @@
 {
-  "createdAt": "2017-06-24T15:12:16Z",
-  "description": "",
-  "fullName": "ajkauffmann/ALCodeSamples",
-  "repositoryId": 95305123,
+  "createdAt": "2017-10-23T06:17:46Z",
+  "description": "[Work In Progress] Take backup of whole D365 organization or export multiple solutions.",
+  "fullName": "AshV/Dynamics365BulkSolutionExporter",
+  "repositoryId": 107939809,
   "hasIssues": true,
   "homepage": "",
   "isArchived": false,
-  "language": "Perl",
-  "license": {
-    "key": "mit",
-    "name": "MIT License",
-    "url": "https://api.github.com/licenses/mit"
-  },
-  "name": "ALCodeSamples",
+  "language": "C#",
+  "license": null,
+  "name": "Dynamics365BulkSolutionExporter",
   "openIssuesCount": 0,
   "owner": {
-    "id": "19155831",
+    "id": "7019016",
     "is_bot": false,
-    "login": "ajkauffmann",
+    "login": "AshV",
     "type": "User",
-    "url": "https://github.com/ajkauffmann"
+    "url": "https://github.com/AshV"
   },
-  "updatedAt": "2026-09-12T11:14:15Z",
-  "url": "https://github.com/ajkauffmann/ALCodeSamples",
+  "updatedAt": "2026-10-03T08:00:02Z",
+  "url": "https://github.com/AshV/Dynamics365BulkSolutionExporter",
   "codeOfConduct": null,
-  "forkCount": 23,
+  "forkCount": 1,
   "fundingLinks": [],
   "isSecurityPolicyEnabled": false,
   "isTemplate": false,
   "latestRelease": null,
   "primaryLanguage": {
-    "name": "Perl"
+    "name": "C#"
   },
   "securityPolicyUrl": null,
-  "stargazerCount": 24,
+  "stargazerCount": 32,
   "watchers": {
-    "totalCount": 5
+    "totalCount": 1
   },
   "topics": [
-    "dynamics-nav",
-    "al-language",
+    "dynamics-crm",
     "dynamics-365",
-    "visual-studio-code",
-    "msdyn365"
+    "solutions"
   ],
   "languages": [
-    "Perl"
+    "C#"
   ],
   "openedGoodFirstIssues": 0,
   "hasGoodFirstIssues": false,
   "openedHelpWantedIssues": 0,
   "hasHelpWantedIssues": false,
   "openedToContributionsIssues": 0,
-  "popularityScore": 29,
+  "popularityScore": 33,
   "_schemaVersion": "1.0.0",
   "_generatedAt": "2026-10-03T11:37:27.282Z",
   "_workflowRunId": "37120223204"

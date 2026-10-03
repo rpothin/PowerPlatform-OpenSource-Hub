@@ -21,7 +21,7 @@
     "type": "Organization",
     "url": "https://github.com/microsoft"
   },
-  "updatedAt": "2026-09-30T14:50:38Z",
+  "updatedAt": "2026-10-02T21:26:05Z",
   "url": "https://github.com/microsoft/Dataverse-skills",
   "codeOfConduct": {
     "key": "other",
@@ -32,10 +32,15 @@
   "fundingLinks": [],
   "isSecurityPolicyEnabled": true,
   "isTemplate": false,
-  "latestRelease": null,
+  "latestRelease": {
+    "name": "v1.15.0",
+    "tagName": "v1.15.0",
+    "url": "https://github.com/microsoft/Dataverse-skills/releases/tag/v1.15.0",
+    "publishedAt": "2026-10-02T23:08:51Z"
+  },
   "primaryLanguage": null,
   "securityPolicyUrl": "https://github.com/microsoft/Dataverse-skills/security/policy",
-  "stargazerCount": 236,
+  "stargazerCount": 237,
   "watchers": {
     "totalCount": 4
   },
@@ -47,7 +52,11 @@
     "mcp",
     "mcp-server",
     "plugin",
-    "power-platform"
+    "power-platform",
+    "gemini-cli-extension",
+    "finance-operations",
+    "power-apps",
+    "xpp"
   ],
   "languages": [],
   "openedGoodFirstIssues": 0,
@@ -55,8 +64,8 @@
   "openedHelpWantedIssues": 0,
   "hasHelpWantedIssues": false,
   "openedToContributionsIssues": 0,
-  "popularityScore": 240,
+  "popularityScore": 241,
   "_schemaVersion": "1.0.0",
-  "_generatedAt": "2026-10-02T11:15:40.935Z",
-  "_workflowRunId": "36999981215"
+  "_generatedAt": "2026-10-03T11:37:27.282Z",
+  "_workflowRunId": "37120223204"
 }
