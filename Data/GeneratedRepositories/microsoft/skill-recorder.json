@@ -1,6 +1,6 @@
 {
   "createdAt": "2026-07-29T18:16:14Z",
-  "description": "Desktop app that records your on-screen work session and uses the GitHub Copilot CLI to reconstruct it as an intent + ordered steps, then builds a reusable Skill or Automation for Microsoft Scout, Microsoft Copilot Cowork, or Copilot Studio.",
+  "description": "Desktop app that records your on-screen work session and uses the GitHub Copilot SDK to reconstruct it as an intent + ordered steps, then builds a reusable Skill or Automation for Microsoft Autopilots like Scout, Microsoft Copilot Cowork, or Copilot Studio.",
   "fullName": "microsoft/skill-recorder",
   "repositoryId": 1316443307,
   "hasIssues": true,
@@ -13,7 +13,7 @@
     "url": "https://api.github.com/licenses/mit"
   },
   "name": "skill-recorder",
-  "openIssuesCount": 42,
+  "openIssuesCount": 43,
   "owner": {
     "id": "6154722",
     "is_bot": false,
@@ -21,7 +21,7 @@
     "type": "Organization",
     "url": "https://github.com/microsoft"
   },
-  "updatedAt": "2026-10-06T08:38:54Z",
+  "updatedAt": "2026-10-07T09:24:23Z",
   "url": "https://github.com/microsoft/skill-recorder",
   "codeOfConduct": {
     "key": "other",
@@ -74,6 +74,6 @@
   "openedToContributionsIssues": 0,
   "popularityScore": 4214,
   "_schemaVersion": "1.0.0",
-  "_generatedAt": "2026-10-06T11:15:29.030Z",
-  "_workflowRunId": "37455134329"
+  "_generatedAt": "2026-10-07T11:15:06.522Z",
+  "_workflowRunId": "37612773713"
 }
