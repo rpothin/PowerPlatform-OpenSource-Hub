@@ -13,7 +13,7 @@
     "url": "https://api.github.com/licenses/ms-pl"
   },
   "name": "Dynamics-365-Workflow-Tools",
-  "openIssuesCount": 68,
+  "openIssuesCount": 1,
   "owner": {
     "id": "18124945",
     "is_bot": false,
@@ -21,22 +21,22 @@
     "type": "User",
     "url": "https://github.com/demianrasko"
   },
-  "updatedAt": "2026-10-07T05:16:05Z",
+  "updatedAt": "2026-10-08T02:54:31Z",
   "url": "https://github.com/demianrasko/Dynamics-365-Workflow-Tools",
   "codeOfConduct": {
     "key": "contributor_covenant",
     "name": "Contributor Covenant",
     "url": "https://github.com/demianrasko/Dynamics-365-Workflow-Tools/blob/master/CODE_OF_CONDUCT.md"
   },
-  "forkCount": 235,
+  "forkCount": 234,
   "fundingLinks": [],
   "isSecurityPolicyEnabled": false,
   "isTemplate": false,
   "latestRelease": {
-    "name": "Dynamics 365 Workflow Tools Solution 1.0.61.1",
-    "tagName": "1.0.61.1",
-    "url": "https://github.com/demianrasko/Dynamics-365-Workflow-Tools/releases/tag/1.0.61.1",
-    "publishedAt": "2021-01-29T20:40:49Z"
+    "name": "Dynamics 365 Workflow Tools Solution 1.0.101.0",
+    "tagName": "1.0.101.0",
+    "url": "https://github.com/demianrasko/Dynamics-365-Workflow-Tools/releases/tag/1.0.101.0",
+    "publishedAt": "2026-10-07T21:55:50Z"
   },
   "primaryLanguage": {
     "name": "C#"
@@ -44,7 +44,7 @@
   "securityPolicyUrl": null,
   "stargazerCount": 504,
   "watchers": {
-    "totalCount": 71
+    "totalCount": 67
   },
   "topics": [
     "dynamics-365",
@@ -59,16 +59,17 @@
   ],
   "languages": [
     "C#",
-    "HTML",
-    "JavaScript"
+    "PowerShell",
+    "Python",
+    "HTML"
   ],
   "openedGoodFirstIssues": 0,
   "hasGoodFirstIssues": false,
   "openedHelpWantedIssues": 0,
   "hasHelpWantedIssues": false,
   "openedToContributionsIssues": 0,
-  "popularityScore": 575,
+  "popularityScore": 571,
   "_schemaVersion": "1.0.0",
-  "_generatedAt": "2026-10-07T11:15:06.522Z",
-  "_workflowRunId": "37612773713"
+  "_generatedAt": "2026-10-08T11:16:18.240Z",
+  "_workflowRunId": "37768912406"
 }
