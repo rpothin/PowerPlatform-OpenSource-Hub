@@ -1,14 +1,14 @@
 name: 2-update-readme-with-github-repositories-details
 # Update the README with the details of the GitHub repositories
 
-# Workflow triggered when the repository details workflow completes successfully on main - but can also be triggered manually without input parameters
+# Workflow triggered when repository data changes on main - but can also be triggered manually without input parameters
 on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'Data/**'
   workflow_dispatch:
-  workflow_run:
-    workflows:
-      - 1-update-github-repositories-details
-    types:
-      - completed
 
 permissions:
   contents: read
@@ -21,7 +21,6 @@ concurrency:
 jobs:
   update-readme-with-github-repositories-details:
     runs-on: ubuntu-latest
-    if: ${{ github.event_name == 'workflow_dispatch' || (github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.head_branch == 'main') }}
     concurrency:
       group: main-repository-writers
       cancel-in-progress: false
