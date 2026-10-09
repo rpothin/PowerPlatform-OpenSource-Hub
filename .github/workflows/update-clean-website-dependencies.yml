@@ -9,7 +9,7 @@ on:
     workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
 
 # Concurrency configuration for the current workflow - Keep only the latest workflow queued for the considered group
 concurrency:
@@ -28,6 +28,8 @@ jobs:
             - name: Checkout
               uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
               with:
+                ref: main
+                fetch-depth: 0
                 persist-credentials: false
 
             # Set a current date environment variable in the following format: YYYYMMDD
@@ -76,15 +78,42 @@ jobs:
               run: |
                 npm run test:unit
 
-            # Commit and push if it's necessary
-            - name: Commit and push if it's necessary
+            - name: Open pull request for dependency updates
+              env:
+                GH_TOKEN: ${{ secrets.PAT_WORKFLOW_UPDATE }}
               run: |
+                set -euo pipefail
                 git config --local user.email "action@github.com"
                 git config --local user.name "GitHub Action"
-                if git diff --quiet && git diff --staged --quiet; then
-                    echo "No changes to commit"
+
+                git add Website/package.json Website/package-lock.json
+                if git diff --cached --quiet; then
+                    echo "No dependency changes to propose."
+                    exit 0
                 else
-                    git add Website/package.json Website/package-lock.json
-                    git commit -m "Automated update of dependencies, removal of unused dependencies and tests - ${{ steps.current_date.outputs.NOW }}.${{ github.run_number }}"
-                    git -c http.extraheader="AUTHORIZATION: bearer ${{ secrets.GITHUB_TOKEN }}" push
+                    diff_exit_code=$?
+                    if [ "$diff_exit_code" -ne 1 ]; then
+                        echo "::error::Unable to check staged dependency changes."
+                        exit "$diff_exit_code"
+                    fi
                 fi
+
+                if ! existing_branches=$(gh pr list --state open --base main --json headRefName --jq '.[] | select(.headRefName | startswith("automation/update-clean-website-dependencies-")) | .headRefName'); then
+                    echo "::error::Unable to check for an existing dependency-update pull request."
+                    exit 1
+                fi
+                if [ -n "$existing_branches" ]; then
+                    echo "::warning::An automated dependency-update pull request is already open; skipping this run."
+                    exit 0
+                fi
+
+                branch="automation/update-clean-website-dependencies-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}"
+                git switch -c "$branch"
+                git commit -m "Automated website dependency update - ${{ steps.current_date.outputs.NOW }}.${{ github.run_number }}"
+                gh auth setup-git
+                git push --set-upstream origin "$branch"
+                gh pr create \
+                    --base main \
+                    --head "$branch" \
+                    --title "Automated website dependency update - ${{ steps.current_date.outputs.NOW }}.${{ github.run_number }}" \
+                    --body "Automated website dependency maintenance. The workflow ran the website build and unit tests; review the dependency changes before merging."
