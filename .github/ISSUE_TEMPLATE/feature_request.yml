@@ -1,0 +1,40 @@
+name: Feature request
+description: Suggest an improvement to the Hub.
+title: "[Feature]: "
+body:
+  - type: markdown
+    attributes:
+      value: "Do not include credentials, private data, or unredacted sensitive logs."
+  - type: dropdown
+    id: area
+    attributes:
+      label: Affected area
+      options:
+        - Website
+        - Repository data
+        - TypeScript pipeline
+        - PowerShell scripts
+        - Documentation
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem or opportunity
+      description: What user need or limitation would this address?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed improvement
+      description: Describe the change you would like to see.
+    validations:
+      required: true
+  - type: textarea
+    id: context
+    attributes:
+      label: Additional context
+      description: Add relevant links or examples, with sensitive information removed.
+    validations:
+      required: false

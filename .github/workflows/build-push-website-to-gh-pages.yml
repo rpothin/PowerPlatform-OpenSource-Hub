@@ -1,26 +1,22 @@
 name: 4-build-push-website-to-gh-pages
 # Build and push the website to the gh-pages branch
 
-# Workflow triggered on every push in the "Website" folder or in the "Data/GitHubRepositoriesDetails.json" file in the main branch
+# Workflow triggered on Website and repository data changes merged to main
 # Also validates pull requests that touch the website or generated repository data before merge
 # Can also be triggered manually without input parameters
-# Also rebuilds after the weekly popularity-score snapshot completes successfully
 on:
-  workflow_run:
-    workflows: ["3-snapshot-github-repositories-popularity-score"]
-    types: [completed]
-    branches: [main]
   push:
     branches:
       - main
     paths:
       - 'Website/**'
       - 'Data/GitHubRepositoriesDetails.json'
+      - 'Data/GitHubRepositoriesPopularityScoresSnapshot.json'
+      - 'Data/GitHubRepositoriesPopularityScoresSnapshotMetadata.json'
       - '!.devcontainer/**'
       - '!.github/**'
       - '!.vscode/**'
       - '!Configuration/**'
-      - '!Data/GitHubRepositoriesPopularityScoresSnapshot.json'
       - '!Scripts/**'
       - '!.gitignore'
       - '!CODE_OF_CONDUCT.md'
@@ -32,11 +28,12 @@ on:
     paths:
       - 'Website/**'
       - 'Data/GitHubRepositoriesDetails.json'
+      - 'Data/GitHubRepositoriesPopularityScoresSnapshot.json'
+      - 'Data/GitHubRepositoriesPopularityScoresSnapshotMetadata.json'
       - '!.devcontainer/**'
       - '!.github/**'
       - '!.vscode/**'
       - '!Configuration/**'
-      - '!Data/GitHubRepositoriesPopularityScoresSnapshot.json'
       - '!Scripts/**'
       - '!.gitignore'
       - '!CODE_OF_CONDUCT.md'
@@ -58,7 +55,6 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: read
-    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
     env:
       RUNNER_DEBUG: 1
     
@@ -173,7 +169,6 @@ jobs:
     needs: build-deploy-website
     if: >
       (github.event_name == 'push' && github.ref == 'refs/heads/main') ||
-      (github.event_name == 'workflow_run' && github.event.workflow_run.head_branch == 'main') ||
       (github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/main')
     runs-on: ubuntu-latest
     permissions:

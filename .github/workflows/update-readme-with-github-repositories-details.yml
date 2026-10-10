@@ -1,17 +1,17 @@
 name: 2-update-readme-with-github-repositories-details
 # Update the README with the details of the GitHub repositories
 
-# Workflow triggered when the repository details workflow completes successfully on main - but can also be triggered manually without input parameters
+# Workflow triggered when repository data changes on main - but can also be triggered manually without input parameters
 on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'Data/**'
   workflow_dispatch:
-  workflow_run:
-    workflows:
-      - 1-update-github-repositories-details
-    types:
-      - completed
 
 permissions:
-  contents: write
+  contents: read
 
 # Concurrency configuration for the current workflow - Keep only the latest workflow queued for the considered group
 concurrency:
@@ -21,7 +21,6 @@ concurrency:
 jobs:
   update-readme-with-github-repositories-details:
     runs-on: ubuntu-latest
-    if: ${{ github.event_name == 'workflow_dispatch' || (github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.head_branch == 'main') }}
     concurrency:
       group: main-repository-writers
       cancel-in-progress: false
@@ -36,6 +35,7 @@ jobs:
         with:
           ref: main
           fetch-depth: 0
+          persist-credentials: false
 
       # Set a current date environment variable in the following format: YYYYMMDD
       - name: Set current date as env variable
@@ -120,13 +120,18 @@ jobs:
           Write-ReadmeTopGrowingRepositoriesSection -GitHubRepositoriesDetails $repositoriesDetails -GitHubRepositoriesPopularityScoresSnapshot $repositoriesPopularityScoresSnapshot
         shell: pwsh
 
-      # Push the changes in the current repository
-      - name: Push changes
+      - name: Open pull request for README changes
+        env:
+          GH_TOKEN: ${{ secrets.PAT_WORKFLOW_UPDATE }}
         run: |
-          git config --global user.name 'action@github.com'
-          git config --global user.email 'GitHub Action'
+          $ErrorActionPreference = "Stop"
+          git config --local user.name 'GitHub Action'
+          git config --local user.email 'action@github.com'
 
           git add -- README.md
+          if ($LASTEXITCODE -ne 0) {
+            throw "Unable to stage the generated README."
+          }
           git diff --cached --quiet
           $gitDiffExitCode = $LASTEXITCODE
 
@@ -134,9 +139,9 @@ jobs:
             Write-Host "README is already up to date."
             if ($env:GITHUB_STEP_SUMMARY) {
               @(
-                "### Push changes"
+                "### README pull request"
                 ""
-                "- README content did not change, so commit and push were skipped."
+                "- README content did not change, so no pull request was opened."
               ) | Add-Content -Path $env:GITHUB_STEP_SUMMARY
             }
             exit 0
@@ -146,55 +151,49 @@ jobs:
             throw "Unable to check staged README changes. git diff exited with code $gitDiffExitCode."
           }
 
-          git commit -m "Information regarding referenced GitHub repositories updated in README - ${{ steps.current_date.outputs.NOW }}.${{ github.run_number }}"
-
-          $pushSucceeded = $false
-          $usedRetry = $false
-          for ($attempt = 1; $attempt -le 2; $attempt++) {
-            $pushOutput = & git -c http.extraheader="AUTHORIZATION: Bearer ${{ secrets.GITHUB_TOKEN }}" push origin HEAD:main 2>&1
-            $pushExitCode = $LASTEXITCODE
-            $pushOutput | ForEach-Object { Write-Host $_ }
-
-            if ($pushExitCode -eq 0) {
-              $pushSucceeded = $true
-              break
-            }
-
-            $isFastForwardConflict = ($pushOutput | Out-String) -match 'fetch first|non-fast-forward|failed to push some refs'
-            if ($attempt -eq 2 -or -not $isFastForwardConflict) {
-              throw "Unable to push README changes. git push exited with code $pushExitCode."
-            }
-
-            $usedRetry = $true
-            Write-Warning "Remote main moved during push attempt $attempt. Fetching origin/main, rebasing, and retrying once."
+          $existingBranches = gh pr list --state open --base main --json headRefName --jq '.[] | select(.headRefName | startswith("automation/update-readme-with-github-repositories-details-")) | .headRefName'
+          if ($LASTEXITCODE -ne 0) {
+            throw "Unable to check for an existing README pull request."
+          }
+          if (-not [string]::IsNullOrWhiteSpace(($existingBranches -join ""))) {
+            Write-Warning "An automated README pull request is already open; skipping this run."
             if ($env:GITHUB_STEP_SUMMARY) {
               @(
-                "### Push retry"
+                "### README pull request"
                 ""
-                "- Push attempt $attempt was rejected because `main` moved."
-                "- Fetching `origin/main`, rebasing the README commit, and retrying once."
+                "- An existing automated pull request is still open; this run did not create a duplicate."
               ) | Add-Content -Path $env:GITHUB_STEP_SUMMARY
             }
-
-            & git fetch origin main 2>&1 | ForEach-Object { Write-Host $_ }
-            if ($LASTEXITCODE -ne 0) {
-              throw "Unable to fetch origin/main before retrying the README push."
-            }
-
-            & git rebase origin/main 2>&1 | ForEach-Object { Write-Host $_ }
-            if ($LASTEXITCODE -ne 0) {
-              & git rebase --abort 2>&1 | ForEach-Object { Write-Host $_ }
-              throw "Unable to rebase README changes onto origin/main before retrying the push."
-            }
+            exit 0
           }
 
-          if (-not $pushSucceeded) {
-            throw "Unable to push README changes after retrying."
+          $branch = "automation/update-readme-with-github-repositories-details-${{ github.run_id }}-${{ github.run_attempt }}"
+          $title = "Information regarding referenced GitHub repositories updated in README - ${{ steps.current_date.outputs.NOW }}.${{ github.run_number }}"
+          git switch --create $branch
+          if ($LASTEXITCODE -ne 0) {
+            throw "Unable to create the README pull-request branch."
           }
-
-          if ($usedRetry -and $env:GITHUB_STEP_SUMMARY) {
+          git commit -m $title
+          if ($LASTEXITCODE -ne 0) {
+            throw "Unable to commit the generated README changes."
+          }
+          gh auth setup-git
+          if ($LASTEXITCODE -ne 0) {
+            throw "Unable to configure GitHub CLI credentials for the README branch."
+          }
+          git push --set-upstream origin $branch
+          if ($LASTEXITCODE -ne 0) {
+            throw "Unable to push the README pull-request branch."
+          }
+          gh pr create --base main --head $branch --title $title --body "Automated README update based on repository data on main. Review generated documentation changes before merging."
+          if ($LASTEXITCODE -ne 0) {
+            throw "Unable to create the README pull request."
+          }
+          if ($env:GITHUB_STEP_SUMMARY) {
             @(
-              "- The retry path completed successfully and the rebased README commit was pushed to `main`."
+              "### README pull request"
+              ""
+              "- Opened pull request titled: $title; no changes were pushed to main."
             ) | Add-Content -Path $env:GITHUB_STEP_SUMMARY
           }
         shell: pwsh

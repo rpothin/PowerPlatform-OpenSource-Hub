@@ -11,7 +11,7 @@ on:
       - completed
 
 permissions:
-  contents: write
+  contents: read
 
 # Concurrency configuration for the current workflow - Keep only the latest workflow queued for the considered group
 concurrency:
@@ -37,6 +37,7 @@ jobs:
         with:
           ref: main
           fetch-depth: 0
+          persist-credentials: false
 
       # Set a current date environment variable in the following format: YYYYMMDD
       - name: Set current date as env variable
@@ -66,23 +67,28 @@ jobs:
             -MetadataOutputFilePath ".\$env:DATA_SNAPSHOT_METADATA_FILE_PATH"
         shell: pwsh
 
-      # Push the changes in the current repository
-      - name: Push changes
+      - name: Open pull request for popularity snapshot
+        env:
+          GH_TOKEN: ${{ secrets.PAT_WORKFLOW_UPDATE }}
         run: |
-          git config --global user.name 'action@github.com'
-          git config --global user.email 'GitHub Action'
+          $ErrorActionPreference = "Stop"
+          git config --local user.name 'GitHub Action'
+          git config --local user.email 'action@github.com'
 
           git add -- "${{ vars.DATA_SNAPSHOT_FILE_PATH }}" "$env:DATA_SNAPSHOT_METADATA_FILE_PATH"
+          if ($LASTEXITCODE -ne 0) {
+            throw "Unable to stage popularity snapshot files."
+          }
           git diff --cached --quiet
           $gitDiffExitCode = $LASTEXITCODE
 
           if ($gitDiffExitCode -eq 0) {
-            Write-Host "No popularity snapshot changes to commit."
+            Write-Host "No popularity snapshot changes to propose."
             if ($env:GITHUB_STEP_SUMMARY) {
               @(
-                "### Push changes"
+                "### Popularity snapshot pull request"
                 ""
-                "- Snapshot files were unchanged, so commit and push were skipped."
+                "- Snapshot files were unchanged, so no pull request was opened."
               ) | Add-Content -Path $env:GITHUB_STEP_SUMMARY
             }
             exit 0
@@ -92,55 +98,49 @@ jobs:
             throw "Unable to check staged snapshot changes. git diff exited with code $gitDiffExitCode."
           }
 
-          git commit -m "GitHub repositories popularity score updated - ${{ steps.current_date.outputs.NOW }}.${{ github.run_number }}"
-
-          $pushSucceeded = $false
-          $usedRetry = $false
-          for ($attempt = 1; $attempt -le 2; $attempt++) {
-            $pushOutput = & git -c http.extraheader="AUTHORIZATION: Bearer ${{ secrets.GITHUB_TOKEN }}" push origin HEAD:main 2>&1
-            $pushExitCode = $LASTEXITCODE
-            $pushOutput | ForEach-Object { Write-Host $_ }
-
-            if ($pushExitCode -eq 0) {
-              $pushSucceeded = $true
-              break
-            }
-
-            $isFastForwardConflict = ($pushOutput | Out-String) -match 'fetch first|non-fast-forward|failed to push some refs'
-            if ($attempt -eq 2 -or -not $isFastForwardConflict) {
-              throw "Unable to push snapshot changes. git push exited with code $pushExitCode."
-            }
-
-            $usedRetry = $true
-            Write-Warning "Remote main moved during push attempt $attempt. Fetching origin/main, rebasing, and retrying once."
+          $existingBranches = gh pr list --state open --base main --json headRefName --jq '.[] | select(.headRefName | startswith("automation/snapshot-github-repositories-popularity-score-")) | .headRefName'
+          if ($LASTEXITCODE -ne 0) {
+            throw "Unable to check for an existing popularity snapshot pull request."
+          }
+          if (-not [string]::IsNullOrWhiteSpace(($existingBranches -join ""))) {
+            Write-Warning "An automated popularity snapshot pull request is already open; skipping this run."
             if ($env:GITHUB_STEP_SUMMARY) {
               @(
-                "### Push retry"
+                "### Popularity snapshot pull request"
                 ""
-                "- Push attempt $attempt was rejected because `main` moved."
-                "- Fetching `origin/main`, rebasing the snapshot commit, and retrying once."
+                "- An existing automated pull request is still open; this run did not create a duplicate."
               ) | Add-Content -Path $env:GITHUB_STEP_SUMMARY
             }
-
-            & git fetch origin main 2>&1 | ForEach-Object { Write-Host $_ }
-            if ($LASTEXITCODE -ne 0) {
-              throw "Unable to fetch origin/main before retrying the snapshot push."
-            }
-
-            & git rebase origin/main 2>&1 | ForEach-Object { Write-Host $_ }
-            if ($LASTEXITCODE -ne 0) {
-              & git rebase --abort 2>&1 | ForEach-Object { Write-Host $_ }
-              throw "Unable to rebase snapshot changes onto origin/main before retrying the push."
-            }
+            exit 0
           }
 
-          if (-not $pushSucceeded) {
-            throw "Unable to push snapshot changes after retrying."
+          $branch = "automation/snapshot-github-repositories-popularity-score-${{ github.run_id }}-${{ github.run_attempt }}"
+          $title = "GitHub repositories popularity score updated - ${{ steps.current_date.outputs.NOW }}.${{ github.run_number }}"
+          git switch --create $branch
+          if ($LASTEXITCODE -ne 0) {
+            throw "Unable to create the popularity snapshot pull-request branch."
           }
-
-          if ($usedRetry -and $env:GITHUB_STEP_SUMMARY) {
+          git commit -m $title
+          if ($LASTEXITCODE -ne 0) {
+            throw "Unable to commit popularity snapshot changes."
+          }
+          gh auth setup-git
+          if ($LASTEXITCODE -ne 0) {
+            throw "Unable to configure GitHub CLI credentials for the snapshot branch."
+          }
+          git push --set-upstream origin $branch
+          if ($LASTEXITCODE -ne 0) {
+            throw "Unable to push the popularity snapshot pull-request branch."
+          }
+          gh pr create --base main --head $branch --title $title --body "Automated weekly popularity snapshot. Review both the snapshot data and metadata before merging."
+          if ($LASTEXITCODE -ne 0) {
+            throw "Unable to create the popularity snapshot pull request."
+          }
+          if ($env:GITHUB_STEP_SUMMARY) {
             @(
-              "- The retry path completed successfully and the rebased snapshot commit was pushed to `main`."
+              "### Popularity snapshot pull request"
+              ""
+              "- Opened pull request titled: $title; no changes were pushed to main."
             ) | Add-Content -Path $env:GITHUB_STEP_SUMMARY
           }
         shell: pwsh
