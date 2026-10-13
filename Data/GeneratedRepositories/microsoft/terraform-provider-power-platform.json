@@ -13,7 +13,7 @@
     "url": "https://api.github.com/licenses/mit"
   },
   "name": "terraform-provider-power-platform",
-  "openIssuesCount": 22,
+  "openIssuesCount": 23,
   "owner": {
     "id": "6154722",
     "is_bot": false,
@@ -28,9 +28,9 @@
     "name": "Other",
     "url": "https://github.com/microsoft/terraform-provider-power-platform/blob/main/CODE_OF_CONDUCT.md"
   },
-  "forkCount": 22,
+  "forkCount": 23,
   "fundingLinks": [],
-  "isSecurityPolicyEnabled": true,
+  "isSecurityPolicyEnabled": false,
   "isTemplate": false,
   "latestRelease": {
     "name": "v4.2.0",
@@ -41,7 +41,7 @@
   "primaryLanguage": {
     "name": "Go"
   },
-  "securityPolicyUrl": "https://github.com/microsoft/terraform-provider-power-platform/security/policy",
+  "securityPolicyUrl": null,
   "stargazerCount": 63,
   "watchers": {
     "totalCount": 15
@@ -64,6 +64,6 @@
   "openedToContributionsIssues": 0,
   "popularityScore": 78,
   "_schemaVersion": "1.0.0",
-  "_generatedAt": "2026-10-09T11:15:53.248Z",
-  "_workflowRunId": "37922619360"
+  "_generatedAt": "2026-10-13T15:19:43.000Z",
+  "_workflowRunId": "38389012372"
 }
