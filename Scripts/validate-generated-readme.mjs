@@ -9,9 +9,19 @@ export const GENERATED_README_SECTIONS = Object.freeze([
 ]);
 
 export function assertOnlyGeneratedReadmeSectionsChanged(baseline, candidate) {
-  if (maskGeneratedSections(baseline) !== maskGeneratedSections(candidate)) {
+  if (maskGeneratedSections(normalizeLineEndings(baseline)) !== maskGeneratedSections(normalizeLineEndings(candidate))) {
     throw new Error("README changes extend outside the generated sections.");
   }
+}
+
+export function assertGeneratedReadmeMatches(candidate, expected) {
+  if (normalizeLineEndings(candidate) !== normalizeLineEndings(expected)) {
+    throw new Error("Generated README content does not match the deterministic rendering.");
+  }
+}
+
+function normalizeLineEndings(markdown) {
+  return markdown.replace(/^\uFEFF/, "").replace(/\r\n?/g, "\n");
 }
 
 function maskGeneratedSections(markdown) {
@@ -53,16 +63,23 @@ function countOccurrences(value, token) {
 }
 
 async function runCli() {
-  const [, , baselinePath, candidatePath] = process.argv;
+  const [, , baselinePath, candidatePath, expectedPath] = process.argv;
   if (!baselinePath || !candidatePath) {
-    throw new Error("Usage: validate-generated-readme.mjs <baseline-readme> <candidate-readme>");
+    throw new Error("Usage: validate-generated-readme.mjs <baseline-readme> <candidate-readme> [expected-readme]");
   }
 
-  const [baseline, candidate] = await Promise.all([
+  const reads = [
     readFile(baselinePath, "utf8"),
     readFile(candidatePath, "utf8")
-  ]);
+  ];
+  if (expectedPath) {
+    reads.push(readFile(expectedPath, "utf8"));
+  }
+  const [baseline, candidate, expected] = await Promise.all(reads);
   assertOnlyGeneratedReadmeSectionsChanged(baseline, candidate);
+  if (expected !== undefined) {
+    assertGeneratedReadmeMatches(candidate, expected);
+  }
   process.stdout.write("README changes are confined to generated sections.\n");
 }
 

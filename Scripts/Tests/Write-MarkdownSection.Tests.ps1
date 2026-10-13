@@ -23,25 +23,26 @@ Describe "Write-MarkdownSection Unit Tests" {
             $result.Exception.Message | Should -Be "The provided file '.\README.txt' is not a Markdown file."
         }
 
-        It "Should throw an error if at least one balise for the considered SectionIdenfier was not found" {
-            Mock Test-Path { $true }
-            Mock Get-Item { [PSCustomObject]@{ Extension = ".md" } }
-            Mock Get-Content { "<!--START_SECTION:GitHubRepositoriesDetails-->" }
-            $result = { Write-MarkdownSection -MarkdownFilePath ".\README.md" -SectionIdentifier "GitHubRepositoriesDetails" -SectionContent "This is the content of the section." } | Should -Throw -PassThru
-            $result.Exception.Message | Should -Be "The Markdown file '.\README.md' is missing at least one balise for the following section identifier: 'GitHubRepositoriesDetails--'."
+        It "Should throw an error if section markers are missing or duplicated" {
+            $markdownPath = Join-Path $TestDrive "README.md"
+            [System.IO.File]::WriteAllText($markdownPath, "<!--START_SECTION:GitHubRepositoriesDetails-->")
+            { Write-MarkdownSection -MarkdownFilePath $markdownPath -SectionIdentifier "GitHubRepositoriesDetails" -SectionContent "This is the content of the section." } | Should -Throw "*missing at least one balise*"
         }
     }
 
-    Context "Valid execution with mocked commands" {
+    Context "Valid execution" {
         BeforeEach {
-            Mock Test-Path { $true }
-            Mock Get-Item { [PSCustomObject]@{ Extension = ".md" } }
-            Mock Get-Content { "<!--START_SECTION:GitHubRepositoriesDetails--><!--END_SECTION:GitHubRepositoriesDetails-->" }
-            Mock Set-Content { }
+            $markdownPath = Join-Path $TestDrive "README.md"
         }
 
-        It "Should update the content of the section without throwing an error" {
-            { Write-MarkdownSection -MarkdownFilePath ".\README.md" -SectionIdentifier "GitHubRepositoriesDetails" -SectionContent "This is the content of the section." } | Should -Not -Throw
+        It "updates the section without changing the file's line-ending style" {
+            $original = "Before`r`n<!--START_SECTION:details-->old`r`n<!--END_SECTION:details-->`r`nAfter`r`n"
+            [System.IO.File]::WriteAllText($markdownPath, $original, [System.Text.UTF8Encoding]::new($false))
+            Write-MarkdownSection -MarkdownFilePath $markdownPath -SectionIdentifier "details" -SectionContent "new`ncontent"
+
+            $updated = [System.IO.File]::ReadAllText($markdownPath)
+            $updated | Should -Be "Before`r`n<!--START_SECTION:details-->`r`nnew`r`ncontent`r`n<!--END_SECTION:details-->`r`nAfter`r`n"
+            $updated | Should -Not -Match "(?<!`r)`n"
         }
     }
 }

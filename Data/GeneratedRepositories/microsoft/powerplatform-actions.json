@@ -13,7 +13,7 @@
     "url": "https://api.github.com/licenses/mit"
   },
   "name": "powerplatform-actions",
-  "openIssuesCount": 59,
+  "openIssuesCount": 60,
   "owner": {
     "id": "6154722",
     "is_bot": false,
@@ -28,9 +28,9 @@
     "name": "Other",
     "url": "https://github.com/microsoft/powerplatform-actions/blob/main/CODE_OF_CONDUCT.md"
   },
-  "forkCount": 89,
+  "forkCount": 90,
   "fundingLinks": [],
-  "isSecurityPolicyEnabled": true,
+  "isSecurityPolicyEnabled": false,
   "isTemplate": false,
   "latestRelease": {
     "name": "Updated pac cli to 2.7, node to V24",
@@ -41,7 +41,7 @@
   "primaryLanguage": {
     "name": "TypeScript"
   },
-  "securityPolicyUrl": "https://github.com/microsoft/powerplatform-actions/security/policy",
+  "securityPolicyUrl": null,
   "stargazerCount": 304,
   "watchers": {
     "totalCount": 30
@@ -63,6 +63,6 @@
   "openedToContributionsIssues": 0,
   "popularityScore": 334,
   "_schemaVersion": "1.0.0",
-  "_generatedAt": "2026-10-10T11:14:26.169Z",
-  "_workflowRunId": "38047684024"
+  "_generatedAt": "2026-10-13T15:19:43.000Z",
+  "_workflowRunId": "38389012372"
 }

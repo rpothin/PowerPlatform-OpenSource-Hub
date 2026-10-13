@@ -13,7 +13,10 @@ function Export-GitHubRepositoriesPopularityScore {
             The path to the JSON file where the results of the calculation will be exported.
 
         .PARAMETER MetadataOutputFilePath
-            Optional. When provided, writes a companion JSON file containing the snapshot timestamp (_snapshotTakenAt in ISO 8601 format).
+            Optional. When provided, writes snapshot timestamp and source provenance metadata.
+
+        .PARAMETER SourceCommit
+            The source commit SHA. Required when MetadataOutputFilePath is provided.
 
         .INPUTS
             None. You cannot pipe objects to Export-GitHubRepositoriesPopularityScore.
@@ -43,7 +46,11 @@ function Export-GitHubRepositoriesPopularityScore {
         [string]$OutputFilePath,
 
         [Parameter(Mandatory = $false)]
-        [string]$MetadataOutputFilePath
+        [string]$MetadataOutputFilePath,
+
+        [Parameter(Mandatory = $false)]
+        [ValidatePattern('^[0-9a-fA-F]{40}$')]
+        [string]$SourceCommit
     )
 
     Process {
@@ -58,23 +65,48 @@ function Export-GitHubRepositoriesPopularityScore {
         }
 
         # Read the input file
-        $repositories = Get-Content -Path $InputFilePath | ConvertFrom-Json
+        $inputJson = Get-Content -Path $InputFilePath -Raw
+        $repositories = @(ConvertFrom-Json -InputObject $inputJson)
 
         # Calculate the popularity score for each repository
-        $repositoriesWithPopularityScore = $repositories | Select-Object fullName, popularityScore
+        $repositoriesWithPopularityScore = @($repositories | Select-Object fullName, popularityScore)
 
         # Sort the repositories by popularity score descendant
-        $repositoriesWithPopularityScore = $repositoriesWithPopularityScore | Sort-Object -Property popularityScore -Descending
+        $repositoriesWithPopularityScore = @($repositoriesWithPopularityScore | Sort-Object -Property popularityScore -Descending)
 
         # Export the results in the output file
-        $repositoriesWithPopularityScore | ConvertTo-Json | Out-File -FilePath $OutputFilePath
+        $snapshotEntriesJson = @(
+            foreach ($repository in $repositoriesWithPopularityScore) {
+                ConvertTo-Json -InputObject $repository -Depth 100 -Compress
+            }
+        )
+        $snapshotJson = if ($snapshotEntriesJson.Count -eq 0) {
+            "[]"
+        } else {
+            "[`n  $($snapshotEntriesJson -join ",`n  ")`n]"
+        }
+        $snapshotJson | Out-File -FilePath $OutputFilePath
 
         # Write companion metadata file when path is provided
         if ($PSBoundParameters.ContainsKey('MetadataOutputFilePath') -and -not [string]::IsNullOrEmpty($MetadataOutputFilePath)) {
+            if ([string]::IsNullOrWhiteSpace($SourceCommit)) {
+                throw "A source commit SHA is required when writing snapshot metadata."
+            }
+            $normalizedInputJson = $inputJson -replace "\r\n?|\n", "`n"
+            $inputHashBytes = [System.Text.Encoding]::UTF8.GetBytes($normalizedInputJson)
+            $sha256 = [System.Security.Cryptography.SHA256]::Create()
+            try {
+                $inputHash = $sha256.ComputeHash($inputHashBytes)
+            } finally {
+                $sha256.Dispose()
+            }
+            $inputHashHex = -join ($inputHash | ForEach-Object { $_.ToString("x2") })
             $metadata = [PSCustomObject]@{
                 _snapshotTakenAt = [System.DateTime]::UtcNow.ToString("o")
+                _sourceCommit = $SourceCommit.ToLowerInvariant()
+                _sourceSha256 = $inputHashHex
             }
-            $metadata | ConvertTo-Json | Out-File -FilePath $MetadataOutputFilePath
+            ConvertTo-Json -InputObject $metadata -Depth 10 | Out-File -FilePath $MetadataOutputFilePath
         }
 
         $repositoriesWithPopularityScore

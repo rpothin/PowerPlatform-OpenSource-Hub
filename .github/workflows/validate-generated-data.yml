@@ -45,6 +45,16 @@ jobs:
         working-directory: Pipeline
         run: npm test
 
+      - name: Enforce the automation auto-merge kill switch
+        if: github.head_ref == 'automation/update-github-repositories-details' || github.head_ref == 'automation/update-readme-with-github-repositories-details' || github.head_ref == 'automation/snapshot-github-repositories-popularity-score'
+        env:
+          AUTOMATION_AUTO_MERGE_ENABLED: ${{ vars.ENABLE_AUTOMATION_AUTO_MERGE || 'false' }}
+        run: |
+          if [[ "$AUTOMATION_AUTO_MERGE_ENABLED" != "true" ]]; then
+            echo "The shared automation auto-merge switch is disabled."
+            exit 1
+          fi
+
       - name: Build pipeline CLI
         working-directory: Pipeline
         run: npm run build
@@ -106,10 +116,76 @@ jobs:
           }
           NODE
 
-      - name: Validate automated README section boundaries
-        if: startsWith(github.head_ref, 'automation/update-readme-with-github-repositories-details')
+      - name: Validate automated README provenance and deterministic rendering
+        if: github.head_ref == 'automation/update-readme-with-github-repositories-details' || github.head_ref == 'automation/manual-update-readme-with-github-repositories-details'
         env:
           BASE_REF: ${{ github.base_ref }}
+          README_HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+          README_BRANCH: ${{ github.head_ref }}
+          CONFIGURATION_FILE_PATH: ${{ vars.CONFIGURATION_FILE_PATH || 'Configuration/GitHubRepositoriesSearchCriteria.json' }}
+          DATA_FILE_PATH: ${{ vars.DATA_FILE_PATH || 'Data/GitHubRepositoriesDetails.json' }}
+          DATA_SNAPSHOT_FILE_PATH: ${{ vars.DATA_SNAPSHOT_FILE_PATH || 'Data/GitHubRepositoriesPopularityScoresSnapshot.json' }}
         run: |
-          git show "origin/${BASE_REF}:README.md" > "$RUNNER_TEMP/README.base.md"
-          node Scripts/validate-generated-readme.mjs "$RUNNER_TEMP/README.base.md" README.md
+          git fetch origin "$BASE_REF" --quiet
+          node Scripts/validate-readme-pr.mjs \
+            "$README_HEAD_SHA" \
+            "$BASE_REF" \
+            "$README_BRANCH" \
+            "$CONFIGURATION_FILE_PATH" \
+            "$DATA_FILE_PATH" \
+            "$DATA_SNAPSHOT_FILE_PATH"
+
+      - name: Validate automated popularity snapshot
+        if: github.head_ref == 'automation/snapshot-github-repositories-popularity-score' || github.head_ref == 'automation/manual-snapshot-github-repositories-popularity-score'
+        env:
+          BASE_REF: ${{ github.base_ref }}
+          SNAPSHOT_HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+          DATA_FILE_PATH: ${{ vars.DATA_FILE_PATH || 'Data/GitHubRepositoriesDetails.json' }}
+          DATA_SNAPSHOT_FILE_PATH: ${{ vars.DATA_SNAPSHOT_FILE_PATH || 'Data/GitHubRepositoriesPopularityScoresSnapshot.json' }}
+          DATA_SNAPSHOT_METADATA_FILE_PATH: Data/GitHubRepositoriesPopularityScoresSnapshotMetadata.json
+        run: |
+          set -euo pipefail
+          git fetch origin "$BASE_REF" --quiet
+          normalize_path() {
+            node -e 'process.stdout.write(process.argv[1].replaceAll("\\", "/").replace(/^\.\//, ""))' "$1"
+          }
+          SOURCE_DATA_PATH="$(normalize_path "$DATA_FILE_PATH")"
+          SNAPSHOT_PATH="$(normalize_path "$DATA_SNAPSHOT_FILE_PATH")"
+          METADATA_PATH="$(normalize_path "$DATA_SNAPSHOT_METADATA_FILE_PATH")"
+
+          git diff --name-only "origin/${BASE_REF}...${SNAPSHOT_HEAD_SHA}" \
+            | node Scripts/validate-generated-snapshot.mjs --validate-paths "$SNAPSHOT_PATH" "$METADATA_PATH"
+
+          source_commit="$(git show "${SNAPSHOT_HEAD_SHA}:${METADATA_PATH}" \
+            | node -e 'const fs=require("node:fs"); process.stdout.write(JSON.parse(fs.readFileSync(0,"utf8"))._sourceCommit ?? "")')"
+          if [[ ! "$source_commit" =~ ^[0-9a-f]{40}$ ]]; then
+            echo "Snapshot metadata contains an invalid source commit."
+            exit 1
+          fi
+          git merge-base --is-ancestor "$source_commit" "origin/${BASE_REF}"
+          if ! git diff --quiet "$source_commit" "origin/${BASE_REF}" -- "$SOURCE_DATA_PATH"; then
+            echo "Snapshot is stale because its source details artifact differs from the current base."
+            exit 1
+          fi
+
+          mkdir -p "$RUNNER_TEMP/snapshot-validation"
+          git show "${source_commit}:${SOURCE_DATA_PATH}" > "$RUNNER_TEMP/snapshot-validation/source.json"
+          git show "${SNAPSHOT_HEAD_SHA}:${SNAPSHOT_PATH}" > "$RUNNER_TEMP/snapshot-validation/snapshot.json"
+          git show "${SNAPSHOT_HEAD_SHA}:${METADATA_PATH}" > "$RUNNER_TEMP/snapshot-validation/metadata.json"
+          node Scripts/validate-generated-snapshot.mjs \
+            "$RUNNER_TEMP/snapshot-validation/source.json" \
+            "$RUNNER_TEMP/snapshot-validation/snapshot.json" \
+            "$RUNNER_TEMP/snapshot-validation/metadata.json"
+
+      - name: Install website dependencies for snapshot candidates
+        if: github.head_ref == 'automation/snapshot-github-repositories-popularity-score' || github.head_ref == 'automation/manual-snapshot-github-repositories-popularity-score'
+        working-directory: Website
+        run: npm ci --ignore-scripts
+
+      - name: Validate website for snapshot candidates
+        if: github.head_ref == 'automation/snapshot-github-repositories-popularity-score' || github.head_ref == 'automation/manual-snapshot-github-repositories-popularity-score'
+        working-directory: Website
+        run: |
+          npm run typecheck
+          npm run test:unit
+          npm run build
