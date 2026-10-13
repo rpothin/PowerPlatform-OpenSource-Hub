@@ -16,7 +16,11 @@ test("snapshot writer only runs after a successful snapshot produced both output
   assert.match(snapshotWorkflow, /id: take_snapshot[\s\S]*?snapshot_ready=true/);
   assert.match(snapshotWorkflow, /if: \$\{\{ steps\.take_snapshot\.outputs\.snapshot_ready == 'true' \}\}/);
   assert.match(snapshotWorkflow, /Test-Path -LiteralPath \$outputPath/);
-  assert.doesNotMatch(snapshotWorkflow, /gh pr merge .*--auto/);
+  assert.match(snapshotWorkflow, /validate-generated-snapshot\.mjs/);
+  assert.match(snapshotWorkflow, /automation\/manual-snapshot-github-repositories-popularity-score/);
+  assert.match(snapshotWorkflow, /if \(\$isAutoLane -and \$env:AUTOMATION_AUTO_MERGE_ENABLED -ceq "true"\)[\s\S]*?gh pr merge \$prNumber --auto --merge/);
+  assert.match(snapshotWorkflow, /git add -- \$snapshotGitPath \$metadataGitPath/);
+  assert.match(snapshotWorkflow, /--disable-auto/);
 });
 
 test("daily data refresh has separate stable branches for eligible and manual candidates", () => {
@@ -33,10 +37,17 @@ test("scheduled refresh PR validation rechecks paths and repository-count delta"
   assert.match(validationWorkflow, /Recheck scheduled refresh repository-count delta[\s\S]*?PULL_REQUEST_HEAD_SHA: \$\{\{ github\.event\.pull_request\.head\.sha \}\}[\s\S]*?git merge-base[\s\S]*?refresh-pr-policy\.mjs validate-count/);
 });
 
-test("README refresh is input-scoped, marker-guarded, and updates a stable PR", () => {
+test("README refresh uses separate auto/manual lanes and deterministic required validation", () => {
   assert.doesNotMatch(readmeWorkflow, /'Data\/\*\*'/);
-  assert.match(readmeWorkflow, /node Scripts\/validate-generated-readme\.mjs/);
+  assert.match(readmeWorkflow, /Scripts\/Generate-Readme\.ps1/);
+  assert.match(readmeWorkflow, /README-Source-Before:/);
+  assert.match(readmeWorkflow, /README-Top-Growing-Refreshed:/);
   assert.match(readmeWorkflow, /automation\/update-readme-with-github-repositories-details"/);
+  assert.match(readmeWorkflow, /automation\/manual-update-readme-with-github-repositories-details/);
   assert.doesNotMatch(readmeWorkflow, /An automated README pull request is already open; skipping/);
-  assert.doesNotMatch(readmeWorkflow, /AUTOMATION_AUTO_MERGE_ENABLED|gh pr merge .*--auto/);
+  assert.match(readmeWorkflow, /if \(\$isAutoLane -and \$env:AUTOMATION_AUTO_MERGE_ENABLED -ceq "true"\)[\s\S]*?gh pr merge \$prNumber --auto --merge/);
+  assert.match(readmeWorkflow, /--disable-auto/);
+  assert.match(validationWorkflow, /validate-readme-pr\.mjs/);
+  assert.match(validationWorkflow, /validate-generated-snapshot\.mjs --validate-paths/);
+  assert.match(validationWorkflow, /Validate website for snapshot candidates/);
 });
