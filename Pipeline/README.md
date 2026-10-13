@@ -103,6 +103,23 @@ The `1-update-github-repositories-details` workflow now runs this TypeScript pip
 
 Bot ownership is intentionally narrow: scheduled runs may add, update, or delete files under `Data\GeneratedRepositories` and may update `Data\GitHubRepositoriesDetails.json`. They must not stage `Data\CuratedRepositories`, taxonomy files, schemas, or sentinel configuration. Those files are reviewed in normal PRs so curation and governance changes are attributable to humans.
 
+### Automated PR lifecycle and repository protections
+
+The scheduled TypeScript refresh updates the stable `automation/update-github-repositories-details` pull request instead of skipping a newer candidate when an earlier refresh is still open. A refresh is eligible for native auto-merge only when all of these conditions hold:
+
+- It was started by the daily schedule and used the TypeScript production pipeline.
+- The repository-count override was not selected.
+- Its complete diff is limited to `Data\GeneratedRepositories\**\*.json` records and `Data\GitHubRepositoriesDetails.json`.
+- The PR validation job passes, including generated/overlay merge validation and the generated-to-merged consistency check.
+
+Manual dispatches, PowerShell fallback runs, override runs, and mixed-path candidates use the separate stable `automation/manual-update-github-repositories-details` branch. They remain PRs for deliberate maintainer handling and never enter the automatic merge lane. If a newer candidate matches `main`, the corresponding stale open PR is closed instead of being left mergeable.
+
+The `validate-generated-data` job in `.github\workflows\validate-generated-data.yml` runs on every pull request targeting `main`, with no path filter, so it produces a stable check for branch protection. It type-checks and tests the pipeline, validates checked-in generated records and overlays, runs an offline merge against the configured schemas/taxonomy/sentinels, verifies the merged artifact schema and sentinel presence, and checks that the scheduled TypeScript branch reproduces the merged artifact. For that scheduled branch it also rechecks the complete changed-path allowlist and the 15% generated-record-count threshold against the candidate's merge-base—the same baseline used during generation—so later edits to the stable branch cannot bypass either pre-PR guard and a subsequently advancing `main` does not silently change the comparison baseline. Automated README PRs additionally must keep all changes inside the `summary`, `repositories-opened-to-contribution`, and `top-growing-repositories` markers.
+
+README generation is triggered only by its consumed inputs: the search-criteria configuration, merged repository data, and popularity snapshot. It updates one stable README PR, rejects edits outside the generated markers, and leaves merging to the maintainer. The top-growing section refreshes on Mondays and whenever the weekly snapshot changes, including when a snapshot PR is merged on a different weekday. The popularity snapshot runs on Mondays at 13:00 UTC, after the daily 11:00 UTC refresh window, or by explicit manual dispatch; generation and PR creation are gated together. Snapshot PRs also remain manual-merge PRs.
+
+**Auto-merge stays off until repository administration is complete.** After reviewing and merging these workflow changes, configure `main` to require pull requests and the always-on `Validate generated data and automation / validate-generated-data` check, prohibit force-pushes and branch deletion, and preserve the repository's merge-commit method. Keep mandatory approvals disabled under the selected solo-maintainer policy. Enable repository auto-merge, set the repository Actions variable `ENABLE_AUTOMATION_AUTO_MERGE` to `true`, and set the default Actions token permissions to read-only only after the protections are verified. That variable enables native auto-merge requests only for eligible scheduled TypeScript generated-data PRs; README and popularity-snapshot PRs remain manual-merge candidates. Keep `PAT_WORKFLOW_UPDATE` repository-scoped and limited to the branch push and pull-request operations the writer jobs need; never expose its value.
+
 ## Output parity comparison (no network)
 
 The comparison command checks a baseline output against a candidate output by `fullName`, applies the sentinel repository guardrail from `..\Configuration\SentinelRepositories.json`, and writes a JSON report plus a markdown-ish console summary.

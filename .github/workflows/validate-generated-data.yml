@@ -1,0 +1,115 @@
+name: Validate generated data and automation
+
+on:
+  pull_request:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+concurrency:
+  group: validate-generated-data-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  validate-generated-data:
+    name: validate-generated-data
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Set up Node.js
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: Pipeline/package-lock.json
+
+      - name: Install TypeScript pipeline dependencies
+        working-directory: Pipeline
+        run: npm ci --ignore-scripts
+
+      - name: Type-check pipeline
+        working-directory: Pipeline
+        run: npm run typecheck
+
+      - name: Run pipeline and automation contract tests
+        working-directory: Pipeline
+        run: npm test
+
+      - name: Build pipeline CLI
+        working-directory: Pipeline
+        run: npm run build
+
+      - name: Validate scheduled refresh path allowlist
+        if: github.head_ref == 'automation/update-github-repositories-details'
+        env:
+          BASE_REF: ${{ github.base_ref }}
+          PULL_REQUEST_HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+        run: |
+          git diff --name-only "origin/${BASE_REF}...${PULL_REQUEST_HEAD_SHA}" \
+            | node -e 'let input = ""; process.stdin.on("data", chunk => input += chunk).on("end", () => process.stdout.write(JSON.stringify(input.split(/\r?\n/).filter(Boolean))))' \
+            | node Scripts/refresh-pr-policy.mjs validate-paths
+
+      - name: Recheck scheduled refresh repository-count delta
+        if: github.head_ref == 'automation/update-github-repositories-details'
+        env:
+          BASE_REF: ${{ github.base_ref }}
+          PULL_REQUEST_HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+        run: |
+          BASE="origin/${BASE_REF}"
+          # Use the candidate's merge-base to reproduce the exact baseline used during generation.
+          BASELINE_COMMIT="$(git merge-base "$BASE" "$PULL_REQUEST_HEAD_SHA")"
+          if git cat-file -e "${BASELINE_COMMIT}:Data/GeneratedRepositories" 2>/dev/null; then
+            baseline_paths="$(git ls-tree -r --name-only "$BASELINE_COMMIT" -- Data/GeneratedRepositories)"
+            baseline_count="$(printf '%s\n' "$baseline_paths" | awk 'NF && /\.json$/ { count += 1 } END { print count + 0 }')"
+          else
+            baseline_count="$(git show "${BASELINE_COMMIT}:Data/GitHubRepositoriesDetails.json" | node -e 'let input = ""; process.stdin.on("data", chunk => input += chunk).on("end", () => { const records = JSON.parse(input); if (!Array.isArray(records)) throw new Error("Base merged data must be a JSON array."); process.stdout.write(String(records.length)); })')"
+          fi
+          candidate_paths="$(git ls-tree -r --name-only "$PULL_REQUEST_HEAD_SHA" -- Data/GeneratedRepositories)"
+          candidate_count="$(printf '%s\n' "$candidate_paths" | awk 'NF && /\.json$/ { count += 1 } END { print count + 0 }')"
+          node Scripts/refresh-pr-policy.mjs validate-count "$baseline_count" "$candidate_count"
+
+      - name: Validate committed generated records and overlays
+        run: |
+          node Pipeline/dist/cli.js merge \
+            --generated-dir Data/GeneratedRepositories \
+            --overlay-dir Data/CuratedRepositories \
+            --schema Configuration/Schemas/GitHubRepositoriesDetails.schema.json \
+            --generated-schema Configuration/Schemas/GitHubRepositoryGenerated.schema.json \
+            --output Pipeline/Output/pr-validation/GitHubRepositoriesDetails.json \
+            --taxonomy-dir Configuration/Taxonomy \
+            --sentinels Configuration/SentinelRepositories.json
+
+      - name: Ensure scheduled auto-merge candidate matches the merged artifact
+        if: github.head_ref == 'automation/update-github-repositories-details'
+        run: |
+          node --input-type=module <<'NODE'
+          import { readFile } from 'node:fs/promises';
+          import { isDeepStrictEqual } from 'node:util';
+
+          const [committed, generated] = await Promise.all([
+            readFile('Data/GitHubRepositoriesDetails.json', 'utf8'),
+            readFile('Pipeline/Output/pr-validation/GitHubRepositoriesDetails.json', 'utf8')
+          ]);
+
+          if (!isDeepStrictEqual(JSON.parse(committed), JSON.parse(generated))) {
+            throw new Error('The scheduled auto-merge candidate does not match the validated generated-plus-curated merge.');
+          }
+          NODE
+
+      - name: Validate automated README section boundaries
+        if: startsWith(github.head_ref, 'automation/update-readme-with-github-repositories-details')
+        env:
+          BASE_REF: ${{ github.base_ref }}
+        run: |
+          git show "origin/${BASE_REF}:README.md" > "$RUNNER_TEMP/README.base.md"
+          node Scripts/validate-generated-readme.mjs "$RUNNER_TEMP/README.base.md" README.md

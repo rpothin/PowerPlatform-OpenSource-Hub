@@ -1,13 +1,15 @@
 name: 2-update-readme-with-github-repositories-details
 # Update the README with the details of the GitHub repositories
 
-# Workflow triggered when repository data changes on main - but can also be triggered manually without input parameters
+# Workflow triggered when an input used to generate the README changes on main, or manually.
 on:
   push:
     branches:
       - main
     paths:
-      - 'Data/**'
+      - 'Configuration/GitHubRepositoriesSearchCriteria.json'
+      - 'Data/GitHubRepositoriesDetails.json'
+      - 'Data/GitHubRepositoriesPopularityScoresSnapshot.json'
   workflow_dispatch:
 
 permissions:
@@ -26,6 +28,9 @@ jobs:
       cancel-in-progress: false
     env:
       RUNNER_DEBUG: 1
+      CONFIGURATION_FILE_PATH: ${{ vars.CONFIGURATION_FILE_PATH }}
+      DATA_FILE_PATH: ${{ vars.DATA_FILE_PATH }}
+      DATA_SNAPSHOT_FILE_PATH: ${{ vars.DATA_SNAPSHOT_FILE_PATH }}
     
     steps:
       # Action used to checkout the main branch in the current repository
@@ -37,21 +42,52 @@ jobs:
           fetch-depth: 0
           persist-credentials: false
 
+      - name: Set up Node.js
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7
+        with:
+          node-version: 20
+
+      - name: Preserve README baseline
+        run: Copy-Item -LiteralPath README.md -Destination (Join-Path $env:RUNNER_TEMP 'README.base.md') -Force
+        shell: pwsh
+
       # Set a current date environment variable in the following format: YYYYMMDD
       - name: Set current date as env variable
         id: current_date
-        run: echo "NOW=$(date +'%Y%m%d')" >> $env:GITHUB_OUTPUT
+        run: |
+          $now = (Get-Date).ToUniversalTime().ToString("yyyyMMdd")
+          "NOW=$now" >> $env:GITHUB_OUTPUT
         shell: pwsh
 
-      # Set the name of the current day in the week as a variable
-      - name: Set the name of the current day in the week as env variable
-        id: current_day_in_the_week
-        run: echo "DAY=$(date +'%A')" >> $env:GITHUB_OUTPUT
+      - name: Determine whether to refresh the weekly top-growing section
+        id: top_growing
+        run: |
+          $ErrorActionPreference = "Stop"
+          $updateTopGrowing = $env:GITHUB_EVENT_NAME -eq "workflow_dispatch" -or
+            (Get-Date).ToUniversalTime().DayOfWeek -eq [System.DayOfWeek]::Monday
+
+          if ($env:GITHUB_EVENT_NAME -eq "push") {
+            $event = Get-Content -LiteralPath $env:GITHUB_EVENT_PATH -Raw | ConvertFrom-Json
+            if ([string]::IsNullOrWhiteSpace($event.before) -or $event.before -match '^0+$') {
+              $changedPaths = @($event.commits | ForEach-Object { $_.added; $_.modified; $_.removed } | Where-Object { -not [string]::IsNullOrWhiteSpace($_) })
+            } else {
+              $changedPaths = @(git diff --name-only $event.before $event.after)
+              if ($LASTEXITCODE -ne 0) {
+                throw "Unable to determine which README inputs changed."
+              }
+            }
+            if ($changedPaths -contains $env:DATA_SNAPSHOT_FILE_PATH) {
+              $updateTopGrowing = $true
+            }
+          }
+
+          "UPDATE_TOP_GROWING=$($updateTopGrowing.ToString().ToLowerInvariant())" >> $env:GITHUB_OUTPUT
         shell: pwsh
 
       # Update summary and repositories opened to contributions in README
       - name: Update summary and repositories opened to contributions
         run: |
+          $ErrorActionPreference = "Stop"
           Write-Host "/********************************************************************************/"
           Write-Host "Install required modules"
           Import-Module .\Scripts\Write-MarkdownSection.ps1 -Force
@@ -62,20 +98,16 @@ jobs:
 
           Write-Host "/********************************************************************************/"
           Write-Host "Get search criteria details"
-          # If the file does not exist initialize the variable with an empty array
-          if (Test-Path -Path "${{ vars.CONFIGURATION_FILE_PATH }}") {
-            $topics = Get-Content -Path "${{ vars.CONFIGURATION_FILE_PATH }}" | ConvertFrom-Json
-          } else {
-            $searchCriteria = @()
+          if (-not (Test-Path -LiteralPath $env:CONFIGURATION_FILE_PATH)) {
+            throw "No search criteria file found at '$env:CONFIGURATION_FILE_PATH'."
           }
+          $topics = Get-Content -LiteralPath $env:CONFIGURATION_FILE_PATH -Raw | ConvertFrom-Json
           
           Write-Host "Get repositories details"
-          # If the file does not exist initialize the variable with an empty array
-          if (Test-Path -Path "${{ vars.DATA_FILE_PATH }}") {
-            $repositoriesDetails = Get-Content -Path "${{ vars.DATA_FILE_PATH }}" | ConvertFrom-Json
-          } else {
-            $repositoriesDetails = @()
+          if (-not (Test-Path -LiteralPath $env:DATA_FILE_PATH)) {
+            throw "No repository details file found at '$env:DATA_FILE_PATH'."
           }
+          $repositoriesDetails = Get-Content -LiteralPath $env:DATA_FILE_PATH -Raw | ConvertFrom-Json
 
           Write-Host "/********************************************************************************/"
           Write-Host "Update summary"
@@ -86,11 +118,11 @@ jobs:
           Write-ReadmeRepositoriesOpenedToContributionsSection -GitHubRepositoriesDetails $repositoriesDetails
         shell: pwsh
 
-      # If the current day in the week is Monday, update the list of top growing repositories
+      # Refresh top-growing data on Mondays and whenever the weekly snapshot changes.
       - name: Update list of top growing repositories
-        if: ${{ steps.current_day_in_the_week.outputs.DAY == 'Monday' }}
+        if: ${{ steps.top_growing.outputs.UPDATE_TOP_GROWING == 'true' }}
         run: |
-          Write-Host "Current day of the week: ${{ steps.current_day_in_the_week.outputs.DAY }}"
+          $ErrorActionPreference = "Stop"
           Write-Host "/********************************************************************************/"
           Write-Host "Install required modules"
           Import-Module .\Scripts\Write-MarkdownSection.ps1 -Force
@@ -100,17 +132,14 @@ jobs:
 
           Write-Host "/********************************************************************************/"
           Write-Host "Get repositories details"
-          # If the file does not exist initialize the variable with an empty array
-          if (Test-Path -Path "${{ vars.DATA_FILE_PATH }}") {
-            $repositoriesDetails = Get-Content -Path "${{ vars.DATA_FILE_PATH }}" | ConvertFrom-Json
-          } else {
-            $repositoriesDetails = @()
+          if (-not (Test-Path -LiteralPath $env:DATA_FILE_PATH)) {
+            throw "No repository details file found at '$env:DATA_FILE_PATH'."
           }
+          $repositoriesDetails = Get-Content -LiteralPath $env:DATA_FILE_PATH -Raw | ConvertFrom-Json
 
           Write-Host "Get latest snapshot of the popularity score of the GitHub repositories"
-          # If the file does not exist initialize the variable with an empty array
-          if (Test-Path -Path "${{ vars.DATA_SNAPSHOT_FILE_PATH }}") {
-            $repositoriesPopularityScoresSnapshot = Get-Content -Path "${{ vars.DATA_SNAPSHOT_FILE_PATH }}" | ConvertFrom-Json
+          if (Test-Path -LiteralPath $env:DATA_SNAPSHOT_FILE_PATH) {
+            $repositoriesPopularityScoresSnapshot = Get-Content -LiteralPath $env:DATA_SNAPSHOT_FILE_PATH -Raw | ConvertFrom-Json
           } else {
             $repositoriesPopularityScoresSnapshot = @()
           }
@@ -127,6 +156,10 @@ jobs:
           $ErrorActionPreference = "Stop"
           git config --local user.name 'GitHub Action'
           git config --local user.email 'action@github.com'
+          node Scripts/validate-generated-readme.mjs "$env:RUNNER_TEMP/README.base.md" README.md
+          if ($LASTEXITCODE -ne 0) {
+            throw "Generated README content changed outside its approved sections."
+          }
 
           git add -- README.md
           if ($LASTEXITCODE -ne 0) {
@@ -135,41 +168,64 @@ jobs:
           git diff --cached --quiet
           $gitDiffExitCode = $LASTEXITCODE
 
+          if ($gitDiffExitCode -notin @(0, 1)) {
+            throw "Unable to check staged README changes. git diff exited with code $gitDiffExitCode."
+          }
+
+          $checkoutSha = (git rev-parse HEAD).Trim()
+          if ($LASTEXITCODE -ne 0) {
+            throw "Unable to identify the source commit for the README update."
+          }
+          git fetch origin main
+          if ($LASTEXITCODE -ne 0) {
+            throw "Unable to fetch the latest main branch before proposing the README update."
+          }
+          $latestMainSha = (git rev-parse origin/main).Trim()
+          if ($LASTEXITCODE -ne 0) {
+            throw "Unable to identify the latest main commit."
+          }
+          if ($checkoutSha -ne $latestMainSha) {
+            throw "main advanced during README generation; this candidate was not proposed. Run the update again against the latest main."
+          }
+
+          gh auth setup-git
+          if ($LASTEXITCODE -ne 0) {
+            throw "Unable to configure GitHub CLI credentials for the README branch."
+          }
+
+          $branch = "automation/update-readme-with-github-repositories-details"
           if ($gitDiffExitCode -eq 0) {
+            $stalePrNumber = gh pr list --state open --base main --head $branch --json number --jq '.[0].number // empty'
+            if ($LASTEXITCODE -ne 0) {
+              throw "Unable to check for a stale README pull request."
+            }
+            if (-not [string]::IsNullOrWhiteSpace(($stalePrNumber -join ""))) {
+              gh pr close $stalePrNumber --comment "The newest generated README matches main, so this candidate is no longer current."
+              if ($LASTEXITCODE -ne 0) {
+                throw "Unable to close the stale README pull request."
+              }
+            }
             Write-Host "README is already up to date."
             if ($env:GITHUB_STEP_SUMMARY) {
               @(
                 "### README pull request"
                 ""
-                "- README content did not change, so no pull request was opened."
+                "- README content did not change, so no pull request is open for a stale candidate."
               ) | Add-Content -Path $env:GITHUB_STEP_SUMMARY
             }
             exit 0
           }
 
-          if ($gitDiffExitCode -ne 1) {
-            throw "Unable to check staged README changes. git diff exited with code $gitDiffExitCode."
-          }
-
-          $existingBranches = gh pr list --state open --base main --json headRefName --jq '.[] | select(.headRefName | startswith("automation/update-readme-with-github-repositories-details-")) | .headRefName'
+          $stagedPaths = @(git diff --cached --name-only)
           if ($LASTEXITCODE -ne 0) {
-            throw "Unable to check for an existing README pull request."
+            throw "Unable to list staged README paths."
           }
-          if (-not [string]::IsNullOrWhiteSpace(($existingBranches -join ""))) {
-            Write-Warning "An automated README pull request is already open; skipping this run."
-            if ($env:GITHUB_STEP_SUMMARY) {
-              @(
-                "### README pull request"
-                ""
-                "- An existing automated pull request is still open; this run did not create a duplicate."
-              ) | Add-Content -Path $env:GITHUB_STEP_SUMMARY
-            }
-            exit 0
+          if ($stagedPaths.Count -ne 1 -or $stagedPaths[0] -ne "README.md") {
+            throw "The generated README candidate contains changes outside README.md."
           }
 
-          $branch = "automation/update-readme-with-github-repositories-details-${{ github.run_id }}-${{ github.run_attempt }}"
           $title = "Information regarding referenced GitHub repositories updated in README - ${{ steps.current_date.outputs.NOW }}.${{ github.run_number }}"
-          git switch --create $branch
+          git switch --create $branch origin/main
           if ($LASTEXITCODE -ne 0) {
             throw "Unable to create the README pull-request branch."
           }
@@ -177,23 +233,62 @@ jobs:
           if ($LASTEXITCODE -ne 0) {
             throw "Unable to commit the generated README changes."
           }
-          gh auth setup-git
+
+          $existingRemoteRef = git ls-remote --heads origin "refs/heads/$branch"
           if ($LASTEXITCODE -ne 0) {
-            throw "Unable to configure GitHub CLI credentials for the README branch."
+            throw "Unable to check the existing stable README branch."
           }
-          git push --set-upstream origin $branch
+          if ([string]::IsNullOrWhiteSpace(($existingRemoteRef -join ""))) {
+            git push --set-upstream origin "HEAD:refs/heads/$branch"
+          } else {
+            $remoteSha = (($existingRemoteRef -join "`n") -split '\s+')[0]
+            $lease = "refs/heads/${branch}:$remoteSha"
+            git push "--force-with-lease=$lease" origin "HEAD:refs/heads/$branch"
+          }
           if ($LASTEXITCODE -ne 0) {
-            throw "Unable to push the README pull-request branch."
+            throw "Unable to update the stable README pull-request branch."
           }
-          gh pr create --base main --head $branch --title $title --body "Automated README update based on repository data on main. Review generated documentation changes before merging."
+
+          $body = "Automated README update. The diff has been checked to remain inside the generated README sections."
+          $prNumber = gh pr list --state open --base main --head $branch --json number --jq '.[0].number // empty'
           if ($LASTEXITCODE -ne 0) {
-            throw "Unable to create the README pull request."
+            throw "Unable to check for the stable README pull request."
           }
+          if ([string]::IsNullOrWhiteSpace(($prNumber -join ""))) {
+            $closedPrNumber = gh pr list --state closed --base main --head $branch --json number,mergedAt --jq '.[] | select(.mergedAt == null) | .number' | Select-Object -First 1
+            if ($LASTEXITCODE -ne 0) {
+              throw "Unable to check for a previously closed README pull request."
+            }
+            if (-not [string]::IsNullOrWhiteSpace(($closedPrNumber -join ""))) {
+              gh pr reopen $closedPrNumber
+              if ($LASTEXITCODE -ne 0) {
+                throw "Unable to reopen the stable README pull request."
+              }
+              $prNumber = $closedPrNumber
+            } else {
+              gh pr create --base main --head $branch --title $title --body $body
+              if ($LASTEXITCODE -ne 0) {
+                throw "Unable to create the README pull request."
+              }
+              $prNumber = gh pr list --state open --base main --head $branch --json number --jq '.[0].number // empty'
+              if ($LASTEXITCODE -ne 0 -or [string]::IsNullOrWhiteSpace(($prNumber -join ""))) {
+                throw "The README pull request was created but its number could not be resolved."
+              }
+            }
+          }
+
+          gh pr edit $prNumber --title $title --body $body
+          if ($LASTEXITCODE -ne 0) {
+            throw "Unable to update the stable README pull request."
+          }
+
           if ($env:GITHUB_STEP_SUMMARY) {
             @(
               "### README pull request"
               ""
-              "- Opened pull request titled: $title; no changes were pushed to main."
+              "- Updated stable pull request #$($prNumber -join '') titled: $title."
+              "- README pull requests remain manual-merge candidates."
+              "- No changes were pushed directly to main."
             ) | Add-Content -Path $env:GITHUB_STEP_SUMMARY
           }
         shell: pwsh

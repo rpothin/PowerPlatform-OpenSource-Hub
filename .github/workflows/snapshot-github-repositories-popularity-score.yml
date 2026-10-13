@@ -1,14 +1,11 @@
 name: 3-snapshot-github-repositories-popularity-score
 # Save a snapshot of the referenced GitHub repositories popularity score (number of stars + number of watchers) to a dedicated JSON file
 
-# Workflow triggered when the README workflow completes successfully on main - but can also be triggered manually without input parameters
+# Workflow triggered weekly after the daily repository refresh window, or by an explicit manual request.
 on:
+  schedule:
+    - cron: "0 13 * * 1" # Monday at 13:00 UTC, after the 11:00 UTC daily refresh
   workflow_dispatch:
-  workflow_run:
-    workflows:
-      - 2-update-readme-with-github-repositories-details
-    types:
-      - completed
 
 permissions:
   contents: read
@@ -21,12 +18,14 @@ concurrency:
 jobs:
   snapshot-github-repositories-popularity-score:
     runs-on: ubuntu-latest
-    if: ${{ github.event_name == 'workflow_dispatch' || (github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.head_branch == 'main') }}
+    if: ${{ github.event_name == 'schedule' || github.event_name == 'workflow_dispatch' }}
     concurrency:
       group: main-repository-writers
       cancel-in-progress: false
     env:
       RUNNER_DEBUG: 1
+      DATA_FILE_PATH: ${{ vars.DATA_FILE_PATH }}
+      DATA_SNAPSHOT_FILE_PATH: ${{ vars.DATA_SNAPSHOT_FILE_PATH }}
       DATA_SNAPSHOT_METADATA_FILE_PATH: Data/GitHubRepositoriesPopularityScoresSnapshotMetadata.json
 
     steps:
@@ -42,19 +41,15 @@ jobs:
       # Set a current date environment variable in the following format: YYYYMMDD
       - name: Set current date as env variable
         id: current_date
-        run: echo "NOW=$(date +'%Y%m%d')" >> $env:GITHUB_OUTPUT
-        shell: pwsh
-
-      # Set the name of the current day in the week as a variable
-      - name: Set the name of the current day in the week as env variable
-        id: current_day_in_the_week
-        run: echo "DAY=$(date +'%A')" >> $env:GITHUB_OUTPUT
-        shell: pwsh
-
-      # If the current day in the week is Monday, take a snapshot of the popularity score of the referenced GitHub repositories - For the tests we will configure the step for the next day (Thursday)
-      - name: Take a snapshot of the popularity score of the referenced GitHub repositories
-        if: ${{ steps.current_day_in_the_week.outputs.DAY == 'Monday' }}
         run: |
+          $now = (Get-Date).ToUniversalTime().ToString("yyyyMMdd")
+          "NOW=$now" >> $env:GITHUB_OUTPUT
+        shell: pwsh
+
+      - name: Take a snapshot of the popularity score of the referenced GitHub repositories
+        id: take_snapshot
+        run: |
+          $ErrorActionPreference = "Stop"
           Write-Host "/********************************************************************************/"
           Write-Host "Install required modules"
           Import-Module .\Scripts\Export-GitHubRepositoriesPopularityScore.ps1 -Force
@@ -62,12 +57,20 @@ jobs:
           Write-Host "/********************************************************************************/"
           Write-Host "Take a snapshot of the popularity score of the referenced GitHub repositories"
           $results = Export-GitHubRepositoriesPopularityScore `
-            -InputFilePath "${{ vars.DATA_FILE_PATH }}" `
-            -OutputFilePath "${{ vars.DATA_SNAPSHOT_FILE_PATH }}" `
+            -InputFilePath $env:DATA_FILE_PATH `
+            -OutputFilePath $env:DATA_SNAPSHOT_FILE_PATH `
             -MetadataOutputFilePath ".\$env:DATA_SNAPSHOT_METADATA_FILE_PATH"
+
+          foreach ($outputPath in @($env:DATA_SNAPSHOT_FILE_PATH, $env:DATA_SNAPSHOT_METADATA_FILE_PATH)) {
+            if (-not (Test-Path -LiteralPath $outputPath)) {
+              throw "Snapshot generation completed without producing '$outputPath'."
+            }
+          }
+          "snapshot_ready=true" >> $env:GITHUB_OUTPUT
         shell: pwsh
 
       - name: Open pull request for popularity snapshot
+        if: ${{ steps.take_snapshot.outputs.snapshot_ready == 'true' }}
         env:
           GH_TOKEN: ${{ secrets.PAT_WORKFLOW_UPDATE }}
         run: |
@@ -82,41 +85,66 @@ jobs:
           git diff --cached --quiet
           $gitDiffExitCode = $LASTEXITCODE
 
-          if ($gitDiffExitCode -eq 0) {
-            Write-Host "No popularity snapshot changes to propose."
-            if ($env:GITHUB_STEP_SUMMARY) {
-              @(
-                "### Popularity snapshot pull request"
-                ""
-                "- Snapshot files were unchanged, so no pull request was opened."
-              ) | Add-Content -Path $env:GITHUB_STEP_SUMMARY
-            }
-            exit 0
-          }
-
-          if ($gitDiffExitCode -ne 1) {
+          if ($gitDiffExitCode -notin @(0, 1)) {
             throw "Unable to check staged snapshot changes. git diff exited with code $gitDiffExitCode."
           }
 
-          $existingBranches = gh pr list --state open --base main --json headRefName --jq '.[] | select(.headRefName | startswith("automation/snapshot-github-repositories-popularity-score-")) | .headRefName'
+          $checkoutSha = (git rev-parse HEAD).Trim()
           if ($LASTEXITCODE -ne 0) {
-            throw "Unable to check for an existing popularity snapshot pull request."
+            throw "Unable to identify the source commit for the popularity snapshot."
           }
-          if (-not [string]::IsNullOrWhiteSpace(($existingBranches -join ""))) {
-            Write-Warning "An automated popularity snapshot pull request is already open; skipping this run."
+          git fetch origin main
+          if ($LASTEXITCODE -ne 0) {
+            throw "Unable to fetch the latest main branch before proposing the popularity snapshot."
+          }
+          $latestMainSha = (git rev-parse origin/main).Trim()
+          if ($LASTEXITCODE -ne 0) {
+            throw "Unable to identify the latest main commit."
+          }
+          if ($checkoutSha -ne $latestMainSha) {
+            throw "main advanced during snapshot generation; this candidate was not proposed. Run the snapshot again against the latest main."
+          }
+
+          gh auth setup-git
+          if ($LASTEXITCODE -ne 0) {
+            throw "Unable to configure GitHub CLI credentials for the snapshot branch."
+          }
+
+          $branch = "automation/snapshot-github-repositories-popularity-score"
+          if ($gitDiffExitCode -eq 0) {
+            $stalePrNumber = gh pr list --state open --base main --head $branch --json number --jq '.[0].number // empty'
+            if ($LASTEXITCODE -ne 0) {
+              throw "Unable to check for a stale popularity snapshot pull request."
+            }
+            if (-not [string]::IsNullOrWhiteSpace(($stalePrNumber -join ""))) {
+              gh pr close $stalePrNumber --comment "The newest snapshot matches main, so this candidate is no longer current."
+              if ($LASTEXITCODE -ne 0) {
+                throw "Unable to close the stale popularity snapshot pull request."
+              }
+            }
+            Write-Host "No popularity snapshot changes remain against main."
             if ($env:GITHUB_STEP_SUMMARY) {
               @(
                 "### Popularity snapshot pull request"
                 ""
-                "- An existing automated pull request is still open; this run did not create a duplicate."
+                "- Snapshot files are unchanged against main; any stale open candidate was closed."
               ) | Add-Content -Path $env:GITHUB_STEP_SUMMARY
             }
             exit 0
           }
 
-          $branch = "automation/snapshot-github-repositories-popularity-score-${{ github.run_id }}-${{ github.run_attempt }}"
+          $stagedPaths = @(git diff --cached --name-only)
+          if ($LASTEXITCODE -ne 0) {
+            throw "Unable to list staged popularity snapshot paths."
+          }
+          $expectedPaths = @($env:DATA_SNAPSHOT_FILE_PATH, $env:DATA_SNAPSHOT_METADATA_FILE_PATH)
+          $unexpectedPaths = @($stagedPaths | Where-Object { $_ -notin $expectedPaths })
+          if ($stagedPaths.Count -eq 0 -or $unexpectedPaths.Count -gt 0) {
+            throw "The popularity snapshot candidate contains changes outside the snapshot data and metadata files."
+          }
+
           $title = "GitHub repositories popularity score updated - ${{ steps.current_date.outputs.NOW }}.${{ github.run_number }}"
-          git switch --create $branch
+          git switch --create $branch origin/main
           if ($LASTEXITCODE -ne 0) {
             throw "Unable to create the popularity snapshot pull-request branch."
           }
@@ -124,23 +152,61 @@ jobs:
           if ($LASTEXITCODE -ne 0) {
             throw "Unable to commit popularity snapshot changes."
           }
-          gh auth setup-git
+
+          $existingRemoteRef = git ls-remote --heads origin "refs/heads/$branch"
           if ($LASTEXITCODE -ne 0) {
-            throw "Unable to configure GitHub CLI credentials for the snapshot branch."
+            throw "Unable to check the existing stable popularity snapshot branch."
           }
-          git push --set-upstream origin $branch
+          if ([string]::IsNullOrWhiteSpace(($existingRemoteRef -join ""))) {
+            git push --set-upstream origin "HEAD:refs/heads/$branch"
+          } else {
+            $remoteSha = (($existingRemoteRef -join "`n") -split '\s+')[0]
+            $lease = "refs/heads/${branch}:$remoteSha"
+            git push "--force-with-lease=$lease" origin "HEAD:refs/heads/$branch"
+          }
           if ($LASTEXITCODE -ne 0) {
-            throw "Unable to push the popularity snapshot pull-request branch."
+            throw "Unable to update the stable popularity snapshot pull-request branch."
           }
-          gh pr create --base main --head $branch --title $title --body "Automated weekly popularity snapshot. Review both the snapshot data and metadata before merging."
+
+          $body = "Automated weekly popularity snapshot. Review both the snapshot data and metadata before merging."
+          $prNumber = gh pr list --state open --base main --head $branch --json number --jq '.[0].number // empty'
           if ($LASTEXITCODE -ne 0) {
-            throw "Unable to create the popularity snapshot pull request."
+            throw "Unable to check for the stable popularity snapshot pull request."
           }
+          if ([string]::IsNullOrWhiteSpace(($prNumber -join ""))) {
+            $closedPrNumber = gh pr list --state closed --base main --head $branch --json number,mergedAt --jq '.[] | select(.mergedAt == null) | .number' | Select-Object -First 1
+            if ($LASTEXITCODE -ne 0) {
+              throw "Unable to check for a previously closed popularity snapshot pull request."
+            }
+            if (-not [string]::IsNullOrWhiteSpace(($closedPrNumber -join ""))) {
+              gh pr reopen $closedPrNumber
+              if ($LASTEXITCODE -ne 0) {
+                throw "Unable to reopen the stable popularity snapshot pull request."
+              }
+              $prNumber = $closedPrNumber
+            } else {
+              gh pr create --base main --head $branch --title $title --body $body
+              if ($LASTEXITCODE -ne 0) {
+                throw "Unable to create the popularity snapshot pull request."
+              }
+              $prNumber = gh pr list --state open --base main --head $branch --json number --jq '.[0].number // empty'
+              if ($LASTEXITCODE -ne 0 -or [string]::IsNullOrWhiteSpace(($prNumber -join ""))) {
+                throw "The popularity snapshot pull request was created but its number could not be resolved."
+              }
+            }
+          }
+
+          gh pr edit $prNumber --title $title --body $body
+          if ($LASTEXITCODE -ne 0) {
+            throw "Unable to update the stable popularity snapshot pull request."
+          }
+
           if ($env:GITHUB_STEP_SUMMARY) {
             @(
               "### Popularity snapshot pull request"
               ""
-              "- Opened pull request titled: $title; no changes were pushed to main."
+              "- Updated stable pull request #$($prNumber -join '') titled: $title."
+              "- No changes were pushed directly to main."
             ) | Add-Content -Path $env:GITHUB_STEP_SUMMARY
           }
         shell: pwsh
