@@ -57,25 +57,32 @@ function Write-MarkdownSection {
         $endBalise = "<!--END_SECTION:$SectionIdentifier-->"
 
         # Get the content of the Markdown file
-        $markdownFileContent = Get-Content -Path $MarkdownFilePath -Raw
+        $markdownFileContent = [System.IO.File]::ReadAllText((Resolve-Path -LiteralPath $MarkdownFilePath).Path)
 
         # Validate the existence of the section based on the start and end balises and throw an error if at least one does not exist
-        if ($markdownFileContent -notmatch $startBalise -or $markdownFileContent -notmatch $endBalise) {
+        $startMatches = [regex]::Matches($markdownFileContent, [regex]::Escape($startBalise))
+        $endMatches = [regex]::Matches($markdownFileContent, [regex]::Escape($endBalise))
+        if ($startMatches.Count -ne 1 -or $endMatches.Count -ne 1 -or $endMatches[0].Index -lt ($startMatches[0].Index + $startBalise.Length)) {
             throw "The Markdown file '$MarkdownFilePath' is missing at least one balise for the following section identifier: '$SectionIdentifier--'."
         }
 
-        # Configure the section content with the start and end balises
-        $newSectionContent = "$startBalise`n"
-        $newSectionContent += "$SectionContent`n"
-        $newSectionContent += "$endBalise"
+        $lineEnding = if ($markdownFileContent.Contains("`r`n")) { "`r`n" } else { "`n" }
+        $normalizedSectionContent = $SectionContent -replace "\r\n?|\n", $lineEnding
+        $newSectionContent = "$startBalise$lineEnding$normalizedSectionContent$lineEnding$endBalise"
 
-        # Define the regular expression pattern
-        $pattern = "(?s)$startBalise.*?$endBalise"
-
-        # Replace the section content in the Markdown file
-        $markdownFileContent = $markdownFileContent -replace $pattern, $newSectionContent
+        $pattern = "(?s)$([regex]::Escape($startBalise)).*?$([regex]::Escape($endBalise))"
+        $markdownFileContent = [regex]::Replace(
+            $markdownFileContent,
+            $pattern,
+            [System.Text.RegularExpressions.MatchEvaluator]{ param($match) $newSectionContent },
+            [System.Text.RegularExpressions.RegexOptions]::CultureInvariant
+        )
 
         # Write the content to the Markdown file
-        $markdownFileContent | Set-Content -Path $MarkdownFilePath
+        [System.IO.File]::WriteAllText(
+            (Resolve-Path -LiteralPath $MarkdownFilePath).Path,
+            $markdownFileContent,
+            [System.Text.UTF8Encoding]::new($false)
+        )
     }
 }

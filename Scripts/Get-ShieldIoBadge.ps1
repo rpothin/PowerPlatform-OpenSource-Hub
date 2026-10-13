@@ -73,13 +73,16 @@ function Get-ShieldIoBadge {
             $Label = $Label -replace "_", "__" -replace "-", "--" -replace " ", "_"
         }
 
-        # If no color is provided, generate a random hexadecimal color value
+        # Derive a stable color from the badge identity when no color is provided.
         if (-not $Color) {
-            # Generate a random number between 0 and 16777215 (FFFFFF in hexadecimal)
-            $randomNumber = Get-Random -Minimum 0 -Maximum 16777215
-
-            # Convert the random number to a hexadecimal color value without the leading #
-            $Color = "{0:X6}" -f $randomNumber
+            $colorSeed = "$AlternativeText|$Message|$Label"
+            $sha256 = [System.Security.Cryptography.SHA256]::Create()
+            try {
+                $colorHash = $sha256.ComputeHash([System.Text.Encoding]::UTF8.GetBytes($colorSeed))
+            } finally {
+                $sha256.Dispose()
+            }
+            $Color = "{0:X2}{1:X2}{2:X2}" -f $colorHash[0], $colorHash[1], $colorHash[2]
         }
 
         # Initialize the shield.io badge URL

@@ -611,6 +611,16 @@ jobs:
             }
             $mergeStatus = "Native auto-merge requested after required checks pass."
           } elseif ($isEligibleForAutoMerge) {
+            $autoMergeState = gh pr view $prNumber --json autoMergeRequest --jq '.autoMergeRequest != null'
+            if ($LASTEXITCODE -ne 0) {
+              throw "Unable to determine whether the generated-data pull request has a pending auto-merge request."
+            }
+            if (($autoMergeState -join "").Trim() -eq "true") {
+              gh pr merge $prNumber --disable-auto
+              if ($LASTEXITCODE -ne 0) {
+                throw "Unable to disable the pending generated-data auto-merge request."
+              }
+            }
             $mergeStatus = "Auto-merge is disabled until required main-branch protections are configured and ENABLE_AUTOMATION_AUTO_MERGE is set to true."
           } else {
             $mergeStatus = "This candidate is not eligible for auto-merge ($($policy.reason))."

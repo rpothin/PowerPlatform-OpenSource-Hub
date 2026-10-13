@@ -28,9 +28,10 @@ jobs:
       cancel-in-progress: false
     env:
       RUNNER_DEBUG: 1
-      CONFIGURATION_FILE_PATH: ${{ vars.CONFIGURATION_FILE_PATH }}
-      DATA_FILE_PATH: ${{ vars.DATA_FILE_PATH }}
-      DATA_SNAPSHOT_FILE_PATH: ${{ vars.DATA_SNAPSHOT_FILE_PATH }}
+      CONFIGURATION_FILE_PATH: ${{ vars.CONFIGURATION_FILE_PATH || 'Configuration/GitHubRepositoriesSearchCriteria.json' }}
+      DATA_FILE_PATH: ${{ vars.DATA_FILE_PATH || 'Data/GitHubRepositoriesDetails.json' }}
+      DATA_SNAPSHOT_FILE_PATH: ${{ vars.DATA_SNAPSHOT_FILE_PATH || 'Data/GitHubRepositoriesPopularityScoresSnapshot.json' }}
+      AUTOMATION_AUTO_MERGE_ENABLED: ${{ vars.ENABLE_AUTOMATION_AUTO_MERGE || 'false' }}
     
     steps:
       # Action used to checkout the main branch in the current repository
@@ -63,90 +64,70 @@ jobs:
         id: top_growing
         run: |
           $ErrorActionPreference = "Stop"
+          $sourceCommit = (git rev-parse HEAD).Trim()
+          if ($LASTEXITCODE -ne 0) {
+            throw "Unable to identify the source commit for README generation."
+          }
+          $sourceTimestamp = (git show -s --format=%cI $sourceCommit).Trim()
+          if ($LASTEXITCODE -ne 0) {
+            throw "Unable to identify the source commit timestamp."
+          }
+          $asOfUtc = [System.DateTimeOffset]::Parse($sourceTimestamp).UtcDateTime
           $updateTopGrowing = $env:GITHUB_EVENT_NAME -eq "workflow_dispatch" -or
-            (Get-Date).ToUniversalTime().DayOfWeek -eq [System.DayOfWeek]::Monday
+            $asOfUtc.DayOfWeek -eq [System.DayOfWeek]::Monday
+          $sourceBefore = "workflow_dispatch"
 
           if ($env:GITHUB_EVENT_NAME -eq "push") {
             $event = Get-Content -LiteralPath $env:GITHUB_EVENT_PATH -Raw | ConvertFrom-Json
-            if ([string]::IsNullOrWhiteSpace($event.before) -or $event.before -match '^0+$') {
-              $changedPaths = @($event.commits | ForEach-Object { $_.added; $_.modified; $_.removed } | Where-Object { -not [string]::IsNullOrWhiteSpace($_) })
+            if ($event.after -ne $sourceCommit) {
+              throw "The checked-out README source does not match the triggering push."
+            }
+            $sourceBefore = $event.before
+            if ([string]::IsNullOrWhiteSpace($sourceBefore) -or $sourceBefore -match '^0+$') {
+              $sourceBefore = "0000000000000000000000000000000000000000"
+              $updateTopGrowing = $true
             } else {
-              $changedPaths = @(git diff --name-only $event.before $event.after)
+              git cat-file -e "$sourceBefore^{commit}"
+              if ($LASTEXITCODE -ne 0) {
+                throw "The triggering push's previous commit is not available."
+              }
+              $snapshotGitPath = ($env:DATA_SNAPSHOT_FILE_PATH -replace "\\", "/") -replace '^\./', ''
+              $changedPaths = @(git diff --name-only $sourceBefore $sourceCommit)
               if ($LASTEXITCODE -ne 0) {
                 throw "Unable to determine which README inputs changed."
               }
-            }
-            if ($changedPaths -contains $env:DATA_SNAPSHOT_FILE_PATH) {
-              $updateTopGrowing = $true
+              if ($changedPaths -contains $snapshotGitPath) {
+                $updateTopGrowing = $true
+              }
             }
           }
 
           "UPDATE_TOP_GROWING=$($updateTopGrowing.ToString().ToLowerInvariant())" >> $env:GITHUB_OUTPUT
+          "SOURCE_BEFORE=$sourceBefore" >> $env:GITHUB_OUTPUT
+          "AS_OF_UTC=$($asOfUtc.ToString('o'))" >> $env:GITHUB_OUTPUT
         shell: pwsh
 
-      # Update summary and repositories opened to contributions in README
-      - name: Update summary and repositories opened to contributions
+      - name: Generate README sections
         run: |
           $ErrorActionPreference = "Stop"
-          Write-Host "/********************************************************************************/"
-          Write-Host "Install required modules"
-          Import-Module .\Scripts\Write-MarkdownSection.ps1 -Force
-          Import-Module .\Scripts\Get-ShieldIoBadge.ps1 -Force
-          Import-Module .\Scripts\ConvertTo-MarkdownTable.ps1 -Force
-          Import-Module .\Scripts\Write-ReadmeSummarySection.ps1 -Force
-          Import-Module .\Scripts\Write-ReadmeRepositoriesOpenedToContributionsSection.ps1 -Force
-
-          Write-Host "/********************************************************************************/"
-          Write-Host "Get search criteria details"
-          if (-not (Test-Path -LiteralPath $env:CONFIGURATION_FILE_PATH)) {
-            throw "No search criteria file found at '$env:CONFIGURATION_FILE_PATH'."
+          $configurationPath = ($env:CONFIGURATION_FILE_PATH -replace "\\", "/") -replace '^\./', ''
+          $dataPath = ($env:DATA_FILE_PATH -replace "\\", "/") -replace '^\./', ''
+          $snapshotPath = ($env:DATA_SNAPSHOT_FILE_PATH -replace "\\", "/") -replace '^\./', ''
+          $arguments = @(
+            "-File", "Scripts/Generate-Readme.ps1",
+            "-MarkdownFilePath", "README.md",
+            "-ConfigurationFilePath", $configurationPath,
+            "-DataFilePath", $dataPath,
+            "-DataSnapshotFilePath", $snapshotPath,
+            "-AsOf", "${{ steps.top_growing.outputs.AS_OF_UTC }}"
+          )
+          if ("${{ steps.top_growing.outputs.UPDATE_TOP_GROWING }}" -eq "true") {
+            $arguments += "-UpdateTopGrowing"
           }
-          $topics = Get-Content -LiteralPath $env:CONFIGURATION_FILE_PATH -Raw | ConvertFrom-Json
-          
-          Write-Host "Get repositories details"
-          if (-not (Test-Path -LiteralPath $env:DATA_FILE_PATH)) {
-            throw "No repository details file found at '$env:DATA_FILE_PATH'."
+          & pwsh @arguments
+          if ($LASTEXITCODE -ne 0) {
+            throw "README generation failed."
           }
-          $repositoriesDetails = Get-Content -LiteralPath $env:DATA_FILE_PATH -Raw | ConvertFrom-Json
-
-          Write-Host "/********************************************************************************/"
-          Write-Host "Update summary"
-          Write-ReadmeSummarySection -GitHubRepositoriesDetails $repositoriesDetails -Topics $topics
-
-          Write-Host "/********************************************************************************/"
-          Write-Host "Update list of repositories opened to contributions"
-          Write-ReadmeRepositoriesOpenedToContributionsSection -GitHubRepositoriesDetails $repositoriesDetails
-        shell: pwsh
-
-      # Refresh top-growing data on Mondays and whenever the weekly snapshot changes.
-      - name: Update list of top growing repositories
-        if: ${{ steps.top_growing.outputs.UPDATE_TOP_GROWING == 'true' }}
-        run: |
-          $ErrorActionPreference = "Stop"
-          Write-Host "/********************************************************************************/"
-          Write-Host "Install required modules"
-          Import-Module .\Scripts\Write-MarkdownSection.ps1 -Force
-          Import-Module .\Scripts\Get-ShieldIoBadge.ps1 -Force
-          Import-Module .\Scripts\ConvertTo-MarkdownTable.ps1 -Force
-          Import-Module .\Scripts\Write-ReadmeTopGrowingRepositoriesSection.ps1 -Force
-
-          Write-Host "/********************************************************************************/"
-          Write-Host "Get repositories details"
-          if (-not (Test-Path -LiteralPath $env:DATA_FILE_PATH)) {
-            throw "No repository details file found at '$env:DATA_FILE_PATH'."
-          }
-          $repositoriesDetails = Get-Content -LiteralPath $env:DATA_FILE_PATH -Raw | ConvertFrom-Json
-
-          Write-Host "Get latest snapshot of the popularity score of the GitHub repositories"
-          if (Test-Path -LiteralPath $env:DATA_SNAPSHOT_FILE_PATH) {
-            $repositoriesPopularityScoresSnapshot = Get-Content -LiteralPath $env:DATA_SNAPSHOT_FILE_PATH -Raw | ConvertFrom-Json
-          } else {
-            $repositoriesPopularityScoresSnapshot = @()
-          }
-
-          Write-Host "/********************************************************************************/"
-          Write-Host "Update list of top growing repositories"
-          Write-ReadmeTopGrowingRepositoriesSection -GitHubRepositoriesDetails $repositoriesDetails -GitHubRepositoriesPopularityScoresSnapshot $repositoriesPopularityScoresSnapshot
         shell: pwsh
 
       - name: Open pull request for README changes
@@ -193,7 +174,12 @@ jobs:
             throw "Unable to configure GitHub CLI credentials for the README branch."
           }
 
-          $branch = "automation/update-readme-with-github-repositories-details"
+          $isAutoLane = $env:GITHUB_EVENT_NAME -eq "push"
+          $branch = if ($isAutoLane) {
+            "automation/update-readme-with-github-repositories-details"
+          } else {
+            "automation/manual-update-readme-with-github-repositories-details"
+          }
           if ($gitDiffExitCode -eq 0) {
             $stalePrNumber = gh pr list --state open --base main --head $branch --json number --jq '.[0].number // empty'
             if ($LASTEXITCODE -ne 0) {
@@ -229,7 +215,12 @@ jobs:
           if ($LASTEXITCODE -ne 0) {
             throw "Unable to create the README pull-request branch."
           }
-          git commit -m $title
+          $topGrowingRefreshed = "${{ steps.top_growing.outputs.UPDATE_TOP_GROWING }}"
+          $commitBody = @(
+            "README-Source-Before: ${{ steps.top_growing.outputs.SOURCE_BEFORE }}"
+            "README-Top-Growing-Refreshed: $topGrowingRefreshed"
+          ) -join "`n"
+          git commit -m $title -m $commitBody
           if ($LASTEXITCODE -ne 0) {
             throw "Unable to commit the generated README changes."
           }
@@ -249,7 +240,11 @@ jobs:
             throw "Unable to update the stable README pull-request branch."
           }
 
-          $body = "Automated README update. The diff has been checked to remain inside the generated README sections."
+          $body = if ($isAutoLane) {
+            "Automated README update from a main input change. The required PR check re-renders the README from the recorded source commit and validates the exact generated output."
+          } else {
+            "Manually requested README update. This lane is intentionally excluded from native auto-merge."
+          }
           $prNumber = gh pr list --state open --base main --head $branch --json number --jq '.[0].number // empty'
           if ($LASTEXITCODE -ne 0) {
             throw "Unable to check for the stable README pull request."
@@ -282,12 +277,34 @@ jobs:
             throw "Unable to update the stable README pull request."
           }
 
+          if ($isAutoLane -and $env:AUTOMATION_AUTO_MERGE_ENABLED -ceq "true") {
+            gh pr merge $prNumber --auto --merge
+            if ($LASTEXITCODE -ne 0) {
+              throw "Unable to request native auto-merge for the validated README pull request."
+            }
+            $mergeStatus = "Native auto-merge requested; GitHub will merge only after required checks and branch protection pass."
+          } elseif ($isAutoLane) {
+            $autoMergeState = gh pr view $prNumber --json autoMergeRequest --jq '.autoMergeRequest != null'
+            if ($LASTEXITCODE -ne 0) {
+              throw "Unable to determine whether the README pull request has a pending auto-merge request."
+            }
+            if (($autoMergeState -join "").Trim() -eq "true") {
+              gh pr merge $prNumber --disable-auto
+              if ($LASTEXITCODE -ne 0) {
+                throw "Unable to disable the pending README auto-merge request."
+              }
+            }
+            $mergeStatus = "Auto-merge is disabled by ENABLE_AUTOMATION_AUTO_MERGE."
+          } else {
+            $mergeStatus = "Manual-dispatch README candidates are not eligible for auto-merge."
+          }
+
           if ($env:GITHUB_STEP_SUMMARY) {
             @(
               "### README pull request"
               ""
               "- Updated stable pull request #$($prNumber -join '') titled: $title."
-              "- README pull requests remain manual-merge candidates."
+              "- $mergeStatus"
               "- No changes were pushed directly to main."
             ) | Add-Content -Path $env:GITHUB_STEP_SUMMARY
           }
