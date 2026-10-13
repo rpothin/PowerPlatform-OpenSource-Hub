@@ -35,4 +35,12 @@ Describe "Get-ShieldIoBadge Unit Tests" {
         $badge = Get-ShieldIoBadge -AlternativeText "Static Badge" -Message "any-text" -Label "you-like" -OutputFormat "Markdown"
         $badge | Should -Match "any--text-you--like-.*"
     }
+
+    It "Uses a stable generated color when no color is provided" {
+        $firstBadge = Get-ShieldIoBadge -AlternativeText "Stable Badge" -Message "repository topic" -OutputFormat "Markdown"
+        $secondBadge = Get-ShieldIoBadge -AlternativeText "Stable Badge" -Message "repository topic" -OutputFormat "Markdown"
+
+        $secondBadge | Should -Be $firstBadge
+        $firstBadge | Should -Match "-[0-9A-F]{6}\)$"
+    }
 }

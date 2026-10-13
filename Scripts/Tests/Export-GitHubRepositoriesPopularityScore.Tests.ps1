@@ -29,13 +29,12 @@ Describe "Export-GitHubRepositoriesPopularityScore Unit Tests" {
 
     Context "Valid execution with mocked commands" {
         BeforeEach {
-            $inputFilePath = "C:\path\to\input.json"
+            $inputFilePath = Join-Path $TestDrive "input.json"
             $outputFilePath = "C:\path\to\output.json"
 
             Mock Test-Path { $true }
 
-            Mock Get-Content {
-                return "[
+            [System.IO.File]::WriteAllText($inputFilePath, "[
                     {
                     'createdAt': '2018-11-21T16:54:50Z',
                     'description': 'Manages, configures, extracts and monitors Microsoft 365 tenant configurations',
@@ -183,8 +182,7 @@ Describe "Export-GitHubRepositoriesPopularityScore Unit Tests" {
                     'openedToContributionsIssues': 4,
                     'popularityScore': 362
                   }
-                ]"
-            }
+                ]")
 
             Mock Out-File {
                 # Do nothing
@@ -199,19 +197,34 @@ Describe "Export-GitHubRepositoriesPopularityScore Unit Tests" {
             $result[1].fullName | Should -Be "Azure/azure-functions-openapi-extension"
             $result[1].popularityScore | Should -Be 362
         }
+
+    }
+
+    Context "Single record snapshot" {
+        BeforeEach {
+            $script:inputFilePath = Join-Path $TestDrive "input.json"
+            $script:outputFilePath = Join-Path $TestDrive "snapshot.json"
+
+            Mock Test-Path { $true }
+            [System.IO.File]::WriteAllText($script:inputFilePath, '[{"fullName":"owner/repository","popularityScore":42}]')
+        }
+
+        It "writes a one-repository snapshot as a JSON array" {
+            Export-GitHubRepositoriesPopularityScore -InputFilePath $script:inputFilePath -OutputFilePath $script:outputFilePath
+            $snapshotJson = [System.IO.File]::ReadAllText($script:outputFilePath)
+            $snapshotJson.TrimStart().StartsWith("[") | Should -BeTrue
+        }
     }
 
     Context "Metadata output file" {
         BeforeEach {
-            $script:inputFilePath = "C:\path\to\input.json"
+            $script:inputFilePath = Join-Path $TestDrive "input.json"
             $script:outputFilePath = "C:\path\to\output.json"
             $script:metadataOutputFilePath = "C:\path\to\metadata.json"
 
             Mock Test-Path { $true }
 
-            Mock Get-Content {
-                return "[{'fullName': 'microsoft/Microsoft365DSC', 'popularityScore': 1229}]"
-            }
+            [System.IO.File]::WriteAllText($script:inputFilePath, "[{'fullName': 'microsoft/Microsoft365DSC', 'popularityScore': 1229}]")
 
             Mock Out-File {
                 # Do nothing
@@ -219,7 +232,7 @@ Describe "Export-GitHubRepositoriesPopularityScore Unit Tests" {
         }
 
         It "When -MetadataOutputFilePath is provided, Out-File should be called twice (once for snapshot, once for metadata)" {
-            Export-GitHubRepositoriesPopularityScore -InputFilePath $script:inputFilePath -OutputFilePath $script:outputFilePath -MetadataOutputFilePath $script:metadataOutputFilePath
+            Export-GitHubRepositoriesPopularityScore -InputFilePath $script:inputFilePath -OutputFilePath $script:outputFilePath -MetadataOutputFilePath $script:metadataOutputFilePath -SourceCommit ("a" * 40)
             Assert-MockCalled Out-File -Times 2 -Exactly
         }
 
@@ -232,9 +245,11 @@ Describe "Export-GitHubRepositoriesPopularityScore Unit Tests" {
                 }
             } -ParameterFilter { $FilePath -eq $script:metadataOutputFilePath }
 
-            Export-GitHubRepositoriesPopularityScore -InputFilePath $script:inputFilePath -OutputFilePath $script:outputFilePath -MetadataOutputFilePath $script:metadataOutputFilePath
+            Export-GitHubRepositoriesPopularityScore -InputFilePath $script:inputFilePath -OutputFilePath $script:outputFilePath -MetadataOutputFilePath $script:metadataOutputFilePath -SourceCommit ("a" * 40)
             $script:capturedContent | Should -Not -BeNullOrEmpty
             $script:capturedContent | Should -Match '_snapshotTakenAt'
+            $script:capturedContent | Should -Match '_sourceCommit'
+            $script:capturedContent | Should -Match '_sourceSha256'
         }
 
         It "When -MetadataOutputFilePath is provided, _snapshotTakenAt is a valid ISO 8601 string" {
@@ -245,7 +260,7 @@ Describe "Export-GitHubRepositoriesPopularityScore Unit Tests" {
                 }
             } -ParameterFilter { $FilePath -eq $script:metadataOutputFilePath }
 
-            Export-GitHubRepositoriesPopularityScore -InputFilePath $script:inputFilePath -OutputFilePath $script:outputFilePath -MetadataOutputFilePath $script:metadataOutputFilePath
+            Export-GitHubRepositoriesPopularityScore -InputFilePath $script:inputFilePath -OutputFilePath $script:outputFilePath -MetadataOutputFilePath $script:metadataOutputFilePath -SourceCommit ("a" * 40)
 
             # Verify the generated timestamp is a parseable ISO 8601 date
             $parsed = [System.DateTime]::Parse($script:capturedTimestamp, $null, [System.Globalization.DateTimeStyles]::RoundtripKind)
