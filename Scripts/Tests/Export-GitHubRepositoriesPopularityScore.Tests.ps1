@@ -29,13 +29,12 @@ Describe "Export-GitHubRepositoriesPopularityScore Unit Tests" {
 
     Context "Valid execution with mocked commands" {
         BeforeEach {
-            $inputFilePath = "C:\path\to\input.json"
+            $inputFilePath = Join-Path $TestDrive "input.json"
             $outputFilePath = "C:\path\to\output.json"
 
             Mock Test-Path { $true }
 
-            Mock Get-Content {
-                return "[
+            [System.IO.File]::WriteAllText($inputFilePath, "[
                     {
                     'createdAt': '2018-11-21T16:54:50Z',
                     'description': 'Manages, configures, extracts and monitors Microsoft 365 tenant configurations',
@@ -183,8 +182,7 @@ Describe "Export-GitHubRepositoriesPopularityScore Unit Tests" {
                     'openedToContributionsIssues': 4,
                     'popularityScore': 362
                   }
-                ]"
-            }
+                ]")
 
             Mock Out-File {
                 # Do nothing
@@ -204,13 +202,11 @@ Describe "Export-GitHubRepositoriesPopularityScore Unit Tests" {
 
     Context "Single record snapshot" {
         BeforeEach {
-            $script:inputFilePath = "C:\path\to\input.json"
+            $script:inputFilePath = Join-Path $TestDrive "input.json"
             $script:outputFilePath = Join-Path $TestDrive "snapshot.json"
 
             Mock Test-Path { $true }
-            Mock Get-Content {
-                return '[{"fullName":"owner/repository","popularityScore":42}]'
-            }
+            [System.IO.File]::WriteAllText($script:inputFilePath, '[{"fullName":"owner/repository","popularityScore":42}]')
         }
 
         It "writes a one-repository snapshot as a JSON array" {
@@ -222,15 +218,13 @@ Describe "Export-GitHubRepositoriesPopularityScore Unit Tests" {
 
     Context "Metadata output file" {
         BeforeEach {
-            $script:inputFilePath = "C:\path\to\input.json"
+            $script:inputFilePath = Join-Path $TestDrive "input.json"
             $script:outputFilePath = "C:\path\to\output.json"
             $script:metadataOutputFilePath = "C:\path\to\metadata.json"
 
             Mock Test-Path { $true }
 
-            Mock Get-Content {
-                return "[{'fullName': 'microsoft/Microsoft365DSC', 'popularityScore': 1229}]"
-            }
+            [System.IO.File]::WriteAllText($script:inputFilePath, "[{'fullName': 'microsoft/Microsoft365DSC', 'popularityScore': 1229}]")
 
             Mock Out-File {
                 # Do nothing
