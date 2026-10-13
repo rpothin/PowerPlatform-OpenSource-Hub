@@ -163,6 +163,17 @@ describe("repository schemas", () => {
     expect(validate(data)).toBe(true);
   });
 
+  it("keeps every configured sentinel repository in the merged frontend artifact", () => {
+    const data = loadJson<RepositoryDetailsRecord[]>(path.join(repositoryRoot, "Data", "GitHubRepositoriesDetails.json"));
+    const sentinelConfig = loadJson<{ repositories: SentinelRepository[] }>(path.join(repositoryRoot, "Configuration", "SentinelRepositories.json"));
+    const repositoryNames = new Set(data.map((repository) => normalizeFullName(repository.fullName ?? "")));
+    const missing = sentinelConfig.repositories
+      .map((repository) => repository.fullName)
+      .filter((fullName) => !repositoryNames.has(normalizeFullName(fullName)));
+
+    expect(missing).toEqual([]);
+  });
+
   it("validates a generated repository record with stable identity and computed health", () => {
     const validate = compileSchema("GitHubRepositoryGenerated.schema.json");
     const withoutRepositoryId = generatedRecord();
