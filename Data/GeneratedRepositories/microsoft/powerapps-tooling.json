@@ -21,7 +21,7 @@
     "type": "Organization",
     "url": "https://github.com/microsoft"
   },
-  "updatedAt": "2026-10-13T14:23:38Z",
+  "updatedAt": "2026-10-13T22:53:14Z",
   "url": "https://github.com/microsoft/PowerApps-Tooling",
   "codeOfConduct": {
     "key": "other",
@@ -30,13 +30,13 @@
   },
   "forkCount": 125,
   "fundingLinks": [],
-  "isSecurityPolicyEnabled": false,
+  "isSecurityPolicyEnabled": true,
   "isTemplate": false,
   "latestRelease": null,
   "primaryLanguage": {
     "name": "C#"
   },
-  "securityPolicyUrl": null,
+  "securityPolicyUrl": "https://github.com/microsoft/PowerApps-Tooling/security/policy",
   "stargazerCount": 445,
   "watchers": {
     "totalCount": 50
@@ -61,6 +61,6 @@
   "openedToContributionsIssues": 0,
   "popularityScore": 495,
   "_schemaVersion": "1.0.0",
-  "_generatedAt": "2026-10-13T15:19:43.000Z",
-  "_workflowRunId": "38389012372"
+  "_generatedAt": "2026-10-14T11:15:32.074Z",
+  "_workflowRunId": "38555223421"
 }
