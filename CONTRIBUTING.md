@@ -1,9 +1,19 @@
 # Contributing
 
 Choose the component that owns the behavior you are changing, read its
-documentation, and keep the pull request focused. Do not include generated
-data, curation judgments, workflow changes, or unrelated cleanup in a code
-change.
+documentation, and keep the pull request focused. See the [project overview](README.md)
+if you are new to the repository. Do not include generated data, curation
+judgments, workflow changes, or unrelated cleanup in a code change.
+
+## Component and path map
+
+| Work area | Owning path | Existing guidance |
+| --- | --- | --- |
+| Pipeline | [`Pipeline/`](Pipeline/) | [`Pipeline/README.md`](Pipeline/README.md) |
+| Website | [`Website/`](Website/) | [`Website/README.md`](Website/README.md); the validation commands below follow npm and CI |
+| Scripts | [`Scripts/`](Scripts/) | [PowerShell scripts validation workflow](.github/workflows/powershell-scripts-validation.yml) |
+| Configuration | [`Configuration/`](Configuration/) | [`Pipeline/README.md`](Pipeline/README.md) covers taxonomy and schema alignment |
+| Repository data | [`Data/`](Data/), including `GeneratedRepositories/` and `CuratedRepositories/` | [`Pipeline/README.md`](Pipeline/README.md) covers generated/curated ownership and overlay authoring |
 
 ## Local validation
 
@@ -36,3 +46,5 @@ Describe the purpose and scope of the change, the affected component, and the
 validation performed. If a check was not run, say so and explain why. Call out
 curated data or user-visible changes so maintainers can review them. Never
 include credentials, private data, or unredacted sensitive logs.
+Contributor pull requests require human maintainer review and merge; passing
+automated checks alone does not replace that review.
