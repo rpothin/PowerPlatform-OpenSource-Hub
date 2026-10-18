@@ -48,7 +48,7 @@ From projects opened to contributions to top growing repositories you should be 
 <!--START_SECTION:summary-->
 <h3 align='center'>
   <img alt='Repositories Count Badge' src='https://img.shields.io/badge/Repositories-207-602890'>
-  <img alt='Active Repositories Count Badge' src='https://img.shields.io/badge/Active_Repositories-127-A24FBF'>
+  <img alt='Active Repositories Count Badge' src='https://img.shields.io/badge/Active_Repositories-125-A24FBF'>
   <img alt='Opened Good First Issues Count Badge' src='https://img.shields.io/badge/Good_First_Issues-13-green'>
   <img alt='Opened Help Wanted Issues Count Badge' src='https://img.shields.io/badge/Help_Wanted_Issues-12-blue'>
   <br/>
