@@ -43,7 +43,7 @@ The goal of this repository is to try to simplify your journey in Power Platform
 
 From projects opened to contributions to top growing repositories you should be able to find your next adventure here.
 
-## 💬 Feedback and requests
+## 💬 Bug reports and feature requests
 
 Use the [bug report form](https://github.com/rpothin/PowerPlatform-OpenSource-Hub/issues/new?template=bug_report.yml) to report a problem, or the [feature request form](https://github.com/rpothin/PowerPlatform-OpenSource-Hub/issues/new?template=feature_request.yml) to suggest an improvement.
 
