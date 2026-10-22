@@ -6,7 +6,7 @@
   "hasIssues": true,
   "homepage": "",
   "isArchived": false,
-  "language": "Python",
+  "language": "Jupyter Notebook",
   "license": {
     "key": "mit",
     "name": "MIT License",
@@ -21,7 +21,7 @@
     "type": "Organization",
     "url": "https://github.com/microsoft"
   },
-  "updatedAt": "2026-10-14T21:19:34Z",
+  "updatedAt": "2026-10-21T17:16:45Z",
   "url": "https://github.com/microsoft/ConsumptionCentral-for-Microsoft-Copilot",
   "codeOfConduct": {
     "key": "other",
@@ -34,12 +34,12 @@
   "isTemplate": false,
   "latestRelease": null,
   "primaryLanguage": {
-    "name": "Python"
+    "name": "Jupyter Notebook"
   },
   "securityPolicyUrl": "https://github.com/microsoft/ConsumptionCentral-for-Microsoft-Copilot/security/policy",
-  "stargazerCount": 28,
+  "stargazerCount": 29,
   "watchers": {
-    "totalCount": 2
+    "totalCount": 3
   },
   "topics": [
     "azure-ai",
@@ -54,16 +54,16 @@
     "viva-insights"
   ],
   "languages": [
-    "Python",
-    "Jupyter Notebook"
+    "Jupyter Notebook",
+    "Python"
   ],
   "openedGoodFirstIssues": 0,
   "hasGoodFirstIssues": false,
   "openedHelpWantedIssues": 0,
   "hasHelpWantedIssues": false,
   "openedToContributionsIssues": 0,
-  "popularityScore": 30,
+  "popularityScore": 32,
   "_schemaVersion": "1.0.0",
-  "_generatedAt": "2026-10-19T11:15:04.566Z",
-  "_workflowRunId": "39243225651"
+  "_generatedAt": "2026-10-22T11:14:44.663Z",
+  "_workflowRunId": "39769080821"
 }

@@ -1,0 +1,75 @@
+{
+  "createdAt": "2026-08-18T05:21:05Z",
+  "description": "Keep every Dynamics 365 app and F&O version current across a whole tenant, from Azure DevOps or GitHub Actions. Production waits for proof.",
+  "fullName": "lazejanev/d365-tenant-app-updater",
+  "repositoryId": 1338003550,
+  "hasIssues": true,
+  "homepage": "https://www.linkedin.com/pulse/spend-5-minutes-once-save-hours-every-week-dynamics-365-laze-janev-jzj9f/",
+  "isArchived": false,
+  "language": "PowerShell",
+  "license": {
+    "key": "mit",
+    "name": "MIT License",
+    "url": "https://api.github.com/licenses/mit"
+  },
+  "name": "d365-tenant-app-updater",
+  "openIssuesCount": 0,
+  "owner": {
+    "id": "925479",
+    "is_bot": false,
+    "login": "lazejanev",
+    "type": "User",
+    "url": "https://github.com/lazejanev"
+  },
+  "updatedAt": "2026-10-22T09:48:17Z",
+  "url": "https://github.com/lazejanev/d365-tenant-app-updater",
+  "codeOfConduct": {
+    "key": "other",
+    "name": "Other",
+    "url": "https://github.com/lazejanev/d365-tenant-app-updater/blob/main/CODE_OF_CONDUCT.md"
+  },
+  "forkCount": 1,
+  "fundingLinks": [],
+  "isSecurityPolicyEnabled": true,
+  "isTemplate": false,
+  "latestRelease": {
+    "name": "v3.0.0 - Production waits for proof",
+    "tagName": "v3.0.0",
+    "url": "https://github.com/lazejanev/d365-tenant-app-updater/releases/tag/v3.0.0",
+    "publishedAt": "2026-10-19T15:05:14Z"
+  },
+  "primaryLanguage": {
+    "name": "PowerShell"
+  },
+  "securityPolicyUrl": "https://github.com/lazejanev/d365-tenant-app-updater/security/policy",
+  "stargazerCount": 11,
+  "watchers": {
+    "totalCount": 2
+  },
+  "topics": [
+    "alm",
+    "azure-devops",
+    "d365fo",
+    "d365fo-tools",
+    "dataverse",
+    "devops",
+    "dynamics365",
+    "finance-and-operations",
+    "github-actions",
+    "power-platform",
+    "powershell"
+  ],
+  "languages": [
+    "PowerShell",
+    "Python"
+  ],
+  "openedGoodFirstIssues": 0,
+  "hasGoodFirstIssues": false,
+  "openedHelpWantedIssues": 0,
+  "hasHelpWantedIssues": false,
+  "openedToContributionsIssues": 0,
+  "popularityScore": 13,
+  "_schemaVersion": "1.0.0",
+  "_generatedAt": "2026-10-22T11:14:44.663Z",
+  "_workflowRunId": "39769080821"
+}

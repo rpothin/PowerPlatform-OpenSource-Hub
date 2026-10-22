@@ -1,12 +1,12 @@
 {
   "createdAt": "2025-11-14T19:46:18Z",
-  "description": "AB-900 exam prep + AI study buddy | O'Reilly Live Learning course materials, distilled Microsoft Learn content, and a GitHub Copilot agent that generates practice questions, scenario walkthroughs, and personalized study plans",
+  "description": "AB-900 exam prep + AI study buddy | Tim Warner's Copilot and agent administration course materials, distilled Microsoft Learn content, and a GitHub Copilot agent that generates practice questions, scenario walkthroughs, and personalized study plans",
   "fullName": "timothywarner-org/ab900",
   "repositoryId": 1096685270,
   "hasIssues": true,
   "homepage": "https://techtrainertim.com",
   "isArchived": false,
-  "language": "PowerShell",
+  "language": "JavaScript",
   "license": {
     "key": "mit",
     "name": "MIT License",
@@ -21,14 +21,14 @@
     "type": "Organization",
     "url": "https://github.com/timothywarner-org"
   },
-  "updatedAt": "2026-09-24T09:02:48Z",
+  "updatedAt": "2026-10-19T22:20:49Z",
   "url": "https://github.com/timothywarner-org/ab900",
   "codeOfConduct": {
     "key": "other",
     "name": "Other",
     "url": "https://github.com/timothywarner-org/.github/blob/main/CODE_OF_CONDUCT.md"
   },
-  "forkCount": 17,
+  "forkCount": 18,
   "fundingLinks": [
     {
       "platform": "CUSTOM",
@@ -39,7 +39,7 @@
   "isTemplate": false,
   "latestRelease": null,
   "primaryLanguage": {
-    "name": "PowerShell"
+    "name": "JavaScript"
   },
   "securityPolicyUrl": "https://github.com/timothywarner-org/ab900/security/policy",
   "stargazerCount": 28,
@@ -64,8 +64,8 @@
     "oreilly-live-learning"
   ],
   "languages": [
-    "PowerShell",
-    "JavaScript"
+    "JavaScript",
+    "PowerShell"
   ],
   "openedGoodFirstIssues": 0,
   "hasGoodFirstIssues": false,
@@ -74,6 +74,6 @@
   "openedToContributionsIssues": 0,
   "popularityScore": 30,
   "_schemaVersion": "1.0.0",
-  "_generatedAt": "2026-10-19T11:15:04.566Z",
-  "_workflowRunId": "39243225651"
+  "_generatedAt": "2026-10-22T11:14:44.663Z",
+  "_workflowRunId": "39769080821"
 }
