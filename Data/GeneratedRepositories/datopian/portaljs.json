@@ -13,7 +13,7 @@
     "url": "https://api.github.com/licenses/mit"
   },
   "name": "portaljs",
-  "openIssuesCount": 88,
+  "openIssuesCount": 16,
   "owner": {
     "id": "24832801",
     "is_bot": false,
@@ -21,26 +21,26 @@
     "type": "Organization",
     "url": "https://github.com/datopian"
   },
-  "updatedAt": "2026-10-18T18:12:27Z",
+  "updatedAt": "2026-10-21T10:53:55Z",
   "url": "https://github.com/datopian/portaljs",
   "codeOfConduct": null,
-  "forkCount": 337,
+  "forkCount": 338,
   "fundingLinks": [],
   "isSecurityPolicyEnabled": true,
   "isTemplate": false,
   "latestRelease": {
-    "name": "create-portaljs@0.6.0",
-    "tagName": "create-portaljs@0.6.0",
-    "url": "https://github.com/datopian/portaljs/releases/tag/create-portaljs%400.6.0",
-    "publishedAt": "2026-06-18T09:52:53Z"
+    "name": "create-portaljs@0.7.1",
+    "tagName": "create-portaljs@0.7.1",
+    "url": "https://github.com/datopian/portaljs/releases/tag/create-portaljs%400.7.1",
+    "publishedAt": "2026-10-21T05:27:18Z"
   },
   "primaryLanguage": {
     "name": "TypeScript"
   },
   "securityPolicyUrl": "https://github.com/datopian/portaljs/security/policy",
-  "stargazerCount": 2368,
+  "stargazerCount": 2369,
   "watchers": {
-    "totalCount": 96
+    "totalCount": 95
   },
   "topics": [
     "data-portal",
@@ -71,13 +71,13 @@
     "SCSS",
     "Dockerfile"
   ],
-  "openedGoodFirstIssues": 10,
-  "hasGoodFirstIssues": true,
+  "openedGoodFirstIssues": 0,
+  "hasGoodFirstIssues": false,
   "openedHelpWantedIssues": 0,
   "hasHelpWantedIssues": false,
-  "openedToContributionsIssues": 10,
+  "openedToContributionsIssues": 0,
   "popularityScore": 2464,
   "_schemaVersion": "1.0.0",
-  "_generatedAt": "2026-10-19T11:15:04.566Z",
-  "_workflowRunId": "39243225651"
+  "_generatedAt": "2026-10-22T11:14:44.663Z",
+  "_workflowRunId": "39769080821"
 }
