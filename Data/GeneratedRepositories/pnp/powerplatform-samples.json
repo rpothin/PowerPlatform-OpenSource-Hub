@@ -6,14 +6,14 @@
   "hasIssues": true,
   "homepage": "https://aka.ms/powerplatform-samples",
   "isArchived": false,
-  "language": "",
+  "language": "Astro",
   "license": {
     "key": "mit",
     "name": "MIT License",
     "url": "https://api.github.com/licenses/mit"
   },
   "name": "powerplatform-samples",
-  "openIssuesCount": 36,
+  "openIssuesCount": 33,
   "owner": {
     "id": "31443929",
     "is_bot": false,
@@ -21,7 +21,7 @@
     "type": "Organization",
     "url": "https://github.com/pnp"
   },
-  "updatedAt": "2026-10-16T20:00:27Z",
+  "updatedAt": "2026-10-23T10:30:47Z",
   "url": "https://github.com/pnp/powerplatform-samples",
   "codeOfConduct": null,
   "forkCount": 248,
@@ -29,9 +29,11 @@
   "isSecurityPolicyEnabled": false,
   "isTemplate": false,
   "latestRelease": null,
-  "primaryLanguage": null,
+  "primaryLanguage": {
+    "name": "Astro"
+  },
   "securityPolicyUrl": null,
-  "stargazerCount": 450,
+  "stargazerCount": 451,
   "watchers": {
     "totalCount": 24
   },
@@ -44,14 +46,19 @@
     "powerpageshackathon",
     "hacktoberfest"
   ],
-  "languages": [],
+  "languages": [
+    "Astro",
+    "JavaScript",
+    "CSS",
+    "TypeScript"
+  ],
   "openedGoodFirstIssues": 0,
   "hasGoodFirstIssues": false,
   "openedHelpWantedIssues": 0,
   "hasHelpWantedIssues": false,
   "openedToContributionsIssues": 0,
-  "popularityScore": 474,
+  "popularityScore": 475,
   "_schemaVersion": "1.0.0",
-  "_generatedAt": "2026-10-22T11:14:44.663Z",
-  "_workflowRunId": "39769080821"
+  "_generatedAt": "2026-10-23T11:15:08.287Z",
+  "_workflowRunId": "39944726925"
 }
