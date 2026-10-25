@@ -1,0 +1,83 @@
+{
+  "createdAt": "2025-12-29T09:32:26Z",
+  "description": "A lightweight REST API wrapper around the Mustang-Project CLI for validating ZuGFeRD, Factur-X and UBL documents. Fast, reliable, and easy to integrate.",
+  "fullName": "Docentric/docentric-e-invoice-validator",
+  "repositoryId": 1124596020,
+  "hasIssues": true,
+  "homepage": "https://ax.docentric.com",
+  "isArchived": false,
+  "language": "TypeScript",
+  "license": {
+    "key": "mit",
+    "name": "MIT License",
+    "url": "https://api.github.com/licenses/mit"
+  },
+  "name": "docentric-e-invoice-validator",
+  "openIssuesCount": 1,
+  "owner": {
+    "id": "205806158",
+    "is_bot": false,
+    "login": "Docentric",
+    "type": "Organization",
+    "url": "https://github.com/Docentric"
+  },
+  "updatedAt": "2026-10-24T13:22:49Z",
+  "url": "https://github.com/Docentric/docentric-e-invoice-validator",
+  "codeOfConduct": null,
+  "forkCount": 2,
+  "fundingLinks": [],
+  "isSecurityPolicyEnabled": false,
+  "isTemplate": false,
+  "latestRelease": {
+    "name": "v2026.4.0",
+    "tagName": "v2026.4.0",
+    "url": "https://github.com/Docentric/docentric-e-invoice-validator/releases/tag/v2026.4.0",
+    "publishedAt": "2026-10-18T20:42:03Z"
+  },
+  "primaryLanguage": {
+    "name": "TypeScript"
+  },
+  "securityPolicyUrl": null,
+  "stargazerCount": 10,
+  "watchers": {
+    "totalCount": 2
+  },
+  "topics": [
+    "d365",
+    "d365fo",
+    "docker",
+    "dynamics365",
+    "e-invoice",
+    "e-rechnung",
+    "electronic-invoicing",
+    "invoice",
+    "msdyn365fo",
+    "ubl",
+    "xrechnung",
+    "zugferd",
+    "docentric",
+    "docentricax",
+    "factur-x"
+  ],
+  "languages": [
+    "TypeScript",
+    "C#",
+    "PowerShell",
+    "Shell",
+    "JavaScript",
+    "CSS",
+    "Dockerfile",
+    "Batchfile",
+    "HTML",
+    "HCL"
+  ],
+  "openedGoodFirstIssues": 0,
+  "hasGoodFirstIssues": false,
+  "openedHelpWantedIssues": 0,
+  "hasHelpWantedIssues": false,
+  "openedToContributionsIssues": 0,
+  "popularityScore": 12,
+  "_schemaVersion": "1.0.0",
+  "_generatedAt": "2026-10-25T11:12:42.783Z",
+  "_workflowRunId": "40187877916"
+}
