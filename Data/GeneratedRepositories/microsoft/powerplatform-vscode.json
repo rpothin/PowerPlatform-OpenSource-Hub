@@ -21,7 +21,7 @@
     "type": "Organization",
     "url": "https://github.com/microsoft"
   },
-  "updatedAt": "2026-10-22T08:50:29Z",
+  "updatedAt": "2026-10-26T05:04:58Z",
   "url": "https://github.com/microsoft/powerplatform-vscode",
   "codeOfConduct": {
     "key": "other",
@@ -30,7 +30,7 @@
   },
   "forkCount": 60,
   "fundingLinks": [],
-  "isSecurityPolicyEnabled": true,
+  "isSecurityPolicyEnabled": false,
   "isTemplate": false,
   "latestRelease": {
     "name": "v$(PPVSC_VERSION)",
@@ -41,8 +41,8 @@
   "primaryLanguage": {
     "name": "TypeScript"
   },
-  "securityPolicyUrl": "https://github.com/microsoft/powerplatform-vscode/security/policy",
-  "stargazerCount": 278,
+  "securityPolicyUrl": null,
+  "stargazerCount": 279,
   "watchers": {
     "totalCount": 23
   },
@@ -63,8 +63,8 @@
   "openedHelpWantedIssues": 0,
   "hasHelpWantedIssues": false,
   "openedToContributionsIssues": 0,
-  "popularityScore": 301,
+  "popularityScore": 302,
   "_schemaVersion": "1.0.0",
-  "_generatedAt": "2026-10-25T11:12:42.783Z",
-  "_workflowRunId": "40187877916"
+  "_generatedAt": "2026-10-26T11:15:43.840Z",
+  "_workflowRunId": "40313704860"
 }
