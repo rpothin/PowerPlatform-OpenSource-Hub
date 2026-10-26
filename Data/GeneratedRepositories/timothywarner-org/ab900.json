@@ -6,7 +6,7 @@
   "hasIssues": true,
   "homepage": "https://techtrainertim.com",
   "isArchived": false,
-  "language": "JavaScript",
+  "language": "PowerShell",
   "license": {
     "key": "mit",
     "name": "MIT License",
@@ -21,7 +21,7 @@
     "type": "Organization",
     "url": "https://github.com/timothywarner-org"
   },
-  "updatedAt": "2026-10-19T22:20:49Z",
+  "updatedAt": "2026-10-26T00:21:26Z",
   "url": "https://github.com/timothywarner-org/ab900",
   "codeOfConduct": {
     "key": "other",
@@ -39,7 +39,7 @@
   "isTemplate": false,
   "latestRelease": null,
   "primaryLanguage": {
-    "name": "JavaScript"
+    "name": "PowerShell"
   },
   "securityPolicyUrl": "https://github.com/timothywarner-org/ab900/security/policy",
   "stargazerCount": 28,
@@ -64,8 +64,9 @@
     "oreilly-live-learning"
   ],
   "languages": [
+    "PowerShell",
     "JavaScript",
-    "PowerShell"
+    "Python"
   ],
   "openedGoodFirstIssues": 0,
   "hasGoodFirstIssues": false,
@@ -74,6 +75,6 @@
   "openedToContributionsIssues": 0,
   "popularityScore": 30,
   "_schemaVersion": "1.0.0",
-  "_generatedAt": "2026-10-25T11:12:42.783Z",
-  "_workflowRunId": "40187877916"
+  "_generatedAt": "2026-10-26T11:15:43.840Z",
+  "_workflowRunId": "40313704860"
 }

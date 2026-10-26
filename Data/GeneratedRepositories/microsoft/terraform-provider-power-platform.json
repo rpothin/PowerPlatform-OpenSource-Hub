@@ -30,7 +30,7 @@
   },
   "forkCount": 23,
   "fundingLinks": [],
-  "isSecurityPolicyEnabled": true,
+  "isSecurityPolicyEnabled": false,
   "isTemplate": false,
   "latestRelease": {
     "name": "v4.2.1",
@@ -41,7 +41,7 @@
   "primaryLanguage": {
     "name": "Go"
   },
-  "securityPolicyUrl": "https://github.com/microsoft/terraform-provider-power-platform/security/policy",
+  "securityPolicyUrl": null,
   "stargazerCount": 64,
   "watchers": {
     "totalCount": 15
@@ -64,6 +64,6 @@
   "openedToContributionsIssues": 0,
   "popularityScore": 79,
   "_schemaVersion": "1.0.0",
-  "_generatedAt": "2026-10-25T11:12:42.783Z",
-  "_workflowRunId": "40187877916"
+  "_generatedAt": "2026-10-26T11:15:43.840Z",
+  "_workflowRunId": "40313704860"
 }
