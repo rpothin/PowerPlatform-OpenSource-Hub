@@ -6,14 +6,14 @@
   "hasIssues": true,
   "homepage": "",
   "isArchived": false,
-  "language": "Jupyter Notebook",
+  "language": "TypeScript",
   "license": {
     "key": "mit",
     "name": "MIT License",
     "url": "https://api.github.com/licenses/mit"
   },
   "name": "ConsumptionCentral-for-Microsoft-Copilot",
-  "openIssuesCount": 4,
+  "openIssuesCount": 6,
   "owner": {
     "id": "6154722",
     "is_bot": false,
@@ -21,23 +21,23 @@
     "type": "Organization",
     "url": "https://github.com/microsoft"
   },
-  "updatedAt": "2026-10-24T11:03:48Z",
+  "updatedAt": "2026-10-27T19:21:48Z",
   "url": "https://github.com/microsoft/ConsumptionCentral-for-Microsoft-Copilot",
   "codeOfConduct": {
     "key": "other",
     "name": "Other",
     "url": "https://github.com/microsoft/ConsumptionCentral-for-Microsoft-Copilot/blob/main/CODE_OF_CONDUCT.md"
   },
-  "forkCount": 12,
+  "forkCount": 13,
   "fundingLinks": [],
   "isSecurityPolicyEnabled": true,
   "isTemplate": false,
   "latestRelease": null,
   "primaryLanguage": {
-    "name": "Jupyter Notebook"
+    "name": "TypeScript"
   },
   "securityPolicyUrl": "https://github.com/microsoft/ConsumptionCentral-for-Microsoft-Copilot/security/policy",
-  "stargazerCount": 29,
+  "stargazerCount": 30,
   "watchers": {
     "totalCount": 3
   },
@@ -54,11 +54,15 @@
     "viva-insights"
   ],
   "languages": [
-    "Jupyter Notebook",
     "TypeScript",
-    "Python",
-    "CSS",
     "JavaScript",
+    "Python",
+    "Jupyter Notebook",
+    "PowerShell",
+    "CSS",
+    "C#",
+    "Wolfram Language",
+    "MATLAB",
     "HTML"
   ],
   "openedGoodFirstIssues": 0,
@@ -66,8 +70,8 @@
   "openedHelpWantedIssues": 0,
   "hasHelpWantedIssues": false,
   "openedToContributionsIssues": 0,
-  "popularityScore": 32,
+  "popularityScore": 33,
   "_schemaVersion": "1.0.0",
-  "_generatedAt": "2026-10-24T11:12:23.900Z",
-  "_workflowRunId": "40088933567"
+  "_generatedAt": "2026-10-28T11:10:45.940Z",
+  "_workflowRunId": "40677858669"
 }

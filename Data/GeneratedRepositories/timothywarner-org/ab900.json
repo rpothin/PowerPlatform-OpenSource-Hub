@@ -1,12 +1,12 @@
 {
   "createdAt": "2025-11-14T19:46:18Z",
-  "description": "AB-900 exam prep + AI study buddy | Tim Warner's Copilot and agent administration course materials, distilled Microsoft Learn content, and a GitHub Copilot agent that generates practice questions, scenario walkthroughs, and personalized study plans",
+  "description": "Learner repo for Tim Warner's Copilot and Agent Administration Fundamentals live training: Microsoft 365 Copilot access and adoption, Purview DLP and oversharing reports, a tested Copilot Studio starter agent, and agent governance. Handouts, tutorials, and synthetic starter files.",
   "fullName": "timothywarner-org/ab900",
   "repositoryId": 1096685270,
   "hasIssues": true,
-  "homepage": "https://techtrainertim.com",
+  "homepage": "https://TechTrainerTim.com",
   "isArchived": false,
-  "language": "JavaScript",
+  "language": "PowerShell",
   "license": {
     "key": "mit",
     "name": "MIT License",
@@ -21,7 +21,7 @@
     "type": "Organization",
     "url": "https://github.com/timothywarner-org"
   },
-  "updatedAt": "2026-10-19T22:20:49Z",
+  "updatedAt": "2026-10-27T12:55:55Z",
   "url": "https://github.com/timothywarner-org/ab900",
   "codeOfConduct": {
     "key": "other",
@@ -39,10 +39,10 @@
   "isTemplate": false,
   "latestRelease": null,
   "primaryLanguage": {
-    "name": "JavaScript"
+    "name": "PowerShell"
   },
   "securityPolicyUrl": "https://github.com/timothywarner-org/ab900/security/policy",
-  "stargazerCount": 28,
+  "stargazerCount": 29,
   "watchers": {
     "totalCount": 2
   },
@@ -61,19 +61,24 @@
     "microsoft-entra-id",
     "microsoft-purview",
     "study-guide",
-    "oreilly-live-learning"
+    "oreilly-live-learning",
+    "agent-governance",
+    "data-loss-prevention",
+    "live-training",
+    "microsoft-365-copilot",
+    "pearson"
   ],
   "languages": [
-    "JavaScript",
-    "PowerShell"
+    "PowerShell",
+    "Python"
   ],
   "openedGoodFirstIssues": 0,
   "hasGoodFirstIssues": false,
   "openedHelpWantedIssues": 0,
   "hasHelpWantedIssues": false,
   "openedToContributionsIssues": 0,
-  "popularityScore": 30,
+  "popularityScore": 31,
   "_schemaVersion": "1.0.0",
-  "_generatedAt": "2026-10-24T11:12:23.900Z",
-  "_workflowRunId": "40088933567"
+  "_generatedAt": "2026-10-28T11:10:45.940Z",
+  "_workflowRunId": "40677858669"
 }
