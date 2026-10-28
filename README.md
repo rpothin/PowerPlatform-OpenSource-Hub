@@ -52,7 +52,7 @@ From projects opened to contributions to top growing repositories you should be 
   <img alt='Opened Good First Issues Count Badge' src='https://img.shields.io/badge/Good_First_Issues-12-green'>
   <img alt='Opened Help Wanted Issues Count Badge' src='https://img.shields.io/badge/Help_Wanted_Issues-12-blue'>
   <br/>
-  <img alt='Security Policy Enabled Percentage Badge' src='https://img.shields.io/badge/Security_Policy_Enabled_Percentage-15-orange'>
+  <img alt='Security Policy Enabled Percentage Badge' src='https://img.shields.io/badge/Security_Policy_Enabled_Percentage-25-orange'>
   <img alt='Code of Conduct Availability Percentage Badge' src='https://img.shields.io/badge/Code_of_Conduct_Availability_Percentage-28-9F2B63'>
 </h3>
 
