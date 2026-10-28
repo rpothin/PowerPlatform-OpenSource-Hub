@@ -13,7 +13,7 @@
     "url": "https://api.github.com/licenses/mit"
   },
   "name": "PowerPlatformConnectors",
-  "openIssuesCount": 378,
+  "openIssuesCount": 379,
   "owner": {
     "id": "6154722",
     "is_bot": false,
@@ -28,15 +28,15 @@
     "name": "Other",
     "url": "https://github.com/microsoft/.github/blob/main/CODE_OF_CONDUCT.md"
   },
-  "forkCount": 1478,
+  "forkCount": 1479,
   "fundingLinks": [],
-  "isSecurityPolicyEnabled": false,
+  "isSecurityPolicyEnabled": true,
   "isTemplate": false,
   "latestRelease": null,
   "primaryLanguage": {
     "name": "C#"
   },
-  "securityPolicyUrl": null,
+  "securityPolicyUrl": "https://github.com/microsoft/PowerPlatformConnectors/security/policy",
   "stargazerCount": 1298,
   "watchers": {
     "totalCount": 54
@@ -64,6 +64,6 @@
   "openedToContributionsIssues": 0,
   "popularityScore": 1352,
   "_schemaVersion": "1.0.0",
-  "_generatedAt": "2026-10-27T11:15:24.833Z",
-  "_workflowRunId": "40494702055"
+  "_generatedAt": "2026-10-28T11:10:45.940Z",
+  "_workflowRunId": "40677858669"
 }

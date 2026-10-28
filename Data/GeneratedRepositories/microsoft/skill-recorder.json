@@ -21,16 +21,16 @@
     "type": "Organization",
     "url": "https://github.com/microsoft"
   },
-  "updatedAt": "2026-10-27T11:12:36Z",
+  "updatedAt": "2026-10-28T11:09:05Z",
   "url": "https://github.com/microsoft/skill-recorder",
   "codeOfConduct": {
     "key": "other",
     "name": "Other",
     "url": "https://github.com/microsoft/skill-recorder/blob/main/CODE_OF_CONDUCT.md"
   },
-  "forkCount": 594,
+  "forkCount": 615,
   "fundingLinks": [],
-  "isSecurityPolicyEnabled": false,
+  "isSecurityPolicyEnabled": true,
   "isTemplate": false,
   "latestRelease": {
     "name": "Skill Recorder v0.7.0",
@@ -41,10 +41,10 @@
   "primaryLanguage": {
     "name": "TypeScript"
   },
-  "securityPolicyUrl": null,
-  "stargazerCount": 5283,
+  "securityPolicyUrl": "https://github.com/microsoft/skill-recorder/security/policy",
+  "stargazerCount": 5414,
   "watchers": {
-    "totalCount": 29
+    "totalCount": 31
   },
   "topics": [
     "agent-skills",
@@ -72,8 +72,8 @@
   "openedHelpWantedIssues": 0,
   "hasHelpWantedIssues": false,
   "openedToContributionsIssues": 0,
-  "popularityScore": 5312,
+  "popularityScore": 5445,
   "_schemaVersion": "1.0.0",
-  "_generatedAt": "2026-10-27T11:15:24.833Z",
-  "_workflowRunId": "40494702055"
+  "_generatedAt": "2026-10-28T11:10:45.940Z",
+  "_workflowRunId": "40677858669"
 }
