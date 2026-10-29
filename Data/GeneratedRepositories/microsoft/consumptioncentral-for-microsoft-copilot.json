@@ -6,14 +6,14 @@
   "hasIssues": true,
   "homepage": "",
   "isArchived": false,
-  "language": "Python",
+  "language": "TypeScript",
   "license": {
     "key": "mit",
     "name": "MIT License",
     "url": "https://api.github.com/licenses/mit"
   },
   "name": "ConsumptionCentral-for-Microsoft-Copilot",
-  "openIssuesCount": 1,
+  "openIssuesCount": 6,
   "owner": {
     "id": "6154722",
     "is_bot": false,
@@ -21,25 +21,25 @@
     "type": "Organization",
     "url": "https://github.com/microsoft"
   },
-  "updatedAt": "2026-10-14T21:19:34Z",
+  "updatedAt": "2026-10-27T19:21:48Z",
   "url": "https://github.com/microsoft/ConsumptionCentral-for-Microsoft-Copilot",
   "codeOfConduct": {
     "key": "other",
     "name": "Other",
     "url": "https://github.com/microsoft/ConsumptionCentral-for-Microsoft-Copilot/blob/main/CODE_OF_CONDUCT.md"
   },
-  "forkCount": 12,
+  "forkCount": 13,
   "fundingLinks": [],
   "isSecurityPolicyEnabled": true,
   "isTemplate": false,
   "latestRelease": null,
   "primaryLanguage": {
-    "name": "Python"
+    "name": "TypeScript"
   },
   "securityPolicyUrl": "https://github.com/microsoft/ConsumptionCentral-for-Microsoft-Copilot/security/policy",
-  "stargazerCount": 28,
+  "stargazerCount": 30,
   "watchers": {
-    "totalCount": 2
+    "totalCount": 3
   },
   "topics": [
     "azure-ai",
@@ -54,16 +54,24 @@
     "viva-insights"
   ],
   "languages": [
+    "TypeScript",
+    "JavaScript",
     "Python",
-    "Jupyter Notebook"
+    "Jupyter Notebook",
+    "PowerShell",
+    "CSS",
+    "C#",
+    "Wolfram Language",
+    "MATLAB",
+    "HTML"
   ],
   "openedGoodFirstIssues": 0,
   "hasGoodFirstIssues": false,
   "openedHelpWantedIssues": 0,
   "hasHelpWantedIssues": false,
   "openedToContributionsIssues": 0,
-  "popularityScore": 30,
+  "popularityScore": 33,
   "_schemaVersion": "1.0.0",
-  "_generatedAt": "2026-10-17T11:12:52.099Z",
-  "_workflowRunId": "39027810103"
+  "_generatedAt": "2026-10-28T11:10:45.940Z",
+  "_workflowRunId": "40677858669"
 }

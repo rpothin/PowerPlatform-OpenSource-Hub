@@ -13,7 +13,7 @@
     "url": "https://api.github.com/licenses/mit"
   },
   "name": "powerplatform-vscode",
-  "openIssuesCount": 115,
+  "openIssuesCount": 118,
   "owner": {
     "id": "6154722",
     "is_bot": false,
@@ -21,7 +21,7 @@
     "type": "Organization",
     "url": "https://github.com/microsoft"
   },
-  "updatedAt": "2026-10-15T05:29:34Z",
+  "updatedAt": "2026-10-28T06:31:02Z",
   "url": "https://github.com/microsoft/powerplatform-vscode",
   "codeOfConduct": {
     "key": "other",
@@ -33,18 +33,18 @@
   "isSecurityPolicyEnabled": true,
   "isTemplate": false,
   "latestRelease": {
-    "name": "v2.0.157",
-    "tagName": "v2.0.157",
-    "url": "https://github.com/microsoft/powerplatform-vscode/releases/tag/v2.0.157",
-    "publishedAt": "2026-10-09T08:15:55Z"
+    "name": "v$(PPVSC_VERSION)",
+    "tagName": "v$(PPVSC_VERSION)",
+    "url": "https://github.com/microsoft/powerplatform-vscode/releases/tag/v%24(PPVSC_VERSION)",
+    "publishedAt": "2026-10-23T11:34:41Z"
   },
   "primaryLanguage": {
     "name": "TypeScript"
   },
   "securityPolicyUrl": "https://github.com/microsoft/powerplatform-vscode/security/policy",
-  "stargazerCount": 278,
+  "stargazerCount": 279,
   "watchers": {
-    "totalCount": 23
+    "totalCount": 22
   },
   "topics": [
     "powerplatform",
@@ -65,6 +65,6 @@
   "openedToContributionsIssues": 0,
   "popularityScore": 301,
   "_schemaVersion": "1.0.0",
-  "_generatedAt": "2026-10-17T11:12:52.099Z",
-  "_workflowRunId": "39027810103"
+  "_generatedAt": "2026-10-28T11:10:45.940Z",
+  "_workflowRunId": "40677858669"
 }

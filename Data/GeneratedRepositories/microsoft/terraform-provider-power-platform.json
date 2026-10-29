@@ -13,7 +13,7 @@
     "url": "https://api.github.com/licenses/mit"
   },
   "name": "terraform-provider-power-platform",
-  "openIssuesCount": 24,
+  "openIssuesCount": 30,
   "owner": {
     "id": "6154722",
     "is_bot": false,
@@ -21,7 +21,7 @@
     "type": "Organization",
     "url": "https://github.com/microsoft"
   },
-  "updatedAt": "2026-10-14T21:02:26Z",
+  "updatedAt": "2026-10-21T07:42:52Z",
   "url": "https://github.com/microsoft/terraform-provider-power-platform",
   "codeOfConduct": {
     "key": "other",
@@ -33,16 +33,16 @@
   "isSecurityPolicyEnabled": true,
   "isTemplate": false,
   "latestRelease": {
-    "name": "v4.2.0",
-    "tagName": "v4.2.0",
-    "url": "https://github.com/microsoft/terraform-provider-power-platform/releases/tag/v4.2.0",
-    "publishedAt": "2026-09-08T16:44:58Z"
+    "name": "v4.2.1",
+    "tagName": "v4.2.1",
+    "url": "https://github.com/microsoft/terraform-provider-power-platform/releases/tag/v4.2.1",
+    "publishedAt": "2026-10-19T11:46:53Z"
   },
   "primaryLanguage": {
     "name": "Go"
   },
   "securityPolicyUrl": "https://github.com/microsoft/terraform-provider-power-platform/security/policy",
-  "stargazerCount": 63,
+  "stargazerCount": 64,
   "watchers": {
     "totalCount": 15
   },
@@ -62,8 +62,8 @@
   "openedHelpWantedIssues": 0,
   "hasHelpWantedIssues": false,
   "openedToContributionsIssues": 0,
-  "popularityScore": 78,
+  "popularityScore": 79,
   "_schemaVersion": "1.0.0",
-  "_generatedAt": "2026-10-17T11:12:52.099Z",
-  "_workflowRunId": "39027810103"
+  "_generatedAt": "2026-10-28T11:10:45.940Z",
+  "_workflowRunId": "40677858669"
 }

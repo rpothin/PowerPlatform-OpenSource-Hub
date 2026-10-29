@@ -246,7 +246,12 @@ Describe "Export-GitHubRepositoriesDetails Unit Tests" {
             $dataFilePath = Join-Path -Path $PSScriptRoot -ChildPath "../../Data/GitHubRepositoriesDetails.json"
 
             $dataAsJson = Get-Content -Path $dataFilePath -Raw
-            $dataAsJson | Test-Json -SchemaFile $schemaFilePath | Should -Be $true
+            $schemaValidationParameters = @{ SchemaFile = $schemaFilePath }
+            if ((Get-Command Test-Json).Parameters.ContainsKey("FetchExternalReference")) {
+                $schemaValidationParameters.FetchExternalReference = $true
+            }
+
+            $dataAsJson | Test-Json @schemaValidationParameters | Should -Be $true
         }
     }
 

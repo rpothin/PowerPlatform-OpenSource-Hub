@@ -406,7 +406,12 @@ jobs:
           }
 
           $dataAsJson = Get-Content -Path $dataFilePath -Raw
-          if (-not ($dataAsJson | Test-Json -SchemaFile $schemaFilePath)) {
+          $schemaValidationParameters = @{ SchemaFile = $schemaFilePath }
+          if ((Get-Command Test-Json).Parameters.ContainsKey("FetchExternalReference")) {
+            $schemaValidationParameters.FetchExternalReference = $true
+          }
+
+          if (-not ($dataAsJson | Test-Json @schemaValidationParameters)) {
             throw "The merged repository details data does not match the schema file '$schemaFilePath'."
           }
 

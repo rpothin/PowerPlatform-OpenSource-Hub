@@ -1,0 +1,78 @@
+{
+  "createdAt": "2026-05-27T10:53:31Z",
+  "description": "Personal-use MCP server that gives Microsoft 365 Copilot real hands on your own laptop: files, Python, Office, SQL, Web. 100+ tools, autonomous relay, easily extensible, no extra licences.",
+  "fullName": "MasayukiTa/m365-copilot-companion-mcp",
+  "repositoryId": 1251208131,
+  "hasIssues": true,
+  "homepage": "",
+  "isArchived": false,
+  "language": "Python",
+  "license": {
+    "key": "mit",
+    "name": "MIT License",
+    "url": "https://api.github.com/licenses/mit"
+  },
+  "name": "m365-copilot-companion-mcp",
+  "openIssuesCount": 9,
+  "owner": {
+    "id": "46990346",
+    "is_bot": false,
+    "login": "MasayukiTa",
+    "type": "User",
+    "url": "https://github.com/MasayukiTa"
+  },
+  "updatedAt": "2026-10-28T06:33:38Z",
+  "url": "https://github.com/MasayukiTa/m365-copilot-companion-mcp",
+  "codeOfConduct": null,
+  "forkCount": 1,
+  "fundingLinks": [],
+  "isSecurityPolicyEnabled": true,
+  "isTemplate": false,
+  "latestRelease": {
+    "name": "v0.5.0 — カスタム MCP が作れなくても動くコネクタ無しの経路",
+    "tagName": "v0.5.0",
+    "url": "https://github.com/MasayukiTa/m365-copilot-companion-mcp/releases/tag/v0.5.0",
+    "publishedAt": "2026-10-19T03:56:32Z"
+  },
+  "primaryLanguage": {
+    "name": "Python"
+  },
+  "securityPolicyUrl": "https://github.com/MasayukiTa/m365-copilot-companion-mcp/security/policy",
+  "stargazerCount": 11,
+  "watchers": {
+    "totalCount": 1
+  },
+  "topics": [
+    "agent",
+    "automation",
+    "claude",
+    "copilot-studio",
+    "fastmcp",
+    "local-first",
+    "m365-copilot",
+    "mcp",
+    "model-context-protocol",
+    "python",
+    "ai-agent",
+    "mcp-server",
+    "microsoft-365",
+    "windows"
+  ],
+  "languages": [
+    "Python",
+    "C#",
+    "PowerShell",
+    "Batchfile",
+    "Shell",
+    "VBScript"
+  ],
+  "openedGoodFirstIssues": 0,
+  "hasGoodFirstIssues": false,
+  "openedHelpWantedIssues": 0,
+  "hasHelpWantedIssues": false,
+  "openedToContributionsIssues": 0,
+  "popularityScore": 12,
+  "_schemaVersion": "1.0.0",
+  "_generatedAt": "2026-10-28T11:10:45.940Z",
+  "_workflowRunId": "40677858669"
+}
