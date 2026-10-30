@@ -51,13 +51,13 @@ Use the [bug report form](https://github.com/rpothin/PowerPlatform-OpenSource-Hu
 
 <!--START_SECTION:summary-->
 <h3 align='center'>
-  <img alt='Repositories Count Badge' src='https://img.shields.io/badge/Repositories-205-602890'>
-  <img alt='Active Repositories Count Badge' src='https://img.shields.io/badge/Active_Repositories-121-A24FBF'>
+  <img alt='Repositories Count Badge' src='https://img.shields.io/badge/Repositories-207-602890'>
+  <img alt='Active Repositories Count Badge' src='https://img.shields.io/badge/Active_Repositories-120-A24FBF'>
   <img alt='Opened Good First Issues Count Badge' src='https://img.shields.io/badge/Good_First_Issues-12-green'>
   <img alt='Opened Help Wanted Issues Count Badge' src='https://img.shields.io/badge/Help_Wanted_Issues-12-blue'>
   <br/>
-  <img alt='Security Policy Enabled Percentage Badge' src='https://img.shields.io/badge/Security_Policy_Enabled_Percentage-25-orange'>
-  <img alt='Code of Conduct Availability Percentage Badge' src='https://img.shields.io/badge/Code_of_Conduct_Availability_Percentage-28-9F2B63'>
+  <img alt='Security Policy Enabled Percentage Badge' src='https://img.shields.io/badge/Security_Policy_Enabled_Percentage-11-orange'>
+  <img alt='Code of Conduct Availability Percentage Badge' src='https://img.shields.io/badge/Code_of_Conduct_Availability_Percentage-29-9F2B63'>
 </h3>
 
 <p align='center'>
