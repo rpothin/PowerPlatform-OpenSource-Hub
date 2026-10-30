@@ -13,7 +13,7 @@
     "url": "https://api.github.com/licenses/mit"
   },
   "name": "waldo.BCObservatory",
-  "openIssuesCount": 2,
+  "openIssuesCount": 0,
   "owner": {
     "id": "12088142",
     "is_bot": false,
@@ -21,14 +21,19 @@
     "type": "User",
     "url": "https://github.com/waldo1001"
   },
-  "updatedAt": "2026-10-29T11:03:01Z",
+  "updatedAt": "2026-10-30T09:00:46Z",
   "url": "https://github.com/waldo1001/waldo.BCObservatory",
   "codeOfConduct": null,
   "forkCount": 0,
   "fundingLinks": [],
   "isSecurityPolicyEnabled": false,
   "isTemplate": false,
-  "latestRelease": null,
+  "latestRelease": {
+    "name": "bc-observatory 0.15.0",
+    "tagName": "mcp-v0.15.0",
+    "url": "https://github.com/waldo1001/waldo.BCObservatory/releases/tag/mcp-v0.15.0",
+    "publishedAt": "2026-10-30T08:30:43Z"
+  },
   "primaryLanguage": {
     "name": "TypeScript"
   },
@@ -61,6 +66,6 @@
   "openedToContributionsIssues": 0,
   "popularityScore": 10,
   "_schemaVersion": "1.0.0",
-  "_generatedAt": "2026-10-29T11:10:41.904Z",
-  "_workflowRunId": "40863297885"
+  "_generatedAt": "2026-10-30T11:09:30.983Z",
+  "_workflowRunId": "41045986274"
 }

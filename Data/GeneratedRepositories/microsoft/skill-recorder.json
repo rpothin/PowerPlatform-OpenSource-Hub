@@ -13,7 +13,7 @@
     "url": "https://api.github.com/licenses/mit"
   },
   "name": "skill-recorder",
-  "openIssuesCount": 47,
+  "openIssuesCount": 48,
   "owner": {
     "id": "6154722",
     "is_bot": false,
@@ -21,16 +21,16 @@
     "type": "Organization",
     "url": "https://github.com/microsoft"
   },
-  "updatedAt": "2026-10-29T11:02:11Z",
+  "updatedAt": "2026-10-30T10:04:53Z",
   "url": "https://github.com/microsoft/skill-recorder",
   "codeOfConduct": {
     "key": "other",
     "name": "Other",
     "url": "https://github.com/microsoft/skill-recorder/blob/main/CODE_OF_CONDUCT.md"
   },
-  "forkCount": 633,
+  "forkCount": 637,
   "fundingLinks": [],
-  "isSecurityPolicyEnabled": true,
+  "isSecurityPolicyEnabled": false,
   "isTemplate": false,
   "latestRelease": {
     "name": "Skill Recorder v0.7.0",
@@ -41,8 +41,8 @@
   "primaryLanguage": {
     "name": "TypeScript"
   },
-  "securityPolicyUrl": "https://github.com/microsoft/skill-recorder/security/policy",
-  "stargazerCount": 5526,
+  "securityPolicyUrl": null,
+  "stargazerCount": 5558,
   "watchers": {
     "totalCount": 32
   },
@@ -72,8 +72,8 @@
   "openedHelpWantedIssues": 0,
   "hasHelpWantedIssues": false,
   "openedToContributionsIssues": 0,
-  "popularityScore": 5558,
+  "popularityScore": 5590,
   "_schemaVersion": "1.0.0",
-  "_generatedAt": "2026-10-29T11:10:41.904Z",
-  "_workflowRunId": "40863297885"
+  "_generatedAt": "2026-10-30T11:09:30.983Z",
+  "_workflowRunId": "41045986274"
 }
