@@ -13,7 +13,7 @@
     "url": "https://api.github.com/licenses/mit"
   },
   "name": "Agents",
-  "openIssuesCount": 112,
+  "openIssuesCount": 113,
   "owner": {
     "id": "6154722",
     "is_bot": false,
@@ -21,7 +21,7 @@
     "type": "Organization",
     "url": "https://github.com/microsoft"
   },
-  "updatedAt": "2026-10-29T01:18:40Z",
+  "updatedAt": "2026-10-29T22:34:37Z",
   "url": "https://github.com/microsoft/Agents",
   "codeOfConduct": {
     "key": "other",
@@ -30,14 +30,14 @@
   },
   "forkCount": 345,
   "fundingLinks": [],
-  "isSecurityPolicyEnabled": true,
+  "isSecurityPolicyEnabled": false,
   "isTemplate": false,
   "latestRelease": null,
   "primaryLanguage": {
     "name": "TypeScript"
   },
-  "securityPolicyUrl": "https://github.com/microsoft/Agents/security/policy",
-  "stargazerCount": 1094,
+  "securityPolicyUrl": null,
+  "stargazerCount": 1096,
   "watchers": {
     "totalCount": 31
   },
@@ -65,8 +65,8 @@
   "openedHelpWantedIssues": 0,
   "hasHelpWantedIssues": false,
   "openedToContributionsIssues": 0,
-  "popularityScore": 1125,
+  "popularityScore": 1127,
   "_schemaVersion": "1.0.0",
-  "_generatedAt": "2026-10-29T11:10:41.904Z",
-  "_workflowRunId": "40863297885"
+  "_generatedAt": "2026-10-30T11:09:30.983Z",
+  "_workflowRunId": "41045986274"
 }

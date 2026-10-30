@@ -1,0 +1,85 @@
+{
+  "createdAt": "2026-10-12T11:58:04Z",
+  "description": "One installer sets up an app on Microsoft Fabric or Azure that shows Microsoft 365 Copilot and agent adoption, value, consumption and governance.",
+  "fullName": "microsoft/AnalyticsHub-Dashboard",
+  "repositoryId": 1415537238,
+  "hasIssues": true,
+  "homepage": "",
+  "isArchived": false,
+  "language": "JavaScript",
+  "license": {
+    "key": "mit",
+    "name": "MIT License",
+    "url": "https://api.github.com/licenses/mit"
+  },
+  "name": "AnalyticsHub-Dashboard",
+  "openIssuesCount": 41,
+  "owner": {
+    "id": "6154722",
+    "is_bot": false,
+    "login": "microsoft",
+    "type": "Organization",
+    "url": "https://github.com/microsoft"
+  },
+  "updatedAt": "2026-10-30T08:39:04Z",
+  "url": "https://github.com/microsoft/AnalyticsHub-Dashboard",
+  "codeOfConduct": {
+    "key": "other",
+    "name": "Other",
+    "url": "https://github.com/microsoft/AnalyticsHub-Dashboard/blob/main/CODE_OF_CONDUCT.md"
+  },
+  "forkCount": 2,
+  "fundingLinks": [],
+  "isSecurityPolicyEnabled": false,
+  "isTemplate": false,
+  "latestRelease": {
+    "name": "Analytics Hub installer 0.6.7",
+    "tagName": "installer-v0.6.7",
+    "url": "https://github.com/microsoft/AnalyticsHub-Dashboard/releases/tag/installer-v0.6.7",
+    "publishedAt": "2026-10-19T18:38:13Z"
+  },
+  "primaryLanguage": {
+    "name": "JavaScript"
+  },
+  "securityPolicyUrl": null,
+  "stargazerCount": 10,
+  "watchers": {
+    "totalCount": 1
+  },
+  "topics": [
+    "ai-adoption",
+    "ai-governance",
+    "analytics-dashboard",
+    "azure",
+    "copilot-analytics",
+    "copilot-studio",
+    "microsoft-365-copilot",
+    "microsoft-copilot",
+    "microsoft-fabric",
+    "power-bi",
+    "purview"
+  ],
+  "languages": [
+    "JavaScript",
+    "TypeScript",
+    "Python",
+    "Jupyter Notebook",
+    "CSS",
+    "TSQL",
+    "Bicep",
+    "PowerShell",
+    "C#",
+    "Dockerfile",
+    "HTML",
+    "Power Query"
+  ],
+  "openedGoodFirstIssues": 0,
+  "hasGoodFirstIssues": false,
+  "openedHelpWantedIssues": 0,
+  "hasHelpWantedIssues": false,
+  "openedToContributionsIssues": 0,
+  "popularityScore": 11,
+  "_schemaVersion": "1.0.0",
+  "_generatedAt": "2026-10-30T11:09:30.983Z",
+  "_workflowRunId": "41045986274"
+}
