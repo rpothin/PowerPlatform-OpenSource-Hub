@@ -13,7 +13,7 @@
     "url": "https://api.github.com/licenses/mit"
   },
   "name": "m365-copilot-companion-mcp",
-  "openIssuesCount": 14,
+  "openIssuesCount": 11,
   "owner": {
     "id": "46990346",
     "is_bot": false,
@@ -21,12 +21,12 @@
     "type": "User",
     "url": "https://github.com/MasayukiTa"
   },
-  "updatedAt": "2026-10-30T04:54:23Z",
+  "updatedAt": "2026-10-31T08:54:50Z",
   "url": "https://github.com/MasayukiTa/m365-copilot-companion-mcp",
   "codeOfConduct": null,
   "forkCount": 1,
   "fundingLinks": [],
-  "isSecurityPolicyEnabled": false,
+  "isSecurityPolicyEnabled": true,
   "isTemplate": false,
   "latestRelease": {
     "name": "v0.5.0 — カスタム MCP が作れなくても動くコネクタ無しの経路",
@@ -37,7 +37,7 @@
   "primaryLanguage": {
     "name": "Python"
   },
-  "securityPolicyUrl": null,
+  "securityPolicyUrl": "https://github.com/MasayukiTa/m365-copilot-companion-mcp/security/policy",
   "stargazerCount": 11,
   "watchers": {
     "totalCount": 1
@@ -73,6 +73,6 @@
   "openedToContributionsIssues": 0,
   "popularityScore": 12,
   "_schemaVersion": "1.0.0",
-  "_generatedAt": "2026-10-30T11:09:30.983Z",
-  "_workflowRunId": "41045986274"
+  "_generatedAt": "2026-10-31T11:07:48.920Z",
+  "_workflowRunId": "41195533046"
 }

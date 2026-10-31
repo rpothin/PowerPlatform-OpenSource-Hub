@@ -28,9 +28,9 @@
     "name": "Other",
     "url": "https://github.com/microsoft/.github/blob/main/CODE_OF_CONDUCT.md"
   },
-  "forkCount": 386,
+  "forkCount": 387,
   "fundingLinks": [],
-  "isSecurityPolicyEnabled": false,
+  "isSecurityPolicyEnabled": true,
   "isTemplate": false,
   "latestRelease": {
     "name": "D365BC Troubleshooting Guides (TSG)",
@@ -41,7 +41,7 @@
   "primaryLanguage": {
     "name": "AL"
   },
-  "securityPolicyUrl": null,
+  "securityPolicyUrl": "https://github.com/microsoft/BCTech/security/policy",
   "stargazerCount": 746,
   "watchers": {
     "totalCount": 120
@@ -64,6 +64,6 @@
   "openedToContributionsIssues": 0,
   "popularityScore": 866,
   "_schemaVersion": "1.0.0",
-  "_generatedAt": "2026-10-30T11:09:30.983Z",
-  "_workflowRunId": "41045986274"
+  "_generatedAt": "2026-10-31T11:07:48.920Z",
+  "_workflowRunId": "41195533046"
 }

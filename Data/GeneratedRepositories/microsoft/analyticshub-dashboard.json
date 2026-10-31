@@ -30,7 +30,7 @@
   },
   "forkCount": 2,
   "fundingLinks": [],
-  "isSecurityPolicyEnabled": false,
+  "isSecurityPolicyEnabled": true,
   "isTemplate": false,
   "latestRelease": {
     "name": "Analytics Hub installer 0.6.7",
@@ -41,7 +41,7 @@
   "primaryLanguage": {
     "name": "JavaScript"
   },
-  "securityPolicyUrl": null,
+  "securityPolicyUrl": "https://github.com/microsoft/AnalyticsHub-Dashboard/security/policy",
   "stargazerCount": 10,
   "watchers": {
     "totalCount": 1
@@ -80,6 +80,6 @@
   "openedToContributionsIssues": 0,
   "popularityScore": 11,
   "_schemaVersion": "1.0.0",
-  "_generatedAt": "2026-10-30T11:09:30.983Z",
-  "_workflowRunId": "41045986274"
+  "_generatedAt": "2026-10-31T11:07:48.920Z",
+  "_workflowRunId": "41195533046"
 }
