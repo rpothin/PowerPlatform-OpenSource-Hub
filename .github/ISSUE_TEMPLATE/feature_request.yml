@@ -4,7 +4,9 @@ title: "[Feature]: "
 body:
   - type: markdown
     attributes:
-      value: "Do not include credentials, private data, or unredacted sensitive logs."
+      value: >-
+        Do not include credentials, private data, or unredacted sensitive logs.
+        For component guidance, see [CONTRIBUTING.md](https://github.com/rpothin/PowerPlatform-OpenSource-Hub/blob/main/CONTRIBUTING.md).
   - type: dropdown
     id: area
     attributes:
@@ -21,20 +23,58 @@ body:
     id: problem
     attributes:
       label: Problem or opportunity
-      description: What user need or limitation would this address?
+      description: >-
+        What user need does this address, and what outcome should improve for
+        users of the selected area?
     validations:
       required: true
   - type: textarea
     id: proposal
     attributes:
       label: Proposed improvement
-      description: Describe the change you would like to see.
+      description: >-
+        Describe the proposed change, including what is in scope and what is
+        intentionally out of scope.
     validations:
       required: true
+  - type: textarea
+    id: acceptance_criteria
+    attributes:
+      label: Acceptance criteria
+      description: >-
+        What observable results would show this improvement is complete?
+    validations:
+      required: true
+  - type: textarea
+    id: validation
+    attributes:
+      label: Validation
+      description: >-
+        What checks or evidence would demonstrate the intended outcome?
+    validations:
+      required: true
+  - type: textarea
+    id: dependencies
+    attributes:
+      label: Known dependencies
+      description: >-
+        List known dependencies, or answer "unknown" or "not applicable".
+    validations:
+      required: false
+  - type: textarea
+    id: risks
+    attributes:
+      label: Known risks
+      description: >-
+        Describe known risks or side effects, or answer "unknown" or
+        "not applicable".
+    validations:
+      required: false
   - type: textarea
     id: context
     attributes:
       label: Additional context
-      description: Add relevant links or examples, with sensitive information removed.
+      description: >-
+        Add relevant links or examples, with sensitive information removed.
     validations:
       required: false

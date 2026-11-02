@@ -35,7 +35,7 @@ function Export-GitHubRepositoriesPopularityScore {
     #>
 
     [CmdletBinding()]
-    [OutputType([psobject])]
+    [OutputType([psobject], [object[]])]
     param (
         [Parameter(Mandatory = $true)]
         [ValidateNotNullOrEmpty()]

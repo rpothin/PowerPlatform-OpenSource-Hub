@@ -4,7 +4,9 @@ title: "[Bug]: "
 body:
   - type: markdown
     attributes:
-      value: "Do not include credentials, private data, or unredacted sensitive logs."
+      value: >-
+        Do not include credentials, private data, or unredacted sensitive logs.
+        For component guidance, see [CONTRIBUTING.md](https://github.com/rpothin/PowerPlatform-OpenSource-Hub/blob/main/CONTRIBUTING.md).
   - type: dropdown
     id: area
     attributes:
@@ -21,7 +23,9 @@ body:
     id: problem
     attributes:
       label: What happened?
-      description: Describe the problem and its impact.
+      description: >-
+        Describe the problem and its impact, including the users or parts of the
+        selected area affected.
     validations:
       required: true
   - type: textarea
@@ -39,9 +43,43 @@ body:
     validations:
       required: true
   - type: textarea
+    id: fix
+    attributes:
+      label: What should a fix establish?
+      description: Describe the observable change that would resolve this issue.
+    validations:
+      required: true
+  - type: textarea
+    id: validation
+    attributes:
+      label: Validation evidence
+      description: >-
+        What checks or evidence would confirm a fix works? Include any
+        validation already performed.
+    validations:
+      required: true
+  - type: textarea
+    id: dependencies
+    attributes:
+      label: Known dependencies
+      description: >-
+        List known dependencies, or answer "unknown" or "not applicable".
+    validations:
+      required: false
+  - type: textarea
+    id: risks
+    attributes:
+      label: Known risks
+      description: >-
+        Describe known risks or side effects, or answer "unknown" or
+        "not applicable".
+    validations:
+      required: false
+  - type: textarea
     id: context
     attributes:
       label: Additional context
-      description: Add relevant links or screenshots, with sensitive information removed.
+      description: >-
+        Add relevant links or screenshots, with sensitive information removed.
     validations:
       required: false

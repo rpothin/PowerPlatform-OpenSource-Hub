@@ -74,7 +74,7 @@ function Write-MarkdownSection {
         $markdownFileContent = [regex]::Replace(
             $markdownFileContent,
             $pattern,
-            [System.Text.RegularExpressions.MatchEvaluator]{ param($match) $newSectionContent },
+            [System.Text.RegularExpressions.MatchEvaluator]{ $newSectionContent },
             [System.Text.RegularExpressions.RegexOptions]::CultureInvariant
         )
 

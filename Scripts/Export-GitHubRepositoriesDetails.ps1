@@ -280,7 +280,12 @@ function Export-GitHubRepositoriesDetails {
         }
 
         $repositoriesAsJson = @($repositoriesWithDetails) | ConvertTo-Json -Depth 6
-        $jsonValidationResult = $repositoriesAsJson | Test-Json -SchemaFile $schemaFilePath
+        $schemaValidationParameters = @{ SchemaFile = $schemaFilePath }
+        if ((Get-Command Test-Json).Parameters.ContainsKey("FetchExternalReference")) {
+            $schemaValidationParameters.FetchExternalReference = $true
+        }
+
+        $jsonValidationResult = $repositoriesAsJson | Test-Json @schemaValidationParameters
 
         if (-not $jsonValidationResult) {
             Throw "The generated data does not match the schema file '$schemaFilePath'."
