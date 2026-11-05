@@ -21,7 +21,7 @@
     "type": "Organization",
     "url": "https://github.com/microsoft"
   },
-  "updatedAt": "2026-11-02T21:56:13Z",
+  "updatedAt": "2026-11-05T07:59:57Z",
   "url": "https://github.com/microsoft/ConsumptionCentral-for-Microsoft-Copilot",
   "codeOfConduct": {
     "key": "other",
@@ -32,12 +32,17 @@
   "fundingLinks": [],
   "isSecurityPolicyEnabled": true,
   "isTemplate": false,
-  "latestRelease": null,
+  "latestRelease": {
+    "name": "Consumption Central installer 0.1.0",
+    "tagName": "consumption-central-installer-v0.1.0",
+    "url": "https://github.com/microsoft/ConsumptionCentral-for-Microsoft-Copilot/releases/tag/consumption-central-installer-v0.1.0",
+    "publishedAt": "2026-11-04T13:50:37Z"
+  },
   "primaryLanguage": {
     "name": "TypeScript"
   },
   "securityPolicyUrl": "https://github.com/microsoft/ConsumptionCentral-for-Microsoft-Copilot/security/policy",
-  "stargazerCount": 31,
+  "stargazerCount": 32,
   "watchers": {
     "totalCount": 3
   },
@@ -70,8 +75,8 @@
   "openedHelpWantedIssues": 0,
   "hasHelpWantedIssues": false,
   "openedToContributionsIssues": 0,
-  "popularityScore": 34,
+  "popularityScore": 35,
   "_schemaVersion": "1.0.0",
-  "_generatedAt": "2026-11-04T11:10:40.049Z",
-  "_workflowRunId": "41819069756"
+  "_generatedAt": "2026-11-05T11:09:23.722Z",
+  "_workflowRunId": "42016581623"
 }
