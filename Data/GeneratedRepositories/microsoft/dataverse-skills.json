@@ -13,7 +13,7 @@
     "url": "https://api.github.com/licenses/mit"
   },
   "name": "Dataverse-skills",
-  "openIssuesCount": 46,
+  "openIssuesCount": 44,
   "owner": {
     "id": "6154722",
     "is_bot": false,
@@ -21,7 +21,7 @@
     "type": "Organization",
     "url": "https://github.com/microsoft"
   },
-  "updatedAt": "2026-11-04T15:36:02Z",
+  "updatedAt": "2026-11-05T19:09:12Z",
   "url": "https://github.com/microsoft/Dataverse-skills",
   "codeOfConduct": {
     "key": "other",
@@ -30,16 +30,16 @@
   },
   "forkCount": 63,
   "fundingLinks": [],
-  "isSecurityPolicyEnabled": false,
+  "isSecurityPolicyEnabled": true,
   "isTemplate": false,
   "latestRelease": {
-    "name": "v1.17.0",
-    "tagName": "v1.17.0",
-    "url": "https://github.com/microsoft/Dataverse-skills/releases/tag/v1.17.0",
-    "publishedAt": "2026-11-03T19:25:23Z"
+    "name": "v1.18.0",
+    "tagName": "v1.18.0",
+    "url": "https://github.com/microsoft/Dataverse-skills/releases/tag/v1.18.0",
+    "publishedAt": "2026-11-05T19:09:48Z"
   },
   "primaryLanguage": null,
-  "securityPolicyUrl": null,
+  "securityPolicyUrl": "https://github.com/microsoft/Dataverse-skills/security/policy",
   "stargazerCount": 254,
   "watchers": {
     "totalCount": 4
@@ -66,6 +66,6 @@
   "openedToContributionsIssues": 0,
   "popularityScore": 258,
   "_schemaVersion": "1.0.0",
-  "_generatedAt": "2026-11-05T11:09:23.722Z",
-  "_workflowRunId": "42016581623"
+  "_generatedAt": "2026-11-06T11:09:33.882Z",
+  "_workflowRunId": "42208078505"
 }

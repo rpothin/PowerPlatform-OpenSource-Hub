@@ -21,7 +21,7 @@
     "type": "Organization",
     "url": "https://github.com/microsoft"
   },
-  "updatedAt": "2026-11-04T21:13:05Z",
+  "updatedAt": "2026-11-06T00:33:45Z",
   "url": "https://github.com/microsoft/FastTrack",
   "codeOfConduct": {
     "key": "other",
@@ -30,14 +30,14 @@
   },
   "forkCount": 129,
   "fundingLinks": [],
-  "isSecurityPolicyEnabled": false,
+  "isSecurityPolicyEnabled": true,
   "isTemplate": false,
   "latestRelease": null,
   "primaryLanguage": {
     "name": "HTML"
   },
-  "securityPolicyUrl": null,
-  "stargazerCount": 230,
+  "securityPolicyUrl": "https://github.com/microsoft/FastTrack/security/policy",
+  "stargazerCount": 231,
   "watchers": {
     "totalCount": 32
   },
@@ -67,8 +67,8 @@
   "openedHelpWantedIssues": 0,
   "hasHelpWantedIssues": false,
   "openedToContributionsIssues": 0,
-  "popularityScore": 262,
+  "popularityScore": 263,
   "_schemaVersion": "1.0.0",
-  "_generatedAt": "2026-11-05T11:09:23.722Z",
-  "_workflowRunId": "42016581623"
+  "_generatedAt": "2026-11-06T11:09:33.882Z",
+  "_workflowRunId": "42208078505"
 }
