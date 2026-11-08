@@ -150,7 +150,7 @@ jobs:
       # Initializes the CodeQL tools for scanning.
       #   Action: https://github.com/github/codeql-action
       - name: Initialize CodeQL
-        uses: github/codeql-action/init@9b3254085494b55a0f7c4c2b3d2d52cc712ce370 # v4.39.1
+        uses: github/codeql-action/init@1fc58d04a4d4374f921bdac573c3811c240f9c26 # v4.39.2
         with:
           languages: 'javascript' # Set the language of your project here
 
@@ -158,12 +158,12 @@ jobs:
       # If this step fails, then you should remove it and run the build manually (see below)
       #   Action: https://github.com/github/codeql-action
       - name: Autobuild
-        uses: github/codeql-action/autobuild@9b3254085494b55a0f7c4c2b3d2d52cc712ce370 # v4.39.1
+        uses: github/codeql-action/autobuild@1fc58d04a4d4374f921bdac573c3811c240f9c26 # v4.39.2
         
       # Perform CodeQL Analysis
       #   Action: https://github.com/github/codeql-action
       - name: Perform CodeQL Analysis
-        uses: github/codeql-action/analyze@9b3254085494b55a0f7c4c2b3d2d52cc712ce370 # v4.39.1
+        uses: github/codeql-action/analyze@1fc58d04a4d4374f921bdac573c3811c240f9c26 # v4.39.2
 
   deploy-website:
     needs: build-deploy-website

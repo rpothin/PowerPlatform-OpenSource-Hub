@@ -1,7 +1,7 @@
 {
   "createdAt": "2026-10-12T11:58:04Z",
-  "description": "One installer sets up an app on Microsoft Fabric or Azure that shows Microsoft 365 Copilot and agent adoption, value, consumption and governance.",
-  "fullName": "microsoft/DataHub",
+  "description": "DataHub App - for Microsoft Copilot, Agents, Cowork and Autopilots",
+  "fullName": "microsoft/DataHub-App-for-Microsoft-Copilot-Agents-Cowork-and-Autopilots",
   "repositoryId": 1415537238,
   "hasIssues": true,
   "homepage": "",
@@ -12,7 +12,7 @@
     "name": "MIT License",
     "url": "https://api.github.com/licenses/mit"
   },
-  "name": "DataHub",
+  "name": "DataHub-App-for-Microsoft-Copilot-Agents-Cowork-and-Autopilots",
   "openIssuesCount": 36,
   "owner": {
     "id": "6154722",
@@ -21,27 +21,27 @@
     "type": "Organization",
     "url": "https://github.com/microsoft"
   },
-  "updatedAt": "2026-11-05T09:36:50Z",
-  "url": "https://github.com/microsoft/DataHub",
+  "updatedAt": "2026-11-06T12:57:52Z",
+  "url": "https://github.com/microsoft/DataHub-App-for-Microsoft-Copilot-Agents-Cowork-and-Autopilots",
   "codeOfConduct": {
     "key": "other",
     "name": "Other",
-    "url": "https://github.com/microsoft/DataHub/blob/main/CODE_OF_CONDUCT.md"
+    "url": "https://github.com/microsoft/DataHub-App-for-Microsoft-Copilot-Agents-Cowork-and-Autopilots/blob/main/CODE_OF_CONDUCT.md"
   },
-  "forkCount": 2,
+  "forkCount": 3,
   "fundingLinks": [],
-  "isSecurityPolicyEnabled": false,
+  "isSecurityPolicyEnabled": true,
   "isTemplate": false,
   "latestRelease": {
     "name": "Analytics Hub installer 0.6.9",
     "tagName": "installer-v0.6.9",
-    "url": "https://github.com/microsoft/DataHub/releases/tag/installer-v0.6.9",
+    "url": "https://github.com/microsoft/DataHub-App-for-Microsoft-Copilot-Agents-Cowork-and-Autopilots/releases/tag/installer-v0.6.9",
     "publishedAt": "2026-11-03T16:07:19Z"
   },
   "primaryLanguage": {
     "name": "JavaScript"
   },
-  "securityPolicyUrl": null,
+  "securityPolicyUrl": "https://github.com/microsoft/DataHub-App-for-Microsoft-Copilot-Agents-Cowork-and-Autopilots/security/policy",
   "stargazerCount": 10,
   "watchers": {
     "totalCount": 1
@@ -80,6 +80,6 @@
   "openedToContributionsIssues": 0,
   "popularityScore": 11,
   "_schemaVersion": "1.0.0",
-  "_generatedAt": "2026-11-05T11:09:23.722Z",
-  "_workflowRunId": "42016581623"
+  "_generatedAt": "2026-11-07T11:07:46.081Z",
+  "_workflowRunId": "42366831736"
 }
