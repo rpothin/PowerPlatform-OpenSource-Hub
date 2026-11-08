@@ -4,7 +4,7 @@
   "fullName": "microsoft/power-platform-skills",
   "repositoryId": 1139262569,
   "hasIssues": true,
-  "homepage": "https://aka.ms/ppskills",
+  "homepage": "https://microsoft.github.io/power-platform-skills/",
   "isArchived": false,
   "language": "JavaScript",
   "license": {
@@ -13,7 +13,7 @@
     "url": "https://api.github.com/licenses/mit"
   },
   "name": "power-platform-skills",
-  "openIssuesCount": 170,
+  "openIssuesCount": 171,
   "owner": {
     "id": "6154722",
     "is_bot": false,
@@ -21,7 +21,7 @@
     "type": "Organization",
     "url": "https://github.com/microsoft"
   },
-  "updatedAt": "2026-11-05T10:02:56Z",
+  "updatedAt": "2026-11-06T22:28:54Z",
   "url": "https://github.com/microsoft/power-platform-skills",
   "codeOfConduct": {
     "key": "other",
@@ -30,14 +30,14 @@
   },
   "forkCount": 225,
   "fundingLinks": [],
-  "isSecurityPolicyEnabled": false,
+  "isSecurityPolicyEnabled": true,
   "isTemplate": false,
   "latestRelease": null,
   "primaryLanguage": {
     "name": "JavaScript"
   },
-  "securityPolicyUrl": null,
-  "stargazerCount": 1115,
+  "securityPolicyUrl": "https://github.com/microsoft/power-platform-skills/security/policy",
+  "stargazerCount": 1123,
   "watchers": {
     "totalCount": 15
   },
@@ -55,19 +55,19 @@
     "TypeScript",
     "HTML",
     "Go Template",
+    "CSS",
     "Astro",
     "Vue",
     "Shell",
-    "C#",
-    "CSS"
+    "C#"
   ],
   "openedGoodFirstIssues": 0,
   "hasGoodFirstIssues": false,
   "openedHelpWantedIssues": 0,
   "hasHelpWantedIssues": false,
   "openedToContributionsIssues": 0,
-  "popularityScore": 1130,
+  "popularityScore": 1138,
   "_schemaVersion": "1.0.0",
-  "_generatedAt": "2026-11-05T11:09:23.722Z",
-  "_workflowRunId": "42016581623"
+  "_generatedAt": "2026-11-07T11:07:46.081Z",
+  "_workflowRunId": "42366831736"
 }
