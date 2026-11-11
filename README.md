@@ -52,7 +52,7 @@ Use the [bug report form](https://github.com/rpothin/PowerPlatform-OpenSource-Hu
 <!--START_SECTION:summary-->
 <h3 align='center'>
   <img alt='Repositories Count Badge' src='https://img.shields.io/badge/Repositories-212-602890'>
-  <img alt='Active Repositories Count Badge' src='https://img.shields.io/badge/Active_Repositories-124-A24FBF'>
+  <img alt='Active Repositories Count Badge' src='https://img.shields.io/badge/Active_Repositories-123-A24FBF'>
   <img alt='Opened Good First Issues Count Badge' src='https://img.shields.io/badge/Good_First_Issues-12-green'>
   <img alt='Opened Help Wanted Issues Count Badge' src='https://img.shields.io/badge/Help_Wanted_Issues-12-blue'>
   <br/>
