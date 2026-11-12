@@ -1,0 +1,88 @@
+{
+  "createdAt": "2026-04-10T08:34:43Z",
+  "description": "Runs Business Central AL tests without a BC server. Gives BC's result or refuses the test, never a guess.",
+  "fullName": "aldevtools/BusinessCentral.AL.Runner",
+  "repositoryId": 1206772003,
+  "hasIssues": true,
+  "homepage": "https://aldev.tools/al-runner/",
+  "isArchived": false,
+  "language": "Rust",
+  "license": {
+    "key": "other",
+    "name": "Other",
+    "url": ""
+  },
+  "name": "BusinessCentral.AL.Runner",
+  "openIssuesCount": 204,
+  "owner": {
+    "id": "326818346",
+    "is_bot": false,
+    "login": "aldevtools",
+    "type": "Organization",
+    "url": "https://github.com/aldevtools"
+  },
+  "updatedAt": "2026-11-12T10:36:58Z",
+  "url": "https://github.com/aldevtools/BusinessCentral.AL.Runner",
+  "codeOfConduct": {
+    "key": "other",
+    "name": "Other",
+    "url": "https://github.com/aldevtools/BusinessCentral.AL.Runner/blob/main/CODE_OF_CONDUCT.md"
+  },
+  "forkCount": 19,
+  "fundingLinks": [
+    {
+      "platform": "BUY_ME_A_COFFEE",
+      "url": "https://buymeacoffee.com/stefanmaron"
+    }
+  ],
+  "isSecurityPolicyEnabled": true,
+  "isTemplate": false,
+  "latestRelease": {
+    "name": "al-runner 3.0.0-alpha.14",
+    "tagName": "v3.0.0-alpha.14",
+    "url": "https://github.com/aldevtools/BusinessCentral.AL.Runner/releases/tag/v3.0.0-alpha.14",
+    "publishedAt": "2026-11-10T09:31:11Z"
+  },
+  "primaryLanguage": {
+    "name": "Rust"
+  },
+  "securityPolicyUrl": "https://github.com/aldevtools/BusinessCentral.AL.Runner/security/policy",
+  "stargazerCount": 54,
+  "watchers": {
+    "totalCount": 0
+  },
+  "topics": [
+    "al-language",
+    "business-central",
+    "ci",
+    "dynamics-365",
+    "dynamics-365-business-central",
+    "dynamics365",
+    "msdyn365bc",
+    "rust",
+    "tdd",
+    "test-automation",
+    "test-runner",
+    "testing",
+    "unit-testing",
+    "bcdev"
+  ],
+  "languages": [
+    "Rust",
+    "Python",
+    "Shell",
+    "AL",
+    "C#",
+    "Perl",
+    "PowerShell"
+  ],
+  "openedGoodFirstIssues": 0,
+  "hasGoodFirstIssues": false,
+  "openedHelpWantedIssues": 0,
+  "hasHelpWantedIssues": false,
+  "openedToContributionsIssues": 0,
+  "popularityScore": 54,
+  "_schemaVersion": "1.0.0",
+  "_generatedAt": "2026-11-12T11:09:16.487Z",
+  "_workflowRunId": "43206617330"
+}
