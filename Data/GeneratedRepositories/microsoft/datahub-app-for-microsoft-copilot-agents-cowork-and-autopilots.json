@@ -1,7 +1,7 @@
 {
   "createdAt": "2026-10-12T11:58:04Z",
-  "description": "One installer sets up an app on Microsoft Fabric or Azure that shows Microsoft 365 Copilot and agent adoption, value, consumption and governance.",
-  "fullName": "microsoft/AnalyticsHub-Dashboard",
+  "description": "DataHub App - for Microsoft Copilot, Agents, Cowork and Autopilots",
+  "fullName": "microsoft/DataHub-App-for-Microsoft-Copilot-Agents-Cowork-and-Autopilots",
   "repositoryId": 1415537238,
   "hasIssues": true,
   "homepage": "",
@@ -12,8 +12,8 @@
     "name": "MIT License",
     "url": "https://api.github.com/licenses/mit"
   },
-  "name": "AnalyticsHub-Dashboard",
-  "openIssuesCount": 35,
+  "name": "DataHub-App-for-Microsoft-Copilot-Agents-Cowork-and-Autopilots",
+  "openIssuesCount": 32,
   "owner": {
     "id": "6154722",
     "is_bot": false,
@@ -21,28 +21,28 @@
     "type": "Organization",
     "url": "https://github.com/microsoft"
   },
-  "updatedAt": "2026-11-03T09:54:08Z",
-  "url": "https://github.com/microsoft/AnalyticsHub-Dashboard",
+  "updatedAt": "2026-11-09T17:42:46Z",
+  "url": "https://github.com/microsoft/DataHub-App-for-Microsoft-Copilot-Agents-Cowork-and-Autopilots",
   "codeOfConduct": {
     "key": "other",
     "name": "Other",
-    "url": "https://github.com/microsoft/AnalyticsHub-Dashboard/blob/main/CODE_OF_CONDUCT.md"
+    "url": "https://github.com/microsoft/DataHub-App-for-Microsoft-Copilot-Agents-Cowork-and-Autopilots/blob/main/CODE_OF_CONDUCT.md"
   },
-  "forkCount": 2,
+  "forkCount": 3,
   "fundingLinks": [],
   "isSecurityPolicyEnabled": true,
   "isTemplate": false,
   "latestRelease": {
-    "name": "Analytics Hub installer 0.6.8",
-    "tagName": "installer-v0.6.8",
-    "url": "https://github.com/microsoft/AnalyticsHub-Dashboard/releases/tag/installer-v0.6.8",
-    "publishedAt": "2026-10-26T09:07:21Z"
+    "name": "Analytics Hub installer 0.6.9",
+    "tagName": "installer-v0.6.9",
+    "url": "https://github.com/microsoft/DataHub-App-for-Microsoft-Copilot-Agents-Cowork-and-Autopilots/releases/tag/installer-v0.6.9",
+    "publishedAt": "2026-11-03T16:07:19Z"
   },
   "primaryLanguage": {
     "name": "JavaScript"
   },
-  "securityPolicyUrl": "https://github.com/microsoft/AnalyticsHub-Dashboard/security/policy",
-  "stargazerCount": 10,
+  "securityPolicyUrl": "https://github.com/microsoft/DataHub-App-for-Microsoft-Copilot-Agents-Cowork-and-Autopilots/security/policy",
+  "stargazerCount": 11,
   "watchers": {
     "totalCount": 1
   },
@@ -78,8 +78,8 @@
   "openedHelpWantedIssues": 0,
   "hasHelpWantedIssues": false,
   "openedToContributionsIssues": 0,
-  "popularityScore": 11,
+  "popularityScore": 12,
   "_schemaVersion": "1.0.0",
-  "_generatedAt": "2026-11-03T11:09:57.525Z",
-  "_workflowRunId": "41625202710"
+  "_generatedAt": "2026-11-11T11:09:12.756Z",
+  "_workflowRunId": "43009497279"
 }

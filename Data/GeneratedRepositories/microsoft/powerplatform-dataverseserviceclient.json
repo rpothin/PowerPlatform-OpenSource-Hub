@@ -13,7 +13,7 @@
     "url": "https://api.github.com/licenses/mit"
   },
   "name": "PowerPlatform-DataverseServiceClient",
-  "openIssuesCount": 52,
+  "openIssuesCount": 53,
   "owner": {
     "id": "6154722",
     "is_bot": false,
@@ -28,9 +28,9 @@
     "name": "Other",
     "url": "https://github.com/microsoft/.github/blob/main/CODE_OF_CONDUCT.md"
   },
-  "forkCount": 55,
+  "forkCount": 56,
   "fundingLinks": [],
-  "isSecurityPolicyEnabled": false,
+  "isSecurityPolicyEnabled": true,
   "isTemplate": false,
   "latestRelease": {
     "name": "1.2.9",
@@ -41,7 +41,7 @@
   "primaryLanguage": {
     "name": "C#"
   },
-  "securityPolicyUrl": null,
+  "securityPolicyUrl": "https://github.com/microsoft/PowerPlatform-DataverseServiceClient/security/policy",
   "stargazerCount": 317,
   "watchers": {
     "totalCount": 52
@@ -66,6 +66,6 @@
   "openedToContributionsIssues": 0,
   "popularityScore": 369,
   "_schemaVersion": "1.0.0",
-  "_generatedAt": "2026-11-03T11:09:57.525Z",
-  "_workflowRunId": "41625202710"
+  "_generatedAt": "2026-11-11T11:09:12.756Z",
+  "_workflowRunId": "43009497279"
 }

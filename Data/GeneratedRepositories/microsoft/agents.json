@@ -13,7 +13,7 @@
     "url": "https://api.github.com/licenses/mit"
   },
   "name": "Agents",
-  "openIssuesCount": 114,
+  "openIssuesCount": 118,
   "owner": {
     "id": "6154722",
     "is_bot": false,
@@ -21,14 +21,14 @@
     "type": "Organization",
     "url": "https://github.com/microsoft"
   },
-  "updatedAt": "2026-11-02T20:33:19Z",
+  "updatedAt": "2026-11-10T14:42:39Z",
   "url": "https://github.com/microsoft/Agents",
   "codeOfConduct": {
     "key": "other",
     "name": "Other",
     "url": "https://github.com/microsoft/Agents/blob/main/CODE_OF_CONDUCT.md"
   },
-  "forkCount": 349,
+  "forkCount": 347,
   "fundingLinks": [],
   "isSecurityPolicyEnabled": true,
   "isTemplate": false,
@@ -37,7 +37,7 @@
     "name": "TypeScript"
   },
   "securityPolicyUrl": "https://github.com/microsoft/Agents/security/policy",
-  "stargazerCount": 1100,
+  "stargazerCount": 1106,
   "watchers": {
     "totalCount": 31
   },
@@ -52,11 +52,11 @@
   ],
   "languages": [
     "TypeScript",
-    "TypeSpec",
-    "PowerShell",
     "C#",
-    "Bicep",
+    "TypeSpec",
     "JavaScript",
+    "PowerShell",
+    "Bicep",
     "Roff",
     "HTML"
   ],
@@ -65,8 +65,8 @@
   "openedHelpWantedIssues": 0,
   "hasHelpWantedIssues": false,
   "openedToContributionsIssues": 0,
-  "popularityScore": 1131,
+  "popularityScore": 1137,
   "_schemaVersion": "1.0.0",
-  "_generatedAt": "2026-11-03T11:09:57.525Z",
-  "_workflowRunId": "41625202710"
+  "_generatedAt": "2026-11-11T11:09:12.756Z",
+  "_workflowRunId": "43009497279"
 }
