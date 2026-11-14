@@ -13,7 +13,7 @@
     "url": "https://api.github.com/licenses/mit"
   },
   "name": "FastTrack",
-  "openIssuesCount": 1,
+  "openIssuesCount": 0,
   "owner": {
     "id": "6154722",
     "is_bot": false,
@@ -30,13 +30,13 @@
   },
   "forkCount": 129,
   "fundingLinks": [],
-  "isSecurityPolicyEnabled": true,
+  "isSecurityPolicyEnabled": false,
   "isTemplate": false,
   "latestRelease": null,
   "primaryLanguage": {
     "name": "HTML"
   },
-  "securityPolicyUrl": "https://github.com/microsoft/FastTrack/security/policy",
+  "securityPolicyUrl": null,
   "stargazerCount": 231,
   "watchers": {
     "totalCount": 32
@@ -58,6 +58,7 @@
   ],
   "languages": [
     "HTML",
+    "TypeScript",
     "PowerShell",
     "JavaScript",
     "CSS"
@@ -69,6 +70,6 @@
   "openedToContributionsIssues": 0,
   "popularityScore": 263,
   "_schemaVersion": "1.0.0",
-  "_generatedAt": "2026-11-13T11:09:21.791Z",
-  "_workflowRunId": "43414690193"
+  "_generatedAt": "2026-11-14T11:08:01.575Z",
+  "_workflowRunId": "43588523707"
 }

@@ -30,7 +30,7 @@
   },
   "forkCount": 65,
   "fundingLinks": [],
-  "isSecurityPolicyEnabled": true,
+  "isSecurityPolicyEnabled": false,
   "isTemplate": false,
   "latestRelease": {
     "name": "v1.18.0",
@@ -39,7 +39,7 @@
     "publishedAt": "2026-11-05T19:09:48Z"
   },
   "primaryLanguage": null,
-  "securityPolicyUrl": "https://github.com/microsoft/Dataverse-skills/security/policy",
+  "securityPolicyUrl": null,
   "stargazerCount": 258,
   "watchers": {
     "totalCount": 4
@@ -66,6 +66,6 @@
   "openedToContributionsIssues": 0,
   "popularityScore": 262,
   "_schemaVersion": "1.0.0",
-  "_generatedAt": "2026-11-13T11:09:21.791Z",
-  "_workflowRunId": "43414690193"
+  "_generatedAt": "2026-11-14T11:08:01.575Z",
+  "_workflowRunId": "43588523707"
 }
