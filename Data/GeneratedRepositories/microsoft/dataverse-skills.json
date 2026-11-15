@@ -21,16 +21,16 @@
     "type": "Organization",
     "url": "https://github.com/microsoft"
   },
-  "updatedAt": "2026-11-12T14:46:39Z",
+  "updatedAt": "2026-11-14T22:22:06Z",
   "url": "https://github.com/microsoft/Dataverse-skills",
   "codeOfConduct": {
     "key": "other",
     "name": "Other",
     "url": "https://github.com/microsoft/Dataverse-skills/blob/main/CODE_OF_CONDUCT.md"
   },
-  "forkCount": 65,
+  "forkCount": 66,
   "fundingLinks": [],
-  "isSecurityPolicyEnabled": false,
+  "isSecurityPolicyEnabled": true,
   "isTemplate": false,
   "latestRelease": {
     "name": "v1.18.0",
@@ -39,8 +39,8 @@
     "publishedAt": "2026-11-05T19:09:48Z"
   },
   "primaryLanguage": null,
-  "securityPolicyUrl": null,
-  "stargazerCount": 258,
+  "securityPolicyUrl": "https://github.com/microsoft/Dataverse-skills/security/policy",
+  "stargazerCount": 259,
   "watchers": {
     "totalCount": 4
   },
@@ -64,8 +64,8 @@
   "openedHelpWantedIssues": 0,
   "hasHelpWantedIssues": false,
   "openedToContributionsIssues": 0,
-  "popularityScore": 262,
+  "popularityScore": 263,
   "_schemaVersion": "1.0.0",
-  "_generatedAt": "2026-11-14T11:08:01.575Z",
-  "_workflowRunId": "43588523707"
+  "_generatedAt": "2026-11-15T11:08:18.901Z",
+  "_workflowRunId": "43707411904"
 }
