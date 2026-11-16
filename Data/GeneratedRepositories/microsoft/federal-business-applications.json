@@ -30,13 +30,13 @@
   },
   "forkCount": 80,
   "fundingLinks": [],
-  "isSecurityPolicyEnabled": true,
+  "isSecurityPolicyEnabled": false,
   "isTemplate": false,
   "latestRelease": null,
   "primaryLanguage": {
     "name": "PowerShell"
   },
-  "securityPolicyUrl": "https://github.com/microsoft/Federal-Business-Applications/security/policy",
+  "securityPolicyUrl": null,
   "stargazerCount": 223,
   "watchers": {
     "totalCount": 40
@@ -60,6 +60,6 @@
   "openedToContributionsIssues": 0,
   "popularityScore": 263,
   "_schemaVersion": "1.0.0",
-  "_generatedAt": "2026-11-15T11:08:18.901Z",
-  "_workflowRunId": "43707411904"
+  "_generatedAt": "2026-11-16T11:10:13.097Z",
+  "_workflowRunId": "43855290007"
 }
