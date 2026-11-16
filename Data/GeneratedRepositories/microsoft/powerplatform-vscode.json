@@ -13,7 +13,7 @@
     "url": "https://api.github.com/licenses/mit"
   },
   "name": "powerplatform-vscode",
-  "openIssuesCount": 115,
+  "openIssuesCount": 116,
   "owner": {
     "id": "6154722",
     "is_bot": false,
@@ -28,9 +28,9 @@
     "name": "Other",
     "url": "https://github.com/microsoft/powerplatform-vscode/blob/main/CODE_OF_CONDUCT.md"
   },
-  "forkCount": 60,
+  "forkCount": 62,
   "fundingLinks": [],
-  "isSecurityPolicyEnabled": true,
+  "isSecurityPolicyEnabled": false,
   "isTemplate": false,
   "latestRelease": {
     "name": "v2.0.163",
@@ -41,7 +41,7 @@
   "primaryLanguage": {
     "name": "TypeScript"
   },
-  "securityPolicyUrl": "https://github.com/microsoft/powerplatform-vscode/security/policy",
+  "securityPolicyUrl": null,
   "stargazerCount": 279,
   "watchers": {
     "totalCount": 23
@@ -65,6 +65,6 @@
   "openedToContributionsIssues": 0,
   "popularityScore": 302,
   "_schemaVersion": "1.0.0",
-  "_generatedAt": "2026-11-15T11:08:18.901Z",
-  "_workflowRunId": "43707411904"
+  "_generatedAt": "2026-11-16T11:10:13.097Z",
+  "_workflowRunId": "43855290007"
 }

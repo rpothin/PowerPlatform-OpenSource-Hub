@@ -6,14 +6,14 @@
   "hasIssues": true,
   "homepage": "https://msfthub.com",
   "isArchived": false,
-  "language": "JavaScript",
+  "language": "MDX",
   "license": {
     "key": "mit",
     "name": "MIT License",
     "url": "https://api.github.com/licenses/mit"
   },
   "name": "hub",
-  "openIssuesCount": 12,
+  "openIssuesCount": 10,
   "owner": {
     "id": "138674662",
     "is_bot": false,
@@ -21,7 +21,7 @@
     "type": "Organization",
     "url": "https://github.com/mscerts"
   },
-  "updatedAt": "2026-11-15T05:08:34Z",
+  "updatedAt": "2026-11-16T09:45:09Z",
   "url": "https://github.com/mscerts/hub",
   "codeOfConduct": null,
   "forkCount": 37,
@@ -35,7 +35,7 @@
   "isTemplate": false,
   "latestRelease": null,
   "primaryLanguage": {
-    "name": "JavaScript"
+    "name": "MDX"
   },
   "securityPolicyUrl": null,
   "stargazerCount": 194,
@@ -54,8 +54,8 @@
     "powerplatform"
   ],
   "languages": [
-    "JavaScript",
     "MDX",
+    "JavaScript",
     "Astro",
     "TypeScript",
     "Shell",
@@ -69,6 +69,6 @@
   "openedToContributionsIssues": 0,
   "popularityScore": 200,
   "_schemaVersion": "1.0.0",
-  "_generatedAt": "2026-11-15T11:08:18.901Z",
-  "_workflowRunId": "43707411904"
+  "_generatedAt": "2026-11-16T11:10:13.097Z",
+  "_workflowRunId": "43855290007"
 }
