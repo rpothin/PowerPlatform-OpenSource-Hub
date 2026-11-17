@@ -13,7 +13,7 @@
     "url": "https://api.github.com/licenses/mit"
   },
   "name": "powerplatform-build-tools",
-  "openIssuesCount": 239,
+  "openIssuesCount": 240,
   "owner": {
     "id": "6154722",
     "is_bot": false,
@@ -30,7 +30,7 @@
   },
   "forkCount": 71,
   "fundingLinks": [],
-  "isSecurityPolicyEnabled": false,
+  "isSecurityPolicyEnabled": true,
   "isTemplate": false,
   "latestRelease": {
     "name": "V2.0.162",
@@ -41,7 +41,7 @@
   "primaryLanguage": {
     "name": "TypeScript"
   },
-  "securityPolicyUrl": null,
+  "securityPolicyUrl": "https://github.com/microsoft/powerplatform-build-tools/security/policy",
   "stargazerCount": 315,
   "watchers": {
     "totalCount": 32
@@ -67,6 +67,6 @@
   "openedToContributionsIssues": 0,
   "popularityScore": 347,
   "_schemaVersion": "1.0.0",
-  "_generatedAt": "2026-11-16T11:10:13.097Z",
-  "_workflowRunId": "43855290007"
+  "_generatedAt": "2026-11-17T11:09:20.049Z",
+  "_workflowRunId": "44071333187"
 }
