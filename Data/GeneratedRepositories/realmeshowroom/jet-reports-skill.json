@@ -1,24 +1,28 @@
 {
-  "createdAt": "2026-11-05T11:56:53Z",
-  "description": "Claude Code skill: describe a Jet Reports workbook, get a ready-to-run .xlsx (for example NAV / Business Central)",
-  "fullName": "Vespermagnet/jet-reports-skill-rpocket",
-  "repositoryId": 1446940413,
+  "createdAt": "2026-11-15T20:10:10Z",
+  "description": "Jet Reports Skill: Visual Workbook Workflows NAV and Business Central",
+  "fullName": "Realmeshowroom/jet-reports-skill",
+  "repositoryId": 1459199556,
   "hasIssues": true,
   "homepage": "",
   "isArchived": false,
-  "language": "HTML",
-  "license": null,
-  "name": "jet-reports-skill-rpocket",
+  "language": "TypeScript",
+  "license": {
+    "key": "mit",
+    "name": "MIT License",
+    "url": "https://api.github.com/licenses/mit"
+  },
+  "name": "jet-reports-skill",
   "openIssuesCount": 0,
   "owner": {
-    "id": "351076656",
+    "id": "178773888",
     "is_bot": false,
-    "login": "Vespermagnet",
+    "login": "Realmeshowroom",
     "type": "User",
-    "url": "https://github.com/Vespermagnet"
+    "url": "https://github.com/Realmeshowroom"
   },
-  "updatedAt": "2026-11-17T11:06:15Z",
-  "url": "https://github.com/Vespermagnet/jet-reports-skill-rpocket",
+  "updatedAt": "2026-11-17T18:07:13Z",
+  "url": "https://github.com/Realmeshowroom/jet-reports-skill",
   "codeOfConduct": null,
   "forkCount": 0,
   "fundingLinks": [],
@@ -26,10 +30,10 @@
   "isTemplate": false,
   "latestRelease": null,
   "primaryLanguage": {
-    "name": "HTML"
+    "name": "TypeScript"
   },
   "securityPolicyUrl": null,
-  "stargazerCount": 80,
+  "stargazerCount": 153,
   "watchers": {
     "totalCount": 0
   },
@@ -51,15 +55,16 @@
     "observability"
   ],
   "languages": [
-    "HTML"
+    "TypeScript",
+    "CSS"
   ],
   "openedGoodFirstIssues": 0,
   "hasGoodFirstIssues": false,
   "openedHelpWantedIssues": 0,
   "hasHelpWantedIssues": false,
   "openedToContributionsIssues": 0,
-  "popularityScore": 80,
+  "popularityScore": 153,
   "_schemaVersion": "1.0.0",
-  "_generatedAt": "2026-11-17T11:09:20.049Z",
-  "_workflowRunId": "44071333187"
+  "_generatedAt": "2026-11-18T11:09:26.143Z",
+  "_workflowRunId": "44292008156"
 }
