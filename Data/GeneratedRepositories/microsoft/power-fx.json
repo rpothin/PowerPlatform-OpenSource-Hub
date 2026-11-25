@@ -13,7 +13,7 @@
     "url": "https://api.github.com/licenses/mit"
   },
   "name": "Power-Fx",
-  "openIssuesCount": 380,
+  "openIssuesCount": 381,
   "owner": {
     "id": "6154722",
     "is_bot": false,
@@ -28,9 +28,9 @@
     "name": "Other",
     "url": "https://github.com/microsoft/Power-Fx/blob/main/CODE_OF_CONDUCT.md"
   },
-  "forkCount": 365,
+  "forkCount": 366,
   "fundingLinks": [],
-  "isSecurityPolicyEnabled": false,
+  "isSecurityPolicyEnabled": true,
   "isTemplate": false,
   "latestRelease": {
     "name": "1.2.0 Release",
@@ -41,7 +41,7 @@
   "primaryLanguage": {
     "name": "C#"
   },
-  "securityPolicyUrl": null,
+  "securityPolicyUrl": "https://github.com/microsoft/Power-Fx/security/policy",
   "stargazerCount": 3362,
   "watchers": {
     "totalCount": 110
@@ -62,6 +62,6 @@
   "openedToContributionsIssues": 9,
   "popularityScore": 3472,
   "_schemaVersion": "1.0.0",
-  "_generatedAt": "2026-11-24T11:09:35.088Z",
-  "_workflowRunId": "45381528136"
+  "_generatedAt": "2026-11-25T11:09:26.059Z",
+  "_workflowRunId": "45601712645"
 }
