@@ -56,7 +56,7 @@ Use the [bug report form](https://github.com/rpothin/PowerPlatform-OpenSource-Hu
   <img alt='Opened Good First Issues Count Badge' src='https://img.shields.io/badge/Good_First_Issues-10-green'>
   <img alt='Opened Help Wanted Issues Count Badge' src='https://img.shields.io/badge/Help_Wanted_Issues-11-blue'>
   <br/>
-  <img alt='Security Policy Enabled Percentage Badge' src='https://img.shields.io/badge/Security_Policy_Enabled_Percentage-17-orange'>
+  <img alt='Security Policy Enabled Percentage Badge' src='https://img.shields.io/badge/Security_Policy_Enabled_Percentage-26-orange'>
   <img alt='Code of Conduct Availability Percentage Badge' src='https://img.shields.io/badge/Code_of_Conduct_Availability_Percentage-27-9F2B63'>
 </h3>
 
