@@ -7,9 +7,13 @@
   "homepage": "",
   "isArchived": false,
   "language": "C#",
-  "license": null,
+  "license": {
+    "key": "mit",
+    "name": "MIT License",
+    "url": "https://api.github.com/licenses/mit"
+  },
   "name": "d365fo-cli",
-  "openIssuesCount": 3,
+  "openIssuesCount": 0,
   "owner": {
     "id": "185773331",
     "is_bot": false,
@@ -24,7 +28,12 @@
   "fundingLinks": [],
   "isSecurityPolicyEnabled": true,
   "isTemplate": false,
-  "latestRelease": null,
+  "latestRelease": {
+    "name": "v0.3.0",
+    "tagName": "v0.3.0",
+    "url": "https://github.com/dynamics365ninja/d365fo-cli/releases/tag/v0.3.0",
+    "publishedAt": "2026-11-27T09:38:40Z"
+  },
   "primaryLanguage": {
     "name": "C#"
   },
@@ -46,6 +55,7 @@
     "C#",
     "PowerShell",
     "Python",
+    "JavaScript",
     "Shell"
   ],
   "openedGoodFirstIssues": 0,
@@ -55,6 +65,6 @@
   "openedToContributionsIssues": 0,
   "popularityScore": 58,
   "_schemaVersion": "1.0.0",
-  "_generatedAt": "2026-11-26T11:09:27.727Z",
-  "_workflowRunId": "45807919936"
+  "_generatedAt": "2026-11-27T11:09:27.060Z",
+  "_workflowRunId": "45988070529"
 }
