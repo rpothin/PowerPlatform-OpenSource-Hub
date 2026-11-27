@@ -21,7 +21,7 @@
     "type": "Organization",
     "url": "https://github.com/microsoft"
   },
-  "updatedAt": "2026-11-24T04:50:35Z",
+  "updatedAt": "2026-11-26T21:09:20Z",
   "url": "https://github.com/microsoft/DataHub-App-for-Microsoft-Copilot-Agents-Cowork-and-Autopilots",
   "codeOfConduct": {
     "key": "other",
@@ -30,7 +30,7 @@
   },
   "forkCount": 2,
   "fundingLinks": [],
-  "isSecurityPolicyEnabled": false,
+  "isSecurityPolicyEnabled": true,
   "isTemplate": false,
   "latestRelease": {
     "name": "Analytics Hub installer 0.6.9",
@@ -41,8 +41,8 @@
   "primaryLanguage": {
     "name": "JavaScript"
   },
-  "securityPolicyUrl": null,
-  "stargazerCount": 14,
+  "securityPolicyUrl": "https://github.com/microsoft/DataHub-App-for-Microsoft-Copilot-Agents-Cowork-and-Autopilots/security/policy",
+  "stargazerCount": 15,
   "watchers": {
     "totalCount": 1
   },
@@ -78,8 +78,8 @@
   "openedHelpWantedIssues": 0,
   "hasHelpWantedIssues": false,
   "openedToContributionsIssues": 0,
-  "popularityScore": 15,
+  "popularityScore": 16,
   "_schemaVersion": "1.0.0",
-  "_generatedAt": "2026-11-26T11:09:27.727Z",
-  "_workflowRunId": "45807919936"
+  "_generatedAt": "2026-11-27T11:09:27.060Z",
+  "_workflowRunId": "45988070529"
 }
